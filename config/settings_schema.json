@@ -1,0 +1,319 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Christy (GD)",
+    "theme_version": "0.0.1",
+    "theme_author": "Greenwich Design",
+    "theme_documentation_url": "https:\/\/help.shopify.com\/manual\/online-store\/themes",
+    "theme_support_url": "https:\/\/support.shopify.com\/"
+  },
+  {
+    "name": "t:settings_schema.colors.name",
+    "settings": [
+      {
+        "type": "color_scheme_group",
+        "id": "color_schemes",
+        "definition": [
+          {
+            "type": "color",
+            "id": "background",
+            "label": "t:settings_schema.colors.settings.background.label",
+            "default": "#FFFFFF"
+          },
+          {
+            "type": "color_background",
+            "id": "background_gradient",
+            "label": "t:settings_schema.colors.settings.background_gradient.label",
+            "info": "t:settings_schema.colors.settings.background_gradient.info"
+          },
+          {
+            "type": "color",
+            "id": "text",
+            "label": "t:settings_schema.colors.settings.text.label",
+            "default": "#121212"
+          },
+          {
+            "type": "color",
+            "id": "button",
+            "label": "t:settings_schema.colors.settings.button_background.label",
+            "default": "#121212"
+          },
+          {
+            "type": "color",
+            "id": "button_label",
+            "label": "t:settings_schema.colors.settings.button_label.label",
+            "default": "#FFFFFF"
+          },
+          {
+            "type": "color",
+            "id": "secondary_button_label",
+            "label": "t:settings_schema.colors.settings.secondary_button_label.label",
+            "default": "#121212"
+          },
+          {
+            "type": "color",
+            "id": "shadow",
+            "label": "t:settings_schema.colors.settings.shadow.label",
+            "default": "#121212"
+          }
+        ],
+        "role": {
+          "text": "text",
+          "background": {
+            "solid": "background",
+            "gradient": "background_gradient"
+          },
+          "links": "secondary_button_label",
+          "icons": "text",
+          "primary_button": "button",
+          "on_primary_button": "button_label",
+          "primary_button_border": "button",
+          "secondary_button": "background",
+          "on_secondary_button": "secondary_button_label",
+          "secondary_button_border": "secondary_button_label"
+        }
+      }
+    ]
+  },
+  {
+    "name": "General",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "og_default_image",
+        "label": "OpenGraph Default Image"
+      }
+    ]
+  },
+  {
+    "name": "Account Login",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "create_account_copy",
+        "label": "Create account copy",
+        "info": "This appears above 'Create Account' button, on Account Login page.",
+        "default": "<p><strong>New here? Or shopped with us, but didn’t sign up?<\/strong><\/p><p>Welcome! Sign up to activate your account.<\/p>"
+      }
+    ]
+  },
+  {
+    "name": "Cart Drawer",
+    "settings": [
+      {
+        "type": "number",
+        "id": "points_per_pound",
+        "label": "Points Per Pound",
+        "info": "How many Points Per Pound. This will calculate points X pounds in cart. Related to Growave. Set to 0 to disable.",
+        "default": 10
+      },
+      {
+        "type": "richtext",
+        "id": "cart_drawer_intro_loggedin",
+        "label": "Cart Drawer Intro Copy. Logged IN, with points.",
+        "info": "This text appears on the Cart Drawer. Enter Pointers per Pound to use this. Use Variable {points} to show points.",
+        "default": "<p>Earn up to {points} loyalty points for this order when you check out.<\/p>"
+      },
+      {
+        "type": "richtext",
+        "id": "cart_drawer_intro_loggedout",
+        "label": "Cart Drawer Intro Copy. Logged OUT, with points.",
+        "info": "This text appears on the Cart Drawer. Enter Pointers per Pound to use this. Use Variable {points} to show points.",
+        "default": "<p>Join the Christy Community and earn up to {points} loyalty points for this order when you check out.<\/p>"
+      },
+      {
+        "type": "richtext",
+        "id": "cart_drawer_intro",
+        "label": "DEFAULT Cart Drawer Intro Copy. ",
+        "info": "This text appears on the Cart Drawer. Shows if no points are set.",
+        "default": "<p>Welcome to your basket<\/p>"
+      },
+      {
+        "type": "richtext",
+        "id": "cart_drawer_sustainably",
+        "label": "Cart Drawer Sustainably Copy",
+        "info": "This text before sub-total on the Cart Drawer",
+        "default": "<p>We ship sustainably, sending orders in as few boxes as possible to reduce the number of delivery trips.<\/p>"
+      },
+      {
+        "type": "header",
+        "content": "Cart Drawer Buttons"
+      },
+      {
+        "type": "paragraph",
+        "content": "These buttons appear on the Cart Drawer. Leave blank to hide."
+      },
+      {
+        "type": "text",
+        "id": "quiz_btns_title",
+        "label": "Cart Quiz Buttons Title",
+        "default": "Not sure what to buy?"
+      },
+      {
+        "type": "url",
+        "id": "cart_quiz_1_link",
+        "label": "Quick Btn Link 1"
+      },
+      {
+        "type": "text",
+        "id": "cart_quiz_1_title",
+        "label": "Quick Btn Title 1"
+      },
+      {
+        "type": "url",
+        "id": "cart_quiz_2_link",
+        "label": "Quick Btn Link 2"
+      },
+      {
+        "type": "text",
+        "id": "cart_quiz_2_title",
+        "label": "Quick Btn Title 2"
+      },
+      {
+        "type": "text",
+        "id": "cart_pre_order_text",
+        "label": "Pre Order Text - Cart",
+        "default":"This Item is a pre order. Will be delivered as soon as stock is available. Normal delivery timelines do not apply."
+      }
+    ]
+  },
+  {
+    "name": "Wishlist Drawer",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "wishlist_drawer_intro",
+        "label": "Wishlist Drawer Intro Copy",
+        "info": "This text appears on the Wishlist Drawer",
+        "default": "<p>Your Wishlisted Items<\/p>"
+      },
+      {
+        "type": "richtext",
+        "id": "wishlist_drawer_noitems",
+        "label": "Wishlist Drawer Empty Copy",
+        "info": "This text appears if there are no items.",
+        "default": "<p>You current have no items in your Wishlist.<\/p>"
+      }
+    ]
+  },
+  {
+    "name": "Product Page",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "product_delivery_returns",
+        "label": "Product 'Delivery & Returns' Copy",
+        "info": "This text appears on the Wishlist Drawer",
+        "default": "<p>Delivery & Returns Copy.  Edit me in Theme Settings.<\/p>"
+      },
+      {
+        "type": "text",
+        "id": "product_pre_order_text",
+        "label": "Pre Order Text - Product",
+        "default":"This item is currently out of stock. You can still place an order. We will deliver your order as soon as the stock is back."
+      }
+    ]
+  },
+  {
+    "name": "Email Signup Modal",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Email Signup Modal"
+      },
+      {
+        "type": "image_picker",
+        "id": "email_modal_signup_image",
+        "label": "Email Modal Signup Image"
+      },
+      {
+        "type": "richtext",
+        "id": "email_modal_signup_text",
+        "label": "Email Modal Signup Text",
+        "default": "<p>Enter your email for our monthly newsletter + 10% off your first purchase.<\/p>"
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.social-media.name",
+    "settings": [
+      {
+        "type": "header",
+        "content": "t:settings_schema.social-media.settings.header.content"
+      },
+      {
+        "type": "text",
+        "id": "social_facebook_link",
+        "label": "t:settings_schema.social-media.settings.social_facebook_link.label",
+        "info": "t:settings_schema.social-media.settings.social_facebook_link.info"
+      },
+      {
+        "type": "text",
+        "id": "social_instagram_link",
+        "label": "t:settings_schema.social-media.settings.social_instagram_link.label",
+        "info": "t:settings_schema.social-media.settings.social_instagram_link.info"
+      },
+      {
+        "type": "text",
+        "id": "social_youtube_link",
+        "label": "t:settings_schema.social-media.settings.social_youtube_link.label",
+        "info": "t:settings_schema.social-media.settings.social_youtube_link.info"
+      },
+      {
+        "type": "text",
+        "id": "social_tiktok_link",
+        "label": "t:settings_schema.social-media.settings.social_tiktok_link.label",
+        "info": "t:settings_schema.social-media.settings.social_tiktok_link.info"
+      },
+      {
+        "type": "text",
+        "id": "social_twitter_link",
+        "label": "t:settings_schema.social-media.settings.social_twitter_link.label",
+        "info": "t:settings_schema.social-media.settings.social_twitter_link.info"
+      },
+      {
+        "type": "text",
+        "id": "social_snapchat_link",
+        "label": "t:settings_schema.social-media.settings.social_snapchat_link.label",
+        "info": "t:settings_schema.social-media.settings.social_snapchat_link.info"
+      },
+      {
+        "type": "text",
+        "id": "social_pinterest_link",
+        "label": "t:settings_schema.social-media.settings.social_pinterest_link.label",
+        "info": "t:settings_schema.social-media.settings.social_pinterest_link.info"
+      },
+      {
+        "type": "text",
+        "id": "social_tumblr_link",
+        "label": "t:settings_schema.social-media.settings.social_tumblr_link.label",
+        "info": "t:settings_schema.social-media.settings.social_tumblr_link.info"
+      },
+      {
+        "type": "text",
+        "id": "social_vimeo_link",
+        "label": "t:settings_schema.social-media.settings.social_vimeo_link.label",
+        "info": "t:settings_schema.social-media.settings.social_vimeo_link.info"
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.currency_format.name",
+    "settings": [
+      {
+        "type": "header",
+        "content": "t:settings_schema.currency_format.settings.content"
+      },
+      {
+        "type": "paragraph",
+        "content": "t:settings_schema.currency_format.settings.paragraph"
+      },
+      {
+        "type": "checkbox",
+        "id": "currency_code_enabled",
+        "label": "t:settings_schema.currency_format.settings.currency_code_enabled.label",
+        "default": true
+      }
+    ]
+  }
+]

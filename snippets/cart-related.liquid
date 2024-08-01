@@ -1,0 +1,48 @@
+<td
+  class="cart-item__media pt-5 lg:py-8  w-[1%]"
+  role="cell"
+  headers="CartDrawer-ColumnProductImage"
+>
+  {% if rel_product.images %}
+    <a
+      href="{{ rel_product.url }}"
+      class="cart-item__link block  relative w-[100px] lg:max-w-[180px] lg:w-[180px] pt-[100%]"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <img
+        class="cart-item__image absolute w-full h-full object-cover inset-0"
+        src="{{ rel_product.images.first | image_url: width: 360 }}"
+        alt="{{ rel_product.images.first.alt | escape }}"
+        loading="lazy"
+        width="180"
+        height="180"
+      >
+    </a>
+  {% endif %}
+</td>
+
+<td
+  class="cart-item__details pl-8 lg:pl-12 space-y-1 lg:space-y-2 pt-8 lg:pt-12 "
+  role="cell"
+  colspan="2"
+  headers="CartDrawer-ColumnProduct"
+>
+  <a href="{{ rel_product.url }}" class="cart-item__name m-h3 lg:d-h3">
+    {{- rel_product.title | escape -}}
+  </a>
+
+  {% if product.price_min != product.price_max %}
+    <p>
+      Starting at <strong>{{ rel_product.price_min | money }}</strong>
+    </p>
+  {% else %}
+    <p>
+      <strong>{{ rel_product.price_min | money }}</strong>
+    </p>
+  {% endif %}
+
+  <div class="!mt-7 lg:!mt-16 flex justify-end">
+    <a class="btn-secondary btn-large w-[145px] lg:w-[200px]" href="{{rel_product.url}}">See more</a>
+  </div>
+</td>

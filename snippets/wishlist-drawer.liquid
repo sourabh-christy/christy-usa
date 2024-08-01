@@ -1,0 +1,70 @@
+<style>
+  .drawer {
+    visibility: hidden;
+  }
+</style>
+
+<wishlist-drawer class="group/drawer drawer z-40  [&.active]:visible fixed w-full h-full top-0 right-0">
+  <div
+    id="WishlistDrawer"
+    class="cart-drawer h-full flex justify-end opacity-0 transition-opacity group-[.active]/drawer:opacity-100"
+  >
+    <div
+      id="WishlistDrawer-Overlay"
+      class="cart-drawer__overlay absolute w-full h-full bg-black/50 "
+      button-wishlist-drawer-toggle
+    ></div>
+    <div
+      class="drawer__inner group/overflow js-overflow-styled bg-white/95 h-full w-full md:max-w-[820px] translate-x-full group-[.active]/drawer:translate-x-0 duration-500 flex flex-col"
+      role="dialog"
+      aria-modal="true"
+      aria-label="{{ 'sections.cart.title' | t }}"
+      tabindex="-1"
+    >
+      <div class="overflow-auto js-overflow-wrap pt-10 lg:pt-24 pb-6 lg:pb-16 px-10 lg:px-28 flex-1">
+        <div class="drawer__header mb-5 lg:mb-6 ">
+          <div class="space-y-12 lg:space-y-11">
+            <div class="space-y-4 lg:space-y-6">
+              <h2 class="drawer__heading m-h1 lg:d-h1">Wishlist</h2>
+
+              <div class="wysiwyg">{{ settings.wishlist_drawer_intro }}</div>
+            </div>
+
+            <p class=" text-[14px] lg:text-[16px]">
+              <strong><span wishlist-count></span> Wishlist items</strong>
+            </p>
+          </div>
+
+          <button
+            class="drawer__close fixed cursor-pointer top-10 lg:top-14 right-10 lg:right-14 z-[60] w-[12px] h-[12px] lg:w-[16px] lg:h-[16px]  [&_svg]:w-full [&_svg]:h-auto close-icon"
+            type="button"
+            aria-label="{{ 'accessibility.close' | t }}"
+            button-wishlist-drawer-toggle
+          >
+            {% render 'icon-close' %}
+          </button>
+        </div>
+
+        <wishlist-drawer-items class="grid grid-cols-2 gap-2 pb-10"></wishlist-drawer-items>
+        <wishlist-drawer-empty class="hidden">{{ settings.wishlist_drawer_noitems }}</wishlist-drawer-empty>
+      </div>
+
+      <div
+        class="cart-drawer__footer absolute left-0 bottom-0 w-full group-[.has-overflow]/overflow:bg-white/90 group-[.has-overflow]/overflow:shadow-drawer js-overflow-floated text-center space-y-5 lg:space-y-8 py-10 lg:py-14 px-10 lg:px-28  {% if cart == empty %}hidden {% endif %}"
+        {{ block.shopify_attributes }}
+      >
+        <!-- CTAs -->
+
+        <div class="block">
+          <button
+            button-wishlist-drawer-toggle
+            class="btn-primary btn-large"
+            role="button"
+          >
+            Continue Shopping
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</wishlist-drawer>

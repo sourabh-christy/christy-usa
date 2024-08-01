@@ -1,0 +1,20 @@
+<div class="container py-10 space-y-10 lg:space-y-20">
+  <h1 class="m-h1 lg:d-h1">
+    {{ page.title | escape }}
+  </h1>
+  <div class="wysiwyg styled-copy">
+    {{ page.content }}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.main-page.name",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"],
+    "templates": ["article"]
+  }
+}
+{% endschema %}

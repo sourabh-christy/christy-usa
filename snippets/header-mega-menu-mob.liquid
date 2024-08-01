@@ -1,0 +1,304 @@
+<div
+  id="NavMob"
+  class="pointer-events-auto group/nav lg:hidden fixed z-[-1] inset-0 pt-[var(--header-height)] flex overflow-hidden invisible opacity-0 transition-[opacity,visibility] [&.open]:opacity-100 [&.open]:visible"
+>
+  <div
+    id="NavMob-Overlay"
+    class="flex-1 h-full bg-black/50 opacity-0 transition-opacity group-[.open]/nav:opacity-100 group-[.open]/nav:delay-500"
+  ></div>
+  <nav
+    class="h-full w-full bg-white/95 md:max-w-[820px] duration-500 transition-transform translate-x-full group-[.open]/nav:translate-x-0"
+    data-scrollerpar
+  >
+    <div class="overflow-hidden overflow-y-auto flex flex-col h-full">
+      <div class="container">
+        <div class="pt-5">
+          {% render 'header-search' %}
+        </div>
+
+        <div class="py-5 border-b border-blue-1/10 flex space-x-6">
+          {% for block in blocks %}
+            {% if block.type == 'megamenu' %}
+              <button class="{% if forloop.index0 == 0 %}selected-tab{% endif %}" aria-hidden="true" data-scrollerBtn>
+                {{ block.settings.mega_menu_name }}
+              </button>
+            {% endif %}
+
+            {% if block.type == 'link' %}
+              {% if block.settings.link_name and block.settings.link %}
+                <a class="hover:underline" href="{{ block.settings.link }}">{{ block.settings.link_name }}</a>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="flex-1 flex flex-col">
+        <ul class="flex py-5 duration-500 transition-transform" role="list" data-scroller>
+          {% for block in blocks %}
+            {% if block.type == 'megamenu' %}
+              {% liquid
+                comment
+                  These are items from METAOBJECTS. the arrays should include link, link_title, link_description
+                endcomment
+
+                assign group_links_mob = block.settings.group_links_mob
+
+                assign group_1_mo_handle = block.settings.group_1_mo_handle
+                if group_1_mo_handle
+                  assign group_1_name = shop.metaobjects.links_list_group_parent[group_1_mo_handle].group_name
+                  assign group_1_links_array = shop.metaobjects.links_list_group_parent[group_1_mo_handle].links.value
+                endif
+                assign group_2_mo_handle = block.settings.group_2_mo_handle
+                if group_1_mo_handle
+                  assign group_2_name = shop.metaobjects.links_list_group_parent[group_2_mo_handle].group_name
+                  assign group_2_links_array = shop.metaobjects.links_list_group_parent[group_2_mo_handle].links.value
+                endif
+
+                assign mm_content = block.settings.mm_content
+
+                assign menu = block.settings.menu
+                assign menu_mob = block.settings.menu_mob
+
+                comment
+                  image tile link 1
+                endcomment
+                assign image_link_1_image = block.settings.image_link_1_image
+                assign image_link_1_title = block.settings.image_link_1_title
+                assign image_link_1_url = block.settings.image_link_1_url
+                comment
+                  image tile link 2
+                endcomment
+                assign image_link_2_image = block.settings.image_link_2_image
+                assign image_link_2_title = block.settings.image_link_2_title
+                assign image_link_2_url = block.settings.image_link_2_url
+              %}
+
+              <li
+                class="w-full shrink-0 relative [&.active_>ul]:h-auto {% if forloop.index0 == 0 %}active{% endif %}"
+                {{ block.shopify_attributes }}
+              >
+                <ul
+                  class="container w-full"
+                  role="list"
+                >
+                  {% if group_links_mob == true %}
+                    <li class="[&_a:hover]:underline">
+                      <ul class="space-y-6">
+                        {% if group_1_links_array.count %}
+                          <li class="">
+                            <ul class="font-light leading-[20px] [&_li]:border-b [&_li]:border-blue-1/10 [&_li]:py-5">
+                              {% for link in group_1_links_array %}
+                                {% assign url = '' %}
+
+                                {% if link.page != blank %}
+                                  {% assign url = link.page.value.url %}
+                                {% elsif link.product != blank %}
+                                  {% assign url = link.product.value.url %}
+                                {% elsif link.collection != blank %}
+                                  {% assign url = link.collection.value.url %}
+                                {% endif %}
+
+                                {% if url != blank %}
+                                  <li class="font-semibold">
+                                    <a class="flex items-center justify-between space-x-5" href="{{ url }}">
+                                      <span class="flex flex-col space-y-1">
+                                        <span>{{- link.link_title }}</span>
+                                        <span class="block text-[10px] font-light">{{ link.link_description }}</span>
+                                      </span>
+                                      <span class="w-[13px]">{% render 'icon-arrow' %}</span>
+                                    </a>
+                                  </li>
+                                {% endif %}
+                              {% endfor %}
+                            </ul>
+                          </li>
+                        {% endif %}
+                        {% if group_2_links_array.count %}
+                          <li class="">
+                            <ul class="font-light leading-[20px] [&_li]:border-b [&_li]:border-blue-1/10 [&_li]:py-5">
+                              {% for link in group_2_links_array %}
+                                {% assign url = '' %}
+
+                                {% if link.page != blank %}
+                                  {% assign url = link.page.value.url %}
+                                {% elsif link.product != blank %}
+                                  {% assign url = link.product.value.url %}
+                                {% elsif link.collection != blank %}
+                                  {% assign url = link.collection.value.url %}
+                                {% endif %}
+
+                                {% if url != blank %}
+                                  <li class="font-semibold">
+                                    <a class="flex items-center justify-between space-x-5" href="{{ url }}">
+                                      <span class="flex flex-col space-y-1">
+                                        <span>{{- link.link_title }}</span>
+                                        <span class="block text-[10px] font-light">{{ link.link_description }}</span>
+                                      </span>
+                                      <span class="w-[13px]">{% render 'icon-arrow' %}</span>
+                                    </a>
+                                  </li>
+                                {% endif %}
+                              {% endfor %}
+                            </ul>
+                          </li>
+                        {% endif %}
+                      </ul>
+                    </li>
+                  {% endif %}
+
+                  {% if mm_content == 'menu' and menu != blank or menu_mob != blank %}
+                    <li class=" [&_a:hover]:underline">
+                      <ul class="">
+                        {% if menu_mob != blank %}
+                          {% assign links = linklists[menu_mob].links %}
+                        {% else %}
+                          {% assign links = linklists[menu].links %}
+                        {% endif %}
+
+                        {% if links %}
+                          {% for parent in links %}
+                            {% if parent.levels > 0 %}
+                              <li class="space-y-4 break-inside-avoid border-blue-1/10 border-b last:border-b-0">
+                                <details class="block  !my-0 py-5 lg:py-7 group/acc">
+                                  <summary class="font-semibold m-body-copy lg:d-h5 space-x-6 flex w-full items-center cursor-pointer">
+                                    <span class="m-body-copy-med lg:d-body-copy-med mr-auto">
+                                      {{- parent.title | escape -}}
+                                    </span>
+                                    <span
+                                      class="acc-toggle group-open/acc:before:rotate-90"
+                                    ></span>
+                                  </summary>
+                                  <div class="pt-5 lg:pt-7">
+                                    <ul class="space-y-3 font-light">
+                                      {% for child in parent.links %}
+                                        <li>
+                                          <a class="{% if child.current %} active{% endif %}" href="{{child.url}}">
+                                            {{- child.title -}}
+                                            {% unless child.title contains 'Shop by' %}
+                                              {%- if child.type == 'collection_link'
+                                                and child.object.metafields.christy23.collection_usp != blank
+                                              -%}
+                                                <strong
+                                                  >&nbsp;|&nbsp;
+                                                  {{ child.object.metafields.christy23.collection_usp }}
+                                                </strong>
+                                              {%- endif -%}
+                                            {% endunless %}
+                                          </a>
+                                        </li>
+                                      {% endfor %}
+                                    </ul>
+                                  </div>
+                                </details>
+                              </li>
+                            {% else %}
+                              <li class="space-y-4 break-inside-avoid border-blue-1/10 border-b last:border-b-0">
+                                <a
+                                  href="{{ parent.url }}"
+                                  class="m-body-copy-med lg:d-body-copy-med block !my-0 py-5 lg:py-7"
+                                >
+                                  {{- parent.title | escape -}}
+                                  {% unless parent.title contains 'Shop by' %}
+                                    {%- if parent.type == 'collection_link'
+                                      and parent.object.metafields.christy23.collection_usp != blank
+                                    -%}
+                                      <strong
+                                        >&nbsp;|&nbsp;
+                                        {{ parent.object.metafields.christy23.collection_usp }}
+                                      </strong>
+                                    {%- endif -%}
+                                  {% endunless %}
+                                </a>
+                              </li>
+                            {% endif %}
+                          {% endfor %}
+                        {% endif %}
+                      </ul>
+                    </li>
+                  {% elsif mm_content == 'image_ctas' %}
+                    <li class=" [&_a:hover]:underline col-span-3 !p-0">
+                      <ul class="grid grid-cols-2 gap-6 column-rule-blue-1 mt-6 fake-column-rule-blue-2 min-h-full">
+                        {% if image_link_1_image != blank
+                          and image_link_1_title != blank
+                          and image_link_1_url != blank
+                        %}
+                          <li class="break-inside-avoid">
+                            <a href="{{ image_link_1_url }}" class="block">
+                              {% liquid
+                                assign widths = '375, 550, 750, 1100'
+                                assign sizes = '100vw'
+                              %}
+                              {% render 'spinner' %}
+                              {%- render 'lazyimg',
+                                img: image_link_1_image,
+                                width: 413,
+                                height: 332,
+                                widths: widths,
+                                class: '',
+                                sizes: sizes
+                              -%}
+                              <p class="mt-4">{{ image_link_1_title }}</p>
+                            </a>
+                          </li>
+                        {% endif %}
+                        {% if image_link_2_image != blank
+                          and image_link_2_title != blank
+                          and image_link_2_url != blank
+                        %}
+                          <li class="break-inside-avoid">
+                            <a href="{{ image_link_2_url }}" class="block">
+                              {% liquid
+                                assign widths = '375, 550, 750, 1100'
+                                assign sizes = '100vw'
+                              %}
+                              {% render 'spinner' %}
+                              {%- render 'lazyimg',
+                                img: image_link_2_image,
+                                width: 413,
+                                height: 332,
+                                widths: widths,
+                                class: '',
+                                sizes: sizes
+                              -%}
+                              <p class="mt-4">{{ image_link_2_title }}</p>
+                            </a>
+                          </li>
+                        {% endif %}
+                      </ul>
+                    </li>
+                  {% endif %}
+                </ul>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+
+        <ul class="footer transition-opacity container [&_li]:border-t [&_li]:border-blue-1/10 [&_li]:py-5 mt-auto">
+          {%- if shop.customer_accounts_enabled -%}
+            <li>
+              <a
+                href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
+                class="flex items-center space-x-3"
+              >
+                <span class="w-[12px] inline-block">
+                  {% render 'icon-account' %}
+                </span>
+                <span>My Account</span>
+                <span class="visually-hidden">
+                  {%- liquid
+                    if customer
+                      echo 'customer.account_fallback' | t
+                    else
+                      echo 'customer.log_in' | t
+                    endif
+                  -%}
+                </span>
+              </a>
+            </li>
+          {%- endif -%}
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>

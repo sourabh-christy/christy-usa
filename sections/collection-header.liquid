@@ -1,0 +1,56 @@
+<nav id="breadcrumbs" class="breadcrumb container mt-10 mb-12 max-md:hidden">
+  <ul class="flex flex-wrap text-blue-1 gap-1">
+    {% assign collectionsCount = product.collections.size %}
+    <li>
+      <a href="{{ shop.url }}">Home</a>
+    </li>
+
+    {%- assign parent_collection = collection.metafields.custom.parent_collection.value %}
+    {%- if parent_collection != blank %}
+      <li>/</li>
+
+      <li>
+        <a href="{{ parent_collection.url }}">{{ parent_collection.title }}</a>
+      </li>
+    {%- endif -%}
+
+    <li>/</li>
+
+    <li>
+      <a href="{{ collection.url }}">{{ collection.title }}</a>
+    </li>
+
+    {%- for filter in collection.filters -%}
+      {% if filter.param_name == 'filter.p.tag' %}
+        {%- for value in filter.values -%}
+          {% if value.active %}
+            <li>/</li>
+            <li>
+              <strong>{{ value.label }}</strong>
+            </li>
+          {% endif %}
+        {%- endfor -%}
+        {% break %}
+      {% endif %}
+    {%- endfor %}
+  </ul>
+</nav>
+
+<header class="flex items-start justify-between container space-x-6">
+  {% assign alt_title = collection.metafields.custom.alternative_collection_title %}
+  {% if alt_title != blank %}
+    <h1 class="s-m-h4 lg:s-d-h3">{{ alt_title.value }}</h1>
+  {% else -%}
+    <h1 class="s-m-h4 lg:s-d-h3">{{ collection.title }}</h1>
+  {% endif %}
+
+  <div>
+    {% render 'facets-drawer',
+      results: collection,
+      enable_filtering: section.settings.enable_filtering,
+      enable_sorting: section.settings.enable_sorting,
+      filter_type: section.settings.filter_type,
+      paginate: paginate
+    %}
+  </div>
+</header>

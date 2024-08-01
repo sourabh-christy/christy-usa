@@ -1,0 +1,129 @@
+{{ 'splide.min.css' | asset_url | stylesheet_tag }}
+
+{% if request.design_mode %}
+  <h2 class="m-h1 lg:d-h1 text-blue-1">RECENTLY VIEWED PRODUCTS WILL SHOW HERE</h2>
+{% endif %}
+<div
+  id="recently-viewed"
+  class="recent-products  overflow-hidden hidden py-16 lg:py-40 bg-[#DBD4CC]/10"
+>
+  <div class="space-y-12 lg:space-y-16 container">
+    <h2 class="m-h1 lg:d-h1 text-blue-1">{{ section.settings.heading | escape }}</h2>
+    <div
+      class="splide"
+      role="list"
+      data-splide='
+        {"arrows": false, "pagination": true, "type": "loop", "destroy": "true", "gap": "40px", "breakpoints": {
+          "768": {
+            "destroy": false
+          }
+        }}
+      '
+    >
+      <div class="splide__track !overflow-visible">
+        <div
+          class="recently-viewed splide__list md:!grid md:grid-cols-4 md:gap-2 [&>*:first-child]:md:col-span-2 [&>*:first-child_.card\_\_inner_a]:md:aspect-[1/1]"
+        ></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const recentlyViewed = (function () {
+    const LOCAL_STORAGE_RECENTPRODUCTS_KEY = 'shopify-recentlyViewed';
+
+    const selectors = {
+      grid: 'recently-viewed',
+      productCard: '.product-card',
+    };
+
+    const setProducts = (array) => {
+      if (array.length) {
+        const products = array.join(',');
+        if (array.length) localStorage.setItem(LOCAL_STORAGE_RECENTPRODUCTS_KEY, products);
+        else localStorage.removeItem(LOCAL_STORAGE_RECENTPRODUCTS_KEY);
+      }
+    };
+
+    const getProducts = () => {
+      const products = localStorage.getItem(LOCAL_STORAGE_RECENTPRODUCTS_KEY) || false;
+      if (products) return products.split(',');
+      return [];
+    };
+
+    const updateProducts = (handle) => {
+      if (!handle) return;
+      const products = getProducts();
+      const indexInProducts = products.indexOf(handle);
+      if (indexInProducts === -1) products.unshift(handle);
+
+      if (products.length > 3) products.pop();
+      return setProducts(products);
+    };
+
+    const fetchProductCardHTML = (handle, i) => {
+      let productTileTemplateUrl = `/products/${handle}?view=card-mob-large-img`;
+
+      if (i === 0) {
+        productTileTemplateUrl = `/products/${handle}?view=card-square`;
+      }
+
+      return fetch(productTileTemplateUrl)
+        .then((res) => res.text())
+        .then((res) => {
+          const text = res;
+          const parser = new DOMParser();
+          const htmlDocument = parser.parseFromString(text, 'text/html');
+          const productCard = htmlDocument.documentElement.querySelector(selectors.productCard);
+          if (!productCard) return '';
+          return '<div class="splide__slide">' + productCard.outerHTML + '</div>';
+        })
+        .catch((err) => console.error(`[Shopify Recently Viewed] Failed to load content for handle: ${handle}`, err));
+    };
+
+    const setupGrid = async (grid) => {
+      const products = getProducts();
+      if (products.length > 0) {
+        const requests = products.map(fetchProductCardHTML);
+        const responses = await Promise.all(requests);
+        const productCards = responses.join('');
+        grid.innerHTML = productCards;
+        grid.closest('#recently-viewed').classList.remove('hidden');
+
+        // lazy load images
+        const lazyimg = new Event('lazyimg');
+        window.dispatchEvent(lazyimg);
+
+        const splideRefresh = new Event('spliderefresh');
+        window.dispatchEvent(splideRefresh);
+
+        // reinit colour selectors
+        const initcolourselector = new Event('initcolourselector');
+        window.dispatchEvent(initcolourselector);
+      }
+    };
+
+    updateProducts('{{ product.handle }}');
+
+    setupGrid(document.querySelector('#recently-viewed .recently-viewed'));
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Recent Products",
+  "class": "section-recentproducts",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Previously explored",
+      "label": "Title"
+    }
+  ]
+}
+{% endschema %}

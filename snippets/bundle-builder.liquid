@@ -1,0 +1,708 @@
+{% assign bundleDataValue = bundleData.value %}
+{% assign totalPriceAct = 0 %}
+{% assign totalCompareAct = 0 %}
+
+<script type="application/json" id="bundleJson">
+  {
+    "bundleData": {{ bundleDataValue | json }},
+    "steps":
+        [
+            {
+                "stepTitle": {{ bundleDataValue.mainStepTitle | json }},
+                "handle": {{ bundleDataValue.mainHandle | json }},
+                "quantity": {{ bundleDataValue.mainStepQuantity | plus: 0 -}},
+                {%- comment %}
+                    check if colour matches, if not, get first variant
+                {%- endcomment %}
+                {% assign hasMainVariantId = false -%}
+                {%- if all_products[bundleDataValue.mainHandle].variants -%}
+                    {%- for variant in all_products[bundleDataValue.mainHandle].variants -%}
+                        {% if variant.compare_at_price %}
+                          {% assign thisComp = variant.compare_at_price %}
+                        {% else %}
+                          {% assign thisComp = variant.price %}
+                        {% endif -%}
+                        {%- assign colour_slug = variant.option1 | handleize -%}
+                        {%- if colour_slug == selected_colour -%}
+
+                            {%- assign hasMainVariantId = true -%}
+                "variantId": {{ variant.id | json -}},
+                "image": "{% if variant.featured_image.src != blank %}{{ variant.featured_image.src | image_url: width: 200, height: 200 }}{% endif %}",
+                "price": {{ variant.price | json -}}{% liquid
+                  assign thisPrice = variant.price | times: bundleDataValue.mainStepQuantity
+                  assign totalPriceAct = totalPriceAct | plus: thisPrice %},
+                "compare_at_price": {{thisComp-}}{% liquid
+                  assign thisPrice = thisComp | times: bundleDataValue.mainStepQuantity
+                  assign totalCompareAct = totalCompareAct | plus: thisPrice %}
+                            {%- break -%}
+                            {%- break -%}
+                        {%- endif -%}
+                    {%- endfor -%}
+                {%- endif -%}
+                {%- if hasMainVariantId == false -%}
+                "variantId": {{ all_products[bundleDataValue.mainHandle].selected_or_first_available_variant.id | json -}},
+                "image": "{%- if all_products[bundleDataValue.mainHandle].selected_or_first_available_variant.featured_image.src != blank -%}
+                  {{- all_products[bundleDataValue.mainHandle].selected_or_first_available_variant.featured_image.src | image_url: width: 200, height: 200 -}}
+                {%- endif -%}",
+                "price": {{ all_products[bundleDataValue.mainHandle].selected_or_first_available_variant.price | json -}}{% liquid
+                  assign thisPrice = all_products[bundleDataValue.mainHandle].selected_or_first_available_variant.price | times: bundleDataValue.mainStepQuantity
+                  assign totalPriceAct = totalPriceAct | plus: thisPrice
+                  if all_products[bundleDataValue.mainHandle].selected_or_first_available_variant.compare_at_price
+                    assign thisComp = all_products[bundleDataValue.mainHandle].selected_or_first_available_variant.compare_at_price
+                  else
+                    assign thisComp = all_products[bundleDataValue.mainHandle].selected_or_first_available_variant.price
+                  endif
+                %},
+                "compare_at_price": {{ thisComp }}{% liquid
+                  assign thisPrice = thisComp | times: bundleDataValue.mainStepQuantity
+                  assign totalCompareAct = totalCompareAct | plus: thisPrice %}
+                {%- endif %}
+            }
+            {%- if bundleDataValue.items.size > 0 -%}
+            {%- for item in bundleDataValue.items -%}
+                ,
+            {
+                "stepTitle": {{ item.stepTitle | json }},
+                "handle": {{ item.handle | json }},
+                "quantity": {{ item.stepQuantity | plus: 0 -}},
+                {%- comment %}
+                    check if colour matches, if not, get first variant
+                {%- endcomment -%}
+                {%- assign selected_variants = item.variants | map: 'id' | replace: 'gid://shopify/ProductVariant/', '' %}
+                {%- assign hasItemVariantId = false -%}
+                {%- if all_products[item.handle].variants -%}
+                    {%- for variant in all_products[item.handle].variants -%}
+                        {% if variant.compare_at_price %}
+                          {% assign thisComp = variant.compare_at_price %}
+                        {% else %}
+                          {% assign thisComp = variant.price %}
+                        {% endif -%}
+                        {%- if selected_variants contains variant.id  -%}
+                        {%- assign colour_slug = variant.option1 | handleize -%}
+                        {%- if colour_slug == selected_colour -%}
+                            {%- assign hasItemVariantId = true -%}
+                    "variantId": {{ variant.id | json -}},
+                    "image": "{%- if variant.featured_image.src != blank -%},
+                      {{- variant.featured_image.src | image_url: width: 200, height: 200 -}}
+                    {%- endif  -%}",
+                    "price": {{ variant.price | json -}}{% liquid
+                      assign thisPrice = variant.price | times: item.stepQuantity
+                      assign totalPriceAct = totalPriceAct | plus: thisPrice %},
+                    "compare_at_price": {{ thisComp }}{% liquid
+                      assign thisPrice = thisComp | times: item.stepQuantity
+                      assign totalCompareAct = totalCompareAct | plus: thisPrice %},
+                            {%- break -%}
+                        {%- endif -%}
+                        {% endif %}
+                    {%- endfor -%}
+                {%- endif %}
+                {% if hasItemVariantId == false -%}
+                    {%- if all_products[item.handle].variants -%}
+                      {%- for variant in all_products[item.handle].variants -%}
+                        {% if variant.compare_at_price %}
+                          {% assign thisComp = variant.compare_at_price %}
+                        {% else %}
+                          {% assign thisComp = variant.price %}
+                        {% endif -%}
+                        {%- if selected_variants contains variant.id  -%}
+
+                    "variantId": {{ variant.id | json -}},
+                    "image": "{%- if variant.featured_image.src != blank -%}
+                    {{- variant.featured_image.src | image_url: width: 200, height: 200 -}}
+                    {% endif -%}
+                    ",
+                    "price": {{ variant.price | json -}}{% liquid
+                      assign thisPrice = variant.price | times: item.stepQuantity
+                      assign totalPriceAct = totalPriceAct | plus: thisPrice %},
+                    "compare_at_price": {{ thisComp }}{% liquid
+                      assign thisPrice = thisComp | times: item.stepQuantity
+                      assign totalCompareAct = totalCompareAct | plus: thisPrice %},
+                            {%- break -%}
+                        {% endif %}
+                      {%- endfor -%}
+                    {%- endif %}
+                {%- endif %}
+                "variants": {{ item.variants | json }}
+            }
+            {%- endfor -%}
+            {%- endif %}
+        ],
+    "variants": [
+      {%- if all_products[bundleDataValue.mainHandle].variants  -%}
+        {%- for item in  all_products[bundleDataValue.mainHandle].variants %}
+          {
+            "id": {{ item.id }},
+            "product_title": "{{ item.product.title }}",
+            "price": {{ item.price }},
+            "compare_at_price": {% if item.compare_at_price %}{{ item.compare_at_price }}{% else %}{{ item.price }}{% endif %},
+            "featured_image": "{% if item.featured_image.src %}{{ item.featured_image.src | image_url }}{% endif %}",
+            "options": [{% for var in item.product.options_with_values -%}
+                "{{ var.name }}: {% for varval in var.values -%}
+                  {%- if varval == item.option1 or varval == item.option2 or varval == item.option3 -%}
+                    {{- varval -}}
+                    {%- break -%}
+                  {%- endif -%}
+                {%- endfor -%}"
+              {%- unless forloop.last %},{% endunless -%}
+            {%- endfor %}]
+          },
+        {%- endfor -%}
+      {%- endif -%}
+      {%- for bundleItem in bundleDataValue.items -%}
+      {% assign firstLast = forloop.last %}
+      {% if all_products[bundleItem.handle].variants %}
+        {% for item in  all_products[bundleItem.handle].variants %}
+          {
+            "id": {{ item.id }},
+            "product_title": "{{ item.product.title }}",
+            "price": {{ item.price }},
+            "compare_at_price": {% if item.compare_at_price %}{{ item.compare_at_price }}{% else %}{{ item.price }}{% endif %},
+            "featured_image": "{% if item.featured_image.src %}{{ item.featured_image.src | image_url }}{% endif %}",
+            "options": [{% for var in item.product.options_with_values -%}
+              "{{ var.name }}: {% for varval in var.values -%}
+                {%- if varval == item.option1 or varval == item.option2 or varval == item.option3 -%}
+                  {{- varval -}}
+                  {%- break -%}
+                {%- endif -%}
+              {%- endfor -%}"
+            {%- unless forloop.last %},{% endunless -%}
+          {%- endfor %}]
+          }{% unless forloop.last and firstLast %},{% endunless %}
+        {% endfor  %}
+      {% endif %}
+      {%- endfor -%}
+    ]
+  }
+</script>
+
+{% comment %}
+  get total price and discount
+{% endcomment %}
+
+{% assign totalPercentOff = 0 %}
+
+{% comment %}
+  {% assign totalCompare = 0 %}
+  {% assign totalPrice = 0 %}
+
+  {% if all_products[bundleDataValue.mainHandle].selected_or_first_available_variant.compare_at_price_varies == false %}
+    {% assign mainCap = all_products[bundleDataValue.mainHandle].selected_or_first_available_variant.price %}
+  {% else %}
+    {% assign mainCap = all_products[bundleDataValue.mainHandle].selected_or_first_available_variant.compare_at_price %}
+  {% endif %}
+  {% assign mainPrice = all_products[bundleDataValue.mainHandle].selected_or_first_available_variant.price %}
+
+  {% assign totalCompare = totalCompare | plus: mainCap %}
+  {% assign totalPrice = totalPrice | plus: mainPrice %}
+
+  {% for item in bundleDataValue.items %}
+    {% if all_products[item.handle].selected_or_first_available_variant.compare_at_price_varies == false %}
+      {% assign itemcap = all_products[item.handle].selected_or_first_available_variant.price %}
+    {% else %}
+      {% assign itemcap = all_products[item.handle].selected_or_first_available_variant.compare_at_price %}
+    {% endif %}
+
+    {% assign itemprice = all_products[item.handle].selected_or_first_available_variant.price %}
+
+    {% assign totalCompare = totalCompare | plus: itemcap %}
+    {% assign totalPrice = totalPrice | plus: itemprice %}
+  {% endfor %}
+{% endcomment %}
+
+{% assign totalCompare = totalCompareAct %}
+{% assign totalPrice = totalPriceAct %}
+
+{% if totalCompare > totalPrice %}
+  {% assign totalPercentOff = totalPrice
+    | times: 100.0
+    | divided_by: totalCompare
+    | times: 100.0
+    | money_without_currency
+  %}
+
+  {% assign totalPercentOff = 100 | minus: totalPercentOff %}
+{% endif %}
+
+{% comment %}
+  apply bundle discount
+{% endcomment %}
+{% if bundleDataValue.bundleDiscount > 0 %}
+  {% assign diff = totalPrice | times: bundleDataValue.bundleDiscount | divided_by: 100 %}
+  {% assign totalPrice = totalPrice | minus: diff %}
+{% endif %}
+
+<div
+  id="product-bundle"
+  class="product product-bundle relative group/bundle md:flex md:space-x-6 md:justify-between container [&:not([data-step='0'])_.product\_\_info-wrapper]:max-md:border-b  [&:not([data-step='0'])_.not-step-0]:!hidden [&[data-step='0']_.hide-step-0]:!hidden [&[data-step='0']_#product-actions]:md:my-10 [&[data-step='0']_#product-actions]:lg:my-20"
+  data-step="0"
+>
+  {% if product.media.size > 0 %}
+    <div class="product__gallery md:w-6/12 ">
+      {% render 'product-media-gallery',
+        variant_images: variant_images,
+        current_variant: current_variant,
+        image_handle: 'bundle_image'
+      %}
+    </div>
+  {% endif %}
+
+  <div class="product__info-wrapper md:w-6/12 lg:w-5/12 self-start md:sticky md:top-[100px] relative max-md:pt-7 z-10 max-md:pb-7 max-md:border-blue-1/10">
+    <product-info
+      id="ProductInfo-{{ section.id }}"
+      data-section="{{ section.id }}"
+      data-url="{{ product.url }}"
+      data-url-actual="{{ current_url }}"
+      data-productprice=""
+      data-featimage=""
+      data-variantid=""
+      class="text-blue-1 space-y-6"
+    >
+      {%- assign product_form_id = 'product-form-' | append: section.id -%}
+
+      <div>
+        <div
+          id="product-panel"
+          class="max-md:bg-white/90 transition-colors "
+        >
+          <div id="product-panel-child" class="space-y-7 max-md:flex max-md:flex-col max-md:items-stretch">
+            <header class="space-y-2 md:space-y-4">
+              <p class="hide-step-0 group-[.last-step]/bundle:!hidden">
+                Step <span data-currentstep>0</span> of <span data-totalstep></span>
+              </p>
+              <p class="hidden group-[.last-step]/bundle:!block">Review your bundle</p>
+
+              <h1 id="product-title" class="m-h1 lg:s-d-h4">{{ bundleDataValue.bundleTitle | escape }}</h1>
+
+              {% if product.metafields.christy23.tagline_pdp %}
+                <div id="product-tagline" class="flex justify-between space-x-5 not-step-0">
+                  <div>
+                    <p class="font-semibold lg:d-h5">{{ product.metafields.christy23.tagline_pdp.value }}</p>
+                  </div>
+                </div>
+              {% endif %}
+            </header>
+
+            <div id="product-price" class="flex gap-3 justify-between md:items-center max-md:flex-col !mt-5 not-step-0">
+              <div>
+                {% render 'bundle-builder-price',
+                  totalCompare: totalCompare,
+                  totalPrice: totalPrice,
+                  totalPercentOff: totalPercentOff,
+                  bundleDiscount: bundleDataValue.bundleDiscount
+                %}
+              </div>
+            </div>
+
+            <div class="wysiwyg max-md:order-10 max-md:border-t max-md:border-blue-1/10 max-md:pt-5 not-step-0">
+              {{ product.description }}
+            </div>
+
+            <div
+              id="product-options"
+              data-moboptions="true"
+              class=" md:!h-auto overflow-hidden !mt-0 md:!my-10 max-md:pt-7 hide-step-0 group-[.last-step]/bundle:!hidden"
+            ></div>
+
+            <div id="bundle-review" class="hidden group-[.last-step]/bundle:!block">
+              <ul class="list space-y-5"></ul>
+            </div>
+
+            <div
+              id="product-actions"
+              class="max-md:!mt-0 max-md:py-5 max-md:px-10 max-md:border-y max-md:border-blue-1 max-md:bg-white max-md:fixed max-md:left-0 max-md:bottom-0 z-10 max-md:w-full"
+            >
+              <button class="btn-primary btn-large not-step-0 js-bundle-next">Build Your Bundle</button>
+
+              <div class="product-bundle-addcart space-y-10 hidden group-[.last-step]/bundle:!block">
+                {% render 'bundle-builder-price',
+                  totalCompare: totalCompare,
+                  totalPrice: totalPrice,
+                  totalPercentOff: totalPercentOff,
+                  bundleDiscount: bundleDataValue.bundleDiscount
+                %}
+                <button class="btn-primary btn-large" data-addcart>Add to Basket</button>
+              </div>
+
+              <div
+                id="bundle-actions-{{ section.id }}"
+                class="grid grid-cols-2 gap-5 hide-step-0  group-[.last-step]/bundle:!hidden"
+              >
+                <button class="btn-secondary btn-large js-bundle-prev" data-bundlebtn="prev">Previous</button>
+                <button
+                  class="btn-primary btn-large js-bundle-next group"
+                  data-bundlebtn="next"
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="product-dropdowns" class="space-y-6 not-step-0">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when '@app' -%}
+              {% render block %}
+            {%- when 'text' -%}
+              <p
+                class="product__text inline-richtext{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
+                {{ block.shopify_attributes }}
+              >
+                {{- block.settings.text -}}
+              </p>
+
+            {%- when 'quantity_selector' -%}
+              <div
+                id="Quantity-Form-{{ section.id }}"
+                class="product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}"
+                {{ block.shopify_attributes }}
+              >
+                {% comment %} TODO: enable theme-check once `item_count_for_variant` is accepted as valid filter {% endcomment %}
+                {% # theme-check-disable %}
+                {%- assign cart_qty = cart | item_count_for_variant: product.selected_or_first_available_variant.id -%}
+                {% # theme-check-enable %}
+                <label class="quantity__label form__label" for="Quantity-{{ section.id }}">
+                  {{ 'products.product.quantity.label' | t }}
+                  <span class="quantity__rules-cart no-js-hidden{% if cart_qty == 0 %} hidden{% endif %}">
+                    <span class="loading-overlay hidden">
+                      <span class="loading-overlay__spinner">
+                        <svg
+                          aria-hidden="true"
+                          focusable="false"
+                          class="spinner"
+                          viewBox="0 0 66 66"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                        </svg>
+                      </span>
+                    </span>
+                    <span
+                      >(
+                      {{- 'products.product.quantity.in_cart_html' | t: quantity: cart_qty -}}
+                      )</span
+                    >
+                  </span>
+                </label>
+                <quantity-input class="quantity">
+                  <button class="quantity__button no-js-hidden" name="minus" type="button">
+                    <span class="visually-hidden">
+                      {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
+                    </span>
+                    {% render 'icon-minus' %}
+                  </button>
+                  <input
+                    class="quantity__input"
+                    type="number"
+                    name="quantity"
+                    id="Quantity-{{ section.id }}"
+                    data-cart-quantity="{{ cart_qty }}"
+                    data-min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+                    min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+                    {% if product.selected_or_first_available_variant.quantity_rule.max != null %}
+                      data-max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
+                      max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
+                    {% endif %}
+                    step="{{ product.selected_or_first_available_variant.quantity_rule.increment }}"
+                    value="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+                    form="{{ product_form_id }}"
+                  >
+                  <button class="quantity__button no-js-hidden" name="plus" type="button">
+                    <span class="visually-hidden">
+                      {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
+                    </span>
+                    {% render 'icon-plus' %}
+                  </button>
+                </quantity-input>
+                <div class="quantity__rules caption no-js-hidden">
+                  {%- if product.selected_or_first_available_variant.quantity_rule.increment > 1 -%}
+                    <span class="divider">
+                      {{-
+                        'products.product.quantity.multiples_of'
+                        | t: quantity: product.selected_or_first_available_variant.quantity_rule.increment
+                      -}}
+                    </span>
+                  {%- endif -%}
+                  {%- if product.selected_or_first_available_variant.quantity_rule.min > 1 -%}
+                    <span class="divider">
+                      {{-
+                        'products.product.quantity.minimum_of'
+                        | t: quantity: product.selected_or_first_available_variant.quantity_rule.min
+                      -}}
+                    </span>
+                  {%- endif -%}
+                  {%- if product.selected_or_first_available_variant.quantity_rule.max != null -%}
+                    <span class="divider">
+                      {{-
+                        'products.product.quantity.maximum_of'
+                        | t: quantity: product.selected_or_first_available_variant.quantity_rule.max
+                      -}}
+                    </span>
+                  {%- endif -%}
+                </div>
+              </div>
+            {%- when 'popup' -%}
+              <modal-opener
+                class="product-popup-modal__opener no-js-hidden quick-add-hidden"
+                data-modal="#PopupModal-{{ block.id }}"
+                {{ block.shopify_attributes }}
+              >
+                <button
+                  id="ProductPopup-{{ block.id }}"
+                  class="product-popup-modal__button link"
+                  type="button"
+                  aria-haspopup="dialog"
+                >
+                  {{ block.settings.text | default: block.settings.page.title }}
+                </button>
+              </modal-opener>
+              <a href="{{ block.settings.page.url }}" class="product-popup-modal__button link no-js">
+                {{- block.settings.text -}}
+              </a>
+            {%- when 'share' -%}
+              {% assign share_url = product.selected_variant.url | default: product.url | prepend: request.origin %}
+              {% render 'share-button', block: block, share_link: share_url %}
+
+            {%- when 'icon-with-text' -%}
+              {% render 'icon-with-text', block: block %}
+            {%- when 'accordion' %}
+              <div
+                class="!my-0 py-5 lg:py-7 border-b border-blue-1/10 group/acc"
+                {{ block.shopify_attributes }}
+              >
+                <h4
+                  data-acc
+                  class="font-semibold m-body-copy lg:d-h5 space-x-6 flex w-full items-center cursor-pointer"
+                >
+                  <span class="mr-auto">{{ block.settings.title }}</span>
+                  <span
+                    class="acc-toggle"
+                  ></span>
+                </h4>
+                <div class="gap-3 flex-wrap pt-5 lg:pt-7 clear-left hidden group-[.open]/acc:!flex group-[.open]/acc:opacity-100 opacity-0 transition-opacity delay-[0.5s]">
+                  <div class="wysiwyg flex-1">
+                    {{ block.settings.content }}
+                    {{ block.settings.html }}
+
+                    {% if block.settings.button_link and block.settings.button_label %}
+                      <div>
+                        <a class="btn-tertiary" href="{{ block.settings.button_link }}">
+                          {{- block.settings.button_label -}}
+                        </a>
+                      </div>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+          {%- endcase -%}
+        {%- endfor -%}
+
+        {% comment %}
+          Responsibility
+        {% endcomment %}
+        {% if product.metafields.christy23.product_responsibility != blank %}
+          <div
+            class="!my-0 md:!mt-10 lg:!mt-20 py-5 lg:py-7 border-b border-blue-1/10 group/acc"
+          >
+            <h4
+              data-acc
+              class="font-semibold m-body-copy lg:d-h5 space-x-6 flex w-full items-center cursor-pointer"
+            >
+              <span class="mr-auto">Responsibility</span>
+              <span
+                class="acc-toggle"
+              ></span>
+            </h4>
+            <div class="gap-3 flex-wrap pt-5 lg:pt-7 clear-left hidden group-[.open]/acc:!flex group-[.open]/acc:opacity-100 opacity-0 transition-opacity delay-[0.5s]">
+              <div class="wysiwyg flex-1">
+                {{ product.metafields.christy23.product_responsibility | metafield_tag }}
+              </div>
+            </div>
+          </div>
+        {% endif %}
+        {% comment %}
+          END Responsibility
+        {% endcomment %}
+
+        {% comment %}
+          Specification
+        {% endcomment %}
+        {% if product.metafields.christy23.product_specification != blank %}
+          <div
+            class="!my-0 py-5 lg:py-7 border-b border-blue-1/10 group/acc"
+          >
+            <h4
+              data-acc
+              class="font-semibold m-body-copy lg:d-h5 space-x-6 flex w-full items-center cursor-pointer"
+            >
+              <span class="mr-auto">Specifications</span>
+              <span
+                class="acc-toggle"
+              ></span>
+            </h4>
+            <div class="gap-3 flex-wrap pt-5 lg:pt-7 clear-left hidden group-[.open]/acc:!flex group-[.open]/acc:opacity-100 opacity-0 transition-opacity delay-[0.5s]">
+              <div class="wysiwyg flex-1">
+                {{ product.metafields.christy23.product_specification | metafield_tag }}
+              </div>
+            </div>
+          </div>
+        {% endif %}
+        {% comment %}
+          END Specification
+        {% endcomment %}
+
+        {% comment %}
+          Size Guide
+        {% endcomment %}
+        {% if product.metafields.custom.size_guide != blank %}
+          <div
+            class="!my-0 py-5 lg:py-7 border-b border-blue-1/10 group/acc"
+            data-sizeguide
+            id="sizeguide"
+          >
+            <h4
+              data-acc
+              class="font-semibold m-body-copy lg:d-h5 space-x-6 flex w-full items-center cursor-pointer"
+            >
+              <span class="mr-auto">Size Guide</span>
+              <span
+                class="acc-toggle"
+              ></span>
+            </h4>
+            <div class="gap-3 flex-wrap pt-5 lg:pt-7 clear-left hidden group-[.open]/acc:!flex group-[.open]/acc:opacity-100 opacity-0 transition-opacity delay-[0.5s]">
+              <div class=" flex-1 w-full max-lg:-mr-[40px]">
+                <div class="wysiwyg max-lg:overflow-auto max-lg:pr-[40px] [&_table]:max-lg:text-[10px]">
+                  {{ product.metafields.custom.size_guide }}
+                </div>
+              </div>
+            </div>
+          </div>
+
+        {% elsif product.metafields.custom.product_specification != blank %}
+          <div
+            class="!my-0 py-5 lg:py-7 border-b border-blue-1/10 group/acc"
+            data-sizeguide
+            id="sizeguide"
+          >
+            <h4
+              data-acc
+              class="font-semibold m-body-copy lg:d-h5 space-x-6 flex w-full items-center cursor-pointer"
+            >
+              <span class="mr-auto">Size Guide</span>
+              <span
+                class="acc-toggle"
+              ></span>
+            </h4>
+            <div class="gap-3 flex-wrap pt-5 lg:pt-7 clear-left hidden group-[.open]/acc:!flex group-[.open]/acc:opacity-100 opacity-0 transition-opacity delay-[0.5s]">
+              <div class=" flex-1 w-full max-lg:-mr-[40px]">
+                <div class="wysiwyg max-lg:overflow-auto max-lg:pr-[40px] [&_table]:max-lg:text-[10px]">
+                  {{ product.metafields.custom.product_specification }}
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+        {% comment %}
+          END Specification
+        {% endcomment %}
+
+        {% comment %}
+          Care Guide
+        {% endcomment %}
+        {% if product.metafields.christy23.care_guide != blank %}
+          <div
+            class="!my-0 py-5 lg:py-7 border-b border-blue-1/10 group/acc"
+          >
+            <h4
+              data-acc
+              class="font-semibold m-body-copy lg:d-h5 space-x-6 flex w-full items-center cursor-pointer"
+            >
+              <span class="mr-auto">Care Guide</span>
+              <span
+                class="acc-toggle"
+              ></span>
+            </h4>
+            <div class="gap-3 flex-wrap pt-5 lg:pt-7 clear-left hidden group-[.open]/acc:!flex group-[.open]/acc:opacity-100 opacity-0 transition-opacity delay-[0.5s]">
+              <div class="wysiwyg flex-1">
+                {{ product.metafields.christy23.care_guide | metafield_tag }}
+              </div>
+            </div>
+          </div>
+        {% endif %}
+        {% comment %}
+          END Care Guide
+        {% endcomment %}
+
+        {% comment %}
+          Delivery & Returns
+        {% endcomment %}
+        {% if settings.product_delivery_returns != blank %}
+          <div
+            class="!my-0 py-5 lg:py-7 border-b border-blue-1/10 group/acc"
+          >
+            <h4
+              data-acc
+              class="font-semibold m-body-copy lg:d-h5 space-x-6 flex w-full items-center cursor-pointer"
+            >
+              <span class="mr-auto">Delivery & Returns</span>
+              <span
+                class="acc-toggle"
+              ></span>
+            </h4>
+            <div class="gap-3 flex-wrap pt-5 lg:pt-7 clear-left hidden group-[.open]/acc:!flex group-[.open]/acc:opacity-100 opacity-0 transition-opacity delay-[0.5s]">
+              <div class="wysiwyg flex-1">
+                {{ settings.product_delivery_returns }}
+              </div>
+            </div>
+          </div>
+        {% endif %}
+        {% comment %}
+          END Delivery & Returns
+        {% endcomment %}
+      </div>
+    </product-info>
+  </div>
+
+  {% if product.metafields.custom.size_guide != blank or product.metafields.custom.product_specification != blank %}
+    <aside
+      data-modal="sizeguide"
+      class="modal fixed inset-0 bg-white pt-[var(--header-height)] lg:pt-[var(--header-height-lg)] !m-0 z-50 opacity-0 invisible transition-[opacity,visibility] duration-500 [&.active]:opacity-100 [&.active]:visible"
+    >
+      <div
+        class="container relative space-y-10 h-full flex flex-col after:w-[40px] after:h-full after:bg-gradient-to-l after:to-transparent after:from-white after:absolute after:right-0 after:top-0"
+        data-sizeguide
+        id="sizeguide"
+      >
+        <h4
+          data-acc
+          class="m-h1 lg:s-d-h4"
+        >
+          <span>Size Guide</span>
+        </h4>
+
+        <div class="max-lg:-mr-[40px] h-full overflow-auto pb-20 pr-[40px] whitespace-nowrap wysiwyg [&_table]:bg-white text-[14px]">
+          {% if product.metafields.custom.size_guide != blank %}
+            {{ product.metafields.custom.size_guide }}
+          {% elsif product.metafields.custom.product_specification != blank %}
+            {{ product.metafields.custom.product_specification }}
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="absolute top-0 right-0 container flex justify-end !m-0 min-h-[var(--header-height)] lg:min-h-[var(--header-height-lg)] items-center">
+        <button data-modalclose="sizeguide" class="p-5 -mr-5">{% render 'icon-close' %}</button>
+      </div>
+    </aside>
+  {% endif %}
+
+  <div
+    id="product-bundle-blocker"
+    class="invisible opacity-0 bg-white transition-[opacity,visibility] transition-500 z-10 absolute -inset-[1px] flex justify-center items-center !opacity-100 !visible"
+  >
+    {%- render 'spinner', show: true -%}
+  </div>
+</div>
+
+<script src="{{ 'bundle-app.js' | asset_url }}" defer></script>

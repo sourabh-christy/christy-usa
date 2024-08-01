@@ -1,0 +1,367 @@
+{% comment %}
+  Renders a product card
+
+  Accepts:
+  - card_product: {Object} Product Liquid object (optional)
+  - media_aspect_ratio: {String} Size of the product image card. Values are "square" and "portrait". Default is "square" (optional)
+  - image_shape: {String} Image mask to apply to the product image card. Values are "arch", "blob", "chevronleft", "chevronright", "diamond", "parallelogram", and "round". (optional)
+  - show_secondary_image: {Boolean} Show the secondary image on hover. Default: false (optional)
+  - show_vendor: {Boolean} Show the product vendor. Default: false
+  - show_rating: {Boolean} Show the product rating. Default: false
+  - extend_height: {Boolean} Card height extends to available container space. Default: true (optional)
+  - lazy_load: {Boolean} Image should be lazy loaded. Default: true (optional)
+  - show_quick_add: {Boolean} Show the quick add button.
+  - section_id: {String} The ID of the section that contains this card.
+  - horizontal_class: {Boolean} Add a card--horizontal class if set to true. Default: false (optional)
+  - horizontal_quick_add: {Boolean} Changes the quick add button styles when set to true. Default: false (optional)
+  - placeholder_image: {String} The placeholder image to use when no product exists. Default: 'product-apparel-2' (optional)
+
+  Usage:
+  {% render 'card-product', show_vendor: section.settings.show_vendor %}
+{% endcomment %}
+
+{%- if card_product and card_product != empty -%}
+  {% assign bundleData = card_product.metafields.christyapp.bundleData %}
+
+  <div class="product-card group/card">
+    <div
+      class="space-y-4"
+    >
+      <div
+        class="card__inner relative"
+      >
+        <a class="product-images relative aspect-[2/3] block bg-grey-2" href="{{ card_product.url }}">
+          {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
+
+          {%- if card_product.featured_media -%}
+            {% liquid
+              assign widths = '300, 375, 550, 660, 750, 1024, 1336'
+              assign sizes = '(max-width: 1023px) 50vw, (min-width: 1024px) 330px, 100vw'
+
+              assign class1 = 'h-full w-full object-contain opacity-0'
+              assign class2 = 'h-full w-full object-cover !opacity-0 group-hover/card:!opacity-100 absolute inset-0 notouchhover '
+
+              if mob_large_img == 'true'
+                assign sizes = '(max-width: 767px) 100vw, (max-width: 1024px) 50vw, (min-width: 1024px) 330px, 100vw'
+              endif
+
+              if square == true
+                assign sizes = '(max-width: 767px) 100vw, (max-width: 1024px) 50vw, (min-width: 1024px) 668px, 100vw'
+
+                assign class1 = 'h-full w-full object-contain opacity-0 md:object-cover'
+                assign class2 = 'h-full w-full object-cover !opacity-0 group-hover/card:!opacity-100 absolute inset-0 notouchhover md:object-cover'
+              endif
+            %}
+            {%- render 'spinner' -%}
+
+            {% assign height_cropped = 330 | divided_by: 2 | plus: 330 %}
+
+            {% if square == true %}
+              {% assign height_cropped = 330 %}
+            {% endif %}
+
+            {% assign img_width = '330' %}
+
+            {% if card_product.featured_media.media_type == 'image' %}
+              {%- render 'lazyimg',
+                img: card_product.featured_media,
+                width: img_width,
+                height: height_cropped,
+                widths: widths,
+                class: class1,
+                sizes: sizes,
+                crop: 'center'
+              -%}
+            {% endif %}
+            {% comment %}theme-check-enable ImgLazyLoading{% endcomment %}
+
+            {%- for image in card_product.images %}
+              {%- assign alt_array = image.alt | split: '-' -%}
+              {% if alt_array[1] != 'product_swatch' and card_product.featured_media != image %}
+                {%- render 'lazyimg',
+                  img: image,
+                  width: img_width,
+                  height: height_cropped,
+                  widths: widths,
+                  class: class2,
+                  sizes: sizes,
+                  crop: 'center'
+                -%}
+                {% break %}
+              {% endif %}
+            {%- endfor %}
+          {%- endif -%}
+        </a>
+
+        {% if card_product.metafields.christy23.plp_top_tag != blank %}
+          <div class="absolute left-2 top-2 right-2 pointer-events-none">
+            <div class="inline-block py-0.5 px-2 rounded-md bg-white max-md:text-[11px] md:text-[12px] uppercase truncate max-w-full ">
+              {{ card_product.metafields.christy23.plp_top_tag }}
+            </div>
+          </div>
+        {% endif %}
+
+        <div class="card__badge ">
+          {%- if card_product.available == false -%}
+            <span
+              id="Badge-{{ section_id }}-{{ card_product.id }}"
+              class="badge badge--bottom-left absolute p-2 py-1 left-1 bottom-1 rounded-md bg-blue-1 text-white"
+            >
+              {{- 'products.product.sold_out' | t -}}
+            </span>
+          {%- elsif bundleData != blank %}
+          {%- elsif card_product.compare_at_price > card_product.price and card_product.available -%}
+            <span
+              id="Badge-{{ section_id }}-{{ card_product.id }}"
+              class="badge badge--bottom-left absolute p-2 py-1 left-1 bottom-1 rounded-md bg-blue-1 text-white"
+            >
+              <span class="leading-[1.1] block">
+                {{
+                  card_product.compare_at_price
+                  | minus: card_product.price
+                  | times: 100.0
+                  | divided_by: card_product.compare_at_price
+                  | money_without_currency
+                  | times: 100
+                  | replace: '.0', ''
+                -}}
+                % <br>
+                OFF
+              </span>
+            </span>
+          {%- endif -%}
+        </div>
+
+        <button
+          type="button"
+          aria-label="Add to wishlist"
+          button-wishlist
+          data-product-handle="{{ card_product.handle }}"
+          class="card__wishlist wishlist-button [&.active_svg]:animate-scalein group/wlbtn max-md:hidden"
+        >
+          <span class="w-[16px] lg:w-[18px] block">{% render 'icon-heart' %}</span>
+        </button>
+      </div>
+      <div class="card__content text-blue-1">
+        <a
+          href="{{ card_product.url }}"
+          id="CardLink-{{ section_id }}-{{ card_product.id }}"
+          aria-labelledby="CardLink-{{ section_id }}-{{ card_product.id }} Badge-{{ section_id }}-{{ card_product.id }}"
+          class="card__information space-y-2"
+        >
+          <div class="flex justify-between max-md:text-[10px] flex-wrap">
+            {% if bundleData != blank %}
+              {% assign bundleDataValue = bundleData.value %}
+              {% assign totalPriceAct = 0 %}
+              {% assign totalCompareAct = 0 %}
+
+              {% liquid
+                assign thisPrice = all_products[bundleDataValue.mainHandle].selected_or_first_available_variant.price | times: bundleDataValue.mainStepQuantity
+                assign totalPriceAct = totalPriceAct | plus: thisPrice
+                assign thisPrice = all_products[bundleDataValue.mainHandle].selected_or_first_available_variant.compare_at_price | times: bundleDataValue.mainStepQuantity
+                assign totalCompareAct = totalCompareAct | plus: thisPrice
+              %}
+
+              {%- if bundleDataValue.items.size > 0 -%}
+                {%- for item in bundleDataValue.items -%}
+                  {% liquid
+                    assign selected_variants = item.variants | map: 'id' | replace: 'gid://shopify/ProductVariant/', ''
+                    if all_products[item.handle].variants
+                      for var in all_products[item.handle].variants
+                        if selected_variants contains var.id
+                          assign thisPrice = var.price | times: item.stepQuantity
+                          assign totalPriceAct = totalPriceAct | plus: thisPrice
+                          assign thisPrice = var.compare_at_price | times: item.stepQuantity
+                          assign totalCompareAct = totalCompareAct | plus: thisPrice
+                          break
+                        endif
+                      endfor
+                    endif
+                  %}
+                {%- endfor %}
+              {%- endif -%}
+
+              {% assign totalPercentOff = 0 %}
+              {% assign totalCompare = totalCompareAct %}
+              {% assign totalPrice = totalPriceAct %}
+
+              {% if totalCompare > totalPrice %}
+                {% assign totalPercentOff = totalPrice
+                  | times: 100.0
+                  | divided_by: totalCompare
+                  | times: 100.0
+                  | money_without_currency
+                %}
+
+                {% assign totalPercentOff = 100 | minus: totalPercentOff %}
+              {% endif %}
+
+              {% comment %}
+                apply bundle discount
+              {% endcomment %}
+              {% if bundleDataValue.bundleDiscount > 0 %}
+                {% assign diff = totalPrice | times: bundleDataValue.bundleDiscount | divided_by: 100 %}
+                {% assign totalPrice = totalPrice | minus: diff %}
+              {% endif %}
+
+              {% render 'bundle-builder-price',
+                totalCompare: totalCompare,
+                totalPrice: totalPrice,
+                totalPercentOff: totalPercentOff,
+                showPerc: false
+              %}
+            {% else %}
+              <div class="whitespace-nowrap">
+                {% if card_product.price_min != card_product.price_max %}
+                  <p>
+                    <strong class="block">
+                      {{- card_product.price_min | money }} - {{ card_product.price_max | money -}}
+                    </strong>
+                  </p>
+                {% else %}
+                  <p>
+                    <strong class="block">{{ card_product.price | money }}</strong>
+                  </p>
+                {% endif %}
+              </div>
+            {% endif %}
+          </div>
+
+          <h3
+            class="font-semibold m-body-copy lg:d-h3"
+            id="title-{{ section_id }}-{{ card_product.id }}"
+          >
+            {% if bundleData != blank and bundleData.value.bundleTitle %}
+              {{ bundleData.value.bundleTitle }}
+            {% else %}
+              {{ card_product.title | escape }}
+            {% endif %}
+          </h3>
+          {% if card_product.metafields.christy23.tagline_pdp %}
+            <p>{{ card_product.metafields.christy23.tagline_pdp }}</p>
+          {% endif %}
+        </a>
+      </div>
+
+      {%- unless card_product.has_only_default_variant -%}
+        {%- assign coloursCount = 0 %}
+        {%- assign coloursVisible = 0 %}
+        {%- capture optionColours %}
+            {%- for option in card_product.options_with_values -%}
+              {% if option.name == 'Colour' or option.name == 'Color' %}
+                
+                {%- for value in option.values -%}
+
+                  
+                  {% assign option_swatch_image = '' %}
+                  
+                  
+                    {%- for image in card_product.images -%}
+                      {%- assign alt_array = image.alt | split: '-' -%}
+                      {%- assign alt_striped = alt_array[0] | strip -%}
+                      {%- assign colour_striped = value | strip -%}
+                      {%- if colour_striped == alt_striped and alt_array[1] == 'product_swatch' -%}
+                        {%- assign option_swatch_image = image -%}
+                        {% break %}
+                      {%- endif -%}
+                    {%- endfor -%}
+                    
+                  {%- if option_swatch_image != blank %}
+                    
+                    {% if coloursCount < 6 %}
+                    
+                    {%- assign coloursVisible = coloursVisible | plus: 1 -%}
+                    <a
+                      href="{{ card_product.url }}/c:{{ value | handleize }}"
+                      class="h-auto w-full rounded-full [&.active]:border [&.active]:border-[#999999]/20 [&.active_.swatch]:scale-75 flex items-center justify-center {% if coloursCount > 2 %}max-md:hidden{% endif %}"
+                    >
+                      <div class="pt-[100%] flex-1 relative">
+                        <div
+                          class="swatch w-full h-full transition-[width,height] rounded-full absolute inset-0 transition-transform"
+                          style="background-image: url({{ option_swatch_image | img_url: '24x24' }});"
+                        ></div>
+                      </div>
+                    </a>
+
+                    {% endif %}
+
+                    {%- assign coloursCount = coloursCount | plus: 1 -%}
+                  {%- endif %}
+                {% endfor %}
+              {% endif %}
+            {%- endfor %}
+          {%- endcapture -%}
+
+        {% if coloursCount > 1 %}
+          <div
+            class="card__colours grid grid-cols-[repeat(3,minmax(auto,16px))_1fr] md:grid-cols-[repeat(6,minmax(auto,24px))_1fr] gap-2 md:gap-3 items-center"
+            data-count="{{ coloursCount }}"
+          >
+            {{ optionColours }}
+
+            {% liquid
+              assign colourCountActual = coloursCount
+              assign mobColourCount = colourCountActual | minus: 3
+              assign tabColourCount = colourCountActual | minus: 6
+            %}
+
+            {% if mobColourCount > 0 or tabColourCount > 0 %}
+              <div class="leading-tight max-md:text-[10px] font-bold">
+                {% if mobColourCount > 0 %}
+                  <a href="{{ card_product.url }}" class="md:hidden hover:underline">{{ mobColourCount }}+ more</a>
+                {% endif %}
+                {% if tabColourCount > 0 %}
+                  <a href="{{ card_product.url }}" class="max-md:hidden hover:underline">{{ tabColourCount }}+ more</a>
+                {% endif %}
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+      {%- endunless -%}
+    </div>
+  </div>
+{%- else -%}
+  <div class="card-wrapper product-card-wrapper underline-links-hover">
+    <div
+      class="
+        card
+        card--{{ settings.card_style }}
+        card--text
+        {% if extend_height %} card--extend-height{% endif %}
+        {% if settings.card_style == 'card' %} color-{{ settings.card_color_scheme }} gradient{% endif %}
+        {% if card_product.featured_media == nil and settings.card_style == 'card' %} ratio{% endif %}
+        {{ horizontal_class }}
+      "
+      style="--ratio-percent: 100%;"
+    >
+      <div
+        class="card__inner {% if settings.card_style == 'standard' %}color-{{ settings.card_color_scheme }} gradient{% endif %}{% if settings.card_style == 'standard' %} ratio{% endif %}"
+        style="--ratio-percent: 100%;"
+      >
+        <div class="card__media">
+          {%- if placeholder_image -%}
+            {{ placeholder_image | placeholder_svg_tag: 'placeholder-svg' }}
+          {%- else -%}
+            {{ 'product-apparel-2' | placeholder_svg_tag: 'placeholder-svg' }}
+          {%- endif -%}
+        </div>
+      </div>
+      <div class="card__content">
+        <div class="card__information">
+          <h3 class="card__heading card__heading--placeholder{% if settings.card_style == 'standard' %} h5{% endif %}">
+            <a role="link" aria-disabled="true" class="full-unstyled-link">
+              {{ 'onboarding.product_title' | t }}
+            </a>
+          </h3>
+          <div class="card-information">
+            {%- if show_vendor -%}
+              <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
+              <div class="caption-with-letter-spacing light">{{ 'products.product.vendor' | t }}</div>
+            {%- endif -%}
+            {% render 'price' %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{%- endif -%}

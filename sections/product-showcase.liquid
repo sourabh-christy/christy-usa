@@ -1,0 +1,233 @@
+<div
+  id="Showcase-{{ section.id }}"
+  class="relative overflow-hidden max-h-screen"
+>
+  <div class="overflow-hidden showcase-wrap relative">
+    <div class="pt-[150%] lg:pt-[69.5%]">
+      {%- liquid
+        assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
+        assign sizes = '100vw'
+        assign image_class = 'object-cover object-center w-full h-full absolute inset-0'
+      -%}
+
+      {%- if section.settings.image != blank -%}
+        {%- assign image_height = section.settings.image.height -%}
+        {{
+          section.settings.image
+          | image_url: width: 3840
+          | image_tag:
+            loading: 'lazy',
+            width: section.settings.image.width,
+            height: image_height,
+            class: image_class,
+            sizes: sizes,
+            widths: widths
+        }}
+      {%- else -%}
+        {{ 'hero-apparel-1' | placeholder_svg_tag: image_class }}
+      {%- endif -%}
+    </div>
+
+    <div class="points lg:hidden">
+      {%- for block in section.blocks %}
+        {% if block.settings.product != blank %}
+          {%- assign product = block.settings.product %}
+          <a
+            href="{{ product.url }}"
+            class="absolute p-2 lg:p-4 group"
+            style="left: {{ block.settings.position_left_mob }}%; top: {{ block.settings.position_top_mob }}%;"
+          >
+            <div
+              class="w-[30px] lg:w-[32px] h-[30px] lg:h-[32px] rounded-full bg-white/30 relative animate-pulse group-hover:animate-none"
+              style="animation-delay: {{ forloop.index0 | times: 0.5 }}s;"
+            >
+              <div
+                class="bg-white rounded-full w-[16px] lg:w-[17px] h-[16px] lg:h-[17px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:scale-75  transition-transform"
+              ></div>
+
+              <div
+                class="card absolute p-2 lg:p-4 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto translate-y-4 group-hover:translate-y-0 transition-all"
+              >
+                <div class="w-[193px] lg:w-[264px] p-4 lg:p-8 lg:pb-6 bg-white/90 text-blue-1 space-y-8 lg:space-y-10">
+                  <header class="space-y-1 lg:space-y-2">
+                    <h4 class="m-h3">{{ product.title }}</h4>
+
+                    {% if product.collections.size > 0 %}
+                      {% assign first_collection = product.collections.first %}
+                      {% if first_collection %}
+                        <p>{{ first_collection.title }}</p>
+                      {% endif %}
+                    {% endif %}
+                  </header>
+
+                  <div class="space-x-4 flex">
+                    {% if product.price_min != product.price_max %}
+                      <p>
+                        Price Range
+                        <strong class="inline-block">
+                          {{- product.price_min | money }}-{{ product.price_max | money -}}
+                        </strong>
+                      </p>
+                    {% else %}
+                      <p>
+                        Price <strong class="inline-block">{{ product.price | money }}</strong>
+                      </p>
+                    {% endif %}
+
+                    <img
+                      class="shrink-0 object-contain lg:w-[40px] lg:h-auto"
+                      src="{{ 'icon-arrow-right.svg' | asset_url }}"
+                      width="24"
+                      height="6"
+                      alt="More"
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        {% endif %}
+      {%- endfor -%}
+    </div>
+
+    <div class="points max-lg:hidden">
+      {%- for block in section.blocks %}
+        {% if block.settings.product != blank %}
+          {%- assign product = block.settings.product %}
+          <a
+            href="{{ product.url }}"
+            class="absolute p-2 lg:p-4 group"
+            style="left: {{ block.settings.position_left }}%; top: {{ block.settings.position_top }}%;"
+          >
+            <div
+              class="w-[30px] h-[30px] rounded-full bg-white/30 relative animate-pulse group-hover:animate-none"
+              style="animation-delay: {{ forloop.index0 | times: 0.5 }}s;"
+            >
+              <div
+                class="bg-white rounded-full w-[16px] h-[16px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:scale-75  transition-transform"
+              ></div>
+
+              <div
+                class="card absolute p-2 lg:p-4 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto translate-y-4 group-hover:translate-y-0 transition-opacity"
+              >
+                <div class="w-[193px] lg:w-[264px] p-4 lg:p-8 lg:pb-6 bg-white/90 text-blue-1 space-y-8 lg:space-y-10">
+                  <header class="space-y-1 lg:space-y-2">
+                    <h5 class="m-h3">{{ product.title }}</h5>
+
+                    {% if product.collections.size > 0 %}
+                      {% assign first_collection = product.collections.first %}
+                      {% if first_collection %}
+                        {{ first_collection.title }}
+                      {% endif %}
+                    {% endif %}
+                  </header>
+
+                  <div class="space-x-4 flex">
+                    {% if product.price_min != product.price_max %}
+                      <p>
+                        Price Range <strong>{{ product.price_min | money }}-{{ product.price_max | money }}</strong>
+                      </p>
+                    {% else %}
+                      <p>
+                        Price <strong>{{ product.price | money }}</strong>
+                      </p>
+                    {% endif %}
+
+                    <img
+                      class="shrink-0 object-contain lg:w-[40px] lg:h-auto"
+                      src="{{ 'icon-arrow-right.svg' | asset_url }}"
+                      width="24"
+                      height="6"
+                      alt="More"
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        {% endif %}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% javascript %}
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "Product Showcase",
+  "tag": "section",
+  "class": "section-showcase",
+  "disabled_on": {
+    "groups": ["header", "footer"],
+    "templates": ["article"]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background Image",
+      "info": "the sections background image. Recommended size: 1920x1080"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "hotspot",
+      "name": "Hotspot",
+      "settings": [
+        {
+          "type": "range",
+          "id": "position_left",
+          "min": 10,
+          "max": 90,
+          "step": 5,
+          "unit": "%",
+          "label": "Position Left DESKTOP",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "position_top",
+          "min": 10,
+          "max": 90,
+          "step": 5,
+          "unit": "%",
+          "label": "Position Top DESKTOP",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "position_left_mob",
+          "min": 10,
+          "max": 90,
+          "step": 5,
+          "unit": "%",
+          "label": "Position Left MOBILE",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "position_top_mob",
+          "min": 10,
+          "max": 90,
+          "step": 5,
+          "unit": "%",
+          "label": "Position Top MOBILE",
+          "default": 50
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Showcase"
+    }
+  ]
+}
+{% endschema %}

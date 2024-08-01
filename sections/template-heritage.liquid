@@ -1,0 +1,2064 @@
+{{ 'splide.min.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign full_width = '100vw'
+  assign widths = '375, 550, 750, 1100, 1500, 1780, 2000'
+  assign sizes = '100vw'
+-%}
+
+<div
+  id="HeritageTimeline-{{ section.id }}"
+  class="min-h-screen"
+>
+  <nav id="timeline-nav" class="sticky z-30 top-0 left-0 bg-white pt-4 lg:pt-7">
+    <div class="container">
+      <div class="scrollbar-grad-desktop !overflow-visible">
+        <div class="flex overflow-auto -mr-[40px] lg:-mr-[48px] pt-[6px] lg:pt-[8px]">
+          <a
+            class="active relative border-t border-[blue-1]/10 px-6 py-4 lg:py-8 flex-1 text-center before:absolute before:left-0 before:bottom-full before:w-full before:h-[6px] before:lg:h-[8px] before:bg-transparent [&.active]:before:bg-blue-1 before:transition-colors [&.active]:font-semibold"
+            href="#timeline-1800"
+            >1800's</a
+          >
+          <a
+            class="relative border-t border-[blue-1]/10 px-6 py-4 lg:py-8 flex-1 text-center before:absolute before:left-0 before:bottom-full before:w-full before:h-[6px] before:lg:h-[8px] before:bg-transparent [&.active]:before:bg-blue-1 before:transition-colors [&.active]:font-semibold"
+            href="#timeline-1850"
+            >1850</a
+          >
+          <a
+            class="relative border-t border-[blue-1]/10 px-6 py-4 lg:py-8 flex-1 text-center before:absolute before:left-0 before:bottom-full before:w-full before:h-[6px] before:lg:h-[8px] before:bg-transparent [&.active]:before:bg-blue-1 before:transition-colors [&.active]:font-semibold"
+            href="#timeline-1851"
+            >1851</a
+          >
+          <a
+            class="relative border-t border-[blue-1]/10 px-6 py-4 lg:py-8 flex-1 text-center before:absolute before:left-0 before:bottom-full before:w-full before:h-[6px] before:lg:h-[8px] before:bg-transparent [&.active]:before:bg-blue-1 before:transition-colors [&.active]:font-semibold"
+            href="#timeline-1977"
+            >1977</a
+          >
+          <a
+            class="relative border-t border-[blue-1]/10 px-6 py-4 lg:py-8 flex-1 text-center before:absolute before:left-0 before:bottom-full before:w-full before:h-[6px] before:lg:h-[8px] before:bg-transparent [&.active]:before:bg-blue-1 before:transition-colors [&.active]:font-semibold"
+            href="#timeline-1988"
+            >1988</a
+          >
+          <a
+            class="relative border-t border-[blue-1]/10 px-6 py-4 lg:py-8 flex-1 text-center before:absolute before:left-0 before:bottom-full before:w-full before:h-[6px] before:lg:h-[8px] before:bg-transparent [&.active]:before:bg-blue-1 before:transition-colors [&.active]:font-semibold"
+            href="#timeline-2012"
+            >2012</a
+          >
+
+          <a
+            class="relative border-t border-[blue-1]/10 px-6 py-4 lg:py-8 flex-1 text-center before:absolute before:left-0 before:bottom-full before:w-full before:h-[6px] before:lg:h-[8px] before:bg-transparent [&.active]:before:bg-blue-1 before:transition-colors [&.active]:font-semibold"
+            href="#timeline-2020"
+            >2020</a
+          >
+          <a
+            class="relative border-t border-[blue-1]/10 px-6 py-4 lg:py-8 flex-1 text-center before:absolute before:left-0 before:bottom-full before:w-full before:h-[6px] before:lg:h-[8px] before:bg-transparent [&.active]:before:bg-blue-1 before:transition-colors [&.active]:font-semibold"
+            href="#timeline-2023"
+            >2023</a
+          >
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section id="timeline" class="overflow-hidden">
+    <header
+      data-era="1800"
+      id="timeline-1800"
+      class="relative z-20 bg-white space-y-4 container pt-6 lg:pt-9 mb-20 lg:mb-52 grid md:grid-cols-12 md:gap-6 after:h-20 after:lg:h-52 after:absolute after:top-full after:w-full after:bg-gradient-to-b after:from-white"
+    >
+      <div class="md:col-start-2 md:col-span-4 animation an-fadeup space-y-4">
+        <p class="font-semibold">1800’s</p>
+        <h2 class="s-m-h3 lg:s-d-h2">Henry Christy returns to Industrial Britain</h2>
+      </div>
+    </header>
+
+    <section id="timeline-1850" data-era="1850" class="mb-24 lg:mb-48">
+      <div class="container grid md:grid-cols-12 gap-12 md:gap-6">
+        <div class="max-md:flex relative md:col-span-2 md:col-start-8 animation an-fadeup">
+          <figure class="relative z-10 max-md:w-1/2 shrink-0">
+            {%- if section.settings.img_1850_1 != blank -%}
+              {{
+                section.settings.img_1850_1
+                | image_url: width: 2000
+                | image_tag:
+                  loading: 'lazy',
+                  width: section.settings.img_1850_1.width,
+                  height: section.settings.img_1850_1.height,
+                  class: '',
+                  sizes: sizes,
+                  widths: widths
+              }}
+            {%- else -%}
+              {{ 'hero-apparel-1' | placeholder_svg_tag: '' }}
+            {%- endif -%}
+          </figure>
+          <figure class="md:w-[128%] md:absolute left-full top-1/2 -ml-6 max-md:mt-[38%]">
+            {%- if section.settings.img_1850_2 != blank -%}
+              {{
+                section.settings.img_1850_2
+                | image_url: width: 2000
+                | image_tag:
+                  loading: 'lazy',
+                  width: section.settings.img_1850_2.width,
+                  height: section.settings.img_1850_2.height,
+                  class: '',
+                  sizes: sizes,
+                  widths: widths
+              }}
+            {%- else -%}
+              {{ 'hero-apparel-1' | placeholder_svg_tag: '' }}
+            {%- endif -%}
+          </figure>
+        </div>
+
+        <div class="md:col-span-6 md:col-start-2 grid md:grid-cols-12 gap-6 ">
+          <header class="space-y-1 lg:space-y-2 md:col-span-full lg:col-span-6 lg:col-start-6 animation an-fadeup">
+            <h3 class="m-h1 lg:d-h2">The Beginning</h3>
+            <p class="m-h5 lg:d-h5 font-semibold">1850</p>
+          </header>
+
+          <div class="col-span-full lg:col-span-4 max-lg:order-3 max-lg:mt-6">
+            <figure class="lg:-mr-12 max-md:w-8/12 animation an-fadeup">
+              {%- if section.settings.img_1850_3 != blank -%}
+                {{
+                  section.settings.img_1850_3
+                  | image_url: width: 2000
+                  | image_tag:
+                    loading: 'lazy',
+                    width: section.settings.img_1850_3.width,
+                    height: section.settings.img_1850_3.height,
+                    class: '',
+                    sizes: sizes,
+                    widths: widths
+                }}
+              {%- else -%}
+                {{ 'hero-apparel-1' | placeholder_svg_tag: '' }}
+              {%- endif -%}
+            </figure>
+          </div>
+
+          <div class=" md:col-span-full lg:col-span-6 lg:col-start-6 animation an-fadeup">
+            <div class="wysiwyg">
+              <p>This is when our story begins. It all starts with the invention of the towel as we know it today.</p>
+              <p>
+                In 1850, the young financier Henry Christy returned to Britain after an expedition to Turkey. He brought
+                with him an extensive collection of beautiful—and technologically unfamiliar—fabrics. Amongst them was a
+                fluffy, looped cloth that fascinated Christy's brother, Richard, so much that he and an employee, Samuel
+                Holt, worked our how to make their own.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="timeline-1851" data-era="1851" class="relative md:-top-48 lg:-top-72 z-10">
+      <div class="absolute top-0 right-0 max-md:rotate-90 max-md:origin-right max-md:translate-y-full max-md:-translate-x-[24px]">
+        <button
+          data-modaltrigger="1851"
+          class="md:translate-x-full [&.active]:translate-x-0 transition-all text-[10px] lg:text-[14px] bg-grey-1 hover:bg-blue-1 hover:text-white min-w-[210px] lg:min-w-[252px] h-[48px] lg:h-[60px] flex items-center justify-center text-center"
+        >
+          Royal Turkish Towels 1851
+        </button>
+      </div>
+    </section>
+
+    <section class="mb-24 lg:mb-52">
+      <div class="container grid md:grid-cols-12 gap-12 md:gap-6 md:items-center">
+        <div class="max-md:flex relative md:col-span-4 md:col-start-8 animation an-fadeup">
+          <figure class="relative z-10 max-md:w-full shrink-0 md:-ml-6">
+            {%- if section.settings.img_1851_1 != blank -%}
+              {{
+                section.settings.img_1851_1
+                | image_url: width: 2000
+                | image_tag:
+                  loading: 'lazy',
+                  width: section.settings.img_1851_1.width,
+                  height: section.settings.img_1851_1.height,
+                  class: '',
+                  sizes: sizes,
+                  widths: widths
+              }}
+            {%- else -%}
+              {{
+                'hero-apparel-1'
+                | placeholder_svg_tag: 'w-full h-full object-cover absolute inset-0 opacity-0 object-left'
+              }}
+            {%- endif -%}
+          </figure>
+        </div>
+
+        <div class="md:col-span-3 md:col-start-2 md:row-start-1 flex flex-col gap-6 ">
+          <header class="animation an-fadeup">
+            <h3 class="m-h1 lg:d-h2">The Great Showcase</h3>
+            <p class="m-h5 lg:d-h5 font-semibold">1851</p>
+          </header>
+
+          <div class="animation an-fadeup">
+            <div class="wysiwyg">
+              <p>
+                The Christy’s created a machine that made their Turkish towelling fabric on an industrial scale and set
+                up shop at Fairfield mill on the outskirts of Manchester. The brothers quickly took their soft,
+                absorbent towels to market.
+              </p>
+
+              <p>
+                They began by showing their wares at the world famous Great Exhibition in 1851, where they caught the
+                eye of none other than Queen Victoria.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="timeline-1883" data-era="1883" class="relative -top-12 lg:-top-28 z-10">
+      <div class="absolute top-0 right-0  max-md:rotate-90 max-md:origin-right max-md:translate-y-full max-md:-translate-x-[24px]">
+        <button
+          data-modaltrigger="1883"
+          class="md:translate-x-full [&.active]:translate-x-0 transition-all text-[10px] lg:text-[14px] bg-grey-1 hover:bg-blue-1 hover:text-white min-w-[210px] lg:min-w-[252px] h-[48px] lg:h-[60px] flex items-center justify-center text-center"
+        >
+          Fairfield Mill 1883
+        </button>
+      </div>
+    </section>
+
+    <div class="container mb-20 lg:mb-52 grid md:grid-cols-12 mb-24 lg:mb-48">
+      <div class="md:col-start-2 col-span-full animation an-fadeup ">
+        <h2 class="s-m-h3 lg:s-d-h2">Industrial Revolution</h2>
+      </div>
+    </div>
+
+    <section id="timeline-1891" data-era="1891" class="relative mb-24 lg:mb-48 min-h-[800px] flex items-end">
+      {%- if section.settings.img_1891_1 != blank -%}
+        {%- render 'lazyimg',
+          img: section.settings.img_1891_1,
+          width: section.settings.img_1891_1.width,
+          height: section.settings.img_1891_1.height,
+          widths: widths,
+          class: 'w-full h-full object-cover absolute inset-0 opacity-0 object-left',
+          sizes: sizes
+        -%}
+      {%- else -%}
+        {{ 'hero-apparel-1' | placeholder_svg_tag: 'w-full h-full object-cover absolute inset-0 object-left' }}
+      {%- endif -%}
+
+      <div class="container grid md:grid-cols-12 gap-12 md:gap-6 md:items-center text-white py-20">
+        <div class="md:col-span-3 md:col-start-2 md:row-start-1 flex flex-col gap-6 ">
+          <header class="animation an-fadeup">
+            <p class="m-h5 lg:d-h5 font-semibold">1891</p>
+          </header>
+
+          <div class="animation an-fadeup">
+            <div class="wysiwyg">
+              <p>
+                By the 1890s W.M. Christy & Sons was big business. At the Fairfield mill, 30,000 spindles were turning
+                cotton into fluffy yarns that fed over 700 looms, which were weaving overtime to keep up with demand for
+                terry towels.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <header
+      data-era="1920"
+      id="timeline-1920"
+      class="container grid md:grid-cols-12 md:gap-6 -mt-24 lg:-mt-48 pt-48 lg:pt-96"
+    >
+      <div class="md:col-start-2 md:col-span-4 animation an-fadeup space-y-4 relative">
+        <h2 class="s-m-h3 lg:s-d-h2 md:absolute mb-12">Post-War innovation and adapting to changing demands.</h2>
+      </div>
+    </header>
+
+    <section class="relative z-10">
+      <div class="absolute top-0 right-0  max-md:rotate-90 max-md:origin-right max-md:translate-y-[210px] max-md:-translate-x-[24px]">
+        <button
+          data-modaltrigger="1920"
+          class="md:translate-x-full [&.active]:translate-x-0 transition-all text-[10px] lg:text-[14px] bg-grey-1 hover:bg-blue-1 hover:text-white min-w-[210px] lg:min-w-[252px] h-[48px] lg:h-[60px] flex items-center justify-center text-center"
+        >
+          Coloured Towel Expansion
+        </button>
+      </div>
+    </section>
+
+    <section id="timeline-1928" data-era="1928" class="mb-24 lg:mb-48">
+      <div class="container grid md:grid-cols-12 gap-28 md:gap-6">
+        <div class="max-md:flex relative md:col-span-3 md:col-start-7 animation an-fadeup">
+          <figure class="relative z-10 max-md:w-1/2 shrink-0">
+            {%- if section.settings.img_1928_1 != blank -%}
+              {{
+                section.settings.img_1928_1
+                | image_url: width: 2000
+                | image_tag:
+                  loading: 'lazy',
+                  width: section.settings.img_1928_1.width,
+                  height: section.settings.img_1928_1.height,
+                  class: '',
+                  sizes: sizes,
+                  widths: widths
+              }}
+            {%- else -%}
+              {{ 'hero-apparel-1' | placeholder_svg_tag: '' }}
+            {%- endif -%}
+          </figure>
+          <figure class="md:w-[124%] md:absolute left-full top-1/2 -ml-6 md:-ml-12 max-md:mt-[38%]">
+            {%- if section.settings.img_1928_2 != blank -%}
+              {{
+                section.settings.img_1928_2
+                | image_url: width: 2000
+                | image_tag:
+                  loading: 'lazy',
+                  width: section.settings.img_1928_2.width,
+                  height: section.settings.img_1928_2.height,
+                  class: '',
+                  sizes: sizes,
+                  widths: widths
+              }}
+            {%- else -%}
+              {{ 'hero-apparel-1' | placeholder_svg_tag: '' }}
+            {%- endif -%}
+          </figure>
+        </div>
+
+        <div class="md:col-span-7 md:col-start-2 grid md:grid-cols-12 gap-6 ">
+          <header class="space-y-1 lg:space-y-2 md:col-span-full lg:col-span-5 animation an-fadeup">
+            <h3 class="m-h5 lg:d-h5 font-semibold">1928</h3>
+          </header>
+
+          <div class=" md:col-span-full lg:col-span-5 animation an-fadeup lg:row-start-2">
+            <div class="wysiwyg">
+              <p>
+                Even 100 years ago, Christy had far reaching ambitions. In 1928 they showed off their fluffy towels at
+                the Melbourne exhibition, and their fashionable new beach wraps were a hit at the Toronto exhibition in
+                the following year.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-span-full lg:col-span-5 lg:row-start-3 lg:col-start-6 max-md:mt-20">
+            <figure class="lg:-mr-12 animation an-fadeup">
+              {%- if section.settings.img_1928_3 != blank -%}
+                {{
+                  section.settings.img_1928_3
+                  | image_url: width: 2000
+                  | image_tag:
+                    loading: 'lazy',
+                    width: section.settings.img_1928_3.width,
+                    height: section.settings.img_1928_3.height,
+                    class: '',
+                    sizes: sizes,
+                    widths: widths
+                }}
+              {%- else -%}
+                {{ 'hero-apparel-1' | placeholder_svg_tag: '' }}
+              {%- endif -%}
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <header class="container mb-20 lg:mb-52 grid md:grid-cols-12 mb-24 lg:mb-48">
+      <div class="md:col-start-2 col-span-full animation an-fadeup ">
+        <h2 class="s-m-h3 lg:s-d-h2">By Royal Appointment</h2>
+      </div>
+    </header>
+
+    <section id="timeline-1937" data-era="1937" class="mb-24 lg:mb-48">
+      <div class="container grid md:grid-cols-12 gap-20 md:gap-6 md:items-center">
+        <div class="max-md:flex relative md:col-span-4 md:col-start-3 animation an-fadeup">
+          <figure class="relative z-10 max-md:w-1/2 shrink-0 md:-ml-6">
+            {%- if section.settings.img_1937_1 != blank -%}
+              {{
+                section.settings.img_1937_1
+                | image_url: width: 2000
+                | image_tag:
+                  loading: 'lazy',
+                  width: section.settings.img_1937_1.width,
+                  height: section.settings.img_1937_1.height,
+                  class: '',
+                  sizes: sizes,
+                  widths: widths
+              }}
+            {%- else -%}
+              {{ 'hero-apparel-1' | placeholder_svg_tag: '' }}
+            {%- endif -%}
+          </figure>
+        </div>
+
+        <div class="md:col-span-3 md:col-start-9 md:row-start-1 flex flex-col gap-6 ">
+          <header class="animation an-fadeup">
+            <p class="m-h5 lg:d-h5 font-semibold">1937</p>
+          </header>
+
+          <div class="animation an-fadeup">
+            <div class="wysiwyg">
+              <p>
+                The Coronation of Edward VIII was due to take place on the 12th May, 1937. Preparations had already
+                begun and Christy had already manufactured and sold souvenir towels when he abdicated on the 11th of
+                December 1936.
+              </p>
+
+              <p>
+                Ever the Royalists, Christy still went on to produce a souvenir Coronation Towel for King George VI in
+                1937.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="timeline-1942"
+      data-era="1942"
+      class="relative mb-24 lg:mb-48 min-h-[800px] lg:min-h-[948px] flex items-end"
+    >
+      {%- if section.settings.img_1942_1 != blank -%}
+        {%- render 'lazyimg',
+          img: section.settings.img_1942_1,
+          width: section.settings.img_1942_1.width,
+          height: section.settings.img_1942_1.height,
+          widths: widths,
+          class: 'w-full h-full object-cover absolute inset-0 opacity-0 object-left',
+          sizes: sizes
+        -%}
+      {%- else -%}
+        {{ 'hero-apparel-1' | placeholder_svg_tag: 'w-full h-full object-cover absolute inset-0 object-left' }}
+      {%- endif -%}
+
+      <div class="container grid md:grid-cols-12 gap-12 md:gap-6 md:items-center text-white py-20">
+        <div class="md:col-span-3 md:col-start-2 md:row-start-1 flex flex-col gap-6 ">
+          <header class="animation an-fadeup">
+            <p class="m-h5 lg:d-h5 font-semibold">1942</p>
+          </header>
+
+          <div class="animation an-fadeup">
+            <div class="wysiwyg">
+              <p>
+                During the Second World War the Fairfield mill closed so that it's workers could join the war effort,
+                but in a surprise turn of events, it reopened in September 1942. Christy was called back into action
+                mid-war to manage a serious towel shortage that had developed.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <header
+      data-era="1950"
+      id="timeline-1950"
+      class="container grid md:grid-cols-12 md:gap-6 -mt-24 lg:-mt-48 pt-48 lg:pt-96"
+    >
+      <div class="md:col-start-1 md:col-span-12 animation an-fadeup space-y-4 relative md:text-right">
+        <h2 class="s-m-h3 lg:s-d-h2 mb-12">Christy turns 100</h2>
+      </div>
+    </header>
+
+    <section class="relative animation an-fadeup hidden">
+      <div class="absolute top-0 right-0">
+        <button
+          data-modaltrigger="1950"
+          class="md:translate-x-full [&.active]:translate-x-0 transition-all text-[10px] lg:text-[14px] bg-grey-1 hover:bg-blue-1 hover:text-white min-w-[210px] lg:min-w-[252px] h-[48px] lg:h-[60px] flex items-center justify-center text-center"
+        >
+          Colourful Beach wraps 1950
+        </button>
+      </div>
+    </section>
+
+    <section id="timeline-1951" data-era="1951" class="mb-24 lg:mb-48 overflow-hidden">
+      <div class="container grid md:grid-cols-12 gap-28 md:gap-6 lg:mb-[10%]">
+        <div class="max-md:flex relative md:col-span-3 md:col-start-6 animation an-fadeup">
+          <figure class="relative z-10 max-md:w-1/2 shrink-0">
+            {%- if section.settings.img_1951_1 != blank -%}
+              {{
+                section.settings.img_1951_1
+                | image_url: width: 2000
+                | image_tag:
+                  loading: 'lazy',
+                  width: section.settings.img_1951_1.width,
+                  height: section.settings.img_1951_1.height,
+                  class: '',
+                  sizes: sizes,
+                  widths: widths
+              }}
+            {%- else -%}
+              {{ 'hero-apparel-1' | placeholder_svg_tag: '' }}
+            {%- endif -%}
+          </figure>
+          <figure class="md:w-[124%] md:absolute left-full top-1/2 -ml-6 md:-ml-12 max-md:mt-[38%]">
+            {%- if section.settings.img_1951_2 != blank -%}
+              {{
+                section.settings.img_1951_2
+                | image_url: width: 2000
+                | image_tag:
+                  loading: 'lazy',
+                  width: section.settings.img_1951_2.width,
+                  height: section.settings.img_1951_2.height,
+                  class: '',
+                  sizes: sizes,
+                  widths: widths
+              }}
+            {%- else -%}
+              {{ 'hero-apparel-1' | placeholder_svg_tag: '' }}
+            {%- endif -%}
+          </figure>
+        </div>
+
+        <div class="md:col-span-7 md:col-start-2 grid md:grid-cols-12 gap-6 md:-translate-y-full">
+          <header class="space-y-1 lg:space-y-2 md:col-span-full lg:col-span-5 animation an-fadeup">
+            <h3 class="m-h1 lg:d-h2">Centenary Celebrations</h3>
+            <p class="m-h5 lg:d-h5 font-semibold">1951</p>
+          </header>
+
+          <div class=" md:col-span-full lg:col-span-5 animation an-fadeup lg:row-start-2">
+            <div class="wysiwyg">
+              <p>
+                In 1951, Christy celebrated "The Century Achieved: 100 years of the Royal Turkish Towel" with an
+                exhibition, glamorous parties, and a special centenary publication.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="timeline-1952" data-era="1952" class="mb-24 lg:mb-72">
+      <div class="container grid md:grid-cols-12 gap-20 md:gap-6 md:items-center">
+        <div class="max-md:flex relative md:col-span-6 md:col-start-2 animation an-fadeup">
+          <figure class="relative z-10 max-md:w-full shrink-0 md:-mr-12">
+            {%- if section.settings.img_1952_1 != blank -%}
+              {{
+                section.settings.img_1952_1
+                | image_url: width: 2000
+                | image_tag:
+                  loading: 'lazy',
+                  width: section.settings.img_1952_1.width,
+                  height: section.settings.img_1952_1.height,
+                  class: '',
+                  sizes: sizes,
+                  widths: widths
+              }}
+            {%- else -%}
+              {{ 'hero-apparel-1' | placeholder_svg_tag: '' }}
+            {%- endif -%}
+          </figure>
+        </div>
+
+        <div class="md:col-span-3 md:col-start-9 md:row-start-1 flex flex-col gap-6 ">
+          <header class="animation an-fadeup">
+            <p class="m-h5 lg:d-h5 font-semibold">1952</p>
+          </header>
+
+          <div class="animation an-fadeup">
+            <div class="wysiwyg">
+              <p>
+                Barbara Goalen is described as "the most photographed woman in Britain" and "arguably the first British
+                supermodel", she epitomised post-war glamour and modelled for both Dior and Balenciaga.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="timeline-1953" data-era="1953" class="mb-24 lg:mb-48 overflow-hidden relative">
+      <div class="container grid md:grid-cols-12 gap-20 md:gap-6 md:gap-y-16">
+        <div class="max-md:flex relative md:col-span-4 md:col-start-2 animation an-fadeup">
+          <figure class="relative max-md:w-1/2 shrink-0">
+            {%- if section.settings.img_1953_1 != blank -%}
+              {{
+                section.settings.img_1953_1
+                | image_url: width: 2000
+                | image_tag:
+                  loading: 'lazy',
+                  width: section.settings.img_1953_1.width,
+                  height: section.settings.img_1953_1.height,
+                  class: '',
+                  sizes: sizes,
+                  widths: widths
+              }}
+            {%- else -%}
+              {{ 'hero-apparel-1' | placeholder_svg_tag: '' }}
+            {%- endif -%}
+          </figure>
+          <figure class="md:w-[62%] md:absolute -left-[26%] top-full max-md:mt-[38%] z-10 -mt-[22%]">
+            {%- if section.settings.img_1953_2 != blank -%}
+              {{
+                section.settings.img_1953_2
+                | image_url: width: 2000
+                | image_tag:
+                  loading: 'lazy',
+                  width: section.settings.img_1953_2.width,
+                  height: section.settings.img_1953_2.height,
+                  class: '',
+                  sizes: sizes,
+                  widths: widths
+              }}
+            {%- else -%}
+              {{ 'hero-apparel-1' | placeholder_svg_tag: '' }}
+            {%- endif -%}
+          </figure>
+        </div>
+
+        <div class="md:col-span-3 md:col-start-6 grid gap-6 self-center">
+          <header class="space-y-1 lg:space-y-2 md:col-span-full lg:col-span-5 animation an-fadeup">
+            <p class="m-h5 lg:d-h5 font-semibold">1953</p>
+          </header>
+
+          <div class=" md:col-span-full lg:col-span-5  lg:row-start-2 max-md:relative">
+            <div class="wysiwyg animation an-fadeup">
+              <p>
+                Alongside their new, trend-leading styles, Christy maintained it's royal roots. In 1953 Christy
+                presented Her Majesty Queen Elizabeth II with a special towel as a gift to celebrate her coronation.
+              </p>
+            </div>
+
+            <div
+              id="timeline-1956"
+              data-era="1956"
+              class="absolute top-1/2 -right-[40px] md:right-0"
+            >
+              <div class="absolute top-0 right-0   max-md:rotate-90 max-md:origin-right max-md:translate-y-[210px] max-md:-translate-x-[24px]">
+                <button
+                  data-modaltrigger="1956"
+                  class="md:translate-x-full [&.active]:translate-x-0 transition-all text-[10px] lg:text-[14px] bg-grey-1 hover:bg-blue-1 hover:text-white min-w-[210px] lg:min-w-[252px] h-[48px] lg:h-[60px] flex items-center justify-center text-center"
+                >
+                  Pushing Boundaries in 1956
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="md:col-span-3 md:col-start-6 grid gap-6">
+          <header
+            id="timeline-1963"
+            data-era="1963"
+            class="space-y-1 lg:space-y-2 md:col-span-full lg:col-span-5 animation an-fadeup"
+          >
+            <h3 class="m-h1 lg:d-h2">Courtauld’s group</h3>
+            <p class="m-h5 lg:d-h5 font-semibold">1963-1964</p>
+          </header>
+
+          <div class=" md:col-span-full lg:col-span-5 animation an-fadeup lg:row-start-2">
+            <div class="wysiwyg">
+              <p>
+                In 1963, the Courtauld group, then a textile manufacturing behemoth, bought Christy and added new
+                machinery, skill sets and products to Christy's repertoire.
+              </p>
+
+              <p>This was followed by a visit to the site by Prince Philip on 13th March 1964.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <header
+      data-era="1970"
+      id="timeline-1970"
+      class=""
+    >
+      <div class="container grid md:grid-cols-12 md:gap-6 -mt-24 lg:-mt-48 pt-48 lg:pt-96">
+        <div class="md:col-start-2 md:col-span-12 animation an-fadeup space-y-4 relative">
+          <h2 class="s-m-h3 lg:s-d-h2 mb-12">Leading the revolution</h2>
+        </div>
+      </div>
+    </header>
+
+    <section class="relative md:mt-72 md:mb-28 z-10">
+      <div class="absolute md:relative top-0 max-md:right-0 md:left-0 max-md:rotate-90 max-md:origin-right max-md:translate-y-[85px] max-md:-translate-x-[24px]">
+        <button
+          data-modaltrigger="1970"
+          class="md:-translate-x-full [&.active]:translate-x-0 transition-all text-[10px] lg:text-[14px] bg-grey-1 hover:bg-blue-1 hover:text-white min-w-[210px] lg:min-w-[252px] h-[48px] lg:h-[60px] flex items-center justify-center text-center"
+        >
+          Home Interior Trends 1970’s
+        </button>
+      </div>
+    </section>
+
+    <section
+      id="timeline-1975"
+      data-era="1975"
+      class="relative mb-24 lg:mb-48 min-h-[800px] lg:min-h-[948px] flex items-center"
+    >
+      {%- if section.settings.img_1975_1 != blank -%}
+        {%- render 'lazyimg',
+          img: section.settings.img_1975_1,
+          width: section.settings.img_1975_1.width,
+          height: section.settings.img_1975_1.height,
+          widths: widths,
+          class: 'w-full h-full object-cover absolute inset-0 opacity-0 object-left',
+          sizes: sizes
+        -%}
+      {%- else -%}
+        {{ 'hero-apparel-1' | placeholder_svg_tag: 'w-full h-full object-cover absolute inset-0 object-left' }}
+      {%- endif -%}
+
+      <div class="container grid md:grid-cols-12 gap-12 md:gap-6 md:items-center text-white py-20">
+        <div class="md:col-span-3 md:col-start-2 md:row-start-1 flex flex-col gap-6 ">
+          <header class="animation an-fadeup">
+            <p class="m-h5 lg:d-h5 font-semibold">1975</p>
+          </header>
+
+          <div class="animation an-fadeup">
+            <div class="wysiwyg">
+              <p>
+                In 1975 Christy partnered with Pierre Cardin to produce bed linens made from (what was then) a cutting
+                edge, next generation sheeting material—a polyester/Vincel blend.
+              </p>
+
+              <p>
+                This easy to wash, quick drying fabric virtually eliminated ironing, had greater stain resistance, and
+                the rainbow-hued fabrics maintained their bright prints wash after wash, while whites remained
+                dazzlingly white.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="timeline-1977" data-era="1977" class="mb-24 lg:mb-48">
+      <div class="container grid md:grid-cols-12 gap-20 md:gap-6 md:items-center">
+        <div class="max-md:flex relative md:col-span-3 md:col-start-2 animation an-fadeup">
+          <figure class="relative z-10 max-md:w-1/2 shrink-0 md:-mr-6 max-md:ml-auto">
+            {%- if section.settings.img_1977_1 != blank -%}
+              {{
+                section.settings.img_1977_1
+                | image_url: width: 2000
+                | image_tag:
+                  loading: 'lazy',
+                  width: section.settings.img_1977_1.width,
+                  height: section.settings.img_1977_1.height,
+                  class: '',
+                  sizes: sizes,
+                  widths: widths
+              }}
+            {%- else -%}
+              {{ 'hero-apparel-1' | placeholder_svg_tag: '' }}
+            {%- endif -%}
+          </figure>
+        </div>
+
+        <div class="md:col-span-3 md:col-start-9 md:row-start-1 flex flex-col gap-24 self-end">
+          <div class="space-y-6">
+            <header class="animation an-fadeup">
+              <p class="m-h5 lg:d-h5 font-semibold">1977</p>
+            </header>
+            <div class="wysiwyg animation an-fadeup">
+              <p>
+                Ever a royal favourite, Christy designed and manufactured a limited edition towel in two eye catching
+                colours to commemorate Queen Elizabeth's Silver Jubilee.
+              </p>
+            </div>
+          </div>
+
+          <div class="max-md:hidden space-y-6">
+            <header class="animation an-fadeup">
+              <p class="m-h5 lg:d-h5 font-semibold">Late 1970's</p>
+            </header>
+            <div class="wysiwyg animation an-fadeup">
+              <p>
+                Christy innovation isn't just about materials, it's also about our world-leading customer service. In
+                the late 1970s we began developing guides to help our customers choose the products that would suit them
+                best.
+              </p>
+
+              <p>
+                At the same time, we created detailed care guides so that every owner of a Christy product knew how to
+                properly care for it.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <header
+      class=""
+    >
+      <div class="container grid md:grid-cols-12 md:gap-6 ">
+        <div class="md:col-start-2 md:col-span-6 animation an-fadeup space-y-4 relative">
+          <h2 class="s-m-h3 lg:s-d-h2 mb-12">
+            Christy started providing consumers with care guides and selling features of why Christy products are the
+            best.
+          </h2>
+        </div>
+      </div>
+    </header>
+
+    <header
+      id="timeline-1980"
+      data-era="1980"
+      class=""
+    >
+      <div class="container grid md:grid-cols-12 md:gap-6 pt-64 md:pt-96">
+        <div class="md:col-start-2 md:col-span-12 animation an-fadeup space-y-4 relative">
+          <h2 class="s-m-h3 lg:s-d-h2 mb-12 text-right">A new era</h2>
+        </div>
+      </div>
+    </header>
+
+    <section id="timeline-1981" data-era="1981" class="mb-24 lg:mb-48 overflow-hidden  md:relative">
+      <div class="container grid md:grid-cols-12 gap-28 md:gap-6 md:gap-y-0">
+        <div class="md:col-start-2 md:col-span-3 space-y-6  animation an-fadeup">
+          <h3 class="m-h5 lg:d-h5 font-semibold">1981</h3>
+          <div class="wysiwyg">
+            <p>
+              In 1981, to commemorate the wedding of Prince Charles and Lady Diana Spencer, Christy designed and
+              manufactured a Royal Turkish towel embroidered with Charles and Diana’s initials in gold thread and a silk
+              square exclusively for Debenhams department stores.
+            </p>
+          </div>
+        </div>
+
+        <div class=" md:col-span-7 md:col-start-5 md:mt-24 grid md:grid-cols-12 gap-28 md:gap-6">
+          <div class=" md:col-span-6">
+            <figure class="relative z-10 max-md:w-8/12 shrink-0 md:mr-6  animation an-fadeup">
+              {%- if section.settings.img_1981_1 != blank -%}
+                {{
+                  section.settings.img_1981_1
+                  | image_url: width: 2000
+                  | image_tag:
+                    loading: 'lazy',
+                    width: section.settings.img_1981_1.width,
+                    height: section.settings.img_1981_1.height,
+                    class: '',
+                    sizes: sizes,
+                    widths: widths
+                }}
+              {%- else -%}
+                {{ 'hero-apparel-1' | placeholder_svg_tag: '' }}
+              {%- endif -%}
+            </figure>
+            <figure class="md:hidden max-md:w-8/12 -mt-12 ml-auto relative z-10  animation an-fadeup">
+              {%- if section.settings.img_1981_2 != blank -%}
+                {{
+                  section.settings.img_1981_2
+                  | image_url: width: 2000
+                  | image_tag:
+                    loading: 'lazy',
+                    width: section.settings.img_1981_2.width,
+                    height: section.settings.img_1981_2.height,
+                    class: '',
+                    sizes: sizes,
+                    widths: widths
+                }}
+              {%- else -%}
+                {{ 'hero-apparel-1' | placeholder_svg_tag: '' }}
+              {%- endif -%}
+            </figure>
+          </div>
+          <div class="md:col-span-5 gap-6 self-center max-md:relative">
+            <div class="absolute top-0 -right-[40px] md:right-0 z-10 md:h-24 md:flex md:items-end">
+              <div class="absolute md:relative top-0 max-md:right-0 md:left-0 max-md:rotate-90 max-md:origin-right max-md:translate-y-[85px] max-md:-translate-x-[24px]">
+                <button
+                  data-modaltrigger="1980"
+                  class="md:translate-x-full [&.active]:translate-x-0 transition-all text-[10px] lg:text-[14px] bg-grey-1 hover:bg-blue-1 hover:text-white min-w-[210px] lg:min-w-[252px] h-[48px] lg:h-[60px] flex items-center justify-center text-center"
+                >
+                  Home Interiors 1980’s
+                </button>
+              </div>
+            </div>
+
+            <div class="space-y-6  animation an-fadeup relative z-10">
+              <header class="space-y-1 lg:space-y-2 md:col-span-full lg:col-span-5 animation an-fadeup">
+                <h3 class="m-h5 lg:d-h5 font-semibold">1981</h3>
+              </header>
+
+              <div class=" md:col-span-full lg:col-span-5 animation an-fadeup lg:row-start-2">
+                <div class="wysiwyg">
+                  <p>
+                    A copy of Christy News reports on how women aged 20-50 are at the heart of the successful Christy
+                    marketing strategy, with an exclusive media spend in ‘Woman’ magazine.
+                  </p>
+
+                  <p>
+                    In 1981, we added our signature bathrobes into the collection. They quickly became a staple and are
+                    still one of our best sellers today. From plush velour to soft terry towelling in a rainbow of
+                    colours, we have a robe for everyone, whatever their style.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative z-10 md:col-span-3 md:col-start-5 xl:col-start-6 animation an-fadeup md:-mt-12 max-md:hidden">
+          <figure class="">
+            {%- if section.settings.img_1981_2 != blank -%}
+              {{
+                section.settings.img_1981_2
+                | image_url: width: 2000
+                | image_tag:
+                  loading: 'lazy',
+                  width: section.settings.img_1981_2.width,
+                  height: section.settings.img_1981_2.height,
+                  class: '',
+                  sizes: sizes,
+                  widths: widths
+              }}
+            {%- else -%}
+              {{ 'hero-apparel-1' | placeholder_svg_tag: '' }}
+            {%- endif -%}
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <header
+      class=""
+      id="timeline-1988"
+      data-era="1988"
+    >
+      <div class="container grid md:grid-cols-12 md:gap-6 ">
+        <div class="md:col-start-2 md:col-span-6 animation an-fadeup space-y-4 relative">
+          <h2 class="s-m-h3 lg:s-d-h2 mb-12 md:mb-48">Our love affair with sport</h2>
+        </div>
+      </div>
+    </header>
+
+    <section id="timeline-1988" data-era="1988" class="mb-24 lg:mb-48">
+      <div class="container grid md:grid-cols-12 gap-20 md:gap-6 md:items-center">
+        <div class="max-md:flex relative md:col-span-6 md:col-start-6 animation an-fadeup md:mb-20 lg:mb-36">
+          <figure class="relative z-10 max-md:w-full shrink-0 md:ml-12">
+            {%- if section.settings.img_1988_1 != blank -%}
+              {{
+                section.settings.img_1988_1
+                | image_url: width: 2000
+                | image_tag:
+                  loading: 'lazy',
+                  width: section.settings.img_1988_1.width,
+                  height: section.settings.img_1988_1.height,
+                  class: '',
+                  sizes: sizes,
+                  widths: widths
+              }}
+            {%- else -%}
+              {{ 'hero-apparel-1' | placeholder_svg_tag: '' }}
+            {%- endif -%}
+          </figure>
+        </div>
+
+        <div class="md:col-span-3 md:col-start-2 md:row-start-1 flex flex-col gap-24 self-end">
+          <div class="space-y-6">
+            <header class="animation an-fadeup">
+              <h3 class="m-h1 lg:d-h2">Game. Set. Match</h3>
+              <p class="m-h5 lg:d-h5 font-semibold">1988</p>
+            </header>
+            <div class="wysiwyg animation an-fadeup">
+              <p>
+                Christy became the official towel supplier to The Wimbledon Championships. Over the past 30 years our
+                partnership has become an iconic part of the tournament. Our limited edition Wimbledon towels are
+                coveted by players and fans alike.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <header
+      class=""
+      id="timeline-2000"
+      data-era="2000"
+    >
+      <div class="container grid md:grid-cols-12 md:gap-6 ">
+        <div class="col-span-full animation an-fadeup space-y-4 relative">
+          <h2 class="s-m-h3 lg:s-d-h2 mb-36 md:mb-48 text-right">The new Millennium</h2>
+        </div>
+      </div>
+    </header>
+
+    <section
+      class="relative mb-24 lg:mb-48 min-h-[800px] flex items-center"
+    >
+      {%- if section.settings.img_2000_1 != blank -%}
+        {%- render 'lazyimg',
+          img: section.settings.img_2000_1,
+          width: section.settings.img_2000_1.width,
+          height: section.settings.img_2000_1.height,
+          widths: widths,
+          class: 'w-full h-full object-cover absolute inset-0 opacity-0 object-left',
+          sizes: sizes
+        -%}
+      {%- else -%}
+        {{ 'hero-apparel-1' | placeholder_svg_tag: 'w-full h-full object-cover absolute inset-0 object-left' }}
+      {%- endif -%}
+    </section>
+
+    <section id="timeline-2003" data-era="2003" class="mb-24 lg:mb-48 relative">
+      <div class="container grid md:grid-cols-12 gap-20 md:gap-6 md:items-center">
+        <div class="max-md:flex relative md:col-span-5 md:col-start-3 animation an-fadeup">
+          <figure class="relative z-10 max-md:w-9/12 shrink-0 md:ml-12">
+            {%- if section.settings.img_2003_1 != blank -%}
+              {{
+                section.settings.img_2003_1
+                | image_url: width: 2000
+                | image_tag:
+                  loading: 'lazy',
+                  width: section.settings.img_2003_1.width,
+                  height: section.settings.img_2003_1.height,
+                  class: '',
+                  sizes: sizes,
+                  widths: widths
+              }}
+            {%- else -%}
+              {{ 'hero-apparel-1' | placeholder_svg_tag: '' }}
+            {%- endif -%}
+          </figure>
+        </div>
+
+        <div class="md:col-span-3 md:col-start-10 flex flex-col gap-24 self-center max-md:relative">
+          <div class="space-y-6">
+            <header class="animation an-fadeup">
+              <p class="m-h5 lg:d-h5 font-semibold">2003</p>
+            </header>
+            <div class="wysiwyg animation an-fadeup">
+              <p>
+                Christy launched a new bed linen collection that boasts high thread counts, intricate embroidery, and
+                beautifully woven designs
+              </p>
+            </div>
+          </div>
+
+          <div
+            id="timeline-2006"
+            data-era="2006"
+            class="absolute -right-[40px] md:right-0 max-md:top-0 md:bottom-0 z-10"
+          >
+            <div class="absolute md:relative top-0 max-md:right-0 md:left-0 max-md:rotate-90 max-md:origin-right max-md:translate-y-[0px] max-md:-translate-x-[24px] md:translate-y-full">
+              <button
+                data-modaltrigger="2006"
+                class="md:translate-x-full [&.active]:translate-x-0 transition-all text-[10px] lg:text-[14px] bg-grey-1 hover:bg-blue-1 hover:text-white min-w-[210px] lg:min-w-[252px] h-[48px] lg:h-[60px] flex items-center justify-center text-center"
+              >
+                Welspun Group 2006
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="timeline-2010" data-era="2010" class="mb-24 lg:mb-48 relative z-10 max-md:-translate-y-[105px]">
+      <div class="absolute md:relative top-0 max-md:right-0 md:left-0 max-md:rotate-90 max-md:origin-right max-md:translate-y-[210px] max-md:-translate-x-[24px]">
+        <button
+          data-modaltrigger="2010"
+          class="md:-translate-x-full [&.active]:translate-x-0 transition-all text-[10px] lg:text-[14px] bg-grey-1 hover:bg-blue-1 hover:text-white min-w-[210px] lg:min-w-[252px] h-[48px] lg:h-[60px] flex items-center justify-center text-center"
+        >
+          Heritage Royal Turkish towel 2010
+        </button>
+      </div>
+    </section>
+
+    <section id="timeline-2012" data-era="2012" class=" relative">
+      <div class="container grid md:grid-cols-12 gap-20 md:gap-6 md:items-center md:grid-rows-2">
+        <div class="max-md:flex relative md:col-span-7 md:col-start-6 md:row-span-2 animation an-fadeup">
+          <figure class="relative z-10 max-md:w-11/12 ml-auto shrink-0 md:-ml-6">
+            {%- if section.settings.img_2012_1 != blank -%}
+              {{
+                section.settings.img_2012_1
+                | image_url: width: 2000
+                | image_tag:
+                  loading: 'lazy',
+                  width: section.settings.img_2012_1.width,
+                  height: section.settings.img_2012_1.height,
+                  class: '',
+                  sizes: sizes,
+                  widths: widths
+              }}
+            {%- else -%}
+              {{ 'hero-apparel-1' | placeholder_svg_tag: '' }}
+            {%- endif -%}
+          </figure>
+        </div>
+
+        <div class="md:col-span-3 md:col-start-2 md:row-start-2 flex flex-col gap-24 self-start max-md:relative">
+          <div class="space-y-6">
+            <header class="animation an-fadeup">
+              <p class="m-h5 lg:d-h5 font-semibold">2012</p>
+            </header>
+            <div class="wysiwyg animation an-fadeup">
+              <p>
+                Christy donated archive materials from 1833-1966 to the John Rylands Research Institute and Library, a
+                world-leading research library at the University of Manchester, so that our history and innovation will
+                be accessible for future generations.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="timeline-2020" data-era="2020" class="mb-24 lg:mb-48 relative pt-64 md:pt-96">
+      <div class="absolute md:relative top-0 max-md:right-0 md:left-0 max-md:rotate-90 max-md:origin-right max-md:translate-y-[85px] max-md:-translate-x-[24px]">
+        <button
+          data-modaltrigger="2020"
+          class="md:-translate-x-full [&.active]:translate-x-0 transition-all text-[10px] lg:text-[14px] bg-grey-1 hover:bg-blue-1 hover:text-white min-w-[210px] lg:min-w-[252px] h-[48px] lg:h-[60px] flex items-center justify-center text-center"
+        >
+          170th Birthday anniversary logo
+        </button>
+      </div>
+    </section>
+
+    <section id="timeline-2022" data-era="2022" class="relative mb-60 lg:mb-96">
+      <div class="container grid grid-cols-12 max-md:gap-y-20 gap-2 md:gap-x-6">
+        <div class="relative col-span-6 md:col-span-5 md:col-start-3 md:row-start-2 max-md:row-span-2 flex items-center">
+          <div class="space-y-6">
+            <figure class="relative z-10 shrink-0 animation an-fadeup w-full">
+              {%- if section.settings.img_2022_1 != blank -%}
+                {{
+                  section.settings.img_2022_1
+                  | image_url: width: 2000
+                  | image_tag:
+                    loading: 'lazy',
+                    width: section.settings.img_2022_1.width,
+                    height: section.settings.img_2022_1.height,
+                    class: '',
+                    sizes: sizes,
+                    widths: widths
+                }}
+              {%- else -%}
+                {{ 'hero-apparel-1' | placeholder_svg_tag: '' }}
+              {%- endif -%}
+            </figure>
+
+            <a class="btn-tertiary md:hidden" href="collections/category-wimbledon">Shop now</a>
+          </div>
+        </div>
+
+        <div class="relative col-span-6 col-start-7 md:col-start-8 row-start-1 row-span-2 md:flex md:flex-wrap md:gap-x-6">
+          <figure class="relative z-10 max-w-full shrink-0 md:mr-12 animation an-fadeup">
+            {%- if section.settings.img_2022_2 != blank -%}
+              {{
+                section.settings.img_2022_2
+                | image_url: width: 2000
+                | image_tag:
+                  loading: 'lazy',
+                  width: section.settings.img_2022_2.width,
+                  height: section.settings.img_2022_2.height,
+                  class: '',
+                  sizes: sizes,
+                  widths: widths
+              }}
+            {%- else -%}
+              {{ 'hero-apparel-1' | placeholder_svg_tag: '' }}
+            {%- endif -%}
+          </figure>
+          <figure class="relative z-10 md:w-1/2 shrink-0 mt-2 md:mt-6 animation an-fadeup">
+            {%- if section.settings.img_2022_3 != blank -%}
+              {{
+                section.settings.img_2022_3
+                | image_url: width: 2000
+                | image_tag:
+                  loading: 'lazy',
+                  width: section.settings.img_2022_3.width,
+                  height: section.settings.img_2022_3.height,
+                  class: '',
+                  sizes: sizes,
+                  widths: widths
+              }}
+            {%- else -%}
+              {{ 'hero-apparel-1' | placeholder_svg_tag: '' }}
+            {%- endif -%}
+          </figure>
+
+          <div class="max-md:hidden mt-6 self-start ml-auto">
+            <a class="btn-tertiary" href="collections/category-wimbledon">Shop now</a>
+          </div>
+        </div>
+
+        <div class="col-span-full md:col-span-3 md:col-start-3 row-start-3 md:row-start-1 flex flex-col gap-24 self-start max-md:relative">
+          <div class="space-y-6">
+            <header class="animation an-fadeup">
+              <p class="m-h5 lg:d-h5 font-semibold">2022</p>
+            </header>
+            <div class="wysiwyg animation an-fadeup">
+              <p>
+                Continuing years of partnership, Christy has the honour of designing and supplying the towels for the
+                100 year anniversary of Wimbledon.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <header
+      id="timeline-2023"
+      data-era="2023"
+      class=""
+    >
+      <div class="container grid md:grid-cols-12 md:gap-6 ">
+        <div class="col-span-full animation an-fadeup space-y-4 relative">
+          <h2 class="s-m-h3 lg:s-d-h2 mb-12 md:mb-28 text-right">Embracing the everyday</h2>
+        </div>
+      </div>
+    </header>
+
+    <section
+      class="relative mb-24 lg:mb-48"
+    >
+      {%- if section.settings.img_2023_1 != blank -%}
+        <div class="mb-20 md:mb-28">
+          {{
+            section.settings.img_2023_1
+            | video_tag: muted: true, autoplay: true, loop: true, playsinline: true, class: 'w-full h-full object-cover'
+          }}
+        </div>
+      {%- endif -%}
+
+      <div class="container grid md:grid-cols-12 md:grid-rows-3 gap-4 relative z-10 max-md:gap-y-20">
+        <div class="md:col-span-3 md:col-start-2 md:row-span-4 mb-4">
+          <div class="space-y-6">
+            <header class="animation an-fadeup">
+              <p class="m-h5 lg:d-h5 font-semibold">2023</p>
+            </header>
+            <div class="wysiwyg animation an-fadeup">
+              <p>
+                Looking to the future, Christy relaunches with a new positioning, visual identity, and commitment to
+                standing out as a wellness brand that embraces the everyday.
+              </p>
+              <p>
+                Our new Christy Loop signifier acts as a shorthand for our Christy wordmark and visually embodies our
+                brand’s ethos of ‘embracing the everyday’.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="md:col-span-4 md:col-start-6 gap-6 md:row-start-2 md:row-span-2  max-md:mb-4">
+          <figure class="md:-mr-6">
+            {%- render 'lazyimg',
+              img: section.settings.img_2023_2,
+              width: section.settings.img_2023_2.width,
+              height: section.settings.img_2023_2.height,
+              widths: widths,
+              class: 'opacity-0 ',
+              sizes: sizes
+            -%}
+          </figure>
+        </div>
+      </div>
+
+      <div class="container grid md:grid-cols-12 gap-4">
+        <div class="md:col-span-5 md:col-start-3 max-md:order-2">
+          <figure>
+            {%- render 'lazyimg',
+              img: section.settings.img_2023_3,
+              width: section.settings.img_2023_3.width,
+              height: section.settings.img_2023_3.height,
+              widths: widths,
+              class: 'opacity-0 ',
+              sizes: sizes
+            -%}
+          </figure>
+        </div>
+        <div class="md:col-span-4">
+          <figure class="md:-mt-12">
+            {%- render 'lazyimg',
+              img: section.settings.img_2023_4,
+              width: section.settings.img_2023_4.width,
+              height: section.settings.img_2023_4.height,
+              widths: widths,
+              class: 'opacity-0 ',
+              sizes: sizes
+            -%}
+          </figure>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <div class="h-0 bottom-0 sticky pointer-events-none z-10">
+    <div class="h-screen container flex items-center justify-center font-sec [&_.num]:text-[75px] [&_.num]:lg:text-[145px] [&_.num]:leading-none font-medium -translate-y-full">
+      <div id="counter" class="flex w-[200px] lg:w-[375px]">
+        <span class="num inline-block relative" data-number="1"
+          ><span class="current block will-change-transform">1</span></span
+        >
+        <span class="num inline-block relative" data-number="8"
+          ><span class="current block will-change-transform">8</span></span
+        >
+        <span class="num inline-block relative" data-number="0"
+          ><span class="current block will-change-transform">0</span></span
+        >
+        <span class="num inline-block relative" data-number="0">
+          <span class="current block will-change-transform">0</span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div id="modals">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'modal_1851' %}
+          {% assign modal_date = '1851' %}
+        {% when 'modal_1883' %}
+          {% assign modal_date = '1883' %}
+        {% when 'modal_1920' %}
+          {% assign modal_date = '1920' %}
+        {% when 'modal_1950' %}
+          {% assign modal_date = '1950' %}
+        {% when 'modal_1956' %}
+          {% assign modal_date = '1956' %}
+        {% when 'modal_1970' %}
+          {% assign modal_date = '1970' -%}
+        {%- when 'modal_1980' %}
+          {% assign modal_date = '1980' %}
+        {%- when 'modal_2006' %}
+          {% assign modal_date = '2006' %}
+        {%- when 'modal_2010' %}
+          {% assign modal_date = '2010' %}
+        {%- when 'modal_2020' %}
+          {% assign modal_date = '2020' %}
+      {% endcase %}
+
+      {% liquid
+        assign copy = block.settings.copy
+        assign img1 = block.settings.img_1
+        assign img2 = block.settings.img_2
+        assign img3 = block.settings.img_3
+        assign img4 = block.settings.img_4
+        assign img5 = block.settings.img_5
+
+        assign slide_img_class = 'w-full h-auto object-contain inset-0 opacity-0 object-left max-h-[417px] !object-center'
+        assign slide_wrap_class = 'pt-[82%]'
+      %}
+
+      <div
+        data-modal="{{modal_date}}"
+        class="modal group/drawer drawer z-40 [&.active]:visible fixed w-full h-full top-0 right-0"
+      >
+        <div class="h-full flex justify-end opacity-0 transition-opacity group-[.active]/drawer:opacity-100">
+          <div data-modalclose class="absolute w-full h-full bg-black/50"></div>
+
+          <div class="drawer__inner overflow-auto group/overflow js-overflow-styled bg-white/95 h-full w-full md:max-w-[595px] translate-x-full group-[.active]/drawer:translate-x-0 duration-500 flex flex-col has-overflow">
+            <button
+              class="drawer__close fixed cursor-pointer top-10 lg:top-14 right-10 lg:right-14 z-[60] w-[12px] h-[12px] lg:w-[16px] lg:h-[16px]  [&_svg]:w-full [&_svg]:h-auto close-icon"
+              type="button"
+              data-modalclose
+              aria-label="{{ 'accessibility.close' | t }}"
+            >
+              {% render 'icon-close' %}
+            </button>
+
+            <div
+              class="splide flex-1"
+              role="list"
+              data-splide='{"arrows": false, "pagination": true, "type": "loop", "gap": "0px"}'
+            >
+              <div class="splide__track">
+                <div
+                  class="recently-viewed splide__list"
+                >
+                  {% if img1 %}
+                    <div class="splide__slide">
+                      <div class="relative">
+                        {%- render 'lazyimg',
+                          img: img1,
+                          width: img1.width,
+                          height: img1.height,
+                          widths: widths,
+                          class: slide_img_class,
+                          sizes: sizes
+                        -%}
+                      </div>
+                    </div>
+                  {% endif %}
+                  {% if img2 %}
+                    <div class="splide__slide">
+                      <div class="relative">
+                        {%- render 'lazyimg',
+                          img: img2,
+                          width: img2.width,
+                          height: img2.height,
+                          widths: widths,
+                          class: slide_img_class,
+                          sizes: sizes
+                        -%}
+                      </div>
+                    </div>
+                  {% endif %}
+                  {% if img3 %}
+                    <div class="splide__slide">
+                      <div class="relative">
+                        {%- render 'lazyimg',
+                          img: img3,
+                          width: img3.width,
+                          height: img3.height,
+                          widths: widths,
+                          class: slide_img_class,
+                          sizes: sizes
+                        -%}
+                      </div>
+                    </div>
+                  {% endif %}
+                  {% if img4 %}
+                    <div class="splide__slide">
+                      <div class="relative">
+                        {%- render 'lazyimg',
+                          img: img4,
+                          width: img4.width,
+                          height: img4.height,
+                          widths: widths,
+                          class: slide_img_class,
+                          sizes: sizes
+                        -%}
+                      </div>
+                    </div>
+                  {% endif %}
+                  {% if img5 %}
+                    <div class="splide__slide">
+                      <div class="relative">
+                        {%- render 'lazyimg',
+                          img: img5,
+                          width: img5.width,
+                          height: img5.height,
+                          widths: widths,
+                          class: slide_img_class,
+                          sizes: sizes
+                        -%}
+                      </div>
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+
+            <div class="p-8 lg:p-14 space-y-4 lg:space-y-6 flex-1 flex justify-center flex-col">
+              <h2 class="s-m-h1 lg:s-d-h1">{{ modal_date }}</h2>
+              <div class="wysiwyg">
+                {{ copy }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<script src="{{ 'template-heritage.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Heritage Timeline",
+  "tag": "section",
+  "class": "section-heritage",
+  "disabled_on": {
+    "groups": ["header", "footer"],
+    "templates": ["article"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "1850"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_1850_1",
+      "label": "1850 Image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_1850_2",
+      "label": "1850 Image 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_1850_3",
+      "label": "1850 Image 3"
+    },
+    {
+      "type": "header",
+      "content": "1851"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_1851_1",
+      "label": "1851 Image 1"
+    },
+    {
+      "type": "header",
+      "content": "1891"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_1891_1",
+      "label": "1891 Background Image"
+    },
+    {
+      "type": "header",
+      "content": "1928"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_1928_1",
+      "label": "1928 Image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_1928_2",
+      "label": "1928 Image 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_1928_3",
+      "label": "1928 Image 3"
+    },
+    {
+      "type": "header",
+      "content": "1937"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_1937_1",
+      "label": "1937 Image 1"
+    },
+    {
+      "type": "header",
+      "content": "1942"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_1942_1",
+      "label": "1942 Background Image 1"
+    },
+    {
+      "type": "header",
+      "content": "1951"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_1951_1",
+      "label": "1951 Image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_1951_2",
+      "label": "1951 Image 2"
+    },
+    {
+      "type": "header",
+      "content": "1952"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_1952_1",
+      "label": "1952 Image 1"
+    },
+    {
+      "type": "header",
+      "content": "1953"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_1953_1",
+      "label": "1953 Image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_1953_2",
+      "label": "1953 Image 2"
+    },
+    {
+      "type": "header",
+      "content": "1975"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_1975_1",
+      "label": "1975 Background Image 1"
+    },
+    {
+      "type": "header",
+      "content": "1977"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_1977_1",
+      "label": "1977 Image 1"
+    },
+    {
+      "type": "header",
+      "content": "1981"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_1981_1",
+      "label": "1981 Image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_1981_2",
+      "label": "1981 Image 2"
+    },
+    {
+      "type": "header",
+      "content": "1988"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_1988_1",
+      "label": "1988 Image 1"
+    },
+    {
+      "type": "header",
+      "content": "2000"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_2000_1",
+      "label": "2000 Background Image 1"
+    },
+    {
+      "type": "header",
+      "content": "2003"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_2003_1",
+      "label": "2003 Image 1"
+    },
+    {
+      "type": "header",
+      "content": "2012"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_2012_1",
+      "label": "2012 Image 1"
+    },
+    {
+      "type": "header",
+      "content": "2022"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_2022_1",
+      "label": "2022 Image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_2022_2",
+      "label": "2022 Image 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_2022_3",
+      "label": "2022 Image 3"
+    },
+    {
+      "type": "header",
+      "content": "2023"
+    },
+    {
+      "type": "video",
+      "id": "img_2023_1",
+      "label": "2023 Video"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_2023_2",
+      "label": "2023 Image 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_2023_3",
+      "label": "2023 Image 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_2023_4",
+      "label": "2023 Image 4"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "modal_1851",
+      "name": "Modal 1851",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "copy",
+          "label": "Copy",
+          "default": "<p>Reportedly, the Christy's presented her with a set of towels and she was so impressed that she immediately ordered more. With Victoria's patronage secured, demand for the \"Royal Turkish Towel\" skyrocketed.</p>"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_1",
+          "label": "Image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_2",
+          "label": "Image 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_3",
+          "label": "Image 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_4",
+          "label": "Image 4"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_5",
+          "label": "Image 5"
+        }
+      ]
+    },
+    {
+      "type": "modal_1883",
+      "name": "Modal 1883",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "copy",
+          "label": "Copy",
+          "default": "<p>The Christy's expanded their booming business at Fairfield mill, buying up more land around the site that provided access to the canal so that they could ship their goods more easily.</p>"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_1",
+          "label": "Image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_2",
+          "label": "Image 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_3",
+          "label": "Image 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_4",
+          "label": "Image 4"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_5",
+          "label": "Image 5"
+        }
+      ]
+    },
+    {
+      "type": "modal_1920",
+      "name": "Modal 1920",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "copy",
+          "label": "Copy",
+          "default": "<p>In the 1920s, Christy's discerning customers began looking for something new, so we answered their call. Christy introduced bright, colourful towels and offered an expanded selection of styles and designs.</p>"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_1",
+          "label": "Image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_2",
+          "label": "Image 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_3",
+          "label": "Image 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_4",
+          "label": "Image 4"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_5",
+          "label": "Image 5"
+        }
+      ]
+    },
+    {
+      "type": "modal_1950",
+      "name": "Modal 1950",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "copy",
+          "label": "Copy",
+          "default": "<p>In the 1920s, Christy's discerning customers began looking for something new, so we answered their call. Christy introduced bright, colourful towels and offered an expanded selection of styles and designs.</p>"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_1",
+          "label": "Image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_2",
+          "label": "Image 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_3",
+          "label": "Image 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_4",
+          "label": "Image 4"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_5",
+          "label": "Image 5"
+        }
+      ]
+    },
+    {
+      "type": "modal_1956",
+      "name": "Modal 1956",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "copy",
+          "label": "Copy",
+          "default": "<p>As innovators and creatives, Christy have always pushed the boundaries in everything we do. This advert from 1956 is no exception, pushing social boundaries which still have a little shock value even today.</p>"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_1",
+          "label": "Image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_2",
+          "label": "Image 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_3",
+          "label": "Image 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_4",
+          "label": "Image 4"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_5",
+          "label": "Image 5"
+        }
+      ]
+    },
+    {
+      "type": "modal_1970",
+      "name": "Modal 1970",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "copy",
+          "label": "Copy",
+          "default": "<p>It's no secret that 70s interior trends were bold, playful and eye catching, and Christy's creative designs were no exception, collaborating with some of the biggest names of the day and developing innovative new materials.</p>"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_1",
+          "label": "Image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_2",
+          "label": "Image 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_3",
+          "label": "Image 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_4",
+          "label": "Image 4"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_5",
+          "label": "Image 5"
+        }
+      ]
+    },
+    {
+      "type": "modal_1980",
+      "name": "Modal 1980",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "copy",
+          "label": "Copy",
+          "default": "<p>With the birth of a new decade came a shift to softer pastel shades, florals, frills and stripes. For Christy, this meant new prints, colours, and some now-iconic new designs.</p>"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_1",
+          "label": "Image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_2",
+          "label": "Image 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_3",
+          "label": "Image 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_4",
+          "label": "Image 4"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_5",
+          "label": "Image 5"
+        }
+      ]
+    },
+    {
+      "type": "modal_2006",
+      "name": "Modal 2006",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "copy",
+          "label": "Copy",
+          "default": "<p>Between 2006-2008, Welspun group, a world-leading home textile producer, purchased Christy, adding their considerable manufacturing expertise in India. But to this day, Christy's head office and design team remains in England.</p>"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_1",
+          "label": "Image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_2",
+          "label": "Image 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_3",
+          "label": "Image 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_4",
+          "label": "Image 4"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_5",
+          "label": "Image 5"
+        }
+      ]
+    },
+    {
+      "type": "modal_2010",
+      "name": "Modal 2010",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "copy",
+          "label": "Copy",
+          "default": "<p>In 2010, Christy celebrated its 160th birthday. Amongst other celebrations, we went back to our roots.  To honour our long heritage, we crafted a luxurious limited edition towel based on the original woven towels presented to Her Majesty, Queen Victoria, in 1851.</p>"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_1",
+          "label": "Image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_2",
+          "label": "Image 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_3",
+          "label": "Image 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_4",
+          "label": "Image 4"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_5",
+          "label": "Image 5"
+        }
+      ]
+    },
+    {
+      "type": "modal_2020",
+      "name": "Modal 2020",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "copy",
+          "label": "Copy",
+          "default": "<p>Christy celebrated its 170th birthday with a new, anniversary logo and a commemorative range of products, all of which had a subtle nod to Christy's heritage.</p>"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_1",
+          "label": "Image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_2",
+          "label": "Image 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_3",
+          "label": "Image 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_4",
+          "label": "Image 4"
+        },
+        {
+          "type": "image_picker",
+          "id": "img_5",
+          "label": "Image 5"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

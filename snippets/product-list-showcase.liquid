@@ -1,0 +1,45 @@
+{% comment %}
+  check one of these products exists in collection
+{% endcomment %}
+{% assign hasProduct = false %}
+{% assign productCollections = availableProds.products | map: 'id' %}
+{% if productCollections contains product_1.id %}
+  {% assign hasProduct = true %}
+{% endif %}
+
+{% if productCollections contains product_2.id %}
+  {% assign hasProduct = true %}
+{% endif %}
+
+{% if hasProduct and bgImage %}
+  <li
+    class="{% unless request.design_mode %}animate-fadeinup{% endunless %} -mb-8 max-md:-mx-10 view-list-only"
+    {{ block.shopify_attributes }}
+  >
+    <div class="aspect-[2/3] relative overflow-hidden showcase-wrap">
+      {% liquid
+        assign widths = '375, 550, 750, 1024, 1100, 1500'
+        assign sizes = '100vw'
+      %}
+      {%- render 'spinner' -%}
+
+      {% if bgImage.media_type == 'image' %}
+        {%- render 'lazyimg',
+          img: bgImage,
+          width: 668,
+          widths: widths,
+          class: 'h-full w-full object-cover opacity-0 absolute inset-0',
+          sizes: sizes
+        -%}
+      {% endif %}
+
+      {% if product_1 != blank and pos_l_1 and pos_t_1 %}
+        {%- render 'product-list-showcase-marker', product: product_1, left: pos_l_1, top: pos_t_1 -%}
+      {% endif %}
+
+      {% if product_2 != blank and pos_l_2 and pos_t_2 %}
+        {%- render 'product-list-showcase-marker', product: product_2, left: pos_l_2, top: pos_t_2 -%}
+      {% endif %}
+    </div>
+  </li>
+{% endif %}

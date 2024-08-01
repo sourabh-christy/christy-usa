@@ -1,0 +1,118 @@
+{{ 'splide.min.css' | asset_url | stylesheet_tag }}
+<div
+  id="RelatedArticles-{{ section.id }}"
+  class="container overflow-hidden space-y-7 lg:space-y-20"
+>
+  {% liquid
+    assign split_1 = article.url | split: '/blogs/'
+    assign split_2 = split_1[1] | split: '/'
+    assign blog_handle = split_2[0] | strip
+    assign article_blog = blogs[blog_handle]
+  %}
+
+  {% if article_blog.articles.size > 1 %}
+    <h2 class="m-h1 lg:d-h1">Related Reads</h2>
+    <div
+      class="splide"
+      data-splide='
+        {"arrows": false, "pagination": true, "type": "loop", "destroy": "true", "gap": "40px", "breakpoints": {
+          "768": {
+            "destroy": false
+          }
+        }}
+      '
+    >
+      <div class="splide__track !overflow-visible">
+        <div class="splide__list md:!grid md:grid-cols-12 text-blue-1 md:gap-12 md:!gap-3">
+          {% assign blogcount = 1 %}
+          {% for blog_article in article_blog.articles limit: 3 %}
+            {% if blog_article.id != article.id %}
+              {% liquid
+                if blogcount == 1
+                  assign span_class = 'md:col-span-4'
+
+                elsif blogcount == 2
+                  assign span_class = 'md:col-span-5'
+
+                elsif blogcount == 3
+                  assign span_class = 'md:col-span-3'
+                endif
+
+                assign blogcount = blogcount | plus: 1
+              %}
+              <div class="splide__slide {{ span_class }}">
+                {% render 'article-card', article: blog_article %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  {% else %}
+    {% assign blogs_linklist_handle = 'blog-menu' %}
+    {% liquid
+      assign blogs_linklist = linklists[blogs_linklist_handle]
+      assign articles = '' | split: ','
+      for blog_link in blogs_linklist.links
+        assign articles = articles | concat: blog_link.object.articles
+      endfor
+      assign articles = articles | uniq | sort: 'published_at' | reverse
+    %}
+    <h2 class="m-h1 lg:d-h1">Latest</h2>
+    <div
+      class="splide"
+      data-splide='
+        {"arrows": false, "pagination": true, "type": "loop", "destroy": "true", "gap": "40px", "breakpoints": {
+          "768": {
+            "destroy": false
+          }
+        }}
+      '
+    >
+      <div class="splide__track !overflow-visible">
+        <div class="splide__list md:!grid md:grid-cols-12 text-blue-1 md:gap-12 md:!gap-3">
+          {% assign blogcount = 1 %}
+          {% for blog_article in articles limit: 3 %}
+            {% if blog_article.id != article.id %}
+              {% liquid
+                if blogcount == 1
+                  assign span_class = 'md:col-span-4'
+
+                elsif blogcount == 2
+                  assign span_class = 'md:col-span-5'
+
+                elsif blogcount == 3
+                  assign span_class = 'md:col-span-3'
+                endif
+
+                assign blogcount = blogcount | plus: 1
+              %}
+              <div class="splide__slide {{ span_class }}">
+                {% render 'article-card', article: blog_article %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Related Articles",
+  "tag": "section",
+  "class": "section-artrelated",
+  "disabled_on": {
+    "groups": ["header", "footer"],
+    "templates": ["page"]
+  },
+  "settings": [],
+
+  "presets": [
+    {
+      "name": "Related Articles"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,66 @@
+<nav class="container [&_a:hover]:underline">
+  <div class="scrollbar-grad-desktop">
+    <div class="no-scrollbar overflow-auto w-[calc(100%_+_40px)] lg:w-[calc(100%_+_48px)] flex space-x-6 lg:space-x-12 whitespace-nowrap">
+      {%- for block in section.blocks -%}
+        <a
+          {{ block.shopify_attributes }}
+          data-pageanchor="{{ block.settings.anchor_id }}"
+          href="#{{ block.settings.anchor_id }}"
+          class="lg:d-h4"
+        >
+          {{- block.settings.title -}}
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</nav>
+
+{% schema %}
+{
+  "name": "Page Anchor Links",
+  "tag": "section",
+  "class": "section-anchors",
+  "disabled_on": {
+    "groups": ["header", "footer"],
+    "templates": ["article"]
+  },
+  "settings": [],
+  "blocks": [
+    {
+      "type": "anchor_link",
+      "name": "Anchor Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Anchor Link Title",
+          "label": "A Link"
+        },
+        {
+          "type": "text",
+          "id": "anchor_id",
+          "label": "Anchor ID",
+          "info": "Add an ID to link to other parts of the page. The anchor IDs must exist elsewhere on page.",
+          "default": "anchor-link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Page Anchor Links",
+      "blocks": [
+        {
+          "type": "anchor_link"
+        },
+        {
+          "type": "anchor_link"
+        },
+        {
+          "type": "anchor_link"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,180 @@
+{% if product.media.size > 0 %}
+  {% liquid
+    if mob == true
+      comment
+        Get the current variant 'Color' and 'Size' from the URL
+      endcomment
+      assign path_array = request.path | split: '/'
+      assign path_array_length = path_array | size
+      assign ind = path_array_length | minus: 1
+      assign variant_option_array = path_array[ind] | split: ','
+      assign variant_option_array_length = variant_option_array | size
+      assign selected_colour = ''
+      assign selected_size = ''
+      if variant_option_array_length > 0
+        if variant_option_array[0] contains 'c:'
+          assign selected_colour = variant_option_array[0] | replace: 'c:', '' | handleize
+        endif
+        if variant_option_array[1] contains 's:'
+          assign selected_size = variant_option_array[1] | replace: 's:', '' | handleize
+        endif
+        if variant_option_array[2] contains 's:'
+          assign option3 = variant_option_array[2] | replace: 's:', '' | handleize
+        endif
+      endif
+
+      assign current_variant = product.selected_or_first_available_variant
+      if selected_colour != blank and selected_size != blank and option3 != blank
+        for variant in product.variants
+          assign colour_slug = variant.option1 | handleize
+          assign size_slug = variant.option2 | handleize
+          assign option3_slug = variant.option2 | handleize
+          if colour_slug == selected_colour and size_slug == selected_size and option3_slug == option3
+            assign current_variant = variant
+          endif
+        endfor
+      elsif selected_size == ''
+        for variant in product.variants
+          assign colour_slug = variant.option1 | handleize
+          if colour_slug == selected_colour and variant.available
+            assign current_variant = variant
+          endif
+        endfor
+      else
+        for variant in product.variants
+          assign colour_slug = variant.option1 | handleize
+          assign size_slug = variant.option2 | handleize
+          if colour_slug == selected_colour and size_slug == selected_size
+            assign current_variant = variant
+          endif
+        endfor
+      endif
+    endif
+
+    if current_variant == blank
+      assign current_variant = product.selected_or_first_available_variant
+    endif
+
+    assign widths = '375, 550, 664, 750, 1100, 1344, 1500, 1780, 1920'
+    assign sizes = '(max-width: 767px) 100vw, (min-width: 768px) 332px'
+  %}
+  <div
+    id="media-gallery"
+    data-currentop1="{{current_variant.option1}}"
+    class="{{ group_class }} flex flex-wrap gap-2 [&_>div]:w-full [&_>div]:md:w-[calc(50%_-_.25rem)] [&_>div:first-child]:md:w-full  [&_>.img--variant]:hidden [&_>.img--variant:first-child]:!block"
+  >
+    {% assign first_image = true %}
+    {% assign has_product_image = false %}
+    {% for media in product.media %}
+      {%- assign image_class = 'object-contain object-center w-full h-full inset-0  image-magnify-hover cursor-zoom-in opacity-0' -%}
+      {%- assign alt_array = media.alt | split: '-' -%}
+      {%- assign alt_striped = alt_array[0] | strip -%}
+      {% comment %}{%- alt_striped == current_variant.option1 -%}{% endcomment %}
+
+      {% if alt_array[1] == 'product_image' and media.media_type == 'image' %}
+        {% if has_product_image == false %}
+          {% assign has_product_image = true %}
+        {% endif %}
+
+        {%- assign loading = 'lazy' %}
+
+        {%- assign width = 664 -%}
+        {%- if first_image == true -%}
+          {%- assign loading = 'eager' -%}
+          {% assign image_class = image_class | remove: 'opacity-0' %}
+          {%- assign width = 1344 -%}
+          {%- assign sizes = '(max-width: 767px) 100vw, (min-width: 768px) 672px' %}
+        {%- else -%}
+          {%- assign sizes = '(max-width: 767px) 100vw, (min-width: 768px) 332px' -%}
+        {%- endif -%}
+
+        {%- assign aspect_ratio = media.height | times: 100 | divided_by: media.width | times: 100 -%}
+        {%- assign height = width | times: aspect_ratio | divided_by: 10000 -%}
+        {% comment %}
+          {% assign height = width | divided_by: 0.8 | round: 0 %}
+        {% endcomment %}
+
+        <div
+          id="media-{{ media.id }}"
+          class="flex {% if current_variant.option1 == alt_striped %}block{% else %}hidden{% endif %} {% if current_variant.option1 == alt_striped and first_image == true %}!w-full {% assign first_image = false %} {% endif %}"
+          data-option1="{{ alt_striped }}"
+        >
+          <figure class=" w-full relative z-0">
+            {%- render 'spinner' -%}
+
+            {%- render 'lazyimg',
+              width: width,
+              height: height,
+              img: media,
+              widths: widths,
+              class: image_class,
+              sizes: sizes,
+              loading: loading
+            -%}
+          </figure>
+        </div>
+
+      {% elsif media.media_type == 'video' or media.media_type == 'external_video' %}
+        <div
+          id="media-{{ media.id }}"
+          class="flex !w-full aspect-video {% if current_variant.option1 == alt_striped %}block{% else %}hidden{% endif %} {% if current_variant.option1 == alt_striped and first_image == true %}!w-full {% assign first_image = false %}{% endif %}"
+          data-option1="{{ alt_striped }}"
+        >
+          {{
+            media
+            | video_tag: muted: true, autoplay: true, loop: true, playsinline: true, class: 'w-full h-full object-cover'
+          }}
+        </div>
+        {% comment %}{% endif %}{% endcomment %}
+      {%- endif -%}
+    {% endfor %}
+
+    {% if has_product_image == false %}
+      {% for media in product.images %}
+        {%- assign image_class = 'object-contain object-center w-full h-full inset-0  image-magnify-hover cursor-zoom-in opacity-0' -%}
+        {%- assign loading = 'lazy' %}
+
+        {%- assign width = 664 -%}
+        {%- if first_image == true -%}
+          {%- assign loading = 'eager' -%}
+          {% assign image_class = image_class | remove: 'opacity-0' %}
+          {%- assign width = 1344 -%}
+          {%- assign sizes = '(max-width: 767px) 100vw, (min-width: 768px) 672px' %}
+        {%- else -%}
+          {%- assign sizes = '(max-width: 767px) 100vw, (min-width: 768px) 332px' %}
+        {%- endif -%}
+
+        {%- assign aspect_ratio = media.height | times: 100 | divided_by: media.width | times: 100 -%}
+        {%- assign height = width | times: aspect_ratio | divided_by: 10000 -%}
+        {% comment %}
+          {% assign height = width | divided_by: 0.8 | round: 0 %}
+        {% endcomment %}
+
+        {%- assign alt_array = media.alt | split: '-' -%}
+        {%- assign alt_striped = alt_array[0] | strip -%}
+
+        {% if alt_array[1] != 'product_swatch' %}
+          <div
+            id="media-{{ media.id }}"
+            class="flex  {% if first_image == true %}!w-full {% assign first_image = false %} {% endif %}"
+            data-option1="{{ alt_striped }}"
+          >
+            <figure class="w-full relative z-0">
+              {%- render 'spinner' -%}
+
+              {%- render 'lazyimg',
+                width: width,
+                height: height,
+                img: media,
+                widths: widths,
+                class: image_class,
+                sizes: sizes,
+                loading: loading
+              -%}
+            </figure>
+          </div>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  </div>
+{% endif %}

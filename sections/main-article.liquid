@@ -1,0 +1,57 @@
+<section class="article-template space-y-14 lg:space-y-32" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="container">
+    <div class=" space-y-10 lg:space-y-16 lg:w-7/12 lg:left-1/4 relative lg:pl-8">
+      <header class="space-y-3">
+        {% liquid
+          assign split_1 = article.url | split: '/blogs/'
+          assign split_2 = split_1[1] | split: '/'
+          assign blog_handle = split_2[0] | strip
+          assign blog_handle = blog_handle | replace: '-', ' '
+        %}
+
+        {% if blog_handle %}
+          <p class="m-h5 lg:d-h5 capitalize">{{ blog_handle }}</p>
+        {% endif %}
+
+        <h1
+          class="s-m-h3 lg:s-d-h2"
+          itemprop="headline"
+        >
+          {{ article.title | escape }}
+        </h1>
+      </header>
+
+      <div class="wysiwyg styled-content">
+        {{ article.content }}
+      </div>
+    </div>
+  </div>
+  {%- if article.image -%}
+    <figure class="relative animation an-fadeup">
+      {% render 'spinner' %}
+      {%- liquid
+        assign full_width = '100vw'
+        assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
+        assign sizes = '100vw'
+
+        assign image_class = 'object-cover object-center aspect-[2/3] md:aspect-video opacity-0 w-full'
+      -%}
+      {%- render 'lazyimg',
+        img: article.image,
+        width: 1920,
+        widths: widths,
+        class: image_class,
+        sizes: sizes,
+        height: article.image.height
+      -%}
+    </figure>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.main-article.name",
+  "tag": "section",
+  "class": "section-article"
+}
+{% endschema %}

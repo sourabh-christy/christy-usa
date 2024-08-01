@@ -1,0 +1,51 @@
+<a
+  href="{{ product.url }}"
+  class="absolute p-2 lg:p-4 group"
+  style="left: {{ left }}%; top: {{ top }}%;"
+>
+  <div
+    class="w-[30px] lg:w-[32px] h-[30px] lg:h-[32px] rounded-full bg-white/30 relative animate-pulse group-hover:animate-none"
+  >
+    <div
+      class="bg-white rounded-full w-[16px] lg:w-[17px] h-[16px] lg:h-[17px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:scale-75  transition-transform"
+    ></div>
+
+    <div
+      class="card absolute p-2 lg:p-4 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto translate-y-4 group-hover:translate-y-0 transition-all"
+    >
+      <div class="w-[193px] lg:w-[264px] p-4 lg:p-8 lg:pb-6 bg-white/90 text-blue-1 space-y-8 lg:space-y-10">
+        <header class="space-y-1 lg:space-y-2">
+          <h4 class="m-h3">{{ product.title }}</h4>
+
+          {% if product.collections.size > 0 %}
+            {% assign first_collection = product.collections.first %}
+            {% if first_collection %}
+              <p>{{ first_collection.title }}</p>
+            {% endif %}
+          {% endif %}
+        </header>
+
+        <div class="space-x-4 flex">
+          {% if product.price_min != product.price_max %}
+            <p>
+              Price Range
+              <strong class="whitespace-nowrap">{{ product.price_min | money }}-{{ product.price_max | money }}</strong>
+            </p>
+          {% else %}
+            <p>
+              Price <strong class="whitespace-nowrap">{{ product.price | money }}</strong>
+            </p>
+          {% endif %}
+
+          <img
+            class="shrink-0 object-contain lg:w-[40px] lg:h-auto"
+            src="{{ 'icon-arrow-right.svg' | asset_url }}"
+            width="24"
+            height="6"
+            alt="More"
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</a>

@@ -1,0 +1,69 @@
+<section>
+  <div class="container py-20 grid md:grid-cols-3 gap-12 md:gap-3 md:gap-y-20">
+    <div class="flex items-center max-md:justify-center">
+      <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
+        <img class="" loading="eager" src="{{ 'christy-logo.svg' | asset_url }}" width="181" height="27" alt="{{ shop.name }}">
+        
+      </a>
+    </div>
+    <div class="md:col-span-2">
+      {% render 'email-signup-button', text: section.settings.email_signup_text %}
+    </div>
+    <div class="md:col-span-2 md:col-start-2">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'link_list' %}
+            {% assign menu = block.settings.footer_links %}
+            {% assign links = linklists[menu].links %}
+            {% if links != blank %}
+              <ul class="[&_a:hover]:underline grid grid-cols-2 lg:grid-cols-4 lg:grid-rows-6 lg:grid-flow-col [&_li:nth-child(2n+2)]:max-md:text-right gap-4 md:gap-3">
+                {% for link in links %}
+                  <li>
+                    <a href="{{link.url}}">{{ link.title }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.footer.name",
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "link_list",
+      "name": "Footer Links",
+      "settings": [
+        {
+          "type": "link_list",
+          "id": "footer_links",
+          "label": "Footer Links",
+          "info": "Add links to your footer"
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "email_signup_text",
+      "label": "Email Signup Text",
+      "default": "<p>Enter your email for our monthly newsletter + <strong>10% off your first purchase.</strong></p>"
+    }
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "link_list"
+      }
+    ]
+  }
+}
+{% endschema %}

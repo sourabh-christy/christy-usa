@@ -1,0 +1,11 @@
+<article class="flex bg-[#DBD4CC]/20 items-center sm:aspect-[2/3] ">
+  <div class="space-y-4 lg:space-y-6 px-10 py-14 md:p-7">
+    <h3 class="{% if styled %}m-h3 lg:d-h2{% else %}m-h3 lg:s-m-h2  {% endif %}">{{ title }}</h3>
+    <div class="wysiwyg">{{ copy }}</div>
+    {% if button_text and button_url %}
+      <div class="lg:!mt-12">
+        <a class="btn-tertiary" href="{{ button_url }}">{{ button_text }}</a>
+      </div>
+    {% endif %}
+  </div>
+</article>

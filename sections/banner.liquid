@@ -1,0 +1,158 @@
+{% liquid
+  assign widths = '375, 550, 750, 1100, 1500, 1780, 2000'
+  assign sizes = '100vw'
+  assign class = 'w-full h-full object-cover absolute inset-0 opacity-0'
+%}
+
+{% assign img_width = 640 %}
+
+<div class="banner relative flex items-center {% if section.settings.theme == 'white' %}text-white{% endif %}">
+  {% if section.settings.image != blank %}
+    {%- render 'lazyimg', img: section.settings.image, width: 2000, widths: widths, class: class, sizes: sizes -%}
+  {% else %}
+    {% assign class = class | remove: 'opacity-0' %}
+    {{ 'hero-apparel-1' | placeholder_svg_tag: class }}
+  {% endif %}
+
+  <div class="container py-12 lg:py-24 relative space-y-6 lg:space-y-8 text-center">
+    <div class="space-y-3 lg:space-y-4 max-w-screen-md mx-auto">
+      {% if section.settings.sub_title %}
+        <h3 class="m-h3 lg:d-h3">{{ section.settings.sub_title }}</h3>
+      {% endif %}
+
+      {% if section.settings.title %}
+        <h2 class="s-m-h2 lg:s-d-h1">{{ section.settings.title }}</h2>
+      {% endif %}
+    </div>
+
+    {% if section.settings.button_title and section.settings.button_link %}
+      <a
+        href="{{ section.settings.button_link }}"
+        class="btn-large w-auto {% if section.settings.theme == 'white'%}btn-alt{% else %}btn-primary{% endif %}"
+      >
+        {{- section.settings.button_title -}}
+      </a>
+    {% endif %}
+  </div>
+</div>
+
+<style>
+  #shopify-section-{{ section.id }} .banner {
+      min-height: calc(100vw * {{ section.settings.banner_height_mobile }});
+  }
+
+  @media all and ( min-width: 768px ) {
+      #shopify-section-{{ section.id }} .banner {
+          min-height: calc(100vw * {{ section.settings.banner_height_desktop }});
+      }
+  }
+</style>
+
+{% if section.settings.margin == 'no' %}
+  <style>
+    #shopify-section-{{ section.id }} {
+        margin: 0 !important;
+    }
+  </style>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Banner",
+  "tag": "section",
+  "class": "section-banner",
+  "disabled_on": {
+    "groups": ["header", "footer"],
+    "templates": ["article"]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Banner Background"
+    },
+    {
+      "type": "range",
+      "id": "banner_height_mobile",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "unit": "%",
+      "label": "Min Banner height MOBILE",
+      "default": 0.5
+    },
+    {
+      "type": "range",
+      "id": "banner_height_desktop",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "unit": "%",
+      "label": "Min Banner height DESKTOP",
+      "default": 0.5
+    },
+    {
+      "type": "radio",
+      "id": "theme",
+      "label": "Text/Button Colour",
+      "options": [
+        {
+          "value": "blue",
+          "label": "Blue"
+        },
+        {
+          "value": "white",
+          "label": "White"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "sub_title",
+      "label": "Sub Title",
+      "default": "Sub Title"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "How do Christy sheets get softer with every wash?"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link",
+      "default": "/"
+    },
+    {
+      "type": "text",
+      "id": "button_title",
+      "label": "Button Title",
+      "default": "Find Out More"
+    },
+
+    {
+      "type": "radio",
+      "id": "margin",
+      "label": "Include Margin",
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ],
+      "default": "yes"
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Banner"
+    }
+  ]
+}
+{% endschema %}

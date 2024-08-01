@@ -1,0 +1,180 @@
+{% liquid
+  assign widths = '375, 550, 750, 1000'
+  assign sizes = '100vw'
+  assign class = 'object-contain inset-0 opacity-0 max-w-full'
+%}
+
+{% assign img_width = 500 %}
+{% assign img_height = 550 %}
+
+<div class="">
+  <div class="container space-y-7 lg:space-y-14">
+    <header class="flex gap-12 max-md:flex-col items-start md:items-center">
+      {% if section.settings.title %}
+        <h2 class="s-m-h2 lg:s-d-h1">{{ section.settings.title }}</h2>
+      {% endif %}
+
+      {% if section.settings.button_title and section.settings.button_link %}
+        <a class="btn-secondary btn-medium" href="{{ section.settings.button_link }}">
+          {{- section.settings.button_title -}}
+        </a>
+      {% endif %}
+    </header>
+
+    <div class="grid gap-8 lg:gap-16 md:grid-cols-[minmax(auto,500px),auto]">
+      <div class="space-y-5 lg:space-y-10">
+        {% if section.settings.image != blank %}
+          {%- render 'lazyimg',
+            img: section.settings.image,
+            width: img_width,
+            height: img_height,
+            widths: widths,
+            class: class,
+            sizes: sizes,
+            crop: 'center'
+          -%}
+        {% else %}
+          {% assign class = class | remove: 'opacity-0' %}
+          {% assign class = class | append: ' h-[550px]' %}
+          {{ 'hero-apparel-1' | placeholder_svg_tag: class }}
+        {% endif %}
+
+        {% if section.settings.note %}
+          <p>
+            {{ section.settings.note }}
+          </p>
+        {% endif %}
+      </div>
+      <div class="flex items-center">
+        <div class="animation an-fadeup grid lg:grid-cols-2 gap-8 lg:gap-16 lg:p-8 lg:p-16">
+          {%- for block in section.blocks -%}
+            <div class="space-y-3 lg:space-y-5">
+              <div class="space-y-1">
+                <h4 class="s-m-h3 lg:s-d-h3 !font-bold">{{ block.settings.title }}</h4>
+                <div class="wysiwyg">{{ block.settings.copy }}</div>
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  #shopify-section-{{ section.id }} .banner {
+      min-height: calc(100vw * {{ section.settings.banner_height_mobile }});
+  }
+
+  @media all and ( min-width: 768px ) {
+      #shopify-section-{{ section.id }} .banner {
+          min-height: calc(100vw * {{ section.settings.banner_height_desktop }});
+      }
+  }
+</style>
+
+{% if section.settings.margin == 'no' %}
+  <style>
+    #shopify-section-{{ section.id }} {
+        margin: 0 !important;
+    }
+  </style>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Product Features",
+  "tag": "section",
+  "class": "section-banner",
+  "enabled_on": {
+    "templates": ["product"]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Banner Background"
+    },
+    {
+      "type": "textarea",
+      "id": "note",
+      "label": "Note",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "info": "This note will be displayed below image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Why this product?"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link",
+      "default": "/"
+    },
+    {
+      "type": "text",
+      "id": "button_title",
+      "label": "Button Title",
+      "default": "Shop product"
+    },
+    {
+      "type": "radio",
+      "id": "margin",
+      "label": "Include Margin",
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ],
+      "default": "yes"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "default": "A Special Feature",
+          "label": "Block Title"
+        },
+        {
+          "type": "richtext",
+          "id": "copy",
+          "label": "Block Copy",
+          "default": "<p>Our softest and smoothest cotton sateen sheets, woven with a luxurious finish.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Features",
+      "blocks": [
+        {
+          "type": "block"
+        },
+        {
+          "type": "block"
+        },
+        {
+          "type": "block"
+        },
+        {
+          "type": "block"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

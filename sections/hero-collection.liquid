@@ -1,0 +1,278 @@
+{{ 'splide.min.css' | asset_url | stylesheet_tag }}
+
+<div
+  id="HeroCollection-{{ section.id }}"
+>
+  {%- liquid
+    assign full_width = '100vw'
+    assign widths = '375, 550, 750, 1100, 1500, 1780, 2000'
+    assign sizes = '(max-width: 767px) 100vw, (min-width: 768px) 50vw'
+    assign image_class = 'hero-image max-md:aspect-[16/11] max-md:h-auto object-cover object-center w-full h-full absolute inset-0'
+  -%}
+
+  <div
+    class="{% if section.blocks.size > 1 %}splide{% endif %} md:min-h-[calc(100vh_-_var(--header-height))] lg:min-h-[calc(100vh_-_var(--header-height-lg))] flex flex-col"
+    data-splide='{"arrows": false, "pagination": false, "type": "loop"}'
+  >
+    <div class="splide__track flex flex-1">
+      <ul class="splide__list flex !h-auto w-full">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'slide' -%}
+            <li class="splide__slide flex w-full">
+              <div
+                id="{{ block.id }}"
+                class="flex-1 md:grid md:gap-2 relative {% if block.settings.video != null %}md:grid-cols-2{% endif %} max-md:before:aspect-[16/11] max-md:before:block {% if block.settings.video != blank and block.settings.mobile_media == 'video'%}[&_.hero-image]:max-md:hidden [&_.hero-video]:max-md:!block{% endif %}"
+              >
+                <div class="md:relative flex items-end max-md:order-2 [&_.loading-overlay__spinner]:top-0">
+                  {%- if block.settings.image != blank -%}
+                    {%- assign image_height = block.settings.image.width
+                      | divided_by: block.settings.image.aspect_ratio
+                    -%}
+
+                    {% if forloop.index == 1 %}
+                      {%- assign loading = 'eager' -%}
+                      {% render 'spinner' %}
+                      {%- render 'lazyimg',
+                        img: block.settings.image,
+                        width: 1000,
+                        widths: widths,
+                        class: image_class,
+                        sizes: sizes,
+                        loading: loading
+                      -%}
+
+                    {% else %}
+                      {%- assign loading = 'lazy' -%}
+                      {% render 'spinner' %}
+                      {%- render 'lazyimg',
+                        img: block.settings.image,
+                        width: 1000,
+                        widths: widths,
+                        class: image_class,
+                        sizes: sizes
+                      -%}
+                    {% endif %}
+
+                  {%- else -%}
+                    {{ 'hero-apparel-1' | placeholder_svg_tag: image_class }}
+                  {%- endif -%}
+
+                  <div class="relative space-y-10 lg:space-y-12 py-10 lg:py-28  container max-w-none {% if section.blocks.size == 1 %}max-md:pb-0{% endif %}">
+                    {% if block.settings.subtitle != blank
+                      or block.settings.title != blank
+                      or block.settings.mob_title != blank
+                      or block.settings.copy != blank
+                    %}
+                      <div class="space-y-5 lg:space-y-6">
+                        {% if block.settings.subtitle != blank
+                          or block.settings.title != blank
+                          or block.settings.mob_title != blank
+                        %}
+                          <header class=" space-y-3 lg:space-y-4 md:text-white md:max-w-[500px] max-md:text-center">
+                            {%- if block.settings.subtitle != blank %}
+                              <h2 class="m-h5 lg:d-h5 {% if block.settings.mobile_subtitle == 'hide' %}max-md:hidden{% endif %}">
+                                {{ block.settings.subtitle }}
+                              </h2>
+                            {%- endif -%}
+                            {%- if block.settings.title != blank %}
+                              <h3 class="s-m-h3 lg:s-d-h2 {% if block.settings.mob_title != blank%}max-md:hidden{% endif %}">
+                                {{ block.settings.title }}
+                              </h3>
+                            {%- endif -%}
+
+                            {%- if block.settings.mob_title != blank %}
+                              <h4 class="s-m-h3 lg:s-d-h2 md:hidden">{{ block.settings.mob_title }}</h4>
+                            {%- endif -%}
+                          </header>
+                        {% endif %}
+
+                        {% if block.settings.copy %}
+                          <div class="wysiwyg md:text-white max-md:text-center {% if block.settings.copy_visibility == 'mobile'%}md:hidden{% endif %}">
+                            {{ block.settings.copy }}
+                          </div>
+                        {% endif %}
+                      </div>
+                    {% endif %}
+
+                    {% assign collection_handle = block.settings.collection %}
+                    {% assign collection = collections[collection_handle] %}
+                    {% if collection.url != blank and block.settings.button_text != blank %}
+                      <div>
+                        <a
+                          class="btn-large max-md:btn-primary md:btn-alt hover:md:bg-blue-1 hover:md:text-white"
+                          href="{{ collection.url }}"
+                        >
+                          {{- block.settings.button_text -}}
+                        </a>
+                      </div>
+                    {% endif %}
+                  </div>
+                </div>
+
+                {%- if block.settings.video != blank -%}
+                  <div class="">
+                    {{
+                      block.settings.video
+                      | video_tag:
+                        muted: true,
+                        autoplay: true,
+                        loop: true,
+                        playsinline: true,
+                        class: 'hero-video max-md:hidden w-full h-full object-cover max-md:absolute inset-0 max-md:aspect-[16/11] max-md:h-auto',
+                        preload: 'none'
+                    }}
+                  </div>
+                {%- endif -%}
+              </div>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    </div>
+
+    {% if section.blocks.size > 1 %}
+      <nav class="max-md:pt-0 py-4">
+        <div class="splide-pag container max-w-none text-blue-1 font-light text-[12px] leading-[20px] lg:leading-[24px] lg:text-[14px] flex space-x-6">
+          {%- for block in section.blocks -%}
+            <a class="{%- if forloop.index0 == 0 -%}font-semibold underline{%- endif %}" href="{{ block.id }}">
+              {{- block.settings.subtitle -}}
+            </a>
+          {%- endfor -%}
+        </div>
+      </nav>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Hero Collection Carousel",
+  "tag": "section",
+  "class": "section-hero",
+  "disabled_on": {
+    "groups": ["header", "footer"],
+    "templates": ["article"]
+  },
+  "settings": [],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Carousel Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Choose a static image for this item"
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Choose a video for this item"
+        },
+        {
+          "type": "select",
+          "id": "mobile_media",
+          "label": "Mobile Media",
+          "default": "image",
+          "info": "Choose which media to display on mobile.",
+          "options": [
+            {
+              "value": "image",
+              "label": "Image"
+            },
+            {
+              "value": "video",
+              "label": "Video"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Item Sub Title",
+          "default": "Bed"
+        },
+        {
+          "type": "select",
+          "id": "mobile_subtitle",
+          "label": "Sub Title Mobile",
+          "default": "show",
+          "info": "Choose whether to display Sub Title on mobile.",
+          "options": [
+            {
+              "value": "show",
+              "label": "Show"
+            },
+            {
+              "value": "hide",
+              "label": "Hide"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Item Title",
+          "default": "Sink into a restful night's sleep in cosy bedding."
+        },
+        {
+          "type": "text",
+          "id": "mob_title",
+          "label": "Item Title Mobile",
+          "info": "if set, this title will be used on mobile instead of the title above."
+        },
+        {
+          "type": "richtext",
+          "id": "copy",
+          "label": "Copy",
+          "info": "Add optional copy"
+        },
+        {
+          "type": "select",
+          "id": "copy_visibility",
+          "label": "Copy Screen Visibility",
+          "default": "all",
+          "info": "Choose which media to display Copy",
+          "options": [
+            {
+              "value": "all",
+              "label": "Desktop/Mobile"
+            },
+            {
+              "value": "mobile",
+              "label": "Mobile"
+            }
+          ]
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Button Collection Link"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Shop Bed"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Collection Carousel",
+      "blocks": [
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

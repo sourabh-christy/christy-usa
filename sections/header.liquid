@@ -1,0 +1,321 @@
+<script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
+
+{%- liquid
+  for block in section.blocks
+    if block.type == '@app'
+      assign has_app_block = true
+    endif
+  endfor
+-%}
+
+<header id="header" class="sticky top-0 left-0 z-40">
+  <div class="header-bar bg-white/90 h-[70px] lg:h-[107px] !h-[var(--header-height)] lg:!h-[var(--header-height-lg)] flex flex-col justify-center items-center text-blue-1 will-change-transform pointer-events-auto">
+    {% if section.settings.announcement != blank %}
+      <aside id="announcement-bar" class="relative text-white text-center bg-blue-1 top-0 left-0 font-bold w-full">
+        <div class="py-3 container truncate flex justify-center [&>*]:truncate h-[44px] lg:h-[48px] [&_a]:underline">
+          {{ section.settings.announcement }}
+        </div>
+      </aside>
+    {% endif %}
+    <div class="container flex-1 flex items-center justify-between lg:grid lg:max-xl:grid-cols-[minmax(auto,200px)_1fr_1fr_1fr] xl:grid-cols-4">
+      {% if request.page_type == 'collection' %}
+      {% endif %}
+
+      {%- if request.page_type == 'index' -%}
+        <h1 class="header__heading">
+      {%- endif -%}
+      <a
+        href="{{ routes.root_url }}"
+        class="max-md:w-[88px] md:max-lg:w-[120px] block {% if request.page_type == 'collection' %} max-lg:order-[-1] {% endif %} "
+      >
+        <img
+          class=""
+          loading="eager"
+          src="{{ 'christy-logo.svg' | asset_url }}"
+          width="181"
+          height="27"
+          alt="{{ shop.name }}"
+        >
+      </a>
+      {%- if request.page_type == 'index' -%}
+        </h1>
+      {%- endif -%}
+
+      <div class="lg:col-span-3 lg:flex lg:justify-between lg:items-center lg:pl-8 lg:gap-3">
+        {%- render 'header-mega-menu', blocks: section.blocks %}
+
+        <div class="max-lg:hidden lg:max-w-[317px] flex-1">
+          {% render 'header-search', input_id: 'search_desktop' %}
+        </div>
+
+        <div class="header__icons flex items-center space-x-7">
+          {%- if shop.customer_accounts_enabled -%}
+            <a
+              href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
+              class="max-lg:hidden"
+            >
+              {% if customer %}
+                {% render 'icon-account-customer' %}
+              {% else %}
+                {% render 'icon-account' %}
+              {% endif %}
+              <span class="visually-hidden">
+                {%- liquid
+                  if customer
+                    echo 'customer.account_fallback' | t
+                  else
+                    echo 'customer.log_in' | t
+                  endif
+                -%}
+              </span>
+            </a>
+          {%- endif -%}
+
+          <button
+            class="group/wlbtn relative flex items-center outline-none"
+            button-wishlist-drawer-toggle
+            button-wishlist-header
+            aria-label="Open Wishlist"
+          >
+            <span class="block w-[16px] lg:w-[18px]">{% render 'icon-heart' %}</span>
+            <span
+              style="absolute"
+              class="ml-2 hidden absolute left-full top-1/2 -translate-y-1/2"
+              wishlist-count
+            ></span>
+          </button>
+
+          <a href="{{ routes.cart_url }}" class="relative flex items-center outline-none" id="cart-icon-bubble">
+            {%- liquid
+              if cart != empty
+                render 'icon-cart-notempty'
+              else
+                render 'icon-cart'
+              endif
+            -%}
+            <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
+            {%- if cart != empty -%}
+              <div class="cart-count-bubble ml-2">
+                {%- if cart.item_count < 100 -%}
+                  <span aria-hidden="true">{{ cart.item_count }}</span>
+                {%- endif -%}
+                <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+              </div>
+            {%- endif -%}
+          </a>
+
+          <button class="lg:hidden w-[20px] h-[13px] relative !ml-5" data-navmobopen aria-label="Open Nav">
+            <span class="absolute -left-2 -top-2 space-y-[5px] flex flex-col items-end p-2 w-[36px]">
+              <span class="w-full h-[1px] bg-blue-1"></span>
+              <span class="w-full h-[1px] w-[14px] bg-blue-1"></span>
+              <span class="w-full h-[1px] bg-blue-1"></span>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  {%- render 'header-mega-menu-mob', blocks: section.blocks %}
+</header>
+
+{% if section.settings.announcement != blank %}
+  <style>
+    :root {
+      --header-height: calc(70px + 44px);
+      --header-height-lg: calc(107px + 48px);
+    }
+  </style>
+{% endif %}
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": {{ shop.name | json }},
+    {% if settings.logo %}
+      "logo": {{ settings.logo | image_url: width: 500 | prepend: "https:" | json }},
+    {% endif %}
+    "sameAs": [
+      {{ settings.social_twitter_link | json }},
+      {{ settings.social_facebook_link | json }},
+      {{ settings.social_pinterest_link | json }},
+      {{ settings.social_instagram_link | json }},
+      {{ settings.social_tiktok_link | json }},
+      {{ settings.social_tumblr_link | json }},
+      {{ settings.social_snapchat_link | json }},
+      {{ settings.social_youtube_link | json }},
+      {{ settings.social_vimeo_link | json }}
+    ],
+    "url": {{ request.origin | append: page.url | json }}
+  }
+</script>
+
+{%- if request.page_type == 'index' -%}
+  {% assign potential_action_target = request.origin | append: routes.search_url | append: '?q={search_term_string}' %}
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "name": {{ shop.name | json }},
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {{ potential_action_target | json }},
+        "query-input": "required name=search_term_string"
+      },
+      "url": {{ request.origin | append: page.url | json }}
+    }
+  </script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Header",
+  "tag": "section",
+  "class": "section-header w-full",
+  "enabled_on": {
+    "groups": ["header"]
+  },
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "announcement",
+      "label": "Announcement bar",
+      "info": "If copy is entered, announcement will show"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "link_name",
+          "label": "Link Name",
+          "info": "Choose a link name"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link URL",
+          "info": "Choose a link"
+        }
+      ]
+    },
+    {
+      "type": "megamenu",
+      "name": "Mega Menu",
+      "limit": 5,
+      "settings": [
+        {
+          "type": "text",
+          "id": "mega_menu_name",
+          "label": "Mega Menu Name",
+          "info": "E.G 'Shop'"
+        },
+        {
+          "type": "header",
+          "content": "Link Groups.  Add up to two."
+        },
+        {
+          "type": "checkbox",
+          "id": "group_links_mob",
+          "label": "Show Group Links on Mobile",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "group_1_mo_handle",
+          "label": "Group 1 Metaobject Handle",
+          "info": "Choose handle for a Links List Group.  These are created in Content -> Metaobjects. Handle would look like 'menu-shop-group-1'."
+        },
+        {
+          "type": "text",
+          "id": "group_2_mo_handle",
+          "label": "Group 2 Metaobject Handle",
+          "info": "Choose handle for a Links List Group.  These are created in Content -> Metaobjects. Handle would look like 'menu-shop-group-1'."
+        },
+        {
+          "type": "select",
+          "id": "mm_content",
+          "options": [
+            {
+              "value": "menu",
+              "label": "Navigation Links"
+            },
+            {
+              "value": "image_ctas",
+              "label": "Navigation Image Tile Links"
+            }
+          ],
+          "default": "menu",
+          "label": "Choose whether to use Shopify Navigation, or Choose Image cards"
+        },
+        {
+          "type": "header",
+          "content": "Navigation Links Picker"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Navigation Links"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_mob",
+          "label": "Navigation Links - MOBILE (Optional)"
+        },
+        {
+          "type": "header",
+          "content": "Navigation Image Tile Links. Choose up to 2."
+        },
+        {
+          "type": "header",
+          "content": "Image Tile Link 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_link_1_image",
+          "label": "Image Tile Link 1 Image",
+          "info": "The Image Tiles Image"
+        },
+        {
+          "type": "text",
+          "id": "image_link_1_title",
+          "label": "Image Tile Link 1 Title"
+        },
+        {
+          "type": "url",
+          "id": "image_link_1_url",
+          "label": "Image Tile Link 1 URL"
+        },
+        {
+          "type": "header",
+          "content": "Image Tile Link 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_link_2_image",
+          "label": "Image Tile Link 2 Image",
+          "info": "The Image Tiles Image"
+        },
+        {
+          "type": "text",
+          "id": "image_link_2_title",
+          "label": "Image Tile Link 2 Title"
+        },
+        {
+          "type": "url",
+          "id": "image_link_2_url",
+          "label": "Image Tile Link 2 URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Header"
+    }
+  ]
+}
+{% endschema %}

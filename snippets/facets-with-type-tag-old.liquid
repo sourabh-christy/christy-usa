@@ -1,0 +1,216 @@
+{% comment %}
+  Renders facets (filtering and sorting)
+
+  Accepts:
+  - results: {Object} Collection or Search object
+  - enable_filtering: {Boolean} Show filtering when true
+  - enable_sorting: {Boolean} Show sorting when true
+  - filter_type: {String} Type of filter
+  - paginate: {Object}
+
+  Usage:
+  {% render 'facets', results: collection, enable_filtering: true, enable_sorting: true, filter_type: 'vertical', paginate: paginate %}
+{% endcomment %}
+
+{{ 'component-show-more.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign sort_by = results.sort_by | default: results.default_sort_by
+  assign total_active_values = 0
+  if results.url
+    assign results_url = results.url
+  else
+    assign terms = results.terms | escape
+    assign results_url = '?q=' | append: terms | append: '&options%5Bprefix%5D=last&sort_by=' | append: sort_by
+  endif
+-%}
+
+<div class="facets-container container">
+  <facet-filters-form class="">
+    <form
+      id="FacetFiltersForm"
+      class=""
+    >
+      {%- if results.terms -%}
+        <input type="hidden" name="q" value="{{ results.terms | escape }}">
+        <input name="options[prefix]" type="hidden" value="last">
+      {%- endif -%}
+
+      {% comment %} Heading is the first tabbable element on filter type horizontal {% endcomment %}
+      <div
+        id="FacetsWrapperDesktop"
+      >
+        <script src="{{ 'show-more.js' | asset_url }}" defer="defer"></script>
+
+        {% capture shop_by_btns %}
+          
+          {%- for filter in results.filters -%}
+            {% if filter.param_name == 'filter.p.tag' or filter.param_name == 'filter.p.product_type' %}
+              {% case filter.param_name %}
+                {% when 'filter.p.product_type' %}
+                  {% assign shopby = 'type' %}
+                  {% assign label = 'Shop by Product' %}
+                {% when 'filter.p.tag' %}
+                  {% assign shopby = 'tag' %}
+                  {% assign label = 'Shop by Feeling' %}
+              {% endcase %}
+              {% if filter.values.size > 0 %}
+                <label class="cursor-pointer">
+                  <input
+                    class="invisible absolute peer"
+                    type="radio"
+                    name="shop_by"
+                    value="{{shopby}}"
+                    {% if shopby == 'type' %}
+                      checked
+                    {% endif %}
+                    {% if filter.active_values.size > 0 %}
+                      {% assign currentType = shopby %}
+                      checked
+                    {% endif %}
+                  >
+                  <span class="peer-checked:selected-tab">{{ label }}</span>
+                </label>
+              {% endif %}
+            {% endif %}
+          {%- endfor -%}
+          {% endcapture %}
+
+        {% if currentType == blank %}
+          {% assign currentType = 'type default' %}
+        {% endif %}
+
+        <div
+          class="md:flex items-center py-5 lg:py-7 lg:-mb-7 max-md:space-y-6 md:space-x-6 group/shopby shop_by {{ currentType }} [&.default_.input-type]:!block [&.type_.input-type]:!block [&.tag_.input-tag]:!block"
+        >
+          <div class="flex space-x-6">
+            {{ shop_by_btns }}
+          </div>
+
+          <span aria-hidden="true" class="w-[1px] h-[32px] bg-blue-1/20 max-md:hidden"></span>
+
+          {%- for filter in results.filters -%}
+            {% if filter.param_name == 'filter.p.tag' or filter.param_name == 'filter.p.product_type' %}
+              {% case filter.param_name %}
+                {% when 'filter.p.product_type' %}
+                  {% assign shopby = 'type' %}
+                {% when 'filter.p.tag' %}
+                  {% assign shopby = 'tag' %}
+              {% endcase %}
+              <div
+                class="hidden input-{{shopby}} js-filter"
+                data-index="shopby_{{shopby}}"
+              >
+                <fieldset class="facets-wrap">
+                  <legend class="visually-hidden">{{ filter.label | escape }}</legend>
+                  <ul
+                    class="flex space-x-6 overflow-auto"
+                    role="list"
+                  >
+                    {%- for value in filter.values -%}
+                      {% if forloop.index0 == 0 %}
+                        <li
+                          class="shop_by_type_all shrink-0"
+                        >
+                          <label
+                            for="Filter-{{ filter.param_name | escape }}-0"
+                            class="cursor-pointer"
+                          >
+                            <input
+                              class="peer invisible absolute"
+                              type="radio"
+                              name="{{ value.param_name }}"
+                              value="0"
+                              id="Filter-{{ filter.param_name | escape }}-0"
+                              checked
+                            >
+
+                            <span class="peer-checked:selected-tab" aria-hidden="true">Shop All</span>
+                          </label>
+                        </li>
+                      {% endif %}
+
+                      <li class="shrink-0">
+                        <label
+                          for="Filter-{{ filter.param_name | escape }}-{{ forloop.index }}"
+                          class="cursor-pointer {% if value.count == 0 and value.active == false %} opacity-50 cursor-not-allowed{% endif %}"
+                        >
+                          <input
+                            class="peer invisible absolute"
+                            type="radio"
+                            name="{{ value.param_name }}"
+                            value="{{ value.value }}"
+                            id="Filter-{{ filter.param_name | escape }}-{{ forloop.index }}"
+                            {% if value.active %}
+                              checked
+                            {% endif %}
+                            {% if value.count == 0 and value.active == false %}
+                              disabled
+                            {% endif %}
+                          >
+
+                          <span
+                            class="peer-checked:selected-tab "
+                            aria-hidden="true"
+                          >
+                            {{- value.label | escape -}}
+                          </span>
+                          <span class="visually-hidden">
+                            {{- value.label | escape }} (
+                            {%- if value.count == 1 -%}
+                              {{- 'products.facets.product_count_simple.one' | t: count: value.count -}}
+                            {%- else -%}
+                              {{- 'products.facets.product_count_simple.other' | t: count: value.count -}}
+                            {%- endif -%}
+                            )</span
+                          >
+                        </label>
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                </fieldset>
+              </div>
+            {% endif %}
+          {%- endfor -%}
+        </div>
+      </div>
+
+      {% if results.current_vendor or results.current_type %}
+        <input type="hidden" name="q" value="{{ results.current_vendor }}{{ results.current_type }}">
+      {% endif %}
+    </form>
+  </facet-filters-form>
+
+  <div
+    class="product-count !hidden"
+    role="status"
+  >
+    <h2 class="product-count__text text-body">
+      <span id="ProductCount">
+        {%- if results.results_count -%}
+          {{ 'templates.search.results_with_count' | t: terms: results.terms, count: results.results_count }}
+        {%- elsif results.products_count == results.all_products_count -%}
+          {{ 'products.facets.product_count_simple' | t: count: results.products_count }}
+        {%- else -%}
+          {{
+            'products.facets.product_count'
+            | t: product_count: results.products_count, count: results.all_products_count
+          }}
+        {%- endif -%}
+      </span>
+    </h2>
+    <div class="loading-overlay__spinner">
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        class="spinner"
+        viewBox="0 0 66 66"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<script></script>

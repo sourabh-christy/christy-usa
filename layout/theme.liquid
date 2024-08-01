@@ -1,0 +1,325 @@
+<!doctype html>
+<html
+  class="no-js overflow-x-clip {% if content_for_header contains "previewBarInjector.init();" %}is-preview{% endif %}"
+  lang="{{ request.locale.iso_code }}"
+>
+  <head>
+	{% render 'pandectes-rules' %}
+	
+    {%- if content_for_header contains 'tapita-seo-script-tags' -%}{%- include 'tapita-seo-schema' -%}{%- endif -%}
+
+    
+    {%- render 'ecom_header' -%}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta name="theme-color" content="">
+    <link rel="canonical" href="{{ canonical_url }}">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ 'apple-touch-icon2.png' | asset_url }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ 'favicon-32x322.png' | asset_url }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ 'favicon-16x162.png' | asset_url }}">
+    <link rel="manifest" href="{{ 'site.webmanifest' | asset_url }}">
+
+    <title>
+      {{ page_title }}
+      {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+      {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+    </title>
+
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
+
+    {% render 'meta-tags', page_description: page_description, page_title: page_title %}
+
+    <link rel="stylesheet" href="{{ 'christy-fonts.css' | asset_url }}" media="all">
+    <link rel="stylesheet" href="{{ 'app.css' | asset_url }}" media="all">
+    <style>
+      .visually-hidden,
+      .hidden {
+        display: none;
+      }
+    </style>
+
+    <script src="{{ 'constants.js' | asset_url }}" async defer="defer"></script>
+    <script src="{{ 'pubsub.js' | asset_url }}" async defer="defer"></script>
+    <script src="{{ 'global.js' | asset_url }}" async defer="defer"></script>
+
+    {%- if request.page_type != 'index' and request.page_type != 'product' and request.page_type != 'collection' -%}
+      {% comment %}<link rel="stylesheet" href="{{ 'base.css' | asset_url }}" media="all">{% endcomment %}
+    {%- endif -%}
+
+    {%- if tinyscript -%}{{ content_for_header }}{%- else -%}{% render 'tiny-script-control' %}{%- endif -%}
+
+    {%- liquid
+      assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
+      assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
+      assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
+    %}
+
+    <script>
+      document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+      if (Shopify.designMode) {
+        document.documentElement.classList.add('shopify-design-mode');
+      }
+    </script>
+
+    <!-- Hotjar Tracking Code for www.christy.co.uk/ -->
+    <script>
+      (function (h, o, t, j, a, r) {
+        h.hj =
+          h.hj ||
+          function () {
+            (h.hj.q = h.hj.q || []).push(arguments);
+          };
+        h._hjSettings = { hjid: 704623, hjsv: 6 };
+        a = o.getElementsByTagName('head')[0];
+        r = o.createElement('script');
+        r.async = 1;
+        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+        a.appendChild(r);
+      })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-TKQNXXK');
+    </script>
+    <!-- End Google Tag Manager -->
+    <!-- Google tag (gtag.js) -->
+    <script async defer="defer" src="https://www.googletagmanager.com/gtag/js?id=AW-961149424"></script>
+    <script>
+      window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-961149424');
+    </script>
+
+    {% if template == 'cart' %}{% include 'revy-bundle-script' %}{% endif %}
+
+    {% include 'sm-red' %}
+  </head>
+
+  <body id="{{ page_title | handle }}" class="h-full text-[12px] md:text-[14px] leading-[1.7] font-light text-blue-1">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TKQNXXK"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <a class="skip-to-content-link button visually-hidden" href="#MainContent">
+      {{ 'accessibility.skip_to_text' | t }}
+    </a>
+
+    {% sections 'header-group' %}
+
+    {%- render 'cart-drawer' -%}
+
+    {%- render 'wishlist-drawer' -%}
+
+    <div
+      {% if request.page_type == 'product' %}
+        id="product-wrap"
+      {% endif %}
+      class=""
+    >
+      <div
+        {% if request.page_type == 'product' %}
+          id="product-page"
+        {% endif %}
+        class=""
+        data-pos=""
+      >
+        {% if request.page_type == 'product' %}
+          <main id="MainContent" class="outline-none" role="main">
+            {{ content_for_layout }}
+          </main>
+
+          <footer class="footer bg-grey-2">
+            {% sections 'footer-group' %}
+          </footer>
+        {% elsif request.page_type == 'article' %}
+          <main id="MainContent" class="outline-none" role="main">
+            <article class="article-template" itemscope itemtype="http://schema.org/BlogPosting">
+              {{ content_for_layout }}
+            </article>
+            {% render 'main-article-schema' %}
+          </main>
+
+          <footer class="footer bg-grey-2">
+            {% sections 'footer-group' %}
+          </footer>
+        {% else %}
+          <main id="MainContent" class="outline-none" role="main" tabindex="-1">
+            {{ content_for_layout }}
+
+            {% sections 'main-collection-body' %}
+          </main>
+
+          <footer class="footer bg-grey-2">
+            {% sections 'footer-group' %}
+          </footer>
+        {% endif %}
+      </div>
+    </div>
+
+    <ul hidden>
+      <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
+      <li id="a11y-new-window-message">{{ 'accessibility.link_messages.new_window' | t }}</li>
+    </ul>
+
+    {% render 'modal-email-signup' %}
+
+    <script>
+      window.shopUrl = '{{ request.origin }}';
+      window.routes = {
+        cart_add_url: '{{ routes.cart_add_url }}',
+        cart_change_url: '{{ routes.cart_change_url }}',
+        cart_update_url: '{{ routes.cart_update_url }}',
+        cart_url: '{{ routes.cart_url }}',
+        predictive_search_url: '{{ routes.predictive_search_url }}',
+      };
+
+      window.cartStrings = {
+        error: `{{ 'sections.cart.cart_error' | t }}`,
+        quantityError: `{{ 'sections.cart.cart_quantity_error_html' | t: quantity: '[quantity]' }}`,
+      };
+
+      window.variantStrings = {
+        addToCart: `{{ 'products.product.add_to_cart' | t }}`,
+        soldOut: `{{ 'products.product.sold_out' | t }}`,
+        unavailable: `{{ 'products.product.unavailable' | t }}`,
+        unavailable_with_option: `{{ 'products.product.value_unavailable' | t: option_value: '[value]' }}`,
+      };
+
+      window.accessibilityStrings = {
+        imageAvailable: `{{ 'products.product.media.image_available' | t: index: '[index]' }}`,
+        shareSuccess: `{{ 'general.share.success_message' | t }}`,
+        pauseSlideshow: `{{ 'sections.slideshow.pause_slideshow' | t }}`,
+        playSlideshow: `{{ 'sections.slideshow.play_slideshow' | t }}`,
+      };
+    </script>
+
+    {%- if settings.predictive_search_enabled -%}
+      <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
+
+    <script src="{{ 'app.js' | asset_url }}" async></script>
+    <script src="{{ 'lazy-load.js' | asset_url }}" defer></script>
+
+    <script src="{{ 'splide.min.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'splide-config.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'Wishlist.js' | asset_url }}" defer="defer"></script>
+
+    <script src="https://widget.reviews.io/rating-snippet/dist.js"></script>
+    <link rel="stylesheet" href="https://widget.reviews.io/rating-snippet/dist.css">
+    <script>
+      ratingSnippet("ruk_rating_snippet", {
+        store: "www.christy.co.uk",
+        mode: "default",
+        color: "#2c3b96",
+        linebreak: false,
+        text: "Reviews",
+        singularText: "Review",
+        lang: "en",
+        usePolaris: true,
+        showEmptyStars: false,
+      });
+    </script>
+
+    <script>
+      window.prechatTemplate = {
+        SubmitLabel: "Start Chat",
+        fields: {
+          1: {
+            error: "Please Enter a valid name",
+            fieldId: "name",
+            label: "Name",
+            required: "yes",
+            type: "text",
+          },
+          2: {
+            error: "Please Enter a valid Email",
+            fieldId: "email",
+            label: "Email",
+            required: "yes",
+            type: "email",
+          },
+          3: {
+            error: "Please Enter a valid Phone Number",
+            fieldId: "phone",
+            label: "Phone",
+            required: "no",
+            type: "phone",
+          },
+          4: {
+            error: "Please Enter issue",
+            fieldId: "cf_issue",
+            label: "Complaint/Query/Request",
+            required: "no",
+            type: "text",
+          },
+        },
+        heading: "Christy",
+        mainbgColor: "#2c3b96",
+        maintxColor: "#fff",
+        textBanner:
+          "We can't wait to talk to you. But first, please take a couple of moments to tell us a bit about yourself.",
+      };
+
+      window.fcSettings = {
+        onInit: function () {
+          window.fcPreChatform.fcWidgetInit(window.prechatTemplate);
+        },
+      };
+      window.fcWidgetMessengerConfig = {
+        config: {
+          content: {
+            actions: {
+              tab_chat: "Chat",
+            },
+            headers: {
+              chat: "Chat With Us",
+            },
+          },
+          cssNames: {
+            expanded: "custom_fc_expanded",
+            widget: "custom_fc_frame",
+          },
+        },
+      };
+    </script>
+    <script async defer src="https://snippets.freshchat.com/js/fc-pre-chat-form-v2.js"></script>
+    <script async defer src="//eu.fw-cdn.com/12707561/706000.js" chat="true"></script>
+    <script
+      async
+      defer
+    >
+      // Add custom CSS styles directly via JavaScript
+      var customStyles = document.createElement("style");
+      customStyles.innerHTML = `
+        .fc-form p,
+        .pre-fc-field label {
+          font-size: medium;
+        }
+        .pre-fc-field label {
+          text-transform: capitalize;
+        }
+      `;
+      document.head.appendChild(customStyles);
+    </script>
+  </body>
+</html>

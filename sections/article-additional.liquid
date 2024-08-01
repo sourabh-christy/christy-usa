@@ -1,0 +1,162 @@
+<div
+  id="ArticleAdditional-{{ section.id }}"
+  class="container"
+>
+  <div class="lg:space-x-6 lg:flex">
+    <div class="lg:w-5/12">
+      {% if section.settings.title %}
+        <h2 class="s-m-h3 lg:s-d-h2">{{ section.settings.title }}</h2>
+      {% endif %}
+    </div>
+    <div class="space-y-14 lg:space-y-24 lg:w-7/12 ">
+      {% if section.blocks %}
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'text' %}
+              {% if block.settings.title != blank or block.settings.text != blank %}
+                <div {{ block.shopify_attributes }} class="space-y-5 animation an-fadeup">
+                  {% if block.settings.title %}
+                    <h3 class="m-h5 lg:d-h5">{{ block.settings.title }}</h3>
+                  {% endif %}
+                  {% if block.settings.text %}
+                    <div class="wysiwyg">
+                      {{ block.settings.text }}
+                    </div>
+                  {% endif %}
+                </div>
+              {% endif %}
+            {% when 'image' %}
+              {% if block.settings.image != blank %}
+                <figure {{ block.shopify_attributes }} class="relative animation an-fadeup">
+                  {% liquid
+                    assign width = block.settings.image.width
+                    assign height = block.settings.image.height
+                    assign sizes = '100vw'
+                  %}
+                  {% assign widths = '375, 550, 750, 1100, 1500' %}
+                  {% render 'spinner' %}
+                  {%- render 'lazyimg',
+                    loading: 'lazy',
+                    img: block.settings.image,
+                    width: width,
+                    height: height,
+                    widths: widths,
+                    class: 'w-full h-auto opacity-0',
+                    sizes: sizes
+                  -%}
+                </figure>
+              {% endif %}
+            {% when 'products' %}
+              {% assign products = block.settings.products %}
+              {% if products.count > 0 %}
+                <div {{ block.shopify_attributes }} class="grid grid-cols-2 gap-14 lg:gap-24 animation an-fadeup">
+                  {% for product in block.settings.products %}
+                    {% render 'card-product', card_product: product, section_id: section.id %}
+                  {% endfor %}
+                </div>
+              {% endif %}
+            {% when 'html' %}
+              {% if block.settings.html != blank %}
+                <div {{ block.shopify_attributes }} class="">
+                  {% if block.settings.html %}
+                    <div class="">
+                      {{ block.settings.html }}
+                    </div>
+                  {% endif %}
+                </div>
+              {% endif %}
+          {% endcase %}
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Article Additional",
+  "tag": "section",
+  "class": "section-artadd",
+  "disabled_on": {
+    "groups": ["header", "footer"],
+    "templates": ["page"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Title"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "<p>Title</p>"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Lorem Ipsum.</p>"
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    },
+    {
+      "type": "products",
+      "name": "Products",
+      "settings": [
+        {
+          "type": "product_list",
+          "id": "products",
+          "label": "Products"
+        }
+      ]
+    },
+    {
+      "type": "html",
+      "name": "HTML",
+      "settings": [
+        {
+          "type": "html",
+          "id": "html",
+          "label": "HTML"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Article Additional",
+      "blocks": [
+        {
+          "type": "text"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "products"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,202 @@
+@font-face {
+    font-family: 'ballantines-regularregular';
+    src: url('ballantines-regular-8039-webfont.eot');
+    src: url('ballantines-regular-8039-webfont.eot?#iefix') format('embedded-opentype'),url('ballantines-regular-8039-webfont.woff') format('woff'),url('ballantines-regular-8039-webfont.ttf') format('truetype'),url('ballantines-regular-8039-webfont.svg#ballantines-regularregular') format('svg');
+    font-weight: 400;
+    font-style: normal;
+    font-display: fallback
+}
+@font-face {
+    font-family: 'Helvetica';
+    src: url('Helvetica.ttf');
+}
+@font-face {
+    font-family: 'TimeNewRoman';
+    src: url('times_new_roman.ttf');
+}
+@font-face {
+    font-family: 'bodoniflfbold';
+    src: url('bodoniflf-bold-webfont.eot');
+    src: url('bodoniflf-bold-webfont.eot?#iefix') format('embedded-opentype'),url('bodoniflf-bold-webfont.woff') format('woff'),url('bodoniflf-bold-webfont.ttf') format('truetype'),url('bodoniflf-bold-webfont.svg#bodoniflfbold') format('svg');
+    font-weight: 400;
+    font-style: normal;
+    font-display: fallback
+}
+
+@font-face {
+    font-family: 'american_typewriter-webfont';
+    src: url('american_typewriter-webfont.eot');
+    src: url('american_typewriter-webfont.eot?#iefix') format('embedded-opentype'),url('american_typewriter-webfont.woff') format('woff'),url('american_typewriter-webfont.ttf') format('truetype'),url('american_typewriter-webfont.svg#american_typewriter-webfont') format('svg');
+    font-weight: 400;
+    font-style: normal;
+    font-display: fallback
+}
+
+@font-face {
+    font-family: 'typesetit_-_stylescript-webfont';
+    src: url('typesetit_-_stylescript-webfont.eot');
+    src: url('typesetit_-_stylescript-webfont.eot?#iefix') format('embedded-opentype'),url('typesetit_-_stylescript-webfont.woff') format('woff'),url('typesetit_-_stylescript-webfont.ttf') format('truetype'),url('typesetit_-_stylescript-webfont.svg#typesetit_-_stylescript-webfont') format('svg');
+    font-weight: 400;
+    font-style: normal;
+    font-display: fallback
+}
+
+@font-face {
+    font-family: 'lavender_script-webfont';
+    src: url('lavender_script-webfont.eot');
+    src: url('lavender_script-webfont.eot?#iefix') format('embedded-opentype'),url('lavender_script-webfont.woff') format('woff'),url('lavender_script-webfont.ttf') format('truetype'),url('lavender_script-webfont.svg#lavender_script-webfont') format('svg');
+    font-weight: 400;
+    font-style: normal;
+    font-display: fallback
+}
+@font-face {
+    font-family: 'laurel';
+    src: url('laurel.eot');
+    src: url('laurel.eot?#iefix') format('embedded-opentype'),url('laurel.woff') format('woff'),url('laurel.ttf') format('truetype'),url('laurel.svg#laurel') format('svg');
+    font-weight: 400;
+    font-style: normal;
+    font-display: fallback
+}
+
+.personalization_image .personalization_text{
+    line-height: 0;
+    vertical-align: middle;
+    text-align: center;
+    display: table-cell;
+    z-index: 9;
+    font-size: 10rem;
+    pointer-events: none;
+    color: #fff;
+}
+.personalize-style-selector{
+    width: 100px;
+    height: 100px;
+}
+.personalize-style-selector.ballantines{
+    font-family: 'ballantines-regularregular';
+    font-size: 2rem;
+}
+.personalize-style-selector.classic{
+    font-family: 'TimeNewRoman';
+    font-size: 2rem;
+}
+.personalize-style-selector.modern{
+    font-family: 'Helvetica';
+    font-size: 2rem;
+}
+.personalization_image .personalization_text.classic{
+    font-family: 'TimeNewRoman';
+    font-size: 1.3rem;
+}
+.personalization_image .personalization_text.modern{
+    font-family: 'Helvetica';
+    font-size: 1.3rem;
+}
+.personalization_image .personalization_text.mg-dots{
+    font-family: 'american_typewriter-webfont';
+    font-size: 1.3rem;
+}
+.personalization_image .personalization_text.mg-trio{
+    font-family: 'american_typewriter-webfont';
+    font-size: 1.3rem;
+    line-height: 1.3rem;
+    vertical-align: top;
+}
+.personalization_image .personalization_text.mg-trio span.mono-text, .personalization_image .personalization_text.mg-pair span.mono-text{
+    vertical-align: top;
+    position: relative;
+    display: flex;
+    align-items: start;
+    gap:0.25rem;
+}
+.personalization_image .personalization_text.mg-trio span.mono-text span:nth-child(2){
+    font-size: 2.6rem;
+    line-height: 2rem;
+}
+.personalization_image .personalization_text.mg-pair span.mono-text span:nth-child(2){
+    
+    margin-top: 20%;
+}
+.personalization_image .personalization_text.ballantines{
+    font-family: 'ballantines-regularregular';
+    font-size: 1.6rem;
+}
+.personalization_image .personalization_text.mg-pair{
+    font-family: 'american_typewriter-webfont';
+    font-size: 1.6rem;
+}
+.personalization_image .personalization_text.laurel{
+    font-family: 'american_typewriter-webfont';
+    font-size: 1.6rem;
+    width: 5rem;
+}
+.personalization_image .personalization_text.laurel::before{
+    font-family: "laurel";
+    content: "\73";
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    font-size: 5rem;
+    left: 0;
+    top:-5px;
+    font-weight: 400;
+    padding-top: 15px;
+    text-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+.personalization_image .personalization_text.Yellow{
+    color: #F7D000;
+}
+.personalization_image .personalization_text.Pink{
+    color: #F6AABC;
+}
+.personalization_image .personalization_text.Pebble{
+    color: #947C69;
+}
+.personalization_image .personalization_text.Pale_Blue{
+    color: #253C74;
+}
+.personalization_image .personalization_text.Natural{
+    color: #866137;
+}
+.personalization_image .personalization_text.Liliac{
+    color: #602484;
+}
+.personalization_image .personalization_text.Berry{
+    color: #AC2D53;
+}
+.personalization_image .personalization_text.Aqua{
+    color: #18A09F;
+}
+.personalization_image .personalization_text.Navy{
+    color: #000080;
+}
+.personalization_image .personalization_text.white{
+    color: #FFF;
+}
+.personalization_image .personalization_text.black{
+    color: #000;
+}
+.personalization_image .personalization_text.Red{
+    color: #B43D3D;
+}
+.personalize-font-selector{
+    color: #777;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.personalize-font-selector img, .personalize-font-selector strong{
+    pointer-events: none;
+}
+
+.personalize-color-selector{
+    width: 40px;
+    height: 40px;
+    background: #fff;
+}
+.personalize-color-selector.selected, .personalize-font-selector.selected{
+    border-width: 3px !important;
+}
+
+

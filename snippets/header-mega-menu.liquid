@@ -1,0 +1,237 @@
+{% comment %}
+  Renders a megamenu for the header.
+
+  Usage:
+  {% render 'header-mega-menu' %}
+{% endcomment %}
+
+<nav class="max-lg:hidden">
+  <ul class="flex space-x-8 xl:space-x-16 font-normal" role="list">
+    {% for block in blocks %}
+      {% if block.type == 'megamenu' %}
+        {% liquid
+          comment
+            These are items from METAOBJECTS. the arrays should include link, link_title, link_description
+          endcomment
+
+          assign group_1_mo_handle = block.settings.group_1_mo_handle
+          if group_1_mo_handle
+            assign group_1_name = shop.metaobjects.links_list_group[group_1_mo_handle].group_name
+            assign group_1_links_array = shop.metaobjects.links_list_group[group_1_mo_handle].link.value
+          endif
+          assign group_2_mo_handle = block.settings.group_2_mo_handle
+          if group_1_mo_handle
+            assign group_2_name = shop.metaobjects.links_list_group[group_2_mo_handle].group_name
+            assign group_2_links_array = shop.metaobjects.links_list_group[group_2_mo_handle].link.value
+          endif
+
+          assign mm_content = block.settings.mm_content
+
+          assign menu = block.settings.menu
+
+          comment
+            image tile link 1
+          endcomment
+          assign image_link_1_image = block.settings.image_link_1_image
+          assign image_link_1_title = block.settings.image_link_1_title
+          assign image_link_1_url = block.settings.image_link_1_url
+          comment
+            image tile link 2
+          endcomment
+          assign image_link_2_image = block.settings.image_link_2_image
+          assign image_link_2_title = block.settings.image_link_2_title
+          assign image_link_2_url = block.settings.image_link_2_url
+        %}
+        <li>
+          <header-menu class="block">
+            <details id="Details-HeaderMenu-shop" class="mega-menu group">
+              <summary
+                id="HeaderMenu-shop"
+                class="block group-open:font-semibold outline-none"
+              >
+                <span
+                  {%- if link.child_active %}
+                    class="header__active-menu-item"
+                  {% endif %}
+                >
+                  {{ block.settings.mega_menu_name }}
+                </span>
+              </summary>
+              <div
+                class="fixed z-[-1] w-full left-0 top-[var(--header-height)] lg:top-[var(--header-height-lg)] -translate-y-14 opacity-0 pointer-events-none"
+                tabindex="-1"
+              >
+                <div class="container">
+                  <div class="bg-white/95 px-8 shadow-megamenu pointer-events-auto">
+                    <ul
+                      class="grid grid-cols-4 gap-6 [&_>li]:pl-8 [&_>li:first-child]:pl-0 [&_>li]:py-12 [&_>li]:border-l [&_>li]:border-blue-1/10 [&_>li:first-child]:border-0"
+                      role="list"
+                    >
+                      <li class="[&_a:hover]:underline">
+                        <ul class="space-y-12">
+                          {% if group_1_links_array.count %}
+                            <li class="space-y-4">
+                              {% if group_1_name %}
+                                <h4 class="m-body-copy-med lg:d-body-copy-med">{{ group_1_name }}</h4>
+                              {% endif %}
+                              <ul class="space-y-3 font-light leading-[20px]">
+                                {% for link in group_1_links_array %}
+                                  {%- assign url = '' -%}
+                                  {%- if link.page != blank -%}
+                                    {% assign url = link.page.value.url %}
+                                  {% elsif link.product != blank %}
+                                    {% assign url = link.product.value.url %}
+                                  {% elsif link.collection != blank %}
+                                    {% assign url = link.collection.value.url %}
+                                  {% elsif link.url != blank %}
+                                    {% assign url = link.url.value %}
+                                  {%- endif -%}
+                                  {% if url != blank %}
+                                    <li>
+                                      <a href="{{ url }}">
+                                        {{- link.link_title }}
+                                        <span class="block text-[10px]">{{ link.link_description }}</span></a
+                                      >
+                                    </li>
+                                  {% endif %}
+                                {% endfor %}
+                              </ul>
+                            </li>
+                          {% endif %}
+                          {% if group_2_links_array.count %}
+                            <li class="space-y-4">
+                              {% if group_2_name %}
+                                <h4 class="m-body-copy-med lg:d-body-copy-med">{{ group_2_name }}</h4>
+                              {% endif %}
+                              <ul class="space-y-3 font-light [&_li>a>span]:leading-[20px]">
+                                {% for link in group_2_links_array %}
+                                  {%- assign url = '' -%}
+                                  {%- if link.page != blank -%}
+                                    {% assign url = link.page.value.url %}
+                                  {% elsif link.product != blank %}
+                                    {% assign url = link.product.value.url %}
+                                  {% elsif link.collection != blank %}
+                                    {% assign url = link.collection.value.url %}
+                                  {% elsif link.url != blank %}
+                                    {% assign url = link.url.value %}
+                                  {%- endif -%}
+                                  {% if url != blank %}
+                                    <li>
+                                      <a href="{{ url }}">
+                                        {{- link.link_title }}
+                                        <span class="block text-[10px]">{{ link.link_description }}</span></a
+                                      >
+                                    </li>
+                                  {% endif %}
+                                {% endfor %}
+                              </ul>
+                            </li>
+                          {% endif %}
+                        </ul>
+                      </li>
+
+                      {% if mm_content == 'menu' and menu != blank %}
+                        <li class=" [&_a:hover]:underline col-span-3">
+                          <ul class="columns-3 column gap-16 column-rule-blue-1 [&_>li]:mb-12 fake-column-rule-blue-1 min-h-full">
+                            {% assign links = linklists[menu].links %}
+                            {% for parent in links %}
+                              <li class="space-y-4 break-inside-avoid">
+                                <a href="{{ parent.url }}" class="m-body-copy-med lg:d-body-copy-med">
+                                  {{- parent.title | escape -}}
+                                </a>
+                                {% if parent.levels > 0 %}
+                                  <ul class="space-y-3 font-light">
+                                    {% for child in parent.links %}
+                                      <li>
+                                        <a class="{% if child.current %} active{% endif %}" href="{{child.url}}">
+                                          {{- child.title -}}
+                                          {% unless child.title contains 'Shop by' %}
+                                            {%- if child.type == 'collection_link'
+                                              and child.object.metafields.christy23.collection_usp != blank
+                                            -%}
+                                              <strong
+                                                >&nbsp;|&nbsp;
+                                                {{ child.object.metafields.christy23.collection_usp }}
+                                              </strong>
+                                            {%- endif -%}
+                                          {% endunless %}
+                                        </a>
+                                      </li>
+                                    {% endfor %}
+                                  </ul>
+                                {% endif %}
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        </li>
+                      {% elsif mm_content == 'image_ctas' %}
+                        <li class=" [&_a:hover]:underline col-span-3 !p-0">
+                          <ul class="grid grid-cols-2 column-rule-blue-1 [&_li]:px-8 [&_>li]:py-12 fake-column-rule-blue-2 min-h-full">
+                            {% if image_link_1_image != blank
+                              and image_link_1_title != blank
+                              and image_link_1_url != blank
+                            %}
+                              <li class="break-inside-avoid">
+                                <a href="{{ image_link_1_url }}" class="block">
+                                  {% liquid
+                                    assign widths = '375, 550, 750, 1100'
+                                    assign sizes = '100vw'
+                                  %}
+                                  {% render 'spinner' %}
+                                  {%- render 'lazyimg',
+                                    img: image_link_1_image,
+                                    width: 413,
+                                    height: 332,
+                                    widths: widths,
+                                    class: '',
+                                    sizes: sizes
+                                  -%}
+                                  <p class="mt-4">{{ image_link_1_title }}</p>
+                                </a>
+                              </li>
+                            {% endif %}
+                            {% if image_link_2_image != blank
+                              and image_link_2_title != blank
+                              and image_link_2_url != blank
+                            %}
+                              <li class="break-inside-avoid">
+                                <a href="{{ image_link_2_url }}" class="block">
+                                  {% liquid
+                                    assign widths = '375, 550, 750, 1100'
+                                    assign sizes = '100vw'
+                                  %}
+                                  {% render 'spinner' %}
+                                  {%- render 'lazyimg',
+                                    img: image_link_2_image,
+                                    width: 413,
+                                    height: 332,
+                                    widths: widths,
+                                    class: '',
+                                    sizes: sizes
+                                  -%}
+                                  <p class="mt-4">{{ image_link_2_title }}</p>
+                                </a>
+                              </li>
+                            {% endif %}
+                          </ul>
+                        </li>
+                      {% endif %}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </details>
+          </header-menu>
+        </li>
+      {% endif %}
+
+      {% if block.type == 'link' %}
+        {% if block.settings.link_name and block.settings.link %}
+          <li>
+            <a class="hover:underline" href="{{ block.settings.link }}">{{ block.settings.link_name }}</a>
+          </li>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  </ul>
+</nav>

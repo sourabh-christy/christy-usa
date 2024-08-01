@@ -1,0 +1,137 @@
+{{ 'splide.min.css' | asset_url | stylesheet_tag }}
+
+<div
+  id="FeaturedCollection-{{ section.id }}"
+  class="container space-y-12 lg:space-y-24"
+>
+  {% if section.settings.title != blank %}
+    <h2 class="m-h1 lg:d-h1">{{ section.settings.title }}</h2>
+  {% endif %}
+  <div
+    class="splide"
+    role="list"
+    data-splide='
+      {"arrows": false, "pagination": true, "type": "loop", "destroy": "true", "gap": "40px", "breakpoints": {
+        "768": {
+          "destroy": false
+        }
+      }}
+    '
+  >
+    <div class="splide__track !overflow-visible ">
+      <div class="splide__list md:!grid md:grid-cols-3 text-blue-1 md:gap-3">
+        {%- for block in section.blocks -%}
+          <article
+            class="splide__slide animation an-fadeup max-md:!delay-0 space-y-6 lg:space-y-8"
+            style="transition-delay: {{ 200 | times: forloop.index0 }}ms"
+          >
+            {%- liquid
+              assign full_width = '100vw'
+              assign widths = '375, 550, 750, 1100'
+              assign sizes = '100vw'
+
+              if forloop.index0 == 0
+                assign image_class = 'object-cover object-center w-full h-full inset-0 aspect-[1/1] md:aspect-[2/3] md:max-h-[600px] opacity-0'
+              else
+                assign image_class = 'object-cover object-center w-full h-full inset-0 aspect-[1/1] opacity-0'
+              endif
+            -%}
+            {%- if block.settings.product.images.first != blank -%}
+              {%- assign image_height = block.settings.product.images.first.width -%}
+              <a class="block" href="{{ block.settings.product.url }}">
+                {% render 'spinner' %}
+                {%- render 'lazyimg',
+                  img: block.settings.product.images.first,
+                  width: 553,
+                  widths: widths,
+                  class: image_class,
+                  sizes: sizes
+                -%}
+              </a>
+            {%- endif -%}
+
+            <div class="space-y-4 lg:space-y-6">
+              <div class="space-y-3 lg:space-y-4">
+                <h3 class="m-h2 lg:d-h2">
+                  <a href="{{ block.settings.product.url }}">{{ block.settings.product.title }}</a>
+                </h3>
+
+                {%- if block.settings.text != blank -%}
+                  <div class="">
+                    {{ block.settings.text }}
+                  </div>
+                {%- endif -%}
+              </div>
+
+              <div>
+                <a
+                  href="{{ block.settings.product.url }}"
+                  class="btn-tertiary"
+                >
+                  Shop now
+                </a>
+              </div>
+            </div>
+          </article>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+
+  {% if section.settings.collection %}
+    <div class="flex justify-center lg:!mt-32">
+      <a class="btn-primary btn-large" href="{{ section.settings.collection.url }}">Shop Collection</a>
+    </div>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Featured Collection",
+  "tag": "section",
+  "class": "section-featcol",
+  "disabled_on": {
+    "groups": ["header", "footer"],
+    "templates": ["article"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Shop the Collection"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection",
+      "info": "Select a collection to feature.  This will be used for the Button to link to collection."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Wrap yourself up in pure luxury with our ultra soft and absorbant Supreme Hygro® towel collection</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Collection"
+    }
+  ]
+}
+{% endschema %}

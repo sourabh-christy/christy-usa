@@ -1,0 +1,123 @@
+<div class="py-12 lg:py-24 bg-[#DBD4CC]/10">
+  <div class="container space-y-8 lg:space-y-16">
+    <header class="flex gap-12 max-md:flex-col items-start md:items-center">
+      {% if section.settings.title %}
+        <h2 class="s-m-h2 lg:s-d-h1">{{ section.settings.title }}</h2>
+      {% endif %}
+
+      {% if section.settings.button_title and section.settings.button_link %}
+        <a class="btn-secondary btn-medium" href="{{ section.settings.button_link }}">
+          {{- section.settings.button_title -}}
+        </a>
+      {% endif %}
+    </header>
+
+    <div class="max-md:py-3 grid md:gap-6 md:grid-cols-3 animation an-fadeup bg-blue-1/10">
+      {%- for block in section.blocks -%}
+        <div
+          {{ block.shopify_attributes }}
+          class="flex-1 relative group select-none md:flex overflow-hidden max-md:space-y-5"
+        >
+          <div class="space-y-3 lg:space-y-5 flex-1 flex-col flex items-start justify-start py-3 md:py-7 px-7">
+            {% if block.settings.title %}
+              <h4 class="max-lg:font-semibold lg:d-h5">{{ block.settings.title }}</h4>
+            {% endif %}
+            <div class="wysiwyg">{{ block.settings.text }}</div>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% if section.settings.margin == 'no' %}
+  <style>
+    #shopify-section-{{ section.id }} {
+        margin: 0 !important;
+    }
+  </style>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Why Christy / Info Blocks",
+  "tag": "section",
+  "class": "section-infocards",
+  "disabled_on": {
+    "groups": ["header", "footer"],
+    "templates": ["article"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "default": "Why Christy?",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "button_title",
+      "label": "Button Title",
+      "default": "Shop best Sellers"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link",
+      "default": "/collections/all"
+    },
+    {
+      "type": "radio",
+      "id": "margin",
+      "label": "Include Margin",
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ],
+      "default": "yes"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Premium Materials",
+          "label": "Block Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Block Copy",
+          "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet venenatis urna cursus eget nunc scelerisque.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why Christy / Info Blocks",
+      "blocks": [
+        {
+          "type": "block"
+        },
+        {
+          "type": "block"
+        },
+        {
+          "type": "block"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

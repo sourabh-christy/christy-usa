@@ -1,0 +1,147 @@
+{% liquid
+  assign widths = '50, 100, 200'
+  assign sizes = '(max-width: 767px) 50px, 100px'
+  assign class = 'w-[50px] h-[50px] md:w-[100px] md:h-[100px] object-contain opacity-0 mx-auto'
+%}
+
+{% assign img_width = 640 %}
+
+<div class="bg-blue-1/10 py-12 lg:py-24">
+  <div class="container">
+    <div
+      class="max-md:space-y-8 md:grid md:grid-cols-[auto_1fr] gap-16"
+    >
+      <header class="">
+        {% if section.settings.title %}
+          <h2 class="s-m-h2 lg:s-d-h1">{{ section.settings.title }}</h2>
+        {% endif %}
+      </header>
+
+      <div class="animation an-fadeup grid grid-cols-2 gap-6 lg:gap-10 text-left">
+        {%- for block in section.blocks -%}
+          <div class="space-y-3 lg:space-y-5" {{ block.shopify_attributes }}>
+            {% if block.settings.image != blank %}
+              {%- render 'lazyimg',
+                img: block.settings.image,
+                width: 100,
+                height: 100,
+                widths: widths,
+                class: class,
+                sizes: sizes
+              -%}
+            {% endif %}
+
+            <div class="space-y-1">
+              <h4 class="max-lg:font-semibold lg:d-h5">{{ block.settings.title }}</h4>
+              <div class="wysiwyg">{{ block.settings.copy }}</div>
+            </div>
+
+            {% if block.settings.button_link and block.settings.button_title %}
+              <a class="btn-tertiary" href="{{ block.settings.button_link}}">{{ block.settings.button_title }}</a>
+            {% endif %}
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% if section.settings.margin == 'no' %}
+  <style>
+    #shopify-section-{{ section.id }} {
+        margin: 0 !important;
+    }
+  </style>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Benefits Icons",
+  "tag": "section",
+  "class": "section-reviews",
+  "disabled_on": {
+    "groups": ["header", "footer"],
+    "templates": ["article"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Our Services"
+    },
+    {
+      "type": "radio",
+      "id": "margin",
+      "label": "Include Margin",
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ],
+      "default": "yes"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Free Shipping & Returns",
+          "label": "Block Title"
+        },
+        {
+          "type": "richtext",
+          "id": "copy",
+          "label": "Block Copy",
+          "default": "<p>Plus our 30-Night Worry-Free Guarantee.</p>"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "default": "/collections/all",
+          "label": "Button Link"
+        },
+        {
+          "type": "text",
+          "id": "button_title",
+          "default": "Learn More",
+          "label": "Button Title"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Benefits Icons",
+      "blocks": [
+        {
+          "type": "block"
+        },
+        {
+          "type": "block"
+        },
+        {
+          "type": "block"
+        },
+        {
+          "type": "block"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

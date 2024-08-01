@@ -1,0 +1,68 @@
+<div id="bundle-selector" class="space-y-3 md:space-y-7 max-md:pt-5 max-md:border-t max-md:border-blue-1/10">
+  <h3 class="font-semibold d-h3">Your Bundle:</h3>
+  <div class="space-y-5">
+    {%- for bundle_variant in bundle_products -%}
+      <div
+        class="bg-blue-1/10 p-3 grid grid-cols-[100px_auto] gap-3 select-none {% if bundle_variant.available == false %}border border-blue-1{% endif %}"
+        data-variantid="{{ bundle_variant.id }}"
+        data-available="{{ bundle_variant.available }}"
+        data-price="{{ bundle_variant.price | money }}"
+        data-title="{{ bundle_variant.product.title }}"
+        {% if bundle_variant.product.options_with_values.size > 0 %}
+          data-options="{%- for var_option in bundle_variant.product.options_with_values -%}{{ var_option.selected_value }}{% unless forloop.last %}, {% endunless %}{%- endfor -%}"
+        {% endif %}
+      >
+        {% if bundle_variant.featured_image %}
+          <figure class=" w-full relative z-0">
+            {%- render 'spinner' -%}
+
+            {%- render 'lazyimg',
+              width: 100,
+              height: 100,
+              img: bundle_variant.featured_image,
+              widths: '50, 100, 200',
+              class: 'opacity-0',
+              sizes: '100px',
+              loading: 'lazy'
+            -%}
+          </figure>
+        {% endif %}
+
+        <div class="space-y-2">
+          <h3 class="font-semibold m-body-copy lg:d-h3">{{ bundle_variant.product.title }}</h3>
+          {% liquid
+            assign op1 = bundle_variant.option1
+            assign op2 = bundle_variant.option2
+            assign op3 = bundle_variant.option3
+          %}
+
+          {% if bundle_variant.product.options_with_values.size > 0 %}
+            <ul>
+              {% for var_option in bundle_variant.product.options_with_values %}
+                <li>
+                  {{ var_option.name }}:
+                  {% for vals in var_option.values %}
+                    {% if vals == op1 or vals == op2 or vals == op3 %}
+                      {{ vals }}
+                    {% endif %}
+                  {% endfor %}
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+      </div>
+
+      {% if bundle_variant.available == false %}
+        <p class="text-center !mt-2">This product is currently not available</p>
+      {% endif %}
+    {%- endfor -%}
+
+    {% liquid
+      assign bp_compare_at_price = current_variant.compare_at_price
+      assign bp_price = current_variant.price
+    %}
+
+    {% render 'bundle-price-discount', bp_compare_at_price: bp_compare_at_price, bp_price: bp_price %}
+  </div>
+</div>

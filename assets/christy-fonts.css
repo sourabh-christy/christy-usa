@@ -1,0 +1,44 @@
+@font-face {
+    font-family: 'Tomato Grotesk';
+    src: url('TomatoGrotesk-Regular.woff2') format('woff2'),
+        url('TomatoGrotesk-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Tomato Grotesk';
+    src: url('TomatoGrotesk-Light.woff2') format('woff2'),
+        url('TomatoGrotesk-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Tomato Grotesk';
+    src: url('TomatoGrotesk-SemiBold.woff2') format('woff2'),
+        url('TomatoGrotesk-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Hatton';
+    src: url('Hatton-Medium.woff2') format('woff2'),
+        url('Hatton-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Hatton';
+    src: url('Hatton-Regular.woff2') format('woff2'),
+        url('Hatton-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}

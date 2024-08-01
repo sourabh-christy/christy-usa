@@ -1,0 +1,382 @@
+<div
+  id="ToggleContent-{{ section.id }}"
+  class="acc-parent group/acc relative [&_section]:my-14 [&_section]:lg:my-40 [&_section.padded]:py-14 [&_section.padded]:lg:py-40 [&_section.padded+section.padded]:!pt-0 [&_section.padded+section.padded]:lg:!pt-0"
+>
+  <section>
+    <div class="container">
+      <div class="grid md:flex gap-6 justify-between">
+        <div class="md:w-5/12">
+          {% if section.settings.title %}
+            <h2 class="s-m-h1 lg:s-d-h1">{{ section.settings.title }}</h2>
+          {% endif %}
+        </div>
+        <div class="md:w-6/12">
+          <div class="wysiwyg">
+            {{ section.settings.copy }}
+          </div>
+          {% if section.blocks.size > 0 %}
+            <button class="btn-primary btn-large !mt-14" aria-label="Toggle More" data-acc="once">Find out more</button>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="blocks {% unless request.design_mode %}hidden{% endunless %} group-[.open]/acc:!block" data-accnext>
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'imagetext' %}
+          <section class="relative" {{ block.shopify_attributes }}>
+            {%- liquid
+              assign full_width = '100vw'
+              assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
+              assign sizes = '100vw'
+
+              assign image_class_none = 'object-cover object-center w-full h-full absolute inset-0'
+              assign image_class = 'object-cover object-center w-full h-full absolute inset-0 opacity-0'
+              assign image_class_mob = 'object-cover object-center w-full h-full absolute inset-0 opacity-0 md:hidden'
+              assign image_class_desktop = 'object-cover object-center w-full h-full absolute inset-0 opacity-0 max-md:hidden'
+            -%}
+
+            {%- if block.settings.image_mob != blank and block.settings.image_mob != blank -%}
+              {%- render 'lazyimg',
+                img: block.settings.image_mob,
+                width: 3840,
+                widths: widths,
+                class: image_class_mob,
+                sizes: sizes
+              -%}
+
+              {%- render 'lazyimg',
+                img: block.settings.image_desktop,
+                width: 3840,
+                widths: widths,
+                class: image_class_desktop,
+                sizes: sizes
+              -%}
+            {%- else -%}
+              {%- if block.settings.image_desktop != blank -%}
+                {%- render 'lazyimg',
+                  img: block.settings.image_desktop,
+                  width: 3840,
+                  widths: widths,
+                  class: image_class,
+                  sizes: sizes
+                -%}
+              {%- else -%}
+                {{ 'hero-apparel-1' | placeholder_svg_tag: image_class_none }}
+              {%- endif -%}
+            {% endif %}
+
+            <div class="container relative text-white py-20 lg:py-36">
+              <div class="md:w-5/12 space-y-7 lg:space-y-14 md:max-w-[520px]">
+                <h2 class="s-m-h1 lg:s-d-h1">{{ block.settings.title }}</h2>
+                <div class="wysiwyg">
+                  {{ block.settings.copy }}
+                </div>
+              </div>
+            </div>
+          </section>
+        {% when 'copy' %}
+          <section
+            class="{% if block.settings.background == true %} bg-[#DBD4CC]/10 !my-0 padded {% endif %}"
+            {{ block.shopify_attributes }}
+          >
+            <div class="container grid md:flex gap-6 justify-between">
+              <div class="md:w-5/12 {% if block.settings.copy_alignment == 'left'%}md:text-right md:order-2{% endif %}">
+                {% if block.settings.title %}
+                  <h3 class="s-m-h1 lg:s-d-h1">{{ block.settings.title }}</h3>
+                {% endif %}
+              </div>
+              <div class="wysiwyg md:w-6/12 {% if block.settings.copy_alignment == 'right'%}md:text-right{% endif %}">
+                {{ block.settings.copy }}
+              </div>
+            </div>
+          </section>
+        {% when 'imagegroup' %}
+          {% liquid
+            assign bg = block.settings.background
+            assign img1 = block.settings.image1
+            assign img1_copy = block.settings.image1_copy
+            assign img1_aspect = block.settings.image1_aspect
+
+            assign img2 = block.settings.image2
+            assign img2_copy = block.settings.image2_copy
+            assign img2_aspect = block.settings.image2_aspect
+
+            assign img3 = block.settings.image3
+            assign img3_copy = block.settings.image3_copy
+            assign img3_aspect = block.settings.image3_aspect
+
+            assign ig_widths = '375, 550, 750, 1100'
+            assign ig_sizes = '100vw'
+
+            assign img_class = 'object-cover object-center w-full h-full absolute inset-0 opacity-0'
+          %}
+          <section class="{% if bg == true %} bg-[#DBD4CC]/10 !my-0 padded {% endif %}" {{ block.shopify_attributes }}>
+            <div class="container grid md:grid-cols-3  gap-14 md:gap-3">
+              <div class="space-y-6 lg:space-y-10">
+                <div class="relative aspect-square {% if img1_aspect == "1:1" %}{% else %}md:aspect-[2/3]{% endif %}">
+                  {% if img1 != blank %}
+                    {%- render 'lazyimg',
+                      img: img1,
+                      width: 440,
+                      widths: ig_widths,
+                      class: img_class,
+                      sizes: ig_sizes
+                    -%}
+                  {% else %}
+                    {{ 'hero-apparel-1' | placeholder_svg_tag: image_class_none }}
+                  {% endif %}
+                </div>
+                <div class="wysiwyg">
+                  {{ img1_copy }}
+                </div>
+              </div>
+
+              <div class="space-y-6 lg:space-y-10">
+                <div class="relative aspect-square {% if img2_aspect == "1:1" %}aspect-square{% else %}md:aspect-[2/3]{% endif %}">
+                  {% if img2 != blank %}
+                    {%- render 'lazyimg',
+                      img: img2,
+                      width: 440,
+                      widths: ig_widths,
+                      class: img_class,
+                      sizes: ig_sizes
+                    -%}
+                  {% else %}
+                    {{ 'hero-apparel-1' | placeholder_svg_tag: image_class_none }}
+                  {% endif %}
+                </div>
+                <div class="wysiwyg">
+                  {{ img2_copy }}
+                </div>
+              </div>
+
+              <div class="space-y-6 lg:space-y-10">
+                <div class="relative aspect-square {% if img3_aspect == "1:1" %}aspect-square{% else %}md:aspect-[2/3]{% endif %}">
+                  {% if img3 != blank %}
+                    {%- render 'lazyimg',
+                      img: img3,
+                      width: 440,
+                      widths: ig_widths,
+                      class: img_class,
+                      sizes: ig_sizes
+                    -%}
+                  {% else %}
+                    {{ 'hero-apparel-1' | placeholder_svg_tag: image_class_none }}
+                  {% endif %}
+                </div>
+                <div class="wysiwyg">
+                  {{ img3_copy }}
+                </div>
+              </div>
+            </div>
+          </section>
+      {% endcase %}
+    {% endfor %}
+
+    <section class="container text-center">
+      <button class="btn-primary btn-large" aria-label="Back to Top" onclick="App.goTop()">Back to Top</button>
+    </section>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Toggled Body Content",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Intro Title",
+      "info": "Add intro title",
+      "default": "Discover Bedding"
+    },
+    {
+      "type": "richtext",
+      "id": "copy",
+      "label": "Copy",
+      "default": "<p>You deserve the best of rest. Our bedding gently envelops you in a soft embrace to settle you into the sweetest dreams. Discover hand-painted designs, sumptuous fabrics, and durable materials at Christy. Your bed will be a haven for rest, relaxation, and deep sleep. From crisp, clean sheets to soft, snuggly throws, we've got the perfect combination for you.</p><p>Forget about your stresses and responsibilities and slip into a deep, peaceful sleep safely swaddled in the splendour of Christy’s bedding.</p>",
+      "info": "Add Section Intro copy"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "imagetext",
+      "name": "Image / Overlaid Copy",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_desktop",
+          "label": "Background Image",
+          "info": "Choose Background Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mob",
+          "label": "Background Image Mobile",
+          "info": "Choose Background Image"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "label": "Title",
+          "info": "Add optional title",
+          "default": "Drift into a peaceful slumber with our lovingly-crafted bedding"
+        },
+        {
+          "type": "richtext",
+          "id": "copy",
+          "label": "Copy",
+          "info": "Add copy.",
+          "default": "<p>Cocoon yourself in a world of pure luxury as you discover the perfect bedding produced by our craftsmen.</p><p>The best bedding is like a warm cuddle. It's like a soft kiss goodnight. It's like rainbows and sunshine, all wrapped up into one cosy package. And at Christy, we're committed to finding the best materials and techniques to create bedding that will ease you gently and comfortably into the land of nod. Simply put, we know how to make you feel like royalty - we've been doing it for decades.</p><p><strong>Check out our bedding collection today, and get a good night's sleep tomorrow.</strong></p>"
+        }
+      ]
+    },
+    {
+      "type": "copy",
+      "name": "Copy Section",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "copy",
+          "label": "Copy",
+          "default": "<p>When you're searching for quality bedding and duvet covers that enhance your beauty sleep, our wide range of bedding is just what you need. Our products are crafted with top-quality fabrics and materials, so they will feel great against your skin while also providing long-lasting comfort.</p><p><strong>Cloud Nine is the place to be. Let our beautiful bedding take you there.</strong></p>",
+          "info": "Add a chunk of copy"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "info": "Add an optional title"
+        },
+        {
+          "type": "select",
+          "id": "copy_alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "right",
+          "label": "Copy Horizontal Alignment"
+        },
+        {
+          "type": "header",
+          "content": "Settings"
+        },
+        {
+          "type": "checkbox",
+          "id": "background",
+          "label": "Section Background",
+          "info": "Select 'Yes' to give this block a grey background."
+        }
+      ]
+    },
+    {
+      "type": "imagegroup",
+      "name": "Image Group",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image1",
+          "label": "Image 1"
+        },
+        {
+          "type": "richtext",
+          "id": "image1_copy",
+          "label": "Image 1 Copy",
+          "default": "<p>Our duvet covers and bed sheets are made from a range of quality fabrics including high thread count Egyptian percale so they feel soft against your skin and luxurious in every way.</p>"
+        },
+        {
+          "type": "select",
+          "id": "image1_aspect",
+          "options": [
+            {
+              "value": "1:1",
+              "label": "1:1"
+            },
+            {
+              "value": "2:3",
+              "label": "2:3"
+            }
+          ],
+          "default": "2:3",
+          "label": "Image 1 Aspect Ratio"
+        },
+        {
+          "type": "image_picker",
+          "id": "image2",
+          "label": "Image 2"
+        },
+        {
+          "type": "richtext",
+          "id": "image2_copy",
+          "label": "Image 2 Copy",
+          "default": "<p>Our duvet covers and bed sheets are made from a range of quality fabrics including high thread count Egyptian percale so they feel soft against your skin and luxurious in every way.</p>"
+        },
+        {
+          "type": "select",
+          "id": "image2_aspect",
+          "options": [
+            {
+              "value": "1:1",
+              "label": "1:1"
+            },
+            {
+              "value": "2:3",
+              "label": "2:3"
+            }
+          ],
+          "default": "1:1",
+          "label": "Image 2 Aspect Ratio"
+        },
+        {
+          "type": "image_picker",
+          "id": "image3",
+          "label": "Image 3"
+        },
+        {
+          "type": "richtext",
+          "id": "image3_copy",
+          "label": "Image 3 Copy",
+          "default": "<p>Our duvet covers and bed sheets are made from a range of quality fabrics including high thread count Egyptian percale so they feel soft against your skin and luxurious in every way.</p>"
+        },
+        {
+          "type": "select",
+          "id": "image3_aspect",
+          "options": [
+            {
+              "value": "1:1",
+              "label": "1:1"
+            },
+            {
+              "value": "2:3",
+              "label": "2:3"
+            }
+          ],
+          "default": "1:1",
+          "label": "Image 3 Aspect Ratio"
+        },
+        {
+          "type": "header",
+          "content": "Settings"
+        },
+        {
+          "type": "checkbox",
+          "id": "background",
+          "label": "Section Background",
+          "info": "Select 'Yes' to give this block a grey background."
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

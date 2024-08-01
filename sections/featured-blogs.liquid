@@ -1,0 +1,152 @@
+{{ 'splide.min.css' | asset_url | stylesheet_tag }}
+<div
+  id="FeaturedBlogs-{{ section.id }}"
+  class="overflow-hidden"
+>
+  <div class="container space-y-5 lg:space-y-8">
+    <div
+      class="splide group/splide space-y-5 lg:space-y-8"
+      data-splide='
+        {"arrows": true, "pagination": false, "type": "slide", "gap": "40px", "autoWidth": true, "focus": 0, "omitEnd": true, "breakpoints": {
+          "768": {
+            "gap": "20px"
+          }
+        }}
+      '
+    >
+      <header class="flex justify-between items-center">
+        {% if section.settings.title != blank %}
+          <h2 class="m-h1 lg:d-h1 text-blue-1 mr-5">{{ section.settings.title }}</h2>
+        {% endif %}
+
+        <div class="splide__arrows splide__arrows--ltr hidden group-[.is-initialized]/splide:!flex justify-end  !-mr-[15px] !ml-auto">
+          <button
+            class="splide__arrow splide__arrow--prev !w-10 !h-10 disabled:!opacity-0 transition-opacity !bg-transparent !static !transform-none outline-none"
+            type="button"
+            aria-label="Previous slide"
+            aria-controls="splide01-track"
+          >
+            <svg class="w-full" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path class="fill-blue-1" d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z"/>
+            </svg>
+          </button>
+          <button
+            class="splide__arrow splide__arrow--next !w-10 !h-10 disabled:!opacity-0 transition-opacity !bg-transparent !static !transform-none outline-none"
+            type="button"
+            aria-label="Next slide"
+            aria-controls="splide01-track"
+          >
+            <svg class="w-full" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path class="fill-blue-1" d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z"/>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <div class="splide__track !overflow-visible">
+        <div class="splide__list text-blue-1 flex">
+          {% for block in section.blocks -%}
+            {% assign article = block.settings.article %}
+
+            {% liquid
+              assign split_1 = article.url | split: '/blogs/'
+              assign split_2 = split_1[1] | split: '/'
+              assign blog_handle = split_2[0] | strip
+              assign article_blog = blogs[blog_handle]
+
+              assign span_class = 'w-[245px] lg:w-[327px]'
+              assign btn_class = 'btn-tertiary'
+              assign btn_label = 'Read More'
+              assign btn_wrap_class = '!mt-7'
+            %}
+            <div class="splide__slide {{ span_class }}" {{ block.shopify_attributes }}>
+              <article class="space-y-6 lg:space-y-8 max-sm:flex max-sm:flex-col">
+                {%- liquid
+                  assign widths = '245, 327, 490, 550, 654'
+                  assign sizes = '(max-width: 1023px) 245px, (min-width: 1024px) 327px'
+
+                  assign image_class = 'object-cover object-center w-full h-full inset-0 aspect-[1/1] opacity-0'
+                -%}
+                {%- if article.image != blank -%}
+                  {%- assign image_height = article.image.width -%}
+                  <figure class="">
+                    <a href="{{ article.url }}">
+                      {% render 'spinner' %}
+                      {%- render 'lazyimg',
+                        img: article.image,
+                        width: 553,
+                        height: 553,
+                        widths: widths,
+                        class: image_class,
+                        sizes: sizes
+                      -%}
+                    </a>
+                  </figure>
+                {%- endif -%}
+
+                <div class="space-y-6 max-sm:order-1">
+                  <div class="space-y-3 lg:space-y-6">
+                    <p class="m-h5 lg:d-h5">{{ article_blog.title }}</p>
+
+                    <h3 class="s-m-h1 lg:s-m-h2">{{ article.title }}</h3>
+                  </div>
+
+                  {% if article.excerpt != blank %}
+                    <div class="">
+                      {{ article.excerpt | strip_html | truncatewords: 20 }}
+                    </div>
+                  {% endif %}
+                </div>
+                <div class="max-sm:order-3 max-sm:!mb-0 {{ btn_wrap_class }}">
+                  <a
+                    href="{{ article.url }}"
+                    class="{{ btn_class }}"
+                  >
+                    {{ btn_label }}
+                  </a>
+                </div>
+              </article>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Featured Blogs",
+  "tag": "section",
+  "class": "section-featuredblogs",
+  "disabled_on": {
+    "groups": ["header", "footer"],
+    "templates": ["article"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "article",
+      "name": "Article",
+      "settings": [
+        {
+          "type": "article",
+          "id": "article",
+          "label": "Featured Article"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Blogs"
+    }
+  ]
+}
+{% endschema %}

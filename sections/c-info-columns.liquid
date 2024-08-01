@@ -1,0 +1,390 @@
+{{ 'splide.min.css' | asset_url | stylesheet_tag }}
+<div
+  id="Infocolumns-{{ section.id }}"
+  class="overflow-hidden"
+>
+  <div class="container">
+    <div
+      class="splide group/splide max-md:space-y-5"
+      data-splide='
+        {"arrows": true, "pagination": false, "type": "slide", "destroy": true, "gap": "40px", "autoWidth": true, "focus": 0, "omitEnd": true, "breakpoints": {
+          "768": {
+            "gap": "20px",
+            "destroy": false
+          }
+        }}
+      '
+    >
+      <header class="flex justify-between space-x-5 items-center {% if section.settings.title != blank %}md:mb-5 lg:mb-8{% endif %}">
+        {% if section.settings.title != blank %}
+          <h2 class="m-h1 lg:d-h1 text-blue-1">{{ section.settings.title }}</h2>
+        {% endif %}
+
+        <div class="splide__arrows splide__arrows--ltr hidden group-[.is-initialized]/splide:max-md:!flex justify-end ml-auto !-mr-[15px]">
+          <button
+            class="splide__arrow splide__arrow--prev !w-10 !h-10 disabled:!opacity-0 transition-opacity !bg-transparent !static !transform-none outline-none"
+            type="button"
+            aria-label="Previous slide"
+            aria-controls="splide01-track"
+          >
+            <svg class="w-full" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path class="fill-blue-1" d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z"/>
+            </svg>
+          </button>
+          <button
+            class="splide__arrow splide__arrow--next !w-10 !h-10 disabled:!opacity-0 transition-opacity !bg-transparent !static !transform-none outline-none"
+            type="button"
+            aria-label="Next slide"
+            aria-controls="splide01-track"
+          >
+            <svg class="w-full" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path class="fill-blue-1" d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z"/>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <div class="splide__track !overflow-visible">
+        <div class="splide__list flex md:!grid md:grid-cols-3 text-blue-1 md:gap-3">
+          {%- for block in section.blocks -%}
+            <div class="splide__slide max-md:w-[245px]" {{ block.shopify_attributes }}>
+              <div
+                id="block-{{ block.id }}"
+                class="animation an-fadeup max-md:!delay-0 space-y-6 lg:space-y-8"
+                style="transition-delay: {{ 200 | times: forloop.index0 }}ms"
+              >
+                {%- liquid
+                  assign full_width = '100vw'
+                  assign widths = '375, 550, 750, 880'
+                  assign sizes = '100vw'
+
+                  if block.settings.image_aspect == '1:1'
+                    assign image_class = 'object-cover object-center w-full h-full inset-0 aspect-[1/1] opacity-0'
+                  else
+                    assign image_class = 'object-cover object-center w-full h-full inset-0 aspect-[1/1] md:aspect-[2/3] md:max-h-[600px] opacity-0'
+                  endif
+                -%}
+                {%- if block.settings.image != blank -%}
+                  {%- assign image_height = block.settings.image.width -%}
+                  <figure>
+                    {% render 'spinner' %}
+                    {%- render 'lazyimg',
+                      img: block.settings.image,
+                      width: 553,
+                      widths: widths,
+                      class: image_class,
+                      sizes: sizes
+                    -%}
+                  </figure>
+                {%- endif -%}
+
+                <div class="space-y-4 lg:space-y-6">
+                  <div class="space-y-3 lg:space-y-6">
+                    {%- if block.settings.title != blank -%}
+                      <h3 class="block-title">{{ block.settings.title }}</h3>
+                    {%- endif -%}
+
+                    {%- if block.settings.text != blank -%}
+                      <div class="block-copy">
+                        {{ block.settings.text }}
+                      </div>
+                    {%- endif -%}
+                  </div>
+                  {% liquid
+                    comment
+                      get tag
+                    endcomment
+                    assign collection_tag = block.settings.collection_tag | handleize
+                  -%}
+
+                  {%- if block.settings.button_label != blank -%}
+                    {% assign url = block.settings.button_link %}
+                    {% if collection_tag != blank %}
+                      {% assign url = url | append: '/' | append: collection_tag %}
+                    {% endif %}
+                    <div>
+                      <a
+                        href="/collections/{{ url }}"
+                        class="btn-tertiary"
+                      >
+                        {{ block.settings.button_label }}
+                      </a>
+                    </div>
+                  {%- endif -%}
+                </div>
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% style %}
+  {%- if section.settings.title_font_size_mob != blank -%}
+  #shopify-section-{{ section.id }} .block-title {
+    font-size: {{ section.settings.title_font_size_mob }}px;
+  }
+  {%- endif -%}
+
+  {%- if section.settings.copy_font_size_mob != blank -%}
+  #shopify-section-{{ section.id }} .block-copy {
+    font-size: {{ section.settings.copy_font_size_mob }}px;
+  }
+  {%- endif -%}
+
+  {%- if section.settings.title_font_weight != blank -%}
+  #shopify-section-{{ section.id }} .block-title {
+    font-weight: {{ section.settings.title_font_weight }};
+  }
+  {%- endif -%}
+
+  {%- if section.settings.copy_font_weight != blank -%}
+  #shopify-section-{{ section.id }} .block-copy {
+    font-weight: {{ section.settings.copy_font_weight }};
+  }
+  {%- endif -%}
+
+  {%- if section.settings.title_font_family != blank and section.settings.title_font_family == 'serif' -%}
+  #shopify-section-{{ section.id }} .block-title {
+    font-family: "Hatton", serif;
+  }
+  {%- endif -%}
+
+  {%- if section.settings.copy_font_family != blank and section.settings.copy_font_family == 'serif' -%}
+  #shopify-section-{{ section.id }} .block-copy {
+    font-family: "Hatton", serif;
+  }
+  {%- endif -%}
+
+
+  @media all and ( min-width: 1024px ) {
+    {%- if section.settings.title_font_size_desktop != blank -%}
+      #shopify-section-{{ section.id }} .block-title {
+        font-size: {{ section.settings.title_font_size_desktop }}px;
+      }
+    {%- endif -%}
+
+    {%- if section.settings.copy_font_size_desktop != blank -%}
+      #shopify-section-{{ section.id }} .block-copy {
+        font-size: {{ section.settings.copy_font_size_desktop }}px;
+      }
+    {%- endif -%}
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Info Columns",
+  "tag": "section",
+  "class": "section-infocolumns",
+  "disabled_on": {
+    "groups": ["header", "footer"],
+    "templates": ["article"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "info": "Optional title to display above the columns"
+    },
+    {
+      "type": "range",
+      "id": "title_font_size_mob",
+      "min": 12,
+      "max": 54,
+      "step": 1,
+      "unit": "px",
+      "label": "Block Title Font Size MOBILE",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "title_font_size_desktop",
+      "min": 12,
+      "max": 54,
+      "step": 1,
+      "unit": "px",
+      "label": "Block Title Font Size DESKTOP",
+      "default": 20
+    },
+    {
+      "type": "select",
+      "id": "title_font_weight",
+      "label": "Block Title Font Weight",
+      "options": [
+        {
+          "value": "300",
+          "label": "Light"
+        },
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "600",
+          "label": "Semi Bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "600"
+    },
+    {
+      "type": "select",
+      "id": "title_font_family",
+      "label": "Block Title Font Type",
+      "options": [
+        {
+          "value": "sans-serif",
+          "label": "Sans Serif"
+        },
+        {
+          "value": "serif",
+          "label": "Serif"
+        }
+      ],
+      "default": "sans-serif"
+    },
+    {
+      "type": "range",
+      "id": "copy_font_size_mob",
+      "min": 12,
+      "max": 54,
+      "step": 1,
+      "unit": "px",
+      "label": "Block Copy Font Size MOBILE",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "copy_font_size_desktop",
+      "min": 12,
+      "max": 54,
+      "step": 1,
+      "unit": "px",
+      "label": "Block Copy Font Size DESKTOP",
+      "default": 14
+    },
+    {
+      "type": "select",
+      "id": "copy_font_weight",
+      "label": "Block Copy Font Weight",
+      "options": [
+        {
+          "value": "300",
+          "label": "Light"
+        },
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "600",
+          "label": "Semi Bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "300"
+    },
+    {
+      "type": "select",
+      "id": "copy_font_family",
+      "label": "Block Title Font Type",
+      "options": [
+        {
+          "value": "sans-serif",
+          "label": "Sans Serif"
+        },
+        {
+          "value": "serif",
+          "label": "Serif"
+        }
+      ],
+      "default": "sans-serif"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Column",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "select",
+          "id": "image_aspect",
+          "label": "Image Aspect Ratio",
+          "info": "Choose Image Aspect Ratio",
+          "options": [
+            {
+              "value": "1:1",
+              "label": "1:1"
+            },
+            {
+              "value": "2:3",
+              "label": "2:3"
+            }
+          ],
+          "default": "1:1"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Thick & Fluffy",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Cocoon yourself in the pampering comfort of a sumptuously thick towel or bathrobe.</p>",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button Label",
+          "default": "Explore the Feeling"
+        },
+        {
+          "type": "collection",
+          "id": "button_link",
+          "label": "Collection"
+        },
+        {
+          "type": "text",
+          "id": "collection_tag",
+          "label": "Product Tag",
+          "info": "Enter a tag to display products by tag. E.G \"Cool & Crisp\""
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Info Columns",
+      "blocks": [
+        {
+          "type": "column"
+        },
+        {
+          "type": "column"
+        },
+        {
+          "type": "column"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

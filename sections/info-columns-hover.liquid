@@ -1,0 +1,175 @@
+<div
+  id="Infocolumns-{{ section.id }}"
+  class="container"
+>
+  <div class="grid md:grid-cols-3 text-blue-1 gap-12 md:gap-3">
+    {%- for block in section.blocks -%}
+      <div
+        class="animation an-fadeup max-md:!delay-0 space-y-6 lg:space-y-8"
+        style="transition-delay: {{ 200 | times: forloop.index0 }}ms"
+      >
+        {%- liquid
+          assign full_width = '100vw'
+          assign widths = '375, 550, 750, 880'
+          assign sizes = '100vw'
+
+          if block.settings.image_aspect == '1:1'
+            assign image_class = 'object-cover object-center w-full h-full inset-0 aspect-[1/1]'
+          else
+            assign image_class = 'object-cover object-center w-full h-full inset-0 aspect-[1/1] md:aspect-[2/3] md:max-h-[600px]'
+          endif
+        -%}
+        {%- if block.settings.image != blank -%}
+          {%- assign image_height = block.settings.image.width -%}
+          <figure>
+            {% render 'spinner' %}
+            {% assign url = block.settings.button_link %}
+            {% if url != blank %}
+              <a href="/products/{{ url }}">
+            {% endif %}
+            
+            {%- render 'lazyimg',
+              img: block.settings.image,
+              hover:block.settings.image_hover,
+              width: 553,
+              loading:'eager'
+              widths: widths,
+              class: image_class,
+              sizes: sizes
+            -%}
+            {% if url != blank %}
+               </a>
+            {% endif %}
+          </figure>
+        {%- endif -%}
+
+        <div class="space-y-4 lg:space-y-6">
+          <div class="space-y-3 lg:space-y-6">
+            {%- if block.settings.title != blank -%}
+              <h3 class="m-h2 lg:d-h2">{{ block.settings.title }}</h3>
+            {%- endif -%}
+
+            {%- if block.settings.text != blank -%}
+              <div class="">
+                {{ block.settings.text }}
+              </div>
+            {%- endif -%}
+          </div>
+          {% liquid
+            comment
+              get tag
+            endcomment
+            assign collection_tag = block.settings.collection_tag | handleize
+          -%}
+
+          {%- if block.settings.button_label != blank -%}
+            {% assign url = block.settings.button_link %}
+            {% if collection_tag != blank %}
+              {% assign url = url | append: '/' | append: collection_tag %}
+            {% endif %}
+            <div>
+              <a
+                href="/products/{{ url }}"
+                class="btn-tertiary"
+              >
+                {{ block.settings.button_label }}
+              </a>
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Info Columns Hover",
+  "tag": "section",
+  "class": "section-infocolumns",
+  "disabled_on": {
+    "groups": ["header", "footer"],
+    "templates": ["article"]
+  },
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Column",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_hover",
+          "label": "Hover Image"
+        },
+        {
+          "type": "select",
+          "id": "image_aspect",
+          "label": "Image Aspect Ratio",
+          "info": "Choose Image Aspect Ratio",
+          "options": [
+            {
+              "value": "1:1",
+              "label": "1:1"
+            },
+            {
+              "value": "2:3",
+              "label": "2:3"
+            }
+          ],
+          "default": "1:1"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Thick & Fluffy",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Cocoon yourself in the pampering comfort of a sumptuously thick towel or bathrobe.</p>",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button Label",
+          "default": "Explore the Feeling"
+        },
+        {
+          "type": "product",
+          "id": "button_link",
+          "label": "Product"
+        },
+        {
+          "type": "text",
+          "id": "collection_tag",
+          "label": "Product Tag",
+          "info": "Enter a tag to display products by tag. E.G \"Cool & Crisp\""
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Info Columns Hover",
+      "blocks": [
+        {
+          "type": "column"
+        },
+        {
+          "type": "column"
+        },
+        {
+          "type": "column"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

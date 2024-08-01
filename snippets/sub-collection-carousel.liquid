@@ -1,0 +1,113 @@
+<div class="container my-8 lg:my-16">
+  <div
+    class="splide group/splide -mb-5 lg:-mb-7"
+    data-splide='
+      {"arrows": false, "pagination": false, "type": "slide", "gap": "40px", "autoWidth": true, "focus": 0, "omitEnd": true, "breakpoints": {
+        "768": {
+          "gap": "20px"
+        }
+      }}
+    '
+  >
+    <header class="flex justify-between space-x-5 items-center !hidden">
+      <div class="splide__arrows splide__arrows--ltr hidden group-[.is-initialized]/splide:!flex justify-end">
+        <button
+          class="splide__arrow splide__arrow--prev !w-10 !h-10 disabled:!opacity-0 transition-opacity !bg-transparent !static !transform-none outline-none"
+          type="button"
+          aria-label="Previous slide"
+          aria-controls="splide01-track"
+        >
+          <svg class="w-full" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path class="fill-blue-1" d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z"/>
+          </svg>
+        </button>
+        <button
+          class="splide__arrow splide__arrow--next !w-10 !h-10 disabled:!opacity-0 transition-opacity !bg-transparent !static !transform-none outline-none"
+          type="button"
+          aria-label="Next slide"
+          aria-controls="splide01-track"
+        >
+          <svg class="w-full" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path class="fill-blue-1" d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="splide__track !overflow-visible">
+      <div class="splide__list text-blue-1 flex">
+        {% for block in blocks -%}
+          {% case block.type %}
+            {% when 'sub_collections' %}
+              {% assign collection = block.settings.collection %}
+              {% assign theimage = blank %}
+
+              {% liquid
+                assign span_class = 'w-[245px] lg:w-[305px]'
+                assign btn_class = 'btn-tertiary'
+                assign btn_label = 'Shop Now'
+                assign btn_wrap_class = '!mt-7'
+              %}
+              <div class="splide__slide flex {{ span_class }}" {{ block.shopify_attributes }}>
+                <article class="space-y-6 lg:space-y-8 max-sm:flex max-sm:flex-col bg-blue-1/10 p-5 flex-1">
+                  {%- liquid
+                    assign widths = '103, 133, 206, 266'
+                    assign sizes = '(max-width: 1023px) 103px, (min-width: 1024px) 133px'
+
+                    assign image_class = 'object-cover object-center w-full h-full inset-0 aspect-[1/1] opacity-0'
+                  -%}
+                  {% if block.settings.image != blank %}
+                    {% assign theimage = block.settings.image %}
+                  {% endif %}
+
+                  {%- if theimage != blank -%}
+                    <figure class="relative w-1/2">
+                      {% if block.settings.usp_title != blank %}
+                        <div class="absolute left-0 top-0 w-full flex justify-center bg-blue-1/50 text-white p-2 pointer-events-none z-10">
+                          <p class="font-semibold">{{ block.settings.usp_title }}</p>
+                        </div>
+                      {% endif %}
+                      <a href="{{ block.settings.button_url }}">
+                        {% render 'spinner' %}
+                        {%- render 'lazyimg',
+                          img: theimage,
+                          width: 133,
+                          height: 133,
+                          widths: widths,
+                          class: image_class,
+                          sizes: sizes
+                        -%}
+                      </a>
+                    </figure>
+                  {%- endif -%}
+
+                  <div class="space-y-6 max-sm:order-1">
+                    <div class="">
+                      <h3 class="m-h2 lg:d-h2">{{ block.settings.title }}</h3>
+                      {% if block.settings.sub_title %}
+                        <h3 class="font-semibold">{{ block.settings.sub_title }}</h3>
+                      {% endif %}
+                    </div>
+
+                    {% if block.settings.copy != blank %}
+                      <div class="wysiwyg">
+                        {{ block.settings.copy }}
+                      </div>
+                    {% endif %}
+                  </div>
+                  <div class="max-sm:order-3 max-sm:!mb-0 {{ btn_wrap_class }}">
+                    <a
+                      href="{{ block.settings.button_url }}"
+                      class="{{ btn_class }}"
+                    >
+                      Shop Now
+                    </a>
+                  </div>
+                </article>
+              </div>
+          {% endcase %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>

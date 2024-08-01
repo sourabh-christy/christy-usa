@@ -1,0 +1,115 @@
+<div class="product-images">
+  {%- if product.media.size > 0 -%}
+    {% liquid
+      assign path_array = request.path | split: '/'
+      assign path_array_length = path_array | size
+      assign ind = path_array_length | minus: 1
+      assign variant_option_array = path_array[ind] | split: ','
+      assign variant_option_array_length = variant_option_array | size
+      assign selected_colour = ''
+      assign selected_size = ''
+      if variant_option_array_length > 0
+        if variant_option_array[0] contains 'c:'
+          assign selected_colour = variant_option_array[0] | replace: 'c:', '' | handleize
+        endif
+        if variant_option_array[1] contains 's:'
+          assign selected_size = variant_option_array[1] | replace: 's:', '' | handleize
+        endif
+        if variant_option_array[2] contains 's:'
+          assign option3 = variant_option_array[2] | replace: 's:', '' | handleize
+        endif
+      endif
+
+      assign current_variant = product.selected_or_first_available_variant
+      if selected_colour != blank and selected_size != blank and option3 != blank
+        for variant in product.variants
+          assign colour_slug = variant.option1 | handleize
+          assign size_slug = variant.option2 | handleize
+          assign option3_slug = variant.option2 | handleize
+          if colour_slug == selected_colour and size_slug == selected_size and option3_slug == option3
+            assign current_variant = variant
+          endif
+        endfor
+      elsif selected_size == ''
+        for variant in product.variants
+          assign colour_slug = variant.option1 | handleize
+          if colour_slug == selected_colour and variant.available
+            assign current_variant = variant
+          endif
+        endfor
+      else
+        for variant in product.variants
+          assign colour_slug = variant.option1 | handleize
+          assign size_slug = variant.option2 | handleize
+          if colour_slug == selected_colour and size_slug == selected_size
+            assign current_variant = variant
+          endif
+        endfor
+      endif
+
+      if current_variant == blank
+        assign current_variant = product.selected_or_first_available_variant
+      endif
+
+      assign widths = '300, 375, 550, 660, 750, 1024, 1336'
+      assign sizes = '(max-width: 1023px) 50vw, (min-width: 1024px) 330px, 100vw'
+      assign width = 330
+      assign height = 330 | divided_by: 2 | plus: 330
+    %}
+
+    {% assign first_image = true %}
+    {% assign has_product_image = false %}
+    {% assign count = 0 %}
+    {%- for media in product.media -%}
+      {% assign class = 'h-full w-full object-contain opacity-0' %}
+
+      {%- assign alt_array = media.alt | split: '-' -%}
+      {%- assign alt_striped = alt_array[0] | strip -%}
+      {% comment %}{%- alt_striped == current_variant.option1 -%}{% endcomment %}
+
+      {% if alt_array[1] == 'product_image' and media.media_type == 'image' %}
+        {% if has_product_image == false %}
+          {% assign has_product_image = true %}
+        {% endif %}
+
+        {%- assign loading = 'lazy' %}
+
+        {%- assign aspect_ratio = media.height | times: 100 | divided_by: media.width | times: 100 -%}
+
+        {% if current_variant.option1 == alt_striped and first_image == true %}
+          {%- render 'spinner' -%}
+        {% endif %}
+
+        {% if first_image == false %}
+          {% assign class = 'h-full w-full object-cover !opacity-0 group-hover/card:!opacity-100 absolute inset-0 notouchhover ' %}
+        {% endif %}
+
+        {% if current_variant.option1 == alt_striped %}
+          {%- render 'lazyimg',
+            img: media,
+            width: width,
+            height: height,
+            widths: widths,
+            class: class,
+            sizes: sizes,
+            crop: 'center',
+            loading: loading
+          -%}
+
+          {% assign first_image = false %}
+          {% assign count = count | plus: 1 %}
+        {% endif %}
+      {%- endif -%}
+
+      {% if count == 1 %}
+        {% break %}
+      {% endif %}
+    {%- endfor -%}
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "templates": ["product"]
+}
+{% endschema %}

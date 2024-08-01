@@ -1,0 +1,392 @@
+{% comment %}
+  Renders facets (filtering and sorting)
+
+  Accepts:
+  - results: {Object} Collection or Search object
+  - enable_filtering: {Boolean} Show filtering when true
+  - enable_sorting: {Boolean} Show sorting when true
+  - filter_type: {String} Type of filter
+  - paginate: {Object}
+
+  Usage:
+  {% render 'facets', results: collection, enable_filtering: true, enable_sorting: true, filter_type: 'vertical', paginate: paginate %}
+{% endcomment %}
+
+{{ 'component-show-more.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign hideViewToggle = collection.metafields.custom.hide_view_toggle.value
+
+  assign sort_by = results.sort_by | default: results.default_sort_by
+  assign total_active_values = 0
+  if results.url
+    assign results_url = results.url
+  else
+    assign terms = results.terms | escape
+    assign results_url = '?q=' | append: terms | append: '&options%5Bprefix%5D=last&sort_by=' | append: sort_by
+  endif
+-%}
+
+{% assign collection_list = collection_list.value %}
+
+{% comment %}
+  if parent collection is selected, get the children collection_list of parent
+{% endcomment %}
+{%- assign parent_collection = collection.metafields.custom.parent_collection.value %}
+
+{%- if parent_collection != blank -%}
+  {%- assign collection_list = parent_collection.metafields.custom.children_collections.value -%}
+{% endif %}
+
+<div class="facets-container container">
+  <facet-filters-form class="">
+    <form
+      id="FacetFiltersForm"
+      class=""
+    >
+      {%- if results.terms -%}
+        <input type="hidden" name="q" value="{{ results.terms | escape }}">
+        <input name="options[prefix]" type="hidden" value="last">
+      {%- endif -%}
+
+      {% comment %} Heading is the first tabbable element on filter type horizontal {% endcomment %}
+      <div
+        id="FacetsWrapperDesktop"
+      >
+        <script src="{{ 'show-more.js' | asset_url }}" defer="defer"></script>
+
+        {% assign has_results_tags = false %}
+        {% assign has_tag_checked = false %}
+
+        {% liquid
+          comment
+            set true if tag is in url
+          endcomment
+          if current_tags.size > 0
+            assign has_tag_checked = true
+          endif
+        %}
+
+        {% capture results_tags %}
+        {%- for filter in results.filters -%}
+          {% if filter.param_name == 'filter.p.tag' %}
+            {% assign has_results_tags = true %}
+            
+            {% case filter.param_name %}
+              {% when 'filter.p.tag' %}
+                {% assign shopby = 'tag' %}
+            {% endcase %}
+            <div class="scrollbar-grad input-{{shopby}} hidden">
+            <div
+              class="no-scrollbar overflow-auto max-lg:w-[calc(100%_+_40px)] js-filter"
+              data-index="shopby_{{shopby}}"
+            >
+              <fieldset class="facets-wrap">
+                <legend class="visually-hidden">{{ filter.label | escape }}</legend>
+                <ul
+                  class="flex space-x-6 "
+                  role="list"
+                >
+                  {%- for value in filter.values -%}
+
+                    {% if value.active %}
+                      {% assign has_tag_checked = true %}
+                    {% endif %}
+                    {% if forloop.index0 == 0 %}
+                      <li
+                        class="shop_by_type_all shrink-0"
+                      >
+                        <label
+                          for="Filter-{{ filter.param_name | escape }}-0"
+                          class="cursor-pointer"
+                        >
+                          <input
+                            class="peer invisible absolute"
+                            type="radio"
+                            name="{{ value.param_name }}"
+                            value=""
+                            id="Filter-{{ filter.param_name | escape }}-0"
+                            checked
+                          >
+
+                          <span class="peer-checked:selected-tab" aria-hidden="true">Shop All</span>
+                        </label>
+                      </li>
+                    {% endif %}
+
+                    <li class="shrink-0 last:pr-6">
+                      <label
+                        for="Filter-{{ filter.param_name | escape }}-{{ forloop.index }}"
+                        class="cursor-pointer {% if value.count == 0 and value.active == false %} opacity-50 cursor-not-allowed{% endif %}"
+                      >
+                        <input
+                          class="peer invisible absolute"
+                          type="radio"
+                          name="{{ value.param_name }}"
+                          value="{{ value.value }}"
+                          id="Filter-{{ filter.param_name | escape }}-{{ forloop.index }}"
+                          {% if value.active %}
+                            checked
+                          {% endif %}
+                          {% if current_tags contains value.label %}
+                            checked
+                          {% endif%}
+                          {% if value.count == 0 and value.active == false %}
+                            disabled
+                          {% endif %}
+                        >
+
+                        <span
+                          class="peer-checked:selected-tab "
+                          aria-hidden="true"
+                        >
+                          {{- value.label | escape -}}
+                        </span>
+                        <span class="visually-hidden">
+                          {{- value.label | escape }} (
+                          {%- if value.count == 1 -%}
+                            {{- 'products.facets.product_count_simple.one' | t: count: value.count -}}
+                          {%- else -%}
+                            {{- 'products.facets.product_count_simple.other' | t: count: value.count -}}
+                          {%- endif -%}
+                          )</span
+                        >
+                      </label>
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              </fieldset>
+            </div>
+          </div>
+          {% endif %}
+        {%- endfor -%}
+        {% endcapture %}
+
+        {% capture shop_by_btns %}
+        
+          {% if collection_list.count > 0 %}
+            <label class="cursor-pointer">
+              <input
+                class="invisible absolute peer"
+                type="radio"
+                name="shop_by"
+                value="collection"
+                checked
+              >
+              <span class="peer-checked:selected-tab">Shop by Product</span>
+            </label>
+          {% endif %}
+          
+          {%- for filter in results.filters -%}
+            {% if filter.param_name == 'filter.p.tag' %}
+              {% case filter.param_name %}
+                {% when 'filter.p.product_type' %}
+                  {% assign shopby = 'type' %}
+                  {% assign label = 'Shop by Product' %}
+                {% when 'filter.p.tag' %}
+                  {% assign shopby = 'tag' %}
+                  {% assign label = 'Shop by Feeling' %}
+              {% endcase %}
+
+              {% if filter.values.size > 0 %}
+                {% if has_results_tags and collection_list.count > 0 %}
+                <label class="cursor-pointer">
+                  <input
+                    class="invisible absolute peer"
+                    type="radio"
+                    name="shop_by"
+                    value="{{shopby}}"
+                    {% if has_tag_checked and collection_list.count > 0 %}
+                      checked
+                    {% endif %}
+                    {% if current_tags.size > 0 %}
+                      checked
+                    {% endif %}
+                  >
+                  <span class="peer-checked:selected-tab">{{ label }}</span>
+                </label>
+                {% else %}
+                <p class="select-none">{{ label }}:</p>
+                {% endif %}
+              {% endif %}
+            {% endif %}
+          {%- endfor -%}
+        {% endcapture %}
+
+        {% if has_tag_checked %}
+          {% assign currentType = 'tag' %}
+        {% elsif collection_list.count == blank and has_results_tags %}
+          {% assign currentType = 'tag' %}
+        {% else %}
+          {% assign currentType = 'collection' %}
+        {% endif %}
+
+        <div
+          id="shop_by_switcher"
+          class="flex lg:gap-6 justify-between items-center group/shopby shop_by {{ currentType }} [&.default_.input-collection]:!block [&.collection_.input-collection]:!block [&.tag_.input-tag]:!block lg:pb-7 lg:-mb-7"
+        >
+          <div class="{% unless has_sub_collections %}flex{% endunless %} lg:items-center py-5 lg:py-7 lg:-mb-7 gap-4 md:gap-6 max-lg:flex-wrap max-lg:flex-col w-full lg:overflow-hidden">
+            <div class="flex items-center space-x-4 md:space-x-6 whitespace-nowrap {% if has_sub_collections %}max-lg:mb-5{% endif %}">
+              {% unless has_sub_collections %}
+                {{ shop_by_btns }}
+              {% endunless %}
+
+              <div class="!ml-auto lg:hidden">
+                {% render 'header-collection-buttons-mobile' %}
+              </div>
+            </div>
+
+            {% comment %}
+              if we have tags, or items in related collections, output divider
+            {% endcomment %}
+            {% unless has_sub_collections %}
+              {% if has_results_tags == true or collection_list.count > 0 %}
+                <span aria-hidden="true" class="w-[1px] h-[32px] bg-blue-1/20 max-lg:hidden"></span>
+              {% endif %}
+            {% endunless %}
+
+            {% comment %}
+              output tags
+            {% endcomment %}
+            {{ results_tags }}
+
+            {% comment %}
+              Output all related collections if they exists
+            {% endcomment %}
+            {% if collection_list.count > 0 %}
+              <div class="scrollbar-grad input-collection hidden">
+                <div
+                  class="no-scrollbar overflow-auto max-lg:w-[calc(100%_+_40px)] js-filter"
+                  data-index="shopby_collection"
+                >
+                  <fieldset class="facets-wrap">
+                    <legend class="visually-hidden">Shop by Product</legend>
+                    <ul
+                      class="flex space-x-6"
+                      role="list"
+                    >
+                      {% assign sibling_selected = false %}
+                      {%- capture sibling_list -%}
+                      {%- for item in collection_list -%}
+                        {%- liquid
+                          assign sibling_class = ''
+
+                          if collection.handle == item.handle
+                            assign sibling_class = 'selected-tab'
+                            assign sibling_selected = true
+                          endif
+                        %}
+                        <li class="shrink-0">
+                          <a class="{{ sibling_class }}" href="{{ item.url }}" title="{{ item.title }}">
+                            {{- item.title -}}
+                          </a>
+                        </li>
+                      {%- endfor -%}
+                      {% endcapture %}
+
+                      <li
+                        class="shop_by_type_all shrink-0"
+                      >
+                        <label
+                          for="Collection-shop-all-0"
+                          class="cursor-pointer"
+                        >
+                          <input
+                            class="peer invisible absolute"
+                            type="radio"
+                            name="Collection-shop-all-0"
+                            value=""
+                            id="Collection-shop-all-0"
+                            {%- if sibling_selected != true -%}
+                              checked
+                            {%- endif -%}
+                          >
+
+                          <span class="peer-checked:selected-tab" aria-hidden="true">Shop All</span>
+                        </label>
+                      </li>
+
+                      {{ sibling_list }}
+                    </ul>
+                  </fieldset>
+                </div>
+              </div>
+            {% endif %}
+          </div>
+
+          {% if hideViewToggle != true %}
+            <div class="max-lg:hidden flex space-x-5 items-center py-5 lg:py-7 lg:-mb-7 lg:self-start lg:mt-1">
+              <strong class="hidden md:!block">View</strong>
+              <div id="view-toggle" class="space-x-3 lg:space-x-4 flex cursor-pointer">
+                <label class="cursor-pointer " for="grid">
+                  <input class="absolute invisible peer" type="radio" name="view" id="grid" value="grid" checked>
+                  {% render 'icon-view-1' %}
+                </label>
+                <label class="cursor-pointer " for="list">
+                  <input class="absolute invisible peer" type="radio" name="view" id="list" value="list">
+                  {% render 'icon-view-2' %}
+                </label>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+
+      {% if results.current_vendor or results.current_type %}
+        <input type="hidden" name="q" value="{{ results.current_vendor }}{{ results.current_type }}">
+      {% endif %}
+    </form>
+  </facet-filters-form>
+
+  <div
+    class="product-count !hidden"
+    role="status"
+  >
+    <h2 class="product-count__text text-body">
+      <span id="ProductCount">
+        {%- if results.results_count -%}
+          {{ 'templates.search.results_with_count' | t: terms: results.terms, count: results.results_count }}
+        {%- elsif results.products_count == results.all_products_count -%}
+          {{ 'products.facets.product_count_simple' | t: count: results.products_count }}
+        {%- else -%}
+          {{
+            'products.facets.product_count'
+            | t: product_count: results.products_count, count: results.all_products_count
+          }}
+        {%- endif -%}
+      </span>
+    </h2>
+    <div class="loading-overlay__spinner">
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        class="spinner"
+        viewBox="0 0 66 66"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Get the current URL
+  let shop_by_switcher = document.getElementById('shop_by_switcher');
+  let url = new URL(window.location.href);
+  // Get the tag attribute from the URL query parameters
+  let tag = url.searchParams.get('shop_by');
+
+  // Check if the tag attribute exists
+  if (tag) {
+    // The URL contains the tag attribute
+    if (shop_by_switcher) {
+      shop_by_switcher.classList.remove('collection', 'tag');
+      shop_by_switcher.classList.add(tag);
+
+      if (document.querySelector('[name="shop_by"][value="' + tag + '"]')) {
+        document.querySelector('[name="shop_by"][value="' + tag + '"]').checked = true;
+      }
+    }
+  }
+</script>

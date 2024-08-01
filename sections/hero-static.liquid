@@ -1,0 +1,133 @@
+<div
+  id="Hero-{{ section.id }}"
+>
+  {%- liquid
+    assign full_width = '100vw'
+    assign widths = '375, 550, 750, 1100'
+    assign sizes = '100vw'
+    assign image_class = 'object-cover object-center w-full h-full absolute inset-0'
+  -%}
+
+  <div
+    class="min-h-[calc(100vh_-_var(--header-height))] md:min-h-[725px] flex-1 grid gap-2 md:grid-cols-2 max-md:grid-rows-2"
+  >
+    <div class="relative flex items-center max-md:order-2">
+      {%- if section.settings.image != blank -%}
+        {{
+          section.settings.image
+          | image_url: width: 1100
+          | image_tag: loading: 'eager', width: 1100, height: 1100, class: image_class, sizes: sizes, widths: widths
+        }}
+
+      {%- else -%}
+        {{ 'hero-apparel-1' | placeholder_svg_tag: image_class }}
+      {%- endif -%}
+
+      <div class="relative py-10 lg:py-28  container max-w-none text-white">
+        <div class=" md:max-w-[460px] space-y-6 lg:space-y-8 animation an-fadeup">
+          <header class="space-y-3 lg:space-y-4">
+            {%- if section.settings.subtitle != blank %}
+              <h1 class="m-h5 lg:d-h5">{{ section.settings.subtitle }}</h1>
+            {%- endif -%}
+            {%- if section.settings.title != blank %}
+              <h2 class="s-m-h2 lg:s-d-h2">{{ section.settings.title }}</h2>
+            {%- endif -%}
+          </header>
+
+          {% if section.settings.copy != blank %}
+            <div class="wysiwyg">
+              {{ section.settings.copy }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <div class="relative">
+      {% if section.settings.image2 == blank %}
+        {{ 'hero-apparel-1' | placeholder_svg_tag: image_class }}
+      {% else %}
+        {{
+          section.settings.image2
+          | image_url: width: 2000
+          | image_tag: loading: 'eager', width: 2000, height: 2000, class: image_class, sizes: sizes, widths: widths
+        }}
+      {% endif %}
+      {% if section.settings.video %}
+        {{
+          section.settings.video
+          | video_tag:
+            muted: true,
+            autoplay: true,
+            loop: true,
+            playsinline: true,
+            class: 'w-full h-full object-cover absolute inset-0'
+        }}
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Hero Static",
+  "tag": "section",
+  "class": "section-hero",
+  "disabled_on": {
+    "groups": ["header", "footer"],
+    "templates": ["article"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Column 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Choose a static image"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Sub Title",
+      "default": "Sub Title"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "copy",
+      "label": "Copy",
+      "default": "<p>We're working to build a better future, and are improving our processes for the good of our consumers, our communities and the wider environment.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Column 2"
+    },
+    {
+      "type": "paragraph",
+      "content": "If image and video set, image will be used as a placeholder for the video."
+    },
+    {
+      "type": "image_picker",
+      "id": "image2",
+      "label": "Choose a static image"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Choose a video"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Static"
+    }
+  ]
+}
+{% endschema %}

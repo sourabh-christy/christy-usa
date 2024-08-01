@@ -1,0 +1,79 @@
+<div
+  id="LatestNews-{{ section.id }}"
+  class="container"
+>
+  {% assign handles = section.settings.blog %}
+
+  {% assign blogHandles = handles | split: ',' %}
+
+  {% assign latestPosts = '' %}
+
+  {% for handle in blogHandles %}
+    {% assign blog = blogs[handle] %}
+
+    {% assign posts = blog.articles | sort: 'published_at' | reverse | slice: 0, 3 %}
+
+    {% assign latestPosts = latestPosts | concat: posts -%}
+  {% endfor %}
+
+  <div class="grid md:grid-cols-3 text-blue-1 gap-12 md:gap-3">
+    {% for post in latestPosts -%}
+      {% assign article_blog = '' %}
+      {% liquid
+        assign split_1 = post.url | split: '/blogs/'
+        assign split_2 = split_1[1] | split: '/'
+        assign blog_handle = split_2[0] | strip
+        assign article_blog = blogs[blog_handle]
+      %}
+
+      <div class="space-y-6 lg:space-y-8">
+        {%- liquid
+          assign full_width = '100vw'
+          assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
+          assign sizes = '100vw'
+
+          assign image_class = 'object-cover object-center w-full h-full inset-0 aspect-[1/1]'
+        -%}
+        {%- if post.image != blank -%}
+          {%- assign image_height = post.image.width -%}
+          <figure>
+            {{
+              post.image
+              | image_url: width: 3840
+              | image_tag:
+                loading: 'lazy',
+                width: post.image.width,
+                height: image_height,
+                class: image_class,
+                sizes: sizes,
+                widths: widths
+            }}
+          </figure>
+        {%- endif -%}
+
+        {{ article_blog.title }}
+
+        <div class="space-y-4 lg:space-y-6">
+          <div class="space-y-3 lg:space-y-6">
+            <h3 class="m-h2 lg:d-h2">{{ post.title }}</h3>
+
+            <div class="">
+              {{ post.excerpt | strip_html | truncatewords: 20 }}
+            </div>
+          </div>
+
+          {%- if block.settings.button_label != blank -%}
+            <div>
+              <a
+                href="{{ block.settings.button_link }}"
+                class="btn-tertiary"
+              >
+                {{ block.settings.button_label }}
+              </a>
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>

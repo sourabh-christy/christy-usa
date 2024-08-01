@@ -1,0 +1,134 @@
+<div class="{% if section.settings.fullscreen != true %}container{% endif %}">
+  <div class="grid gap-2 md:grid-cols-6 aspec">
+    {% liquid
+      assign full_width = '100vw'
+      assign sizes = '100vw'
+    %}
+    {% for block in section.blocks %}
+      {% if block.settings.width == 'full' %}
+        {% assign widths = '375, 550, 750, 1100, 1500, 1780, 2000' %}
+        {% assign width = 1344 %}
+        {% assign figclass = 'col-span-full' %}
+      {% endif %}
+
+      {% if block.settings.width == '1/2' %}
+        {% assign widths = '375, 550, 750, 1100' %}
+        {% assign width = 668 %}
+        {% assign figclass = 'col-span-3' %}
+      {% endif %}
+
+      {% if block.settings.width == '1/3' %}
+        {% assign widths = '375, 550, 750, 1100' %}
+        {% assign width = 443 %}
+        {% assign figclass = 'col-span-2' %}
+      {% endif %}
+
+      {% assign image_class = 'object-cover w-full h-auto opacity-0' %}
+      {% if block.settings.aspect == '16/9' %}
+        {% assign image_class = image_class | append: ' aspect-video' %}
+        {% assign height = width | divided_by: 16 | times: 9 %}
+      {% endif %}
+
+      {% if block.settings.aspect == 'square' %}
+        {% assign image_class = image_class | append: ' aspect-square' %}
+        {% assign height = width %}
+      {% endif %}
+
+      <figure class="relative  animation an-fadeup {{ figclass }}">
+        {% render 'spinner' %}
+        {% if block.settings.image != blank %}
+          {%- render 'lazyimg',
+            loading: 'lazy',
+            img: block.settings.image,
+            width: width,
+            height: height,
+            widths: widths,
+            class: image_class,
+            sizes: sizes
+          -%}
+        {% else %}
+          {%- assign image_class = image_class | append: ' !opacity-100' -%}
+          {{ 'hero-apparel-1' | placeholder_svg_tag: image_class }}
+        {% endif %}
+      </figure>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Images",
+  "tag": "section",
+  "class": "section-default",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "fullscreen",
+      "label": "Fullscreen",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "select",
+          "id": "width",
+          "label": "Width",
+          "default": "full",
+          "options": [
+            {
+              "value": "1/2",
+              "label": "1/2"
+            },
+            {
+              "value": "1/3",
+              "label": "1/3"
+            },
+            {
+              "value": "full",
+              "label": "Full"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "aspect",
+          "label": "Aspect Ratio",
+          "default": "16/9",
+          "options": [
+            {
+              "value": "square",
+              "label": "Square"
+            },
+            {
+              "value": "16/9",
+              "label": "16/9"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Images",
+      "blocks": [
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

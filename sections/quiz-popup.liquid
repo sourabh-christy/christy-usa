@@ -1,0 +1,118 @@
+{% if request.design_mode %}
+  <h2 class="m-h1 lg:d-h1 text-blue-1">Quiz popup will be trigger when this point is in view</h2>
+{% endif %}
+
+<div
+  data-modal="quiz_popup"
+  class="modal group/drawer drawer z-40 [&.active]:visible fixed w-full h-full top-0 right-0"
+>
+  <div class="h-full flex justify-end opacity-0 transition-opacity group-[.active]/drawer:opacity-100 ">
+    <div data-modalclose class="absolute w-full h-full bg-black/50"></div>
+
+    <div class="drawer__inner max-lg:self-end overflow-auto group/overflow js-overflow-styled bg-white max-h-full lg:h-full w-full md:max-w-[595px] translate-x-full group-[.active]/drawer:translate-x-0 duration-500 flex flex-col has-overflow">
+      <button
+        class="drawer__close fixed cursor-pointer top-5 lg:top-14 right-5 lg:right-14 z-[60] w-[12px] h-[12px] lg:w-[16px] lg:h-[16px]  [&_svg]:w-full [&_svg]:h-auto close-icon"
+        type="button"
+        data-modalclose
+        aria-label="{{ 'accessibility.close' | t }}"
+      >
+        {% render 'icon-close' %}
+      </button>
+
+      {% if settings.email_modal_signup_image %}
+        <div class="max-md:px-10 max-md:pt-16 relative flex-1">
+          {%- liquid
+            assign full_width = '100vw'
+            assign widths = '375, 550, 750, 1100'
+            assign sizes = '100vw'
+          -%}
+          {%- render 'lazyimg',
+            img: settings.email_modal_signup_image,
+            width: settings.email_modal_signup_image.width,
+            height: settings.email_modal_signup_image.height,
+            widths: widths,
+            class: 'opacity-0 relative w-full h-full object-cover',
+            sizes: sizes
+          -%}
+        </div>
+      {% endif %}
+
+      <div class="container pt-5 lg:pt-8 pb-10 lg:pb-20 space-y-4 lg:space-y-6 flex-1 flex justify-center flex-col">
+        <div class="max-w-[365px] mx-auto space-y-5 lg:space-y-8">
+          <div class="space-y-3">
+            <div class="d-h5">Quiz</div>
+            <h3 class="s-m-h4 lg:s-d-h3">{{ section.settings.title }}</h3>
+          </div>
+          <div class="wysiwyg">
+            {{ section.settings.copy }}
+          </div>
+
+          {% if section.settings.button_link %}
+            <a href="{{ section.settings.button_link }}" class="btn-large btn-primary !mt-12">Start Quiz</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // on scroll, when target section.id enters the view, add 'active' class to the modal
+  // when modal is active, add 'overflow-hidden' to the body
+
+  let quizTarget = document.querySelector('#shopify-section-{{ section.id }}');
+
+  if (quizTarget) {
+    let quizTargetTop = quizTarget.getBoundingClientRect().top + window.scrollY;
+
+    window.addEventListener('resize', function () {
+      quizTargetTop = quizTarget.getBoundingClientRect().top + window.scrollY;
+    });
+
+    window.addEventListener('scroll', function () {
+      let currentStatus = localStorage.getItem('quizpopup-{{ section.id }}');
+
+      if (window.scrollY + window.innerHeight > quizTargetTop && currentStatus != 'true') {
+        document.querySelector('#shopify-section-{{ section.id }} [data-modal]').classList.add('active');
+
+        localStorage.setItem('quizpopup-{{ section.id }}', 'true');
+      }
+    });
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Quiz Popup",
+  "tag": "section",
+  "class": "section-quiz",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title",
+      "default": "What's your deam bedding?"
+    },
+    {
+      "type": "richtext",
+      "id": "copy",
+      "label": "Copy",
+      "default": "<p>Not sure what to buy? Take our quiz to discover your <strong>perfect bedding</strong> match for a restful night’s slumber. </p>"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Quiz Popup"
+    }
+  ]
+}
+{% endschema %}

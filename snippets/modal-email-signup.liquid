@@ -1,0 +1,166 @@
+<div class="hidden">
+  {% assign show_modal = false %}
+  {% form 'customer', class: 'newsletter-form' %}
+    {%- if form.posted_successfully? or form.errors -%}
+      {% assign show_modal = true %}
+    {% endif %}
+  {% endform %}
+</div>
+
+<div
+  data-modal="email_signup"
+  class="modal group/drawer drawer z-40 [&.active]:visible fixed w-full h-full top-0 right-0 {% if show_modal %}active{% endif %}"
+>
+  <div class="h-full flex justify-end opacity-0 transition-opacity group-[.active]/drawer:opacity-100 ">
+    <div data-modalclose class="absolute w-full h-full bg-black/50"></div>
+
+    <div class="drawer__inner max-lg:self-end overflow-auto group/overflow js-overflow-styled bg-white max-h-full lg:h-full w-full md:max-w-[595px] translate-x-full group-[.active]/drawer:translate-x-0 duration-500 flex flex-col has-overflow">
+      <button
+        class="drawer__close fixed cursor-pointer top-5 lg:top-14 right-5 lg:right-14 z-[60] w-[12px] h-[12px] lg:w-[16px] lg:h-[16px]  [&_svg]:w-full [&_svg]:h-auto close-icon"
+        type="button"
+        data-modalclose
+        aria-label="{{ 'accessibility.close' | t }}"
+      >
+        {% render 'icon-close' %}
+      </button>
+
+      {% if settings.email_modal_signup_image %}
+        <div class="max-md:px-10 max-md:pt-16 relative flex-1">
+          {%- liquid
+            assign full_width = '100vw'
+            assign widths = '375, 550, 750, 1100'
+            assign sizes = '100vw'
+          -%}
+          {%- render 'lazyimg',
+            img: settings.email_modal_signup_image,
+            width: settings.email_modal_signup_image.width,
+            height: settings.email_modal_signup_image.height,
+            widths: widths,
+            class: 'opacity-0 relative w-full h-full object-cover',
+            sizes: sizes
+          -%}
+        </div>
+      {% endif %}
+
+      <div class="container pt-5 lg:pt-8 pb-10 lg:pb-20 space-y-4 lg:space-y-6 flex-1 flex justify-center flex-col">
+        <div class="max-w-[365px] mx-auto space-y-5 lg:space-y-8">
+          <div class="s-m-h4 lg:s-d-h3">{{ settings.email_modal_signup_text }}</div>
+
+          <div class="[&_svg]:w-5 [&_svg]:h-auto [&_svg]:mr-3">
+            {% form 'customer', class: 'newsletter-form' %}
+              <input type="hidden" name="contact[tags]" value="newsletter">
+              <div class="newsletter-form__field-wrapper">
+                <div class="space-y-12">
+                  {%- if form.posted_successfully? -%}
+                    <h3
+                      class="font-semibold flex"
+                      id="Newsletter-success--{{ section.id }}"
+                    >
+                      {% render 'icon-success' -%}
+                      Thank you for signing up for our newsletter.
+                    </h3>
+
+                    <p>Please check your email for your 10% discount code and to confirm your interest.</p>
+                  {%- endif -%}
+
+                  {%- if form.errors -%}
+                    <small class="font-semibold flex" id="Newsletter-error--{{ section.id }}">
+                      {%- render 'icon-error' -%}
+                      {{- form.errors.translated_fields.email | capitalize }}
+                      {{ form.errors.messages.email -}}
+                    </small>
+                  {%- endif -%}
+
+                  {%- if form.posted_successfully? -%}
+                  {%- else -%}
+                    <div class="space-y-4 lg:space-y-6">
+                      <div class="field-large">
+                        <input
+                          type="text"
+                          name="contact[first_name]"
+                          id="{{ formId }}-first_name"
+                          class="field__input !border-blue-1/10"
+                          value="{{ form.first_name }}"
+                          placeholder="First name"
+                          aria-label="First name"
+                          aria-required="true"
+                          autocorrect="off"
+                          autocapitalize="off"
+                          {% if form.errors %}
+                            autofocus
+                            aria-invalid="true"
+                            aria-describedby="Newsletter-error--{{ section.id }}"
+                          {% elsif form.posted_successfully? %}
+                            aria-describedby="Newsletter-success--{{ section.id }}"
+                          {% endif %}
+                        >
+                      </div>
+
+                      <div class="field-large">
+                        <input
+                          type="text"
+                          name="contact[last_name]"
+                          id="{{ formId }}-last_name"
+                          class="field__input !border-blue-1/10"
+                          value="{{ form.last_name }}"
+                          placeholder="Last name"
+                          aria-label="Last name"
+                          aria-required="true"
+                          autocorrect="off"
+                          autocapitalize="off"
+                          {% if form.errors %}
+                            autofocus
+                            aria-invalid="true"
+                            aria-describedby="Newsletter-error--{{ section.id }}"
+                          {% elsif form.posted_successfully? %}
+                            aria-describedby="Newsletter-success--{{ section.id }}"
+                          {% endif %}
+                        >
+                      </div>
+
+                      <div class="field-large">
+                        <input
+                          id="NewsletterForm--{{ section.id }}-email"
+                          type="email"
+                          name="contact[email]"
+                          class="field__input !border-blue-1/10"
+                          value="{{ form.email }}"
+                          aria-required="true"
+                          autocorrect="off"
+                          autocapitalize="off"
+                          autocomplete="email"
+                          {% if form.errors %}
+                            autofocus
+                            aria-invalid="true"
+                            aria-describedby="Newsletter-error--{{ section.id }}"
+                          {% elsif form.posted_successfully? %}
+                            aria-describedby="Newsletter-success--{{ section.id }}"
+                          {% endif %}
+                          placeholder="{{ 'newsletter.label' | t }}"
+                          required
+                        >
+                        <label class="field__label hidden" for="NewsletterForm--{{ section.id }}-email">
+                          {{ 'newsletter.label' | t }}
+                        </label>
+                      </div>
+                    </div>
+
+                    <button
+                      type="submit"
+                      class="btn-large btn-primary"
+                      name="commit"
+                      id="Subscribe"
+                      aria-label="{{ 'newsletter.button_label' | t }}"
+                    >
+                      Sign Up
+                    </button>
+                  {%- endif -%}
+                </div>
+              </div>
+            {% endform %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

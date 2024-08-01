@@ -1,0 +1,323 @@
+{% comment %}
+  Renders facets (filtering and sorting)
+
+  Accepts:
+  - results: {Object} Collection or Search object
+  - enable_filtering: {Boolean} Show filtering when true
+  - enable_sorting: {Boolean} Show sorting when true
+  - filter_type: {String} Type of filter
+  - paginate: {Object}
+
+  Usage:
+  {% render 'facets', results: collection, enable_filtering: true, enable_sorting: true, filter_type: 'vertical', paginate: paginate %}
+{% endcomment %}
+
+{{ 'component-show-more.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign sort_by = results.sort_by | default: results.default_sort_by
+  assign total_active_values = 0
+  if results.url
+    assign results_url = results.url
+  else
+    assign terms = results.terms | escape
+    assign results_url = '?q=' | append: terms | append: '&options%5Bprefix%5D=last&sort_by=' | append: sort_by
+  endif
+-%}
+
+<menu-drawer>
+  <details class="mobile-facets__disclosure disclosure-has-popup group/drawer [&.menu-opening_.close-icon]:!block">
+    <summary class="block">
+      <span class="mobile-facets__open block relative max-lg:hidden">
+        <div class="product-count [&.loading>div]:!block absolute right-full mr-5" role="status">
+          <div class="loading-overlay__spinner hidden">
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              class="spinner"
+              viewBox="0 0 66 66"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle class="path !stroke-current" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+            </svg>
+          </div>
+        </div>
+        <span class="btn-tertiary">Filter</span>
+      </span>
+      <span
+        tabindex="0"
+        class="fixed cursor-pointer top-10 lg:top-14 right-10 lg:right-14 z-[60] w-[12px] h-[12px] lg:w-[16px] lg:h-[16px] hidden close-icon"
+      >
+        {%- render 'icon-close' -%}
+      </span>
+    </summary>
+    <facet-filters-form>
+      <form
+        id="FacetFiltersFormMobile"
+        class="mobile-facets fixed inset-0 z-50 bg-black/50 flex justify-end transition-opacity opacity-0 group-[.menu-opening]/drawer:opacity-100"
+      >
+        <div class="mobile-facets__inner gradient h-full flex flex-col bg-white w-full md:max-w-[820px] duration-500 transition-transform translate-x-full group-[.menu-opening]/drawer:translate-x-0">
+          <div class="mobile-facets__header pt-10 lg:pt-24 pb-6 lg:pb-16 px-10 lg:px-28">
+            <div class="flex items-end space-x-5">
+              <h2 class="m-h1 lg:d-h1">Filter</h2>
+
+              <div class="product-count [&.loading>div]:!block">
+                <p class="mobile-facets__count">
+                  {%- if results.results_count -%}
+                    {{ 'templates.search.results_with_count' | t: terms: results.terms, count: results.results_count }}
+                  {%- elsif results.products_count == results.all_products_count -%}
+                    {{ 'products.facets.product_count_simple' | t: count: results.products_count }}
+                  {%- else -%}
+                    {{
+                      'products.facets.product_count'
+                      | t: product_count: results.products_count, count: results.all_products_count
+                    }}
+                  {%- endif -%}
+                </p>
+                <div class="loading-overlay__spinner hidden absolute top-5 lg:top-14 left-5 lg:left-14 z-[60] ">
+                  <svg
+                    aria-hidden="true"
+                    focusable="false"
+                    class="spinner w-full h-auto"
+                    viewBox="0 0 66 66"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle class="path !stroke-current" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mobile-facets__main has-submenu gradient flex-1 overflow-auto overscroll-none px-10 lg:px-28 [&_>*:last-child]:!pb-0">
+            <div
+              class="flex justify-between space-x-6 mb-5 lg:mb-7"
+            >
+              <p class="font-semibold">Sort By</p>
+              <div class="space-x-6 flex">
+                {%- for option in results.sort_options -%}
+                  {% if option.value == 'created-descending' or option.value == 'title-ascending' %}
+                    {% case option.value %}
+                      {% when 'created-descending' %}
+                        {% assign title = 'Recent' %}
+                      {% when 'title-ascending' %}
+                        {% assign title = 'Name' %}
+                    {% endcase %}
+                    <label class="cursor-pointer" for="sort-{{option.value}}">
+                      <input
+                        id="sort-{{option.value}}"
+                        class="peer absolute invisible"
+                        type="radio"
+                        name="sort_by"
+                        value="{{ option.value | escape }}"
+                        {% if option.value == sort_by %}
+                          checked
+                        {% endif %}
+                      >
+                      <span class="peer-checked:selected-tab">{{ title }}</span>
+                    </label>
+                  {% endif %}
+                {%- endfor -%}
+              </div>
+            </div>
+
+            {%- for filter in results.filters -%}
+              {% if filter.param_name != 'filter.p.tag' and filter.param_name != 'filter.p.product_type' %}
+                {% case filter.type %}
+                  {% when 'boolean', 'list' %}
+                    <details
+                      id="Details-Mobile-{{ forloop.index }}-{{ section.id }}"
+                      class="!my-0 py-5 lg:py-7 border-t border-blue-1/10 group/acc js-filter "
+                      data-index="mobile-{{ forloop.index }}"
+                    >
+                      <summary class="font-semibold m-body-copy lg:d-h5 space-x-6 flex w-full items-center cursor-pointer">
+                        <div class="mr-auto">
+                          <span>{{ filter.label | escape }}</span>
+                        </div>
+                        <span class="acc-toggle group-open/acc:before:rotate-90"></span>
+                      </summary>
+                      <div
+                        id="FacetMobile-{{ forloop.index }}-{{ section.id }}"
+                        class="pt-5 lg:pt-7"
+                      >
+                        <ul class="space-y-3" role="list">
+                          {%- for value in filter.values -%}
+                            <li class="mobile-facets__item list-menu__item">
+                              <label
+                                for="Filter-{{ filter.param_name | escape }}-mobile-{{ forloop.index }}"
+                                class="flex mobile-facets__label{% if value.count == 0 and value.active == false %} mobile-facets__label--disabled{% endif %}"
+                              >
+                                <input
+                                  class="mobile-facets__checkbox filter-option absolute invisible peer"
+                                  type="checkbox"
+                                  name="{{ value.param_name }}"
+                                  value="{{ value.value }}"
+                                  id="Filter-{{ filter.param_name | escape }}-mobile-{{ forloop.index }}"
+                                  {% if value.active %}
+                                    checked
+                                  {% endif %}
+                                  {% if value.count == 0 and value.active == false %}
+                                    disabled
+                                  {% endif %}
+                                >
+                                <span class="fake-radio w-[12px] h-[12px] bg-[#CCD0DE] mr-3 mt-1 lg:mt-2"
+                                  ><span></span
+                                ></span>
+                                <span class="filter-label" aria-hidden="true">
+                                  {{- value.label | escape }} ({{ value.count }})</span
+                                >
+                                <span class="visually-hidden">
+                                  {{- value.label | escape }} (
+                                  {%- if value.count == '1' -%}
+                                    {{- 'products.facets.product_count_simple.one' | t: count: value.count -}}
+                                  {%- else -%}
+                                    {{- 'products.facets.product_count_simple.other' | t: count: value.count -}}
+                                  {%- endif -%}
+                                  )</span
+                                >
+                              </label>
+                            </li>
+                          {%- endfor -%}
+                        </ul>
+                      </div>
+                    </details>
+                  {% when 'price_range' %}
+                    <details
+                      id="Details-Mobile-{{ forloop.index }}-{{ section.id }}"
+                      class="!my-0 py-5 lg:py-7 border-t border-blue-1/10 group/acc js-filter"
+                      data-index="mobile-{{ forloop.index }}"
+                    >
+                      <summary class="font-semibold m-body-copy lg:d-h5 space-x-6 flex w-full items-center cursor-pointer">
+                        <div class="mr-auto">
+                          <span>{{ filter.label | escape }}</span>
+                        </div>
+                        <span class="acc-toggle"></span>
+                      </summary>
+                      <div
+                        id="FacetMobile-{{ forloop.index }}-{{ section.id }}"
+                        class="pt-5 lg:pt-7 space-y-5"
+                      >
+                        {%- assign max_price_amount = filter.range_max | money | strip_html | escape -%}
+                        <p class="mobile-facets__info">
+                          {{ 'products.facets.max_price' | t: price: max_price_amount }}
+                        </p>
+
+                        <price-range class="facets__price flex flex-wrap gap-3">
+                          <div class="flex items-center gap-1">
+                            <span class="field-currency font-semibold m-body-copy lg:d-h5">
+                              {{- cart.currency.symbol -}}
+                            </span>
+                            <div class="field relative">
+                              <input
+                                class="appearance-none rounded-none outline-none focus:outline-none border border-blue-1 p-3 placeholder:text-white focus:pb-1 focus:pt-5 min-w-[100px] peer [&:not(:placeholder-shown)]:pb-1 [&:not(:placeholder-shown)]:pt-5 [&:not(:placeholder-shown)~label]:top-0 [&:not(:placeholder-shown)~label]:translate-y-0 [&:not(:placeholder-shown)~label]:!text-[12px]"
+                                name="{{ filter.min_value.param_name }}"
+                                id="Mobile-Filter-{{ filter.label | escape }}-GTE"
+                                {%- if filter.min_value.value -%}
+                                  {%- if uses_comma_decimals -%}
+                                    value="{{ filter.min_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+                                  {%- else -%}
+                                    value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"
+                                  {%- endif %}
+                                {%- endif -%}
+                                type="number"
+                                placeholder="0"
+                                min="0"
+                                inputmode="decimal"
+                                {%- if uses_comma_decimals -%}
+                                  max="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+                                {%- else -%}
+                                  max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                                {% endif %}
+                              >
+                              <label
+                                class="transition-all font-semibold m-body-copy lg:d-h5 absolute left-3 top-1/2 -translate-y-1/2 peer-focus:top-0 peer-focus:translate-y-0 peer-focus:!text-[12px] pointer-events-none"
+                                for="Mobile-Filter-{{ filter.label | escape }}-GTE"
+                              >
+                                {{- 'products.facets.from' | t -}}
+                              </label>
+                            </div>
+                          </div>
+
+                          <div class="flex items-center gap-1">
+                            <span class="field-currency font-semibold m-body-copy lg:d-h5">
+                              {{- cart.currency.symbol -}}
+                            </span>
+                            <div class="field relative">
+                              <input
+                                class="appearance-none rounded-none outline-none focus:outline-none border border-blue-1 p-3 placeholder:text-white focus:pb-1 focus:pt-5 min-w-[100px] peer [&:not(:placeholder-shown)]:pb-1 [&:not(:placeholder-shown)]:pt-5 [&:not(:placeholder-shown)~label]:top-0 [&:not(:placeholder-shown)~label]:translate-y-0 [&:not(:placeholder-shown)~label]:!text-[12px]"
+                                name="{{ filter.max_value.param_name }}"
+                                id="Mobile-Filter-{{ filter.label | escape }}-LTE"
+                                {%- if filter.max_value.value -%}
+                                  {%- if uses_comma_decimals -%}
+                                    value="{{ filter.max_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+                                  {%- else -%}
+                                    value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"
+                                  {%- endif %}
+                                {%- endif -%}
+                                type="number"
+                                min="0"
+                                inputmode="decimal"
+                                {%- if uses_comma_decimals -%}
+                                  placeholder="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+                                  max="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+                                {%- else -%}
+                                  placeholder="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                                  max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                                {% endif %}
+                              >
+                              <label
+                                class="transition-all font-semibold m-body-copy lg:d-h5 absolute left-3 top-1/2 -translate-y-1/2 peer-focus:text-blue-200 peer-focus:top-0 peer-focus:translate-y-0 peer-focus:!text-[12px] pointer-events-none"
+                                for="Mobile-Filter-{{ filter.label | escape }}-LTE"
+                              >
+                                {{- 'products.facets.to' | t -}}
+                              </label>
+                            </div>
+                          </div>
+                        </price-range>
+                        <div class="space-x-3">
+                          <facet-remove class="">
+                            <a href="{{ filter.url_to_remove }}" class="btn-tertiary">
+                              {{- 'products.facets.clear' | t -}}
+                            </a>
+                          </facet-remove>
+                          <button
+                            type="button"
+                            class="btn-tertiary"
+                            onclick="this.closest('.mobile-facets__wrapper').querySelector('summary').click()"
+                          >
+                            {{ 'products.facets.apply' | t }}
+                          </button>
+                        </div>
+                      </div>
+                    </details>
+                {% endcase %}
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+
+          <div class="mobile-facets__footer text-center space-y-5 lg:space-y-8 pt-3 pb-10 lg:py-14 px-10 lg:px-28 bg-white/90">
+            <button
+              type="button"
+              class="no-js-hidden btn-large btn-primary !max-w-none"
+              onclick="this.closest('.mobile-facets__wrapper').querySelector('summary').click()"
+            >
+              {{ 'products.facets.apply' | t }}
+            </button>
+
+            <facet-remove class="block">
+              <a href="{{ results_url }}" class="btn-tertiary"> Clear All </a>
+            </facet-remove>
+          </div>
+
+          {% if results.current_vendor or results.current_type %}
+            <input type="hidden" name="q" value="{{ results.current_vendor }}{{ results.current_type }}">
+          {% endif %}
+
+          {%- if results.terms -%}
+            <input type="hidden" name="q" value="{{ results.terms | escape }}">
+            <input name="options[prefix]" type="hidden" value="last">
+          {%- endif -%}
+        </div>
+      </form>
+    </facet-filters-form>
+  </details>
+</menu-drawer>

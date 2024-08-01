@@ -1,0 +1,22 @@
+<div class="flex space-x-4 items-center lg:hidden mr-auto">
+  {%- assign hideViewToggle = collection.metafields.custom.hide_view_toggle.value %}
+  {%- if hideViewToggle != true %}
+    <div id="view-toggle-mob" class="max-md:hidden space-x-3 flex items-center cursor-pointer  group/prodlist ml-4">
+      <label class="cursor-pointer " for="grid">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect class="fill-current group-[.list]/prodlist:fill-transparent" x="0.4" y="0.4" width="6.31111" height="6.31111" stroke="#2C3B96" stroke-width="0.8"></rect>
+          <rect class="fill-current group-[.list]/prodlist:fill-transparent" x="0.4" y="9.28892" width="6.31111" height="6.31111" stroke="#2C3B96" stroke-width="0.8"></rect>
+          <rect class="fill-current group-[.list]/prodlist:fill-transparent" x="9.29063" y="0.4" width="6.31111" height="6.31111" stroke="#2C3B96" stroke-width="0.8"></rect>
+          <rect class="fill-current group-[.list]/prodlist:fill-transparent" x="9.29063" y="9.28892" width="6.31111" height="6.31111" stroke="#2C3B96" stroke-width="0.8"></rect>
+        </svg>
+      </label>
+      <label class="cursor-pointer " for="list">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0.65" y="0.65" width="14.7" height="14.7" stroke="#2C3B96" stroke-width="1.3" class="group-[.list]/prodlist:fill-current"></rect>
+        </svg>
+      </label>
+    </div>
+  {%- endif %}
+
+  <button id="filters-mob" class="btn-tertiary leading-[16px]">Filter</button>
+</div>

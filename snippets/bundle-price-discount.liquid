@@ -1,0 +1,28 @@
+<div class="flex flex-wrap gap-2 items-center select-none">
+  {% if bp_compare_at_price > bp_price %}
+    <span class="flex gap-x-2 font-semibold ">
+      <span class="line-through opacity-60">
+        {{- bp_compare_at_price | money -}}
+      </span>
+      <span>{{ bp_price | money }}</span>
+    </span>
+
+    {% assign percentoff = bp_compare_at_price
+      | minus: bp_price
+      | times: 100.0
+      | divided_by: bp_compare_at_price
+      | money_without_currency
+      | times: 100
+      | replace: '.0', ''
+    %}
+  {% else %}
+    <span class="font-semibold">{{ bp_price | money }}</span>
+  {% endif %}
+
+  <span class="inline-flex flex-row-reverse items-center gap-2 whitespace-nowrap ui-pill ui-pill--bg-blue ui-shimmer before:animate-[shimmer_1s_linear_both]">
+    Bundle Savings
+    {% if percentoff %}
+      + {{ percentoff }}% Off
+    {% endif %}
+  </span>
+</div>

@@ -1,0 +1,131 @@
+{% assign articlesPerPage = 5 %}
+
+{% assign blogs_linklist_handle = 'blog-menu' %}
+{% liquid
+  assign blogs_linklist = linklists[blogs_linklist_handle]
+  assign articles = '' | split: ','
+  for blog_link in blogs_linklist.links
+    assign articles = articles | concat: blog_link.object.articles
+  endfor
+  assign articles = articles | uniq | sort: 'published_at' | reverse
+%}
+
+{%- paginate blog.articles by articlesPerPage -%}
+  <section class="main-blog page-width section-{{ section.id }}-padding">
+    <header class="container space-y-3 lg:space-y-6">
+      <h1 class="m-h1 lg:d-h1">
+        {{ blog.title | escape }}
+      </h1>
+
+      {% if blog.metafields.custom.blog_description != blank %}
+        <div class="wysiwyg">
+          {{ blog.metafields.custom.blog_description | escape }}
+        </div>
+      {% endif %}
+    </header>
+
+    <nav class="container [&_a:hover]:underline section-anchors">
+      <div class="scrollbar-grad-desktop">
+        <div class="no-scrollbar overflow-auto w-[calc(100%_+_40px)] lg:w-[calc(100%_+_48px)] flex space-x-6 lg:space-x-12 whitespace-nowrap">
+          <a href="{{ shop.url }}/pages/christy-life" class="lg:d-h4">Latest</a>
+          {%- for blog_link in blogs_linklist.links -%}
+            <a
+              href="{{ blog_link.url }}"
+              class="lg:d-h4 {% if blog_link.handle == blog.handle %}!font-bold{% endif %}"
+            >
+              {{- blog_link.title -}}
+            </a>
+          {%- endfor -%}
+        </div>
+      </div>
+    </nav>
+
+    <div
+      id="article-grid"
+      class="blog-articles container my-10 lg:my-20 space-y-14 md:space-y-0 md:grid-cols-12 md:grid md:gap-6 md:gap-y-14 lg:gap-y-20 md:justify-between [&_>*:nth-child(2n+1)]:md:col-span-7 [&_>*:nth-child(2n+1)_figure]:md:pt-[52%] [&_>*:nth-child(2n+2)]:md:col-span-5 [&_>*:nth-child(2n+2)_>*]:md:w-10/12 [&_>*:nth-child(2n+2)_figure]:md:pt-[87.362%]  [&_>*:nth-child(2n+1)_div.content]:md:w-11/12 [&_>*:nth-child(2n+1)_div.content]:md:max-w-[570px]"
+    >
+      {%- for article in blog.articles -%}
+        <div
+          class="grid__item {% if forloop.index0 == 0 %}md:!col-start-6{% endif %}"
+        >
+          {%- render 'article-card', article: article, img_float: 'float' -%}
+        </div>
+      {%- endfor -%}
+    </div>
+
+    {%- if paginate.pages > paginate.current_page -%}
+      <div id="btn-wrap" class="container flex justify-center my-10 lg:my-20 ">
+        <button
+          class="btn-primary btn-large flex space-x-3 mx-auto [&.loading>div]:!block"
+          onclick="loadMoreArticles(this)"
+          id="show-more"
+          data-page="{{ paginate.current_page | plus: 1 }}"
+        >
+          <span>Load More</span>
+          <div class="loading-overlay__spinner hidden">
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              class="spinner"
+              viewBox="0 0 66 66"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle class="path !stroke-current" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+            </svg>
+          </div>
+        </button>
+      </div>
+    {%- endif -%}
+  </section>
+{%- endpaginate -%}
+
+<script>
+  function loadMoreArticles(el) {
+    var articleListing = document.getElementById('article-grid');
+    var btnWrap = document.getElementById('btn-wrap');
+
+    el.classList.add('loading');
+
+    var requestUrl =
+      window.location.pathname + window.location.search + '?limit={{ articlesPerPage }}&page=' + el.dataset.page;
+
+    history.pushState(requestUrl, '', requestUrl);
+    fetch(requestUrl)
+      .then((response) => response.text())
+      .then(function (responseText) {
+        const html = new DOMParser().parseFromString(responseText, 'text/html');
+        const articleHtml = html.querySelector('#article-grid');
+        if (articleHtml && articleHtml.querySelectorAll('.grid__item').length > 0) {
+          articleHtml.querySelectorAll('.grid__item').forEach((item) => {
+            item.classList.remove('md:!col-start-6');
+          });
+
+          articleListing.insertAdjacentHTML('beforeend', articleHtml.innerHTML);
+
+          const lazyimg = new Event('lazyimg');
+          window.dispatchEvent(lazyimg);
+
+          App.animations();
+        }
+
+        if (html.querySelector('#show-more')) {
+          el.dataset.page = html.querySelector('#show-more').dataset.page;
+          el.classList.remove('loading');
+        } else {
+          btnWrap.remove();
+        }
+      })
+      .catch(function (error) {
+        console.error('Error loading products:', error);
+      });
+  }
+</script>
+
+{% schema %}
+{
+  "name": "t:sections.main-blog.name",
+  "tag": "section",
+  "class": "section-article",
+  "settings": []
+}
+{% endschema %}

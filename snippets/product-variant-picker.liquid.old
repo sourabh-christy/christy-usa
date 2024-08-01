@@ -1,0 +1,162 @@
+{% comment %}
+  Renders product variant-picker
+
+  Accepts:
+  - product: {Object} product object.
+  - product_form_id: {String} Id of the product form to which the variant picker is associated.
+  - update_url: {Boolean} whether or not to update url when changing variants. If false, the url isn't updated. Default: true (optional).
+  Usage:
+  {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
+{% endcomment %}
+
+{%- unless product.has_only_default_variant -%}
+  <variant-radios
+    id="variant-radios-{{ section.id }}"
+    class="no-js-hidden max-md:space-y-7"
+    data-section="{{ section.id }}"
+    data-url="{{ product.url }}"
+    {% if update_url == false %}
+      data-update-url="false"
+    {% endif %}
+  >
+    {%- for option in product.options_with_values -%}
+      {% assign selectedValue = option.selected_value | handleize %}
+      {% assign values_count = option.values.size %}
+
+      <fieldset
+        id="option-{{ option.name | handle }}"
+        aria-labelledby="fake-legend-{{ option.name | handle }}"
+        data-optionname="{{ option.name }}"
+        class="js product-form__input md:py-7 first:pt-0 md:border-b border-blue-1/10 {% if values_count > 1 %}group/acc{% endif %} open"
+      >
+        <div
+          data-acc
+          class="float-left form__label d-h5 space-x-6 flex w-full items-center md:cursor-pointer max-md:text-[14px]"
+          id="fake-legend-{{ option.name | handle }}"
+        >
+          <div class="mr-auto">
+            <span>
+              {%- liquid
+                if option.name == 'color' or option.name == 'Color'
+                  echo 'Colour'
+                else
+                  echo option.name
+                endif
+              -%}
+              :</span
+            >
+            <span class="current-variation font-light" data-varcurrent="{{ option.name }}">
+              {% if option.name == 'Colour' or option.name == 'Color' %}
+                {% if selected_colour != '' %}
+                  {% assign selectedValue = selected_colour %}
+                {% endif %}
+              {% endif %}
+
+              {% if option.name == 'Size' and selected_size != '' %}
+                {% assign selectedValue = selected_size %}
+              {% endif %}
+
+              {%- for value in option.values -%}
+                {%- assign valueHandle = value | handleize -%}
+                {% if valueHandle == selectedValue %}
+                  {{ value }}
+                {% endif %}
+              {% endfor %}
+            </span>
+          </div>
+
+          {% if values_count > 1 %}
+            <span
+              class="acc-toggle max-md:hidden"
+            ></span>
+          {% endif %}
+
+          {% if option.name == 'Size' or option.name == 'Duvet Size' %}
+            {% if product.metafields.custom.product_specification != blank %}
+              <div id="sideguidemodal" class="text-right !ml-auto pl-5 md:hidden self-start whitespace-nowrap">
+                <button aria-label="Go to sizeguide" class="btn-tertiary" data-modaltrigger="sizeguide">
+                  Size Guide
+                </button>
+              </div>
+            {% endif %}
+          {% endif %}
+        </div>
+
+        {% liquid
+          if option.name == 'Colour' or option.name == 'Color'
+            assign options_wrap_class = 'gap-2 md:gap-5 flex-wrap pt-3 md:pt-7 clear-left flex md:hidden group-[.open]/acc:!flex group-[.open]/acc:opacity-100 md:opacity-0 transition-opacity delay-[0.5s]'
+          else
+            assign options_wrap_class = 'max-md:grid max-md:grid-cols-2 max-md:gap-x-4 gap-3 flex-wrap pt-3 md:pt-7 clear-left md:hidden group-[.open]/acc:!grid group-[.open]/acc:md:!flex group-[.open]/acc:opacity-100 md:opacity-0 transition-opacity delay-[0.5s]'
+          endif
+        %}
+        <div class="{{ options_wrap_class }}">
+          {% render 'product-variant-options',
+            product: product,
+            option: option,
+            mobile: true,
+            selectedValue: selectedValue,
+            selected_colour: selected_colour,
+            selected_size: selected_size,
+            current_variant: current_variant
+          %}
+        </div>
+      </fieldset>
+    {%- endfor -%}
+
+    <script type="application/json">
+      {{ product.variants | json }}
+    </script>
+  </variant-radios>
+{%- endunless -%}
+
+<noscript class="product-form__noscript-wrapper-{{ section.id }}">
+  <div class="product-form__input{% if product.has_only_default_variant %} hidden{% endif %}">
+    <label class="form__label" for="Variants-{{ section.id }}">
+      {{- 'products.product.product_variants' | t -}}
+    </label>
+    <div class="select">
+      <select
+        name="id"
+        id="Variants-{{ section.id }}"
+        class="select__select"
+        form="{{ product_form_id }}"
+      >
+        {%- for variant in product.variants -%}
+          <option
+            {% if variant == product.selected_or_first_available_variant %}
+              selected="selected"
+            {% endif %}
+            {% if variant.available == false %}
+              disabled
+            {% endif %}
+            value="{{ variant.id }}"
+          >
+            {%- liquid
+              echo variant.title
+              echo variant.price | money | strip_html | prepend: ' - '
+              if variant.available == false
+                echo 'products.product.sold_out' | t | prepend: ' - '
+              endif
+              if variant.quantity_rule.increment > 1
+                echo 'products.product.quantity.multiples_of' | t: quantity: variant.quantity_rule.increment | prepend: ' - '
+              endif
+              if variant.quantity_rule.min > 1
+                echo 'products.product.quantity.minimum_of' | t: quantity: variant.quantity_rule.min | prepend: ' - '
+              endif
+              if variant.quantity_rule.max != null
+                echo 'products.product.quantity.maximum_of' | t: quantity: variant.quantity_rule.max | prepend: ' - '
+              endif
+              # TODO: enable theme-check once `item_count_for_variant` is accepted as valid filter
+              # theme-check-disable
+              assign cart_quantity = cart | item_count_for_variant: variant.id
+              # theme-check-enable
+              if cart_quantity > 0
+                echo 'products.product.quantity.in_cart_html' | t: quantity: cart_quantity | prepend: ' - '
+              endif
+            -%}
+          </option>
+        {%- endfor -%}
+      </select>
+    </div>
+  </div>
+</noscript>

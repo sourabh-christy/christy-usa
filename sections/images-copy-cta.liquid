@@ -1,0 +1,253 @@
+<div
+  id="Image-Copy-CTA{{ section.id }}"
+  class="relative  overflow-hidden bg-[rgba(219,_212,_204,_0.1)] py-14 lg:py-40 "
+>
+  <div class="container space-y-7 lg:space-y-8">
+    {% if section.settings.anchor_id != blank %}
+      {% render 'page-anchor', anchor_id: section.settings.anchor_id %}
+    {% endif %}
+
+    {% if section.settings.header_position == true %}
+      <header class="space-y-3 lg:space-y-4">
+        {%- if section.settings.subtitle -%}
+          <h3 class="m-h5 lg:d-h5">{{ section.settings.subtitle }}</h3>
+        {%- endif -%}
+
+        {%- if section.settings.title -%}
+          <h2 class="s-m-h2 lg:s-d-h2">{{ section.settings.title }}</h2>
+        {%- endif -%}
+      </header>
+    {% endif %}
+
+    <div class="grid md:flex gap-12 md:gap-6 {% if section.settings.header_position != true %}items-center{% endif %} {% if section.settings.content_position == 'left'%}md:flex-row-reverse{% endif %}">
+      <div class="md:grid md:gap-3 md:grid-cols-2 [&_>*]:max-md:hidden [&_>*:first-child]:max-md:!block {% if section.settings.content_position == 'left'%}max-md:order-2 md:-mr-[40px] lg:-mr-[48px]{% else %}md:-ml-[40px] lg:-ml-[48px]{% endif %} {% if section.settings.images_half_width %} md:w-[calc(50%_-_24px_+_48px)] {% else %}md:w-3/5{% endif %}">
+        {%- liquid
+          assign widths = '375, 550, 750, 1100, 1500'
+          assign sizes = '100vw'
+
+          assign image_class = 'object-cover object-center w-full aspect-[2/3] opacity-0'
+        -%}
+
+        <figure class="relative ">
+          {%- if section.settings.image != blank -%}
+            {%- assign image_height = section.settings.image.width | times: 1.5 -%}
+
+            {% render 'spinner' %}
+            {%- render 'lazyimg',
+              img: section.settings.image,
+              width: 750,
+              widths: widths,
+              class: image_class,
+              sizes: sizes,
+              height: image_height
+            -%}
+          {%- else -%}
+            {% assign image_class = image_class | replace: 'opacity-0', 'opacity-100' %}
+            {{ 'hero-apparel-1' | placeholder_svg_tag: image_class }}
+          {%- endif -%}
+        </figure>
+
+        <figure class="relative">
+          {%- if section.settings.image2 != blank -%}
+            {%- assign image_height = section.settings.image2.width | times: 1.5 -%}
+            {% render 'spinner' %}
+            {%- render 'lazyimg',
+              img: section.settings.image2,
+              width: 750,
+              widths: widths,
+              class: image_class,
+              sizes: sizes,
+              height: image_height
+            -%}
+          {%- else -%}
+            {% assign image_class = image_class | replace: 'opacity-0', 'opacity-100' %}
+            {{ 'hero-apparel-1' | placeholder_svg_tag: image_class }}
+          {%- endif -%}
+        </figure>
+      </div>
+
+      <div class="relative md:flex w-auto m-0 flex-1 {% if section.settings.content_position != 'left'%}md:justify-end{% endif %}">
+        <div class="space-y-10 lg:space-y-12 w-full md:max-w-[432px]">
+          <div class="space-y-4 lg:space-y-6 text-blue-1">
+            {% if section.settings.header_position != true %}
+              <header class="space-y-4">
+                {%- if section.settings.subtitle -%}
+                  <h3 class="m-h5 lg:d-h5">{{ section.settings.subtitle }}</h3>
+                {%- endif -%}
+
+                {%- if section.settings.title -%}
+                  <h2 class="s-m-h1 lg:s-d-h1">{{ section.settings.title }}</h2>
+                {%- endif -%}
+              </header>
+            {% endif %}
+
+            {%- if section.settings.copy -%}
+              <div class="wysiwyg [&_br]:max-md:hidden">
+                {{ section.settings.copy }}
+              </div>
+            {%- endif -%}
+
+            {% if section.blocks.size > 0 %}
+              <div class="space-y-4 lg:space-y-6 !mt-14 lg:!mt-10">
+                {% for block in section.blocks %}
+                  {% case block.type %}
+                    {% when 'subtitle' %}
+                      <h3 {{ block.shopify_attributes }} class="font-semibold">{{ block.settings.subtitle }}</h3>
+                    {% when 'copy' %}
+                      <div {{ block.shopify_attributes }} class="wysiwyg">
+                        {{ block.settings.copy }}
+                      </div>
+                  {% endcase %}
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+
+          {% if section.settings.button_link != blank and section.settings.button_label != blank %}
+            <div>
+              <a
+                class="btn-large btn-secondary"
+                href="{{ section.settings.button_link }}"
+              >
+                {{- section.settings.button_label -}}
+              </a>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Images, Copy, CTA",
+  "tag": "section",
+  "class": "section-image-copy-cta",
+  "disabled_on": {
+    "groups": ["header", "footer"],
+    "templates": ["article"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Images"
+    },
+    {
+      "type": "paragraph",
+      "content": "Add up to 2 images"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image2",
+      "label": "Image 2"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Sub Title",
+      "default": "Responsibility"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title",
+      "default": "<p>Timeless products, consciously made</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "copy",
+      "label": "Copy",
+      "default": "<p>We’re devoted to building a sustainable future, always moving forwards to improve our processes for the good of our consumers, our communities and the wider environment.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Discover our Initiatives"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link",
+      "default": "/collections/all"
+    },
+    {
+      "type": "header",
+      "content": "Other Settings"
+    },
+    {
+      "type": "select",
+      "id": "content_position",
+      "label": "Content Position",
+      "default": "right",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "header_position",
+      "label": "Place main Subtitle/Title above columns",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "images_half_width",
+      "label": "Make Images Half Width of container",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor ID",
+      "info": "Add an ID to the section to make it linkable. e.g. 'section-id' will become '#section-id'"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "subtitle",
+      "name": "Sub Title",
+      "settings": [
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Sub Title"
+        }
+      ]
+    },
+    {
+      "type": "copy",
+      "name": "Copy Additional",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "copy",
+          "label": "Copy"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Images, Copy, CTA"
+    }
+  ]
+}
+{% endschema %}

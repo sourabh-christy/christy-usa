@@ -1,0 +1,214 @@
+{{ 'splide.min.css' | asset_url | stylesheet_tag }}
+
+{% liquid
+  assign widths = '300, 375, 550, 640, 768 1280'
+  assign sizes = '(max-width: 767px) 100vw, (min-width: 768px) 50vw'
+
+  assign class1 = 'h-full w-full object-cover object-center opacity-0 aspect-[1/1]'
+  assign class2 = 'h-full w-full object-cover aspect-[1/1] !opacity-0 group-hover/card:!opacity-100 absolute inset-0 notouchhover '
+%}
+{%- render 'spinner' -%}
+
+{% assign img_width = 640 %}
+
+{% assign height_cropped = 640 | divided_by: 1.77778 %}
+
+<div class="">
+  <div class="container">
+    <div
+      class="splide group/splide  space-y-8 lg:space-y-16"
+      data-splide='
+        {"arrows": true, "pagination": false, "type": "fade", "gap": "0", "autoWidth": false, "breakpoints": {
+          "768": {
+            "gap": "0"
+          }
+        }}
+      '
+    >
+      <header class="flex gap-12 max-md:flex-col md:items-center">
+        {% if section.settings.title %}
+          <h2 class="s-m-h2 lg:s-d-h1">{{ section.settings.title }}</h2>
+        {% endif %}
+
+        <div class="flex flex-1 justify-between">
+          <div class="splide__arrows splide__arrows--ltr hidden group-[.is-initialized]/splide:!flex justify-end  !-mr-[15px] !ml-auto">
+            <button
+              class="splide__arrow splide__arrow--prev !w-10 !h-10 disabled:!opacity-0 transition-opacity !bg-transparent !static !transform-none outline-none"
+              type="button"
+              aria-label="Previous slide"
+              aria-controls="splide01-track"
+            >
+              <svg class="w-full" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path class="fill-blue-1" d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z"/>
+              </svg>
+            </button>
+            <button
+              class="splide__arrow splide__arrow--next !w-10 !h-10 disabled:!opacity-0 transition-opacity !bg-transparent !static !transform-none outline-none"
+              type="button"
+              aria-label="Next slide"
+              aria-controls="splide01-track"
+            >
+              <svg class="w-full" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path class="fill-blue-1" d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </header>
+      <div class="animation an-fadeup">
+        <div class="splide__track !overflow-visible">
+          <div class="splide__list text-blue-1 flex group-[.is-initialized]/splide:!block">
+            {%- for block in section.blocks -%}
+              <div class="splide__slide !translate-x-0">
+                <div
+                  {{ block.shopify_attributes }}
+                  class="grid md:grid-cols-2 gap-8 md:gap-16"
+                >
+                  {% if block.settings.product %}
+                    <div class="max-md:order-2">
+                      {% assign rel_product = block.settings.product %}
+
+                      {% if rel_product.featured_media.media_type == 'image' %}
+                        <a class="block" href="{{ rel_product.url }}">
+                          {%-
+                            render 'lazyimg',
+                            img: rel_product.featured_media,
+                            width: img_width,
+                            height: img_width,
+                            widths: widths,
+                            class: class1,
+                            sizes: sizes,
+                          -%}
+                        </a>
+                      {% endif %}
+
+                      <a class="btn-tertiary mt-5" href="{{ rel_product.url }}">Shop Now</a>
+                    </div>
+                  {% endif %}
+
+                  <div class="space-y-3 lg:space-y-5 flex-1 flex-col flex items-start justify-center">
+                    <p class="m-h2 lg:d-h2">{{ block.settings.title }}</p>
+
+                    <div class="gap-3 flex text-[#E3AD7C] !mb-5 lg:mb-8">
+                      {%- render 'icon-star' %}
+                      {%- render 'icon-star' %}
+                      {%- render 'icon-star' %}
+                      {%- render 'icon-star' %}
+                      {%- render 'icon-star' %}
+                    </div>
+
+                    <div class="wysiwyg s-m-h3 lg:s-d-h3">{{ block.settings.testimonial }}</div>
+
+                    {% if block.settings.name %}
+                      <p class="m-h4 lg:d-h4">{{ block.settings.name }}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% if section.settings.margin == 'no' %}
+  <style>
+    #shopify-section-{{ section.id }} {
+        margin: 0 !important;
+    }
+  </style>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Reviews Carousel",
+  "tag": "section",
+  "class": "section-reviews",
+  "disabled_on": {
+    "groups": ["header", "footer"],
+    "templates": ["article"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "100,000+ Happy Customers"
+    },
+
+    {
+      "type": "radio",
+      "id": "margin",
+      "label": "Include Margin",
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ],
+      "default": "yes"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Block",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Related Product Settings"
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "header",
+          "content": "Testimonial Settings"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Customer Reviews",
+          "label": "Testimonial Title"
+        },
+        {
+          "type": "richtext",
+          "id": "testimonial",
+          "label": "Testimonial Copy",
+          "default": "<p>“One of the highest quality products I have experienced. Very very soft and drapes beautifully on my bed.”</p>"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "default": "John Smith",
+          "label": "Testimonial Name"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Reviews Carousel",
+      "blocks": [
+        {
+          "type": "block"
+        },
+        {
+          "type": "block"
+        },
+        {
+          "type": "block"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,155 @@
+<div
+  id="Heading-{{ section.id }}"
+  class="
+    container md:flex max-md:space-y-6 {% if section.settings.alignment == 'center' %}md:justify-center md:text-center{% endif %} {% if section.settings.alignment == 'right' and section.settings.copy == blank %}md:justify-end{% endif %} {% if section.settings.copy != blank %}md:items-center md:gap-5 lg:gap-6{% endif %}
+    {% if section.settings.alignment_mob == 'center' %}max-md:justify-center max-md:text-center{% endif %} {% if section.settings.alignment_mob == 'right' %}max-md:justify-end max-md:text-right{% endif %} {% if section.settings.margin_top == true %}lg:pt-10{% endif %}
+  "
+>
+  {%- liquid
+    if section.settings.copy == blank
+      assign headerclass = 's-m-h3 lg:s-d-h2 md:max-w-[643px]'
+    else
+      assign headerclass = 's-m-h1 lg:s-d-h1 md:w-4/12 md:max-w-[643px]'
+    endif
+
+    if section.settings.heading_width == '6'
+      assign headerclass = headerclass | append: ' md:!w-6/12' | remove: 'md:max-w-[643px]'
+    endif
+  %}
+  <h2 class="animation an-fadeup {{ headerclass }}  [&_br]:max-md:hidden text-blue-1 {% if section.settings.horiz_padding and section.settings.copy == blank %}md:px-24{% endif %}">
+    {{ section.settings.heading }}
+  </h2>
+
+  {%- if section.settings.copy != blank -%}
+    {% liquid
+      if section.settings.copy_style == 'heading3'
+        assign copyclass = 'md:s-m-h3 lg:s-d-h3 md:w-8/12 md:max-w-[500px]'
+      else
+        assign copyclass = 'md:w-4/12'
+      endif
+    %}
+    <div class="animation an-fadeup md:delay-200 wysiwyg text-blue-1 {{ copyclass }}">
+      {{ section.settings.copy }}
+    </div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Heading",
+  "tag": "section",
+  "class": "section-heading",
+  "disabled_on": {
+    "groups": ["header", "footer"],
+    "templates": ["article"]
+  },
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>Discover the magic in <br/>everyday moments.</p>"
+    },
+    {
+      "type": "select",
+      "id": "heading_width",
+      "label": "Heading Width",
+      "info": "Choose whether heading should be 4/12 width or 6/12 width.",
+      "options": [
+        {
+          "value": "4",
+          "label": "4/12"
+        },
+        {
+          "value": "6",
+          "label": "6/12"
+        }
+      ],
+      "default": "4"
+    },
+    {
+      "type": "richtext",
+      "id": "copy",
+      "label": "Copy (Optional)"
+    },
+    {
+      "type": "select",
+      "id": "copy_style",
+      "label": "Copy Font Style",
+      "info": "If copy is set, this option effects the style of font copy, on Tablet/Desktop.",
+      "options": [
+        {
+          "value": "default",
+          "label": "Default"
+        },
+        {
+          "value": "heading3",
+          "label": "Heading 3"
+        }
+      ],
+      "default": "default"
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Heading Horizontal Alignment (Desktop Only)",
+      "info": "Choose horizontal alignment.  If copy is filled out, this will have no effect.",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "select",
+      "id": "alignment_mob",
+      "label": "Heading Horizontal Alignment (Mobile Only)",
+      "info": "Choose horizontal alignment.  If copy is filled out, this will have no effect.",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "checkbox",
+      "id": "horiz_padding",
+      "default": true,
+      "label": "Additonal Horizontal Padding (Desktop Only)",
+      "info": "Add horizontal alignment.  If copy is filled out, this will have no effect."
+    },
+    {
+      "type": "checkbox",
+      "id": "margin_top",
+      "default": false,
+      "label": "Additonal Margin Top (Desktop Only)",
+      "info": "Add extra space to margin top"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Heading"
+    }
+  ]
+}
+{% endschema %}
