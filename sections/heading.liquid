@@ -1,3 +1,4 @@
+{%- if section.settings.copy != blank -%}
 <div
   id="Heading-{{ section.id }}"
   class="
@@ -33,7 +34,7 @@
     </div>
   {%- endif -%}
 </div>
-
+{% endif %}
 {% schema %}
 {
   "name": "Heading",
