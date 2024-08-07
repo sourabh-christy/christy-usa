@@ -17,6 +17,13 @@ async function myfun(t, e){
        //document.getElementById('quickViewModal').style.display = 'block';
        document.getElementById('quickViewModal').classList.add('slideMe');
        document.body.classList.add('quick-view-modal-open')
+
+       var quickViewOpenIntrval = setInterval(function () {
+        if ($('#CartDrawer').parent('cart-drawer').hasClass('active')) {
+          clearInterval(quickViewOpenIntrval)
+          document.getElementById('modalCloseBtn').click()
+        }
+      }, 10)
  }
  
  
