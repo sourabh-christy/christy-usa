@@ -815,17 +815,18 @@
     </div>
 {% comment %} QT 6-8-2024 {% endcomment %}
  
-    <div class="qt-info-content-fullwith-block-productpage-wrapper" style="width:1350px; margin:auto; display:block;">
-      <style>
+    <div class="qt-info-content-fullwith-block-productpage-wrapper" style="width:100%;max-width: 1350px; margin:auto; display:block;">
+      {% comment %} <style>
+        
        @media (max-width: 768px) {
          .qt-info-content-fullwith-block-productpage-wrapper {
            margin-left:40px !important;
           
          }
        }
-     </style>
+     </style> {% endcomment %}
     {% for block in product.metafields.custom.info_content_fullwidth_pdp_block.value %}
-      <div class="qt-info-content-fullwith-block-productpage" style="margin-top:30px; object-fit:fill;">
+      <div class="qt-info-content-fullwith-block-productpage" style="margin-top:60px; object-fit:fill;">
         {% render 'info-content-block-fullwidth', block: block %}
       </div>
     {% endfor %} 

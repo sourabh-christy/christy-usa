@@ -24,7 +24,13 @@
 %}
 {% comment %}QT 18-7-2024{% endcomment %}
 <style>
-  
+
+   .grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+ 
+    
     .selected-filters {
       display: flex;
       padding: 10px;
@@ -72,7 +78,7 @@
         display: flex;
         justify-content: space-between;
         margin: 0px auto;
-        max-width: 1350px;
+        {% comment %} max-width: 1350px; {% endcomment %}
       }
 
       .qt-btn-wrapper {
@@ -216,9 +222,21 @@
       .mobile-only {
         display: none;
       }
+
+      @media only screen and (min-width: 769px) and (max-width: 1023px) {
+        #product-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        } 
+      }
+      @media only screen and (max-width: 300) {
+        #product-grid {
+          grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+        } 
+      }
+
       @media (max-width: 768px) {
         .product-grid-filter {
-          margin: 0px 40px;
+         /* margin: 0px 40px;*/
           display:block;
         }
         .qt-sorting-btn button {
@@ -438,7 +456,7 @@
             <ul
               id="product-grid"
               data-id="{{ section.id }}"
-              class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2 gap-y-10 grid-flow-dense"
+              class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-1 max-sm:grid-cols-1 gap-2 gap-y-10 grid-flow-dense"
             >
               {% assign listscIndex = 0 %}
               {% assign infoContentBlock = collection.metafields.custom.info_content_block.value %}
@@ -466,8 +484,8 @@
 
                 {% for block in collection.metafields.custom.info_content_block.value %}
                   {% comment %} {% echo block.position %} {% endcomment %}
-                  {% if block.position == indexCount %}
-                    {% render 'info-content-block', block: block %}
+                  {% if block.position == indexCount %} 
+                    {% render 'info-content-block', block: block %} 
                     {% assign indexCount = indexCount | plus: 1 %}
                  {% endif %}
                 {% endfor %}
