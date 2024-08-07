@@ -521,6 +521,21 @@
         "margin_top": true
       }
     },
+    "1723026351f8b5e598": {
+      "type": "apps",
+      "blocks": {
+        "instagram_feed_instafeed_rptr_raptor_instagram_Neh9if": {
+          "type": "shopify:\/\/apps\/instagram-feed-instafeed-rptr\/blocks\/raptor-instagram\/557ff51a-dc31-4dee-a7df-4610643fa410",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "instagram_feed_instafeed_rptr_raptor_instagram_Neh9if"
+      ],
+      "settings": {
+      }
+    },
     "heading4": {
       "type": "heading",
       "settings": {
@@ -671,21 +686,6 @@
         "copy_font_weight": "300",
         "copy_font_family": "sans-serif"
       }
-    },
-    "1723026351f8b5e598": {
-      "type": "apps",
-      "blocks": {
-        "instagram_feed_instafeed_rptr_raptor_instagram_Neh9if": {
-          "type": "shopify:\/\/apps\/instagram-feed-instafeed-rptr\/blocks\/raptor-instagram\/557ff51a-dc31-4dee-a7df-4610643fa410",
-          "settings": {
-          }
-        }
-      },
-      "block_order": [
-        "instagram_feed_instafeed_rptr_raptor_instagram_Neh9if"
-      ],
-      "settings": {
-      }
     }
   },
   "order": [
@@ -707,12 +707,12 @@
     "billboard3",
     "images-copy-cta",
     "heading3",
+    "1723026351f8b5e598",
     "heading4",
     "billboard4",
     "featured-blogs",
     "d1799047-2d3f-4748-9804-8038692b0c63",
     "2970b3ab-743a-4054-95d1-048d41881e08",
-    "d2113c42-d705-4b50-99be-017b00de7fc9",
-    "1723026351f8b5e598"
+    "d2113c42-d705-4b50-99be-017b00de7fc9"
   ]
 }
