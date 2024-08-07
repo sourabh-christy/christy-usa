@@ -69,7 +69,7 @@
             "collection": "all",
             "usp_title": "",
             "image": "shopify:\/\/shop_images\/Luxe_Lifestyle_White_1_a6aad91c-7640-49b9-8beb-ce40fbf206b9.jpg",
-            "alt_title": "Shop Everything",
+            "alt_title": "All Collections",
             "excerpt": ""
           }
         }
@@ -93,7 +93,7 @@
         "title_font_size_desktop": 30,
         "title_font_weight": "600",
         "title_font_family": "sans-serif",
-        "button_title": "Shop now",
+        "button_title": "Shop Now",
         "button_link": "shopify:\/\/collections",
         "products": [
           "supreme-hygro",
