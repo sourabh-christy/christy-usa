@@ -12,7 +12,7 @@
     "97fe06ff-d1d9-4c8d-9cb3-24b8e821d00d": {
       "type": "hero-image",
       "settings": {
-        "video": "shopify:\/\/files\/videos\/_HP Banner video Revised 5mb.mp4",
+        "video": "shopify:\/\/files\/videos\/HP Banner video (1920x1080).mp4",
         "link": "shopify:\/\/pages\/about-us",
         "full_width": true
       }
@@ -111,7 +111,8 @@
     "2a0e8d45-d132-480e-b6ff-c37f7ad453d7": {
       "type": "hero-image",
       "settings": {
-        "link": "https:\/\/www.christy.co.uk\/collections\/cyber-jammies-pyjama-sets",
+        "image": "shopify:\/\/shop_images\/HARRODS_X_CHRISTY_1.png",
+        "link": "shopify:\/\/pages\/about-us",
         "full_width": true
       }
     },
@@ -623,8 +624,8 @@
           "type": "column",
           "settings": {
             "image_aspect": "1:1",
-            "title": "TBC",
-            "text": "<p>TBC<\/p>",
+            "title": "Heritage of Excellence",
+            "text": "<p>Delivering quality and durability since 1850.<\/p>",
             "button_label": "",
             "button_link": "",
             "collection_tag": ""
@@ -635,7 +636,7 @@
           "settings": {
             "image_aspect": "1:1",
             "title": "Delivery",
-            "text": "<p>Free delivery on orders above $50.<\/p>",
+            "text": "<p>Free standard delivery on orders above $50.<\/p>",
             "button_label": "",
             "button_link": "",
             "collection_tag": ""
