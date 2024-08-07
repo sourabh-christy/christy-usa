@@ -1,5 +1,5 @@
 <div class="product-card group/card info-content-block col-span-1  qt-info-content-block ">
-  
+   
   <div
     class="space-y-4 h-full"
     
@@ -48,7 +48,10 @@
           <p class="text-xl">{{ block.short_title }}</p>
           <p class="text-4xl">{{ block.long_title }}</p>
           <p>{{ block.description | metafield_tag }}</p>
-          <a href="{{ block.button_url }}" class="px-4 py-2 bg-white text-blue-1">{{ block.button_text }}</a>
+          {% if block.button_text and block.button_text != '' %}
+            <a href="{{ block.button_url }}" class="px-4 py-2 bg-white text-blue-1">{{ block.button_text }}</a>
+          {% endif %}
+     
         </div>
       {% endif %}
     </div>
