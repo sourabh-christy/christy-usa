@@ -58,7 +58,7 @@
         justify-content: center;
         {% comment %} padding-left: 10px; {% endcomment %}
         {% comment %} padding-right: 100px; {% endcomment %}
-        {% comment %} background-image: url('../assets/Arrow.svg'); {% endcomment %}
+        {% comment %} background-image: url({{ 'Arrow.svg' | asset_url }}); {% endcomment %}
         {% comment %} background-position: 145px;
         background-repeat: no-repeat;
         background-size: 20px 20px; {% endcomment %}
@@ -124,14 +124,14 @@
         padding-bottom: 1.25rem;
         font-weight: 500;
         color: #2c3b96;
-        background-image: url(../assets/plus.svg);
+        background-image: url({{ 'plus.svg' | asset_url }});
         background-repeat: no-repeat;
         background-position-x: right;
         background-position-y: center;
         background-origin: content-box;
       }
       .qt-dropdown-item.open {
-        background-image: url(../assets/minus.svg);
+        background-image: url({{ 'minus.svg' | asset_url}});
         background-repeat: no-repeat;
         background-position-x: right;
         background-position-y: center;
