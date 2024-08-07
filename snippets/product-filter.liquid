@@ -1,0 +1,641 @@
+{% comment %}QT 3-8-2024{% endcomment %}
+<div class="product-grid-filter mt-5 lg:mt-12">
+    {% assign unique_sizes = '' %}
+    {% assign unique_colors = '' %}
+    {% assign unique_prices = '' %}
+    {% for product in collections.all.products %}
+      {% for variant in product.variants %}
+        {% if variant.available %}
+          {% assign size_option = variant.option2 | strip %}
+          {% assign color_option = variant.option1 | strip %}
+          {% assign price_option = variant.price | strip %}
+          {% if size_option and size_option != '' %}
+            {% assign unique_sizes = unique_sizes | append: size_option | append: ',' %}
+          {% endif %}
+          {% if color_option and color_option != '' %}
+            {% assign unique_colors = unique_colors | append: color_option | append: ',' %}
+          {% endif %}
+          {% if price_option and price_option != '' %}
+            {% assign unique_prices = unique_prices | append: price_option | append: ',' %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+  
+    {% comment %} Adjust margin for small screens {% endcomment %}
+    {% if collection.tags.size > 0 %}
+      <div class="qt-btn-wrapper">
+        <div class="dropdown">
+          <button
+            class="qt-btn qt-filter-button"
+            type="button"
+            id="filterDropdownButton"
+            aria-haspopup="true"
+            aria-expanded="false"
+            onclick="toggleDropdown()"
+          >
+            FILTER
+            <img loading="eager" src="{{ 'filter.svg' | asset_url }}" alt="Filter">
+          </button>
+          <div id="selected-filters" class="selected-filters">
+            <!-- Selected filters will appear here -->
+          </div>
+  
+          <form class="filter-form divide-y divide-gray-300" x-ref="filter_form">
+            <div class="qt-dropdown-menu" id="filterDropdownMenu" aria-labelledby="filterDropdownButton">
+              {%- for filter in collection.filters -%}
+                <a
+                  class="qt-dropdown-item"
+                  data-id="qt-accordion-{{ filter.label | replace: ' ', '' }}"
+                  data-btn-id="qt-btn-apply-filter-{{ filter.label | replace: ' ', '' }}"
+                  href="javascript:void(0)"
+                  onclick="openAccordion(this);"
+                >
+                  {{ filter.label }}
+                </a>
+                <div class="qt-accordion-item-box" id="qt-accordion-{{ filter.label| replace :' ', '' }}">
+                  {%- case filter.type -%}
+                    {%- when 'boolean', 'list' -%}
+                      <ul class="filter-group-display__list">
+                        {%- for filter_value in filter.values -%}
+                          <li class="filter-group-display__list-item py-2">
+                            <label class="flex items-center" for="Filter-{{ filter.param_name }}-{{ forloop.index }}">
+                              <input
+                                type="checkbox"
+                                class="mr-2 accent-black"
+                                @change="$dispatch('filter-updated')"
+                                onchange="loadFilteredProducts()"
+                                name="{{ filter_value.param_name }}"
+                                value="{{ filter_value.value }}"
+                                id="Filter-{{ filter.param_name }}-{{ forloop.index }}"
+                                {% if filter_value.active -%}
+                                  checked
+                                {%- endif %}
+  
+                                {% if filter_value.count == 0 and filter_value.active == false -%}
+                                  disabled
+                                {%- endif %}
+                              >
+                              <div class="flex justify-between w-full text-sm">
+                                <span class="{% if filter_value.active -%} font-semibold {%- endif %}">
+                                  {{- filter_value.label }}
+                                </span>
+                                {% comment %} <span>{{ filter_value.count }}</span> {% endcomment %}
+                              </div>
+                            </label>
+                          </li>
+                        {%- endfor -%}
+                      </ul>
+  
+                      {% comment %}
+                        <div class="filter-group-display__submit my-2 flex justify-end">
+                          <button
+                            type="submit"
+                            class="bg-black text-white py-1 px-3 text-sm rounded-sm"
+                            id="qt-btn-apply-filter-{{ filter.label|replace : ' ', '' }}"
+                          >
+                            Apply
+                          </button>
+                        </div>
+                      {% endcomment %}
+                    {%- when 'price_range' -%}
+                      <div
+                        class="filter-group-display__price-range my-2 flex justify-between space-x-3"
+                        style="
+                          margin: 0px 20px;
+                          margin-left: 5px;
+                        "
+                      >
+                        <div class="filter-group-display__price-range-from">
+                          <label for="Filter-{{ filter.min_value.param_name }}" class="block">From</label>
+                          <span>{{ cart.currency.symbol }}</span>
+                          <input
+                            name="{{ filter.min_value.param_name }}"
+                            id="Filter-{{ filter.min_value.param_name }}"
+                            class="border border-gray-400 rounded-sm p-1"
+                            onblur="loadFilteredProducts()"
+                            {% if filter.min_value.value -%}
+                              value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"
+                            {%- endif %}
+                            type="number"
+                            placeholder="0"
+                            min="0"
+                            max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                          >
+                        </div>
+                        <div class="filter-group-display__price-range-to">
+                          <label for="Filter-{{ filter.max_value.param_name }}" class="block">To</label>
+  
+                          <span>{{ cart.currency.symbol }}</span>
+                          <input
+                            name="{{ filter.max_value.param_name }}"
+                            id="Filter-{{ filter.max_value.param_name }}"
+                            class="border border-gray-400 rounded-sm p-1"
+                            {% if filter.max_value.value -%}
+                              value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"
+                            {%- endif %}
+                            type="number"
+                            placeholder="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                            min="0"
+                            max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                          >
+                        </div>
+                      </div>
+  
+                      <div class="filter-group-display__submit flex justify-end">
+                        <button
+                          type="submit"
+                          class="bg-black text-white py-1 px-3 text-sm rounded-sm"
+                          id="qt-btn-apply-filter-{{ filter.label|replace : ' ', '' }}"
+                        >
+                          {{ 'products.facets.apply' | t }}
+                        </button>
+                      </div>
+                  {%- endcase -%}
+                </div>
+              {%- endfor -%}
+              <!-- Buttons -->
+              <div class="filter-buttons mobile-only ">
+                <button
+                  type="button"
+                  class="bg-gray-300 text-black py-2 px-4 text-sm rounded-sm"
+                  id="clearFiltersButton"
+                  onclick="clearFilters()"
+                >
+                  Clear Filters
+                </button>
+                <button
+                  type="submit"
+                  class="bg-black text-black py-2 px-4 text-sm rounded-sm"
+                  id="qt-btn-apply-filter-{{ filter.label|replace : ' ', '' }}"
+                >
+                  Apply Filters
+                </button>
+              </div>
+              {% comment %}
+                <a
+                  class="qt-dropdown-item"
+                  data-id="qt-accordion-product-type"
+                  href="javascript:void(0)"
+                  onclick="openAccordion(this);"
+                  >Product Type
+                </a>
+                <div class="qt-accordion-item-box" id="qt-accordion-product-type">
+                  {% for product_type in shop.types %}
+                    <input
+                      type="checkbox"
+                      id="product-type-{{ forloop.index }}"
+                      name="product-type-{{ forloop.index }}"
+                    >
+                    <label for="product-type-{{ forloop.index }}"> {{ product_type }}</label>
+                    <br>
+                  {% endfor %}
+                </div>
+  
+                <a
+                  class="qt-dropdown-item"
+                  data-id="qt-accordion-product-size"
+                  href="javascript:void(0)"
+                  onclick="openAccordion(this);"
+                  >Size</a
+                >
+                <div class="qt-accordion-item-box" id="qt-accordion-product-size">
+                  {% assign unique_sizes_array = unique_sizes | split: ',' | uniq | sort %}
+  
+                  {% for size in unique_sizes_array %}
+                    <input
+                      type="checkbox"
+                      id="product-size-{{ forloop.index }}"
+                      name="product-size-{{ forloop.index }}"
+                    >
+                    <label for="product-size-{{ forloop.index }}">
+                      {{ size }}
+                    </label>
+                    <br>
+                  {% endfor %}
+                </div>
+                <a
+                  class="qt-dropdown-item"
+                  data-id="qt-accordion-product-color"
+                  href="javascript:void(0)"
+                  onclick="openAccordion(this);"
+                  >Color</a
+                >
+  
+                <div class="qt-accordion-item-box" id="qt-accordion-product-color">
+                  {% if unique_colors != '' %}
+                    {% assign unique_colors_array = unique_colors | split: ',' | uniq | sort %}
+                    {% for color in unique_colors_array %}
+                      <input
+                        type="checkbox"
+                        id="product-color-{{ forloop.index }}"
+                        name="product-color-{{ forloop.index }}"
+                      >
+                      <label for="product-color-{{ forloop.index }}">{{ color }}</label>
+                      <br>
+                    {% endfor %}
+                  {% endif %}
+                </div>
+                <a
+                  class="qt-dropdown-item"
+                  data-id="qt-accordion-product-price"
+                  href="javascript:void(0)"
+                  onclick="openAccordion(this);"
+                  >Price Range</a
+                >
+                <div class="qt-accordion-item-box" id="qt-accordion-product-price">
+                  {% if unique_prices != '' %}
+                    {% assign unique_prices_array = unique_prices | split: ',' | uniq | sort %}
+                    {% for price in unique_prices_array %}
+                      <input
+                        type="checkbox"
+                        id="product-price-{{ forloop.index }}"
+                        name="product-price-{{ forloop.index }}"
+                      >
+                      <label for="product-price-{{ forloop.index }}">{{ price }}</label>
+                      <br>
+                    {% endfor %}
+                  {% endif %}
+                </div>
+              {% endcomment %}
+            </div>
+          </form>
+        </div>
+      </div>
+  
+      <div class="qt-sorting-btn">
+        {%- if section.settings.enable_sorting -%}
+          <button
+            type="button"
+            id="sortByDropdownButton"
+            aria-haspopup="true"
+            aria-expanded="false"
+            style="            width:100%;"
+          >
+            <label style="margin-left:13px; font-weight:medium">SORT BY </label>
+  
+            <facet-filters-form class="facets facets-vertical-sort page-width small-hide">
+              <form class="facets-vertical-form" id="FacetSortForm">
+                <div class="facet-filters sorting caption">
+                  <div class="facet-filters__field">
+                    <div class="select">
+                      {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
+  
+                      <select
+                        name="sort_by"
+                        class="facet-filters_sort select_select caption-large"
+                        style="
+                          width:100%;padding: 0px 10px 0px 10px;
+                          font-weight: bold;
+                          border:none;
+                        "
+                        id="SortBy"
+                        aria-describedby="a11y-refresh-page-message"
+                        onchange="loadFilteredProducts()"
+                      >
+                        {%- for option in collection.sort_options -%}
+                          {% unless option.name contains 'Alphabetically' %}
+                            {% unless option.name contains 'Date' %}
+                              {% unless option.name contains 'Best selling' %}
+                                <option
+                                  value="{{ option.value | escape }}"
+                                  {% if option.value == sort_by %}
+                                    selected="selected"
+                                  {% endif %}
+                                >
+                                  {{ option.name | escape }}
+                                </option>
+                              {% endunless %}
+                            {% endunless %}
+                          {% endunless %}
+                        {%- endfor -%}
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </facet-filters-form>
+          </button>
+        {% endif %}
+      </div>
+      {% comment %}
+        <div class="qt-btn-wrapper">
+          <div class="dropdown">
+            {% comment %}
+              <button
+                class="qt-btn qt-SortBy-button"
+                type="button"
+                id="sortByDropdownButton"
+                aria-haspopup="true"
+                aria-expanded="false"
+                onclick="toggleSortByDropdown()"
+              >
+                SORT BY<span> Featured</span>
+                <img loading="eager" src="{{ 'Arrow.svg' | asset_url }}" alt="Arrow">
+              </button>
+            {% endcomment %}
+  
+            {% comment %}
+              <div class="qt-sortby-dropdown-menu" id="sortByDropdownMenu" aria-labelledby="sortByDropdownButton">
+                <a class="qt-sortby-dropdown-item" href="javascript:void(0);" data-sort="featured">Featured</a>
+                <a class="qt-sortby-dropdown-item" href="javascript:void(0);" data-sort="price-ascending"
+                  >Price: Low to High</a
+                >
+                <a class="qt-sortby-dropdown-item" href="javascript:void(0);" data-sort="price-descending"
+                  >Price: High to Low</a
+                >
+              </div>
+            {% endcomment %}
+          </div>
+        </div>
+      {% endcomment %}
+    {% endif %}
+  </div>
+  
+  <div id="product-filter-loader" style="display:none">
+    <div class="loader fixed grid place-content-center inset-0 bg-black/20 z-10" x-show="loading">
+      <svg
+        class="animate-spin -ml-1 mr-3 h-5 w-5 text-black"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+      </svg>
+    </div>
+  </div>
+  {% comment %}QT 3-8-2024{% endcomment %}
+  
+  <script>
+    function toggleDropdown() {
+        var dropdownMenu = document.getElementById('filterDropdownMenu');
+  
+        var filterButton = document.getElementById('filterDropdownButton');
+        dropdownMenu.classList.toggle('show');
+  
+        if (dropdownMenu.classList.contains('show')) {
+  
+            filterButton.innerHTML = 'Hide Filter ' + '<img loading="eager" src="{{ 'filter.svg' | asset_url }}" alt="Filter">';
+        } else {
+            filterButton.innerHTML = 'Filter ' + '<img loading="eager" src="{{ 'filter.svg' | asset_url }}" alt="Filter">';
+            loadFilteredProducts();
+        }
+    }
+  
+    async function fetchFilteredProducts(requestUrl, callback) {
+      await fetch(requestUrl).then((response) => response.text())
+      .then(callback)
+      .catch(function (error) {
+        console.error('Error loading products:', error);
+      });
+    }
+  
+    function loadFilteredProducts() {
+      var filterInputs = document.querySelectorAll('.filter-form input')
+      var filters = []
+      for (x in filterInputs) {
+        if (filterInputs[x].type == 'checkbox' && filterInputs[x].checked) {
+          filters.push(filterInputs[x].name + '=' + filterInputs[x].value)
+        }
+        if (filterInputs[x].type == 'number' && filterInputs[x].value != '' && false == isNaN(filterInputs[x].value)) {
+          filters.push(filterInputs[x].name + '=' + filterInputs[x].value)
+        }
+  
+      }
+      var collectionProducts = document.getElementById('collection-products');
+      var productListing = document.getElementById('product-grid');
+  
+      // var requestUrl = window.location.pathname + window.location.search + '?' + filters
+  
+      if($('#SortBy').val() != '') {
+        filters.push('sort_by=' + $('#SortBy').val()   )
+      }
+  
+  
+      var requestUrl = window.location.origin + window.location.pathname + '?' + filters.join('&')
+  
+  
+      if(encodeURI(requestUrl) == window.location.href ) return;
+      history.pushState({}, "", requestUrl);
+      collectionProducts.innerHTML = '<div class="ssw-page-loading ssw-img-loading"><span class="ssw-spin ssw-loader"></span>';
+      fetchFilteredProducts(requestUrl, function (responseText) {
+        const html = new DOMParser().parseFromString(responseText, 'text/html');
+  
+        const productHtml = html.querySelector('#product-grid');
+        if (productHtml && productHtml.querySelectorAll('.grid__item').length > 0) {
+          collectionProducts.innerHTML = '';
+          collectionProducts.appendChild(productHtml)
+          console.log(productHtml)
+          // lazy load
+          const lazyimg = new Event('lazyimg');
+          window.dispatchEvent(lazyimg);
+  
+          // reinit colour selectors
+          const initcolourselector = new Event('initcolourselector');
+          window.dispatchEvent(initcolourselector);
+        }
+      });
+    }
+    // Clear all selected filters
+    function clearFilters() {
+      var filterInputs = document.querySelectorAll('.filter-form input');
+      filterInputs.forEach(input => {
+        if (input.type === 'checkbox') {
+          input.checked = false;
+        } else if (input.type === 'number') {
+          input.value = '';
+        }
+      });
+  
+      // Optionally, clear the selected filters display
+      document.getElementById('selected-filters').innerHTML = '';
+    }
+  
+    // Apply filters and update the product listing
+    function applyFilters() {
+      loadFilteredProducts();
+      toggleDropdown(); // Close the drawer after applying filters
+    }
+  
+    // Close dropdown menu if user clicks outside of it
+    document.addEventListener('click', function (event) {
+        var dropdownButton = document.getElementById('filterDropdownButton');
+        var dropdownMenu = document.getElementById('filterDropdownMenu');
+        if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+            dropdownMenu.classList.remove('show');
+            // loadFilteredProducts()
+            var filterButton = document.getElementById('filterDropdownButton');
+            filterButton.innerHTML = 'Filter ' + '<img loading="eager" src="{{ 'filter.svg' | asset_url }}" alt="Filter">';
+        }
+    });
+    // Add event listeners for "Clear Filters" and "Apply Filters" buttons
+    document.addEventListener('DOMContentLoaded', function() {
+      var clearButton = document.getElementById('clearFiltersButton');
+      var applyButton = document.getElementById('applyFiltersButton');
+  
+      if (clearButton) {
+        clearButton.addEventListener('click', clearFilters);
+      }
+      if (applyButton) {
+        applyButton.addEventListener('click', applyFilters);
+      }
+    });
+  </script>
+  {% comment %}
+    <script>
+      // Function to toggle the sort-by dropdown menu visibility
+      function toggleSortByDropdown() {
+        const sortByMenu = document.getElementById('sortByDropdownMenu');
+        const isExpanded = sortByMenu.getAttribute('aria-expanded') === 'true';
+  
+        if (isExpanded) {
+          sortByMenu.style.display = 'none';
+        } else {
+          sortByMenu.style.display = 'block';
+        }
+  
+        sortByMenu.setAttribute('aria-expanded', !isExpanded);
+      }
+  
+      // Function to handle clicks outside the dropdown to close it
+      function handleClickOutside(event) {
+        const dropdownMenu = document.getElementById('sortByDropdownMenu');
+        const button = document.getElementById('sortByDropdownButton');
+  
+        if (!button.contains(event.target) && !dropdownMenu.contains(event.target)) {
+          dropdownMenu.style.display = 'none';
+          dropdownMenu.setAttribute('aria-expanded', 'false');
+        }
+      }
+  
+      // Function to handle the sort option selection
+      function handleSortSelection(event) {
+        const sortOption = event.target.getAttribute('data-sort');
+  
+        if (sortOption) {
+          updateSortOption(sortOption);
+          fetchSortedProducts(sortOption);
+  
+          // Close the dropdown menu after selection
+          document.getElementById('sortByDropdownMenu').style.display = 'none';
+          document.getElementById('sortByDropdownMenu').setAttribute('aria-expanded', 'false');
+        }
+      }
+  
+      // Update the button text based on the selected sort option
+      function updateSortOption(option) {
+        const sortButton = document.getElementById('sortByDropdownButton');
+        let displayText = 'SORT BY'; // Default value
+  
+        switch (option) {
+          case 'price-ascending':
+            displayText = 'Price: Low to High';
+            break;
+          case 'price-descending':
+            displayText = 'Price: High to Low';
+            break;
+          case 'featured':
+            displayText = 'Featured';
+            break;
+        }
+  
+        sortButton.querySelector('span').textContent = displayText;
+      }
+  
+      // Fetch sorted products based on the selected sort option using AJAX
+      function fetchSortedProducts(sortOption) {
+        const url = new URL(window.location.href);
+        url.searchParams.set('sort_by', sortOption);
+  
+        fetch(url)
+          .then((response) => response.text())
+          .then((data) => {
+            // Update the product list container with new data
+            const productList = document.getElementById('product-list');
+            if (productList) {
+              productList.innerHTML = data;
+            }
+          })
+          .catch((error) => console.error('Error fetching sorted products:', error));
+      }
+  
+      // Attach event listeners to sort options
+      document.querySelectorAll('.qt-sortby-dropdown-item').forEach((item) => {
+        item.addEventListener('click', handleSortSelection);
+      });
+  
+      // Add event listener to document to handle clicks outside the dropdown menu
+      document.addEventListener('click', handleClickOutside);
+    </script>
+  {% endcomment %}
+  
+  <script>
+    // Function to update the selected filters display
+    function updateSelectedFilters() {
+      var selectedFiltersContainer = document.getElementById('selected-filters');
+      selectedFiltersContainer.innerHTML = ''; // Clear previous selections
+  
+      var filterInputs = document.querySelectorAll('.filter-form input');
+      var selectedFilters = [];
+  
+      filterInputs.forEach(function (input) {
+        if (input.checked && input.type === 'checkbox') {
+          selectedFilters.push({
+            name: input.name,
+            value: input.value,
+            label: input.nextElementSibling ? input.nextElementSibling.textContent.trim() : input.name,
+          });
+        } else if (input.type === 'number') {
+          // Handle number inputs (e.g., price range)
+          var minInput = document.querySelector(`input[name="${input.name}"][data-type="min"]`);
+          var maxInput = document.querySelector(`input[name="${input.name}"][data-type="max"]`);
+          if (minInput && maxInput) {
+            var minValue = minInput.value;
+            var maxValue = maxInput.value;
+            if (minValue && maxValue) {
+              selectedFilters.push({
+                name: input.name,
+                value: `${minValue} - ${maxValue}`,
+                label: 'Price Range',
+              });
+            }
+          }
+        }
+      });
+  
+      selectedFilters.forEach(function (filter) {
+        var filterElement = document.createElement('div');
+        filterElement.classList.add('selected-filter');
+  
+        var filterLabel = document.createElement('span');
+        filterLabel.textContent = `${filter.value}`;
+  
+        var removeButton = document.createElement('button');
+        removeButton.textContent = '×';
+        removeButton.classList.add('remove-filter');
+        removeButton.onclick = function () {
+          var input = document.querySelector(`[value="${filter.value}"]`);
+          if (input) {
+            input.checked = false;
+          }
+          updateSelectedFilters();
+          loadFilteredProducts(); // Reload products after removing a filter
+        };
+  
+        filterElement.appendChild(filterLabel);
+        filterElement.appendChild(removeButton);
+  
+        selectedFiltersContainer.appendChild(filterElement);
+      });
+    }
+  
+    // Attach event listeners to filter inputs
+    document.querySelectorAll('.filter-form input').forEach(function (input) {
+      input.addEventListener('change', function () {
+        updateSelectedFilters();
+        loadFilteredProducts(); // Reload products when a filter changes
+      });
+    });
+  </script>
+  

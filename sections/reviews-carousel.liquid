@@ -69,17 +69,22 @@
                       {% assign rel_product = block.settings.product %}
 
                       {% if rel_product.featured_media.media_type == 'image' %}
-                        <a class="block" href="{{ rel_product.url }}">
+                        <a class="block" href="{{ rel_product.url }}" >
                           {%-
                             render 'lazyimg',
                             img: rel_product.featured_media,
                             width: img_width,
-                            height: img_width,
+                            height: 500,
                             widths: widths,
-                            class: class1,
+                            class: 'inline-object-fit',
                             sizes: sizes,
+                            
                           -%}
                         </a>
+                        <style>
+                          .inline-object-fit img {
+                            object-fit: fill; /* Adjust as needed */
+                        }</style>
                       {% endif %}
 
                       <a class="btn-tertiary mt-5" href="{{ rel_product.url }}">Shop Now</a>
