@@ -182,24 +182,6 @@
         "margin_top": false
       }
     },
-    "billboard": {
-      "type": "billboard",
-      "disabled": true,
-      "settings": {
-        "screen_visibility": "both",
-        "image": "shopify:\/\/shop_images\/bath-home.jpg",
-        "subtitle": "Explore",
-        "title": "<p>Bath<\/p>",
-        "copy": "<p>Step into a spa-like sanctuary with our luxurious selection of bathroom products.<\/p>",
-        "button_label": "Shop All",
-        "button_link": "shopify:\/\/collections\/all-bath",
-        "button_type": "default",
-        "colour_theme": "white",
-        "alignment": "left",
-        "alignment_vertical": "top",
-        "mobile_content_position": "overlay"
-      }
-    },
     "0e427065-4c47-4b8e-8eab-12cb0c11fc4a": {
       "type": "images-copy-cta",
       "disabled": true,
@@ -311,6 +293,14 @@
       "settings": {
         "title": "Why Our  Customers Love Christy",
         "margin": "yes"
+      }
+    },
+    "hero_image_cJLbna": {
+      "type": "hero-image",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/1.jpg",
+        "link": "",
+        "full_width": true
       }
     },
     "heading2": {
@@ -538,6 +528,7 @@
     },
     "heading4": {
       "type": "heading",
+      "disabled": true,
       "settings": {
         "heading": "<p>Christy Life<\/p>",
         "heading_width": "4",
@@ -696,10 +687,10 @@
     "2a0e8d45-d132-480e-b6ff-c37f7ad453d7",
     "37b580cc-c4d2-4e4e-83ee-b35a93d386e3",
     "ab40295a-0b7a-4298-9100-6079c0215e8e",
-    "billboard",
     "0e427065-4c47-4b8e-8eab-12cb0c11fc4a",
     "bd6f3e07-9735-4568-9dd2-71c3bbca1c6d",
     "0e8d554c-badf-4239-a36e-276ffacfb5fc",
+    "hero_image_cJLbna",
     "heading2",
     "c-info-columns",
     "billboard2",
