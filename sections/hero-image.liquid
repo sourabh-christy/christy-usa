@@ -46,12 +46,14 @@
         {{
           section.settings.video
           | video_tag:
-            muted: true,
+            image_size: '1100x',
             autoplay: true,
             loop: true,
-            playsinline: true,
-            class: 'w-full h-full object-cover absolute inset-0'
+            controls: true,
+            muted: false,
+            class: ' aspect-video w-full'
         }}
+
       {%- elsif section.settings.image != blank -%}
         {{
           section.settings.image
