@@ -1,0 +1,63 @@
+<style>
+    .quickViewModal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+  
+      transform: translateX(100%);
+      transition: transform 0.5s ease-in-out;
+    }
+    .slideMe {
+      transform: translateX(0);
+    }
+    .modalInner {
+      display: grid;
+      place-items: end;
+      height: 100%;
+    }
+    .modalView {
+      max-width: 750px;
+      width: 100%;
+      height: 100vh; /* QT-SP @17-july-2024 Updated From 100% to 100vh */
+      background-color: #fff;
+      padding: 15px;
+    }
+    .modalClose {
+      position: relative;
+      float: right;
+    }
+    .acc-toggle {
+      display: none;
+    }
+    /* QT-SP @6-8-2024 Start*/
+    #modalViewContent {
+      width: 100%;
+      height: 95%;
+      overflow-y: scroll;
+    }
+  
+    body.quick-view-modal-open {
+      position: fixed;
+    }
+    /* QT-SP @6-8-2024 End*/
+  </style>
+  <div class="quickViewModal" id="quickViewModal">
+    <div class="modalInner">
+      <div class="modalView" id="modalView">
+        <div class="modalClose">
+          <button id="modalCloseBtn">{% render 'icon-close' %}</button>
+        </div>
+        <div id="modalViewContent"></div>
+      </div>
+    </div>
+  </div>
+  <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'magnify.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'main-product-quick-view.js' | asset_url }}" defer></script>
+  <script src="{{ 'quickview.js' | asset_url }}" defer></script>
+  

@@ -20,7 +20,288 @@
   assign productsPerPage = section.settings.products_per
   assign collectionProducts = collection
   assign hideViewToggle = collection.metafields.custom.hide_view_toggle.value
+  assign indexCount = 0
 %}
+{% comment %}QT 18-7-2024{% endcomment %}
+<style>
+  
+    .selected-filters {
+      display: flex;
+      padding: 10px;
+  }
+  .selected-filter {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-radius: 4px;
+    background-color: #ddd;
+    margin:2px 2px;
+
+  }
+  .remove-filter {
+      background: none;
+      border: none;
+      color: red;
+      font-size: 16px;
+      margin-left: 10px;
+      cursor: pointer;
+  }
+
+
+      .qt-sorting-btn button {
+        background-color: white;
+        border: 1px solid #2c3b96;
+        display: flex;
+        border-radius: 0.25rem;
+        flex-direction: column;
+        align-items: left;
+        justify-content: center;
+        {% comment %} padding-left: 10px; {% endcomment %}
+        {% comment %} padding-right: 100px; {% endcomment %}
+        {% comment %} background-image: url('../assets/Arrow.svg'); {% endcomment %}
+        {% comment %} background-position: 145px;
+        background-repeat: no-repeat;
+        background-size: 20px 20px; {% endcomment %}
+      }
+      {% comment %} button span {
+        padding-left: 10px;
+        font-size: 16px;
+        font-weight: bold;
+      } {% endcomment %}
+      .product-grid-filter {
+        display: flex;
+        justify-content: space-between;
+        margin: 0px auto;
+        max-width: 1350px;
+      }
+
+      .qt-btn-wrapper {
+      }
+      .qt-btn {
+        color: #2c3b96;
+        border: 1px solid #2c3b96;
+        padding: 0.5rem 1rem;
+
+        border-radius: 0.25rem;
+        cursor: pointer;
+        display: block;
+        align-items: center;
+        background-origin: content-box;
+      }
+      .qt-btn:hover {
+        background-color: #f2f2f2;
+      }
+
+      .qt-btn > img {
+        display: inline-block;
+        color: #2c3b96;
+        margin-left: 4px;
+        vertical-align: middle;
+        width: 14px;
+        height: 14px;
+      }
+      .qt-dropdown-menu {
+        display: none;
+        position: absolute;
+        background-color: #fff;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        width: auto;
+      }
+
+      .qt-dropdown-menu.show {
+        display: block;
+        width: 270px;
+      }
+      .qt-dropdown-item {
+        display: block;
+        padding: 10px;
+        text-decoration: none;
+        color: #333;
+        transition: background-color 0.3s;
+        padding-top: 1.25rem;
+        padding-left: 1.25rem;
+        padding-bottom: 1.25rem;
+        font-weight: 500;
+        color: #2c3b96;
+        background-image: url(../assets/plus.svg);
+        background-repeat: no-repeat;
+        background-position-x: right;
+        background-position-y: center;
+        background-origin: content-box;
+      }
+      .qt-dropdown-item.open {
+        background-image: url(../assets/minus.svg);
+        background-repeat: no-repeat;
+        background-position-x: right;
+        background-position-y: center;
+      }
+      .qt-dropdown-item:hover {
+        background-color: #f2f2f2;
+      }
+    .qt-sorting-btn{
+    }
+      .qt-sortby-dropdown-menu {
+        display: none; /* Hidden by default */
+        position: absolute;
+        background-color: #fff;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1; /* Ensure it sits above other content */
+        width: auto;
+      }
+
+      .qt-sortby-dropdown-menu.show {
+        display: block; /* Show when toggled */
+        width: 270px; /* Set the width of the dropdown */
+      }
+
+      .qt-sortby-dropdown-item {
+        display: block;
+        padding: 10px;
+        text-decoration: none;
+        color: #2c3b96; /* Text color */
+        transition: background-color 0.3s;
+        font-weight: 500;
+        background-color: #fff; /* Background color */
+        background-image: none; /* No background image for sort items */
+      }
+
+      .qt-sortby-dropdown-item:hover {
+        background-color: #f2f2f2; /* Background color on hover */
+      }
+      .qt-accordion-item-box {
+        display: none;
+        padding-left: 1.25rem;
+        {% comment %} overflow-y: auto;
+        max-height: 100px; {% endcomment %}
+      }
+      .qt-accordion-item-box.show {
+        display: block;
+        padding-left: 1.25rem;
+      }
+      input[type='checkbox'] {
+        margin-right: 5px;
+      }
+      .qt-towel-seo-content-excerpt {
+        font-size: inherit;
+        font-family: inherit;
+        font-weight: inherit;
+      }
+      .qt-towel-seo-content-full {
+        padding: 1rem 0;
+
+        overflow: hidden;
+      }
+      .qt-towel-seo-content-full.expanded {
+        height: auto;
+      }
+      .qt-seo-towel-excerpt {
+        margin: auto;
+        max-width: 1350px;
+      }
+      .qt-toggle-content {
+        margin-top: 10px;
+      }
+
+      .qt-toggle-link {
+        color: rgb(44 59 150);
+        text-decoration: underline;
+        cursor: pointer;
+        display: inline-block;
+        margin-top: 10px;
+      }
+      .qt-towel-seo-content-title {
+        margin-top: 40px;
+      }
+      .mobile-only {
+        display: none;
+      }
+      @media (max-width: 768px) {
+        .product-grid-filter {
+          margin: 0px 40px;
+          display:block;
+        }
+        .qt-sorting-btn button {
+          width: 100%;
+          display:block;
+          text-align: left;
+        }
+        .qt-towel-seo-liner {
+          margin-bottom: 20px;
+          text-align: center;
+        }
+        .qt-towel-seo-title {
+          margin-top: 20px;
+          text-align: center;
+        }
+        .qt-towel-seo-content-title {
+          text-align: center;
+        }
+        .qt-towel-seo-content-excerpt {
+          font-size: inherit;
+          font-family: inherit;
+          font-weight: inherit;
+          text-align: justify;
+          margin-top: 20px;
+        }
+        .qt-seo-towel-excerpt {
+          margin: 0px 40px;
+        }
+        .qt-toggle-link {
+          text-align: center;
+        }
+        .qt-btn.qt-filter-button {
+          display: block;
+          width:100%;
+        }
+
+        .qt-dropdown-menu {
+          position: fixed;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          background-color: #fff;
+          overflow-y: auto;
+          transform: translateY(-100%);
+          transition: transform 0.3s ease;
+          z-index: 1000;
+        }
+
+        .qt-dropdown-menu.show {
+            transform: translateY(0);
+          width:100%;
+          font-size: medium;
+        }
+
+        .qt-btn.qt-filter-button.hidden {
+          width:100%;
+        }
+        .filter-buttons {
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          background-color: #fff;
+          border-top: 1px solid #ddd;
+          z-index: 1000; /* Ensure it stays above other content */
+          padding: 0 1rem;
+        }
+        .filter-buttons button {
+          margin:10px;
+          margin-left: 20px;
+          border: 1px solid #2c3b96;
+        }
+        .mobile-only {
+          display: block;
+        }
+      }
+</style>
+{% comment %}
+  <div style="display:none">
+    {% render 'filters', results: collection, enable_sorting: section.settings.enable_filtering %}
+  </div>
+{% endcomment %}
 
 <div
   id="prodlist"
@@ -66,23 +347,27 @@
       </ul>
     </nav>
 
-    <header class="flex items-start justify-between container space-x-6">
+    <header class="flex items-center justify-center flex-col container">
       {% assign alt_title = collection.metafields.custom.alternative_collection_title %}
       {% if alt_title != blank %}
         <h1 class="s-m-h4 lg:s-d-h3">{{ alt_title.value }}</h1>
       {% else -%}
-        <h1 class="s-m-h4 lg:s-d-h3">{{ collection.title }}</h1>
+        <h1 class="s-m-h4 lg:s-d-h3 qt-towel-seo-title">{{ collection.title }}</h1>
       {% endif %}
 
-      <div>
-        {% render 'facets-drawer',
-          results: collection,
-          enable_filtering: section.settings.enable_filtering,
-          enable_sorting: section.settings.enable_sorting,
-          filter_type: section.settings.filter_type,
-          paginate: paginate
-        %}
-      </div>
+      <p class="qt-towel-seo-liner" style="margin-top:20px;">{{ collection.metafields.custom.seo_1_liner }}</p>
+      {% comment %} {% echo collection.metafields.custom | json %} {% endcomment %}
+      {% comment %}
+        <div>
+          {% render 'facets-drawer',
+            results: collection,
+            enable_filtering: section.settings.enable_filtering,
+            enable_sorting: section.settings.enable_sorting,
+            filter_type: section.settings.filter_type,
+            paginate: paginate
+          %}
+        </div>
+      {% endcomment %}
     </header>
 
     {% assign has_sub_collections = false %}
@@ -122,6 +407,8 @@
     {% endif %}
 
     <div class="">
+      {% render 'product-filter' %}
+
       <div
         class="product-grid-container mt-5 lg:mt-12"
         id="ProductGridContainer"
@@ -151,9 +438,11 @@
             <ul
               id="product-grid"
               data-id="{{ section.id }}"
-              class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 gap-y-10 grid-flow-dense"
+              class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2 gap-y-10 grid-flow-dense"
             >
               {% assign listscIndex = 0 %}
+              {% assign infoContentBlock = collection.metafields.custom.info_content_block.value %}
+
               {% assign listscCount = 0 %}
               {% assign pagOffset = paginate.current_page | times: productsPerPage %}
 
@@ -162,6 +451,7 @@
               {% assign infoCardCount = 0 %}
 
               {%- for product in collection.products -%}
+                {% assign indexCount = indexCount | plus: 1 %}
                 {% if product.handle contains 'docapp-free-gift-' %}{% continue %}{% endif %}
 
                 {% if product.type == 'giftbox_ghost_product' %}{% continue %}{% endif %}
@@ -174,6 +464,21 @@
                   {%- assign lazy_load = true -%}
                 {%- endif -%}
 
+                {% for block in collection.metafields.custom.info_content_block.value %}
+                  {% comment %} {% echo block.position %} {% endcomment %}
+                  {% if block.position == indexCount %}
+                    {% render 'info-content-block', block: block %}
+                    {% assign indexCount = indexCount | plus: 1 %}
+                 {% endif %}
+                {% endfor %}
+                {% for block in collection.metafields.custom.info_content_fullwidth_block.value %}
+                  {% comment %} {% echo block.position %}  {% endcomment %}
+                  {% if block.position == indexCount %}
+                    {% render 'info-content-block-fullwidth', block: block %}
+                    {% assign indexCount = indexCount | plus: 1 %}
+                 {% endif %}
+                {% endfor %} 
+                
                 {% capture prodBlocks %}
                 {% for block in section.blocks -%}
                   {% case block.type %}
@@ -275,204 +580,275 @@
 </div>
 
 <script>
-  function initReviews(){
-    if(ratingSnippet !== undefined)
-    ratingSnippet("ruk_rating_snippet", {
-      store: "www.christy.co.uk",
-      mode: "default",
-      color: "#2c3b96",
-      linebreak: false,
-      text: "Reviews",
-      singularText: "Review",
-      lang: "en",
-      usePolaris: true,
-      showEmptyStars: false,
-    });
-  }
-  function sectionProductGridInit() {
-    // view toggle
-
-    // if local storage has product list set, show list view
-    const prodList = document.querySelector('#prodlist');
-    const viewToggle = document.querySelector('#view-toggle');
-    const viewToggleMob = document.querySelector('#view-toggle-mob');
-    const FacetFiltersForm = document.querySelector('#FacetFiltersForm');
-
-    const prodlistView = localStorage.getItem('prodlistView');
-    if (prodlistView == 'true' && prodlist.dataset.hidetoggle != 'true') {
-      viewToggle.classList.add('list');
-      viewToggleMob.classList.add('list');
-      prodList.classList.add('list');
-
-      document.querySelector('[name="view"][value="list"]').checked = true;
-
-      document
-        .getElementById('ProductGridContainer')
-        .querySelectorAll('.view-grid-only')
-        .forEach((element) => {
-          element.remove();
-        });
-    } else {
-      document
-        .getElementById('ProductGridContainer')
-        .querySelectorAll('.view-list-only')
-        .forEach((element) => {
-          element.remove();
-        });
-    }
-
-    function viewToggleHandler() {
-      let checkedView = document.querySelector('[name="view"]:checked').value;
-
-      if (checkedView == 'list') {
-        localStorage.setItem('prodlistView', true);
-        viewToggle.classList.add('list');
-        viewToggleMob.classList.add('list');
-      } else {
-        localStorage.setItem('prodlistView', false);
-        viewToggle.classList.remove('list');
-        viewToggleMob.classList.remove('list');
+      function initReviews() {
+        if (ratingSnippet !== undefined)
+          ratingSnippet('ruk_rating_snippet', {
+            store: 'www.christy.co.uk',
+            mode: 'default',
+            color: '#2c3b96',
+            linebreak: false,
+            text: 'Reviews',
+            singularText: 'Review',
+            lang: 'en',
+            usePolaris: true,
+            showEmptyStars: false,
+          });
       }
-    }
-    FacetFiltersForm.addEventListener('input', function () {
-      viewToggleHandler();
-    });
+      function sectionProductGridInit() {
+        // view toggle
 
-    if (viewToggleMob) {
-      viewToggleMob.querySelectorAll('label').forEach(function (el) {
-        el.addEventListener('click', function () {
-          let forName = el.getAttribute('for');
-          console.log(document.getElementById(forName));
-          document.getElementById(forName).click();
+        // if local storage has product list set, show list view
+        const prodList = document.querySelector('#prodlist');
+        const viewToggle = document.querySelector('#view-toggle');
+        const viewToggleMob = document.querySelector('#view-toggle-mob');
+        const FacetFiltersForm = document.querySelector('#FacetFiltersForm');
+
+        const prodlistView = localStorage.getItem('prodlistView');
+        if (prodlistView == 'true' && prodlist.dataset.hidetoggle != 'true') {
+          viewToggle.classList.add('list');
+          viewToggleMob.classList.add('list');
+          prodList.classList.add('list');
+
+          document.querySelector('[name="view"][value="list"]').checked = true;
+
+          document
+            .getElementById('ProductGridContainer')
+            .querySelectorAll('.view-grid-only')
+            .forEach((element) => {
+              element.remove();
+            });
+        } else {
+          document
+            .getElementById('ProductGridContainer')
+            .querySelectorAll('.view-list-only')
+            .forEach((element) => {
+              element.remove();
+            });
+        }
+
+        function viewToggleHandler() {
+          let checkedView = document.querySelector('[name="view"]:checked').value;
+
+          if (checkedView == 'list') {
+            localStorage.setItem('prodlistView', true);
+            viewToggle.classList.add('list');
+            viewToggleMob.classList.add('list');
+          } else {
+            localStorage.setItem('prodlistView', false);
+            viewToggle.classList.remove('list');
+            viewToggleMob.classList.remove('list');
+          }
+        }
+        FacetFiltersForm.addEventListener('input', function () {
+          viewToggleHandler();
         });
-      });
-    }
 
-    document.querySelectorAll('[name="shop_by"]').forEach(function (el) {
-      el.addEventListener('change', function () {
-        el.closest('.shop_by').classList.remove('tag', 'collection', 'default');
-        el.closest('.shop_by').classList.add(el.value);
+        if (viewToggleMob) {
+          viewToggleMob.querySelectorAll('label').forEach(function (el) {
+            el.addEventListener('click', function () {
+              let forName = el.getAttribute('for');
+              console.log(document.getElementById(forName));
+              document.getElementById(forName).click();
+            });
+          });
+        }
 
-        let checks = document.querySelectorAll('[name="filter.p.product_type"], [name="filter.p.tag"]');
-        checks.forEach(function (check) {
-          check.checked = false;
+        document.querySelectorAll('[name="shop_by"]').forEach(function (el) {
+          el.addEventListener('change', function () {
+            el.closest('.shop_by').classList.remove('tag', 'collection', 'default');
+            el.closest('.shop_by').classList.add(el.value);
+
+            let checks = document.querySelectorAll('[name="filter.p.product_type"], [name="filter.p.tag"]');
+            checks.forEach(function (check) {
+              check.checked = false;
+            });
+          });
         });
-      });
-    });
-  }
+      }
 
-  function changeListImgSrcset() {
-    let els = document.querySelectorAll(
-      '#prodlist.list #product-grid>li:nth-child(6n+3),#prodlist.list #product-grid>li:nth-child(6n+4), #prodlist.list #product-grid>li:nth-child(6n+4)'
-    );
+      function changeListImgSrcset() {
+        let els = document.querySelectorAll(
+          '#prodlist.list #product-grid>li:nth-child(6n+3),#prodlist.list #product-grid>li:nth-child(6n+4), #prodlist.list #product-grid>li:nth-child(6n+4)'
+        );
 
-    if (els.length) {
-      els.forEach(function (el) {
-        let imgs = el.querySelectorAll('.card__inner > a > img');
-        if (imgs.length) {
-          imgs.forEach(function (img, i) {
-            img.setAttribute('sizes', '(max-width: 1023px) 50vw, (min-width: 1024px) 668px, 100vw');
+        if (els.length) {
+          els.forEach(function (el) {
+            let imgs = el.querySelectorAll('.card__inner > a > img');
+            if (imgs.length) {
+              imgs.forEach(function (img, i) {
+                img.setAttribute('sizes', '(max-width: 1023px) 50vw, (min-width: 1024px) 668px, 100vw');
 
-            if (i == 0) {
-              img.style.objectFit = 'cover';
+                if (i == 0) {
+                  img.style.objectFit = 'cover';
+                }
+              });
             }
           });
         }
-      });
-    }
-  }
-
-  document.addEventListener('DOMContentLoaded', function () {
-    sectionProductGridInit();
-
-    const viewToggleMob = document.querySelector('#view-toggle-mob');
-    const viewToggle = document.querySelector('#view-toggle');
-    const filtersMob = document.querySelector('#filters-mob');
-    const menuDrawer = document.querySelector('#prodlist menu-drawer summary');
-
-    filtersMob.addEventListener('click', function (e) {
-      e.preventDefault();
-      menuDrawer.click();
-    });
-
-    if (viewToggleMob) {
-      viewToggleMob.addEventListener('click', function (e) {
-        e.preventDefault();
-        viewToggle.click();
-      });
-    }
-  });
-
-  document.addEventListener('shopify:section:load', function (event) {
-    sectionProductGridInit();
-  });
-
-  let showMoreBtn = document.querySelector('#show-more');
-  let showMoreBtnTop;
-
-  function getShowBtnTop() {
-    if (showMoreBtn) {
-      showMoreBtnTop = showMoreBtn.getBoundingClientRect().top + window.scrollY;
-    }
-  }
-  getShowBtnTop();
-
-  window.addEventListener('scroll', function () {
-    if (showMoreBtn) {
-      if (
-        window.scrollY > showMoreBtnTop - window.innerHeight &&
-        !showMoreBtn.classList.contains('loading') &&
-        document.querySelector('#show-more')
-      ) {
-        loadMoreProducts(showMoreBtn);
       }
-    }
-  });
 
-  function loadMoreProducts(el) {
-    var collectionProducts = document.getElementById('collection-products');
-    var productListing = document.getElementById('product-grid');
+      document.addEventListener('DOMContentLoaded', function () {
+        sectionProductGridInit();
 
-    el.classList.add('loading');
+        const viewToggleMob = document.querySelector('#view-toggle-mob');
+        const viewToggle = document.querySelector('#view-toggle');
+        const filtersMob = document.querySelector('#filters-mob');
+        const menuDrawer = document.querySelector('#prodlist menu-drawer summary');
 
-    var requestUrl =
-      window.location.pathname + window.location.search + '?limit={{ productsPerPage }}&page=' + el.dataset.page;
+        filtersMob.addEventListener('click', function (e) {
+          e.preventDefault();
+          menuDrawer.click();
+        });
 
-    //history.pushState(requestUrl, '', requestUrl);
-    fetch(requestUrl)
-      .then((response) => response.text())
-      .then(function (responseText) {
-        const html = new DOMParser().parseFromString(responseText, 'text/html');
-        const productHtml = html.querySelector('#product-grid');
-        if (productHtml && productHtml.querySelectorAll('.grid__item').length > 0) {
-          productListing.insertAdjacentHTML('beforeend', productHtml.innerHTML);
-
-          // lazy load
-          const lazyimg = new Event('lazyimg');
-          window.dispatchEvent(lazyimg);
-
-          // reinit colour selectors
-          const initcolourselector = new Event('initcolourselector');
-          window.dispatchEvent(initcolourselector);
-
-          el.classList.remove('loading');
+        if (viewToggleMob) {
+          viewToggleMob.addEventListener('click', function (e) {
+            e.preventDefault();
+            viewToggle.click();
+          });
         }
-
-        if (html.querySelector('#show-more')) {
-          el.dataset.page = html.querySelector('#show-more').dataset.page;
-        } else {
-          el.remove();
-        }
-
-        getShowBtnTop();
-        initReviews()
-      })
-      .catch(function (error) {
-        console.error('Error loading products:', error);
       });
+
+      document.addEventListener('shopify:section:load', function (event) {
+        sectionProductGridInit();
+      });
+
+    {% comment %}QT 19-7-2024{% endcomment %}
+    function openAccordion(element) {
+      var accordionId = element.getAttribute('data-id');
+      var accordionContent = document.getElementById(accordionId);
+
+      // Toggle visibility of the accordion content
+      if (accordionContent.style.display === 'block') {
+       // console.log(accordionBtn, typeof accordionBtn.click )
+
+          accordionContent.style.display = 'none';
+          element.classList.remove('open'); // Remove 'open' class to change icon to plus
+
+      } else {
+          // Close all other open accordion items
+          var allAccordions = document.querySelectorAll('.qt-dropdown-item');
+          allAccordions.forEach(function(item) {
+              if (item !== element) {
+                  var otherAccordionId = item.getAttribute('data-id');
+                  var otherAccordionContent = document.getElementById(otherAccordionId);
+                  otherAccordionContent.style.display = 'none';
+                  item.classList.remove('open');
+              }
+          });
+
+          accordionContent.style.display = 'block';
+          element.classList.add('open'); // Add 'open' class to change icon to minus
+
+      }
   }
+      let showMoreBtn = document.querySelector('#show-more');
+      let showMoreBtnTop;
+
+      function getShowBtnTop() {
+        if (showMoreBtn) {
+          showMoreBtnTop = showMoreBtn.getBoundingClientRect().top + window.scrollY;
+        }
+      }
+      getShowBtnTop();
+
+      window.addEventListener('scroll', function () {
+        if (showMoreBtn) {
+          if (
+            window.scrollY > showMoreBtnTop - window.innerHeight &&
+            !showMoreBtn.classList.contains('loading') &&
+            document.querySelector('#show-more')
+          ) {
+            loadMoreProducts(showMoreBtn);
+          }
+        }
+      });
+
+      function loadMoreProducts(el) {
+        var collectionProducts = document.getElementById('collection-products');
+        var productListing = document.getElementById('product-grid');
+
+        el.classList.add('loading');
+
+        var requestUrl =
+          window.location.pathname + window.location.search + '?limit={{ productsPerPage }}&page=' + el.dataset.page;
+
+        //history.pushState(requestUrl, '', requestUrl);
+        fetch(requestUrl)
+          .then((response) => response.text())
+          .then(function (responseText) {
+            const html = new DOMParser().parseFromString(responseText, 'text/html');
+            html.querySelectorAll('.info-content-block').forEach((el) => {
+              el.remove();
+            });
+            const productHtml = html.querySelector('#product-grid');
+            if (productHtml && productHtml.querySelectorAll('.grid__item').length > 0) {
+              productListing.insertAdjacentHTML('beforeend', productHtml.innerHTML);
+
+              // lazy load
+              const lazyimg = new Event('lazyimg');
+              window.dispatchEvent(lazyimg);
+
+              // reinit colour selectors
+              const initcolourselector = new Event('initcolourselector');
+              window.dispatchEvent(initcolourselector);
+
+              el.classList.remove('loading');
+            }
+
+            if (html.querySelector('#show-more')) {
+              el.dataset.page = html.querySelector('#show-more').dataset.page;
+            } else {
+              el.remove();
+            }
+
+            getShowBtnTop();
+            initReviews();
+          })
+          .catch(function (error) {
+            console.error('Error loading products:', error);
+          });
+      }
 </script>
 
+{% comment %}QT 25-7-2024{% endcomment %}
+
+{% if collection.metafields.custom.seo_content_excerpt or collection.metafields.custom.seo_content_full %}
+  <div class="qt-seo-towel-excerpt">
+    {% if collection.metafields.custom.seo_content_excerpt %}
+      <h1 class="s-m-h4 lg:s-d-h3 qt-towel-seo-content-title">{{ collection.title }}</h1>
+      <h2 class="qt-towel-seo-content-excerpt" id="excerpt-content">
+        {{ collection.metafields.custom.seo_content_excerpt | metafield_tag }}
+      </h2>
+    {% endif %}
+
+    {% if collection.metafields.custom.seo_content_full %}
+      <div class="qt-towel-seo-content">
+        <div class="qt-towel-seo-content-full" id="full-content" style="display: none;">
+          {{ collection.metafields.custom.seo_content_full | metafield_tag }}
+        </div>
+        <a class="qt-toggle-link" id="toggle-link" href="javascript:void(0);">Read more...</a>
+      </div>
+    {% endif %}
+  </div>
+{% endif %}
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggleLink = document.getElementById('toggle-link');
+    const fullContent = document.getElementById('full-content');
+
+    toggleLink.addEventListener('click', function () {
+      if (fullContent.style.display === 'none') {
+        fullContent.style.display = 'block';
+        toggleLink.textContent = 'Read less...';
+      } else {
+        fullContent.style.display = 'none';
+        toggleLink.textContent = 'Read more...';
+      }
+    });
+  });
+</script>
 {% schema %}
 {
   "name": "Products",
@@ -486,6 +862,19 @@
       "step": 1,
       "label": "Products Per Page",
       "default": 12
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_filtering",
+      "default": true,
+      "label": "t:sections.main-collection-product-grid.settings.enable_filtering.label",
+      "info": "t:sections.main-collection-product-grid.settings.enable_filtering.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sorting",
+      "default": true,
+      "label": "t:sections.main-collection-product-grid.settings.enable_sorting.label"
     }
   ],
 
@@ -669,3 +1058,6 @@
   ]
 }
 {% endschema %}
+
+{% comment %}QT 13/07/2024{% endcomment %}
+ {% render 'quickview-drawer' -%} 

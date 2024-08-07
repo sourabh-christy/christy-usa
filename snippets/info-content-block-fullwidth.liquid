@@ -1,0 +1,59 @@
+<div class="product-card group/card info-content-block col-span-3  qt-info-content-fullwidth-block ">
+  
+    <div
+      class="space-y-4 h-full"
+      
+    >
+      <div
+        class="card__inner relative h-full flex flex-col gap-4 items-center justify-center qt-card-shop-now"
+      >
+       
+        {% comment %}QT 8-5-2024{% endcomment %}
+        <style>
+          .qt-info-content-fullwidth-block{
+            width:100%;
+            grid-column: span 3;
+            height:300px;
+          }
+      
+          .text-xl{
+            font-size:1.25rem;
+            line-height:1.75rem
+          }
+          
+          .text-4xl{font-size:2.25rem;line-height:2.5rem}
+          .qt-info-content-block-img{
+            filter: brightness(50%);
+          }
+          @media (max-width: 768px) {
+            .qt-card-shop-now {
+              padding: 20px 0px 25px;
+            }
+            .qt-info-content-fullwidth-block{
+              width:334px;
+              grid-column: span 2;
+            }
+          }
+        </style>
+        
+        {%- if block.background_image -%}
+          {{
+            block.background_image
+            | image_url: width: 500, height: 500
+            | image_tag:
+              alt: 'Gallery Image',
+              class: 'w-full h-full object-cover left-0 top-0 -z-10 absolute brightness-50 qt-info-content-block-img',
+             
+              srcset: null
+          }}
+          <div class="relative z-0 w-full h-full flex flex-col items-center justify-center px-8 gap-6 text-white text-center">
+            <p class="text-xl">{{ block.short_title }}</p>
+            <p class="text-4xl">{{ block.long_title }}</p>
+            <p>{{ block.description | metafield_tag }}</p>
+            <a href="{{ block.button_url }}" class="px-4 py-2 bg-white text-blue-1">{{ block.button_text }}</a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  

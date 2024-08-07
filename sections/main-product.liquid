@@ -143,7 +143,7 @@
       onload="this.media='all'"
     >
   {%- endif -%}
-
+ 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
 
   {% if product.collections.size > 0 %}
@@ -813,6 +813,24 @@
       {% endif %}
       
     </div>
+{% comment %} QT 6-8-2024 {% endcomment %}
+ 
+    <div class="qt-info-content-fullwith-block-productpage-wrapper" style="width:1350px; margin:auto; display:block;">
+      <style>
+       @media (max-width: 768px) {
+         .qt-info-content-fullwith-block-productpage-wrapper {
+           margin-left:40px !important;
+          
+         }
+       }
+     </style>
+    {% for block in product.metafields.custom.info_content_fullwidth_pdp_block.value %}
+      <div class="qt-info-content-fullwith-block-productpage" style="margin-top:30px; object-fit:fill;">
+        {% render 'info-content-block-fullwidth', block: block %}
+      </div>
+    {% endfor %} 
+  </div>
+    
     <div class="reviews my-12 container" style="margin:50px auto">
       <script src="https://widget.reviews.io/polaris/build.js"></script>
       <div id="ReviewsWidget"></div>
@@ -1114,7 +1132,9 @@
       });
       </script>
     </div>
+    
   {% endif %}
+  
 
   <script src="{{ 'main-product.js' | asset_url }}" defer></script>
 
