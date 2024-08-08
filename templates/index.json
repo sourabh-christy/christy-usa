@@ -626,37 +626,22 @@
         "slide_x4tjjL": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/How_to_build_a_bundle.jpg",
+            "image": "shopify:\/\/shop_images\/200TC_Storm_Fabric_Detail_b7ef3f63-9e5a-44c4-a41c-a98ca96cd054.jpg",
             "mobile_media": "image",
-            "subtitle": "",
+            "subtitle": "1920",
             "mobile_subtitle": "show",
-            "title": "",
+            "title": "Let there be colour",
             "mob_title": "",
-            "copy": "",
+            "copy": "<p>Christy introduced bright colourful<\/p>",
             "copy_visibility": "all",
             "collection": "",
             "button_text": "1920"
-          }
-        },
-        "slide_AiwpzC": {
-          "type": "slide",
-          "settings": {
-            "mobile_media": "image",
-            "subtitle": "Bed",
-            "mobile_subtitle": "show",
-            "title": "Sink into a restful night's sleep in cosy bedding.",
-            "mob_title": "",
-            "copy": "",
-            "copy_visibility": "all",
-            "collection": "",
-            "button_text": "Shop Bed"
           }
         }
       },
       "block_order": [
         "slide_rnBLML",
-        "slide_x4tjjL",
-        "slide_AiwpzC"
+        "slide_x4tjjL"
       ],
       "settings": {
       }
