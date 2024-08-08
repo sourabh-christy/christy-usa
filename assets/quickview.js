@@ -24,6 +24,10 @@ async function myfun(t, e){
           document.getElementById('modalCloseBtn').click()
         }
       }, 10)
+      setTimeout(() => {
+        $('#option-color input[type="radio"]')[1].click()
+        $('#option-color input[type="radio"]')[0].click()
+      }, 10);
  }
  
  

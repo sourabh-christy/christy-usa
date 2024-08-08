@@ -420,10 +420,10 @@
           </div>
         {% endif %}
       {%- endunless -%}
-      <div
+      {% comment %} <div
         class="ruk_rating_snippet"
         data-sku="{{ card_product.handle }};{{ card_product.variants | map: 'sku' | join: ';' }};{{ card_product.variants | map: 'id' | join: ';' }}"
-      ></div>
+      ></div> {% endcomment %}
       {% comment %}QT 6-8-2024{% endcomment %}
       <style>
         @media (max-width: 768px) {

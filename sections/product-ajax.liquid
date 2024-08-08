@@ -273,7 +273,9 @@
               <div id="product-panel-child" class="space-y-7 max-md:flex max-md:flex-col max-md:items-stretch">
                 <header class="space-y-2 md:space-y-4">
                   <h1 class="m-h1 lg:s-d-h4">{{ product.title | escape }}</h1>
-
+                  {% comment %}QT 8-8-2024{% endcomment %}
+                  <a href="{{ product.url }}" class="text-blue-1 hover:underline" style="font-weight:bold;">View Details</a>
+                  
                   {% if product.metafields.christy23.tagline_pdp %}
                     <div class="flex justify-between space-x-5">
                       <div>
