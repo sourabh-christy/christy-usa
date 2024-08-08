@@ -216,6 +216,7 @@
           data-variantid="{{ current_variant.id }}"
           class="text-blue-1 space-y-6"
         >
+          
           {%- assign product_form_id = 'product-form-' | append: section.id -%}
 
           <div>
@@ -273,6 +274,7 @@
                       </div>
                     </div>
                   {% endif %}
+                
                 </header>
 
                 <div class="flex gap-3 justify-between md:items-center max-md:flex-col !mt-5">
@@ -297,7 +299,7 @@
                       {% endif %}
                     {% endif %}
                   </div>
-                  <div class="ruk_rating_snippet" data-sku="{{ product.handle }};{{ product.variants | map: 'sku' | join: ';' }};{{ product.variants | map: 'id' | join: ';' }}"></div>
+                  {% comment %} <div class="ruk_rating_snippet" data-sku="{{ product.handle }};{{ product.variants | map: 'sku' | join: ';' }};{{ product.variants | map: 'id' | join: ';' }}"></div> {% endcomment %}
                  
                 </div>
 
@@ -832,7 +834,7 @@
     {% endfor %} 
   </div>
     
-    <div class="reviews my-12 container" style="margin:50px auto">
+    {% comment %} <div class="reviews my-12 container" style="margin:50px auto">
       <script src="https://widget.reviews.io/polaris/build.js"></script>
       <div id="ReviewsWidget"></div>
       <script>
@@ -1132,7 +1134,7 @@
       },
       });
       </script>
-    </div>
+    </div> {% endcomment %}
     
   {% endif %}
   
