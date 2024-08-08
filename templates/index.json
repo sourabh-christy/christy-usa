@@ -608,6 +608,21 @@
     "hero_collection_edGUde": {
       "type": "hero-collection",
       "blocks": {
+        "slide_rnBLML": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/smooth_sily_hp.jpg",
+            "mobile_media": "image",
+            "subtitle": "1850",
+            "mobile_subtitle": "show",
+            "title": "Our Story begins with Henry Christy",
+            "mob_title": "",
+            "copy": "<p>Our Story begins with Henry Christy. Our Story begins with Henry Christy. Our Story begins with Henry Christy. Our Story begins with Henry Christy.<\/p>",
+            "copy_visibility": "all",
+            "collection": "",
+            "button_text": "1850"
+          }
+        },
         "slide_x4tjjL": {
           "type": "slide",
           "settings": {
@@ -620,21 +635,7 @@
             "copy": "",
             "copy_visibility": "all",
             "collection": "",
-            "button_text": "1850"
-          }
-        },
-        "slide_rnBLML": {
-          "type": "slide",
-          "settings": {
-            "mobile_media": "image",
-            "subtitle": "Bed",
-            "mobile_subtitle": "show",
-            "title": "Sink into a restful night's sleep in cosy bedding.",
-            "mob_title": "",
-            "copy": "",
-            "copy_visibility": "all",
-            "collection": "",
-            "button_text": "Shop Bed"
+            "button_text": "1920"
           }
         },
         "slide_AiwpzC": {
@@ -653,8 +654,8 @@
         }
       },
       "block_order": [
-        "slide_x4tjjL",
         "slide_rnBLML",
+        "slide_x4tjjL",
         "slide_AiwpzC"
       ],
       "settings": {
