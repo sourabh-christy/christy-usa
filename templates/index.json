@@ -466,6 +466,7 @@
     },
     "billboard3": {
       "type": "billboard",
+      "disabled": true,
       "settings": {
         "screen_visibility": "both",
         "image": "shopify:\/\/shop_images\/innovators-home.jpg",
@@ -483,6 +484,7 @@
     },
     "images-copy-cta": {
       "type": "images-copy-cta",
+      "disabled": true,
       "settings": {
         "image": "shopify:\/\/shop_images\/timeless-2.jpg",
         "image2": "shopify:\/\/shop_images\/timeless-1.jpg",
@@ -603,13 +605,59 @@
         "margin_top": false
       }
     },
-    "2970b3ab-743a-4054-95d1-048d41881e08": {
-      "type": "quiz-popup",
-      "disabled": true,
+    "hero_collection_edGUde": {
+      "type": "hero-collection",
+      "blocks": {
+        "slide_x4tjjL": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/How_to_build_a_bundle.jpg",
+            "mobile_media": "image",
+            "subtitle": "",
+            "mobile_subtitle": "show",
+            "title": "",
+            "mob_title": "",
+            "copy": "",
+            "copy_visibility": "all",
+            "collection": "",
+            "button_text": "1850"
+          }
+        },
+        "slide_rnBLML": {
+          "type": "slide",
+          "settings": {
+            "mobile_media": "image",
+            "subtitle": "Bed",
+            "mobile_subtitle": "show",
+            "title": "Sink into a restful night's sleep in cosy bedding.",
+            "mob_title": "",
+            "copy": "",
+            "copy_visibility": "all",
+            "collection": "",
+            "button_text": "Shop Bed"
+          }
+        },
+        "slide_AiwpzC": {
+          "type": "slide",
+          "settings": {
+            "mobile_media": "image",
+            "subtitle": "Bed",
+            "mobile_subtitle": "show",
+            "title": "Sink into a restful night's sleep in cosy bedding.",
+            "mob_title": "",
+            "copy": "",
+            "copy_visibility": "all",
+            "collection": "",
+            "button_text": "Shop Bed"
+          }
+        }
+      },
+      "block_order": [
+        "slide_x4tjjL",
+        "slide_rnBLML",
+        "slide_AiwpzC"
+      ],
       "settings": {
-        "title": "What's your perfect towel?",
-        "copy": "<p>Not sure what to buy? Find your perfect post-bathing companion.<\/p>",
-        "button_link": "#quiz-gWHPoe"
       }
     },
     "d2113c42-d705-4b50-99be-017b00de7fc9": {
@@ -704,7 +752,7 @@
     "billboard4",
     "featured-blogs",
     "d1799047-2d3f-4748-9804-8038692b0c63",
-    "2970b3ab-743a-4054-95d1-048d41881e08",
+    "hero_collection_edGUde",
     "d2113c42-d705-4b50-99be-017b00de7fc9"
   ]
 }
