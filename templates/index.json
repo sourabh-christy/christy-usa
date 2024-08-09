@@ -17,6 +17,19 @@
         "full_width": true
       }
     },
+    "d1799047-2d3f-4748-9804-8038692b0c63": {
+      "type": "heading",
+      "settings": {
+        "heading": "<p>Creating little luxuries since 1850                               <\/p>",
+        "heading_width": "6",
+        "copy": "<p>At Christy, 170 years of history have shaped our dedication to precision and British craftsmanship. Our heritage is the thread that runs through everything we create, and we take great pride in our roots.<\/p>",
+        "copy_style": "default",
+        "alignment": "left",
+        "alignment_mob": "center",
+        "horiz_padding": false,
+        "margin_top": false
+      }
+    },
     "heading": {
       "type": "heading",
       "settings": {
@@ -38,7 +51,7 @@
           "settings": {
             "collection": "towels",
             "usp_title": "",
-            "image": "shopify:\/\/shop_images\/Renaissance_Denim_Lifestyle-868964_d2753d44-a2ae-404d-aed9-aa128a7ecea6.webp",
+            "image": "shopify:\/\/shop_images\/thick_indulgent_HP.jpg",
             "alt_title": "Towels",
             "excerpt": ""
           }
@@ -58,7 +71,7 @@
           "settings": {
             "collection": "bundle",
             "usp_title": "",
-            "image": "shopify:\/\/shop_images\/thick_indulgent_HP.jpg",
+            "image": "shopify:\/\/shop_images\/Luxe_Lifestyle_Pearl_1_aded84c9-1a91-432f-aa88-0c663de62db6.jpg",
             "alt_title": "Bundles",
             "excerpt": ""
           }
@@ -79,6 +92,9 @@
         "2f3cb25a-b518-49ee-afab-a5c33fb259f7",
         "ade5aede-0029-4b09-aee8-6e48f8cfe8be",
         "collection_GTHHpe"
+      ],
+      "custom_css": [
+
       ],
       "settings": {
         "title": "Shop By Category",
@@ -404,7 +420,6 @@
         "template--19440932552979__b25d4794-78f6-4222-8e57-f4d67b3e4a48-1686843997bc378748-1",
         "template--19440932552979__b25d4794-78f6-4222-8e57-f4d67b3e4a48-1686843997bc378748-2"
       ],
-      "disabled": true,
       "settings": {
         "title": "How do you like your towels?",
         "title_font_size_mob": 16,
@@ -543,11 +558,10 @@
     },
     "heading3": {
       "type": "heading",
-      "disabled": true,
       "settings": {
-        "heading": "<p>Feel-good <br\/>Bedding<\/p>",
+        "heading": "<p>Feel-good Bedding<\/p>",
         "heading_width": "4",
-        "copy": "<p>Elevate your sleep sanctuary with our selection of sustainably made pieces.<\/p>",
+        "copy": "<p> <\/p>",
         "copy_style": "heading3",
         "alignment": "right",
         "alignment_mob": "center",
@@ -600,19 +614,6 @@
         "alignment": "left",
         "alignment_vertical": "center",
         "mobile_content_position": "overlay"
-      }
-    },
-    "d1799047-2d3f-4748-9804-8038692b0c63": {
-      "type": "heading",
-      "settings": {
-        "heading": "<p>Creating little luxuries since 1850                               <\/p>",
-        "heading_width": "6",
-        "copy": "<p>At Christy, 170 years of history have shaped our dedication to precision and craftsmanship. Our heritage is the thread that runs through everything we create, and we take great pride in our roots.<\/p>",
-        "copy_style": "default",
-        "alignment": "left",
-        "alignment_mob": "center",
-        "horiz_padding": false,
-        "margin_top": false
       }
     },
     "featured-blogs": {
@@ -717,6 +718,7 @@
   },
   "order": [
     "97fe06ff-d1d9-4c8d-9cb3-24b8e821d00d",
+    "d1799047-2d3f-4748-9804-8038692b0c63",
     "heading",
     "de1b0a2d-4cb0-4dbd-a641-18437895549a",
     "5f8fd688-f484-4f34-9ee0-6dd133c393ad",
@@ -738,7 +740,6 @@
     "1723026351f8b5e598",
     "heading4",
     "billboard4",
-    "d1799047-2d3f-4748-9804-8038692b0c63",
     "featured-blogs",
     "d2113c42-d705-4b50-99be-017b00de7fc9"
   ]
