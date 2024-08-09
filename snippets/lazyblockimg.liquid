@@ -1,0 +1,82 @@
+{% liquid
+  if width == null
+    assign width = 1024
+  endif
+
+  if height == null
+    assign height = img.height
+  endif
+
+  if loading == null
+    assign loading = 'lazy'
+  endif
+
+  if autoheight == true
+    assign img_url = img | image_url: width: width
+    assign width = width | replace: 'x'
+  else
+    assign img_url = img | image_url: width: width, height: height
+
+    if crop != blank
+      assign img_url = img | image_url: width: width, height: height, crop: crop
+    endif
+  endif
+%}
+
+<img
+  loading="{{ loading | default: 'lazy' }}"
+  width="{%- if width -%} {{-width-}} {%- else -%} {{-img.width-}} {%- endif -%}"
+  height="{%- if height -%} {{-height-}} {%- else -%} {{-img.height-}} {%- endif -%}"
+  class="lazy transition-opacity duration-500 ease-in-out  {{ class }}"
+  {% if loading == 'lazy' %}
+    data-src="{{ img_url }}"
+  {% else %}
+    src="{{ img_url }}"
+  {% endif %}
+  alt="abc"
+  {% if loading == 'lazy' %}
+    data-srcset="
+      {%- assign widths_array = widths | split: ', ' -%}
+      {%- for width_item in widths_array -%}
+        {%- if forloop.index0 > 0 -%},{%- endif -%}
+        {%- assign int = width_item | plus: 0 -%}
+        {%- if autoheight == true -%}
+          {%- assign intx = int | append: 'x' -%}
+          {{ img | image_url: width: intx }} {{int}}w
+        {%- else -%}
+          {%- assign aspect_ratio = height | times: 100 | divided_by: width | times: 100  -%}
+          {%- assign int_height = int | times: aspect_ratio | divided_by: 10000 -%}
+          {%- if crop != blank -%}
+            {{ img | image_url: width: int, height: int_height, crop: crop }} {{int}}w
+          {%- else %}
+          {{ img | image_url: width: int, height: int_height }} {{int}}w
+          {%- endif -%}
+        {%- endif -%}
+
+      {%- endfor -%}
+    "
+  {% else %}
+    srcset="
+      {%- assign widths_array = widths | split: ', ' -%}
+      {%- for width_item in widths_array -%}
+        {%- if forloop.index0 > 0 -%},{%- endif -%}
+        {%- assign int = width_item | plus: 0 -%}
+        {%- if autoheight == true -%}
+          {%- assign intx = int | append: 'x' -%}
+          {{ img | image_url: width: intx }} {{int}}w
+        {%- else -%}
+          {%- assign aspect_ratio = height | times: 100 | divided_by: width | times: 100  -%}
+          {%- assign int_height = int | times: aspect_ratio | divided_by: 10000 -%}
+          {%- if crop != blank -%}
+            {{ img | image_url: width: int, height: int_height, crop: crop }} {{int}}w
+          {%- else %}
+          {{ img | image_url: width: int, height: int_height }} {{int}}w
+          {%- endif -%}
+        {%- endif -%}
+
+      {%- endfor -%}
+    "
+  {% endif %}
+  sizes="{{ sizes }}"
+  draggable="false"
+>
