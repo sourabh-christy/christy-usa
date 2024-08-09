@@ -22,9 +22,9 @@
       "settings": {
         "heading": "<p>Creating little luxuries since 1850                               <\/p>",
         "heading_width": "6",
-        "copy": "<p>At Christy, 170 years of history have shaped our dedication to precision and British craftsmanship. Our heritage is the thread that runs through everything we create, and we take great pride in our roots.<\/p>",
+        "copy": "<p>Born from our pioneering of terry towels 170 years ago, our heritage is a testament to unparalleled precision and the artistry of British craftsmanship.<\/p><p><a href=\"\/pages\/our-heritage\" title=\"Our Heritage\"><span style=\"text-decoration:underline\">Explore our Heritage<\/span><\/a><\/p>",
         "copy_style": "default",
-        "alignment": "left",
+        "alignment": "center",
         "alignment_mob": "center",
         "horiz_padding": false,
         "margin_top": false
@@ -78,6 +78,7 @@
         },
         "collection_GTHHpe": {
           "type": "collection",
+          "disabled": true,
           "settings": {
             "collection": "all",
             "usp_title": "",
@@ -219,42 +220,65 @@
     "0e8d554c-badf-4239-a36e-276ffacfb5fc": {
       "type": "reviews-carousel",
       "blocks": {
+        "block_azJUct": {
+          "type": "block",
+          "settings": {
+            "product": "luxe-towels",
+            "title": "Luxe Turkish Cotton Towel",
+            "testimonial": "<p>\"Beautiful colour, amazing feel, perfect washability - just amazing and faultless.\"<\/p>",
+            "name": "Simon Austin"
+          }
+        },
+        "block_fDyMtK": {
+          "type": "block",
+          "settings": {
+            "product": "deep-pile-rug",
+            "title": "Deep Pile Rug",
+            "testimonial": "<p>\"Love these bath rugs so soft as you step out the bath and shower. Highly recommend\"<\/p>",
+            "name": "Johanna Covell-Ritchie"
+          }
+        },
+        "block_yJF6td": {
+          "type": "block",
+          "settings": {
+            "product": "supreme-hygro",
+            "title": "Supreme Hygro Supima Cotton Towels",
+            "testimonial": "<p>\"Lovely soft towels, just the right thickness. Just the right size to wrap round my head after washing my hair. This one doesn't fall off!  Pricey, it's true, but well worth it for that touch of luxury.\"<\/p>",
+            "name": "Anonymous"
+          }
+        },
         "template--21202652987680__0e8d554c-badf-4239-a36e-276ffacfb5fc-block-1": {
           "type": "block",
           "settings": {
             "product": "renaissance",
-            "title": "Renaissance Towels",
-            "testimonial": "<p>\"Lovely quality towels which don’t leave fluff all over the bathroom and dry really well.\"<\/p>",
+            "title": "Renaissance Egyptian Cotton Towels",
+            "testimonial": "<p>\"Brilliant towels.  They do not shed exactly as described on website.  These are the best towels I have ever owned.  5🌟🌟🌟🌟🌟\"<\/p>",
             "name": "Averii Richards"
-          }
-        },
-        "template--21202652987680__0e8d554c-badf-4239-a36e-276ffacfb5fc-block-2": {
-          "type": "block",
-          "settings": {
-            "product": "400-thread-count-sateen-plain-dye",
-            "title": "Smooth & Silky Cotton Sateen Duvet Set",
-            "testimonial": "<p>\"Gorgeous sheets! Beautiful colour as well. Cannot go wrong with Christy!\"<\/p>",
-            "name": "Ellie Foulkes"
-          }
-        },
-        "template--21202652987680__0e8d554c-badf-4239-a36e-276ffacfb5fc-block-3": {
-          "type": "block",
-          "settings": {
-            "product": "super-soft-cosy-robe",
-            "title": "Super Soft Cosy Robe",
-            "testimonial": "<p>\"So pleased to find this gorgeous robe in something other than grey or navy; poolside was perfect. The colour, quality and supersoftness surpassed all expectations.\"<\/p>",
-            "name": "A Hall"
           }
         }
       },
       "block_order": [
-        "template--21202652987680__0e8d554c-badf-4239-a36e-276ffacfb5fc-block-1",
-        "template--21202652987680__0e8d554c-badf-4239-a36e-276ffacfb5fc-block-2",
-        "template--21202652987680__0e8d554c-badf-4239-a36e-276ffacfb5fc-block-3"
+        "block_azJUct",
+        "block_fDyMtK",
+        "block_yJF6td",
+        "template--21202652987680__0e8d554c-badf-4239-a36e-276ffacfb5fc-block-1"
       ],
       "settings": {
         "title": "Why Our  Customers Love Christy",
         "margin": "yes"
+      }
+    },
+    "heading3": {
+      "type": "heading",
+      "settings": {
+        "heading": "<p>Game. Set. Match.<\/p>",
+        "heading_width": "4",
+        "copy": "<p>For the past 30 years, Christy has proudly been the official towel supplier to The Wimbledon Championships, adding a touch of luxury to every serve and volley.<\/p>",
+        "copy_style": "default",
+        "alignment": "center",
+        "alignment_mob": "center",
+        "horiz_padding": true,
+        "margin_top": true
       }
     },
     "hero_collection_edGUde": {
@@ -568,20 +592,6 @@
         "copy_font_family": "sans-serif"
       }
     },
-    "heading3": {
-      "type": "heading",
-      "disabled": true,
-      "settings": {
-        "heading": "<p>Feel-good Bedding<\/p>",
-        "heading_width": "4",
-        "copy": "<p> <\/p>",
-        "copy_style": "heading3",
-        "alignment": "right",
-        "alignment_mob": "center",
-        "horiz_padding": true,
-        "margin_top": true
-      }
-    },
     "heading4": {
       "type": "heading",
       "disabled": true,
@@ -652,21 +662,21 @@
         "product_FN6KyJ": {
           "type": "product",
           "settings": {
-            "product": "supreme-hygro",
+            "product": "",
             "text": "<p>Wrap yourself up in pure luxury with our ultra soft and absorbant Supreme Hygro® towel collection<\/p>"
           }
         },
         "product_GzgkiN": {
           "type": "product",
           "settings": {
-            "product": "luxe-towels",
+            "product": "",
             "text": "<p>Wrap yourself up in pure luxury with our ultra soft and absorbant Supreme Hygro® towel collection<\/p>"
           }
         },
         "product_aGKeKV": {
           "type": "product",
           "settings": {
-            "product": "renaissance",
+            "product": "",
             "text": "<p>Wrap yourself up in pure luxury with our ultra soft and absorbant Supreme Hygro® towel collection<\/p>"
           }
         }
@@ -676,7 +686,6 @@
         "product_GzgkiN",
         "product_aGKeKV"
       ],
-      "disabled": true,
       "settings": {
         "title": "Shop the Collection",
         "collection": ""
@@ -709,6 +718,7 @@
     "ab40295a-0b7a-4298-9100-6079c0215e8e",
     "0e427065-4c47-4b8e-8eab-12cb0c11fc4a",
     "0e8d554c-badf-4239-a36e-276ffacfb5fc",
+    "heading3",
     "hero_collection_edGUde",
     "hero_image_cJLbna",
     "heading2",
@@ -718,7 +728,6 @@
     "billboard3",
     "images-copy-cta",
     "d2113c42-d705-4b50-99be-017b00de7fc9",
-    "heading3",
     "heading4",
     "billboard4",
     "featured-blogs",
