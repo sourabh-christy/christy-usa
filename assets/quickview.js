@@ -25,8 +25,8 @@ async function myfun(t, e){
         }
       }, 10)
       setTimeout(() => {
-        $('#option-color input[type="radio"]')[1].click()
-        $('#option-color input[type="radio"]')[0].click()
+        $('#modalViewContent #option-color input[type="radio"]')[1].click()
+        $('#modalViewContent  #option-color input[type="radio"]')[0].click()
       }, 10);
  }
  
