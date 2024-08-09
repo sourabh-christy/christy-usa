@@ -570,6 +570,7 @@
     },
     "heading3": {
       "type": "heading",
+      "disabled": true,
       "settings": {
         "heading": "<p>Feel-good Bedding<\/p>",
         "heading_width": "4",
