@@ -13,7 +13,7 @@
           .qt-info-content-fullwidth-block{
             width:100%;
             grid-column: span 3;
-            height:300px;
+            
           }
       
           .text-xl{
@@ -47,7 +47,24 @@
               srcset: null
           }} {% endcomment %}
 
-          <img
+ 
+           
+         {% liquid
+            assign widths = '61, 122, 375, 550, 664, 750, 1100, 1344, 1500, 1780, 1920'
+            assign sizes = '(max-width: 767px) 100vw, (min-width: 768px) 332px'
+            assign image_class = 'object-cover object-center w-full h-full inset-0 opacity-0'
+            
+           %} 
+     
+
+          {%- render 'lazyblockimg', 
+            img:   block.background_image ,
+            widths: widths,
+            class: image_class,
+            sizes: sizes
+          -%} 
+
+          {% comment %} <img
             srcset="
               {%- if block.background_image.width >= 165 -%}{{ block.background_image | image_url: width: 165 }} 165w,{%- endif -%}
               {%- if block.background_image.width >= 330 -%}{{ block.background_image | image_url: width: 330 }} 330w,{%- endif -%}
@@ -69,7 +86,7 @@
             width="{{ block.background_image.width }}"
             loading="lazy"
             class="motion-reduce w-full h-full object-cover left-0 top-0 -z-10 absolute brightness-50 qt-info-content-block-img"
-          />
+          /> {% endcomment %}
 
 
           
