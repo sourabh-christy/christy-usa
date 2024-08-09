@@ -602,6 +602,19 @@
         "mobile_content_position": "overlay"
       }
     },
+    "d1799047-2d3f-4748-9804-8038692b0c63": {
+      "type": "heading",
+      "settings": {
+        "heading": "<p>Creating little luxuries since 1850                               <\/p>",
+        "heading_width": "6",
+        "copy": "<p>At Christy, 170 years of history have shaped our dedication to precision and craftsmanship. Our heritage is the thread that runs through everything we create, and we take great pride in our roots.<\/p>",
+        "copy_style": "default",
+        "alignment": "left",
+        "alignment_mob": "center",
+        "horiz_padding": false,
+        "margin_top": false
+      }
+    },
     "featured-blogs": {
       "type": "featured-blogs",
       "blocks": {
@@ -632,19 +645,6 @@
       "disabled": true,
       "settings": {
         "title": "Blogs"
-      }
-    },
-    "d1799047-2d3f-4748-9804-8038692b0c63": {
-      "type": "heading",
-      "settings": {
-        "heading": "<p>                                 Creating  little luxuries since 1850.                                   <\/p>",
-        "heading_width": "4",
-        "copy": "",
-        "copy_style": "default",
-        "alignment": "center",
-        "alignment_mob": "center",
-        "horiz_padding": false,
-        "margin_top": false
       }
     },
     "d2113c42-d705-4b50-99be-017b00de7fc9": {
@@ -738,8 +738,8 @@
     "1723026351f8b5e598",
     "heading4",
     "billboard4",
-    "featured-blogs",
     "d1799047-2d3f-4748-9804-8038692b0c63",
+    "featured-blogs",
     "d2113c42-d705-4b50-99be-017b00de7fc9"
   ]
 }
