@@ -54,7 +54,7 @@
             "usp_title": "",
             "image": "shopify:\/\/shop_images\/thick_indulgent_HP.jpg",
             "alt_title": "Towels",
-            "excerpt": "<p>Transform your bathroom into a spa-like retreat with our luxurious bath towels.<\/p>"
+            "excerpt": ""
           }
         },
         "2f3cb25a-b518-49ee-afab-a5c33fb259f7": {
@@ -64,7 +64,7 @@
             "usp_title": "",
             "image": "shopify:\/\/shop_images\/deep_pile-737657.jpg",
             "alt_title": "Bath Mats & Rugs",
-            "excerpt": "<p>Expertly crafted to balance plushness and durability, bringing a touch of elegance.<\/p>"
+            "excerpt": ""
           }
         },
         "ade5aede-0029-4b09-aee8-6e48f8cfe8be": {
@@ -74,7 +74,7 @@
             "usp_title": "",
             "image": "shopify:\/\/shop_images\/Luxe_Lifestyle_Pearl_1_aded84c9-1a91-432f-aa88-0c663de62db6.jpg",
             "alt_title": "Bundles",
-            "excerpt": "<p>Upgrade your bathroom with a perfect blend of softness and personality in one convenient set.<\/p>"
+            "excerpt": ""
           }
         },
         "collection_GTHHpe": {
@@ -198,20 +198,6 @@
       "settings": {
         "title": "Why Christy?",
         "margin": "yes"
-      }
-    },
-    "ab40295a-0b7a-4298-9100-6079c0215e8e": {
-      "type": "heading",
-      "disabled": true,
-      "settings": {
-        "heading": "<p>Discover the magic in <br\/>everyday moments.<\/p>",
-        "heading_width": "4",
-        "copy": "",
-        "copy_style": "default",
-        "alignment": "center",
-        "alignment_mob": "center",
-        "horiz_padding": true,
-        "margin_top": false
       }
     },
     "0e427065-4c47-4b8e-8eab-12cb0c11fc4a": {
@@ -346,12 +332,38 @@
       "settings": {
       }
     },
+    "ab40295a-0b7a-4298-9100-6079c0215e8e": {
+      "type": "heading",
+      "settings": {
+        "heading": "<p>Supreme Supima Cotton Towels<\/p>",
+        "heading_width": "6",
+        "copy": "<p> <\/p>",
+        "copy_style": "default",
+        "alignment": "left",
+        "alignment_mob": "center",
+        "horiz_padding": true,
+        "margin_top": false
+      }
+    },
     "hero_image_cJLbna": {
       "type": "hero-image",
       "settings": {
         "image": "shopify:\/\/shop_images\/Artboard_12_9.jpg",
         "link": "shopify:\/\/products\/supreme-hygro",
         "full_width": true
+      }
+    },
+    "heading_BDhaU6": {
+      "type": "heading",
+      "settings": {
+        "heading": "<p>How do you like your towels?<\/p>",
+        "heading_width": "6",
+        "copy": "<p> <\/p>",
+        "copy_style": "default",
+        "alignment": "left",
+        "alignment_mob": "right",
+        "horiz_padding": true,
+        "margin_top": false
       }
     },
     "c-info-columns": {
@@ -400,9 +412,9 @@
         "template--19440932552979__b25d4794-78f6-4222-8e57-f4d67b3e4a48-1686843997bc378748-2"
       ],
       "settings": {
-        "title": "How do you like your towels?",
+        "title": "",
         "title_font_size_mob": 16,
-        "title_font_size_desktop": 20,
+        "title_font_size_desktop": 31,
         "title_font_weight": "600",
         "title_font_family": "sans-serif",
         "copy_font_size_mob": 12,
@@ -652,42 +664,6 @@
         "title": "Blogs"
       }
     },
-    "featured_collection_k8nGrG": {
-      "type": "featured-collection",
-      "blocks": {
-        "product_FN6KyJ": {
-          "type": "product",
-          "settings": {
-            "product": "",
-            "text": "<p>Wrap yourself up in pure luxury with our ultra soft and absorbant Supreme Hygro® towel collection<\/p>"
-          }
-        },
-        "product_GzgkiN": {
-          "type": "product",
-          "settings": {
-            "product": "",
-            "text": "<p>Wrap yourself up in pure luxury with our ultra soft and absorbant Supreme Hygro® towel collection<\/p>"
-          }
-        },
-        "product_aGKeKV": {
-          "type": "product",
-          "settings": {
-            "product": "",
-            "text": "<p>Wrap yourself up in pure luxury with our ultra soft and absorbant Supreme Hygro® towel collection<\/p>"
-          }
-        }
-      },
-      "block_order": [
-        "product_FN6KyJ",
-        "product_GzgkiN",
-        "product_aGKeKV"
-      ],
-      "disabled": true,
-      "settings": {
-        "title": "Shop the Collection",
-        "collection": ""
-      }
-    },
     "1723026351f8b5e598": {
       "type": "apps",
       "blocks": {
@@ -727,12 +703,13 @@
     "5f8fd688-f484-4f34-9ee0-6dd133c393ad",
     "2a0e8d45-d132-480e-b6ff-c37f7ad453d7",
     "37b580cc-c4d2-4e4e-83ee-b35a93d386e3",
-    "ab40295a-0b7a-4298-9100-6079c0215e8e",
     "0e427065-4c47-4b8e-8eab-12cb0c11fc4a",
     "0e8d554c-badf-4239-a36e-276ffacfb5fc",
     "heading3",
     "hero_collection_edGUde",
+    "ab40295a-0b7a-4298-9100-6079c0215e8e",
     "hero_image_cJLbna",
+    "heading_BDhaU6",
     "c-info-columns",
     "billboard2",
     "c-info-columns2",
@@ -741,7 +718,6 @@
     "d2113c42-d705-4b50-99be-017b00de7fc9",
     "billboard4",
     "featured-blogs",
-    "featured_collection_k8nGrG",
     "1723026351f8b5e598",
     "heading4"
   ]
