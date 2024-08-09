@@ -676,6 +676,7 @@
         "product_GzgkiN",
         "product_aGKeKV"
       ],
+      "disabled": true,
       "settings": {
         "title": "Shop the Collection",
         "collection": ""
