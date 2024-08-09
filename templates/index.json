@@ -332,11 +332,10 @@
     },
     "heading2": {
       "type": "heading",
-      "disabled": true,
       "settings": {
         "heading": "<p>Your style, your choice: keep it personal with perfect-fit products.<\/p>",
         "heading_width": "4",
-        "copy": "",
+        "copy": "<p> <\/p>",
         "copy_style": "default",
         "alignment": "center",
         "alignment_mob": "center",
@@ -592,20 +591,6 @@
         "copy_font_family": "sans-serif"
       }
     },
-    "heading4": {
-      "type": "heading",
-      "disabled": true,
-      "settings": {
-        "heading": "<p>Christy Life<\/p>",
-        "heading_width": "4",
-        "copy": "<p>Welcome to our blog: from interiors inspiration to expert how-tos, walkthroughs and all our latest news, it's designed to guide and inspire your bath and bedding journey.<\/p>",
-        "copy_style": "default",
-        "alignment": "right",
-        "alignment_mob": "center",
-        "horiz_padding": true,
-        "margin_top": true
-      }
-    },
     "billboard4": {
       "type": "billboard",
       "disabled": true,
@@ -686,6 +671,7 @@
         "product_GzgkiN",
         "product_aGKeKV"
       ],
+      "disabled": true,
       "settings": {
         "title": "Shop the Collection",
         "collection": ""
@@ -704,6 +690,20 @@
         "instagram_feed_instafeed_rptr_raptor_instagram_Neh9if"
       ],
       "settings": {
+      }
+    },
+    "heading4": {
+      "type": "heading",
+      "disabled": true,
+      "settings": {
+        "heading": "<p>Christy Life<\/p>",
+        "heading_width": "4",
+        "copy": "<p>Welcome to our blog: from interiors inspiration to expert how-tos, walkthroughs and all our latest news, it's designed to guide and inspire your bath and bedding journey.<\/p>",
+        "copy_style": "default",
+        "alignment": "right",
+        "alignment_mob": "center",
+        "horiz_padding": true,
+        "margin_top": true
       }
     }
   },
@@ -728,10 +728,10 @@
     "billboard3",
     "images-copy-cta",
     "d2113c42-d705-4b50-99be-017b00de7fc9",
-    "heading4",
     "billboard4",
     "featured-blogs",
     "featured_collection_k8nGrG",
-    "1723026351f8b5e598"
+    "1723026351f8b5e598",
+    "heading4"
   ]
 }
