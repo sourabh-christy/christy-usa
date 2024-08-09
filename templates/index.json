@@ -501,98 +501,6 @@
         "anchor_id": ""
       }
     },
-    "heading3": {
-      "type": "heading",
-      "settings": {
-        "heading": "<p>Feel-good Bedding<\/p>",
-        "heading_width": "4",
-        "copy": "<p> <\/p>",
-        "copy_style": "heading3",
-        "alignment": "right",
-        "alignment_mob": "center",
-        "horiz_padding": true,
-        "margin_top": true
-      }
-    },
-    "1723026351f8b5e598": {
-      "type": "apps",
-      "blocks": {
-        "instagram_feed_instafeed_rptr_raptor_instagram_Neh9if": {
-          "type": "shopify:\/\/apps\/instagram-feed-instafeed-rptr\/blocks\/raptor-instagram\/557ff51a-dc31-4dee-a7df-4610643fa410",
-          "settings": {
-          }
-        }
-      },
-      "block_order": [
-        "instagram_feed_instafeed_rptr_raptor_instagram_Neh9if"
-      ],
-      "settings": {
-      }
-    },
-    "heading4": {
-      "type": "heading",
-      "disabled": true,
-      "settings": {
-        "heading": "<p>Christy Life<\/p>",
-        "heading_width": "4",
-        "copy": "<p>Welcome to our blog: from interiors inspiration to expert how-tos, walkthroughs and all our latest news, it's designed to guide and inspire your bath and bedding journey.<\/p>",
-        "copy_style": "default",
-        "alignment": "right",
-        "alignment_mob": "center",
-        "horiz_padding": true,
-        "margin_top": true
-      }
-    },
-    "billboard4": {
-      "type": "billboard",
-      "disabled": true,
-      "settings": {
-        "screen_visibility": "both",
-        "image": "shopify:\/\/shop_images\/perfect-towel.jpg",
-        "subtitle": "Feature",
-        "title": "<p>Only the best: picking your perfect towel<\/p>",
-        "copy": "<p>There's an art to choosing the right towel. Absorb our expert tips to discover your ideal drying-down companion.<\/p>",
-        "button_label": "Read more",
-        "button_link": "https:\/\/www.christy.co.uk\/blogs\/lifestyle\/christys-towel-size-guide",
-        "button_type": "tertiary",
-        "colour_theme": "white",
-        "alignment": "left",
-        "alignment_vertical": "center",
-        "mobile_content_position": "overlay"
-      }
-    },
-    "featured-blogs": {
-      "type": "featured-blogs",
-      "blocks": {
-        "30dec819-818b-4bc2-b9c3-ff19c89ebaf4": {
-          "type": "article",
-          "settings": {
-            "article": "lifestyle\/thread-count-meaning-explained"
-          }
-        },
-        "458e4f16-65af-45ea-bf76-156d0bfc8da1": {
-          "type": "article",
-          "settings": {
-            "article": "lifestyle\/the-best-bedroom-colour-schemes-for-2024"
-          }
-        },
-        "dc2e0744-3035-4a8f-b0c9-4abd1e420569": {
-          "type": "article",
-          "settings": {
-            "article": "lifestyle\/how-to-fold-towels-for-a-luxurious-bathroom-experience"
-          }
-        }
-      },
-      "block_order": [
-        "30dec819-818b-4bc2-b9c3-ff19c89ebaf4",
-        "458e4f16-65af-45ea-bf76-156d0bfc8da1",
-        "dc2e0744-3035-4a8f-b0c9-4abd1e420569"
-      ],
-      "disabled": true,
-      "settings": {
-        "title": "Blogs"
-      }
-    },
     "d2113c42-d705-4b50-99be-017b00de7fc9": {
       "type": "c-info-columns",
       "blocks": {
@@ -660,11 +568,131 @@
         "copy_font_family": "sans-serif"
       }
     },
+    "heading3": {
+      "type": "heading",
+      "settings": {
+        "heading": "<p>Feel-good Bedding<\/p>",
+        "heading_width": "4",
+        "copy": "<p> <\/p>",
+        "copy_style": "heading3",
+        "alignment": "right",
+        "alignment_mob": "center",
+        "horiz_padding": true,
+        "margin_top": true
+      }
+    },
+    "heading4": {
+      "type": "heading",
+      "disabled": true,
+      "settings": {
+        "heading": "<p>Christy Life<\/p>",
+        "heading_width": "4",
+        "copy": "<p>Welcome to our blog: from interiors inspiration to expert how-tos, walkthroughs and all our latest news, it's designed to guide and inspire your bath and bedding journey.<\/p>",
+        "copy_style": "default",
+        "alignment": "right",
+        "alignment_mob": "center",
+        "horiz_padding": true,
+        "margin_top": true
+      }
+    },
+    "billboard4": {
+      "type": "billboard",
+      "disabled": true,
+      "settings": {
+        "screen_visibility": "both",
+        "image": "shopify:\/\/shop_images\/perfect-towel.jpg",
+        "subtitle": "Feature",
+        "title": "<p>Only the best: picking your perfect towel<\/p>",
+        "copy": "<p>There's an art to choosing the right towel. Absorb our expert tips to discover your ideal drying-down companion.<\/p>",
+        "button_label": "Read more",
+        "button_link": "https:\/\/www.christy.co.uk\/blogs\/lifestyle\/christys-towel-size-guide",
+        "button_type": "tertiary",
+        "colour_theme": "white",
+        "alignment": "left",
+        "alignment_vertical": "center",
+        "mobile_content_position": "overlay"
+      }
+    },
+    "featured-blogs": {
+      "type": "featured-blogs",
+      "blocks": {
+        "30dec819-818b-4bc2-b9c3-ff19c89ebaf4": {
+          "type": "article",
+          "settings": {
+            "article": "lifestyle\/thread-count-meaning-explained"
+          }
+        },
+        "458e4f16-65af-45ea-bf76-156d0bfc8da1": {
+          "type": "article",
+          "settings": {
+            "article": "lifestyle\/the-best-bedroom-colour-schemes-for-2024"
+          }
+        },
+        "dc2e0744-3035-4a8f-b0c9-4abd1e420569": {
+          "type": "article",
+          "settings": {
+            "article": "lifestyle\/how-to-fold-towels-for-a-luxurious-bathroom-experience"
+          }
+        }
+      },
+      "block_order": [
+        "30dec819-818b-4bc2-b9c3-ff19c89ebaf4",
+        "458e4f16-65af-45ea-bf76-156d0bfc8da1",
+        "dc2e0744-3035-4a8f-b0c9-4abd1e420569"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "Blogs"
+      }
+    },
     "featured_collection_k8nGrG": {
       "type": "featured-collection",
+      "blocks": {
+        "product_FN6KyJ": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "text": "<p>Wrap yourself up in pure luxury with our ultra soft and absorbant Supreme Hygro® towel collection<\/p>"
+          }
+        },
+        "product_GzgkiN": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "text": "<p>Wrap yourself up in pure luxury with our ultra soft and absorbant Supreme Hygro® towel collection<\/p>"
+          }
+        },
+        "product_aGKeKV": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "text": "<p>Wrap yourself up in pure luxury with our ultra soft and absorbant Supreme Hygro® towel collection<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "product_FN6KyJ",
+        "product_GzgkiN",
+        "product_aGKeKV"
+      ],
       "settings": {
         "title": "Shop the Collection",
         "collection": ""
+      }
+    },
+    "1723026351f8b5e598": {
+      "type": "apps",
+      "blocks": {
+        "instagram_feed_instafeed_rptr_raptor_instagram_Neh9if": {
+          "type": "shopify:\/\/apps\/instagram-feed-instafeed-rptr\/blocks\/raptor-instagram\/557ff51a-dc31-4dee-a7df-4610643fa410",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "instagram_feed_instafeed_rptr_raptor_instagram_Neh9if"
+      ],
+      "settings": {
       }
     }
   },
@@ -687,12 +715,12 @@
     "c-info-columns2",
     "billboard3",
     "images-copy-cta",
+    "d2113c42-d705-4b50-99be-017b00de7fc9",
     "heading3",
-    "1723026351f8b5e598",
     "heading4",
     "billboard4",
     "featured-blogs",
-    "d2113c42-d705-4b50-99be-017b00de7fc9",
-    "featured_collection_k8nGrG"
+    "featured_collection_k8nGrG",
+    "1723026351f8b5e598"
   ]
 }
