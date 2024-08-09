@@ -103,6 +103,19 @@
         "screen_visibility": "both"
       }
     },
+    "heading2": {
+      "type": "heading",
+      "settings": {
+        "heading": "<p>By Royal Appointment<\/p>",
+        "heading_width": "4",
+        "copy": "<p>Since 1851, when they caught the eye of none other than Queen Victoria, our towels have been cherished by the Royal Family.<\/p>",
+        "copy_style": "default",
+        "alignment": "center",
+        "alignment_mob": "center",
+        "horiz_padding": false,
+        "margin_top": false
+      }
+    },
     "5f8fd688-f484-4f34-9ee0-6dd133c393ad": {
       "type": "products-carousel",
       "settings": {
@@ -256,13 +269,23 @@
             "testimonial": "<p>\"Brilliant towels.  They do not shed exactly as described on website.  These are the best towels I have ever owned.  5🌟🌟🌟🌟🌟\"<\/p>",
             "name": "Averii Richards"
           }
+        },
+        "block_ABz44k": {
+          "type": "block",
+          "settings": {
+            "product": "",
+            "title": "Customer Reviews",
+            "testimonial": "<p>“One of the highest quality products I have experienced. Very very soft and drapes beautifully on my bed.”<\/p>",
+            "name": "John Smith"
+          }
         }
       },
       "block_order": [
         "block_azJUct",
         "block_fDyMtK",
         "block_yJF6td",
-        "template--21202652987680__0e8d554c-badf-4239-a36e-276ffacfb5fc-block-1"
+        "template--21202652987680__0e8d554c-badf-4239-a36e-276ffacfb5fc-block-1",
+        "block_ABz44k"
       ],
       "settings": {
         "title": "Why Our  Customers Love Christy",
@@ -329,19 +352,6 @@
         "image": "shopify:\/\/shop_images\/Artboard_12_9.jpg",
         "link": "shopify:\/\/products\/supreme-hygro",
         "full_width": true
-      }
-    },
-    "heading2": {
-      "type": "heading",
-      "settings": {
-        "heading": "<p>By Royal Appointment<\/p>",
-        "heading_width": "4",
-        "copy": "<p>Since 1851, when they caught the eye of none other than Queen Victoria, our towels have been cherished by the Royal Family.<\/p>",
-        "copy_style": "default",
-        "alignment": "center",
-        "alignment_mob": "center",
-        "horiz_padding": false,
-        "margin_top": false
       }
     },
     "c-info-columns": {
@@ -713,6 +723,7 @@
     "d1799047-2d3f-4748-9804-8038692b0c63",
     "heading",
     "de1b0a2d-4cb0-4dbd-a641-18437895549a",
+    "heading2",
     "5f8fd688-f484-4f34-9ee0-6dd133c393ad",
     "2a0e8d45-d132-480e-b6ff-c37f7ad453d7",
     "37b580cc-c4d2-4e4e-83ee-b35a93d386e3",
@@ -722,7 +733,6 @@
     "heading3",
     "hero_collection_edGUde",
     "hero_image_cJLbna",
-    "heading2",
     "c-info-columns",
     "billboard2",
     "c-info-columns2",
