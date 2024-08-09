@@ -10,7 +10,23 @@
     z-index: 1;
     cursor: zoom-out;
   }
+ 
+  
 {% endstylesheet %}
+
+<style>
+  .ajax_product_gallery {
+    width:500px !important;
+    height:500px !important;
+  }
+  @media (max-width:768px){
+    .ajax_product_gallery {
+    width:300px !important;
+    height:300px !important;
+  }
+
+  }
+</style>
 
 <section
   id="MainProduct-{{ section.id }}"
@@ -207,7 +223,7 @@
     <div class="product md:flex md:space-x-6 md:justify-between container" style="margin-bottom:30px">
       <div class="product__info-wrapper self-start md:sticky md:top-[100px] relative max-md:pt-7 z-10">
         {% if product.media.size > 0 %}
-          <div class="product__gallery" style="width:300px;height:300px;margin:0px auto 30px;overflow: hidden;">
+          <div class="product__gallery ajax_product_gallery" style="margin:0px auto 30px;overflow: hidden;">
             {% render 'product-quick-view-media-gallery',
               variant_images: variant_images,
               current_variant: current_variant

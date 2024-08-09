@@ -13,7 +13,7 @@
           .qt-info-content-fullwidth-block{
             width:100%;
             grid-column: span 3;
-            
+            position:relative;
           }
       
           .text-xl{
@@ -22,7 +22,8 @@
           }
           
           .text-4xl{font-size:2.25rem;line-height:2.5rem}
-          .qt-info-content-block-img{
+
+          .full-width-info-content-block-img{
             filter: brightness(50%);
           }
           @media (max-width: 768px) {
@@ -47,24 +48,24 @@
               srcset: null
           }} {% endcomment %}
 
- 
+          {% assign image_class = 'object-cover object-center w-full h-full inset-0' %}
+          {% if block.overlay == true %}
+            {% assign image_class = image_class | append: ' full-width-info-content-block-img' %}
+          {% endif %}
            
-         {% liquid
+          {% liquid
             assign widths = '61, 122, 375, 550, 664, 750, 1100, 1344, 1500, 1780, 1920'
             assign sizes = '(max-width: 767px) 100vw, (min-width: 768px) 332px'
-            assign image_class = 'object-cover object-center w-full h-full inset-0 opacity-0'
-            
-           %} 
-     
-
+            %}
+  
           {%- render 'lazyblockimg', 
             img:   block.background_image ,
             widths: widths,
             class: image_class,
             sizes: sizes
-          -%} 
-
-          {% comment %} <img
+          -%}  
+          {% comment %} 
+          <img
             srcset="
               {%- if block.background_image.width >= 165 -%}{{ block.background_image | image_url: width: 165 }} 165w,{%- endif -%}
               {%- if block.background_image.width >= 330 -%}{{ block.background_image | image_url: width: 330 }} 330w,{%- endif -%}
@@ -77,22 +78,19 @@
             "
             src="{{ block.background_image | image_url: width: 1500 }}"
             sizes="
-              (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: columns }}px,
+              (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px,
               (min-width: 750px) {% if columns > 1 %}calc((100vw - 10rem) / 2){% else %}calc(100vw - 10rem){% endif %},
               calc(100vw - 3rem)
             "
             alt=""
-            height="{{ block.background_image.height }}"
+            height="300"
             width="{{ block.background_image.width }}"
             loading="lazy"
             class="motion-reduce w-full h-full object-cover left-0 top-0 -z-10 absolute brightness-50 qt-info-content-block-img"
-          /> {% endcomment %}
-
-
-          
-                
-               
-          <div class="relative z-0 w-full h-full flex flex-col items-center justify-center px-8 gap-6 text-white text-center">
+          /> 
+        {% endcomment %}  
+    
+          <div class="absolute z-0 w-full h-full flex flex-col items-center justify-center px-8 gap-6 text-white text-center">
             <p class="text-xl">{{ block.short_title }}</p>
             <p class="text-4xl">{{ block.long_title }}</p>
             <p>{{ block.description | metafield_tag }}</p>

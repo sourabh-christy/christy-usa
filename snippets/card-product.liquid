@@ -198,9 +198,12 @@
             </span>
           {%- endif -%}
           {% comment %}QT 6/08/2024{% endcomment %}
-          {% if bundleData != blank and bundleData.value.bundleTitle %}
+          {% if bundleData != blank and bundleData.value.bundleTitle  %}
+            {% comment %} donot show {% endcomment %} 
             {% comment %} donot show {% endcomment %}
           {% else %}
+          {% if template.name == 'product' %}
+          {% else %}  
             <button
               class="absolute bottom-1 right-1 w-[40px] lg:w-[40px]  bg-gray-800 text-white p-1 rounded-md qt-plus-btn"
               style=" right: 4px;"
@@ -224,6 +227,7 @@
                 style="margin-right: 10px;"
               >
             </button>
+          {% endif %}
           {% endif %}
         </div>
 

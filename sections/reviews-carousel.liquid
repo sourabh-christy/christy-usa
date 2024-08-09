@@ -6,6 +6,8 @@
 
   assign class1 = 'h-full w-full object-cover object-center opacity-0 aspect-[1/1]'
   assign class2 = 'h-full w-full object-cover aspect-[1/1] !opacity-0 group-hover/card:!opacity-100 absolute inset-0 notouchhover '
+
+  
 %}
 {%- render 'spinner' -%}
 
@@ -67,8 +69,23 @@
                   {% if block.settings.product %}
                     <div class="max-md:order-2">
                       {% assign rel_product = block.settings.product %}
-
-                      {% if rel_product.featured_media.media_type == 'image' %}
+                       
+                      {% if block.settings.review_carousel_image != blank %}
+                        {%-
+                          render 'lazyimg',
+                          img: block.settings.review_carousel_image,
+                          width: img_width,
+                          height: 500,
+                          widths: widths,
+                          class: 'inline-object-fit',
+                          sizes: sizes,
+                          
+                        -%}
+                        <style>
+                          .inline-object-fit img {
+                            object-fit: fill; /* Adjust as needed */
+                        }</style>
+                      {% elsif rel_product.featured_media.media_type == 'image' %}
                         <a class="block" href="{{ rel_product.url }}" >
                           {%-
                             render 'lazyimg',
@@ -175,6 +192,11 @@
           "label": "Product"
         },
         {
+          "type": "image_picker",
+          "id": "review_carousel_image",
+          "label": "Choose a static image"
+        },
+        {
           "type": "header",
           "content": "Testimonial Settings"
         },
@@ -217,3 +239,4 @@
   ]
 }
 {% endschema %}
+{% render 'quickview-drawer' -%} 

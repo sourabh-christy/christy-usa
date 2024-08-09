@@ -756,7 +756,7 @@
             {% comment %}
               Reviews
             {% endcomment %}
-            <div
+            {% comment %} <div
               class="!my-0 py-5 lg:py-7 border-b border-blue-1/10 group/acc"
               id="reviews"
             >
@@ -774,7 +774,7 @@
                   
                 </div>
               </div>
-            </div>
+            </div> {% endcomment %}
             {% comment %}
               END Reviews
             {% endcomment %}
@@ -1352,3 +1352,4 @@
     show_pickup_availability: true
   %}
 {% endif %}
+{% render 'quickview-drawer' -%} 
