@@ -216,61 +216,6 @@
         "anchor_id": ""
       }
     },
-    "bd6f3e07-9735-4568-9dd2-71c3bbca1c6d": {
-      "type": "c-info-columns",
-      "blocks": {
-        "template--21202652987680__bd6f3e07-9735-4568-9dd2-71c3bbca1c6d-column-1": {
-          "type": "column",
-          "settings": {
-            "image_aspect": "1:1",
-            "title": "Step 1",
-            "text": "<p>Choose your perfect bundle collection and then click 'Build Your Bundle'.<\/p>",
-            "button_label": "",
-            "button_link": "",
-            "collection_tag": ""
-          }
-        },
-        "template--21202652987680__bd6f3e07-9735-4568-9dd2-71c3bbca1c6d-column-2": {
-          "type": "column",
-          "settings": {
-            "image_aspect": "1:1",
-            "title": "Step 2",
-            "text": "<p>Pick your bespoke options for size and\/or colour.<\/p>",
-            "button_label": "",
-            "button_link": "",
-            "collection_tag": ""
-          }
-        },
-        "template--21202652987680__bd6f3e07-9735-4568-9dd2-71c3bbca1c6d-column-3": {
-          "type": "column",
-          "settings": {
-            "image_aspect": "1:1",
-            "title": "Step 3",
-            "text": "<p>Add your bundle selection to the basket. All done!<\/p>",
-            "button_label": "",
-            "button_link": "",
-            "collection_tag": ""
-          }
-        }
-      },
-      "block_order": [
-        "template--21202652987680__bd6f3e07-9735-4568-9dd2-71c3bbca1c6d-column-1",
-        "template--21202652987680__bd6f3e07-9735-4568-9dd2-71c3bbca1c6d-column-2",
-        "template--21202652987680__bd6f3e07-9735-4568-9dd2-71c3bbca1c6d-column-3"
-      ],
-      "disabled": true,
-      "settings": {
-        "title": "It takes 3 Simple Steps",
-        "title_font_size_mob": 16,
-        "title_font_size_desktop": 20,
-        "title_font_weight": "600",
-        "title_font_family": "sans-serif",
-        "copy_font_size_mob": 12,
-        "copy_font_size_desktop": 14,
-        "copy_font_weight": "300",
-        "copy_font_family": "sans-serif"
-      }
-    },
     "0e8d554c-badf-4239-a36e-276ffacfb5fc": {
       "type": "reviews-carousel",
       "blocks": {
@@ -714,6 +659,13 @@
         "copy_font_weight": "300",
         "copy_font_family": "sans-serif"
       }
+    },
+    "featured_collection_k8nGrG": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Shop the Collection",
+        "collection": ""
+      }
     }
   },
   "order": [
@@ -726,7 +678,6 @@
     "37b580cc-c4d2-4e4e-83ee-b35a93d386e3",
     "ab40295a-0b7a-4298-9100-6079c0215e8e",
     "0e427065-4c47-4b8e-8eab-12cb0c11fc4a",
-    "bd6f3e07-9735-4568-9dd2-71c3bbca1c6d",
     "0e8d554c-badf-4239-a36e-276ffacfb5fc",
     "hero_collection_edGUde",
     "hero_image_cJLbna",
@@ -741,6 +692,7 @@
     "heading4",
     "billboard4",
     "featured-blogs",
-    "d2113c42-d705-4b50-99be-017b00de7fc9"
+    "d2113c42-d705-4b50-99be-017b00de7fc9",
+    "featured_collection_k8nGrG"
   ]
 }
