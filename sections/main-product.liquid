@@ -729,7 +729,7 @@
             {% comment %}
               Delivery & Returns
             {% endcomment %}
-            {% if settings.product_delivery_returns != blank %}
+            {% if settings.product_delivery_returns != blank or product.metafields.custom.delivery_returns != blank %}
               <div
                 class="!my-0 py-5 lg:py-7 border-b border-blue-1/10 group/acc"
               >
@@ -744,7 +744,11 @@
                 </h4>
                 <div class="gap-3 flex-wrap pt-5 lg:pt-7 clear-left hidden group-[.open]/acc:!flex group-[.open]/acc:opacity-100 opacity-0 transition-opacity delay-[0.5s]">
                   <div class="wysiwyg flex-1">
-                    {{ settings.product_delivery_returns }}
+                    {% if product.metafields.custom.delivery_returns != blank %}
+                      {{ product.metafields.custom.delivery_returns }}
+                    {% else %}
+                      {{ settings.product_delivery_returns }}
+                    {% endif %}
                   </div>
                 </div>
               </div>
