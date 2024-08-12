@@ -107,7 +107,8 @@
     {% if template == 'cart' %}{% include 'revy-bundle-script' %}{% endif %}
 
     {% include 'sm-red' %}
-  </head>
+    {% render 'rapid-search-settings' %}
+</head>
 
   <body id="{{ page_title | handle }}" class="h-full text-[12px] md:text-[14px] leading-[1.7] font-light text-blue-1">
     <!-- Google Tag Manager (noscript) -->
