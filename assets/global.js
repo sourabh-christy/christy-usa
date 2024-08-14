@@ -7,6 +7,19 @@ function getFocusableElements(container) {
     )
   );
 }
+// QT 14-8-2024 statr
+if (document.getElementById("aplusproducts-cb")) {
+  document.getElementById("aplusproducts-cb").addEventListener("change", (e) => {
+    if (e.target.checked) {
+      document.getElementById("price-small-snip").classList.add("hidden")
+      document.getElementById("aplus_cart_price").classList.remove("hidden")
+    } else {
+      document.getElementById("price-small-snip").classList.remove("hidden")
+      document.getElementById("aplus_cart_price").classList.add("hidden")
+    }
+  })
+}
+// QT 14-8-2024 statr
 
 document.querySelectorAll('[id^="Details-"] summary').forEach((summary) => {
   summary.setAttribute('role', 'button');
@@ -1212,7 +1225,23 @@ class VariantSelects extends HTMLElement {
         } else if (document.querySelector(".personalization_init_button")) {
           document.querySelector(".personalization_init_button").innerHTML = "Personalization Not Allowed for this Variant"
         }
-
+        // QT 14-8-2024 start
+        if (html.getElementById("aplusproducts") && document.querySelector("#aplusproducts")) {
+          document.querySelector("#aplusproducts").innerHTML = html.getElementById("aplusproducts").innerHTML
+          document.querySelector("#aplus_cart_price").innerHTML = html.getElementById("aplus_cart_price").innerHTML
+          if( html.getElementById("aplusproducts-cb")){
+            document.getElementById("aplusproducts-cb").addEventListener("change",(e)=>{
+              if(e.target.checked){
+                document.getElementById("price-small-snip").classList.add("hidden")
+                document.getElementById("aplus_cart_price").classList.remove("hidden")
+              }else{
+                document.getElementById("price-small-snip").classList.remove("hidden")
+                document.getElementById("aplus_cart_price").classList.add("hidden")
+              }
+            })
+          }
+        }
+        // QT 14-8-2024 end
         const source = html.getElementById(
           `price-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`
         );

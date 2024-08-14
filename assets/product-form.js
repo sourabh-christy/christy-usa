@@ -99,7 +99,25 @@ if (!customElements.get('product-form')) {
           formData.append('sections_url', window.location.pathname);
           this.cart.setActiveElement(document.activeElement);
         }
-        config.body = formData;
+        console.log("aplus",formData.get("aplusproducts"))
+        if(formData.get("aplusproducts")){
+          let newFormData = new FormData();
+          newFormData.append("items[0][id]",formData.get("id"))
+          newFormData.append("sections",formData.get("sections"))
+          newFormData.append("sections_url",formData.get("sections_url"))
+          let aPlusProducts = formData.get("aplusproducts")
+          let aplus_array = aPlusProducts.split(",")
+          aplus_array.map((ap,i)=>{
+            let t = ap.split("-")
+            if(t.length > 1){
+              newFormData.append(`items[${i+1}][id]`,t[0])
+              newFormData.append(`items[${i+1}]][quantity]`,t[2])
+            }
+          })
+          config.body = newFormData;  
+        }else{
+          config.body = formData;
+        }
         fetch(`${routes.cart_add_url}`, config)
           .then((response) => response.json())
           .then((response) => {

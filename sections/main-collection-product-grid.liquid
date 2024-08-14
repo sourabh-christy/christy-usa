@@ -24,7 +24,7 @@
 %}
 {% comment %}QT 18-7-2024{% endcomment %}
 <style>
-
+ 
    .grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
@@ -204,6 +204,8 @@
       .qt-seo-towel-excerpt {
         margin: auto;
         max-width: 1350px;
+        margin-top:40px;
+        margin-bottom:40px;
       }
       .qt-toggle-content {
         margin-top: 10px;
@@ -217,7 +219,7 @@
         margin-top: 10px;
       }
       .qt-towel-seo-content-title {
-        margin-top: 40px;
+        {% comment %} margin-top: 40px; {% endcomment %}
       }
       .mobile-only {
         display: none;
