@@ -84,6 +84,47 @@
               id="note"
             >
           {% endif %}
+         
+          {% comment %} {% echo current_variant.metafields.custom|json %} {% endcomment %}
+          
+          {% assign aplus_variants = current_variant.metafields.custom.a_plus_variants.value %}
+          {% assign show_a_plus = true %}
+          {% assign value = '' %}
+          {% assign aplus_price = 0 %}
+          {% for vars in aplus_variants %}
+            {% assign v_price = 0 %}
+            {% if vars.variant.value.inventory_quantity > 0 and vars.variant.value.inventory_quantity < vars.quantity %}
+              {% assign show_a_plus = false %}
+              {% break %}
+            {% endif %}
+            {% assign v_price = vars.variant.value.price | times: vars.quantity %}
+            {% assign aplus_price = aplus_price | plus: v_price %}
+            {% assign value = value
+              | append: vars.variant.value.id
+              | append: '-'
+              | append: vars.variant.value.product.id
+              | append: '-'
+              | append: vars.quantity
+              | append: ','
+            %}
+          {% endfor %}
+
+          <div id="aplusproducts" class="flex flex-row items-center pb-3 justify-start gap-2">
+            {% if current_variant.metafields.custom.a_plus_display_text != blank and show_a_plus == true %}
+              <input
+                name="aplusproducts"
+                type="checkbox"
+                value="{{ value }}"
+                price="{{ aplus_price }}"
+                id="aplusproducts-cb"
+              >
+              <label for="aplusproducts-cb">
+                {{- current_variant.metafields.custom.a_plus_display_text }} - {{ aplus_price | money -}}
+              </label>
+            {% endif %}
+          </div>
+
+
           <div class="flex gap-2 items-end">
             <p class="font-semibold lg:d-h5 hidden sm:max-md:!block self-start max-w-[40%]">{{ product.title }}</p>
             <div class="flex-[2] overflow-hidden">

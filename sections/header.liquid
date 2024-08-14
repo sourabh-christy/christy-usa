@@ -32,7 +32,7 @@
   class="w-full grid grid-cols-2 lg:grid-cols-12 px-8 bg-white z-10 pointer-events-auto h-[80px] items-center shadow-lg border-b border-b-slate-300" 
 >
 
-  <div
+  {% comment %} <div
     id="search-bar"
     class="fixed top-[80px] w-full bg-white left-0 px-8 flex gap-2 items-center overflow-hidden max-h-0 transition-all duration-500 shadow-lg"
   >
@@ -45,7 +45,7 @@
     <button id="search-close-icon" class="">
       {% render 'icon-close' %}
     </button>
-  </div> 
+  </div>  {% endcomment %}
   <div id="logo" class="lg:col-span-2">
     {%- if request.page_type == 'index' -%}
       <h1 class="header__heading">
