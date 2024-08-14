@@ -224,7 +224,6 @@
           "type": "block",
           "settings": {
             "product": "luxe-towels",
-            "review_carousel_image": "shopify:\/\/shop_images\/Renaissance_AshGrey_Mat02_8c1e2160-a2d1-405b-bafb-f4df02276621.jpg",
             "title": "Luxe Turkish Cotton Towel",
             "testimonial": "<p>\"Beautiful colour, amazing feel, perfect washability - just amazing and faultless.\"<\/p>",
             "name": "Simon Austin"
@@ -234,7 +233,6 @@
           "type": "block",
           "settings": {
             "product": "deep-pile-rug",
-            "review_carousel_image": "shopify:\/\/shop_images\/Renaissance_Denim_Mat02_103e9c85-0177-40ae-a860-e51726825876.jpg",
             "title": "Deep Pile Rug",
             "testimonial": "<p>\"Love these bath rugs so soft as you step out the bath and shower. Highly recommend\"<\/p>",
             "name": "Johanna Covell-Ritchie"
