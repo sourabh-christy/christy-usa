@@ -14,7 +14,6 @@
       "settings": {
         "image": "shopify:\/\/shop_images\/N-ROBES_BANNER_768X768_2_6.jpg",
         "desktop_image_height": 800,
-        "video": "shopify:\/\/files\/videos\/HP Banner video (1920x1080).mp4",
         "link": "shopify:\/\/pages\/about-us",
         "full_width": true
       }
