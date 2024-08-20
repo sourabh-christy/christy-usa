@@ -13,7 +13,7 @@
       "type": "hero-image",
       "settings": {
         "image": "shopify:\/\/shop_images\/N-ROBES_BANNER_768X768_2_6.jpg",
-        "desktop_image_height": 800,
+        "desktop_image_height": 200,
         "link": "shopify:\/\/pages\/about-us",
         "full_width": true
       }
