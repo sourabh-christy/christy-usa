@@ -241,87 +241,86 @@
         showEmptyStars: false,
       });
     </script>
-
     <script>
-      window.prechatTemplate = {
-        SubmitLabel: "Start Chat",
-        fields: {
-          1: {
-            error: "Please Enter a valid name",
-            fieldId: "name",
-            label: "Name",
-            required: "yes",
-            type: "text",
-          },
-          2: {
-            error: "Please Enter a valid Email",
-            fieldId: "email",
-            label: "Email",
-            required: "yes",
-            type: "email",
-          },
-          3: {
-            error: "Please Enter a valid Phone Number",
-            fieldId: "phone",
-            label: "Phone",
-            required: "no",
-            type: "phone",
-          },
-          4: {
-            error: "Please Enter issue",
-            fieldId: "cf_issue",
-            label: "Complaint/Query/Request",
-            required: "no",
-            type: "text",
-          },
-        },
-        heading: "Christy",
-        mainbgColor: "#2c3b96",
-        maintxColor: "#fff",
-        textBanner:
-          "We can't wait to talk to you. But first, please take a couple of moments to tell us a bit about yourself.",
-      };
-
-      window.fcSettings = {
-        onInit: function () {
-          window.fcPreChatform.fcWidgetInit(window.prechatTemplate);
-        },
-      };
-      window.fcWidgetMessengerConfig = {
-        config: {
-          content: {
-            actions: {
-              tab_chat: "Chat",
+        window.prechatTemplate = {
+          SubmitLabel: "Start Chat",
+          fields: {
+            1: {
+              error: "Please Enter a valid name",
+              fieldId: "name",
+              label: "Name",
+              required: "yes",
+              type: "text",
             },
-            headers: {
-              chat: "Chat With Us",
+            2: {
+              error: "Please Enter a valid Email",
+              fieldId: "email",
+              label: "Email",
+              required: "yes",
+              type: "email",
+            },
+            3: {
+              error: "Please Enter a valid Phone Number",
+              fieldId: "phone",
+              label: "Phone",
+              required: "no",
+              type: "phone",
+            },
+            4: {
+              error: "Please Enter issue",
+              fieldId: "cf_issue",
+              label: "Complaint/Query/Request",
+              required: "no",
+              type: "text",
             },
           },
-          cssNames: {
-            expanded: "custom_fc_expanded",
-            widget: "custom_fc_frame",
+          heading: "Christy",
+          mainbgColor: "#2c3b96",
+          maintxColor: "#fff",
+          textBanner:
+            "We can't wait to talk to you. But first, please take a couple of moments to tell us a bit about yourself.",
+        };
+   
+        window.fcSettings = {
+          onInit: function () {
+            window.fcPreChatform.fcWidgetInit(window.prechatTemplate);
           },
-        },
-      };
-    </script>
-    <script async defer src="https://snippets.freshchat.com/js/fc-pre-chat-form-v2.js"></script>
-    <script async defer src="//eu.fw-cdn.com/12707561/706000.js" chat="true"></script>
-    <script
-      async
-      defer
-    >
-      // Add custom CSS styles directly via JavaScript
-      var customStyles = document.createElement("style");
-      customStyles.innerHTML = `
-        .fc-form p,
-        .pre-fc-field label {
-          font-size: medium;
-        }
-        .pre-fc-field label {
-          text-transform: capitalize;
-        }
-      `;
-      document.head.appendChild(customStyles);
-    </script>
+        };
+        window.fcWidgetMessengerConfig = {
+          config: {
+            content: {
+              actions: {
+                tab_chat: "Chat",
+              },
+              headers: {
+                chat: "Chat With Us",
+              },
+            },
+            cssNames: {
+              expanded: "custom_fc_expanded",
+              widget: "custom_fc_frame",
+            },
+          },
+        };
+      </script>
+      <script src="https://snippets.freshchat.com/js/fc-pre-chat-form-v2.js"></script>
+      <script
+src='//eu.fw-cdn.com/12707561/706000.js'
+chat='true' widgetId='0362b116-9317-47ff-89ae-78108a9d536e'>
+</script>
+      <script>
+        // Add custom CSS styles directly via JavaScript
+        var customStyles = document.createElement("style");
+        customStyles.innerHTML = `
+          .fc-form p,
+          .pre-fc-field label {
+            font-size: medium;
+          }
+          .pre-fc-field label {
+            text-transform: capitalize;
+          }
+        `;
+        document.head.appendChild(customStyles);
+      </script>
   </body>
 </html>
