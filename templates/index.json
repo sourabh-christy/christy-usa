@@ -359,6 +359,7 @@
     },
     "heading_BDhaU6": {
       "type": "heading",
+      "disabled": true,
       "settings": {
         "heading": "<p>How do you like your towels?<\/p>",
         "heading_width": "6",
@@ -415,6 +416,7 @@
         "template--19440932552979__b25d4794-78f6-4222-8e57-f4d67b3e4a48-1686843997bc378748-1",
         "template--19440932552979__b25d4794-78f6-4222-8e57-f4d67b3e4a48-1686843997bc378748-2"
       ],
+      "disabled": true,
       "settings": {
         "title": "",
         "title_font_size_mob": 16,
