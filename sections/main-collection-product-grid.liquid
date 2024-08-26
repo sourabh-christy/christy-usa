@@ -204,8 +204,8 @@
       .qt-seo-towel-excerpt {
         margin: auto;
         max-width: 1350px;
-        margin-top:40px;
-        margin-bottom:40px;
+         margin-top:40px;
+        margin-bottom:40px; 
       }
       .qt-toggle-content {
         margin-top: 10px;
@@ -235,7 +235,13 @@
           grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
         } 
       }
-
+      @media (max-width: 1400px) {
+        .qt-seo-towel-excerpt {
+          margin: 0px 40px;
+          margin-top:40px;
+          margin-bottom:40px; 
+        }
+      }
       @media (max-width: 768px) {
         .product-grid-filter {
          /* margin: 0px 40px;*/
@@ -266,6 +272,8 @@
         }
         .qt-seo-towel-excerpt {
           margin: 0px 40px;
+          margin-top:40px;
+          margin-bottom:40px; 
         }
         .qt-toggle-link {
           text-align: center;
