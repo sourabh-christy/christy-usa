@@ -98,7 +98,7 @@
             <div class="space-y-4 lg:space-y-6">
               <h2 class="drawer__heading m-h1 lg:d-h1">Basket</h2>
 
-              {%- liquid
+              {% comment %} {%- liquid
                 assign has_intro_copy = false
                 assign points_per_pound = settings.points_per_pound
                 assign cart_drawer_intro_loggedin = settings.cart_drawer_intro_loggedin
@@ -107,9 +107,9 @@
                 if points_per_pound
                   assign calc_points = cart.total_price | divided_by: 100 | times: points_per_pound
                 endif
-              %}
+              %} {% endcomment %}
 
-              {% if customer and points_per_pound and cart_drawer_intro_loggedin %}
+              {% comment %} {% if customer and points_per_pound and cart_drawer_intro_loggedin %}
                 {% assign has_intro_copy = true %}
                 {% assign intro_replaced = cart_drawer_intro_loggedin | replace: '{points}', calc_points %}
                 <div class="wysiwyg">{{ intro_replaced }}</div>
@@ -117,11 +117,11 @@
                 {% assign has_intro_copy = true %}
                 {% assign intro_replaced = cart_drawer_intro_loggedout | replace: '{points}', calc_points %}
                 <div class="wysiwyg">{{ intro_replaced }}</div>
-              {% endif %}
+              {% endif %} {% endcomment %}
 
-              {% if has_intro_copy == false %}
+              {% comment %} {% if has_intro_copy == false %}
                 <div class="wysiwyg">{{ settings.cart_drawer_intro }}</div>
-              {% endif %}
+              {% endif %} {% endcomment %}
             </div>
 
             <p class=" text-[14px] lg:text-[16px]">
@@ -826,7 +826,7 @@
             {% endif %}
 
             <div class="totals flex justify-between space-x-6" role="status">
-              <h2 class="totals__subtotal">Subtotal (incl. VAT)</h2>
+              <h2 class="totals__subtotal">Subtotal (excl. Tax)</h2>
               <p class="totals__subtotal-value">
                 {% if savings > 0 %}
                   <strong class="line-through">{{ cumulative_rrp | money }}</strong>
@@ -864,9 +864,9 @@
             <p class="text-[10px] lg:text-[11px]">
               {% if cart.total_price < 5000 %}
                 {% assign neededMoney = 5000 | minus: cart.total_price | money %}
-                Spend another <strong>{{ neededMoney }}</strong> to qualify for Free Standard Delivery to UK.
+                Spend another <strong>{{ neededMoney }}</strong> to qualify for Free Standard Delivery to USA.
               {% else %}
-                You qualify for Free Standard Delivery to UK.
+                You qualify for Free Standard Delivery to USA.
               {% endif %}
             </p>
           </div>
