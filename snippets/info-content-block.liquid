@@ -1,5 +1,6 @@
+
 <div class="product-card group/card info-content-block col-span-1  qt-info-content-block ">
-   
+ 
   <div
     class="space-y-4 h-full"
     
@@ -67,7 +68,7 @@
           height="{{ block.background_image.height }}"
           width="{{ block.background_image.width }}"
           loading="lazy"
-          class="motion-reduce w-full h-full object-cover left-0 top-0 -z-10 absolute brightness-50 {% if block.overlay == true %}qt-info-content-block-img {% endif %}"
+          class="motion-reduce w-full h-full object-cover left-0 top-0 -z-10 absolute {% if block.overlay == true %}qt-info-content-block-img {% endif %}"
         />
 
         <div class="relative z-0 w-full h-full flex flex-col items-center justify-center px-8 gap-6 text-white text-center">
