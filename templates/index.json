@@ -574,8 +574,8 @@
         "block_7Neqxr": {
           "type": "block",
           "settings": {
-            "title": "Premium Materials",
-            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet venenatis urna cursus eget nunc scelerisque.<\/p>"
+            "title": "The Finest Materials",
+            "text": "<p>Textures matter and luxury quality reigns supreme across every Christy product, with a dedication to championing the world’s most delectable fabrics.<\/p>"
           }
         },
         "block_gmjK7c": {
@@ -599,7 +599,7 @@
         "block_73tGHf"
       ],
       "settings": {
-        "title": "Why Christy Home?",
+        "title": "Step Inside Our World",
         "button_title": "",
         "button_link": "",
         "margin": "no"
