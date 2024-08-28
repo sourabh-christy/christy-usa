@@ -179,6 +179,43 @@
         ],
         "screen_visibility": "both"
       }
+    },
+    "why_christy_mdngni": {
+      "type": "why-christy",
+      "blocks": {
+        "block_hwCGLT": {
+          "type": "block",
+          "settings": {
+            "title": "Premium Materials",
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet venenatis urna cursus eget nunc scelerisque.<\/p>"
+          }
+        },
+        "block_LUQ6BF": {
+          "type": "block",
+          "settings": {
+            "title": "Premium Materials",
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet venenatis urna cursus eget nunc scelerisque.<\/p>"
+          }
+        },
+        "block_JTt7Wc": {
+          "type": "block",
+          "settings": {
+            "title": "Premium Materials",
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet venenatis urna cursus eget nunc scelerisque.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_hwCGLT",
+        "block_LUQ6BF",
+        "block_JTt7Wc"
+      ],
+      "settings": {
+        "title": "Why Christy Home?",
+        "button_title": "",
+        "button_link": "",
+        "margin": "yes"
+      }
     }
   },
   "order": [
@@ -188,6 +225,7 @@
     "recent-products",
     "32651ade-df62-44f5-8355-bb4039f60426",
     "reviews_carousel_RrtjLf",
-    "products_carousel_y9eFaH"
+    "products_carousel_y9eFaH",
+    "why_christy_mdngni"
   ]
 }
