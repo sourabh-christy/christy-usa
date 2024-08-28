@@ -120,27 +120,6 @@
         "mobile_content_position": "overlay"
       }
     },
-    "products_carousel_yrGbjj": {
-      "type": "products-carousel",
-      "settings": {
-        "title": "Pair With a Matching Bath Mat or Rug",
-        "title_font_size_mob": 18,
-        "title_font_size_desktop": 30,
-        "title_font_weight": "400",
-        "title_font_family": "serif",
-        "button_title": "See more",
-        "button_link": "shopify:\/\/collections\/bath-mats-and-rugs",
-        "products": [
-          "fina-bath-mat",
-          "deep-pile-rug",
-          "reversible-bath-rug",
-          "supreme-bath-mat",
-          "brixton-shower-mat",
-          "renaissance-bath-mat"
-        ],
-        "screen_visibility": "both"
-      }
-    },
     "reviews_carousel_drrYnT": {
       "type": "reviews-carousel",
       "blocks": {
@@ -181,6 +160,64 @@
         "title": "Happy Customers",
         "margin": "yes"
       }
+    },
+    "products_carousel_yrGbjj": {
+      "type": "products-carousel",
+      "settings": {
+        "title": "Pair With a Matching Bath Mat or Rug",
+        "title_font_size_mob": 18,
+        "title_font_size_desktop": 30,
+        "title_font_weight": "400",
+        "title_font_family": "serif",
+        "button_title": "See more",
+        "button_link": "shopify:\/\/collections\/bath-mats-and-rugs",
+        "products": [
+          "fina-bath-mat",
+          "deep-pile-rug",
+          "reversible-bath-rug",
+          "supreme-bath-mat",
+          "brixton-shower-mat",
+          "renaissance-bath-mat"
+        ],
+        "screen_visibility": "both"
+      }
+    },
+    "why_christy_Qt6pDa": {
+      "type": "why-christy",
+      "blocks": {
+        "block_NhRaAm": {
+          "type": "block",
+          "settings": {
+            "title": "Premium Materials",
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet venenatis urna cursus eget nunc scelerisque.<\/p>"
+          }
+        },
+        "block_mQt38b": {
+          "type": "block",
+          "settings": {
+            "title": "Premium Materials",
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet venenatis urna cursus eget nunc scelerisque.<\/p>"
+          }
+        },
+        "block_xxnK3t": {
+          "type": "block",
+          "settings": {
+            "title": "Premium Materials",
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet venenatis urna cursus eget nunc scelerisque.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_NhRaAm",
+        "block_mQt38b",
+        "block_xxnK3t"
+      ],
+      "settings": {
+        "title": "Why Christy Home?",
+        "button_title": "",
+        "button_link": "",
+        "margin": "yes"
+      }
     }
   },
   "order": [
@@ -189,7 +226,8 @@
     "product-grid",
     "recent-products",
     "32651ade-df62-44f5-8355-bb4039f60426",
+    "reviews_carousel_drrYnT",
     "products_carousel_yrGbjj",
-    "reviews_carousel_drrYnT"
+    "why_christy_Qt6pDa"
   ]
 }
