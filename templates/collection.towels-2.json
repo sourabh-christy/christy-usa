@@ -98,7 +98,6 @@
     },
     "recent-products": {
       "type": "recent-products",
-      "disabled": true,
       "settings": {
         "heading": "Previously explored"
       }
@@ -119,6 +118,56 @@
         "alignment_vertical": "center",
         "mobile_content_position": "overlay"
       }
+    },
+    "featured_collection_KT3pEA": {
+      "type": "featured-collection",
+      "blocks": {
+        "product_pErLdU": {
+          "type": "product",
+          "settings": {
+            "product": "reversible-bath-rug",
+            "text": ""
+          }
+        },
+        "product_CqANh4": {
+          "type": "product",
+          "settings": {
+            "product": "fina-bath-mat",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_pErLdU",
+        "product_CqANh4"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "Shop the Collection",
+        "collection": "bath-mats-and-rugs"
+      }
+    },
+    "collections_carousel_eCExQ4": {
+      "type": "collections-carousel",
+      "blocks": {
+        "collection_8V9RdN": {
+          "type": "collection",
+          "settings": {
+            "collection": "bath-mats-and-rugs",
+            "usp_title": "",
+            "image": "shopify:\/\/shop_images\/Renaissance_Berry_Mat02_5b87a806-043d-4a2d-96b7-0a0362899159.jpg",
+            "alt_title": "",
+            "excerpt": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_8V9RdN"
+      ],
+      "settings": {
+        "title": "",
+        "screen_visibility": "mobile"
+      }
     }
   },
   "order": [
@@ -126,6 +175,8 @@
     "350a0dfc-aa6f-4324-a5e0-c8df8361e76f",
     "product-grid",
     "recent-products",
-    "32651ade-df62-44f5-8355-bb4039f60426"
+    "32651ade-df62-44f5-8355-bb4039f60426",
+    "featured_collection_KT3pEA",
+    "collections_carousel_eCExQ4"
   ]
 }
