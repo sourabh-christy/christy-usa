@@ -120,6 +120,47 @@
         "mobile_content_position": "overlay"
       }
     },
+    "reviews_carousel_RrtjLf": {
+      "type": "reviews-carousel",
+      "blocks": {
+        "block_nNQLGX": {
+          "type": "block",
+          "settings": {
+            "product": "supreme-hygro",
+            "title": "Customer Reviews",
+            "testimonial": "<p>“Beautiful towel , so thick and soft . Highly recommend .”<\/p>",
+            "name": "Sheila Wray"
+          }
+        },
+        "block_RL6wFr": {
+          "type": "block",
+          "settings": {
+            "product": "",
+            "title": "Customer Reviews",
+            "testimonial": "<p>“One of the highest quality products I have experienced. Very very soft and drapes beautifully on my bed.”<\/p>",
+            "name": "John Smith"
+          }
+        },
+        "block_tyLfrH": {
+          "type": "block",
+          "settings": {
+            "product": "",
+            "title": "Customer Reviews",
+            "testimonial": "<p>“One of the highest quality products I have experienced. Very very soft and drapes beautifully on my bed.”<\/p>",
+            "name": "John Smith"
+          }
+        }
+      },
+      "block_order": [
+        "block_nNQLGX",
+        "block_RL6wFr",
+        "block_tyLfrH"
+      ],
+      "settings": {
+        "title": "100,000+ Happy Customers",
+        "margin": "yes"
+      }
+    },
     "products_carousel_y9eFaH": {
       "type": "products-carousel",
       "settings": {
@@ -146,6 +187,7 @@
     "product-grid",
     "recent-products",
     "32651ade-df62-44f5-8355-bb4039f60426",
+    "reviews_carousel_RrtjLf",
     "products_carousel_y9eFaH"
   ]
 }
