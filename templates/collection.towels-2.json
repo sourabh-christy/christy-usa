@@ -96,29 +96,6 @@
         "enable_sorting": true
       }
     },
-    "recent-products": {
-      "type": "recent-products",
-      "settings": {
-        "heading": "Previously explored"
-      }
-    },
-    "32651ade-df62-44f5-8355-bb4039f60426": {
-      "type": "billboard",
-      "disabled": true,
-      "settings": {
-        "screen_visibility": "both",
-        "subtitle": "Christy Life",
-        "title": "<p>7 simple everyday self-care rituals<\/p>",
-        "copy": "<p>Add a bit of TLC to your daily routine with these ideas to help you pause and enjoy the little moments.<\/p>",
-        "button_label": "Read more",
-        "button_link": "https:\/\/quickstart-3a56366d.myshopify.com\/collections\/bed-duvet-sets",
-        "button_type": "tertiary",
-        "colour_theme": "white",
-        "alignment": "left",
-        "alignment_vertical": "center",
-        "mobile_content_position": "overlay"
-      }
-    },
     "featured_collection_KT3pEA": {
       "type": "featured-collection",
       "blocks": {
@@ -150,8 +127,31 @@
         "product_CqANh4"
       ],
       "settings": {
-        "title": "Shop the Collection",
+        "title": "Pair With a Matching Bath Mat",
         "collection": "bath-mats-and-rugs"
+      }
+    },
+    "recent-products": {
+      "type": "recent-products",
+      "settings": {
+        "heading": "Previously explored"
+      }
+    },
+    "32651ade-df62-44f5-8355-bb4039f60426": {
+      "type": "billboard",
+      "disabled": true,
+      "settings": {
+        "screen_visibility": "both",
+        "subtitle": "Christy Life",
+        "title": "<p>7 simple everyday self-care rituals<\/p>",
+        "copy": "<p>Add a bit of TLC to your daily routine with these ideas to help you pause and enjoy the little moments.<\/p>",
+        "button_label": "Read more",
+        "button_link": "https:\/\/quickstart-3a56366d.myshopify.com\/collections\/bed-duvet-sets",
+        "button_type": "tertiary",
+        "colour_theme": "white",
+        "alignment": "left",
+        "alignment_vertical": "center",
+        "mobile_content_position": "overlay"
       }
     },
     "collections_carousel_eCExQ4": {
@@ -181,9 +181,9 @@
     "1d82b188-dbd0-4b5a-9133-e748104fe16d",
     "350a0dfc-aa6f-4324-a5e0-c8df8361e76f",
     "product-grid",
+    "featured_collection_KT3pEA",
     "recent-products",
     "32651ade-df62-44f5-8355-bb4039f60426",
-    "featured_collection_KT3pEA",
     "collections_carousel_eCExQ4"
   ]
 }
