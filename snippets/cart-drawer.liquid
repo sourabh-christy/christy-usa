@@ -96,7 +96,7 @@
         <div class="drawer__header mb-5 lg:mb-6 ">
           <div class="space-y-12 lg:space-y-11">
             <div class="space-y-4 lg:space-y-6">
-              <h2 class="drawer__heading m-h1 lg:d-h1">Basket</h2>
+              <h2 class="drawer__heading m-h1 lg:d-h1">Cart</h2>
 
               {% comment %} {%- liquid
                 assign has_intro_copy = false
@@ -826,7 +826,7 @@
             {% endif %}
 
             <div class="totals flex justify-between space-x-6" role="status">
-              <h2 class="totals__subtotal">Subtotal (excl. Tax)</h2>
+              <h2 class="totals__subtotal">Subtotal (Exclusive- Tax)</h2>
               <p class="totals__subtotal-value">
                 {% if savings > 0 %}
                   <strong class="line-through">{{ cumulative_rrp | money }}</strong>
