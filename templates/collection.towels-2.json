@@ -96,43 +96,9 @@
         "enable_sorting": true
       }
     },
-    "featured_collection_KT3pEA": {
-      "type": "featured-collection",
-      "blocks": {
-        "product_zrjinM": {
-          "type": "product",
-          "settings": {
-            "product": "deep-pile-rug",
-            "text": ""
-          }
-        },
-        "product_pErLdU": {
-          "type": "product",
-          "settings": {
-            "product": "reversible-bath-rug",
-            "text": ""
-          }
-        },
-        "product_CqANh4": {
-          "type": "product",
-          "settings": {
-            "product": "fina-bath-mat",
-            "text": ""
-          }
-        }
-      },
-      "block_order": [
-        "product_zrjinM",
-        "product_pErLdU",
-        "product_CqANh4"
-      ],
-      "settings": {
-        "title": "Pair With a Matching Bath Mat",
-        "collection": "bath-mats-and-rugs"
-      }
-    },
     "recent-products": {
       "type": "recent-products",
+      "disabled": true,
       "settings": {
         "heading": "Previously explored"
       }
@@ -154,26 +120,25 @@
         "mobile_content_position": "overlay"
       }
     },
-    "collections_carousel_eCExQ4": {
-      "type": "collections-carousel",
-      "blocks": {
-        "collection_8V9RdN": {
-          "type": "collection",
-          "settings": {
-            "collection": "bath-mats-and-rugs",
-            "usp_title": "",
-            "image": "shopify:\/\/shop_images\/Renaissance_Berry_Mat02_5b87a806-043d-4a2d-96b7-0a0362899159.jpg",
-            "alt_title": "",
-            "excerpt": ""
-          }
-        }
-      },
-      "block_order": [
-        "collection_8V9RdN"
-      ],
+    "products_carousel_yrGbjj": {
+      "type": "products-carousel",
       "settings": {
-        "title": "",
-        "screen_visibility": "mobile"
+        "title": "Pair With a Matching Bath Mat or Rug",
+        "title_font_size_mob": 18,
+        "title_font_size_desktop": 30,
+        "title_font_weight": "400",
+        "title_font_family": "serif",
+        "button_title": "See more",
+        "button_link": "shopify:\/\/collections\/bath-mats-and-rugs",
+        "products": [
+          "fina-bath-mat",
+          "deep-pile-rug",
+          "reversible-bath-rug",
+          "supreme-bath-mat",
+          "brixton-shower-mat",
+          "renaissance-bath-mat"
+        ],
+        "screen_visibility": "both"
       }
     }
   },
@@ -181,9 +146,8 @@
     "1d82b188-dbd0-4b5a-9133-e748104fe16d",
     "350a0dfc-aa6f-4324-a5e0-c8df8361e76f",
     "product-grid",
-    "featured_collection_KT3pEA",
     "recent-products",
     "32651ade-df62-44f5-8355-bb4039f60426",
-    "collections_carousel_eCExQ4"
+    "products_carousel_yrGbjj"
   ]
 }
