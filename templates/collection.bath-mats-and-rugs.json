@@ -1,1 +1,151 @@
-{"sections":{"1141d3ad-2866-4abb-8256-033fc8707c39":{"type":"hero-image","disabled":true,"settings":{"image":"shopify:\/\/shop_images\/Up_to_50_Off_Extra_20_off_orders_100.jpg","link":"","full_width":true}},"75ff7348-8c55-4232-af26-43c33e5ae748":{"type":"hero-image","disabled":true,"settings":{"image":"shopify:\/\/shop_images\/MicrosoftTeams-image_25.png","link":"","full_width":true}},"product-grid":{"type":"main-collection-product-grid","blocks":{"5a878969-3318-42e0-87f9-e02a64758016":{"type":"infocard","disabled":true,"settings":{"text":"Build your Bundle","copy":"<p>Discover your perfect match for a restful night’s slumber.<\/p>","button_text":"Build your Dream Duvet Set","button_url":"https:\/\/quickstart-3a56366d.myshopify.com\/collections\/bed-duvet-sets","styled":false,"position":7}},"77b7bcba-adf8-4b59-84fa-2aed599efb4a":{"type":"infocard","settings":{"text":"Renaissance Bath Mat","copy":"<p>After an indulgent soak, step onto the fluffy warmth of our Renaissance bath mat. <\/p><p>It's soft and cushiony underfoot, adding a touch of luxury to any bathroom.<\/p>","button_text":"Discover Collection","button_url":"shopify:\/\/products\/renaissance-bath-mat","styled":true,"position":8}},"723c09cd-40b5-4949-8c55-69dab142f5e5":{"type":"listsc","disabled":true,"settings":{"image":"shopify:\/\/shop_images\/innovation-1.jpg","product_1":"prism-bath-mat","pos_l_1":70,"pos_t_1":45,"product_2":"prism-bath-mat","pos_l_2":20,"pos_t_2":75,"product_3":"","pos_l_3":50,"pos_t_3":50}},"9dd9db74-0cb2-4848-9653-157d62c90364":{"type":"listsc","disabled":true,"settings":{"image":"shopify:\/\/shop_images\/innovation-1.jpg","product_1":"organic-shower-mat","pos_l_1":25,"pos_t_1":15,"product_2":"fina-bath-mat","pos_l_2":50,"pos_t_2":70,"product_3":"","pos_l_3":50,"pos_t_3":50}}},"block_order":["5a878969-3318-42e0-87f9-e02a64758016","77b7bcba-adf8-4b59-84fa-2aed599efb4a","723c09cd-40b5-4949-8c55-69dab142f5e5","9dd9db74-0cb2-4848-9653-157d62c90364"],"settings":{"products_per":10}},"recent-products":{"type":"recent-products","settings":{"heading":"Previously explored"}},"32651ade-df62-44f5-8355-bb4039f60426":{"type":"billboard","disabled":true,"settings":{"screen_visibility":"both","subtitle":"Christy Life","title":"<p>7 simple everyday self-care rituals<\/p>","copy":"<p>Add a bit of TLC to your daily routine with these ideas to help you pause and enjoy the little moments.<\/p>","button_label":"Read more","button_link":"https:\/\/quickstart-3a56366d.myshopify.com\/collections\/bed-duvet-sets","button_type":"tertiary","colour_theme":"white","alignment":"left","alignment_vertical":"center","mobile_content_position":"overlay"}}},"order":["1141d3ad-2866-4abb-8256-033fc8707c39","75ff7348-8c55-4232-af26-43c33e5ae748","product-grid","recent-products","32651ade-df62-44f5-8355-bb4039f60426"]}
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "1141d3ad-2866-4abb-8256-033fc8707c39": {
+      "type": "hero-image",
+      "disabled": true,
+      "settings": {
+        "link": "",
+        "full_width": true
+      }
+    },
+    "75ff7348-8c55-4232-af26-43c33e5ae748": {
+      "type": "hero-image",
+      "disabled": true,
+      "settings": {
+        "link": "",
+        "full_width": true
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "blocks": {
+        "5a878969-3318-42e0-87f9-e02a64758016": {
+          "type": "infocard",
+          "disabled": true,
+          "settings": {
+            "text": "Build your Bundle",
+            "copy": "<p>Discover your perfect match for a restful night’s slumber.<\/p>",
+            "button_text": "Build your Dream Duvet Set",
+            "button_url": "https:\/\/quickstart-3a56366d.myshopify.com\/collections\/bed-duvet-sets",
+            "styled": false,
+            "position": 7
+          }
+        },
+        "77b7bcba-adf8-4b59-84fa-2aed599efb4a": {
+          "type": "infocard",
+          "settings": {
+            "text": "Renaissance Bath Mat",
+            "copy": "<p>After an indulgent soak, step onto the fluffy warmth of our Renaissance bath mat. <\/p><p>It's soft and cushiony underfoot, adding a touch of luxury to any bathroom.<\/p>",
+            "button_text": "Discover Collection",
+            "button_url": "shopify:\/\/products\/renaissance-bath-mat",
+            "styled": true,
+            "position": 8
+          }
+        },
+        "723c09cd-40b5-4949-8c55-69dab142f5e5": {
+          "type": "listsc",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/innovation-1.jpg",
+            "product_1": "prism-bath-mat",
+            "pos_l_1": 70,
+            "pos_t_1": 45,
+            "product_2": "prism-bath-mat",
+            "pos_l_2": 20,
+            "pos_t_2": 75,
+            "product_3": "",
+            "pos_l_3": 50,
+            "pos_t_3": 50
+          }
+        },
+        "9dd9db74-0cb2-4848-9653-157d62c90364": {
+          "type": "listsc",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/innovation-1.jpg",
+            "product_1": "organic-shower-mat",
+            "pos_l_1": 25,
+            "pos_t_1": 15,
+            "product_2": "fina-bath-mat",
+            "pos_l_2": 50,
+            "pos_t_2": 70,
+            "product_3": "",
+            "pos_l_3": 50,
+            "pos_t_3": 50
+          }
+        }
+      },
+      "block_order": [
+        "5a878969-3318-42e0-87f9-e02a64758016",
+        "77b7bcba-adf8-4b59-84fa-2aed599efb4a",
+        "723c09cd-40b5-4949-8c55-69dab142f5e5",
+        "9dd9db74-0cb2-4848-9653-157d62c90364"
+      ],
+      "settings": {
+        "products_per": 10,
+        "enable_filtering": true,
+        "enable_sorting": true
+      }
+    },
+    "recent-products": {
+      "type": "recent-products",
+      "disabled": true,
+      "settings": {
+        "heading": "Previously explored"
+      }
+    },
+    "32651ade-df62-44f5-8355-bb4039f60426": {
+      "type": "billboard",
+      "disabled": true,
+      "settings": {
+        "screen_visibility": "both",
+        "subtitle": "Christy Life",
+        "title": "<p>7 simple everyday self-care rituals<\/p>",
+        "copy": "<p>Add a bit of TLC to your daily routine with these ideas to help you pause and enjoy the little moments.<\/p>",
+        "button_label": "Read more",
+        "button_link": "https:\/\/quickstart-3a56366d.myshopify.com\/collections\/bed-duvet-sets",
+        "button_type": "tertiary",
+        "colour_theme": "white",
+        "alignment": "left",
+        "alignment_vertical": "center",
+        "mobile_content_position": "overlay"
+      }
+    },
+    "products_carousel_y9eFaH": {
+      "type": "products-carousel",
+      "settings": {
+        "title": "Pair With Matching Towels",
+        "title_font_size_mob": 18,
+        "title_font_size_desktop": 30,
+        "title_font_weight": "400",
+        "title_font_family": "serif",
+        "button_title": "See more",
+        "button_link": "shopify:\/\/collections\/towels",
+        "products": [
+          "supreme-hygro",
+          "renaissance",
+          "luxe-towels",
+          "brixton-towels"
+        ],
+        "screen_visibility": "both"
+      }
+    }
+  },
+  "order": [
+    "1141d3ad-2866-4abb-8256-033fc8707c39",
+    "75ff7348-8c55-4232-af26-43c33e5ae748",
+    "product-grid",
+    "recent-products",
+    "32651ade-df62-44f5-8355-bb4039f60426",
+    "products_carousel_y9eFaH"
+  ]
+}
