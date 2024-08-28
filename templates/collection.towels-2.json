@@ -122,6 +122,13 @@
     "featured_collection_KT3pEA": {
       "type": "featured-collection",
       "blocks": {
+        "product_zrjinM": {
+          "type": "product",
+          "settings": {
+            "product": "deep-pile-rug",
+            "text": ""
+          }
+        },
         "product_pErLdU": {
           "type": "product",
           "settings": {
@@ -138,6 +145,7 @@
         }
       },
       "block_order": [
+        "product_zrjinM",
         "product_pErLdU",
         "product_CqANh4"
       ],
