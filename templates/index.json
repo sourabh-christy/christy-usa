@@ -591,28 +591,12 @@
             "title": "Hassle Free Delivery & Returns",
             "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet venenatis urna cursus eget nunc scelerisque.<\/p>"
           }
-        },
-        "block_pRPhhy": {
-          "type": "block",
-          "settings": {
-            "title": "Premium Materials",
-            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet venenatis urna cursus eget nunc scelerisque.<\/p>"
-          }
-        },
-        "block_JH7KGJ": {
-          "type": "block",
-          "settings": {
-            "title": "Premium Materials",
-            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet venenatis urna cursus eget nunc scelerisque.<\/p>"
-          }
         }
       },
       "block_order": [
         "block_7Neqxr",
         "block_gmjK7c",
-        "block_73tGHf",
-        "block_pRPhhy",
-        "block_JH7KGJ"
+        "block_73tGHf"
       ],
       "settings": {
         "title": "Why Christy Home?",
