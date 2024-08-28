@@ -63,6 +63,58 @@
         "alignment_vertical": "center",
         "mobile_content_position": "overlay"
       }
+    },
+    "why_christy_4Ja7hw": {
+      "type": "why-christy",
+      "blocks": {
+        "block_JMUNUh": {
+          "type": "block",
+          "settings": {
+            "title": "Premium Materials",
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet venenatis urna cursus eget nunc scelerisque.<\/p>"
+          }
+        },
+        "block_dAqLDG": {
+          "type": "block",
+          "settings": {
+            "title": "Premium Materials",
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet venenatis urna cursus eget nunc scelerisque.<\/p>"
+          }
+        },
+        "block_Wmb4Mh": {
+          "type": "block",
+          "settings": {
+            "title": "Premium Materials",
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet venenatis urna cursus eget nunc scelerisque.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_JMUNUh",
+        "block_dAqLDG",
+        "block_Wmb4Mh"
+      ],
+      "settings": {
+        "title": "Why Christy Home?",
+        "button_title": "",
+        "button_link": "",
+        "margin": "yes"
+      }
+    },
+    "17248366286f91456a": {
+      "type": "apps",
+      "blocks": {
+        "instagram_feed_instafeed_rptr_raptor_instagram_TyECCW": {
+          "type": "shopify:\/\/apps\/instagram-feed-instafeed-rptr\/blocks\/raptor-instagram\/557ff51a-dc31-4dee-a7df-4610643fa410",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "instagram_feed_instafeed_rptr_raptor_instagram_TyECCW"
+      ],
+      "settings": {
+      }
     }
   },
   "order": [
@@ -72,6 +124,8 @@
     "1693485436843bc3ff",
     "dfadb464-131f-4320-963f-71343e59af69",
     "recent-products",
-    "86a4f019-bc37-4060-9067-8a759a38958f"
+    "86a4f019-bc37-4060-9067-8a759a38958f",
+    "why_christy_4Ja7hw",
+    "17248366286f91456a"
   ]
 }
