@@ -8,7 +8,6 @@
     cursor: zoom-out;
   }
 {% endstylesheet %}
-
 <section
   id="MainProduct-{{ section.id }}"
   class="page-width section-{{ section.id }}-padding"
@@ -267,10 +266,10 @@
                 <header class="space-y-2 md:space-y-4">
                   <h1 class="m-h1 lg:s-d-h4">{{ product.title | escape }}</h1>
 
-                  {% if product.metafields.christy23.tagline_pdp %}
+                  {% if product.metafields.custom.tagline_oneliner_pdp %}
                     <div class="flex justify-between space-x-5">
                       <div>
-                        <p class="font-semibold lg:d-h5">{{ product.metafields.christy23.tagline_pdp.value }}</p>
+                        <p class="font-semibold lg:d-h5">{{ product.metafields.custom.tagline_oneliner_pdp }}</p>
                       </div>
                     </div>
                   {% endif %}
@@ -374,7 +373,8 @@
                   >
                     Personalization Not Allowed for this Variant
                   </div>
-                {% endif %}
+                {% endif %} 
+                
                 <div
                   id="buy-buttons-wrap"
                   class="max-md:!mt-0 max-md:py-5 max-md:px-10 max-md:border-y max-md:border-blue-1 max-md:bg-white max-md:fixed max-md:left-0 max-md:bottom-0 z-10 max-md:w-full"
@@ -695,6 +695,27 @@
                 </div>
               </div>
             {% endif %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const viewSizeGuideButton = document.querySelector('a[data-sizeguideto]');
+      const sizeGuideSection = document.getElementById('sizeguide');
+
+      if (viewSizeGuideButton && sizeGuideSection) {
+        viewSizeGuideButton.addEventListener('click', function(event) {
+          event.preventDefault();
+
+          const isOpen = sizeGuideSection.classList.contains('group/[.open]/acc:!flex');
+
+          if (!isOpen) {
+            sizeGuideSection.classList.add('group/[.open]/acc:!flex');
+            sizeGuideSection.classList.remove('opacity-0');
+          }
+
+          sizeGuideSection.scrollIntoView({ behavior: 'smooth' });
+        });
+      }
+    });
+</script>
             {% comment %}
               END Specification
             {% endcomment %}
