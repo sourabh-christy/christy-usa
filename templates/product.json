@@ -53,8 +53,20 @@
       "settings": {
         "screen_visibility": "both",
         "subtitle": "Christy Life",
+        "billboard_subtitle_font_size_mob": 16,
+        "billboard_subtitle_font_size_desktop": 16,
+        "billboard_subtitle_font_weight": "600",
+        "billboard_subtitle_font_family": "sans-serif",
         "title": "<p>Caring Cotton<\/p>",
+        "billboard_title_font_size_mob": 16,
+        "billboard_title_font_size_desktop": 40,
+        "billboard_title_font_weight": "500",
+        "billboard_title_font_family": "Hatton, serif",
         "copy": "<p>Sustainably made cotton is kinder to the environment and the people who produce it – which is why we’re using it more than ever. <\/p><p>Our Made In Green-certified products are guaranteed to have been made sustainably, under socially responsible working environments and using transparent supply chains.<\/p>",
+        "billboard_copy_font_size_mob": 14,
+        "billboard_copy_font_size_desktop": 14,
+        "billboard_copy_font_weight": "200",
+        "billboard_copy_font_family": "sans-serif",
         "button_label": "Read More",
         "button_link": "https:\/\/christystaging.myshopify.com\/pages\/responsibility",
         "button_type": "tertiary",
@@ -70,22 +82,22 @@
         "block_JMUNUh": {
           "type": "block",
           "settings": {
-            "title": "Premium Materials",
-            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet venenatis urna cursus eget nunc scelerisque.<\/p>"
+            "title": "The Finest Materials",
+            "text": "<p>Textures matter and luxury quality reigns supreme across every Christy product, with a dedication to championing the world’s most delectable fabrics.<\/p>"
           }
         },
         "block_dAqLDG": {
           "type": "block",
           "settings": {
-            "title": "Premium Materials",
-            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet venenatis urna cursus eget nunc scelerisque.<\/p>"
+            "title": "Heritage of Excellence",
+            "text": "<p>We’ve been making home textiles to be loved well and treasured over time with our heritage flair, unwavering innovation and luxury craftsmanship since 1850. <\/p>"
           }
         },
         "block_Wmb4Mh": {
           "type": "block",
           "settings": {
-            "title": "Premium Materials",
-            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet venenatis urna cursus eget nunc scelerisque.<\/p>"
+            "title": "Easy Delivery & Returns",
+            "text": "<p>From the moment you place your order, we’re here to get it to you fast, troubleshoot any issues and arrange hassle-free returns if you need it.<\/p>"
           }
         }
       },
@@ -95,7 +107,7 @@
         "block_Wmb4Mh"
       ],
       "settings": {
-        "title": "Why Christy Home?",
+        "title": "Step Into Our World",
         "button_title": "",
         "button_link": "",
         "margin": "no"
