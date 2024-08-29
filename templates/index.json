@@ -296,8 +296,8 @@
         "alignment_mob": "center",
         "horiz_padding": true,
         "margin_top": true,
-        "background_color": "#ffffff",
-        "font_color": "#000000"
+        "background_color": "#f3f3f3",
+        "font_color": "#334fb4"
       }
     },
     "hero_collection_edGUde": {
