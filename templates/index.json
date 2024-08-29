@@ -28,7 +28,9 @@
         "alignment": "center",
         "alignment_mob": "center",
         "horiz_padding": false,
-        "margin_top": false
+        "margin_top": false,
+        "background_color": "#ce2929",
+        "font_color": "#ffffff"
       }
     },
     "heading": {
@@ -42,7 +44,9 @@
         "alignment": "center",
         "alignment_mob": "center",
         "horiz_padding": true,
-        "margin_top": false
+        "margin_top": false,
+        "background_color": "#FFFFFF",
+        "font_color": "#000000"
       }
     },
     "de1b0a2d-4cb0-4dbd-a641-18437895549a": {
@@ -114,7 +118,9 @@
         "alignment": "center",
         "alignment_mob": "center",
         "horiz_padding": false,
-        "margin_top": false
+        "margin_top": false,
+        "background_color": "#FFFFFF",
+        "font_color": "#000000"
       }
     },
     "5f8fd688-f484-4f34-9ee0-6dd133c393ad": {
@@ -289,7 +295,9 @@
         "alignment": "center",
         "alignment_mob": "center",
         "horiz_padding": true,
-        "margin_top": true
+        "margin_top": true,
+        "background_color": "#FFFFFF",
+        "font_color": "#000000"
       }
     },
     "hero_collection_edGUde": {
@@ -343,7 +351,9 @@
         "alignment": "left",
         "alignment_mob": "center",
         "horiz_padding": true,
-        "margin_top": false
+        "margin_top": false,
+        "background_color": "#FFFFFF",
+        "font_color": "#000000"
       }
     },
     "hero_image_cJLbna": {
@@ -365,7 +375,9 @@
         "alignment": "left",
         "alignment_mob": "right",
         "horiz_padding": true,
-        "margin_top": false
+        "margin_top": false,
+        "background_color": "#FFFFFF",
+        "font_color": "#000000"
       }
     },
     "c-info-columns": {
@@ -663,7 +675,9 @@
         "alignment": "right",
         "alignment_mob": "center",
         "horiz_padding": true,
-        "margin_top": true
+        "margin_top": true,
+        "background_color": "#FFFFFF",
+        "font_color": "#000000"
       }
     }
   },
