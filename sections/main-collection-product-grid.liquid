@@ -28,9 +28,6 @@
    .grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
-
- 
-    
     .selected-filters {
       display: flex;
       padding: 10px;
@@ -52,56 +49,35 @@
       margin-left: 10px;
       cursor: pointer;
   }
-
-
       .qt-sorting-btn button {
         background-color: white;
-        border: 1px solid #2c3b96;
         display: flex;
-        border-radius: 0.25rem;
-        flex-direction: column;
         align-items: left;
-        justify-content: center;
-        {% comment %} padding-left: 10px; {% endcomment %}
-        {% comment %} padding-right: 100px; {% endcomment %}
-        {% comment %} background-image: url({{ 'Arrow.svg' | asset_url }}); {% endcomment %}
-        {% comment %} background-position: 145px;
-        background-repeat: no-repeat;
-        background-size: 20px 20px; {% endcomment %}
       }
-      {% comment %} button span {
-        padding-left: 10px;
-        font-size: 16px;
-        font-weight: bold;
-      } {% endcomment %}
+     
       .product-grid-filter {
         display: flex;
         justify-content: space-between;
-        margin: 0px auto;
-        {% comment %} max-width: 1350px; {% endcomment %}
       }
 
       .qt-btn-wrapper {
       }
       .qt-btn {
         color: #2c3b96;
-        border: 1px solid #2c3b96;
         padding: 0.5rem 1rem;
-
+        font-weight:500;
         border-radius: 0.25rem;
         cursor: pointer;
         display: block;
         align-items: center;
         background-origin: content-box;
       }
-      .qt-btn:hover {
-        background-color: #f2f2f2;
-      }
 
       .qt-btn > img {
         display: inline-block;
         color: #2c3b96;
         margin-left: 4px;
+        margin-bottom:3px;
         vertical-align: middle;
         width: 14px;
         height: 14px;
@@ -250,7 +226,15 @@
         .qt-sorting-btn button {
           width: 100%;
           display:block;
-          text-align: left;
+          text-align: center;
+          border:1px solid #2c3b96;
+          border-radius:0.25rem;
+        }
+        .qt-sorting-btn label {
+          margin-left: -15px !important; 
+        }
+        .qt-sorting-btn .facet-filters_sort {
+          text-align: center !important;
         }
         .qt-towel-seo-liner {
           margin-bottom: 20px;
@@ -281,8 +265,12 @@
         .qt-btn.qt-filter-button {
           display: block;
           width:100%;
+          border:1px solid #2c3b96;
+          
         }
-
+        .qt-btn {
+          text-align: center;
+        }
         .qt-dropdown-menu {
           position: fixed;
           top: 0;
@@ -440,6 +428,7 @@
       <div
         class="product-grid-container mt-5 lg:mt-12"
         id="ProductGridContainer"
+        style="margin-top:10px;"
       >
         {%- if collection.products.size == 0 -%}
           <div
@@ -466,7 +455,7 @@
             <ul
               id="product-grid"
               data-id="{{ section.id }}"
-              class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-1 max-sm:grid-cols-1 gap-2 gap-y-10 grid-flow-dense"
+              class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-1 max-sm:grid-cols-1 gap-4 gap-y-10 grid-flow-dense"
             >
               {% assign listscIndex = 0 %}
               {% assign infoContentBlock = collection.metafields.custom.info_content_block.value %}
