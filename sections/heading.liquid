@@ -3,9 +3,12 @@
   id="Heading-{{ section.id }}"
   class="
     container md:flex max-md:space-y-6 {% if section.settings.alignment == 'center' %}md:justify-center md:text-center{% endif %} {% if section.settings.alignment == 'right' and section.settings.copy == blank %}md:justify-end{% endif %} {% if section.settings.copy != blank %}md:items-center md:gap-5 lg:gap-6{% endif %}
-    {% if section.settings.alignment_mob == 'center' %}max-md:justify-center max-md:text-center{% endif %} {% if section.settings.alignment_mob == 'right' %}max-md:justify-end max-md:text-right{% endif %} {% if section.settings.margin_top == true %}lg:pt-10{% endif %}
+    {% if section.settings.alignment_mob == 'center' %}max-md:justify-center max-md:text-center{% endif %} {% if section.settings.alignment_mob == 'right' %}max-md:justify-end max-md:text-right{% endif %} {% if section.settings.margin_top == true %}{% endif %}
+  "
+  style="background-color: {{ section.settings.background_color }};
   "
 >
+  
   {%- liquid
     if section.settings.copy == blank
       assign headerclass = 's-m-h3 lg:s-d-h2 md:max-w-[643px]'
@@ -17,7 +20,15 @@
       assign headerclass = headerclass | append: ' md:!w-6/12' | remove: 'md:max-w-[643px]'
     endif
   %}
-  <h2 class="animation an-fadeup {{ headerclass }}  [&_br]:max-md:hidden text-blue-1 {% if section.settings.horiz_padding and section.settings.copy == blank %}md:px-24{% endif %}">
+  <style>
+    @media (max-width: 768px) { /* Adjust this breakpoint as needed */
+      #Heading-{{ section.id }} {
+        display: table;
+        width: 100%;
+      }
+    }
+  </style>
+  <h2 class="animation an-fadeup {{ headerclass }}  [&_br]:max-md:hidden text-blue-1 {% if section.settings.horiz_padding and section.settings.copy == blank %}md:px-24{% endif %} heading_responsive_margin" style="margin: 2.5rem;">
     {{ section.settings.heading }}
   </h2>
 
@@ -29,7 +40,7 @@
         assign copyclass = 'md:w-4/12'
       endif
     %}
-    <div class="animation an-fadeup md:delay-200 wysiwyg text-blue-1 {{ copyclass }}">
+    <div class="animation an-fadeup md:delay-200 wysiwyg text-blue-1 {{ copyclass }} heading_responsive_margin" style="color: {{ section.settings.font_color }};margin: 2.5rem;" >
       {{ section.settings.copy }}
     </div>
   {%- endif -%}
@@ -145,7 +156,22 @@
       "default": false,
       "label": "Additonal Margin Top (Desktop Only)",
       "info": "Add extra space to margin top"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#FFFFFF",
+      "info": "Choose a background color for the section."
+    },
+    {
+      "type": "color",
+      "id": "font_color",
+      "label": "Font Color",
+      "default": "#000000",
+      "info": "Choose a font color for the text."
     }
+
   ],
   "presets": [
     {
