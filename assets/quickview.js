@@ -1,3 +1,14 @@
+const checkPageIsReloaded =  
+    window.performance
+      .getEntriesByType('navigation')
+      .map((nav) => nav.type)
+      .includes('reload')
+ 
+
+if( !checkPageIsReloaded && window.location.href == location.origin.toString() +'/' &&  document.referrer.endsWith('/cart') )  {
+  document.getElementById('cart-icon-bubble').click();
+}
+
 async function myfun(t, e){
 
     var rect = t.getBoundingClientRect(); 
@@ -46,7 +57,7 @@ async function myfun(t, e){
      });
    });
  */
-   const closeBtn = document.getElementById('modalCloseBtn');
+   var closeBtn = document.getElementById('modalCloseBtn');
    closeBtn.addEventListener('click', async (event) => {
      event.preventDefault();
      document.getElementById('modalViewContent').innerHTML = '';
