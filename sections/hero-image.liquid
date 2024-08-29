@@ -1,0 +1,197 @@
+<div
+  id="Hero-{{ section.id }}"
+>
+  {% comment %} assign full_width = '100vw' {% endcomment %}
+  {%- liquid
+    assign widths = '375, 550, 750, 1100, 1920'
+    assign sizes = '100vw'
+     assign custom_style = 'height:' | append: section.settings.desktop_image_height | append: 'px;'
+     assign custom_mobile_style = 'height:' | append: section.settings.mobile_image_height | append: 'px;'
+     assign custom_tab_style = 'height:' | append: section.settings.tab_image_height | append: 'px;'
+ 
+    assign image_class = 'w-full one'
+   
+    if section.settings.image_mobile != blank
+      assign image_class = 'w-full desk hidden md:block'  
+    endif
+    if section.settings.image_tab != blank and section.settings.image_mobile != blank
+      assign image_class = 'w-full desk hidden lg:block'
+    endif
+    if section.settings.image_tab != blank and section.settings.image_mobile == blank
+      assign image_class = 'w-full desk md:hidden lg:block'
+    endif
+    assign image_class_mobile = 'w-full  mob block md:hidden'
+    assign image_class_tab = 'w-full tab hidden md:block lg:hidden'
+    
+  -%}  
+  
+  <style>  
+    @media (min-width: 768px) {
+      .md\:block {
+        display: block;
+      }
+    }
+    @media (min-width: 1024px) {
+      .lg\:block {
+        display: block;
+      }
+      .lg\:hidden {
+        display: none;
+      }
+    }
+      
+  </style>
+  
+  <div
+    class=""
+  >
+    <div class="relative_ {% if section.settings.full_width !=  true %}container{% endif %}">
+      {% if section.settings.link != blank %}
+        <a class="block w-full" href="{{section.settings.link}}">
+      {% endif %}
+
+      {% if section.settings.video %}
+        {{
+          section.settings.video
+          | video_tag:
+            image_size: '1100x',
+            autoplay: true,
+            loop: true,
+            controls: true,
+            muted: false,
+            class: ' aspect-video w-full'
+        }}
+
+      {%- elsif section.settings.image != blank -%}
+        {{
+          section.settings.image
+          | image_url: width: 1920
+          | image_tag: loading: 'eager', preload: true, width: 1920, height: section.settings.desktop_image_height, class: image_class, sizes: sizes, widths: widths, style: custom_style 
+        }}
+        
+        {%- if section.settings.image_mobile != blank -%}
+          {{
+            section.settings.image_mobile
+            | image_url: width: 1920
+            | image_tag:
+              preload: true,
+              loading: 'eager',
+              width: 1920,
+              height: section.settings.mobile_image_height,
+              class: image_class_mobile,
+              sizes: sizes,
+              widths: widths,
+              style:custom_mobile_style
+          }}
+          
+        {% endif %}
+        {%- if section.settings.image_tab != blank -%}
+          {{
+            section.settings.image_tab
+            | image_url: width: 1920
+            | image_tag:
+              preload: true,
+              loading: 'eager',
+              width: 1920,
+              height: section.settings.tab_image_height,
+              class: image_class_tab,
+              sizes: sizes,
+              widths: widths,
+              style:custom_tab_style 
+          }}
+        {% endif %}
+
+      {%- else -%}
+        {{ 'hero-apparel-1' | placeholder_svg_tag: image_class }}
+      {%- endif -%}
+
+      {% if section.settings.link != blank %}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Hero Image Link",
+  "tag": "section",
+  "class": "section-hero",
+  "disabled_on": {
+    "groups": ["header", "footer"],
+    "templates": ["article"]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Choose a static image for Desktop"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Choose a static image for Mobile"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_tab",
+      "label": "Choose a static image for Tab"
+    },
+    {
+      "type": "range",
+      "id": "desktop_image_height",
+      "min": 200,
+      "max": 1200,
+      "step": 200,
+      "unit": "px",
+      "label": "Desktop Image Height",
+      "default": 800
+    },
+    {
+      "type": "range",
+      "id": "mobile_image_height",
+      "min": 200,
+      "max": 1200,
+      "step": 200,
+      "unit": "px",
+      "label": "Mobile Image Height",
+      "default": 800
+    },
+    {
+      "type": "range",
+      "id": "tab_image_height",
+      "min": 200,
+      "max": 1200,
+      "step": 200,
+      "unit": "px",
+      "label": "Tab Image Height",
+      "default": 800
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Choose a video",
+      "info": "Video will override static image"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link",
+      "info": "This will wrap the image in a link if set"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full width",
+      "default": true
+    }
+  ],
+  
+  "presets": [
+    {
+      "name": "Hero Image Link"
+    }
+  ]
+}
+
+{% endschema %}
