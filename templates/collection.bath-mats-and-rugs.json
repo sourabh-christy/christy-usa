@@ -109,8 +109,20 @@
       "settings": {
         "screen_visibility": "both",
         "subtitle": "Christy Life",
+        "billboard_subtitle_font_size_mob": 16,
+        "billboard_subtitle_font_size_desktop": 16,
+        "billboard_subtitle_font_weight": "600",
+        "billboard_subtitle_font_family": "sans-serif",
         "title": "<p>7 simple everyday self-care rituals<\/p>",
+        "billboard_title_font_size_mob": 16,
+        "billboard_title_font_size_desktop": 40,
+        "billboard_title_font_weight": "500",
+        "billboard_title_font_family": "Hatton, serif",
         "copy": "<p>Add a bit of TLC to your daily routine with these ideas to help you pause and enjoy the little moments.<\/p>",
+        "billboard_copy_font_size_mob": 14,
+        "billboard_copy_font_size_desktop": 14,
+        "billboard_copy_font_weight": "200",
+        "billboard_copy_font_family": "sans-serif",
         "button_label": "Read more",
         "button_link": "https:\/\/quickstart-3a56366d.myshopify.com\/collections\/bed-duvet-sets",
         "button_type": "tertiary",
@@ -135,19 +147,19 @@
         "block_RL6wFr": {
           "type": "block",
           "settings": {
-            "product": "",
-            "title": "Customer Reviews",
-            "testimonial": "<p>“One of the highest quality products I have experienced. Very very soft and drapes beautifully on my bed.”<\/p>",
-            "name": "John Smith"
+            "product": "brixton-shower-mat",
+            "title": "Brixton Shower Mat",
+            "testimonial": "<p>“Perfect size. I have older mats which are bigger, bulkier and take forever to dry when washed. With these I can change more regularly (as easy to get washed and dried) and still feel nice underfoot.”<\/p>",
+            "name": "Lesley"
           }
         },
         "block_tyLfrH": {
           "type": "block",
           "settings": {
-            "product": "",
-            "title": "Customer Reviews",
-            "testimonial": "<p>“One of the highest quality products I have experienced. Very very soft and drapes beautifully on my bed.”<\/p>",
-            "name": "John Smith"
+            "product": "reversible-bath-rug",
+            "title": "Reversible Bath Rug",
+            "testimonial": "<p>“I am very pleased with the two bath rugs I purchsed. They are thick, absorbant and a rich colour.”<\/p>",
+            "name": "Sue Holland"
           }
         }
       },
