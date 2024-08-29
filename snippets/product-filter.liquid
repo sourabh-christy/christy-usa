@@ -1,4 +1,14 @@
 {% comment %}QT 3-8-2024{% endcomment %}
+<style type="text/css">
+#filterDropdownButton{
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: right;
+  width:100px;
+  text-align:left;
+  background-image:url({{ 'downarrow.svg' | asset_url }})
+}
+</style>  
 <div class="product-grid-filter container mt-5 lg:mt-12">
     {% assign unique_sizes = '' %}
     {% assign unique_colors = '' %}
@@ -35,7 +45,7 @@
             onclick="toggleDropdown()"
           >
             Filter
-            <img loading="eager" src="{{ 'downarrow.svg' | asset_url }}" alt="arrow">
+            
           </button>
           <div id="selected-filters" class="selected-filters">
             <!-- Selected filters will appear here -->
@@ -366,10 +376,13 @@
         dropdownMenu.classList.toggle('show');
   
         if (dropdownMenu.classList.contains('show')) {
+            filterButton.style = "width:130px; background-image:url({{ 'uparrow.svg' | asset_url }});"
   
-            filterButton.innerHTML = 'Hide Filter ' + '<img loading="eager" src="{{ 'uparrow.svg' | asset_url }}" alt="Filter">';
+            filterButton.innerHTML = 'Hide Filter '   ;
         } else {
-            filterButton.innerHTML = 'Filter ' + '<img loading="eager" src="{{ 'downarrow.svg' | asset_url }}" alt="Filter">';
+          
+            filterButton.style = ""
+            filterButton.innerHTML = 'Filter '  
             loadFilteredProducts();
         }
     }
@@ -457,7 +470,9 @@
             dropdownMenu.classList.remove('show');
             // loadFilteredProducts()
             var filterButton = document.getElementById('filterDropdownButton');
-            filterButton.innerHTML = 'Filter ' + '<img loading="eager" src="{{ 'downarrow.svg' | asset_url }}" alt="Filter">';
+            
+            filterButton.Style = ""
+            filterButton.innerHTML = 'Filter ';
         }
     });
     // Add event listeners for "Clear Filters" and "Apply Filters" buttons
