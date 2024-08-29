@@ -34,8 +34,8 @@
             aria-expanded="false"
             onclick="toggleDropdown()"
           >
-            FILTER
-            <img loading="eager" src="{{ 'filter.svg' | asset_url }}" alt="Filter">
+            Filter
+            <img loading="eager" src="{{ 'downarrow.svg' | asset_url }}" alt="arrow">
           </button>
           <div id="selected-filters" class="selected-filters">
             <!-- Selected filters will appear here -->
@@ -270,9 +270,9 @@
             id="sortByDropdownButton"
             aria-haspopup="true"
             aria-expanded="false"
-            style="            width:100%;"
+            style="    width:100%;"
           >
-            <label style="margin-left:13px; font-weight:medium">SORT BY </label>
+            <label style="margin-left:13px; font-weight:medium; margin-right: 9px;">Sort By </label>
   
             <facet-filters-form class="facets facets-vertical-sort page-width small-hide">
               <form class="facets-vertical-form" id="FacetSortForm">
@@ -285,9 +285,8 @@
                         name="sort_by"
                         class="facet-filters_sort select_select caption-large"
                         style="
-                          width:100%;padding: 0px 10px 0px 10px;
+                          width:100%;
                           font-weight: bold;
-                          border:none;
                         "
                         id="SortBy"
                         aria-describedby="a11y-refresh-page-message"
@@ -303,7 +302,7 @@
                                     selected="selected"
                                   {% endif %}
                                 >
-                                  {{ option.name | escape }}
+                                  {{ option.name}}
                                 </option>
                               {% endunless %}
                             {% endunless %}
@@ -354,15 +353,7 @@
   
   <div id="product-filter-loader" style="display:none">
     <div class="loader fixed grid place-content-center inset-0 bg-black/20 z-10" x-show="loading">
-      <svg
-        class="animate-spin -ml-1 mr-3 h-5 w-5 text-black"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-      >
-        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#2c3b96"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
     </div>
   </div>
   {% comment %}QT 3-8-2024{% endcomment %}
@@ -376,9 +367,9 @@
   
         if (dropdownMenu.classList.contains('show')) {
   
-            filterButton.innerHTML = 'HIDE FILTER ' + '<img loading="eager" src="{{ 'filter.svg' | asset_url }}" alt="Filter">';
+            filterButton.innerHTML = 'Hide Filter ' + '<img loading="eager" src="{{ 'uparrow.svg' | asset_url }}" alt="Filter">';
         } else {
-            filterButton.innerHTML = 'FILTER ' + '<img loading="eager" src="{{ 'filter.svg' | asset_url }}" alt="Filter">';
+            filterButton.innerHTML = 'Filter ' + '<img loading="eager" src="{{ 'downarrow.svg' | asset_url }}" alt="Filter">';
             loadFilteredProducts();
         }
     }
@@ -466,7 +457,7 @@
             dropdownMenu.classList.remove('show');
             // loadFilteredProducts()
             var filterButton = document.getElementById('filterDropdownButton');
-            filterButton.innerHTML = 'FILTER ' + '<img loading="eager" src="{{ 'filter.svg' | asset_url }}" alt="Filter">';
+            filterButton.innerHTML = 'Filter ' + '<img loading="eager" src="{{ 'downarrow.svg' | asset_url }}" alt="Filter">';
         }
     });
     // Add event listeners for "Clear Filters" and "Apply Filters" buttons
@@ -481,95 +472,9 @@
         applyButton.addEventListener('click', applyFilters);
       }
     });
+    
   </script>
-  {% comment %}
-    <script>
-      // Function to toggle the sort-by dropdown menu visibility
-      function toggleSortByDropdown() {
-        const sortByMenu = document.getElementById('sortByDropdownMenu');
-        const isExpanded = sortByMenu.getAttribute('aria-expanded') === 'true';
-  
-        if (isExpanded) {
-          sortByMenu.style.display = 'none';
-        } else {
-          sortByMenu.style.display = 'block';
-        }
-  
-        sortByMenu.setAttribute('aria-expanded', !isExpanded);
-      }
-  
-      // Function to handle clicks outside the dropdown to close it
-      function handleClickOutside(event) {
-        const dropdownMenu = document.getElementById('sortByDropdownMenu');
-        const button = document.getElementById('sortByDropdownButton');
-  
-        if (!button.contains(event.target) && !dropdownMenu.contains(event.target)) {
-          dropdownMenu.style.display = 'none';
-          dropdownMenu.setAttribute('aria-expanded', 'false');
-        }
-      }
-  
-      // Function to handle the sort option selection
-      function handleSortSelection(event) {
-        const sortOption = event.target.getAttribute('data-sort');
-  
-        if (sortOption) {
-          updateSortOption(sortOption);
-          fetchSortedProducts(sortOption);
-  
-          // Close the dropdown menu after selection
-          document.getElementById('sortByDropdownMenu').style.display = 'none';
-          document.getElementById('sortByDropdownMenu').setAttribute('aria-expanded', 'false');
-        }
-      }
-  
-      // Update the button text based on the selected sort option
-      function updateSortOption(option) {
-        const sortButton = document.getElementById('sortByDropdownButton');
-        let displayText = 'SORT BY'; // Default value
-  
-        switch (option) {
-          case 'price-ascending':
-            displayText = 'Price: Low to High';
-            break;
-          case 'price-descending':
-            displayText = 'Price: High to Low';
-            break;
-          case 'featured':
-            displayText = 'Featured';
-            break;
-        }
-  
-        sortButton.querySelector('span').textContent = displayText;
-      }
-  
-      // Fetch sorted products based on the selected sort option using AJAX
-      function fetchSortedProducts(sortOption) {
-        const url = new URL(window.location.href);
-        url.searchParams.set('sort_by', sortOption);
-  
-        fetch(url)
-          .then((response) => response.text())
-          .then((data) => {
-            // Update the product list container with new data
-            const productList = document.getElementById('product-list');
-            if (productList) {
-              productList.innerHTML = data;
-            }
-          })
-          .catch((error) => console.error('Error fetching sorted products:', error));
-      }
-  
-      // Attach event listeners to sort options
-      document.querySelectorAll('.qt-sortby-dropdown-item').forEach((item) => {
-        item.addEventListener('click', handleSortSelection);
-      });
-  
-      // Add event listener to document to handle clicks outside the dropdown menu
-      document.addEventListener('click', handleClickOutside);
-    </script>
-  {% endcomment %}
-  
+
   <script>
     // Function to update the selected filters display
     function updateSelectedFilters() {
