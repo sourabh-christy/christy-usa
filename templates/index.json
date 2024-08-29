@@ -45,7 +45,7 @@
         "alignment_mob": "center",
         "horiz_padding": true,
         "margin_top": false,
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "font_color": "#000000"
       }
     },
@@ -119,7 +119,7 @@
         "alignment_mob": "center",
         "horiz_padding": false,
         "margin_top": false,
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "font_color": "#000000"
       }
     },
@@ -296,7 +296,7 @@
         "alignment_mob": "center",
         "horiz_padding": true,
         "margin_top": true,
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "font_color": "#000000"
       }
     },
@@ -352,7 +352,7 @@
         "alignment_mob": "center",
         "horiz_padding": true,
         "margin_top": false,
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "font_color": "#000000"
       }
     },
@@ -376,7 +376,7 @@
         "alignment_mob": "right",
         "horiz_padding": true,
         "margin_top": false,
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "font_color": "#000000"
       }
     },
@@ -440,7 +440,6 @@
     },
     "billboard2": {
       "type": "billboard",
-      "disabled": true,
       "settings": {
         "screen_visibility": "both",
         "image": "shopify:\/\/shop_images\/bed-home.jpg",
@@ -676,7 +675,7 @@
         "alignment_mob": "center",
         "horiz_padding": true,
         "margin_top": true,
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "font_color": "#000000"
       }
     }
