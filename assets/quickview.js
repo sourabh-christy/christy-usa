@@ -1,4 +1,4 @@
-const checkPageIsReloaded =  
+var checkPageIsReloaded =  
     window.performance
       .getEntriesByType('navigation')
       .map((nav) => nav.type)
