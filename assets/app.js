@@ -7,7 +7,7 @@
   \***********************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-var _require = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js"),
+  var _require = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js"),
   set = _require.set;
 App = {
   animations: function animations() {
@@ -320,32 +320,37 @@ App = {
     var sizeGuideTo = document.querySelector('[data-sizeguideto]');
     var sizeGuideSection = document.querySelector('[data-sizeguide]');
     if (sizeGuideTo && sizeGuideSection) {
-      sizeGuideTo.addEventListener('click', function (e) {
-        e.preventDefault();
-        var sizeGuideTo = document.querySelector('[data-sizeguideto]');
+        sizeGuideTo.addEventListener('click', function (e) {
+            e.preventDefault();
+            var sizeGuideTo = document.querySelector('[data-sizeguideto]');
         var sizeGuideSection = document.querySelector('[data-sizeguide]');
         sizeGuideSection.classList.add('open');
         var elTop = sizeGuideSection.getBoundingClientRect().top + window.scrollY;
         var mediaGal = document.querySelector('.product__gallery');
         var prodWrap = document.querySelector('.product__info-wrapper');
-        var headerHeight = document.querySelector('.header-bar').offsetHeight;
-        var target = elTop - headerHeight;
-        var offset = 0;
-        if (mediaGal && prodWrap) {
-          if (mediaGal.offsetHeight > prodWrap.offsetHeight) {
-            var difference = mediaGal.offsetHeight - prodWrap.offsetHeight;
-            if (prodWrap.offsetTop < difference) {
-              offset = difference;
+            var header = document.querySelector('.header-bar');
+            var headerHeight = header ? header.offsetHeight : 0; // Default to 0 if header is missing
+            
+            var target = elTop - headerHeight;
+            var offset = 0;
+            
+            if (mediaGal && prodWrap) {
+                if (mediaGal.offsetHeight > prodWrap.offsetHeight) {
+                    var difference = mediaGal.offsetHeight - prodWrap.offsetHeight;
+                    if (prodWrap.offsetTop < difference) {
+                        offset = difference;
+                    }
+                }
             }
-          }
-        }
-        window.scrollTo({
-          top: target + offset,
-          behavior: 'smooth'
+            
+            window.scrollTo({
+                top: target + offset,
+                behavior: 'smooth'
+            });
         });
-      });
     }
-  },
+},
+
   productWrapper: function productWrapper() {},
   goTop: function goTop() {
     window.scrollTo({
