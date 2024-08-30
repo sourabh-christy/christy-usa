@@ -76,6 +76,28 @@
         "mobile_content_position": "overlay"
       }
     },
+    "collections_carousel_GGLkUY": {
+      "type": "collections-carousel",
+      "blocks": {
+        "collection_TKCKja": {
+          "type": "collection",
+          "settings": {
+            "collection": "all-bath",
+            "usp_title": "",
+            "image": "shopify:\/\/shop_images\/1_6ffc8a15-d522-4178-a1b7-eab10bee74d6.jpg",
+            "alt_title": "",
+            "excerpt": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_TKCKja"
+      ],
+      "settings": {
+        "title": "Test",
+        "screen_visibility": "mobile"
+      }
+    },
     "why_christy_4Ja7hw": {
       "type": "why-christy",
       "blocks": {
@@ -137,6 +159,7 @@
     "dfadb464-131f-4320-963f-71343e59af69",
     "recent-products",
     "86a4f019-bc37-4060-9067-8a759a38958f",
+    "collections_carousel_GGLkUY",
     "why_christy_4Ja7hw",
     "17248366286f91456a"
   ]
