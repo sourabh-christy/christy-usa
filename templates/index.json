@@ -59,7 +59,7 @@
             "usp_title": "",
             "image": "shopify:\/\/shop_images\/thick_indulgent_HP.jpg",
             "alt_title": "Towels",
-            "excerpt": ""
+            "excerpt": "<p>Wrap yourself in plush, indulgent comfort.<\/p>"
           }
         },
         "2f3cb25a-b518-49ee-afab-a5c33fb259f7": {
@@ -69,7 +69,7 @@
             "usp_title": "",
             "image": "shopify:\/\/shop_images\/deep_pile-737657.jpg",
             "alt_title": "Bath Mats & Rugs",
-            "excerpt": ""
+            "excerpt": "<p>Experience the soft embrace of luxury underfoot.<\/p>"
           }
         },
         "ade5aede-0029-4b09-aee8-6e48f8cfe8be": {
@@ -79,7 +79,7 @@
             "usp_title": "",
             "image": "shopify:\/\/shop_images\/Luxe_Lifestyle_Pearl_1_aded84c9-1a91-432f-aa88-0c663de62db6.jpg",
             "alt_title": "Bundles",
-            "excerpt": ""
+            "excerpt": "<p>Complete your spa escape with premium bundles.<\/p>"
           }
         },
         "collection_GTHHpe": {
@@ -441,6 +441,7 @@
     },
     "billboard2": {
       "type": "billboard",
+      "disabled": true,
       "settings": {
         "screen_visibility": "both",
         "image": "shopify:\/\/shop_images\/bed-home.jpg",
