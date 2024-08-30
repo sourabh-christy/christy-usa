@@ -20,14 +20,231 @@
     padding: 10px; /* Optional: Adjust padding if needed */
   }
 </style>
-{% if section.settings.announcement != blank %}
+<header id="header" class="sticky top-0 left-0 z-40">
+  <div class="header-bar bg-white/90 h-[70px] lg:h-[107px] !h-[var(--header-height)] lg:!h-[var(--header-height-lg)] flex flex-col justify-center items-center text-blue-1 will-change-transform pointer-events-auto">
+    {% if section.settings.announcement != blank %}
+      <aside id="c" class="relative text-white text-center bg-blue-1 top-0 left-0 font-bold w-full">
+        <div class="py-3 container truncate flex justify-center [&>*]:truncate h-[44px] lg:h-[48px] [&_a]:underline">
+          {{ section.settings.announcement }}
+        </div>
+      </aside>
+    {% endif %}
+    <div class="container flex-1 flex items-center justify-between lg:grid lg:max-xl:grid-cols-[minmax(auto,200px)_1fr_1fr_1fr] xl:grid-cols-4">
+      {%- if request.page_type == 'index' -%}
+        <h1 class="header__heading">
+      {%- endif -%}
+      <a
+        href="{{ routes.root_url }}"
+        class="max-md:w-[88px] md:max-lg:w-[120px] block {% if request.page_type == 'collection' %} max-lg:order-[-1] {% endif %} "
+      >
+        <img
+          class=""
+          loading="eager"
+          src="{{ 'christy-logo.svg' | asset_url }}"
+          width="181"
+          height="27"
+          alt="{{ shop.name }}"
+        >
+      </a>
+      {%- if request.page_type == 'index' -%}
+        </h1>
+      {%- endif -%}
+
+      <div class="lg:col-span-3 lg:flex lg:justify-between lg:items-center lg:pl-8 lg:gap-3">
+        <div id="menu" class="col-span-8 h-full hidden lg:block">
+          <ul class="menu flex w-full justify-center h-full items-center">
+            {% for link in section.settings.menu.links %}
+              <li class="menu-link group relative h-full items-center flex px-6 after:absolute after:w-0 after:transition-all after:duration-500 after:bg-[#2c3b96] hover:after:w-full after:bottom-0 after:left-0 after:h-[2px]">
+                <a href="{{ link.url }}">{{ link.title }}</a>
+      
+                {% if link.links.size > 0 %}
+                  <ul class="menu dropdown-child hidden group-hover:grid grid-flow-col fixed bg-white p-4 top-[80px] left-0 right-0 mx-auto w-full shadow-lg transition-all duration-500">
+                    {% for child_link in link.links %}
+                      <li
+                        class="menu-link font-bold grid grid-flow-row justify-center items-start auto-rows-max py-2"
+                        style="margin:10px;"
+                      >
+                        {% assign grand_child_count = child_link.links | size %}
+                        {% comment %} {% echo child_link.title %} {% endcomment %}
+                        <a href="{{ child_link.url }}" class="flex flex-col gap-4 text-base pb-4 hover:underline">
+                          {% if grand_child_count == 0 and link.title != 'About Christy' %}
+                            <img
+                              src="{{ child_link.object.metafields.custom.menu_image | file_url }}"
+                              width="300"
+                              class="w-[300px] h-[300px] object-cover"
+                              height="300"
+                              alt="{{ child_link.title }}"
+                            >
+                          {% endif %}
+                          <span>{{ child_link.title }}</span>
+                        </a>
+      
+                        {% if child_link.links.size > 0 %}
+                          <ul class="menu dropdown-grandchild flex flex-col items-start justify-start gap-4">
+                            {% for grandchild_link in child_link.links %}
+                              <li class="menu-link font-normal text-left">
+                                {% assign grandchild_collection = collections[grandchild_link.object.handle] %}
+                                <a class="hover:underline" href="{{ grandchild_link.url }}">
+                                  {% if grandchild_collection %}
+                                    {% assign collection_image = grandchild_collection.metafields.custom.menu_image %}
+                                    {% if collection_image %}
+                                      <img
+                                        src="{{ collection_image | file_url }}"
+                                        alt="{{ grandchild_link.title }}"
+                                        width="150"
+                                        class="w-[150px] h-[150px] object-cover"
+                                        height="150"
+                                      >
+                                    {% endif %}
+                                  {% endif %}
+                                  {{ grandchild_link.title }}
+                                </a>
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        {% endif %}
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <div class="max-lg:hidden lg:max-w-[317px] flex-1">
+          {% render 'header-search', input_id: 'search_desktop' %}
+        </div>
+
+        <div class="header__icons flex items-center space-x-7">
+          {%- if shop.customer_accounts_enabled -%}
+            <a
+              href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
+              class="max-lg:hidden"
+            >
+              {% if customer %}
+                {% render 'icon-account-customer' %}
+              {% else %}
+                {% render 'icon-account' %}
+              {% endif %}
+              <span class="visually-hidden">
+                {%- liquid
+                  if customer
+                    echo 'customer.account_fallback' | t
+                  else
+                    echo 'customer.log_in' | t
+                  endif
+                -%}
+              </span>
+            </a>
+          {%- endif -%}
+
+          <button
+            class="group/wlbtn relative flex items-center outline-none"
+            button-wishlist-drawer-toggle
+            button-wishlist-header
+            aria-label="Open Wishlist"
+          >
+            <span class="block w-[16px] lg:w-[18px]">{% render 'icon-heart' %}</span>
+            <span
+              style="absolute"
+              class="ml-2 hidden absolute left-full top-1/2 -translate-y-1/2"
+              wishlist-count
+            ></span>
+          </button>
+
+          <a href="{{ routes.cart_url }}" class="relative flex items-center outline-none" id="cart-icon-bubble">
+            {%- liquid
+              if cart != empty
+                render 'icon-cart-notempty'
+              else
+                render 'icon-cart'
+              endif
+            -%}
+            <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
+            {%- if cart != empty -%}
+              <div class="cart-count-bubble ml-2">
+                {%- if cart.item_count < 100 -%}
+                  <span aria-hidden="true">{{ cart.item_count }}</span>
+                {%- endif -%}
+                <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+              </div>
+            {%- endif -%}
+          </a>
+
+          <button class="lg:hidden w-[20px] h-[13px] relative !ml-5" data-navmobopen aria-label="Open Nav">
+            <span class="absolute -left-2 -top-2 space-y-[5px] flex flex-col items-end p-2 w-[36px]">
+              <span class="w-full h-[1px] bg-blue-1"></span>
+              <span class="w-full h-[1px] w-[14px] bg-blue-1"></span>
+              <span class="w-full h-[1px] bg-blue-1"></span>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    id="NavMob"
+    class="pointer-events-auto group/nav lg:hidden fixed z-[-1] inset-0 pt-[80px] flex overflow-hidden invisible opacity-0 transition-[opacity,visibility] [&.open]:opacity-100 [&.open]:visible"
+  >
+    <div
+      id="NavMob-Overlay"
+      class="flex-1 h-full bg-black/50 opacity-0 transition-opacity group-[.open]/nav:opacity-100 group-[.open]/nav:delay-500"
+    ></div>
+    <nav
+      class="h-full w-full bg-white/95 md:max-w-[820px] duration-500 transition-transform translate-x-full group-[.open]/nav:translate-x-0"
+      data-scrollerpar
+    >
+      <div class="overflow-hidden overflow-y-auto flex flex-col h-full">
+        <div class="container pt-10">
+          
+          <ul class="menu">
+            {% for link in section.settings.menu.links %}
+              <li class="space-y-4 break-inside-avoid border-blue-1/10 border-b last:border-b-0">
+                {% comment %} <details class="block  !my-0 py-5 lg:py-7 group/acc"> {% endcomment %}
+                  <summary class="font-semibold m-body-copy lg:d-h5 space-x-6 flex w-full items-center cursor-pointer">
+                    <a href="{{ link.url }}">{{ link.title }}</a>
+                  </summary>
+                
+                <div class="pt-5 lg:pt-7">
+                {% if link.links.size > 0 %}
+                  <ul class="menu dropdown-child space-y-3 font-light">
+                    {% for child_link in link.links %}
+                      <li class="menu-link font-semibold m-body-copy lg:d-h5 space-x-6 flex w-full items-center cursor-pointer">
+                        <a href="{{ child_link.url }}">{{ child_link.title }}</a>
+          
+                        {% if child_link.links.size > 0 %}
+                          <ul class="menu dropdown-grandchild ">
+                            {% for grandchild_link in child_link.links %}
+                              <li class="menu-link ">
+                                <a href="{{ grandchild_link.url }}">{{ grandchild_link.title }}</a>
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        {% endif %}
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </div>
+              {% comment %} </details> {% endcomment %}
+              </li>
+            {% endfor %}
+          </ul>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+{% comment %} {% if section.settings.announcement != blank %}
   <aside id="announcement-bar" class="relative text-white text-center bg-blue-1 top-0 left-0 font-bold w-full">
     <div class="py-3 container truncate flex justify-center [&>*]:truncate h-[44px] lg:h-[48px] [&_a]:underline">
       {{ section.settings.announcement }}
     </div>
   </aside>
-{% endif %}
-<header
+{% endif %} {% endcomment %}
+{% comment %} <header
   id="header"
   class="w-full grid grid-cols-2 lg:grid-cols-12 px-8 bg-white z-10 pointer-events-auto h-[80px] items-center shadow-lg border-b border-b-slate-300" 
 >
@@ -45,8 +262,8 @@
     <button id="search-close-icon" class="">
       {% render 'icon-close' %}
     </button>
-  </div>  {% endcomment %}
-  <div id="logo" class="lg:col-span-2">
+  </div>   {% endcomment %}
+  <div id="logo" class="lg:col-span-2" >
     {%- if request.page_type == 'index' -%}
       <h1 class="header__heading">
     {%- endif -%}
@@ -66,8 +283,8 @@
     {%- if request.page_type == 'index' -%}
       </h1>
     {%- endif -%}
-  </div>
-  <div id="menu" class="col-span-8 h-full hidden lg:block">
+  </div> {% endcomment %}
+  {% comment %} <div id="menu" class="col-span-8 h-full hidden lg:block">
     <ul class="menu flex w-full justify-center h-full items-center">
       {% for link in section.settings.menu.links %}
         <li class="menu-link group relative h-full items-center flex px-6 after:absolute after:w-0 after:transition-all after:duration-500 after:bg-[#2c3b96] hover:after:w-full after:bottom-0 after:left-0 after:h-[2px]">
@@ -126,12 +343,16 @@
         </li>
       {% endfor %}
     </ul>
-  </div>
-  <div id="icons" class="lg:col-span-2">
-    <div class="header__icons flex items-center justify-end space-x-4 lg:space-x-7">
-      <button id="search-icon" class="">
+  </div> {% endcomment %}
+  {% comment %} <div id="icons" class="lg:col-span-2" style="display:contents;">
+    <div class="max-lg:hidden lg:max-w-[317px] flex-1">
+        {% render 'header-search', input_id: 'search_desktop' %}
+      </div>
+    <div class="header__icons flex items-center justify-end space-x-5 lg:space-x-7">
+      {% comment %} <button id="search-icon" class="">
         {% render 'icon-search' %}
-      </button>
+      </button> {% endcomment %}
+      
       {%- if shop.customer_accounts_enabled -%}
         <a
           href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
@@ -195,9 +416,9 @@
         </span>
       </button>
     </div>
-  </div>
+  </div> {% endcomment %}
 
-  <div
+  {% comment %} <div
     id="NavMob"
     class="pointer-events-auto group/nav lg:hidden fixed z-[-1] inset-0 pt-[80px] flex overflow-hidden invisible opacity-0 transition-[opacity,visibility] [&.open]:opacity-100 [&.open]:visible"
   >
@@ -251,8 +472,8 @@
         </div>
       </div>
     </nav>
-  </div>
-</header>
+  </div> {% endcomment %}
+{% comment %} </header> {% endcomment %}
 
 {% if section.settings.announcement != blank %}
   <style>
@@ -263,7 +484,7 @@
   </style>
 {% endif %}
 
-<script async defer type="text/javascript">
+{% comment %} <script async defer type="text/javascript">
   document.getElementById('search-icon').addEventListener('click', () => {
     document.getElementById('search-bar').classList.remove('max-h-0');
     document.getElementById('search-bar').classList.add('max-h-auto');
@@ -272,7 +493,7 @@
     document.getElementById('search-bar').classList.remove('max-h-auto');
     document.getElementById('search-bar').classList.add('max-h-0');
   });
-</script>
+</script> {% endcomment %}
 
 <script type="application/ld+json">
   {

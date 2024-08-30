@@ -44,7 +44,7 @@
             aria-expanded="false"
             onclick="toggleDropdown()"
           >
-            Filter
+            <label>Filter</label>
             
           </button>
           <div id="selected-filters" class="selected-filters">
@@ -53,6 +53,9 @@
   
           <form class="filter-form divide-y divide-gray-300" x-ref="filter_form">
             <div class="qt-dropdown-menu" id="filterDropdownMenu" aria-labelledby="filterDropdownButton">
+              <button type="button" class="close-btn" onclick="toggleDropdown()">
+                &times; <!-- Unicode character for the close icon -->
+              </button>
               {%- for filter in collection.filters -%}
                 <a
                   class="qt-dropdown-item"
