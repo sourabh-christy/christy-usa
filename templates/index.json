@@ -365,22 +365,6 @@
         "full_width": true
       }
     },
-    "heading_BDhaU6": {
-      "type": "heading",
-      "disabled": true,
-      "settings": {
-        "heading": "<p>How do you like your towels?<\/p>",
-        "heading_width": "6",
-        "copy": "<p> <\/p>",
-        "copy_style": "default",
-        "alignment": "left",
-        "alignment_mob": "right",
-        "horiz_padding": true,
-        "margin_top": false,
-        "background_color": "#ffffff",
-        "font_color": "#000000"
-      }
-    },
     "c-info-columns": {
       "type": "c-info-columns",
       "blocks": {
@@ -617,6 +601,34 @@
         "mobile_content_position": "overlay"
       }
     },
+    "images_gqVMqU": {
+      "type": "images",
+      "blocks": {
+        "image_jchhqW": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Artboard_14.jpg",
+            "width": "full",
+            "aspect": "16\/9"
+          }
+        },
+        "image_xEEexx": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Artboard_15.jpg",
+            "width": "full",
+            "aspect": "16\/9"
+          }
+        }
+      },
+      "block_order": [
+        "image_jchhqW",
+        "image_xEEexx"
+      ],
+      "settings": {
+        "fullscreen": false
+      }
+    },
     "why_christy_DWytnQ": {
       "type": "why-christy",
       "blocks": {
@@ -733,13 +745,13 @@
     "hero_collection_edGUde",
     "ab40295a-0b7a-4298-9100-6079c0215e8e",
     "hero_image_cJLbna",
-    "heading_BDhaU6",
     "c-info-columns",
     "billboard2",
     "c-info-columns2",
     "billboard3",
     "images-copy-cta",
     "billboard4",
+    "images_gqVMqU",
     "why_christy_DWytnQ",
     "featured-blogs",
     "1723026351f8b5e598",
