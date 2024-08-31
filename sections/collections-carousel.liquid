@@ -129,6 +129,30 @@
 </div>
 
 {% style %}
+{%- if section.settings.collection_carousel_title_font_size_mob != blank -%}
+  #shopify-section-{{ section.id }} .m-h1 {
+    font-size: {{ section.settings.collection_carousel_title_font_size_mob }}px;
+  }
+  {%- endif -%}
+
+  {%- if section.settings.collection_carousel_title_font_weight != blank -%}
+  #shopify-section-{{ section.id }} .m-h1 {
+    font-weight: {{ section.settings.collection_carousel_title_font_weight }};
+  }
+  {%- endif -%}
+
+  {%- if section.settings.collection_carousel_title_font_family != blank -%}
+  #shopify-section-{{ section.id }} .m-h1 {
+    font-family: 
+      {%- if section.settings.collection_carousel_title_font_family == 'serif' -%}
+        serif
+      {%- elsif section.settings.collection_carousel_font_family == 'sans-serif' -%}
+        sans-serif
+      {%- else -%}
+        "Hatton", serif
+      {%- endif -%};
+  }
+  {%- endif -%}
   {% if section.settings.screen_visibility == 'mobile' %}
     @media all and (min-width: 768px ) {
         #shopify-section-{{ section.id }} {
@@ -144,6 +168,14 @@
         }
     }
   {% endif %}
+
+  {%- if section.settings.collection_carousel_title_font_size_desktop != blank -%}
+  @media all and (min-width: 1024px) {
+    #shopify-section-{{ section.id }} .m-h1 {
+      font-size: {{ section.settings.collection_carousel_title_font_size_desktop }}px;
+    }
+  }
+  {%- endif -%}
 {% endstyle %}
 
 {% schema %}
@@ -160,6 +192,67 @@
       "type": "text",
       "id": "title",
       "label": "Title"
+    },
+    {
+      "type": "range",
+      "id": "collection_carousel_title_font_size_mob",
+      "min": 12,
+      "max": 54,
+      "step": 1,
+      "unit": "px",
+      "label": "Collection carousel Title Font Size MOBILE",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "collection_carousel_title_font_size_desktop",
+      "min": 12,
+      "max": 54,
+      "step": 1,
+      "unit": "px",
+      "label": "Collection carousel Title Font Size DESKTOP",
+      "default": 30
+    },
+    {
+      "type": "select",
+      "id": "collection_carousel_title_font_weight",
+      "label": "Collection carousel Title Font Weight",
+      "options": [
+        {
+          "value": "300",
+          "label": "Light"
+        },
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "600",
+          "label": "Semi Bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "600"
+    },
+    {
+      "type": "select",
+      "id": "collection_carousel_title_font_family",
+      "label": "Collection carousel Title Font Type",
+      "options": [
+        {
+          "value": "sans-serif",
+          "label": "Sans Serif"
+        },
+        {
+          "value": "serif",
+          "label": "Serif"
+        },
+        
+      ],
+      "default": "serif"
     },
     {
       "type": "select",
