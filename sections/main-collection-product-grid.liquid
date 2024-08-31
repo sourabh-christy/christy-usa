@@ -35,18 +35,22 @@
     display: flex;
     align-items: center;
     padding: 5px;
+    height: 45px;
     border-radius: 4px;
-    background-color: #ddd;
-    margin:2px 2px;
+    background-color: rgb(249 249 249);
+    margin: 2px 2px;
 
   }
   .remove-filter {
-      background: none;
-      border: none;
-      color: red;
-      font-size: 16px;
-      margin-left: 10px;
-      cursor: pointer;
+    background: none;
+    border: none;
+    color: #2c3b96;
+    font-size: 30px;
+   margin-right: 10px; 
+    cursor: pointer;
+  }
+  .selected-filters-btn{
+display:flex;
   }
       .qt-sorting-btn button {
         background-color: white;
@@ -93,6 +97,7 @@
       .qt-dropdown-menu.show {
         display: block;
         width: 270px;
+        margin-top:10px;
       }
       .qt-dropdown-item {
         display: block;
@@ -230,6 +235,9 @@
         }
       }
       @media (max-width: 768px) {
+        .selected-filters-btn{
+          display:block;
+            }
         .qt-dropdown-item{
           margin:30px;
         }
@@ -451,7 +459,7 @@
       <div
         class="product-grid-container mt-5 lg:mt-12"
         id="ProductGridContainer"
-        style="margin-top:10px;"
+        
       >
         {%- if collection.products.size == 0 -%}
           <div

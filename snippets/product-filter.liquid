@@ -37,6 +37,7 @@
     {% if collection.tags.size > 0 %}
       <div class="qt-btn-wrapper">
         <div class="dropdown">
+          <div class="selected-filters-btn">
           <button
             class="qt-btn qt-filter-button"
             type="button"
@@ -51,6 +52,7 @@
           <div id="selected-filters" class="selected-filters">
             <!-- Selected filters will appear here -->
           </div>
+        </div>
   
           <form class="filter-form divide-y divide-gray-300" x-ref="filter_form">
             <div class="qt-dropdown-menu" id="filterDropdownMenu" aria-labelledby="filterDropdownButton">
@@ -531,10 +533,7 @@
       selectedFilters.forEach(function (filter) {
         var filterElement = document.createElement('div');
         filterElement.classList.add('selected-filter');
-  
-        var filterLabel = document.createElement('span');
-        filterLabel.textContent = `${filter.value}`;
-  
+
         var removeButton = document.createElement('button');
         removeButton.textContent = '×';
         removeButton.classList.add('remove-filter');
@@ -547,8 +546,12 @@
           loadFilteredProducts(); // Reload products after removing a filter
         };
   
-        filterElement.appendChild(filterLabel);
+        var filterLabel = document.createElement('span');
+        filterLabel.textContent = `${filter.value}`;
+  
         filterElement.appendChild(removeButton);
+        filterElement.appendChild(filterLabel);
+        
   
         selectedFiltersContainer.appendChild(filterElement);
       });
