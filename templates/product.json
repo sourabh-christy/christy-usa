@@ -118,6 +118,7 @@
     },
     "images_copy_cta_3dUKBH": {
       "type": "images-copy-cta",
+      "disabled": true,
       "settings": {
         "subtitle": "Responsibility",
         "title": "<p>Timeless products, consciously made<\/p>",
