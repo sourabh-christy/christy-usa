@@ -130,6 +130,16 @@
         "anchor_id": ""
       }
     },
+    "hero_static_qnTpRT": {
+      "type": "hero-static",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/6.png",
+        "subtitle": "Sub Title",
+        "title": "Title",
+        "copy": "<p>We're working to build a better future, and are improving our processes for the good of our consumers, our communities and the wider environment.<\/p>",
+        "image2": "shopify:\/\/shop_images\/3.png"
+      }
+    },
     "dfadb464-131f-4320-963f-71343e59af69": {
       "type": "related-products",
       "settings": {
@@ -277,6 +287,7 @@
     "product_special_features_WFwTaW",
     "1693485436843bc3ff",
     "images_copy_cta_3dUKBH",
+    "hero_static_qnTpRT",
     "dfadb464-131f-4320-963f-71343e59af69",
     "recent-products",
     "86a4f019-bc37-4060-9067-8a759a38958f",
