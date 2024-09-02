@@ -311,9 +311,9 @@
       ],
       "settings": {
         "title": "Why Our Customers Love Christy",
-        "review_carousel_title_font_size_mob": 26,
-        "review_carousel_title_font_size_desktop": 40,
-        "review_carousel_title_font_weight": "500",
+        "review_carousel_title_font_size_mob": 24,
+        "review_carousel_title_font_size_desktop": 36,
+        "review_carousel_title_font_weight": "400",
         "review_carousel_title_font_family": "Hatton, serif",
         "margin": "yes"
       }
