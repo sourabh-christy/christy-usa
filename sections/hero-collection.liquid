@@ -70,7 +70,7 @@
                         %}
                           <header class=" space-y-3 lg:space-y-4 md:text-white md:max-w-[500px] max-md:text-center">
                             {%- if block.settings.subtitle != blank %}
-                              <h2 class="m-h5 lg:d-h5 {% if block.settings.mobile_subtitle == 'hide' %}max-md:hidden{% endif %}">
+                              <h2 class="m-h5 lg:d-h5 subtitle {% if block.settings.mobile_subtitle == 'hide' %}max-md:hidden{% endif %}">
                                 {{ block.settings.subtitle }}
                               </h2>
                             {%- endif -%}
@@ -143,6 +143,101 @@
     {% endif %}
   </div>
 </div>
+{% style %}
+  {%- for block in section.blocks -%}
+    {%- if block.settings.hero_collection_subtitle_font_size_mob != blank -%}
+      #shopify-section-{{ section.id }} #{{ block.id }} .m-h5 {
+        font-size: {{ block.settings.hero_collection_subtitle_font_size_mob }}px;
+      }
+    {%- endif -%}
+
+    {%- if block.settings.hero_collection_subtitle_font_weight != blank -%}
+      #shopify-section-{{ section.id }} #{{ block.id }} .m-h5 {
+        font-weight: {{ block.settings.hero_collection_subtitle_font_weight }};
+      }
+    {%- endif -%}
+
+    {%- if block.settings.hero_collection_subtitle_font_family != blank and block.settings.hero_collection_subtitle_font_family == 'serif' -%}
+      #shopify-section-{{ section.id }} #{{ block.id }} .m-h5 {
+        font-family: "Hatton", serif;
+      }
+    {%- endif -%}
+
+    {%- if block.settings.hero_collection_title_font_size_mob != blank -%}
+      #shopify-section-{{ section.id }} #{{ block.id }} .s-m-h3 {
+        font-size: {{ block.settings.hero_collection_title_font_size_mob }}px;
+      }
+    {%- endif -%}
+
+    {%- if block.settings.hero_collection_title_font_weight != blank -%}
+      #shopify-section-{{ section.id }} #{{ block.id }} .s-m-h3 {
+        font-weight: {{ block.settings.hero_collection_title_font_weight }};
+      }
+    {%- endif -%}
+
+    {%- if block.settings.hero_collection_title_font_family != blank and block.settings.hero_collection_title_font_family == 'serif' -%}
+      #shopify-section-{{ section.id }} #{{ block.id }} .s-m-h3 {
+        font-family: "Hatton", serif;
+      }
+    {%- endif -%}
+
+    {%- if block.settings.hero_collection_copy_font_size_mob != blank -%}
+      #shopify-section-{{ section.id }} #{{ block.id }} .wysiwyg {
+        font-size: {{ block.settings.hero_collection_copy_font_size_mob }}px;
+      }
+    {%- endif -%}
+
+    {%- if block.settings.hero_collection_copy_font_weight != blank -%}
+      #shopify-section-{{ section.id }} #{{ block.id }} .wysiwyg {
+        font-weight: {{ block.settings.hero_collection_copy_font_weight }};
+      }
+    {%- endif -%}
+
+    {%- if block.settings.hero_collection_copy_font_family != blank and block.settings.hero_collection_copy_font_family == 'serif' -%}
+      #shopify-section-{{ section.id }} #{{ block.id }} .wysiwyg {
+        font-family: "Hatton", serif;
+      }
+    {%- endif -%}
+    {% if block.settings.screen_visibility == 'mobile' %}
+      @media all and (min-width: 768px) {
+        #shopify-section-{{ section.id }} #{{ block.id }} {
+          display: none !important;
+        }
+      }
+    {% endif %}
+
+    {% if block.settings.screen_visibility == 'desktop' %}
+      @media all and (max-width: 767px) {
+        #shopify-section-{{ section.id }} #{{ block.id }} {
+          display: none !important;
+        }
+      }
+    {% endif %}
+
+    {%- if block.settings.hero_collection_subtitle_font_size_desktop != blank -%}
+      @media all and (min-width: 1024px) {
+        #shopify-section-{{ section.id }} #{{ block.id }} .m-h5 {
+          font-size: {{ block.settings.hero_collection_subtitle_font_size_desktop }}px;
+        }
+      }
+    {%- endif -%}
+    {%- if block.settings.hero_collection_title_font_size_desktop != blank -%}
+      @media all and (min-width: 1024px) {
+        #shopify-section-{{ section.id }} #{{ block.id }} .s-m-h3 {
+          font-size: {{ block.settings.hero_collection_title_font_size_desktop }}px;
+        }
+      }
+    {%- endif -%}
+    {%- if block.settings.hero_collection_copy_font_size_desktop != blank -%}
+      @media all and (min-width: 1024px) {
+        #shopify-section-{{ section.id }} #{{ block.id }} .wysiwyg {
+          font-size: {{ block.settings.hero_collection_copy_font_size_desktop }}px;
+        }
+      }
+    {%- endif -%}
+  {%- endfor -%}
+{% endstyle %}
+
 
 {% schema %}
 {
@@ -193,6 +288,66 @@
           "default": "Bed"
         },
         {
+          "type": "range",
+          "id": "hero_collection_subtitle_font_size_mob",
+          "min": 12,
+          "max": 54,
+          "step": 1,
+          "unit": "px",
+          "label": "Hero collection Sub Title Font Size MOBILE",
+          "default": 16
+        },
+        {
+          "type": "range",
+          "id": "hero_collection_subtitle_font_size_desktop",
+          "min": 12,
+          "max": 54,
+          "step": 1,
+          "unit": "px",
+          "label": "Hero collection Sub Title Font Size DESKTOP",
+          "default": 16
+        },
+        {
+          "type": "select",
+          "id": "hero_collection_subtitle_font_weight",
+          "label": "Hero collection Sub Title Font Weight",
+          "options": [
+            {
+              "value": "300",
+              "label": "Light"
+            },
+            {
+              "value": "400",
+              "label": "Normal"
+            },
+            {
+              "value": "600",
+              "label": "Semi Bold"
+            },
+            {
+              "value": "700",
+              "label": "Bold"
+            }
+          ],
+          "default": "600"
+        },
+        {
+          "type": "select",
+          "id": "hero_collection_subtitle_font_family",
+          "label": "Hero collection Sub Title Font Type",
+          "options": [
+            {
+              "value": "sans-serif",
+              "label": "Sans Serif"
+            },
+            {
+              "value": "serif",
+              "label": "Serif"
+            }
+          ],
+          "default": "sans-serif"
+        },
+        {
           "type": "select",
           "id": "mobile_subtitle",
           "label": "Sub Title Mobile",
@@ -216,6 +371,70 @@
           "default": "Sink into a restful night's sleep in cosy bedding."
         },
         {
+          "type": "range",
+          "id": "hero_collection_title_font_size_mob",
+          "min": 12,
+          "max": 54,
+          "step": 1,
+          "unit": "px",
+          "label": "Hero collection Title Font Size MOBILE",
+          "default": 16
+        },
+        {
+          "type": "range",
+          "id": "hero_collection_title_font_size_desktop",
+          "min": 12,
+          "max": 54,
+          "step": 1,
+          "unit": "px",
+          "label": "Hero collection Title Font Size DESKTOP",
+          "default": 36
+        },
+        {
+          "type": "select",
+          "id": "hero_collection_title_font_weight",
+          "label": "Hero collection Title Font Weight",
+          "options": [
+            {
+              "value": "300",
+              "label": "Light"
+            },
+            {
+              "value": "400",
+              "label": "Normal"
+            },
+            {
+              "value": "600",
+              "label": "Semi Bold"
+            },
+            {
+              "value": "700",
+              "label": "Bold"
+            }
+          ],
+          "default": "400"
+        },
+        {
+          "type": "select",
+          "id": "hero_collection_title_font_family",
+          "label": "Hero collection Title Font Type",
+          "options": [
+            {
+              "value": "sans-serif",
+              "label": "Sans Serif"
+            },
+            {
+              "value": "serif",
+              "label": "Serif"
+            },
+            {
+              "value": "Hatton, serif",
+              "label": "Hatton, serif"
+            }
+          ],
+          "default": "Hatton, serif"
+        },
+        {
           "type": "text",
           "id": "mob_title",
           "label": "Item Title Mobile",
@@ -226,6 +445,70 @@
           "id": "copy",
           "label": "Copy",
           "info": "Add optional copy"
+        },
+        {
+          "type": "range",
+          "id": "hero_collection_copy_font_size_mob",
+          "min": 12,
+          "max": 54,
+          "step": 1,
+          "unit": "px",
+          "label": "Hero collection Copy Font Size MOBILE",
+          "default": 16
+        },
+        {
+          "type": "range",
+          "id": "hero_collection_copy_font_size_desktop",
+          "min": 12,
+          "max": 54,
+          "step": 1,
+          "unit": "px",
+          "label": "Hero collection Copy Font Size DESKTOP",
+          "default": 36
+        },
+        {
+          "type": "select",
+          "id": "hero_collection_copy_font_weight",
+          "label": "Hero collection Copy Font Weight",
+          "options": [
+            {
+              "value": "300",
+              "label": "Light"
+            },
+            {
+              "value": "400",
+              "label": "Normal"
+            },
+            {
+              "value": "600",
+              "label": "Semi Bold"
+            },
+            {
+              "value": "700",
+              "label": "Bold"
+            }
+          ],
+          "default": "400"
+        },
+        {
+          "type": "select",
+          "id": "hero_collection_copy_font_family",
+          "label": "Hero collection Copy Font Type",
+          "options": [
+            {
+              "value": "sans-serif",
+              "label": "Sans Serif"
+            },
+            {
+              "value": "serif",
+              "label": "Serif"
+            },
+            {
+              "value": "Hatton, serif",
+              "label": "Hatton, serif"
+            }
+          ],
+          "default": "Hatton, serif"
         },
         {
           "type": "select",
