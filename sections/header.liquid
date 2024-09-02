@@ -22,13 +22,36 @@
     overflow-x: hidden; /* Prevents horizontal scrolling */
     padding: 10px; /* Optional: Adjust padding if needed */
   }
+  @media (max-width: 1022px){
+  #search-icon{
+    display:none;
+      }
+      .search__input {
+        display: block;
+      }
+    }  
+   
+    
+  
   @media (max-width: 768px) {
     #search-icon{
       display:none;
         }
+      }  
+      @media (min-width: 769px) {
+        #Search-bar .search__button {
+          display: none;
+        }
       }
-
-  
+      
+    @media (max-width: 767px) {
+        .search__button {
+          display: block;
+        }
+      }
+      .search__button .icon {
+        height: 1.8rem;
+      }
 </style>
 <header id="header" class="sticky top-0 left-0 z-40">
   <div class="header-bar bg-white/90 h-[70px] lg:h-[107px] !h-[var(--header-height)] lg:!h-[var(--header-height-lg)] flex flex-col justify-center items-center text-blue-1 will-change-transform pointer-events-auto">
@@ -204,6 +227,7 @@
     id="NavMob"
     class="pointer-events-auto group/nav lg:hidden fixed z-[-1] inset-0 pt-[80px] flex overflow-hidden invisible opacity-0 transition-[opacity,visibility] [&.open]:opacity-100 [&.open]:visible"
   >
+   
     <div
       id="NavMob-Overlay"
       class="flex-1 h-full bg-black/50 opacity-0 transition-opacity group-[.open]/nav:opacity-100 group-[.open]/nav:delay-500"
@@ -211,14 +235,15 @@
     <nav
       class="h-full w-full bg-white/95 md:max-w-[820px] duration-500 transition-transform translate-x-full group-[.open]/nav:translate-x-0"
       data-scrollerpar
-    ><div class="max-lg:hidden lg:max-w-[317px] flex-1">
-      {% render 'header-search', input_id: 'search_desktop' %}
-    </div>
+    >
+      
       <div class="overflow-hidden overflow-y-auto flex flex-col h-full">
         
         <div class="container pt-10">
-          
-          <ul class="menu">
+          <div class=" lg:max-w-[317px] flex-1">
+            {% render 'header-search', input_id: 'search_desktop' %}
+          </div> 
+          <ul class="menu" style="margin-top:15px;">
             {% for link in section.settings.menu.links %}
               <li class="space-y-4 break-inside-avoid border-blue-1/10 border-b last:border-b-0">
                 {% comment %} <details class="block  !my-0 py-5 lg:py-7 group/acc"> {% endcomment %}
