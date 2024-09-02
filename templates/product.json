@@ -119,11 +119,13 @@
     "images_copy_cta_3dUKBH": {
       "type": "images-copy-cta",
       "settings": {
+        "image": "shopify:\/\/shop_images\/6.png",
+        "image2": "shopify:\/\/shop_images\/1.png",
         "subtitle": "Responsibility",
         "title": "<p>Timeless products, consciously made<\/p>",
         "copy": "<p>We’re devoted to building a sustainable future, always moving forwards to improve our processes for the good of our consumers, our communities and the wider environment.<\/p>",
-        "button_label": "Discover our Initiatives",
-        "button_link": "shopify:\/\/collections\/all",
+        "button_label": "",
+        "button_link": "",
         "content_position": "right",
         "header_position": false,
         "images_half_width": false,
