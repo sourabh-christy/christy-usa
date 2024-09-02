@@ -121,9 +121,9 @@
       ],
       "settings": {
         "title": "Shop By Category",
-        "collection_carousel_title_font_size_mob": 18,
-        "collection_carousel_title_font_size_desktop": 30,
-        "collection_carousel_title_font_weight": "600",
+        "collection_carousel_title_font_size_mob": 24,
+        "collection_carousel_title_font_size_desktop": 36,
+        "collection_carousel_title_font_weight": "400",
         "collection_carousel_title_font_family": "serif",
         "screen_visibility": "both"
       }
