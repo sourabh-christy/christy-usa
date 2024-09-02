@@ -354,6 +354,7 @@
         },
         "image_xEEexx": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/Artboard_15.jpg",
             "width": "full",
