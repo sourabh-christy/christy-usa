@@ -27,6 +27,43 @@
       "settings": {
       }
     },
+    "images_aqKG47": {
+      "type": "images",
+      "blocks": {
+        "image_PREBFa": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Frame_1.png",
+            "width": "full",
+            "aspect": "16\/9"
+          }
+        },
+        "image_q7Ahmi": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2_204a154d-95e9-4930-be34-089184cb538b.jpg",
+            "width": "full",
+            "aspect": "16\/9"
+          }
+        },
+        "image_FQByRc": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/1_1b337cc8-fac2-479c-912e-dfa70a606789.jpg",
+            "width": "full",
+            "aspect": "16\/9"
+          }
+        }
+      },
+      "block_order": [
+        "image_PREBFa",
+        "image_q7Ahmi",
+        "image_FQByRc"
+      ],
+      "settings": {
+        "fullscreen": false
+      }
+    },
     "1693485436843bc3ff": {
       "type": "apps",
       "settings": {
@@ -95,6 +132,10 @@
       ],
       "settings": {
         "title": "Test",
+        "collection_carousel_title_font_size_mob": 18,
+        "collection_carousel_title_font_size_desktop": 30,
+        "collection_carousel_title_font_weight": "600",
+        "collection_carousel_title_font_family": "serif",
         "screen_visibility": "mobile"
       }
     },
@@ -105,6 +146,10 @@
           "type": "block",
           "settings": {
             "title": "The Finest Materials",
+            "why_christy_block_title_font_size_mob": 16,
+            "why_christy_block_title_font_size_desktop": 16,
+            "why_christy_block_title_font_weight": "600",
+            "why_christy_block_title_font_family": "Hatton, serif",
             "text": "<p>Textures matter and luxury quality reigns supreme across every Christy product, with a dedication to championing the world’s most delectable fabrics.<\/p>"
           }
         },
@@ -112,6 +157,10 @@
           "type": "block",
           "settings": {
             "title": "Heritage of Excellence",
+            "why_christy_block_title_font_size_mob": 16,
+            "why_christy_block_title_font_size_desktop": 16,
+            "why_christy_block_title_font_weight": "600",
+            "why_christy_block_title_font_family": "Hatton, serif",
             "text": "<p>We’ve been making home textiles to be loved well and treasured over time with our heritage flair, unwavering innovation and luxury craftsmanship since 1850. <\/p>"
           }
         },
@@ -119,6 +168,10 @@
           "type": "block",
           "settings": {
             "title": "Easy Delivery & Returns",
+            "why_christy_block_title_font_size_mob": 16,
+            "why_christy_block_title_font_size_desktop": 16,
+            "why_christy_block_title_font_weight": "600",
+            "why_christy_block_title_font_family": "Hatton, serif",
             "text": "<p>From the moment you place your order, we’re here to get it to you fast, troubleshoot any issues and arrange hassle-free returns if you need it.<\/p>"
           }
         }
@@ -130,6 +183,10 @@
       ],
       "settings": {
         "title": "Step Into Our World",
+        "why_christy_title_font_size_mob": 26,
+        "why_christy_title_font_size_desktop": 40,
+        "why_christy_title_font_weight": "500",
+        "why_christy_title_font_family": "Hatton, serif",
         "button_title": "",
         "button_link": "",
         "margin": "no"
@@ -155,6 +212,7 @@
     "0c8f5654-f9bf-44d9-aef0-e8516e73109b",
     "main",
     "169090501824a740ea",
+    "images_aqKG47",
     "1693485436843bc3ff",
     "dfadb464-131f-4320-963f-71343e59af69",
     "recent-products",
