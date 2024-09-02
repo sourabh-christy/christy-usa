@@ -437,6 +437,7 @@
     },
     "ab40295a-0b7a-4298-9100-6079c0215e8e": {
       "type": "heading",
+      "disabled": true,
       "settings": {
         "heading": "<p>Supreme Supima Cotton Towels<\/p>",
         "heading_font_size_mob": 24,
