@@ -64,33 +64,6 @@
         "fullscreen": false
       }
     },
-    "1693485436843bc3ff": {
-      "type": "apps",
-      "settings": {
-      }
-    },
-    "images_copy_cta_3dUKBH": {
-      "type": "images-copy-cta",
-      "settings": {
-        "subtitle": "Responsibility",
-        "title": "<p>Timeless products, consciously made<\/p>",
-        "copy": "<p>We’re devoted to building a sustainable future, always moving forwards to improve our processes for the good of our consumers, our communities and the wider environment.<\/p>",
-        "button_label": "Discover our Initiatives",
-        "button_link": "shopify:\/\/collections\/all",
-        "content_position": "right",
-        "header_position": false,
-        "images_half_width": false,
-        "anchor_id": ""
-      }
-    },
-    "dfadb464-131f-4320-963f-71343e59af69": {
-      "type": "related-products",
-      "settings": {
-        "products": [
-
-        ]
-      }
-    },
     "product_special_features_WFwTaW": {
       "type": "product-special-features",
       "blocks": {
@@ -136,6 +109,33 @@
         "button_link": "\/",
         "button_title": "",
         "margin": "yes"
+      }
+    },
+    "1693485436843bc3ff": {
+      "type": "apps",
+      "settings": {
+      }
+    },
+    "images_copy_cta_3dUKBH": {
+      "type": "images-copy-cta",
+      "settings": {
+        "subtitle": "Responsibility",
+        "title": "<p>Timeless products, consciously made<\/p>",
+        "copy": "<p>We’re devoted to building a sustainable future, always moving forwards to improve our processes for the good of our consumers, our communities and the wider environment.<\/p>",
+        "button_label": "Discover our Initiatives",
+        "button_link": "shopify:\/\/collections\/all",
+        "content_position": "right",
+        "header_position": false,
+        "images_half_width": false,
+        "anchor_id": ""
+      }
+    },
+    "dfadb464-131f-4320-963f-71343e59af69": {
+      "type": "related-products",
+      "settings": {
+        "products": [
+
+        ]
       }
     },
     "recent-products": {
@@ -274,10 +274,10 @@
     "main",
     "169090501824a740ea",
     "images_aqKG47",
+    "product_special_features_WFwTaW",
     "1693485436843bc3ff",
     "images_copy_cta_3dUKBH",
     "dfadb464-131f-4320-963f-71343e59af69",
-    "product_special_features_WFwTaW",
     "recent-products",
     "86a4f019-bc37-4060-9067-8a759a38958f",
     "collections_carousel_GGLkUY",
