@@ -21,10 +21,10 @@
     "d1799047-2d3f-4748-9804-8038692b0c63": {
       "type": "heading",
       "settings": {
-        "heading": "<p>Creating luxuries since 1850                               <\/p>",
+        "heading": "<p>Creating Luxuries Since 1850                               <\/p>",
         "heading_font_size_mob": 24,
         "heading_font_size_desktop": 36,
-        "heading_font_weight": "600",
+        "heading_font_weight": "400",
         "heading_font_family": "sans-serif",
         "heading_width": "6",
         "copy": "<p>Often called the inventors of the modern towel, our heritage is a testament to unparalleled precision and the artistry of British craftsmanship.<\/p><p><a href=\"\/pages\/our-heritage\" title=\"Our Heritage\">Discover More<\/a><\/p>",
@@ -33,7 +33,7 @@
         "heading_copy_font_weight": "300",
         "heading_copy_font_family": "sans-serif",
         "copy_style": "default",
-        "alignment": "center",
+        "alignment": "left",
         "alignment_mob": "center",
         "horiz_padding": false,
         "margin_top": false,
