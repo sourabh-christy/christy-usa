@@ -69,12 +69,73 @@
       "settings": {
       }
     },
+    "images_copy_cta_3dUKBH": {
+      "type": "images-copy-cta",
+      "settings": {
+        "subtitle": "Responsibility",
+        "title": "<p>Timeless products, consciously made<\/p>",
+        "copy": "<p>We’re devoted to building a sustainable future, always moving forwards to improve our processes for the good of our consumers, our communities and the wider environment.<\/p>",
+        "button_label": "Discover our Initiatives",
+        "button_link": "shopify:\/\/collections\/all",
+        "content_position": "right",
+        "header_position": false,
+        "images_half_width": false,
+        "anchor_id": ""
+      }
+    },
     "dfadb464-131f-4320-963f-71343e59af69": {
       "type": "related-products",
       "settings": {
         "products": [
 
         ]
+      }
+    },
+    "product_special_features_WFwTaW": {
+      "type": "product-special-features",
+      "blocks": {
+        "block_tYL7VH": {
+          "type": "block",
+          "settings": {
+            "title": "A Special Feature",
+            "copy": "<p>Our softest and smoothest cotton sateen sheets, woven with a luxurious finish.<\/p>"
+          }
+        },
+        "block_QtVqym": {
+          "type": "block",
+          "settings": {
+            "title": "A Special Feature",
+            "copy": "<p>Our softest and smoothest cotton sateen sheets, woven with a luxurious finish.<\/p>"
+          }
+        },
+        "block_AayLR6": {
+          "type": "block",
+          "settings": {
+            "title": "A Special Feature",
+            "copy": "<p>Our softest and smoothest cotton sateen sheets, woven with a luxurious finish.<\/p>"
+          }
+        },
+        "block_bt8cGX": {
+          "type": "block",
+          "settings": {
+            "title": "A Special Feature",
+            "copy": "<p>Our softest and smoothest cotton sateen sheets, woven with a luxurious finish.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_tYL7VH",
+        "block_QtVqym",
+        "block_AayLR6",
+        "block_bt8cGX"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/1.png",
+        "note": "",
+        "title": "Why this product?",
+        "button_link": "\/",
+        "button_title": "",
+        "margin": "yes"
       }
     },
     "recent-products": {
@@ -214,7 +275,9 @@
     "169090501824a740ea",
     "images_aqKG47",
     "1693485436843bc3ff",
+    "images_copy_cta_3dUKBH",
     "dfadb464-131f-4320-963f-71343e59af69",
+    "product_special_features_WFwTaW",
     "recent-products",
     "86a4f019-bc37-4060-9067-8a759a38958f",
     "collections_carousel_GGLkUY",
