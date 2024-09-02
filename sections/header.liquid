@@ -5,7 +5,10 @@
     endif
   endfor
 -%}
+
 <link rel="stylesheet" href="{{ 'menu.css' | asset_url }}" media="print" onload="this.media='all'">
+
+<script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
 {% comment %}
   {% for collection in collections %}
     {% echo collection.title %}
@@ -194,8 +197,11 @@
     <nav
       class="h-full w-full bg-white/95 md:max-w-[820px] duration-500 transition-transform translate-x-full group-[.open]/nav:translate-x-0"
       data-scrollerpar
-    >
+    ><div class="max-lg:hidden lg:max-w-[317px] flex-1">
+      {% render 'header-search', input_id: 'search_desktop' %}
+    </div>
       <div class="overflow-hidden overflow-y-auto flex flex-col h-full">
+        
         <div class="container pt-10">
           
           <ul class="menu">

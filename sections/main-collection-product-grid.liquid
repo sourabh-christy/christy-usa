@@ -157,7 +157,7 @@ display:flex;
       }
       .qt-accordion-item-box {
         display: none;
-        padding-left: 1.25rem;
+        padding-left: 2.25rem;
         {% comment %} overflow-y: auto;
         max-height: 100px; {% endcomment %}
       }
@@ -322,14 +322,14 @@ display:flex;
           width:100%;
         }
         .filter-buttons {
-          position: fixed;
-          bottom: 0;
+          position: sticky;
+          bottom: 10px;
           left: 0;
           width: 100%;
           background-color: #fff;
           border-top: 1px solid #ddd;
           z-index: 1000; /* Ensure it stays above other content */
-          padding: 0 1rem;
+          padding: 0 3rem;
         }
         .filter-buttons button {
           margin:10px;
@@ -337,7 +337,8 @@ display:flex;
           border: 1px solid #2c3b96;
         }
         .mobile-only {
-          display: block;
+          display: flex;
+          justify-content: space-between;
         }
         .close-btn {
           display:block;

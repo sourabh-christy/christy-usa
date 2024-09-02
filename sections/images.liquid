@@ -1,59 +1,102 @@
+{{ 'splide.min.css' | asset_url | stylesheet_tag }}
 <div class="{% if section.settings.fullscreen != true %}container{% endif %}">
-  <div class="grid gap-2 md:grid-cols-6 aspec">
-    {% liquid
-      assign full_width = '100vw'
-      assign sizes = '100vw'
-    %}
-    {% for block in section.blocks %}
-      {% if block.settings.width == 'full' %}
-        {% assign widths = '375, 550, 750, 1100, 1500, 1780, 2000' %}
-        {% assign width = 1344 %}
-        {% assign figclass = 'col-span-full' %}
-      {% endif %}
+  {% liquid
+    assign full_width = '100vw'
+    assign sizes = '100vw'
+  %}
 
-      {% if block.settings.width == '1/2' %}
-        {% assign widths = '375, 550, 750, 1100' %}
-        {% assign width = 668 %}
-        {% assign figclass = 'col-span-3' %}
-      {% endif %}
+  <!-- Initialize Splide only once -->
+  <div class="splide group/splide space-y-8 lg:space-y-16"
+       data-splide='
+        {"arrows": true, "pagination": false, "type": "fade", "gap": "0", "autoWidth": false, "breakpoints": {
+          "768": {
+            "gap": "0"
+          }
+        }}
+       '>
+    <header class="flex gap-12 max-md:flex-col md:items-center">
+      {%- render 'spinner' -%}
+      <div class="flex flex-1 justify-between">
+        <div class="splide__arrows splide__arrows--ltr hidden group-[.is-initialized]/splide:!flex justify-end  !-mr-[15px] !ml-auto">
+          <button
+            class="splide__arrow splide__arrow--prev !w-10 !h-10 disabled:!opacity-0 transition-opacity !bg-transparent !static !transform-none outline-none"
+            type="button"
+            aria-label="Previous slide"
+            aria-controls="splide01-track"
+          >
+            <svg class="w-full" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path class="fill-blue-1" d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z"/>
+            </svg>
+          </button>
+          <button
+            class="splide__arrow splide__arrow--next !w-10 !h-10 disabled:!opacity-0 transition-opacity !bg-transparent !static !transform-none outline-none"
+            type="button"
+            aria-label="Next slide"
+            aria-controls="splide01-track"
+          >
+            <svg class="w-full" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path class="fill-blue-1" d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+    <div class="animation an-fadeup">
+      <div class="splide__track !overflow-visible">
+        <div class="splide__list text-blue-1 flex group-[.is-initialized]/splide:!block">
+          <!-- Render slides -->
+          {% for block in section.blocks %}
+            {% assign widths = '375, 550, 750, 1100' %}
+            {% assign width = 1344 %}
+            {% assign image_class = 'object-cover w-full h-auto opacity-0' %}
 
-      {% if block.settings.width == '1/3' %}
-        {% assign widths = '375, 550, 750, 1100' %}
-        {% assign width = 443 %}
-        {% assign figclass = 'col-span-2' %}
-      {% endif %}
+            {% if block.settings.width == '1/2' %}
+              {% assign widths = '375, 550, 750, 1100' %}
+              {% assign width = 668 %}
+            {% elsif block.settings.width == '1/3' %}
+              {% assign widths = '375, 550, 750, 1100' %}
+              {% assign width = 443 %}
+            {% endif %}
 
-      {% assign image_class = 'object-cover w-full h-auto opacity-0' %}
-      {% if block.settings.aspect == '16/9' %}
-        {% assign image_class = image_class | append: ' aspect-video' %}
-        {% assign height = width | divided_by: 16 | times: 9 %}
-      {% endif %}
+            {% if block.settings.aspect == '16/9' %}
+              {% assign image_class = image_class | append: ' aspect-video' %}
+              {% assign height = width | divided_by: 16 | times: 9 %}
+            {% elsif block.settings.aspect == 'square' %}
+              {% assign image_class = image_class | append: ' aspect-square' %}
+              {% assign height = width %}
+            {% endif %}
 
-      {% if block.settings.aspect == 'square' %}
-        {% assign image_class = image_class | append: ' aspect-square' %}
-        {% assign height = width %}
-      {% endif %}
-
-      <figure class="relative  animation an-fadeup {{ figclass }}">
-        {% render 'spinner' %}
-        {% if block.settings.image != blank %}
-          {%- render 'lazyimg',
-            loading: 'lazy',
-            img: block.settings.image,
-            width: width,
-            height: height,
-            widths: widths,
-            class: image_class,
-            sizes: sizes
-          -%}
-        {% else %}
-          {%- assign image_class = image_class | append: ' !opacity-100' -%}
-          {{ 'hero-apparel-1' | placeholder_svg_tag: image_class }}
-        {% endif %}
-      </figure>
-    {% endfor %}
+            <div class="splide__slide !translate-x-0">
+              <div {{ block.shopify_attributes }} class="">
+                {% if block.settings.image != blank %}
+                  {%- render 'lazyimg',
+                    loading: 'lazy',
+                    img: block.settings.image,
+                    width: width,
+                    height: height,
+                    widths: widths,
+                    class: image_class,
+                    sizes: sizes
+                  -%}
+                {% else %}
+                  {%- assign image_class = image_class | append: ' !opacity-100' -%}
+                  {{ 'hero-apparel-1' | placeholder_svg_tag: image_class }}
+                {% endif %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+{% comment %} {% if section.settings.margin == 'no' %}
+  <style>
+    #shopify-section-{{ section.id }} {
+        margin: 0 !important;
+    }
+  </style>
+{% endif %} {% endcomment %}
 
 {% schema %}
 {
