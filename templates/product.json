@@ -64,72 +64,35 @@
         "fullscreen": false
       }
     },
-    "product_special_features_WFwTaW": {
-      "type": "product-special-features",
+    "collections_carousel_C9fpVT": {
+      "type": "collections-carousel",
       "blocks": {
-        "block_tYL7VH": {
-          "type": "block",
+        "collection_bGbUMQ": {
+          "type": "collection",
           "settings": {
-            "title": "A Special Feature",
-            "copy": "<p>Our softest and smoothest cotton sateen sheets, woven with a luxurious finish.<\/p>"
-          }
-        },
-        "block_QtVqym": {
-          "type": "block",
-          "settings": {
-            "title": "A Special Feature",
-            "copy": "<p>Our softest and smoothest cotton sateen sheets, woven with a luxurious finish.<\/p>"
-          }
-        },
-        "block_AayLR6": {
-          "type": "block",
-          "settings": {
-            "title": "A Special Feature",
-            "copy": "<p>Our softest and smoothest cotton sateen sheets, woven with a luxurious finish.<\/p>"
-          }
-        },
-        "block_bt8cGX": {
-          "type": "block",
-          "settings": {
-            "title": "A Special Feature",
-            "copy": "<p>Our softest and smoothest cotton sateen sheets, woven with a luxurious finish.<\/p>"
+            "collection": "all-bath",
+            "usp_title": "",
+            "image": "shopify:\/\/shop_images\/1.png",
+            "alt_title": "",
+            "excerpt": ""
           }
         }
       },
       "block_order": [
-        "block_tYL7VH",
-        "block_QtVqym",
-        "block_AayLR6",
-        "block_bt8cGX"
+        "collection_bGbUMQ"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/1.png",
-        "note": "",
-        "title": "Why this product?",
-        "button_link": "\/",
-        "button_title": "",
-        "margin": "yes"
+        "title": "",
+        "collection_carousel_title_font_size_mob": 18,
+        "collection_carousel_title_font_size_desktop": 30,
+        "collection_carousel_title_font_weight": "600",
+        "collection_carousel_title_font_family": "serif",
+        "screen_visibility": "mobile"
       }
     },
     "1693485436843bc3ff": {
       "type": "apps",
       "settings": {
-      }
-    },
-    "images_copy_cta_3dUKBH": {
-      "type": "images-copy-cta",
-      "settings": {
-        "image": "shopify:\/\/shop_images\/6.png",
-        "image2": "shopify:\/\/shop_images\/1.png",
-        "subtitle": "Responsibility",
-        "title": "<p>Timeless products, consciously made<\/p>",
-        "copy": "<p>We’re devoted to building a sustainable future, always moving forwards to improve our processes for the good of our consumers, our communities and the wider environment.<\/p>",
-        "button_label": "",
-        "button_link": "",
-        "content_position": "right",
-        "header_position": false,
-        "images_half_width": false,
-        "anchor_id": ""
       }
     },
     "hero_static_qnTpRT": {
@@ -286,9 +249,8 @@
     "main",
     "169090501824a740ea",
     "images_aqKG47",
-    "product_special_features_WFwTaW",
+    "collections_carousel_C9fpVT",
     "1693485436843bc3ff",
-    "images_copy_cta_3dUKBH",
     "hero_static_qnTpRT",
     "dfadb464-131f-4320-963f-71343e59af69",
     "recent-products",
