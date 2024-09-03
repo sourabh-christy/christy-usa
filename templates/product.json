@@ -260,6 +260,29 @@
         "margin": "no"
       }
     },
+    "heading_JE8tBQ": {
+      "type": "heading",
+      "settings": {
+        "heading": "<p>Follow Us On Instagram<\/p>",
+        "heading_font_size_mob": 24,
+        "heading_font_size_desktop": 36,
+        "heading_font_weight": "600",
+        "heading_font_family": "sans-serif",
+        "heading_width": "4",
+        "copy": "",
+        "heading_copy_font_size_mob": 12,
+        "heading_copy_font_size_desktop": 14,
+        "heading_copy_font_weight": "300",
+        "heading_copy_font_family": "sans-serif",
+        "copy_style": "default",
+        "alignment": "left",
+        "alignment_mob": "center",
+        "horiz_padding": true,
+        "margin_top": false,
+        "background_color": "#FFFFFF",
+        "font_color": "#000000"
+      }
+    },
     "17248366286f91456a": {
       "type": "apps",
       "blocks": {
@@ -289,6 +312,7 @@
     "86a4f019-bc37-4060-9067-8a759a38958f",
     "collections_carousel_GGLkUY",
     "why_christy_4Ja7hw",
+    "heading_JE8tBQ",
     "17248366286f91456a"
   ]
 }
