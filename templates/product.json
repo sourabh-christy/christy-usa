@@ -64,32 +64,6 @@
         "fullscreen": false
       }
     },
-    "collections_carousel_C9fpVT": {
-      "type": "collections-carousel",
-      "blocks": {
-        "collection_bGbUMQ": {
-          "type": "collection",
-          "settings": {
-            "collection": "all-bath",
-            "usp_title": "",
-            "image": "shopify:\/\/shop_images\/1.png",
-            "alt_title": "",
-            "excerpt": ""
-          }
-        }
-      },
-      "block_order": [
-        "collection_bGbUMQ"
-      ],
-      "settings": {
-        "title": "",
-        "collection_carousel_title_font_size_mob": 18,
-        "collection_carousel_title_font_size_desktop": 30,
-        "collection_carousel_title_font_weight": "600",
-        "collection_carousel_title_font_family": "serif",
-        "screen_visibility": "mobile"
-      }
-    },
     "1693485436843bc3ff": {
       "type": "apps",
       "settings": {
@@ -307,7 +281,6 @@
     "main",
     "169090501824a740ea",
     "images_aqKG47",
-    "collections_carousel_C9fpVT",
     "1693485436843bc3ff",
     "hero_static_qnTpRT",
     "c_info_columns_6w3hE4",
