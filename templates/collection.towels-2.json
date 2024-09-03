@@ -170,6 +170,10 @@
       ],
       "settings": {
         "title": "Why Our Customers Love Christy",
+        "review_carousel_title_font_size_mob": 24,
+        "review_carousel_title_font_size_desktop": 36,
+        "review_carousel_title_font_weight": "500",
+        "review_carousel_title_font_family": "Hatton, serif",
         "margin": "yes"
       }
     },
@@ -177,8 +181,8 @@
       "type": "products-carousel",
       "settings": {
         "title": "Pair With a Matching Bath Mat or Rug",
-        "title_font_size_mob": 18,
-        "title_font_size_desktop": 40,
+        "title_font_size_mob": 24,
+        "title_font_size_desktop": 36,
         "title_font_weight": "400",
         "title_font_family": "serif",
         "button_title": "See more",
@@ -201,6 +205,10 @@
           "type": "block",
           "settings": {
             "title": "The Finest Materials",
+            "why_christy_block_title_font_size_mob": 16,
+            "why_christy_block_title_font_size_desktop": 16,
+            "why_christy_block_title_font_weight": "600",
+            "why_christy_block_title_font_family": "Hatton, serif",
             "text": "<p>Textures matter and luxury quality reigns supreme across every Christy product, with a dedication to championing the world’s most delectable fabrics.<\/p>"
           }
         },
@@ -208,6 +216,10 @@
           "type": "block",
           "settings": {
             "title": "Heritage of Excellence",
+            "why_christy_block_title_font_size_mob": 16,
+            "why_christy_block_title_font_size_desktop": 16,
+            "why_christy_block_title_font_weight": "600",
+            "why_christy_block_title_font_family": "Hatton, serif",
             "text": "<p>We’ve been making home textiles to be loved well and treasured over time with our heritage flair, unwavering innovation and luxury craftsmanship since 1850. <\/p>"
           }
         },
@@ -215,6 +227,10 @@
           "type": "block",
           "settings": {
             "title": "Easy Delivery & Returns",
+            "why_christy_block_title_font_size_mob": 16,
+            "why_christy_block_title_font_size_desktop": 16,
+            "why_christy_block_title_font_weight": "600",
+            "why_christy_block_title_font_family": "Hatton, serif",
             "text": "<p>From the moment you place your order, we’re here to get it to you fast, troubleshoot any issues and arrange hassle-free returns if you need it. <\/p>"
           }
         }
@@ -226,6 +242,10 @@
       ],
       "settings": {
         "title": "Step Inside Our World",
+        "why_christy_title_font_size_mob": 24,
+        "why_christy_title_font_size_desktop": 36,
+        "why_christy_title_font_weight": "500",
+        "why_christy_title_font_family": "Hatton, serif",
         "button_title": "",
         "button_link": "",
         "margin": "no"
