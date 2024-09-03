@@ -97,12 +97,70 @@
     },
     "hero_static_qnTpRT": {
       "type": "hero-static",
+      "disabled": true,
       "settings": {
         "image": "shopify:\/\/shop_images\/6.png",
         "subtitle": "Sub Title",
         "title": "Title",
         "copy": "<p>We're working to build a better future, and are improving our processes for the good of our consumers, our communities and the wider environment.<\/p>",
         "image2": "shopify:\/\/shop_images\/3.png"
+      }
+    },
+    "c_info_columns_6w3hE4": {
+      "type": "c-info-columns",
+      "blocks": {
+        "column_hQqxby": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Supreme_Lifestyle_Kingfisher_4_078b5406-28c7-466b-b30e-cc227a3577fa.jpg",
+            "image_aspect": "1:1",
+            "title": "Thick & Fluffy",
+            "text": "<p>Cocoon yourself in the pampering comfort of a sumptuously thick towel or bathrobe.<\/p>",
+            "button_label": "",
+            "button_link": "",
+            "collection_tag": ""
+          }
+        },
+        "column_VUpEBM": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Supreme_Lifestyle_Kingfisher_3_bd4f44ac-0533-4f49-9855-a17d76d7394f.jpg",
+            "image_aspect": "1:1",
+            "title": "Thick & Fluffy",
+            "text": "<p>Cocoon yourself in the pampering comfort of a sumptuously thick towel or bathrobe.<\/p>",
+            "button_label": "",
+            "button_link": "",
+            "collection_tag": ""
+          }
+        },
+        "column_nJAMBU": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Supreme_Kingfisher_Mat02_9742d5ae-d7f8-43ed-b105-43023abb042a.jpg",
+            "image_aspect": "1:1",
+            "title": "Thick & Fluffy",
+            "text": "<p>Cocoon yourself in the pampering comfort of a sumptuously thick towel or bathrobe.<\/p>",
+            "button_label": "",
+            "button_link": "",
+            "collection_tag": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_hQqxby",
+        "column_VUpEBM",
+        "column_nJAMBU"
+      ],
+      "settings": {
+        "title": "Why This Product",
+        "title_font_size_mob": 16,
+        "title_font_size_desktop": 20,
+        "title_font_weight": "600",
+        "title_font_family": "sans-serif",
+        "copy_font_size_mob": 12,
+        "copy_font_size_desktop": 14,
+        "copy_font_weight": "300",
+        "copy_font_family": "sans-serif"
       }
     },
     "dfadb464-131f-4320-963f-71343e59af69": {
@@ -157,7 +215,7 @@
           "settings": {
             "collection": "all-bath",
             "usp_title": "",
-            "image": "shopify:\/\/shop_images\/1_6ffc8a15-d522-4178-a1b7-eab10bee74d6.jpg",
+            "image": "shopify:\/\/shop_images\/6.png",
             "alt_title": "",
             "excerpt": ""
           }
@@ -252,6 +310,7 @@
     "collections_carousel_C9fpVT",
     "1693485436843bc3ff",
     "hero_static_qnTpRT",
+    "c_info_columns_6w3hE4",
     "dfadb464-131f-4320-963f-71343e59af69",
     "recent-products",
     "86a4f019-bc37-4060-9067-8a759a38958f",
