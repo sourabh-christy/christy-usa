@@ -347,7 +347,7 @@
         "image_jchhqW": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/test_1920x1080_3f31d391-bf36-4631-9d7c-d8b15fa388b1.jpg",
+            "image": "shopify:\/\/shop_images\/1_copy.jpg",
             "width": "full",
             "aspect": "16\/9"
           }
@@ -355,7 +355,55 @@
         "image_xEEexx": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/1928.jpg",
+            "image": "shopify:\/\/shop_images\/2_copy.jpg",
+            "width": "full",
+            "aspect": "16\/9"
+          }
+        },
+        "image_BVDh3Y": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/3_copy.jpg",
+            "width": "full",
+            "aspect": "16\/9"
+          }
+        },
+        "image_FwhdLV": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/4_copy.jpg",
+            "width": "full",
+            "aspect": "16\/9"
+          }
+        },
+        "image_JkbH9G": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/5_copy.jpg",
+            "width": "full",
+            "aspect": "16\/9"
+          }
+        },
+        "image_xjH4V3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/6_copy.jpg",
+            "width": "full",
+            "aspect": "16\/9"
+          }
+        },
+        "image_7pLNAi": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/7_copy.jpg",
+            "width": "full",
+            "aspect": "16\/9"
+          }
+        },
+        "image_CNDAJf": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/8_copy.jpg",
             "width": "full",
             "aspect": "16\/9"
           }
@@ -363,7 +411,13 @@
       },
       "block_order": [
         "image_jchhqW",
-        "image_xEEexx"
+        "image_xEEexx",
+        "image_BVDh3Y",
+        "image_FwhdLV",
+        "image_JkbH9G",
+        "image_xjH4V3",
+        "image_7pLNAi",
+        "image_CNDAJf"
       ],
       "settings": {
         "fullscreen": true
