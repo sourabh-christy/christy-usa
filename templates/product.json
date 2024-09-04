@@ -60,6 +60,7 @@
         "image_q7Ahmi",
         "image_FQByRc"
       ],
+      "disabled": true,
       "settings": {
         "fullscreen": false
       }
@@ -125,6 +126,7 @@
         "column_VUpEBM",
         "column_nJAMBU"
       ],
+      "disabled": true,
       "settings": {
         "title": "Why This Product",
         "title_font_size_mob": 16,
