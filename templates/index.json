@@ -517,6 +517,7 @@
       "type": "hero-image",
       "settings": {
         "image": "shopify:\/\/shop_images\/Artboard_12_9.jpg",
+        "image_mobile": "shopify:\/\/shop_images\/Hygro_info_content_2ce9aa49-4741-4bf2-a76e-a4c319267db2.jpg",
         "link": "shopify:\/\/products\/supreme-hygro",
         "full_width": true
       }
