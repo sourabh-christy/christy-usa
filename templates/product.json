@@ -200,6 +200,7 @@
       "block_order": [
         "collection_TKCKja"
       ],
+      "disabled": true,
       "settings": {
         "title": "Test",
         "collection_carousel_title_font_size_mob": 18,
