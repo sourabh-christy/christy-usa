@@ -523,7 +523,6 @@ display:flex;
                 {% endfor %}
                 {% comment %}}
                 {% for block in collection.metafields.custom.info_content_fullwidth_block.value %}
-                  {% comment %} {% echo block.position %}  {% endcomment %}
                   {% if block.position == indexCount %}
                     {% render 'info-content-block-fullwidth', block: block %}
                     {% assign indexCount = indexCount | plus: 1 %}
