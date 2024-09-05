@@ -2,8 +2,7 @@
     font-family: 'Tomato Grotesk';
     src: url('TomatoGrotesk-Regular.woff2') format('woff2'),
         url('TomatoGrotesk-Regular.woff') format('woff');
-        url('TomatoGrotesk-Regular.woff') format('otf');
-        url('TomatoGrotesk-Regular.woff') format('otf');
+        url('TomatoGrotesk-Regular.otf') format('otf');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
