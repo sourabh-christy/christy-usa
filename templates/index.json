@@ -565,6 +565,7 @@
         "slide_pw3Y9a": {
           "type": "slide",
           "settings": {
+            "image": "shopify:\/\/shop_images\/2003_plain.jpg",
             "mobile_media": "image",
             "subtitle": "2003",
             "hero_collection_subtitle_font_size_mob": 16,
