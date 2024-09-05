@@ -174,15 +174,6 @@
         "screen_visibility": "both"
       }
     },
-    "2a0e8d45-d132-480e-b6ff-c37f7ad453d7": {
-      "type": "hero-image",
-      "disabled": true,
-      "settings": {
-        "image": "shopify:\/\/shop_images\/HARRODS_X_CHRISTY_1.png",
-        "link": "shopify:\/\/pages\/about-us",
-        "full_width": true
-      }
-    },
     "37b580cc-c4d2-4e4e-83ee-b35a93d386e3": {
       "type": "benefits-icons",
       "blocks": {
@@ -317,6 +308,14 @@
         "margin": "yes"
       }
     },
+    "2a0e8d45-d132-480e-b6ff-c37f7ad453d7": {
+      "type": "hero-image",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/1920x810.jpg",
+        "link": "shopify:\/\/pages\/about-us",
+        "full_width": true
+      }
+    },
     "heading3": {
       "type": "heading",
       "settings": {
@@ -418,6 +417,7 @@
         "image_7pLNAi",
         "image_CNDAJf"
       ],
+      "disabled": true,
       "settings": {
         "fullscreen": true
       }
@@ -888,10 +888,10 @@
     "de1b0a2d-4cb0-4dbd-a641-18437895549a",
     "heading2",
     "5f8fd688-f484-4f34-9ee0-6dd133c393ad",
-    "2a0e8d45-d132-480e-b6ff-c37f7ad453d7",
     "37b580cc-c4d2-4e4e-83ee-b35a93d386e3",
     "0e427065-4c47-4b8e-8eab-12cb0c11fc4a",
     "0e8d554c-badf-4239-a36e-276ffacfb5fc",
+    "2a0e8d45-d132-480e-b6ff-c37f7ad453d7",
     "heading3",
     "images_gqVMqU",
     "hero_collection_edGUde",
