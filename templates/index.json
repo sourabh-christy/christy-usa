@@ -549,7 +549,7 @@
             "hero_collection_title_font_weight": "400",
             "hero_collection_title_font_family": "Hatton, serif",
             "mob_title": "",
-            "copy": "<p>Collaboration with Pierre Cardin. A special towel for Queen Elizabeth's Silver Jubilee created.<\/p>",
+            "copy": "<p>Collaboration with Pierre Cardin. A special towel for Queen Elizabeth's <\/p><p>Silver Jubilee created.<\/p>",
             "hero_collection_copy_font_size_mob": 16,
             "hero_collection_copy_font_size_desktop": 24,
             "hero_collection_copy_font_weight": "300",
