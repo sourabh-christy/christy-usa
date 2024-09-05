@@ -87,7 +87,7 @@
         <div id="menu" class="col-span-8 h-full hidden lg:block">
           <ul class="menu flex w-full justify-center h-full items-center">
             {% for link in section.settings.menu.links %}
-              <li class="menu-link group relative h-full items-center flex px-6 after:absolute after:w-0 after:transition-all after:duration-500 after:bg-[#2c3b96] hover:after:w-full after:bottom-0 after:left-0 after:h-[2px]">
+              <li style="padding-bottom:10px" class="menu-link group relative h-full items-center flex px-6 after:absolute after:w-0 after:transition-all after:duration-500 after:bg-[#2c3b96] hover:after:w-full after:bottom-0 after:left-0 after:h-[2px]">
                 <a href="{{ link.url }}">{{ link.title }}</a>
       
                 {% if link.links.size > 0 %}
