@@ -619,6 +619,7 @@
         "slide_z3iiXi": {
           "type": "slide",
           "settings": {
+            "image": "shopify:\/\/shop_images\/2023_plain.jpg",
             "mobile_media": "image",
             "subtitle": "2023",
             "hero_collection_subtitle_font_size_mob": 16,
@@ -632,7 +633,7 @@
             "hero_collection_title_font_weight": "400",
             "hero_collection_title_font_family": "Hatton, serif",
             "mob_title": "",
-            "copy": "<p>Relaunch with a new identity, embracing <br\/>wellness & introducing the 'Loop' signifier.<\/p>",
+            "copy": "<p>Relaunch with a new identity, embracing wellness & introducing the 'Loop' signifier.<\/p>",
             "hero_collection_copy_font_size_mob": 16,
             "hero_collection_copy_font_size_desktop": 24,
             "hero_collection_copy_font_weight": "300",
