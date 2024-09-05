@@ -592,6 +592,7 @@
         "slide_TtNqdg": {
           "type": "slide",
           "settings": {
+            "image": "shopify:\/\/shop_images\/2020_plain.jpg",
             "mobile_media": "image",
             "subtitle": "2020",
             "hero_collection_subtitle_font_size_mob": 16,
@@ -614,6 +615,32 @@
             "collection": "",
             "button_text": "Shop Bed"
           }
+        },
+        "slide_z3iiXi": {
+          "type": "slide",
+          "settings": {
+            "mobile_media": "image",
+            "subtitle": "2023",
+            "hero_collection_subtitle_font_size_mob": 16,
+            "hero_collection_subtitle_font_size_desktop": 16,
+            "hero_collection_subtitle_font_weight": "600",
+            "hero_collection_subtitle_font_family": "sans-serif",
+            "mobile_subtitle": "show",
+            "title": "New Identity and Wellness Focus",
+            "hero_collection_title_font_size_mob": 16,
+            "hero_collection_title_font_size_desktop": 36,
+            "hero_collection_title_font_weight": "400",
+            "hero_collection_title_font_family": "Hatton, serif",
+            "mob_title": "",
+            "copy": "<p>Relaunch with a new identity, embracing <br\/>wellness & introducing the 'Loop' signifier.<\/p>",
+            "hero_collection_copy_font_size_mob": 16,
+            "hero_collection_copy_font_size_desktop": 24,
+            "hero_collection_copy_font_weight": "300",
+            "hero_collection_copy_font_family": "Hatton, serif",
+            "copy_visibility": "all",
+            "collection": "",
+            "button_text": "Shop Bed"
+          }
         }
       },
       "block_order": [
@@ -623,7 +650,8 @@
         "slide_7LJM9w",
         "slide_yTTBhU",
         "slide_pw3Y9a",
-        "slide_TtNqdg"
+        "slide_TtNqdg",
+        "slide_z3iiXi"
       ],
       "settings": {
       }
