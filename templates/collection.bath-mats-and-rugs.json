@@ -276,13 +276,23 @@
           "settings": {
             "text": "<p>Indulge in the luxurious feel of our bath mats and rugs, perfect for creating a spa-like atmosphere in your home. Whether you're stepping out of the shower or simply adding a touch of refinement to your bathroom, our collection promises to deliver both style and comfort, making every day a little more indulgent.<\/p>"
           }
+        },
+        "button_hwDJ8y": {
+          "type": "button",
+          "settings": {
+            "button_label": "Discover More",
+            "button_link": "",
+            "button_label_2": "",
+            "button_link_2": ""
+          }
         }
       },
       "block_order": [
         "heading_NkaL3U",
         "main_heading_x9hxhi",
         "text_mNajRP",
-        "text_FTtjrD"
+        "text_FTtjrD",
+        "button_hwDJ8y"
       ],
       "settings": {
         "full_width": true,
