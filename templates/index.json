@@ -484,6 +484,7 @@
         "slide_H6RFg3": {
           "type": "slide",
           "settings": {
+            "image": "shopify:\/\/shop_images\/1937_plain.jpg",
             "mobile_media": "image",
             "subtitle": "1937",
             "hero_collection_subtitle_font_size_mob": 16,
