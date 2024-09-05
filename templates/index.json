@@ -510,7 +510,6 @@
         },
         "slide_7LJM9w": {
           "type": "slide",
-          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/1975_plain.jpg",
             "mobile_media": "image",
@@ -538,8 +537,8 @@
         },
         "slide_yTTBhU": {
           "type": "slide",
-          "disabled": true,
           "settings": {
+            "image": "shopify:\/\/shop_images\/1988_plain.jpg",
             "mobile_media": "image",
             "subtitle": "1988",
             "hero_collection_subtitle_font_size_mob": 16,
