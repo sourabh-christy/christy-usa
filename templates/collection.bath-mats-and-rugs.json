@@ -267,6 +267,7 @@
         },
         "text_mNajRP": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "<p>Discover the epitome of elegance and comfort with our luxury bath mats and rugs, meticulously crafted to transform your bathroom into a serene oasis. Each piece is designed with attention to detail, using premium materials that offer plush softness underfoot, while also ensuring durability and long-lasting beauty. Our bath mats and rugs not only enhance the aesthetic appeal of your space but also provide exceptional absorbency. Available in a range of sophisticated designs, colors, and textures, they seamlessly blend with any décor, from modern minimalism to classic opulence.<\/p>"
           }
@@ -281,7 +282,7 @@
           "type": "button",
           "settings": {
             "button_label": "Discover More",
-            "button_link": "",
+            "button_link": "shopify:\/\/blogs\/news",
             "button_label_2": "",
             "button_link_2": ""
           }
