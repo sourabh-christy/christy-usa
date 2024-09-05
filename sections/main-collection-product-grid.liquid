@@ -518,7 +518,6 @@ display:flex;
                   {% if block.position == indexCount %} 
                     {% render 'info-content-block', block: block %} 
                     {% assign indexCount = indexCount | plus: 1 %}
-                    {{ block.position }} ==> {{ indexCount }}
                  {% endif %}
                 {% endfor %}
                 {% comment %}}
@@ -528,7 +527,7 @@ display:flex;
                     {% assign indexCount = indexCount | plus: 1 %}
                  {% endif %}
                 {% endfor %} 
-              {% endcomment %}}
+              {% endcomment %}
                 
                 {% capture prodBlocks %}
                 {% for block in section.blocks -%}
