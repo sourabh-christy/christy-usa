@@ -429,7 +429,7 @@
         "slide_rnBLML": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/heritage-1850-1.jpg",
+            "image": "shopify:\/\/shop_images\/1850_plain.jpg",
             "mobile_media": "image",
             "subtitle": "1850",
             "hero_collection_subtitle_font_size_mob": 16,
@@ -437,7 +437,7 @@
             "hero_collection_subtitle_font_weight": "600",
             "hero_collection_subtitle_font_family": "sans-serif",
             "mobile_subtitle": "show",
-            "title": "Our Story begins with Henry Christy",
+            "title": "The Birth of Terry Towels",
             "hero_collection_title_font_size_mob": 16,
             "hero_collection_title_font_size_desktop": 36,
             "hero_collection_title_font_weight": "400",
@@ -485,7 +485,6 @@
         "slide_rnBLML",
         "slide_x4tjjL"
       ],
-      "disabled": true,
       "settings": {
       }
     },
