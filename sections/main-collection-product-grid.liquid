@@ -512,7 +512,7 @@ display:flex;
                 {%- if forloop.index > 4 -%}
                   {%- assign lazy_load = true -%}
                 {%- endif -%}
-
+                {{ block.position }} ==> {{ indexCount }}
                 {% for block in collection.metafields.custom.info_content_block.value %}
                   {% comment %} {% echo block.position %} {% endcomment %}
                   {% if block.position == indexCount %} 
