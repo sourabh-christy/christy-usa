@@ -588,6 +588,32 @@
             "collection": "",
             "button_text": "Shop Bed"
           }
+        },
+        "slide_TtNqdg": {
+          "type": "slide",
+          "settings": {
+            "mobile_media": "image",
+            "subtitle": "2020",
+            "hero_collection_subtitle_font_size_mob": 16,
+            "hero_collection_subtitle_font_size_desktop": 16,
+            "hero_collection_subtitle_font_weight": "600",
+            "hero_collection_subtitle_font_family": "sans-serif",
+            "mobile_subtitle": "show",
+            "title": "170th Anniversary Celebration",
+            "hero_collection_title_font_size_mob": 16,
+            "hero_collection_title_font_size_desktop": 36,
+            "hero_collection_title_font_weight": "400",
+            "hero_collection_title_font_family": "Hatton, serif",
+            "mob_title": "",
+            "copy": "<p>Marks its 170th birthday with a special anniversary logo & commemorative products.<\/p>",
+            "hero_collection_copy_font_size_mob": 16,
+            "hero_collection_copy_font_size_desktop": 24,
+            "hero_collection_copy_font_weight": "300",
+            "hero_collection_copy_font_family": "Hatton, serif",
+            "copy_visibility": "all",
+            "collection": "",
+            "button_text": "Shop Bed"
+          }
         }
       },
       "block_order": [
@@ -596,7 +622,8 @@
         "slide_H6RFg3",
         "slide_7LJM9w",
         "slide_yTTBhU",
-        "slide_pw3Y9a"
+        "slide_pw3Y9a",
+        "slide_TtNqdg"
       ],
       "settings": {
       }
