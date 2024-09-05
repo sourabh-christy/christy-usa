@@ -515,7 +515,7 @@ display:flex;
                 
                 {% for block in collection.metafields.custom.info_content_block.value %}
                   {% comment %} {% echo block.position %} {% endcomment %}
-                  
+                   {{ block.position }} ==> {{ indexCount }}
                   {% if block.position == indexCount %}
                      
                     {% render 'info-content-block', block: block %} 
