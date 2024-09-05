@@ -512,6 +512,7 @@
           "type": "slide",
           "disabled": true,
           "settings": {
+            "image": "shopify:\/\/shop_images\/1975_plain.jpg",
             "mobile_media": "image",
             "subtitle": "1975",
             "hero_collection_subtitle_font_size_mob": 16,
