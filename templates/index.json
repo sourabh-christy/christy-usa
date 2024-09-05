@@ -495,7 +495,7 @@
             "title": "Royal Appointment",
             "hero_collection_title_font_size_mob": 16,
             "hero_collection_title_font_size_desktop": 36,
-            "hero_collection_title_font_weight": "400",
+            "hero_collection_title_font_weight": "300",
             "hero_collection_title_font_family": "Hatton, serif",
             "mob_title": "",
             "copy": "<p>Edward VIII's Coronation was set for May 1937, & Christy <br\/>had already sold souvenir towels when he abdicated <br\/>in December 1936. Ever the Royalists, Christy still <br\/>went on to make a souvenir Coronation Towel for <br\/>King George VI in 1937.<\/p>",
@@ -510,6 +510,7 @@
         },
         "slide_7LJM9w": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "mobile_media": "image",
             "subtitle": "1975",
@@ -536,6 +537,7 @@
         },
         "slide_yTTBhU": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "mobile_media": "image",
             "subtitle": "1988",
