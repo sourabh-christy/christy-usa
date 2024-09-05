@@ -342,6 +342,29 @@
         "font_color": "#2c3b96"
       }
     },
+    "heading_WxBCR8": {
+      "type": "heading",
+      "settings": {
+        "heading": "<p>Our Journey<\/p>",
+        "heading_font_size_mob": 24,
+        "heading_font_size_desktop": 36,
+        "heading_font_weight": "400",
+        "heading_font_family": "sans-serif",
+        "heading_width": "4",
+        "copy": "",
+        "heading_copy_font_size_mob": 12,
+        "heading_copy_font_size_desktop": 14,
+        "heading_copy_font_weight": "300",
+        "heading_copy_font_family": "sans-serif",
+        "copy_style": "default",
+        "alignment": "left",
+        "alignment_mob": "center",
+        "horiz_padding": false,
+        "margin_top": false,
+        "background_color": "#ffffff",
+        "font_color": "#2c3b96"
+      }
+    },
     "images_gqVMqU": {
       "type": "images",
       "blocks": {
@@ -779,77 +802,6 @@
         "mobile_content_position": "overlay"
       }
     },
-    "c-info-columns2": {
-      "type": "c-info-columns",
-      "blocks": {
-        "template--19440932552979__8f8f8cb5-ef5b-4e34-9690-e88260e7d59f-1686843997bc378748-0": {
-          "type": "column",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/3_a483913e-0384-4f25-8a5a-adaaad691d53.jpg",
-            "image_aspect": "2:3",
-            "title": "Soft & Relaxed",
-            "text": "<p>Drift off to dreamland in our snuggliest selection of bedding, crafted from the cosiest fabrics.<\/p>",
-            "button_label": "Explore the Feeling",
-            "button_link": "all-bedding",
-            "collection_tag": "Soft & Relaxed"
-          }
-        },
-        "template--19440932552979__8f8f8cb5-ef5b-4e34-9690-e88260e7d59f-1686843997bc378748-1": {
-          "type": "column",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/cool-crisp.jpg",
-            "image_aspect": "1:1",
-            "title": "Cool & Crisp",
-            "text": "<p>Keep comfortably cool in fresh cotton bedding.<\/p>",
-            "button_label": "Explore the Feeling",
-            "button_link": "all-bedding",
-            "collection_tag": "Cool & Crisp"
-          }
-        },
-        "template--19440932552979__8f8f8cb5-ef5b-4e34-9690-e88260e7d59f-1686843997bc378748-2": {
-          "type": "column",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/smooth_sily_hp.jpg",
-            "image_aspect": "1:1",
-            "title": "Smooth & Silky",
-            "text": "<p>Add a touch of luxury to your bedtime routine with silky-smooth materials.<\/p>",
-            "button_label": "Explore the Feeling",
-            "button_link": "all-bedding",
-            "collection_tag": "Smooth & Silky"
-          }
-        },
-        "f251865b-ab2f-44aa-ab1f-0a92b8034d6e": {
-          "type": "column",
-          "disabled": true,
-          "settings": {
-            "image_aspect": "1:1",
-            "title": "Printed & Stripes",
-            "text": "<p>From Classic Stripes to Hand Painted Designs, elevate your bedroom with our wide collection. <\/p>",
-            "button_label": "Explore the Collection",
-            "button_link": "printed-and-hand-painted-bedding",
-            "collection_tag": ""
-          }
-        }
-      },
-      "block_order": [
-        "template--19440932552979__8f8f8cb5-ef5b-4e34-9690-e88260e7d59f-1686843997bc378748-0",
-        "template--19440932552979__8f8f8cb5-ef5b-4e34-9690-e88260e7d59f-1686843997bc378748-1",
-        "template--19440932552979__8f8f8cb5-ef5b-4e34-9690-e88260e7d59f-1686843997bc378748-2",
-        "f251865b-ab2f-44aa-ab1f-0a92b8034d6e"
-      ],
-      "disabled": true,
-      "settings": {
-        "title": "What is your perfect Bedding?",
-        "title_font_size_mob": 16,
-        "title_font_size_desktop": 20,
-        "title_font_weight": "600",
-        "title_font_family": "sans-serif",
-        "copy_font_size_mob": 12,
-        "copy_font_size_desktop": 14,
-        "copy_font_weight": "300",
-        "copy_font_family": "sans-serif"
-      }
-    },
     "billboard3": {
       "type": "billboard",
       "disabled": true,
@@ -1063,13 +1015,13 @@
     "0e8d554c-badf-4239-a36e-276ffacfb5fc",
     "2a0e8d45-d132-480e-b6ff-c37f7ad453d7",
     "heading3",
+    "heading_WxBCR8",
     "images_gqVMqU",
     "hero_collection_edGUde",
     "ab40295a-0b7a-4298-9100-6079c0215e8e",
     "hero_image_cJLbna",
     "c-info-columns",
     "billboard2",
-    "c-info-columns2",
     "billboard3",
     "images-copy-cta",
     "billboard4",
