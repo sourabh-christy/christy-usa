@@ -657,7 +657,7 @@
             "hero_collection_title_font_weight": "400",
             "hero_collection_title_font_family": "Hatton, serif",
             "mob_title": "",
-            "copy": "<p>Relaunch with a new identity, embracing wellness & introducing the 'Loop' signifier.<\/p>",
+            "copy": "<p>Relaunch with a new identity, embracing wellness & <\/p><p>introducing the 'Loop' signifier.<\/p>",
             "hero_collection_copy_font_size_mob": 16,
             "hero_collection_copy_font_size_desktop": 24,
             "hero_collection_copy_font_weight": "300",
