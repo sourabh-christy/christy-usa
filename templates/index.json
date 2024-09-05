@@ -537,7 +537,7 @@
           "type": "slide",
           "settings": {
             "mobile_media": "image",
-            "subtitle": "Bed",
+            "subtitle": "1988",
             "hero_collection_subtitle_font_size_mob": 16,
             "hero_collection_subtitle_font_size_desktop": 16,
             "hero_collection_subtitle_font_weight": "600",
@@ -551,7 +551,7 @@
             "mob_title": "",
             "copy": "",
             "hero_collection_copy_font_size_mob": 16,
-            "hero_collection_copy_font_size_desktop": 36,
+            "hero_collection_copy_font_size_desktop": 24,
             "hero_collection_copy_font_weight": "400",
             "hero_collection_copy_font_family": "Hatton, serif",
             "copy_visibility": "all",
