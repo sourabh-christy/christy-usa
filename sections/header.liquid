@@ -94,12 +94,12 @@
                   <ul class="menu dropdown-child hidden group-hover:grid grid-flow-col fixed bg-white p-4 top-[80px] left-0 right-0 mx-auto w-full shadow-lg transition-all duration-500">
                     {% for child_link in link.links %}
                       <li
-                        class="menu-link font-bold grid grid-flow-row justify-center items-start auto-rows-max py-2"
+                        class="menu-link grid grid-flow-row justify-center items-start auto-rows-max py-2"
                         style="margin:10px;"
                       >
                         {% assign grand_child_count = child_link.links | size %}
                         {% comment %} {% echo child_link.title %} {% endcomment %}
-                        <a href="{{ child_link.url }}" class="flex flex-col gap-4 text-base pb-4 hover:underline">
+                        <a href="{{ child_link.url }}" class="flex flex-col gap-4 pb-4 hover:underline">
                           {% if grand_child_count == 0 and link.title != 'About Christy' %}
                             <img
                               src="{{ child_link.object.metafields.custom.menu_image | file_url }}"
