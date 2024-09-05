@@ -311,6 +311,7 @@
     },
     "2a0e8d45-d132-480e-b6ff-c37f7ad453d7": {
       "type": "hero-image",
+      "disabled": true,
       "settings": {
         "image": "shopify:\/\/shop_images\/Artboard_14_f38547aa-7d8d-4915-9497-dfef44ef4ab5.jpg",
         "link": "shopify:\/\/pages\/about-us",
@@ -446,7 +447,7 @@
             "copy": "<p>Our Story begins with Henry Christy. Our Story begins with Henry Christy. Our Story begins with Henry Christy. Our Story begins with Henry Christy.<\/p>",
             "hero_collection_copy_font_size_mob": 16,
             "hero_collection_copy_font_size_desktop": 24,
-            "hero_collection_copy_font_weight": "400",
+            "hero_collection_copy_font_weight": "300",
             "hero_collection_copy_font_family": "Hatton, serif",
             "copy_visibility": "all",
             "collection": "",
@@ -464,26 +465,107 @@
             "hero_collection_subtitle_font_weight": "600",
             "hero_collection_subtitle_font_family": "sans-serif",
             "mobile_subtitle": "show",
-            "title": "Let there be colour",
+            "title": "Vibrant Towels  and Beach Wraps",
             "hero_collection_title_font_size_mob": 16,
             "hero_collection_title_font_size_desktop": 36,
             "hero_collection_title_font_weight": "400",
             "hero_collection_title_font_family": "Hatton, serif",
             "mob_title": "",
-            "copy": "<p>Christy introduced bright colourful<\/p>",
+            "copy": "<p>Bright, colourful towels & fashionable  beach wraps are introdu<\/p>",
+            "hero_collection_copy_font_size_mob": 16,
+            "hero_collection_copy_font_size_desktop": 24,
+            "hero_collection_copy_font_weight": "300",
+            "hero_collection_copy_font_family": "Hatton, serif",
+            "copy_visibility": "all",
+            "collection": "",
+            "button_text": "1920"
+          }
+        },
+        "slide_H6RFg3": {
+          "type": "slide",
+          "settings": {
+            "mobile_media": "image",
+            "subtitle": "1937",
+            "hero_collection_subtitle_font_size_mob": 16,
+            "hero_collection_subtitle_font_size_desktop": 16,
+            "hero_collection_subtitle_font_weight": "600",
+            "hero_collection_subtitle_font_family": "sans-serif",
+            "mobile_subtitle": "show",
+            "title": "Sink into a restful night's sleep in cosy bedding.",
+            "hero_collection_title_font_size_mob": 16,
+            "hero_collection_title_font_size_desktop": 36,
+            "hero_collection_title_font_weight": "400",
+            "hero_collection_title_font_family": "Hatton, serif",
+            "mob_title": "",
+            "copy": "",
+            "hero_collection_copy_font_size_mob": 16,
+            "hero_collection_copy_font_size_desktop": 24,
+            "hero_collection_copy_font_weight": "400",
+            "hero_collection_copy_font_family": "Hatton, serif",
+            "copy_visibility": "all",
+            "collection": "",
+            "button_text": "Shop Bed"
+          }
+        },
+        "slide_7LJM9w": {
+          "type": "slide",
+          "settings": {
+            "mobile_media": "image",
+            "subtitle": "Bed",
+            "hero_collection_subtitle_font_size_mob": 16,
+            "hero_collection_subtitle_font_size_desktop": 16,
+            "hero_collection_subtitle_font_weight": "600",
+            "hero_collection_subtitle_font_family": "sans-serif",
+            "mobile_subtitle": "show",
+            "title": "Sink into a restful night's sleep in cosy bedding.",
+            "hero_collection_title_font_size_mob": 16,
+            "hero_collection_title_font_size_desktop": 36,
+            "hero_collection_title_font_weight": "400",
+            "hero_collection_title_font_family": "Hatton, serif",
+            "mob_title": "",
+            "copy": "",
             "hero_collection_copy_font_size_mob": 16,
             "hero_collection_copy_font_size_desktop": 36,
             "hero_collection_copy_font_weight": "400",
             "hero_collection_copy_font_family": "Hatton, serif",
             "copy_visibility": "all",
             "collection": "",
-            "button_text": "1920"
+            "button_text": "Shop Bed"
+          }
+        },
+        "slide_yTTBhU": {
+          "type": "slide",
+          "settings": {
+            "mobile_media": "image",
+            "subtitle": "Bed",
+            "hero_collection_subtitle_font_size_mob": 16,
+            "hero_collection_subtitle_font_size_desktop": 16,
+            "hero_collection_subtitle_font_weight": "600",
+            "hero_collection_subtitle_font_family": "sans-serif",
+            "mobile_subtitle": "show",
+            "title": "Sink into a restful night's sleep in cosy bedding.",
+            "hero_collection_title_font_size_mob": 16,
+            "hero_collection_title_font_size_desktop": 36,
+            "hero_collection_title_font_weight": "400",
+            "hero_collection_title_font_family": "Hatton, serif",
+            "mob_title": "",
+            "copy": "",
+            "hero_collection_copy_font_size_mob": 16,
+            "hero_collection_copy_font_size_desktop": 36,
+            "hero_collection_copy_font_weight": "400",
+            "hero_collection_copy_font_family": "Hatton, serif",
+            "copy_visibility": "all",
+            "collection": "",
+            "button_text": "Shop Bed"
           }
         }
       },
       "block_order": [
         "slide_rnBLML",
-        "slide_x4tjjL"
+        "slide_x4tjjL",
+        "slide_H6RFg3",
+        "slide_7LJM9w",
+        "slide_yTTBhU"
       ],
       "settings": {
       }
