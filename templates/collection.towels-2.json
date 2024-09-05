@@ -250,6 +250,49 @@
         "button_link": "",
         "margin": "no"
       }
+    },
+    "rich_text_T4rFkt": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_xprDfe": {
+          "type": "heading",
+          "settings": {
+            "heading": "",
+            "sub_title_size": "h2"
+          }
+        },
+        "main_heading_HN4Jpg": {
+          "type": "main_heading",
+          "settings": {
+            "heading": "Towels"
+          }
+        },
+        "text_9Rbnqr": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Christy towels are renowned for their superior quality, plush softness, and exceptional absorbency. Crafted from the finest cotton, our towels are a must-have for anyone seeking to elevate their bathing experience. Whether you're stepping out of the shower or lounging by the pool, our towels provide the perfect blend of luxury and functionality.<\/p>"
+          }
+        },
+        "button_DfGTeh": {
+          "type": "button",
+          "settings": {
+            "button_label": "Discover More",
+            "button_link": "shopify:\/\/blogs\/news",
+            "button_label_2": "",
+            "button_link_2": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_xprDfe",
+        "main_heading_HN4Jpg",
+        "text_9Rbnqr",
+        "button_DfGTeh"
+      ],
+      "settings": {
+        "full_width": true,
+        "anchor_id": ""
+      }
     }
   },
   "order": [
@@ -260,6 +303,7 @@
     "32651ade-df62-44f5-8355-bb4039f60426",
     "reviews_carousel_drrYnT",
     "products_carousel_yrGbjj",
-    "why_christy_Qt6pDa"
+    "why_christy_Qt6pDa",
+    "rich_text_T4rFkt"
   ]
 }
