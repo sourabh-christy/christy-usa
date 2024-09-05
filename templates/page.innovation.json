@@ -1,1 +1,282 @@
-{"sections":{"hero-static":{"type":"hero-static","settings":{"image":"shopify:\/\/shop_images\/innovation-1.jpg","subtitle":"Innovation","title":"Introducing our oh-so-clever fabrics and detail-driven designs.","copy":"<p>Christy's products are designed to work. From oversized, extra plush towels that hug you dry in seconds (though you may well wish it was longer) to fitted sheets that won't slide off your mattress.<\/p>","image2":"shopify:\/\/shop_images\/innovation-2.jpg"}},"page-anchors":{"type":"page-anchors","blocks":{"template--19974381371680__8f9e3ef3-0d55-43c1-b496-14c674ab688e-anchor_link-1":{"type":"anchor_link","settings":{"title":"Hygro Cotton®","anchor_id":"hygro-cotton"}},"template--19974381371680__8f9e3ef3-0d55-43c1-b496-14c674ab688e-anchor_link-2":{"type":"anchor_link","settings":{"title":"Zero Twist Yarn","anchor_id":"zero-twist-yarn"}}},"block_order":["template--19974381371680__8f9e3ef3-0d55-43c1-b496-14c674ab688e-anchor_link-1","template--19974381371680__8f9e3ef3-0d55-43c1-b496-14c674ab688e-anchor_link-2"],"settings":{}},"heading":{"type":"heading","settings":{"heading":"<p>Brighten up your morning and start every day with a win by choosing HygroCotton®.<\/p>","heading_width":"4","copy":"","copy_style":"default","alignment":"right","horiz_padding":true,"margin_top":false}},"rich-text":{"type":"rich-text","blocks":{"1398f43f-f918-4187-b50f-70492610063a":{"type":"heading","settings":{"heading":"Innovation is in our DNA","sub_title_size":"h2"}},"a7dab157-b607-401b-b61d-2976f78d0bbe":{"type":"text","settings":{"text":"<p>In 1850, W.M Christy and Sons developed an industrial loom to weave our signature soft terry towelling. In the 170 years since, Christy has continued to evolve and improve, so that you can wrap up in cosy towels and relax in the soft sheets that are second to none.<\/p>"}}},"block_order":["1398f43f-f918-4187-b50f-70492610063a","a7dab157-b607-401b-b61d-2976f78d0bbe"],"settings":{"full_width":false,"anchor_id":""}},"images":{"type":"images","blocks":{"5b646956-a5dd-4637-a66e-a4ca816853e0":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/innovation-3.jpg","width":"full","aspect":"16\/9"}}},"block_order":["5b646956-a5dd-4637-a66e-a4ca816853e0"],"settings":{"fullscreen":true}},"rich-text2":{"type":"rich-text","blocks":{"1398f43f-f918-4187-b50f-70492610063a":{"type":"heading","settings":{"heading":"Our Technology","sub_title_size":"h2"}},"dec7dc0b-687d-46b4-9d05-4ab0c12b895e":{"type":"main_heading","settings":{"heading":"HygroCotton®"}},"a7dab157-b607-401b-b61d-2976f78d0bbe":{"type":"text","settings":{"text":"<p>Our patented hygro-cotton technology is the secret to Christy's Supreme collection; our ultra-soft, oh-so-absorbent towels that get even softer and fluffier after they're washed.<\/p>"}}},"block_order":["1398f43f-f918-4187-b50f-70492610063a","dec7dc0b-687d-46b4-9d05-4ab0c12b895e","a7dab157-b607-401b-b61d-2976f78d0bbe"],"settings":{"full_width":false,"anchor_id":"hydro-cotton"}},"info-cards":{"type":"info-cards","blocks":{"31ca2767-17ed-4295-b5d5-a235fd6c3ad9":{"type":"card","settings":{"image":"shopify:\/\/shop_images\/grows-softer.svg","title":"Grows Softer","content_title":"Super Soft CottonHygro® towels keep on giving","text":"<p>To make cotton into hygro-cotton, we start with long, strong cotton fibres. Then each fluffy cotton fibre is spun into a yarn with a hollow core. This unique shape traps more air, so the yarns are more insulative and more absorbent. The result? A soft, fluffy towel that dries you in record time.<\/p>"}},"cf002eb8-5721-44b8-a686-690fd99e78b1":{"type":"card","settings":{"image":"shopify:\/\/shop_images\/blooms.svg","title":"Blooms","content_title":"Towels That Get Softer and Loftier With Every Wash","text":"<p>The hollow core of each HygroCotton yarn means that our towels become even fluffier over the first few washes.<\/p>"}},"a5263566-0655-4775-ab38-e1de94d70e23":{"type":"card","settings":{"image":"shopify:\/\/shop_images\/more-absorbent.svg","title":"More Absorbent","content_title":"The Benefits of HygroCotton®","text":"<p>Our HygroCotton technology creates oh-so-soft towels that dry you in the blink of an  eye.<\/p>"}}},"block_order":["31ca2767-17ed-4295-b5d5-a235fd6c3ad9","cf002eb8-5721-44b8-a686-690fd99e78b1","a5263566-0655-4775-ab38-e1de94d70e23"],"settings":{"title":"HygroCotton®:"}},"featured-collection":{"type":"featured-collection","blocks":{"4a655c37-2240-43bd-aa0c-b3e113217a08":{"type":"product","settings":{"product":"supreme-hygro","text":"<p>Wrap yourself up in pure luxury with our ultra soft and absorbant Supreme Hygro® towel collection<\/p>"}},"e14b8b02-c53c-4069-85cc-43e31732c3cb":{"type":"product","settings":{"product":"supreme-velour-robe","text":"<p>Wrap yourself up in pure luxury with our ultra soft and absorbant Supreme Hygro® towel collection<\/p>"}},"d21bf329-3944-47a0-832b-9162c451db72":{"type":"product","disabled":true,"settings":{"product":"supreme-hygro-bath-mat","text":"<p>Wrap yourself up in pure luxury with our ultra soft and absorbant Supreme Hygro® towel collection<\/p>"}}},"block_order":["4a655c37-2240-43bd-aa0c-b3e113217a08","e14b8b02-c53c-4069-85cc-43e31732c3cb","d21bf329-3944-47a0-832b-9162c451db72"],"settings":{"title":"Shop the Collection","collection":"core-collection-towels-supreme-hygro"}},"images-copy-cta":{"type":"images-copy-cta","settings":{"image":"shopify:\/\/shop_images\/zero-twist-yarn-1.jpg","image2":"shopify:\/\/shop_images\/zero-twist-yarn-2.jpg","subtitle":"Products","title":"<p>Zero Twist Yarn<\/p>","copy":"<p>Zero twist yarns are velvety-soft yarns that create super-absorbent, refreshing towels. Most towels are made with cotton that is spun by twisting it together. This twisting process joins the fibers to make a long, fine yarn, which is very durable and which means that you can work with shorter (read: lower quality) fibers. <br\/><br\/>But for Zero Twist yarns, the fibers aren't twisted together to increase length and strength—they have to be high quality and naturally strong from the get go. And because they aren't twisted, each yarn has more surface area. The result is a smooth, plush towel that is wonderfully soft-to-the-touch. Dry off in the embrace of a super-soft, velvety Mode towel made with Zero Twist cotton yarn.<\/p>","button_label":"","button_link":"shopify:\/\/collections\/all","content_position":"right","header_position":false,"images_half_width":false,"anchor_id":"zero-twist-yarn"}},"billboard":{"type":"billboard","settings":{"image":"shopify:\/\/shop_images\/perfect-towel-innovation.jpg","subtitle":"Feature","title":"<p>Only the best: picking your perfect towel<\/p>","copy":"<p>There's an art to choosing the right towel. Absorb our expert tips to discover your ideal drying-down companion.<\/p>","button_label":"Read More","button_link":"shopify:\/\/pages\/innovation","button_type":"tertiary","colour_theme":"white","alignment":"left","alignment_vertical":"center","mobile_content_position":"overlay"}}},"order":["hero-static","page-anchors","heading","rich-text","images","rich-text2","info-cards","featured-collection","images-copy-cta","billboard"]}
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "hero-static": {
+      "type": "hero-static",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/innovation-1.jpg",
+        "subtitle": "Innovation",
+        "title": "Introducing our oh-so-clever fabrics and detail-driven designs.",
+        "copy": "<p>Christy's products are designed to work. From oversized, extra plush towels that hug you dry in seconds (though you may well wish it was longer) to fitted sheets that won't slide off your mattress.<\/p>",
+        "image2": "shopify:\/\/shop_images\/innovation-2.jpg"
+      }
+    },
+    "page-anchors": {
+      "type": "page-anchors",
+      "blocks": {
+        "template--19974381371680__8f9e3ef3-0d55-43c1-b496-14c674ab688e-anchor_link-1": {
+          "type": "anchor_link",
+          "settings": {
+            "title": "Hygro Cotton®",
+            "anchor_id": "hygro-cotton"
+          }
+        },
+        "template--19974381371680__8f9e3ef3-0d55-43c1-b496-14c674ab688e-anchor_link-2": {
+          "type": "anchor_link",
+          "settings": {
+            "title": "Zero Twist Yarn",
+            "anchor_id": "zero-twist-yarn"
+          }
+        }
+      },
+      "block_order": [
+        "template--19974381371680__8f9e3ef3-0d55-43c1-b496-14c674ab688e-anchor_link-1",
+        "template--19974381371680__8f9e3ef3-0d55-43c1-b496-14c674ab688e-anchor_link-2"
+      ],
+      "settings": {
+      }
+    },
+    "heading": {
+      "type": "heading",
+      "settings": {
+        "heading": "<p>Brighten up your morning and start every day with a win by choosing HygroCotton®.<\/p>",
+        "heading_font_size_mob": 24,
+        "heading_font_size_desktop": 36,
+        "heading_font_weight": "600",
+        "heading_font_family": "sans-serif",
+        "heading_width": "4",
+        "copy": "",
+        "heading_copy_font_size_mob": 12,
+        "heading_copy_font_size_desktop": 14,
+        "heading_copy_font_weight": "300",
+        "heading_copy_font_family": "sans-serif",
+        "copy_style": "default",
+        "alignment": "right",
+        "alignment_mob": "right",
+        "horiz_padding": true,
+        "margin_top": false,
+        "background_color": "#FFFFFF",
+        "font_color": "#000000"
+      }
+    },
+    "rich-text": {
+      "type": "rich-text",
+      "blocks": {
+        "1398f43f-f918-4187-b50f-70492610063a": {
+          "type": "heading",
+          "settings": {
+            "heading": "Innovation is in our DNA",
+            "sub_title_size": "h2"
+          }
+        },
+        "a7dab157-b607-401b-b61d-2976f78d0bbe": {
+          "type": "text",
+          "settings": {
+            "text": "<p>In 1850, W.M Christy and Sons developed an industrial loom to weave our signature soft terry towelling. In the 170 years since, Christy has continued to evolve and improve, so that you can wrap up in cosy towels and relax in the soft sheets that are second to none.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "1398f43f-f918-4187-b50f-70492610063a",
+        "a7dab157-b607-401b-b61d-2976f78d0bbe"
+      ],
+      "settings": {
+        "full_width": false,
+        "anchor_id": ""
+      }
+    },
+    "images": {
+      "type": "images",
+      "blocks": {
+        "5b646956-a5dd-4637-a66e-a4ca816853e0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/innovation-3.jpg",
+            "width": "full",
+            "aspect": "16\/9"
+          }
+        }
+      },
+      "block_order": [
+        "5b646956-a5dd-4637-a66e-a4ca816853e0"
+      ],
+      "settings": {
+        "fullscreen": true
+      }
+    },
+    "rich-text2": {
+      "type": "rich-text",
+      "blocks": {
+        "1398f43f-f918-4187-b50f-70492610063a": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our Technology",
+            "sub_title_size": "h2"
+          }
+        },
+        "dec7dc0b-687d-46b4-9d05-4ab0c12b895e": {
+          "type": "main_heading",
+          "settings": {
+            "heading": "HygroCotton®"
+          }
+        },
+        "a7dab157-b607-401b-b61d-2976f78d0bbe": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our patented hygro-cotton technology is the secret to Christy's Supreme collection; our ultra-soft, oh-so-absorbent towels that get even softer and fluffier after they're washed.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "1398f43f-f918-4187-b50f-70492610063a",
+        "dec7dc0b-687d-46b4-9d05-4ab0c12b895e",
+        "a7dab157-b607-401b-b61d-2976f78d0bbe"
+      ],
+      "settings": {
+        "full_width": false,
+        "anchor_id": "hydro-cotton"
+      }
+    },
+    "info-cards": {
+      "type": "info-cards",
+      "blocks": {
+        "31ca2767-17ed-4295-b5d5-a235fd6c3ad9": {
+          "type": "card",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/grows-softer.svg",
+            "title": "Grows Softer",
+            "content_title": "Super Soft CottonHygro® towels keep on giving",
+            "text": "<p>To make cotton into hygro-cotton, we start with long, strong cotton fibres. Then each fluffy cotton fibre is spun into a yarn with a hollow core. This unique shape traps more air, so the yarns are more insulative and more absorbent. The result? A soft, fluffy towel that dries you in record time.<\/p>"
+          }
+        },
+        "cf002eb8-5721-44b8-a686-690fd99e78b1": {
+          "type": "card",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/blooms.svg",
+            "title": "Blooms",
+            "content_title": "Towels That Get Softer and Loftier With Every Wash",
+            "text": "<p>The hollow core of each HygroCotton yarn means that our towels become even fluffier over the first few washes.<\/p>"
+          }
+        },
+        "a5263566-0655-4775-ab38-e1de94d70e23": {
+          "type": "card",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/more-absorbent.svg",
+            "title": "More Absorbent",
+            "content_title": "The Benefits of HygroCotton®",
+            "text": "<p>Our HygroCotton technology creates oh-so-soft towels that dry you in the blink of an  eye.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "31ca2767-17ed-4295-b5d5-a235fd6c3ad9",
+        "cf002eb8-5721-44b8-a686-690fd99e78b1",
+        "a5263566-0655-4775-ab38-e1de94d70e23"
+      ],
+      "settings": {
+        "title": "HygroCotton®:"
+      }
+    },
+    "featured-collection": {
+      "type": "featured-collection",
+      "blocks": {
+        "4a655c37-2240-43bd-aa0c-b3e113217a08": {
+          "type": "product",
+          "settings": {
+            "product": "supreme-hygro",
+            "text": "<p>Wrap yourself up in pure luxury with our ultra soft and absorbant Supreme Hygro® towel collection<\/p>"
+          }
+        },
+        "e14b8b02-c53c-4069-85cc-43e31732c3cb": {
+          "type": "product",
+          "settings": {
+            "product": "supreme-velour-robe",
+            "text": "<p>Wrap yourself up in pure luxury with our ultra soft and absorbant Supreme Hygro® towel collection<\/p>"
+          }
+        },
+        "d21bf329-3944-47a0-832b-9162c451db72": {
+          "type": "product",
+          "disabled": true,
+          "settings": {
+            "product": "supreme-hygro-bath-mat",
+            "text": "<p>Wrap yourself up in pure luxury with our ultra soft and absorbant Supreme Hygro® towel collection<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "4a655c37-2240-43bd-aa0c-b3e113217a08",
+        "e14b8b02-c53c-4069-85cc-43e31732c3cb",
+        "d21bf329-3944-47a0-832b-9162c451db72"
+      ],
+      "settings": {
+        "title": "Shop the Collection",
+        "collection": "core-collection-towels-supreme-hygro"
+      }
+    },
+    "images-copy-cta": {
+      "type": "images-copy-cta",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/zero-twist-yarn-1.jpg",
+        "image2": "shopify:\/\/shop_images\/zero-twist-yarn-2.jpg",
+        "subtitle": "Products",
+        "title": "<p>Zero Twist Yarn<\/p>",
+        "copy": "<p>Zero twist yarns are velvety-soft yarns that create super-absorbent, refreshing towels. Most towels are made with cotton that is spun by twisting it together. This twisting process joins the fibers to make a long, fine yarn, which is very durable and which means that you can work with shorter (read: lower quality) fibers. <br\/><br\/>But for Zero Twist yarns, the fibers aren't twisted together to increase length and strength—they have to be high quality and naturally strong from the get go. And because they aren't twisted, each yarn has more surface area. The result is a smooth, plush towel that is wonderfully soft-to-the-touch. Dry off in the embrace of a super-soft, velvety Mode towel made with Zero Twist cotton yarn.<\/p>",
+        "button_label": "",
+        "button_link": "shopify:\/\/collections\/all",
+        "content_position": "right",
+        "header_position": false,
+        "images_half_width": false,
+        "anchor_id": "zero-twist-yarn"
+      }
+    },
+    "billboard": {
+      "type": "billboard",
+      "settings": {
+        "screen_visibility": "both",
+        "image": "shopify:\/\/shop_images\/perfect-towel-innovation.jpg",
+        "subtitle": "",
+        "billboard_subtitle_font_size_mob": 16,
+        "billboard_subtitle_font_size_desktop": 16,
+        "billboard_subtitle_font_weight": "600",
+        "billboard_subtitle_font_family": "sans-serif",
+        "title": "<p>Only the best: picking your perfect towel<\/p>",
+        "billboard_title_font_size_mob": 16,
+        "billboard_title_font_size_desktop": 40,
+        "billboard_title_font_weight": "500",
+        "billboard_title_font_family": "Hatton, serif",
+        "copy": "<p>There's an art to choosing the right towel. Absorb our expert tips to discover your ideal drying-down companion.<\/p>",
+        "billboard_copy_font_size_mob": 14,
+        "billboard_copy_font_size_desktop": 14,
+        "billboard_copy_font_weight": "200",
+        "billboard_copy_font_family": "sans-serif",
+        "button_label": "Read More",
+        "button_link": "shopify:\/\/pages\/innovation",
+        "button_type": "tertiary",
+        "colour_theme": "white",
+        "alignment": "left",
+        "alignment_vertical": "center",
+        "mobile_content_position": "overlay"
+      }
+    }
+  },
+  "order": [
+    "hero-static",
+    "page-anchors",
+    "heading",
+    "rich-text",
+    "images",
+    "rich-text2",
+    "info-cards",
+    "featured-collection",
+    "images-copy-cta",
+    "billboard"
+  ]
+}
