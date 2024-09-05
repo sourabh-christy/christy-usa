@@ -561,6 +561,32 @@
             "collection": "",
             "button_text": "Shop Bed"
           }
+        },
+        "slide_pw3Y9a": {
+          "type": "slide",
+          "settings": {
+            "mobile_media": "image",
+            "subtitle": "2003",
+            "hero_collection_subtitle_font_size_mob": 16,
+            "hero_collection_subtitle_font_size_desktop": 16,
+            "hero_collection_subtitle_font_weight": "600",
+            "hero_collection_subtitle_font_family": "sans-serif",
+            "mobile_subtitle": "show",
+            "title": "Introducing Bed Linen",
+            "hero_collection_title_font_size_mob": 16,
+            "hero_collection_title_font_size_desktop": 36,
+            "hero_collection_title_font_weight": "400",
+            "hero_collection_title_font_family": "Hatton, serif",
+            "mob_title": "",
+            "copy": "<p>Christy launched a new bed linen collection that <br\/>boasts high thread counts, intricate embroidery, <br\/>and beautifully woven designs.<\/p>",
+            "hero_collection_copy_font_size_mob": 16,
+            "hero_collection_copy_font_size_desktop": 24,
+            "hero_collection_copy_font_weight": "300",
+            "hero_collection_copy_font_family": "Hatton, serif",
+            "copy_visibility": "all",
+            "collection": "",
+            "button_text": "Shop Bed"
+          }
         }
       },
       "block_order": [
@@ -568,7 +594,8 @@
         "slide_x4tjjL",
         "slide_H6RFg3",
         "slide_7LJM9w",
-        "slide_yTTBhU"
+        "slide_yTTBhU",
+        "slide_pw3Y9a"
       ],
       "settings": {
       }
