@@ -3,3 +3,9 @@
 #menu a {
   font-family:Tomato Grotesk,sans-serif;
 }
+
+@media (min-width: 1024px) {
+    .lg\:pl-8 {
+        padding-left: 6rem !important;
+    }
+}
