@@ -109,8 +109,9 @@
             %}
           {% endfor %}
 
+          {% if current_variant.metafields.custom.a_plus_display_text != blank and show_a_plus == true %}            
           <div id="aplusproducts" class="flex flex-row items-center pb-3 justify-start gap-2">
-            {% if current_variant.metafields.custom.a_plus_display_text != blank and show_a_plus == true %}
+            
               <input
                 name="aplusproducts"
                 type="checkbox"
@@ -121,8 +122,8 @@
               <label for="aplusproducts-cb">
                 {{- current_variant.metafields.custom.a_plus_display_text }} - {{ aplus_price | money -}}
               </label>
-            {% endif %}
           </div>
+          {% endif %}
 
 
           <div class="flex gap-2 items-end">
