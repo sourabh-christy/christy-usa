@@ -162,7 +162,7 @@
     cursor: pointer;
     display: -ms-flexbox;
     display: flex;
-    height: 2em;
+    height: 3em;
     -ms-flex-pack: center;
     justify-content: center;
     opacity: .7;
@@ -170,14 +170,14 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 2em;
+    width: 3em;
     z-index: 1
 }
 
 .splide__arrow svg {
     fill: #000;
-    height: 1.2em;
-    width: 1.2em
+    height: 2em;
+    width: 2em
 }
 
 .splide__arrow:hover:not(:disabled) {
