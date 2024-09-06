@@ -16,7 +16,7 @@
        '>
     <header class="flex gap-12 max-md:flex-col md:items-center">
       {%- render 'spinner' -%}
-      <div class="flex flex-1 justify-between">
+      {% comment %} <div class="flex flex-1 justify-between">
         <div class="splide__arrows splide__arrows--ltr hidden group-[.is-initialized]/splide:!flex justify-end  !-mr-[15px] !ml-auto">
           <button
             class="splide__arrow splide__arrow--prev !w-10 !h-10 disabled:!opacity-0 transition-opacity !bg-transparent !static !transform-none outline-none"
@@ -39,7 +39,7 @@
             </svg>
           </button>
         </div>
-      </div>
+      </div> {% endcomment %}
     </header>
     <div class="animation an-fadeup">
       <div class="splide__track !overflow-visible">
