@@ -73,7 +73,7 @@
             endif
             if current_variant.metafields.custom.pre_order_qunatity > 0
               assign quantity_rule_soldout = false
-              assign allow_pre_order = true
+              assign allow_pre_order = false
             endif
           -%}
           {% if allow_pre_order == true %}
