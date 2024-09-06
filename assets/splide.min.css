@@ -174,10 +174,22 @@
     z-index: 1
 }
 
+
+@media (max-width: 420px) {
+    .splide__arrow {
+      height: 3em;
+      width: 3em;
+    }
+    .splide__arrow svg {
+      height: 1.2em;
+      width: 1.2em;
+    }
+}
+
 .splide__arrow svg {
     fill: #000;
     height: 2em;
-    width: 2em
+    width: 2em;
 }
 
 .splide__arrow:hover:not(:disabled) {
