@@ -343,7 +343,6 @@
                                 or item.properties.size != 0
                                 or item.selling_plan_allocation != null
                               -%}
-                                {{ item | json }}
                                 <dl class="text-[12px] grid sm:grid-cols-[minmax(0,max-content)_auto] gap-2 gap-y-1 lg:gap-y-2">
                                   {% if bundleData != blank and item.item_components.size -%}
                                     {% assign itemComponents = item.item_components | reverse %}
