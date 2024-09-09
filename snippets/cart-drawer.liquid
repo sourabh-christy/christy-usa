@@ -96,9 +96,9 @@
         <div class="drawer__header mb-5 lg:mb-6 ">
           <div class="space-y-12 lg:space-y-11">
             <div class="space-y-4 lg:space-y-6">
-              <h2 class="drawer__heading m-h1 lg:d-h1">Cart</h2>
+              <h2 class="drawer__heading m-h1 lg:d-h1">Basket</h2>
 
-              {% comment %} {%- liquid
+              {%- liquid
                 assign has_intro_copy = false
                 assign points_per_pound = settings.points_per_pound
                 assign cart_drawer_intro_loggedin = settings.cart_drawer_intro_loggedin
@@ -107,9 +107,9 @@
                 if points_per_pound
                   assign calc_points = cart.total_price | divided_by: 100 | times: points_per_pound
                 endif
-              %} {% endcomment %}
+              %}
 
-              {% comment %} {% if customer and points_per_pound and cart_drawer_intro_loggedin %}
+              {% if customer and points_per_pound and cart_drawer_intro_loggedin %}
                 {% assign has_intro_copy = true %}
                 {% assign intro_replaced = cart_drawer_intro_loggedin | replace: '{points}', calc_points %}
                 <div class="wysiwyg">{{ intro_replaced }}</div>
@@ -117,11 +117,11 @@
                 {% assign has_intro_copy = true %}
                 {% assign intro_replaced = cart_drawer_intro_loggedout | replace: '{points}', calc_points %}
                 <div class="wysiwyg">{{ intro_replaced }}</div>
-              {% endif %} {% endcomment %}
+              {% endif %}
 
-              {% comment %} {% if has_intro_copy == false %}
+              {% if has_intro_copy == false %}
                 <div class="wysiwyg">{{ settings.cart_drawer_intro }}</div>
-              {% endif %} {% endcomment %}
+              {% endif %}
             </div>
 
             <p class=" text-[14px] lg:text-[16px]">
@@ -625,12 +625,17 @@
                                 {% endif %}
 
                                 {% if is_product_bundle %}
+                                  {% assign totalCompareMoney = item_compare_price | money_without_currency %}
+                                  {% assign totalPriceMonry = item_price | money_without_currency %}
+
+                                  {% assign priceDiff = totalCompareMoney | minus: totalPriceMonry %}
+                                  {% assign myDis = priceDiff | divided_by: totalCompareMoney | times: 100 | round: 2 %}
                                   <span class="flex flex-row-reverse items-center gap-2 whitespace-nowrap">
                                     <span class="rounded-full p-[3px] md:p-1 flex items-center justify-center w-[12px] h-[12px] md:w-[14px] md:h-[14px] bg-blue-1 text-white shrink-0">
                                       {% render 'icon-check' %}
                                     </span>
-                                    {% if bundleData != blank and bundleData.bundleDiscount > 0 -%}
-                                      {{- bundleData.bundleDiscount }}% off bundle
+                                    {% if bundleData != blank and myDis > 0 -%}
+                                      {{- myDis }}% off bundle
                                     {%- else %}
                                       Bundle Savings
                                     {% endif %}
@@ -826,7 +831,7 @@
             {% endif %}
 
             <div class="totals flex justify-between space-x-6" role="status">
-              <h2 class="totals__subtotal">Subtotal (Exclusive- Tax)</h2>
+              <h2 class="totals__subtotal">Subtotal (incl. VAT)</h2>
               <p class="totals__subtotal-value">
                 {% if savings > 0 %}
                   <strong class="line-through">{{ cumulative_rrp | money }}</strong>
@@ -864,9 +869,9 @@
             <p class="text-[10px] lg:text-[11px]">
               {% if cart.total_price < 5000 %}
                 {% assign neededMoney = 5000 | minus: cart.total_price | money %}
-                Spend another <strong>{{ neededMoney }}</strong> to qualify for Free Standard Delivery to USA.
+                Spend another <strong>{{ neededMoney }}</strong> to qualify for Free Standard Delivery to UK.
               {% else %}
-                You qualify for Free Standard Delivery to USA.
+                You qualify for Free Standard Delivery to UK.
               {% endif %}
             </p>
           </div>
