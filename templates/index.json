@@ -105,7 +105,7 @@
             "alt_title": "Bundles",
             "excerpt": "<p>Create your spa escape with premium bundles.<\/p>",
             "collection_carousel_excerpt_font_size_mob": 18,
-            "collection_carousel_excerpt_font_size_desktop": 30,
+            "collection_carousel_excerpt_font_size_desktop": 24,
             "collection_carousel_excerpt_font_weight": "300",
             "collection_carousel_excerpt_font_family": "sans-serif"
           }
