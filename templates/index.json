@@ -68,6 +68,19 @@
     "de1b0a2d-4cb0-4dbd-a641-18437895549a": {
       "type": "collections-carousel",
       "blocks": {
+        "collection_HMfWg7": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "usp_title": "",
+            "alt_title": "",
+            "excerpt": "",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 30,
+            "collection_carousel_excerpt_font_weight": "600",
+            "collection_carousel_excerpt_font_family": "serif"
+          }
+        },
         "683c86e1-1e16-4aa5-b1fc-ed306a9535cc": {
           "type": "collection",
           "settings": {
@@ -127,6 +140,7 @@
         }
       },
       "block_order": [
+        "collection_HMfWg7",
         "683c86e1-1e16-4aa5-b1fc-ed306a9535cc",
         "2f3cb25a-b518-49ee-afab-a5c33fb259f7",
         "ade5aede-0029-4b09-aee8-6e48f8cfe8be",
@@ -140,7 +154,7 @@
         "collection_carousel_title_font_size_mob": 24,
         "collection_carousel_title_font_size_desktop": 36,
         "collection_carousel_title_font_weight": "300",
-        "collection_carousel_title_font_family": "sans-serif",
+        "collection_carousel_title_font_family": "serif",
         "screen_visibility": "both"
       }
     },
