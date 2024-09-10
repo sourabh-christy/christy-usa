@@ -508,28 +508,6 @@
         "font_color": "#000000"
       }
     },
-    "2c7e8cac-6078-4c3b-b5eb-fd09baf5939e": {
-      "type": "products-carousel",
-      "disabled": true,
-      "settings": {
-        "title": "",
-        "title_font_size_mob": 18,
-        "title_font_size_desktop": 30,
-        "title_font_weight": "600",
-        "title_font_family": "sans-serif",
-        "button_title": "Explore the Range",
-        "button_link": "shopify:\/\/collections\/all-accessories",
-        "products": [
-          "jaipur-throw",
-          "cosy-throw",
-          "oslo",
-          "metropolitan-throw",
-          "jaipur-cushion",
-          "metropolitan-cushion"
-        ],
-        "screen_visibility": "both"
-      }
-    },
     "32651ade-df62-44f5-8355-bb4039f60426": {
       "type": "billboard",
       "disabled": true,
@@ -638,11 +616,117 @@
         "margin": "yes"
       }
     },
+    "2c7e8cac-6078-4c3b-b5eb-fd09baf5939e": {
+      "type": "products-carousel",
+      "settings": {
+        "title": "Discover Towels",
+        "title_font_size_mob": 24,
+        "title_font_size_desktop": 36,
+        "title_font_weight": "400",
+        "title_font_family": "Hatton, serif",
+        "button_title": "",
+        "button_link": "",
+        "products": [
+          "supreme-supima-cotton-towel",
+          "renaissance-egyptian-cotton-towels-copy",
+          "trellis-towels",
+          "brixton-textured-towels",
+          "luxe-towels"
+        ],
+        "screen_visibility": "both"
+      }
+    },
     "recent-products": {
       "type": "recent-products",
       "disabled": true,
       "settings": {
         "heading": "Previously explored"
+      }
+    },
+    "why_christy_AeykKd": {
+      "type": "why-christy",
+      "blocks": {
+        "block_gaNf9L": {
+          "type": "block",
+          "settings": {
+            "title": "The Finest Materials",
+            "why_christy_block_title_font_size_mob": 16,
+            "why_christy_block_title_font_size_desktop": 24,
+            "why_christy_block_title_font_weight": "600",
+            "why_christy_block_title_font_family": "Hatton, serif",
+            "text": "<p>Textures matter and luxury quality reigns supreme across every Christy product, with a dedication to championing the world’s most delectable fabrics.<\/p>"
+          }
+        },
+        "block_YULhVW": {
+          "type": "block",
+          "settings": {
+            "title": "Heritage of Excellence",
+            "why_christy_block_title_font_size_mob": 16,
+            "why_christy_block_title_font_size_desktop": 24,
+            "why_christy_block_title_font_weight": "600",
+            "why_christy_block_title_font_family": "Hatton, serif",
+            "text": "<p>We’ve been making home textiles to be loved well and treasured over time with our heritage flair, unwavering innovation and luxury craftsmanship since 1850. <\/p>"
+          }
+        },
+        "block_kNmiqc": {
+          "type": "block",
+          "settings": {
+            "title": "Easy Delivery & Returns",
+            "why_christy_block_title_font_size_mob": 16,
+            "why_christy_block_title_font_size_desktop": 24,
+            "why_christy_block_title_font_weight": "600",
+            "why_christy_block_title_font_family": "Hatton, serif",
+            "text": "<p>From the moment you place your order, we’re here to get it to you fast, troubleshoot any issues and arrange hassle-free returns if you need it.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_gaNf9L",
+        "block_YULhVW",
+        "block_kNmiqc"
+      ],
+      "settings": {
+        "title": "Step Inside Our World",
+        "why_christy_title_font_size_mob": 24,
+        "why_christy_title_font_size_desktop": 36,
+        "why_christy_title_font_weight": "400",
+        "why_christy_title_font_family": "Hatton, serif",
+        "button_title": "",
+        "button_link": "",
+        "margin": "no"
+      }
+    },
+    "2594a997-818a-4de5-b1c1-015972b655d2": {
+      "type": "rich-text",
+      "blocks": {
+        "template--21450563944736__2594a997-818a-4de5-b1c1-015972b655d2-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "",
+            "sub_title_size": "h2"
+          }
+        },
+        "template--21450563944736__2594a997-818a-4de5-b1c1-015972b655d2-main_heading-1": {
+          "type": "main_heading",
+          "settings": {
+            "heading": "Bundles"
+          }
+        },
+        "template--21450563944736__2594a997-818a-4de5-b1c1-015972b655d2-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our signature gift box & personalised message options now available.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--21450563944736__2594a997-818a-4de5-b1c1-015972b655d2-heading-1",
+        "template--21450563944736__2594a997-818a-4de5-b1c1-015972b655d2-main_heading-1",
+        "template--21450563944736__2594a997-818a-4de5-b1c1-015972b655d2-text-1"
+      ],
+      "settings": {
+        "full_width": true,
+        "anchor_id": ""
       }
     },
     "toggled-body-content": {
@@ -771,92 +855,6 @@
         "title": "Discover Bedding",
         "copy": "<p>You deserve the best of rest. Our bedding gently envelops you in a soft embrace to settle you into the sweetest dreams. Discover hand-painted designs, sumptuous fabrics, and durable materials at Christy. Your bed will be a haven for rest, relaxation, and deep sleep. From crisp, clean sheets to soft, snuggly throws, we've got the perfect combination for you.<\/p><p>Forget about your stresses and responsibilities and slip into a deep, peaceful sleep safely swaddled in the splendour of Christy’s bedding.<\/p>"
       }
-    },
-    "why_christy_AeykKd": {
-      "type": "why-christy",
-      "blocks": {
-        "block_gaNf9L": {
-          "type": "block",
-          "settings": {
-            "title": "The Finest Materials",
-            "why_christy_block_title_font_size_mob": 16,
-            "why_christy_block_title_font_size_desktop": 24,
-            "why_christy_block_title_font_weight": "600",
-            "why_christy_block_title_font_family": "Hatton, serif",
-            "text": "<p>Textures matter and luxury quality reigns supreme across every Christy product, with a dedication to championing the world’s most delectable fabrics.<\/p>"
-          }
-        },
-        "block_YULhVW": {
-          "type": "block",
-          "settings": {
-            "title": "Heritage of Excellence",
-            "why_christy_block_title_font_size_mob": 16,
-            "why_christy_block_title_font_size_desktop": 24,
-            "why_christy_block_title_font_weight": "600",
-            "why_christy_block_title_font_family": "Hatton, serif",
-            "text": "<p>We’ve been making home textiles to be loved well and treasured over time with our heritage flair, unwavering innovation and luxury craftsmanship since 1850. <\/p>"
-          }
-        },
-        "block_kNmiqc": {
-          "type": "block",
-          "settings": {
-            "title": "Easy Delivery & Returns",
-            "why_christy_block_title_font_size_mob": 16,
-            "why_christy_block_title_font_size_desktop": 24,
-            "why_christy_block_title_font_weight": "600",
-            "why_christy_block_title_font_family": "Hatton, serif",
-            "text": "<p>From the moment you place your order, we’re here to get it to you fast, troubleshoot any issues and arrange hassle-free returns if you need it.<\/p>"
-          }
-        }
-      },
-      "block_order": [
-        "block_gaNf9L",
-        "block_YULhVW",
-        "block_kNmiqc"
-      ],
-      "settings": {
-        "title": "Step Inside Our World",
-        "why_christy_title_font_size_mob": 24,
-        "why_christy_title_font_size_desktop": 36,
-        "why_christy_title_font_weight": "400",
-        "why_christy_title_font_family": "Hatton, serif",
-        "button_title": "",
-        "button_link": "",
-        "margin": "no"
-      }
-    },
-    "2594a997-818a-4de5-b1c1-015972b655d2": {
-      "type": "rich-text",
-      "blocks": {
-        "template--21450563944736__2594a997-818a-4de5-b1c1-015972b655d2-heading-1": {
-          "type": "heading",
-          "settings": {
-            "heading": "",
-            "sub_title_size": "h2"
-          }
-        },
-        "template--21450563944736__2594a997-818a-4de5-b1c1-015972b655d2-main_heading-1": {
-          "type": "main_heading",
-          "settings": {
-            "heading": "Bundles"
-          }
-        },
-        "template--21450563944736__2594a997-818a-4de5-b1c1-015972b655d2-text-1": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Our signature gift box & personalised message options now available.<\/p>"
-          }
-        }
-      },
-      "block_order": [
-        "template--21450563944736__2594a997-818a-4de5-b1c1-015972b655d2-heading-1",
-        "template--21450563944736__2594a997-818a-4de5-b1c1-015972b655d2-main_heading-1",
-        "template--21450563944736__2594a997-818a-4de5-b1c1-015972b655d2-text-1"
-      ],
-      "settings": {
-        "full_width": true,
-        "anchor_id": ""
-      }
     }
   },
   "order": [
@@ -876,13 +874,13 @@
     "6851d866-adb6-4f4b-8e77-da4ae8ec22ef",
     "d38727e6-070e-4d88-af8b-6b75b41f7719",
     "393634d4-53d9-4c8e-be41-45c5d425188a",
-    "2c7e8cac-6078-4c3b-b5eb-fd09baf5939e",
     "32651ade-df62-44f5-8355-bb4039f60426",
     "product-grid",
     "07a57dc8-34ac-41ee-96df-37021aef7941",
+    "2c7e8cac-6078-4c3b-b5eb-fd09baf5939e",
     "recent-products",
-    "toggled-body-content",
     "why_christy_AeykKd",
-    "2594a997-818a-4de5-b1c1-015972b655d2"
+    "2594a997-818a-4de5-b1c1-015972b655d2",
+    "toggled-body-content"
   ]
 }
