@@ -698,6 +698,7 @@
     },
     "ab40295a-0b7a-4298-9100-6079c0215e8e": {
       "type": "heading",
+      "disabled": true,
       "settings": {
         "heading": "",
         "heading_font_size_mob": 12,
