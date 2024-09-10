@@ -778,34 +778,34 @@
         "block_gaNf9L": {
           "type": "block",
           "settings": {
-            "title": "Premium Materials",
+            "title": "The Finest Materials",
             "why_christy_block_title_font_size_mob": 16,
-            "why_christy_block_title_font_size_desktop": 16,
+            "why_christy_block_title_font_size_desktop": 24,
             "why_christy_block_title_font_weight": "600",
             "why_christy_block_title_font_family": "Hatton, serif",
-            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet venenatis urna cursus eget nunc scelerisque.<\/p>"
+            "text": "<p>Textures matter and luxury quality reigns supreme across every Christy product, with a dedication to championing the world’s most delectable fabrics.<\/p>"
           }
         },
         "block_YULhVW": {
           "type": "block",
           "settings": {
-            "title": "Premium Materials",
+            "title": "Heritage of Excellence",
             "why_christy_block_title_font_size_mob": 16,
-            "why_christy_block_title_font_size_desktop": 16,
+            "why_christy_block_title_font_size_desktop": 24,
             "why_christy_block_title_font_weight": "600",
             "why_christy_block_title_font_family": "Hatton, serif",
-            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet venenatis urna cursus eget nunc scelerisque.<\/p>"
+            "text": "<p>We’ve been making home textiles to be loved well and treasured over time with our heritage flair, unwavering innovation and luxury craftsmanship since 1850. <\/p>"
           }
         },
         "block_kNmiqc": {
           "type": "block",
           "settings": {
-            "title": "Premium Materials",
+            "title": "Easy Delivery & Returns",
             "why_christy_block_title_font_size_mob": 16,
-            "why_christy_block_title_font_size_desktop": 16,
+            "why_christy_block_title_font_size_desktop": 24,
             "why_christy_block_title_font_weight": "600",
             "why_christy_block_title_font_family": "Hatton, serif",
-            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet venenatis urna cursus eget nunc scelerisque.<\/p>"
+            "text": "<p>From the moment you place your order, we’re here to get it to you fast, troubleshoot any issues and arrange hassle-free returns if you need it.<\/p>"
           }
         }
       },
