@@ -181,13 +181,13 @@
     "products_carousel_yrGbjj": {
       "type": "products-carousel",
       "settings": {
-        "title": "Pair With a Matching Bath Mat or Rug",
+        "title": "Pairs Well With",
         "title_font_size_mob": 24,
         "title_font_size_desktop": 36,
         "title_font_weight": "400",
         "title_font_family": "Hatton, serif",
-        "button_title": "See more",
-        "button_link": "shopify:\/\/collections\/bath-mats-and-rugs",
+        "button_title": "",
+        "button_link": "",
         "products": [
           "fina-bath-mat",
           "deep-pile-rug",
