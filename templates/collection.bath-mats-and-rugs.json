@@ -170,9 +170,9 @@
       ],
       "settings": {
         "title": "Why Our Customers Love Christy",
-        "review_carousel_title_font_size_mob": 26,
-        "review_carousel_title_font_size_desktop": 40,
-        "review_carousel_title_font_weight": "500",
+        "review_carousel_title_font_size_mob": 24,
+        "review_carousel_title_font_size_desktop": 36,
+        "review_carousel_title_font_weight": "400",
         "review_carousel_title_font_family": "Hatton, serif",
         "margin": "yes"
       }
@@ -181,17 +181,18 @@
       "type": "products-carousel",
       "settings": {
         "title": "Pair With Matching Towels",
-        "title_font_size_mob": 18,
-        "title_font_size_desktop": 30,
+        "title_font_size_mob": 24,
+        "title_font_size_desktop": 36,
         "title_font_weight": "400",
-        "title_font_family": "serif",
-        "button_title": "See more",
-        "button_link": "shopify:\/\/collections\/towels",
+        "title_font_family": "Hatton, serif",
+        "button_title": "",
+        "button_link": "",
         "products": [
           "supreme-hygro",
           "renaissance",
           "luxe-towels",
-          "brixton-towels"
+          "brixton-towels",
+          "trellis-towels"
         ],
         "screen_visibility": "both"
       }
@@ -204,7 +205,7 @@
           "settings": {
             "title": "The Finest Materials",
             "why_christy_block_title_font_size_mob": 16,
-            "why_christy_block_title_font_size_desktop": 16,
+            "why_christy_block_title_font_size_desktop": 24,
             "why_christy_block_title_font_weight": "600",
             "why_christy_block_title_font_family": "Hatton, serif",
             "text": "<p>Textures matter and luxury quality reigns supreme across every Christy product, with a dedication to championing the world’s most delectable fabrics.<\/p>"
@@ -215,7 +216,7 @@
           "settings": {
             "title": "Heritage of Excellence",
             "why_christy_block_title_font_size_mob": 16,
-            "why_christy_block_title_font_size_desktop": 16,
+            "why_christy_block_title_font_size_desktop": 24,
             "why_christy_block_title_font_weight": "600",
             "why_christy_block_title_font_family": "Hatton, serif",
             "text": "<p>We’ve been making home textiles to be loved well and treasured over time with our heritage flair, unwavering innovation and luxury craftsmanship since 1850. <\/p>"
@@ -242,7 +243,7 @@
         "title": "Step Inside Our World",
         "why_christy_title_font_size_mob": 26,
         "why_christy_title_font_size_desktop": 40,
-        "why_christy_title_font_weight": "500",
+        "why_christy_title_font_weight": "400",
         "why_christy_title_font_family": "Hatton, serif",
         "button_title": "",
         "button_link": "",
