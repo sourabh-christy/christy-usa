@@ -645,39 +645,6 @@
         "heading": "Previously explored"
       }
     },
-    "2594a997-818a-4de5-b1c1-015972b655d2": {
-      "type": "rich-text",
-      "blocks": {
-        "template--21450563944736__2594a997-818a-4de5-b1c1-015972b655d2-heading-1": {
-          "type": "heading",
-          "settings": {
-            "heading": "",
-            "sub_title_size": "h2"
-          }
-        },
-        "template--21450563944736__2594a997-818a-4de5-b1c1-015972b655d2-main_heading-1": {
-          "type": "main_heading",
-          "settings": {
-            "heading": "Bundles"
-          }
-        },
-        "template--21450563944736__2594a997-818a-4de5-b1c1-015972b655d2-text-1": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Our signature gift box & personalised message options now available.<\/p>"
-          }
-        }
-      },
-      "block_order": [
-        "template--21450563944736__2594a997-818a-4de5-b1c1-015972b655d2-heading-1",
-        "template--21450563944736__2594a997-818a-4de5-b1c1-015972b655d2-main_heading-1",
-        "template--21450563944736__2594a997-818a-4de5-b1c1-015972b655d2-text-1"
-      ],
-      "settings": {
-        "full_width": true,
-        "anchor_id": ""
-      }
-    },
     "toggled-body-content": {
       "type": "toggled-body-content",
       "blocks": {
@@ -804,6 +771,92 @@
         "title": "Discover Bedding",
         "copy": "<p>You deserve the best of rest. Our bedding gently envelops you in a soft embrace to settle you into the sweetest dreams. Discover hand-painted designs, sumptuous fabrics, and durable materials at Christy. Your bed will be a haven for rest, relaxation, and deep sleep. From crisp, clean sheets to soft, snuggly throws, we've got the perfect combination for you.<\/p><p>Forget about your stresses and responsibilities and slip into a deep, peaceful sleep safely swaddled in the splendour of Christy’s bedding.<\/p>"
       }
+    },
+    "why_christy_AeykKd": {
+      "type": "why-christy",
+      "blocks": {
+        "block_gaNf9L": {
+          "type": "block",
+          "settings": {
+            "title": "Premium Materials",
+            "why_christy_block_title_font_size_mob": 16,
+            "why_christy_block_title_font_size_desktop": 16,
+            "why_christy_block_title_font_weight": "600",
+            "why_christy_block_title_font_family": "Hatton, serif",
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet venenatis urna cursus eget nunc scelerisque.<\/p>"
+          }
+        },
+        "block_YULhVW": {
+          "type": "block",
+          "settings": {
+            "title": "Premium Materials",
+            "why_christy_block_title_font_size_mob": 16,
+            "why_christy_block_title_font_size_desktop": 16,
+            "why_christy_block_title_font_weight": "600",
+            "why_christy_block_title_font_family": "Hatton, serif",
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet venenatis urna cursus eget nunc scelerisque.<\/p>"
+          }
+        },
+        "block_kNmiqc": {
+          "type": "block",
+          "settings": {
+            "title": "Premium Materials",
+            "why_christy_block_title_font_size_mob": 16,
+            "why_christy_block_title_font_size_desktop": 16,
+            "why_christy_block_title_font_weight": "600",
+            "why_christy_block_title_font_family": "Hatton, serif",
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet venenatis urna cursus eget nunc scelerisque.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_gaNf9L",
+        "block_YULhVW",
+        "block_kNmiqc"
+      ],
+      "settings": {
+        "title": "Step Inside Our World",
+        "why_christy_title_font_size_mob": 24,
+        "why_christy_title_font_size_desktop": 36,
+        "why_christy_title_font_weight": "400",
+        "why_christy_title_font_family": "Hatton, serif",
+        "button_title": "",
+        "button_link": "",
+        "margin": "no"
+      }
+    },
+    "2594a997-818a-4de5-b1c1-015972b655d2": {
+      "type": "rich-text",
+      "blocks": {
+        "template--21450563944736__2594a997-818a-4de5-b1c1-015972b655d2-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "",
+            "sub_title_size": "h2"
+          }
+        },
+        "template--21450563944736__2594a997-818a-4de5-b1c1-015972b655d2-main_heading-1": {
+          "type": "main_heading",
+          "settings": {
+            "heading": "Bundles"
+          }
+        },
+        "template--21450563944736__2594a997-818a-4de5-b1c1-015972b655d2-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our signature gift box & personalised message options now available.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--21450563944736__2594a997-818a-4de5-b1c1-015972b655d2-heading-1",
+        "template--21450563944736__2594a997-818a-4de5-b1c1-015972b655d2-main_heading-1",
+        "template--21450563944736__2594a997-818a-4de5-b1c1-015972b655d2-text-1"
+      ],
+      "settings": {
+        "full_width": true,
+        "anchor_id": ""
+      }
     }
   },
   "order": [
@@ -828,7 +881,8 @@
     "product-grid",
     "07a57dc8-34ac-41ee-96df-37021aef7941",
     "recent-products",
-    "2594a997-818a-4de5-b1c1-015972b655d2",
-    "toggled-body-content"
+    "toggled-body-content",
+    "why_christy_AeykKd",
+    "2594a997-818a-4de5-b1c1-015972b655d2"
   ]
 }
