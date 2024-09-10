@@ -12,7 +12,7 @@
     "c13e9ca8-ca9c-4ed4-9a12-8bfd34eb0a02": {
       "type": "hero-image",
       "settings": {
-        "image": "shopify:\/\/shop_images\/How_to_build_a_bundle.jpg",
+        "image": "shopify:\/\/shop_images\/Bundles_PLP.jpg",
         "link": "",
         "full_width": true
       }
@@ -529,31 +529,6 @@
         "screen_visibility": "both"
       }
     },
-    "07a57dc8-34ac-41ee-96df-37021aef7941": {
-      "type": "reviews-carousel",
-      "blocks": {
-        "block_i9mANj": {
-          "type": "block",
-          "settings": {
-            "product": "",
-            "title": "Product TBC",
-            "testimonial": "<p>“TBC TBC.”<\/p>",
-            "name": "Name TBC"
-          }
-        }
-      },
-      "block_order": [
-        "block_i9mANj"
-      ],
-      "settings": {
-        "title": "Why Our Customers Love Christy",
-        "review_carousel_title_font_size_mob": 24,
-        "review_carousel_title_font_size_desktop": 36,
-        "review_carousel_title_font_weight": "400",
-        "review_carousel_title_font_family": "Hatton, serif",
-        "margin": "yes"
-      }
-    },
     "32651ade-df62-44f5-8355-bb4039f60426": {
       "type": "billboard",
       "disabled": true,
@@ -635,6 +610,31 @@
         "products_per": 12,
         "enable_filtering": true,
         "enable_sorting": true
+      }
+    },
+    "07a57dc8-34ac-41ee-96df-37021aef7941": {
+      "type": "reviews-carousel",
+      "blocks": {
+        "block_i9mANj": {
+          "type": "block",
+          "settings": {
+            "product": "",
+            "title": "Product TBC",
+            "testimonial": "<p>“TBC TBC.”<\/p>",
+            "name": "Name TBC"
+          }
+        }
+      },
+      "block_order": [
+        "block_i9mANj"
+      ],
+      "settings": {
+        "title": "Why Our Customers Love Christy",
+        "review_carousel_title_font_size_mob": 24,
+        "review_carousel_title_font_size_desktop": 36,
+        "review_carousel_title_font_weight": "400",
+        "review_carousel_title_font_family": "Hatton, serif",
+        "margin": "yes"
       }
     },
     "recent-products": {
@@ -823,9 +823,9 @@
     "d38727e6-070e-4d88-af8b-6b75b41f7719",
     "393634d4-53d9-4c8e-be41-45c5d425188a",
     "2c7e8cac-6078-4c3b-b5eb-fd09baf5939e",
-    "07a57dc8-34ac-41ee-96df-37021aef7941",
     "32651ade-df62-44f5-8355-bb4039f60426",
     "product-grid",
+    "07a57dc8-34ac-41ee-96df-37021aef7941",
     "recent-products",
     "2594a997-818a-4de5-b1c1-015972b655d2",
     "toggled-body-content"
