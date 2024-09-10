@@ -140,7 +140,7 @@
         "collection_carousel_title_font_size_mob": 24,
         "collection_carousel_title_font_size_desktop": 36,
         "collection_carousel_title_font_weight": "300",
-        "collection_carousel_title_font_family": "serif",
+        "collection_carousel_title_font_family": "Hatton, serif",
         "screen_visibility": "both"
       }
     },
