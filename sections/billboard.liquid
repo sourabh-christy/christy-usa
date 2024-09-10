@@ -110,7 +110,7 @@
       {%- endif -%};
   }
   {%- endif -%}
-{%- if section.settings.billboard_copy_font_size_mob != blank -%}
+  {%- if section.settings.billboard_copy_font_size_mob != blank -%}
   #shopify-section-{{ section.id }} .wysiwyg {
     font-size: {{ section.settings.billboard_copy_font_size_mob }}px;
   }
@@ -130,7 +130,7 @@
       {%- elsif section.settings.billboard_copy_font_family == 'sans-serif' -%}
         sans-serif
       {%- else -%}
-        "Hatton", serif
+        'Tomato Grotesk', sans-serif
       {%- endif -%};
   }
   {%- endif -%}
@@ -413,11 +413,11 @@
           "label": "Serif"
         },
         {
-          "value": "Hatton, serif",
-          "label": "Hatton, serif"
+          "value": "Tomato Grotesk",
+          "label": "'Tomato Grotesk', sans-serif"
         }
       ],
-      "default": "sans-serif"
+      "default": "Tomato Grotesk"
     },
     {
       "type": "text",

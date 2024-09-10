@@ -83,10 +83,17 @@
   }
   {%- endif -%}
 
-  {%- if section.settings.title_font_family != blank and section.settings.title_font_family == 'serif' -%}
-  #shopify-section-{{ section.id }} .block-title {
-    font-family: "Hatton", serif;
-  }
+  {%- if section.settings.title_font_family != blank -%}
+    #shopify-section-{{ section.id }} .block-title {
+      font-family: 
+        {%- if section.settings.title_font_family == 'serif' -%}
+          serif
+        {%- elsif section.settings.title_font_family == 'sans-serif' -%}
+          sans-serif
+        {%- else -%}
+          "Hatton", serif
+        {%- endif -%};
+    }
   {%- endif -%}
 
   {% if section.settings.screen_visibility == 'mobile' %}
@@ -165,15 +172,15 @@
           "label": "Normal"
         },
         {
-          "value": "600",
+          "value": "500",
           "label": "Semi Bold"
         },
         {
-          "value": "700",
+          "value": "600",
           "label": "Bold"
         }
       ],
-      "default": "600"
+      "default": "500"
     },
     {
       "type": "select",
@@ -187,9 +194,13 @@
         {
           "value": "serif",
           "label": "Serif"
+        },
+        {
+          "value": "Hatton, serif",
+          "label": "Hatton, serif"
         }
       ],
-      "default": "sans-serif"
+      "default": "Hatton, serif"
     },
     {
       "type": "text",

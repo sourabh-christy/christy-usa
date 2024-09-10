@@ -90,13 +90,18 @@
                         font-weight: {{ block.settings.collection_carousel_excerpt_font_weight }};
                       {% endif %}
                       {% if block.settings.collection_carousel_excerpt_font_family == 'serif' %}
-                        font-family: 'Hatton', serif;
+                        font-family: serif;
                       {% elsif block.settings.collection_carousel_excerpt_font_family == 'sans-serif' %}
                         font-family: sans-serif;
+                      {% elsif block.settings.collection_carousel_excerpt_font_family == 'Tomato Grotesk' %}
+                        font-family: 'Tomato Grotesk', sans-serif;
+                      {% else %}
+                        font-family: 'Tomato Grotesk', sans-serif; // Default fallback
                       {% endif %}
                     ">
                       {{ block.settings.excerpt }}
                     </div>
+                    
                   {% elsif collection.description != blank %}
                     <div class="wysiwyg" style="
                       {% if block.settings.collection_carousel_excerpt_font_size_mob != blank %}
@@ -105,11 +110,13 @@
                       {% if block.settings.collection_carousel_excerpt_font_weight != blank %}
                         font-weight: {{ block.settings.collection_carousel_excerpt_font_weight }};
                       {% endif %}
-                      {% if block.settings.collection_carousel_excerpt_font_family == 'serif' %}
-                        font-family: 'Hatton', serif;
-                      {% elsif block.settings.collection_carousel_excerpt_font_family == 'sans-serif' %}
-                        font-family: sans-serif;
-                      {% endif %}
+                      {%- if section.settings.collection_carousel_excerpt_font_family == 'serif' -%}
+          serif
+        {%- elsif section.settings.collection_carousel_excerpt_font_family == 'sans-serif' -%}
+          sans-serif
+        {%- else -%}
+          'Tomato Grotesk', sans-serif
+        {%- endif -%};
                     ">
                       {{ collection.description | strip_html | truncatewords: 20 }}
                     </div>
@@ -200,11 +207,19 @@
 
     {%- if excerpt_font_family == 'serif' -%}
       #shopify-section-{{ section.id }} #{{ block.id }} .wysiwyg {
-        font-family: 'Hatton', serif;
+        font-family: serif;
       }
     {%- elsif excerpt_font_family == 'sans-serif' -%}
       #shopify-section-{{ section.id }} #{{ block.id }} .wysiwyg {
         font-family: sans-serif;
+      }
+    {%- elsif excerpt_font_family == 'Tomato Grotesk' -%}
+      #shopify-section-{{ section.id }} #{{ block.id }} .wysiwyg {
+        font-family: 'Tomato Grotesk', sans-serif !important;
+      }
+    {%- else -%}
+      #shopify-section-{{ section.id }} #{{ block.id }} .wysiwyg {
+        font-family: 'Tomato Grotesk', sans-serif !important; // Default fallback
       }
     {%- endif -%}
   {% endfor %}
@@ -260,15 +275,15 @@
           "label": "Normal"
         },
         {
-          "value": "600",
+          "value": "500",
           "label": "Semi Bold"
         },
         {
-          "value": "700",
+          "value": "600",
           "label": "Bold"
         }
       ],
-      "default": "600"
+      "default": "500"
     },
     {
       "type": "select",
@@ -283,9 +298,12 @@
           "value": "serif",
           "label": "Serif"
         },
-        
+        {
+          "value": "Hatton, serif",
+          "label": "Hatton, serif"
+        }
       ],
-      "default": "serif"
+      "default": "Hatton, serif"
     },
     {
       "type": "select",
@@ -384,7 +402,7 @@
               "label": "Bold"
             }
           ],
-          "default": "600"
+          "default": "400"
         },
         {
           "type": "select",
@@ -399,10 +417,14 @@
               "value": "serif",
               "label": "Serif"
             },
-            
+            {
+              "value": "Tomato Grotesk",
+              "label": "'Tomato Grotesk', sans-serif"
+            }
           ],
-          "default": "serif"
-        },
+          "default": "Tomato Grotesk"
+        }
+        
       ]
     }
   ],

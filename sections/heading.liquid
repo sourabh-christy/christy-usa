@@ -60,10 +60,17 @@
   }
   {%- endif -%}
 
-  {%- if section.settings.heading_font_family != blank and section.settings.heading_font_family == 'serif' -%}
-  #shopify-section-{{ section.id }} .headingclass {
-    font-family: "Hatton", serif;
-  }
+  {%- if section.settings.heading_font_family != blank -%}
+    #shopify-section-{{ section.id }} .headingclass {
+      font-family: 
+        {%- if section.settings.heading_font_family == 'serif' -%}
+          serif
+        {%- elsif section.settings.heading_font_family == 'sans-serif' -%}
+          sans-serif
+        {%- else -%}
+          "Hatton", serif
+        {%- endif -%};
+    }
   {%- endif -%}
 
   {%- if section.settings.heading_copy_font_size_mob != blank -%}
@@ -86,7 +93,7 @@
       {%- elsif section.settings.heading_copy_font_family == 'sans-serif' -%}
         sans-serif
       {%- else -%}
-        "Hatton", serif
+        'Tomato Grotesk', sans-serif
       {%- endif -%};
   }
   {%- endif -%}
@@ -196,9 +203,13 @@
         {
           "value": "serif",
           "label": "Serif"
+        },
+        {
+          "value": "Hatton, serif",
+          "label": "Hatton, serif"
         }
       ],
-      "default": "sans-serif"
+      "default": "Hatton, serif"
     },
     {
       "type": "select",
@@ -269,7 +280,7 @@
     {
       "type": "select",
       "id": "heading_copy_font_family",
-      "label": "Heading sCopy Font Type",
+      "label": "Heading Copy Font Type",
       "options": [
         {
           "value": "sans-serif",
@@ -278,9 +289,13 @@
         {
           "value": "serif",
           "label": "Serif"
+        },
+        {
+          "value": "Tomato Grotesk",
+          "label": "'Tomato Grotesk', sans-serif"
         }
       ],
-      "default": "sans-serif"
+      "default": "Tomato Grotesk"
     },
     {
       "type": "select",
