@@ -532,35 +532,24 @@
     "07a57dc8-34ac-41ee-96df-37021aef7941": {
       "type": "reviews-carousel",
       "blocks": {
-        "template--21202653085984__07a57dc8-34ac-41ee-96df-37021aef7941-block-1": {
+        "block_i9mANj": {
           "type": "block",
           "settings": {
-            "product": "smooth-and-silky-cotton-sateen-fitted-sheet",
-            "title": "Smooth & Silky Cotton Sateen Deep Fitted Sheet - 400 TC",
-            "testimonial": "<p>\"I have bought Christy bedding before and have always been impressed by the quality - This purchase as no different, excellent items and enhances my sleep quality\"<\/p>",
-            "name": "Charles Shelley"
-          }
-        },
-        "template--21202653085984__07a57dc8-34ac-41ee-96df-37021aef7941-block-2": {
-          "type": "block",
-          "settings": {
-            "product": "luxury-microfibre-13-5-tog-duvet",
-            "title": "Luxury Microfibre 13.5 Tog Duvet",
-            "testimonial": "<p>“One of the highest quality products I have experienced. Very very soft and drapes beautifully on my bed.”<\/p>",
-            "name": "John Smith"
+            "product": "",
+            "title": "Product TBC",
+            "testimonial": "<p>“TBC TBC.”<\/p>",
+            "name": "Name TBC"
           }
         }
       },
       "block_order": [
-        "template--21202653085984__07a57dc8-34ac-41ee-96df-37021aef7941-block-1",
-        "template--21202653085984__07a57dc8-34ac-41ee-96df-37021aef7941-block-2"
+        "block_i9mANj"
       ],
-      "disabled": true,
       "settings": {
-        "title": "Unveiling the Christy Experience: Happy Customer Reviews",
-        "review_carousel_title_font_size_mob": 26,
-        "review_carousel_title_font_size_desktop": 40,
-        "review_carousel_title_font_weight": "500",
+        "title": "Why Our Customers Love Christy",
+        "review_carousel_title_font_size_mob": 24,
+        "review_carousel_title_font_size_desktop": 36,
+        "review_carousel_title_font_weight": "400",
         "review_carousel_title_font_family": "Hatton, serif",
         "margin": "yes"
       }
