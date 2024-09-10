@@ -25,10 +25,22 @@
           "settings": {
             "mobile_media": "image",
             "subtitle": "",
+            "hero_collection_subtitle_font_size_mob": 16,
+            "hero_collection_subtitle_font_size_desktop": 16,
+            "hero_collection_subtitle_font_weight": "600",
+            "hero_collection_subtitle_font_family": "sans-serif",
             "mobile_subtitle": "show",
             "title": "",
+            "hero_collection_title_font_size_mob": 16,
+            "hero_collection_title_font_size_desktop": 36,
+            "hero_collection_title_font_weight": "400",
+            "hero_collection_title_font_family": "Hatton, serif",
             "mob_title": "",
             "copy": "",
+            "hero_collection_copy_font_size_mob": 16,
+            "hero_collection_copy_font_size_desktop": 36,
+            "hero_collection_copy_font_weight": "400",
+            "hero_collection_copy_font_family": "Hatton, serif",
             "copy_visibility": "mobile",
             "collection": "",
             "button_text": ""
@@ -42,40 +54,6 @@
       "settings": {
       }
     },
-    "2594a997-818a-4de5-b1c1-015972b655d2": {
-      "type": "rich-text",
-      "blocks": {
-        "template--21450563944736__2594a997-818a-4de5-b1c1-015972b655d2-heading-1": {
-          "type": "heading",
-          "settings": {
-            "heading": "",
-            "sub_title_size": "h2"
-          }
-        },
-        "template--21450563944736__2594a997-818a-4de5-b1c1-015972b655d2-main_heading-1": {
-          "type": "main_heading",
-          "settings": {
-            "heading": "Elevate your Everyday Moments this Christmas with Christy"
-          }
-        },
-        "template--21450563944736__2594a997-818a-4de5-b1c1-015972b655d2-text-1": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Our signature gift box & personalised message options now available.<\/p>"
-          }
-        }
-      },
-      "block_order": [
-        "template--21450563944736__2594a997-818a-4de5-b1c1-015972b655d2-heading-1",
-        "template--21450563944736__2594a997-818a-4de5-b1c1-015972b655d2-main_heading-1",
-        "template--21450563944736__2594a997-818a-4de5-b1c1-015972b655d2-text-1"
-      ],
-      "disabled": true,
-      "settings": {
-        "full_width": false,
-        "anchor_id": ""
-      }
-    },
     "9c1de53b-ac15-4e36-a743-64c26dabf7e2": {
       "type": "collections-carousel",
       "blocks": {
@@ -86,7 +64,11 @@
             "usp_title": "",
             "image": "shopify:\/\/shop_images\/thick_indulgent_HP.jpg",
             "alt_title": "Towel Bundles",
-            "excerpt": "<p>Upgrade your bathroom with a perfect blend of softness and functionality in one convenient set.<\/p>"
+            "excerpt": "<p>Upgrade your bathroom with a perfect blend of softness and functionality in one convenient set.<\/p>",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 30,
+            "collection_carousel_excerpt_font_weight": "400",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
           }
         },
         "1ae70297-a748-4b57-b0a1-b53cc14bb4f5": {
@@ -95,7 +77,11 @@
             "collection": "bedding-bundles",
             "usp_title": "",
             "alt_title": "",
-            "excerpt": "<p>Transform your bedroom into a haven of luxury with our curated bedding bundles.<\/p>"
+            "excerpt": "<p>Transform your bedroom into a haven of luxury with our curated bedding bundles.<\/p>",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 30,
+            "collection_carousel_excerpt_font_weight": "400",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
           }
         },
         "484f5ca2-a708-49c4-9ac3-08032d35cb5b": {
@@ -105,7 +91,11 @@
             "usp_title": "",
             "image": "shopify:\/\/shop_images\/robe_bundle.jpg",
             "alt_title": "",
-            "excerpt": "<p>Wrap yourself in comfort with our robe bundles, designed to elevate your relaxation experience.<\/p>"
+            "excerpt": "<p>Wrap yourself in comfort with our robe bundles, designed to elevate your relaxation experience.<\/p>",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 30,
+            "collection_carousel_excerpt_font_weight": "400",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
           }
         }
       },
@@ -117,6 +107,10 @@
       "disabled": true,
       "settings": {
         "title": "Our Bundle Collections",
+        "collection_carousel_title_font_size_mob": 18,
+        "collection_carousel_title_font_size_desktop": 30,
+        "collection_carousel_title_font_weight": "500",
+        "collection_carousel_title_font_family": "Hatton, serif",
         "screen_visibility": "both"
       }
     },
@@ -160,13 +154,23 @@
       "disabled": true,
       "settings": {
         "heading": "<p>Get ready for a 'spooktacular' soak!<\/p>",
+        "heading_font_size_mob": 24,
+        "heading_font_size_desktop": 36,
+        "heading_font_weight": "600",
+        "heading_font_family": "Hatton, serif",
         "heading_width": "4",
         "copy": "",
+        "heading_copy_font_size_mob": 12,
+        "heading_copy_font_size_desktop": 14,
+        "heading_copy_font_weight": "300",
+        "heading_copy_font_family": "Tomato Grotesk",
         "copy_style": "default",
         "alignment": "center",
         "alignment_mob": "center",
         "horiz_padding": true,
-        "margin_top": false
+        "margin_top": false,
+        "background_color": "#FFFFFF",
+        "font_color": "#000000"
       }
     },
     "06cfb5b0-ef0d-40ac-b0f2-de55cebec04c": {
@@ -320,13 +324,23 @@
       "disabled": true,
       "settings": {
         "heading": "<p>DIY Wrap our indulgent Throws & Duvets<\/p>",
+        "heading_font_size_mob": 24,
+        "heading_font_size_desktop": 36,
+        "heading_font_weight": "600",
+        "heading_font_family": "Hatton, serif",
         "heading_width": "4",
         "copy": "",
+        "heading_copy_font_size_mob": 12,
+        "heading_copy_font_size_desktop": 14,
+        "heading_copy_font_weight": "300",
+        "heading_copy_font_family": "Tomato Grotesk",
         "copy_style": "default",
         "alignment": "center",
         "alignment_mob": "center",
         "horiz_padding": true,
-        "margin_top": false
+        "margin_top": false,
+        "background_color": "#FFFFFF",
+        "font_color": "#000000"
       }
     },
     "4773ebfa-1456-4daf-80c3-f9c6478bf05e": {
@@ -377,7 +391,11 @@
             "collection": "duvet-sets",
             "usp_title": "Up to 40% Off + 20% above £ 100",
             "alt_title": "",
-            "excerpt": "<p>Your passport to a world of premium comfort and timeless style for the ultimate bedroom retreat.<\/p>"
+            "excerpt": "<p>Your passport to a world of premium comfort and timeless style for the ultimate bedroom retreat.<\/p>",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 30,
+            "collection_carousel_excerpt_font_weight": "400",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
           }
         },
         "76a7aa40-fad4-4756-b863-71f413788066": {
@@ -386,7 +404,11 @@
             "collection": "sheets",
             "usp_title": "Up to 20% Off + 20% above £ 100",
             "alt_title": "",
-            "excerpt": "<p>The epitome of both snug precision and luxurious comfort, ensuring a perfect fit that stays in place throughout the night.<\/p>"
+            "excerpt": "<p>The epitome of both snug precision and luxurious comfort, ensuring a perfect fit that stays in place throughout the night.<\/p>",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 30,
+            "collection_carousel_excerpt_font_weight": "400",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
           }
         },
         "2c4374cb-ef41-43b7-96f5-f6b61b083b01": {
@@ -395,7 +417,11 @@
             "collection": "flat-sheets",
             "usp_title": "Up to 40% Off + 20% above £ 100",
             "alt_title": "",
-            "excerpt": "<p>Elevate your bedroom with our flat sheets, where quality and elegance meet in a seamless blend of softness and design.<\/p>"
+            "excerpt": "<p>Elevate your bedroom with our flat sheets, where quality and elegance meet in a seamless blend of softness and design.<\/p>",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 30,
+            "collection_carousel_excerpt_font_weight": "400",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
           }
         },
         "6748815e-680b-4a82-9435-2cf556cc867c": {
@@ -405,7 +431,11 @@
             "usp_title": "Up to 30% Off + 20% above £ 100",
             "image": "shopify:\/\/shop_images\/subcategory_duvetandpillowoffers_desktop.jpg",
             "alt_title": "",
-            "excerpt": "<p>Discover a world of personalized comfort, available in a range of togs and firmness levels to suit your unique sleep preferences.<\/p>"
+            "excerpt": "<p>Discover a world of personalized comfort, available in a range of togs and firmness levels to suit your unique sleep preferences.<\/p>",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 30,
+            "collection_carousel_excerpt_font_weight": "400",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
           }
         },
         "b67ebaca-9de3-43d0-9ee0-554bcc673479": {
@@ -414,7 +444,11 @@
             "collection": "pillowcases",
             "usp_title": "",
             "alt_title": "Pillowcases",
-            "excerpt": "<p>Where impeccable craftsmanship and a variety of colors and patterns allow you to express your unique style.<\/p>"
+            "excerpt": "<p>Where impeccable craftsmanship and a variety of colors and patterns allow you to express your unique style.<\/p>",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 30,
+            "collection_carousel_excerpt_font_weight": "400",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
           }
         },
         "1c561ecc-6e7c-4c2d-ae57-409320a93e2f": {
@@ -423,7 +457,11 @@
             "collection": "protectors-and-toppers",
             "usp_title": "",
             "alt_title": "",
-            "excerpt": "<p>Offer a sanctuary of softness and hygiene, providing a cocoon of comfort while safeguarding your mattress from wear and tear.<\/p>"
+            "excerpt": "<p>Offer a sanctuary of softness and hygiene, providing a cocoon of comfort while safeguarding your mattress from wear and tear.<\/p>",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 30,
+            "collection_carousel_excerpt_font_weight": "400",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
           }
         }
       },
@@ -438,6 +476,10 @@
       "disabled": true,
       "settings": {
         "title": "Bedding",
+        "collection_carousel_title_font_size_mob": 18,
+        "collection_carousel_title_font_size_desktop": 30,
+        "collection_carousel_title_font_weight": "500",
+        "collection_carousel_title_font_family": "Hatton, serif",
         "screen_visibility": "both"
       }
     },
@@ -446,13 +488,23 @@
       "disabled": true,
       "settings": {
         "heading": "<p>Pair with our exquisite Throws & Cushions<\/p>",
+        "heading_font_size_mob": 24,
+        "heading_font_size_desktop": 36,
+        "heading_font_weight": "600",
+        "heading_font_family": "Hatton, serif",
         "heading_width": "4",
         "copy": "",
+        "heading_copy_font_size_mob": 12,
+        "heading_copy_font_size_desktop": 14,
+        "heading_copy_font_weight": "300",
+        "heading_copy_font_family": "Tomato Grotesk",
         "copy_style": "default",
         "alignment": "center",
         "alignment_mob": "center",
         "horiz_padding": true,
-        "margin_top": false
+        "margin_top": false,
+        "background_color": "#FFFFFF",
+        "font_color": "#000000"
       }
     },
     "2c7e8cac-6078-4c3b-b5eb-fd09baf5939e": {
@@ -506,6 +558,10 @@
       "disabled": true,
       "settings": {
         "title": "Unveiling the Christy Experience: Happy Customer Reviews",
+        "review_carousel_title_font_size_mob": 26,
+        "review_carousel_title_font_size_desktop": 40,
+        "review_carousel_title_font_weight": "500",
+        "review_carousel_title_font_family": "Hatton, serif",
         "margin": "yes"
       }
     },
@@ -515,8 +571,20 @@
       "settings": {
         "screen_visibility": "both",
         "subtitle": "",
+        "billboard_subtitle_font_size_mob": 16,
+        "billboard_subtitle_font_size_desktop": 16,
+        "billboard_subtitle_font_weight": "600",
+        "billboard_subtitle_font_family": "sans-serif",
         "title": "<p>Wimbledon Championship Towel<\/p><p><\/p><p>Flat 25% Off<\/p>",
+        "billboard_title_font_size_mob": 16,
+        "billboard_title_font_size_desktop": 40,
+        "billboard_title_font_weight": "500",
+        "billboard_title_font_family": "Hatton, serif",
         "copy": "",
+        "billboard_copy_font_size_mob": 14,
+        "billboard_copy_font_size_desktop": 14,
+        "billboard_copy_font_weight": "200",
+        "billboard_copy_font_family": "Tomato Grotesk",
         "button_label": "Shop Now",
         "button_link": "shopify:\/\/products\/wimbledon-2023-championship-towel",
         "button_type": "default",
@@ -585,6 +653,39 @@
       "disabled": true,
       "settings": {
         "heading": "Previously explored"
+      }
+    },
+    "2594a997-818a-4de5-b1c1-015972b655d2": {
+      "type": "rich-text",
+      "blocks": {
+        "template--21450563944736__2594a997-818a-4de5-b1c1-015972b655d2-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "",
+            "sub_title_size": "h2"
+          }
+        },
+        "template--21450563944736__2594a997-818a-4de5-b1c1-015972b655d2-main_heading-1": {
+          "type": "main_heading",
+          "settings": {
+            "heading": "Bundles"
+          }
+        },
+        "template--21450563944736__2594a997-818a-4de5-b1c1-015972b655d2-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our signature gift box & personalised message options now available.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--21450563944736__2594a997-818a-4de5-b1c1-015972b655d2-heading-1",
+        "template--21450563944736__2594a997-818a-4de5-b1c1-015972b655d2-main_heading-1",
+        "template--21450563944736__2594a997-818a-4de5-b1c1-015972b655d2-text-1"
+      ],
+      "settings": {
+        "full_width": true,
+        "anchor_id": ""
       }
     },
     "toggled-body-content": {
@@ -718,7 +819,6 @@
   "order": [
     "c13e9ca8-ca9c-4ed4-9a12-8bfd34eb0a02",
     "e81c268d-881b-4c6d-a674-f0f49b2c9321",
-    "2594a997-818a-4de5-b1c1-015972b655d2",
     "9c1de53b-ac15-4e36-a743-64c26dabf7e2",
     "543b28bf-821e-4b5d-bfe7-b6b214117f7d",
     "6e86ee6f-cb13-4e1d-9544-79832418e94b",
@@ -738,6 +838,7 @@
     "32651ade-df62-44f5-8355-bb4039f60426",
     "product-grid",
     "recent-products",
+    "2594a997-818a-4de5-b1c1-015972b655d2",
     "toggled-body-content"
   ]
 }
