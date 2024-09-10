@@ -25,13 +25,13 @@
         "heading_font_size_mob": 24,
         "heading_font_size_desktop": 36,
         "heading_font_weight": "400",
-        "heading_font_family": "sans-serif",
+        "heading_font_family": "Hatton, serif",
         "heading_width": "6",
         "copy": "<p>Often called the inventors of the modern towel, our heritage is a testament to unparalleled precision and the artistry of British craftsmanship.<\/p><p><a href=\"\/pages\/our-heritage\" title=\"Our Heritage\">Discover More<\/a><\/p>",
         "heading_copy_font_size_mob": 12,
         "heading_copy_font_size_desktop": 14,
         "heading_copy_font_weight": "300",
-        "heading_copy_font_family": "sans-serif",
+        "heading_copy_font_family": "Tomato Grotesk",
         "copy_style": "default",
         "alignment": "left",
         "alignment_mob": "center",
@@ -79,7 +79,7 @@
             "collection_carousel_excerpt_font_size_mob": 15,
             "collection_carousel_excerpt_font_size_desktop": 25,
             "collection_carousel_excerpt_font_weight": "300",
-            "collection_carousel_excerpt_font_family": "sans-serif"
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
           }
         },
         "2f3cb25a-b518-49ee-afab-a5c33fb259f7": {
@@ -93,7 +93,7 @@
             "collection_carousel_excerpt_font_size_mob": 15,
             "collection_carousel_excerpt_font_size_desktop": 24,
             "collection_carousel_excerpt_font_weight": "300",
-            "collection_carousel_excerpt_font_family": "sans-serif"
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
           }
         },
         "ade5aede-0029-4b09-aee8-6e48f8cfe8be": {
@@ -107,7 +107,7 @@
             "collection_carousel_excerpt_font_size_mob": 15,
             "collection_carousel_excerpt_font_size_desktop": 24,
             "collection_carousel_excerpt_font_weight": "300",
-            "collection_carousel_excerpt_font_family": "sans-serif"
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
           }
         },
         "collection_GTHHpe": {
@@ -151,13 +151,13 @@
         "heading_font_size_mob": 24,
         "heading_font_size_desktop": 36,
         "heading_font_weight": "400",
-        "heading_font_family": "sans-serif",
+        "heading_font_family": "Hatton, serif",
         "heading_width": "6",
         "copy": "<p>Since 1851, when they caught the eye of none other than Queen Victoria, our towels have been cherished by the Royal Family.<\/p>",
         "heading_copy_font_size_mob": 12,
         "heading_copy_font_size_desktop": 14,
         "heading_copy_font_weight": "300",
-        "heading_copy_font_family": "sans-serif",
+        "heading_copy_font_family": "Tomato Grotesk",
         "copy_style": "default",
         "alignment": "left",
         "alignment_mob": "center",
@@ -342,13 +342,13 @@
         "heading_font_size_mob": 24,
         "heading_font_size_desktop": 36,
         "heading_font_weight": "400",
-        "heading_font_family": "sans-serif",
+        "heading_font_family": "Hatton, serif",
         "heading_width": "6",
         "copy": "<p>For the past 30 years, Christy has proudly been the official towel supplier to The Wimbledon Championships, adding a touch of luxury to every serve and volley.<\/p>",
         "heading_copy_font_size_mob": 12,
         "heading_copy_font_size_desktop": 14,
         "heading_copy_font_weight": "300",
-        "heading_copy_font_family": "sans-serif",
+        "heading_copy_font_family": "Tomato Grotesk",
         "copy_style": "default",
         "alignment": "left",
         "alignment_mob": "center",
