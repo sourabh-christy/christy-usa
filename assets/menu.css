@@ -8,4 +8,10 @@
     .lg\:pl-8 {
         padding-left: 6rem !important;
     }
+
+    .lg\:d-h1 {
+        font-size: 36px !important;
+        font-weight: 0 !important;
+    }
+  
 }
