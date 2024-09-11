@@ -113,6 +113,60 @@
     </div>
   </div>
 </div>
+{% style %}
+  {%- if section.settings.title_font_size_mob != blank -%}
+  #shopify-section-{{ section.id }} .m-h1 {
+    font-size: {{ section.settings.title_font_size_mob }}px;
+  }
+  {%- endif -%}
+
+  {%- if section.settings.title_font_weight != blank -%}
+  #shopify-section-{{ section.id }} .m-h1 {
+    font-weight: {{ section.settings.title_font_weight }};
+  }
+  {%- endif -%}
+
+  {%- if section.settings.title_font_family != blank -%}
+    #shopify-section-{{ section.id }} .m-h1 {
+      font-family: 
+        {%- if section.settings.title_font_family == 'serif' -%}
+          serif
+        {%- elsif section.settings.title_font_family == 'sans-serif' -%}
+          sans-serif
+        {%- else -%}
+          "Hatton", serif
+        {%- endif -%};
+    }
+  {%- endif -%}
+
+  {%- if section.settings.title_font_size_desktop != blank -%}
+  @media all and (min-width: 1024px) {
+      #shopify-section-{{ section.id }} .m-h1 {
+        font-size: {{ section.settings.title_font_size_desktop }}px;
+      }
+  }
+  {%- endif -%}
+
+  /* Mobile specific styles */
+  @media only screen and (max-width: 767px) {
+    #desktop-title-{{ section.id }} {
+      display: none;
+    }
+    #mobile-title-{{ section.id }} {
+      display: block;
+    }
+  }
+
+  /* Desktop specific styles */
+  @media only screen and (min-width: 768px) {
+    #mobile-title-{{ section.id }} {
+      display: none;
+    }
+    #desktop-title-{{ section.id }} {
+      display: block;
+    }
+  }
+{% endstyle %}
 
 {% schema %}
 {
@@ -128,7 +182,71 @@
       "type": "text",
       "id": "title",
       "label": "Title"
-    }
+    },
+    {
+      "type": "range",
+      "id": "title_font_size_mob",
+      "min": 12,
+      "max": 54,
+      "step": 1,
+      "unit": "px",
+      "label": "Title Font Size MOBILE",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "title_font_size_desktop",
+      "min": 12,
+      "max": 54,
+      "step": 1,
+      "unit": "px",
+      "label": "Title Font Size DESKTOP",
+      "default": 30
+    },
+    {
+      "type": "select",
+      "id": "title_font_weight",
+      "label": "Title Font Weight",
+      "options": [
+        {
+          "value": "300",
+          "label": "Light"
+        },
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "500",
+          "label": "Semi Bold"
+        },
+        {
+          "value": "600",
+          "label": "Bold"
+        }
+      ],
+      "default": "500"
+    },
+    {
+      "type": "select",
+      "id": "title_font_family",
+      "label": "Title Font Type",
+      "options": [
+        {
+          "value": "sans-serif",
+          "label": "Sans Serif"
+        },
+        {
+          "value": "serif",
+          "label": "Serif"
+        },
+        {
+          "value": "Hatton, serif",
+          "label": "Hatton, serif"
+        }
+      ],
+      "default": "Hatton, serif"
+    },
   ],
   "blocks": [
     {
