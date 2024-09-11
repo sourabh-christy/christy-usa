@@ -171,6 +171,7 @@
       "type": "products-carousel",
       "settings": {
         "title": "Discover Our Products",
+        "mobile_title": "Our Best Sellers",
         "title_font_size_mob": 24,
         "title_font_size_desktop": 36,
         "title_font_weight": "400",
@@ -319,7 +320,8 @@
       ],
       "settings": {
         "title": "Why Our Customers Love Christy",
-        "review_carousel_title_font_size_mob": 15,
+        "mobile_title": "Our Best Sellers",
+        "review_carousel_title_font_size_mob": 20,
         "review_carousel_title_font_size_desktop": 36,
         "review_carousel_title_font_weight": "400",
         "review_carousel_title_font_family": "Hatton, serif",
@@ -975,7 +977,11 @@
         "dc2e0744-3035-4a8f-b0c9-4abd1e420569"
       ],
       "settings": {
-        "title": "Discover Our Blog"
+        "title": "Discover Our Blog",
+        "title_font_size_mob": 18,
+        "title_font_size_desktop": 30,
+        "title_font_weight": "500",
+        "title_font_family": "Hatton, serif"
       }
     },
     "1723026351f8b5e598": {
