@@ -9,13 +9,55 @@
 */
 {
   "sections": {
+    "d5e9403d-9612-4e0b-ab04-7bca0ebb33b0": {
+      "type": "heading",
+      "disabled": true,
+      "settings": {
+        "heading": "<p>Discover the magic in <br\/>everyday moments.<\/p>",
+        "heading_font_size_mob": 24,
+        "heading_font_size_desktop": 36,
+        "heading_font_weight": "600",
+        "heading_font_family": "Hatton, serif",
+        "heading_width": "4",
+        "copy": "",
+        "heading_copy_font_size_mob": 12,
+        "heading_copy_font_size_desktop": 14,
+        "heading_copy_font_weight": "300",
+        "heading_copy_font_family": "Tomato Grotesk",
+        "copy_style": "default",
+        "alignment": "center",
+        "alignment_mob": "center",
+        "horiz_padding": true,
+        "margin_top": false,
+        "background_color": "#FFFFFF",
+        "font_color": "#000000"
+      }
+    },
+    "172607442305e38c23": {
+      "type": "apps",
+      "blocks": {
+        "pandectes_gdpr_compliance_declaration_hfrVKW": {
+          "type": "shopify:\/\/apps\/pandectes-gdpr-compliance\/blocks\/declaration\/58c0baa2-6cc1-480c-9ea6-38d6d559556a",
+          "settings": {
+            "container_classes": "page-width page-width--narrow"
+          }
+        }
+      },
+      "block_order": [
+        "pandectes_gdpr_compliance_declaration_hfrVKW"
+      ],
+      "settings": {
+      }
+    },
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
       }
     },
     "169276539839bf5a49": {
       "type": "apps",
+      "disabled": true,
       "settings": {
       }
     },
@@ -23,31 +65,14 @@
       "type": "hero-image",
       "disabled": true,
       "settings": {
-        "image": "shopify:\/\/shop_images\/Gifting_1200_800.jpg",
         "link": "",
         "full_width": true
-      }
-    },
-    "d5e9403d-9612-4e0b-ab04-7bca0ebb33b0": {
-      "type": "heading",
-      "disabled": true,
-      "settings": {
-        "heading": "<p>Discover the magic in <br\/>everyday moments.<\/p>",
-        "heading_width": "4",
-        "copy": "",
-        "copy_style": "default",
-        "alignment": "center",
-        "alignment_mob": "center",
-        "horiz_padding": true,
-        "margin_top": false
       }
     },
     "a9d98147-a8ba-4d77-ac71-8eb3097f3e2b": {
       "type": "images-copy-cta",
       "disabled": true,
       "settings": {
-        "image": "shopify:\/\/shop_images\/Screenshot_2023-11-01_at_8.00.42_PM.jpg",
-        "image2": "shopify:\/\/shop_images\/Oslo_denim_location_1-938218.jpg",
         "subtitle": "",
         "title": "<p>Create your own Gift Box<\/p>",
         "copy": "<p>Elevate your gift-giving experience with our luxurious signature gift box. <\/p><p>To add that personal touch, we also offer the option to include a heartfelt, personalised message. It's the perfect way to convey your warmest wishes and sentiments, making your gift truly unique and special.<\/p>",
@@ -103,7 +128,15 @@
       ],
       "disabled": true,
       "settings": {
-        "title": "It takes 3 Simple Steps"
+        "title": "It takes 3 Simple Steps",
+        "title_font_size_mob": 16,
+        "title_font_size_desktop": 20,
+        "title_font_weight": "600",
+        "title_font_family": "sans-serif",
+        "copy_font_size_mob": 12,
+        "copy_font_size_desktop": 14,
+        "copy_font_weight": "300",
+        "copy_font_family": "sans-serif"
       }
     },
     "e660d413-61a7-4b04-9427-45b7ec1301f9": {
@@ -111,13 +144,23 @@
       "disabled": true,
       "settings": {
         "heading": "<p>From Robes to Towels & Throws to Bedding<\/p>",
+        "heading_font_size_mob": 24,
+        "heading_font_size_desktop": 36,
+        "heading_font_weight": "600",
+        "heading_font_family": "Hatton, serif",
         "heading_width": "4",
         "copy": "",
+        "heading_copy_font_size_mob": 12,
+        "heading_copy_font_size_desktop": 14,
+        "heading_copy_font_weight": "300",
+        "heading_copy_font_family": "Tomato Grotesk",
         "copy_style": "default",
         "alignment": "center",
         "alignment_mob": "center",
         "horiz_padding": true,
-        "margin_top": false
+        "margin_top": false,
+        "background_color": "#FFFFFF",
+        "font_color": "#000000"
       }
     },
     "be8c1844-ff08-49a2-a258-af9002bf1a72": {
@@ -125,6 +168,11 @@
       "disabled": true,
       "settings": {
         "title": "The Ultimate Relaxation Gift: Bathrobes",
+        "mobile_title": "Our Best Sellers",
+        "title_font_size_mob": 18,
+        "title_font_size_desktop": 30,
+        "title_font_weight": "500",
+        "title_font_family": "Hatton, serif",
         "button_title": "Shop the Range",
         "button_link": "shopify:\/\/collections\/all-loungewear",
         "products": [
@@ -146,7 +194,11 @@
             "usp_title": "Throws & Cushions",
             "image": "shopify:\/\/shop_images\/Jaipur_Hazelnut_Lifestyle_2.jpg",
             "alt_title": "Gifts for Living",
-            "excerpt": "<p>Explore throws & cushions that exude cosy comfort.<\/p>"
+            "excerpt": "<p>Explore throws & cushions that exude cosy comfort.<\/p>",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 30,
+            "collection_carousel_excerpt_font_weight": "400",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
           }
         },
         "7e2b7beb-9391-4023-ac4b-5173156434f4": {
@@ -156,7 +208,11 @@
             "usp_title": "Bedding",
             "image": "shopify:\/\/shop_images\/gifts-for-living.jpg",
             "alt_title": "Gifts for Rest",
-            "excerpt": "<p>Treat your loved ones to relaxing moments with our comforting bedding.<\/p>"
+            "excerpt": "<p>Treat your loved ones to relaxing moments with our comforting bedding.<\/p>",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 30,
+            "collection_carousel_excerpt_font_weight": "400",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
           }
         },
         "959d3109-4a09-42e0-a50e-ac701272a47d": {
@@ -166,7 +222,11 @@
             "usp_title": "Towels",
             "image": "shopify:\/\/shop_images\/gifts-for-bathing.jpg",
             "alt_title": "",
-            "excerpt": "<p>Upgrade their bathing rituals with spa-worthy towels.<\/p>"
+            "excerpt": "<p>Upgrade their bathing rituals with spa-worthy towels.<\/p>",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 30,
+            "collection_carousel_excerpt_font_weight": "400",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
           }
         }
       },
@@ -178,6 +238,10 @@
       "disabled": true,
       "settings": {
         "title": "Our Gift Collections",
+        "collection_carousel_title_font_size_mob": 18,
+        "collection_carousel_title_font_size_desktop": 30,
+        "collection_carousel_title_font_weight": "500",
+        "collection_carousel_title_font_family": "Hatton, serif",
         "screen_visibility": "both"
       }
     },
@@ -185,8 +249,6 @@
       "type": "images-copy-cta",
       "disabled": true,
       "settings": {
-        "image": "shopify:\/\/shop_images\/WIMD150-809824.jpg",
-        "image2": "shopify:\/\/shop_images\/WimbledonChampionship2023Detail-273571.jpg",
         "subtitle": "Wimbledon Championship Towel 2023",
         "title": "<p>Ace Your Christmas Gift-Giving!<\/p>",
         "copy": "<p>Elevate your Christmas gifting game with the official Wimbledon Championship Towel 2023. It's a versatile, stylish, and ultra-absorbent gift that tennis lovers and anyone with an appreciation for quality will adore. <\/p>",
@@ -256,8 +318,20 @@
       "settings": {
         "screen_visibility": "both",
         "subtitle": "Explore",
+        "billboard_subtitle_font_size_mob": 16,
+        "billboard_subtitle_font_size_desktop": 16,
+        "billboard_subtitle_font_weight": "600",
+        "billboard_subtitle_font_family": "sans-serif",
         "title": "<p>Bath<\/p>",
+        "billboard_title_font_size_mob": 16,
+        "billboard_title_font_size_desktop": 40,
+        "billboard_title_font_weight": "500",
+        "billboard_title_font_family": "Hatton, serif",
         "copy": "<p>Step into a spa-like sanctuary with our luxurious selection of bathroom products.<\/p>",
+        "billboard_copy_font_size_mob": 14,
+        "billboard_copy_font_size_desktop": 14,
+        "billboard_copy_font_weight": "200",
+        "billboard_copy_font_family": "Tomato Grotesk",
         "button_label": "Shop All",
         "button_link": "shopify:\/\/collections\/all",
         "button_type": "default",
@@ -269,10 +343,11 @@
     }
   },
   "order": [
+    "d5e9403d-9612-4e0b-ab04-7bca0ebb33b0",
+    "172607442305e38c23",
     "main",
     "169276539839bf5a49",
     "0ad58283-c2d8-447c-8af9-def5168e727f",
-    "d5e9403d-9612-4e0b-ab04-7bca0ebb33b0",
     "a9d98147-a8ba-4d77-ac71-8eb3097f3e2b",
     "3cc62f4c-8e02-4d7c-963d-87349ff400a2",
     "e660d413-61a7-4b04-9427-45b7ec1301f9",
