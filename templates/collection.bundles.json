@@ -120,6 +120,7 @@
       "disabled": true,
       "settings": {
         "title": "Our Recommendations",
+        "mobile_title": "Our Best Sellers",
         "title_font_size_mob": 18,
         "title_font_size_desktop": 30,
         "title_font_weight": "600",
@@ -349,6 +350,7 @@
       "disabled": true,
       "settings": {
         "title": "Throws & Cushions",
+        "mobile_title": "Our Best Sellers",
         "title_font_size_mob": 18,
         "title_font_size_desktop": 30,
         "title_font_weight": "600",
@@ -587,6 +589,16 @@
       ],
       "settings": {
         "products_per": 12,
+        "excerpt": "Towels",
+        "title_font_size_mob": 26,
+        "title_font_size_desktop": 40,
+        "title_font_weight": "500",
+        "title_font_family": "Hatton, serif",
+        "seo_liner": "Indulge in the ultimate comfort with our luxury towels, crafted from the finest materials for a plush, spa-like experience every day.",
+        "seo_liner_font_size_mob": 14,
+        "seo_liner_font_size_desktop": 14,
+        "seo_liner_font_weight": "300",
+        "seo_liner_font_family": "Tomato Grotesk",
         "enable_filtering": true,
         "enable_sorting": true
       }
@@ -602,13 +614,24 @@
             "testimonial": "<p>“Lovely colour, I always buy towels from the Brixton range, they're soft, absorbant, wash well, and dry very quickly.”<\/p>",
             "name": "Lucy Hutcheson"
           }
+        },
+        "block_Aat3mw": {
+          "type": "block",
+          "settings": {
+            "product": "luxe-bath-luxury-bundle",
+            "title": "Luxe Bath Luxury Bundle",
+            "testimonial": "<p>“OExcellent towels. A short, very dense pile which is highly absorbent and comfortable against the skin. Ideal.”<\/p>",
+            "name": "D. Thomas"
+          }
         }
       },
       "block_order": [
-        "block_i9mANj"
+        "block_i9mANj",
+        "block_Aat3mw"
       ],
       "settings": {
         "title": "Why Our Customers Love Christy",
+        "mobile_title": "Our Best Sellers",
         "review_carousel_title_font_size_mob": 24,
         "review_carousel_title_font_size_desktop": 36,
         "review_carousel_title_font_weight": "400",
@@ -618,8 +641,10 @@
     },
     "2c7e8cac-6078-4c3b-b5eb-fd09baf5939e": {
       "type": "products-carousel",
+      "disabled": true,
       "settings": {
         "title": "Discover Towels",
+        "mobile_title": "Our Best Sellers",
         "title_font_size_mob": 24,
         "title_font_size_desktop": 36,
         "title_font_weight": "400",
