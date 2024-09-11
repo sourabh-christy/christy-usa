@@ -11,3 +11,7 @@ h1, h2, h3, h4 {
 h2 p {
   font-family: "Hatton", serif;
 }
+
+.section-featcol, .section-infocards, .section-richtext {
+    margin-top: 0rem; 
+}
