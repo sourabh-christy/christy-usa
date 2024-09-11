@@ -13,5 +13,5 @@ h2 p {
 }
 
 .section-featcol, .section-infocards, .section-richtext {
-    margin-top: 0rem; 
+    margin-top: 0rem !important; 
 }
