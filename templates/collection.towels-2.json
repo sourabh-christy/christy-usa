@@ -92,6 +92,16 @@
       ],
       "settings": {
         "products_per": 10,
+        "excerpt": "Towels",
+        "title_font_size_mob": 26,
+        "title_font_size_desktop": 40,
+        "title_font_weight": "500",
+        "title_font_family": "Hatton, serif",
+        "seo_liner": "Indulge in the ultimate comfort with our luxury towels, crafted from the finest materials for a plush, spa-like experience every day.",
+        "seo_liner_font_size_mob": 14,
+        "seo_liner_font_size_desktop": 18,
+        "seo_liner_font_weight": "300",
+        "seo_liner_font_family": "Tomato Grotesk",
         "enable_filtering": true,
         "enable_sorting": true
       }
@@ -171,6 +181,7 @@
       ],
       "settings": {
         "title": "Why Our Customers Love Christy",
+        "mobile_title": "Our Best Sellers",
         "review_carousel_title_font_size_mob": 24,
         "review_carousel_title_font_size_desktop": 36,
         "review_carousel_title_font_weight": "400",
@@ -182,6 +193,7 @@
       "type": "products-carousel",
       "settings": {
         "title": "Pair With Bath Mats & Rugs",
+        "mobile_title": "Our Best Sellers",
         "title_font_size_mob": 24,
         "title_font_size_desktop": 36,
         "title_font_weight": "400",
