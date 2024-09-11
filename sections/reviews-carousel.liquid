@@ -32,6 +32,8 @@
           <h2 class="s-m-h2 lg:s-d-h1">{{ section.settings.title }}</h2>
         {% endif %} {% endcomment %}
         <h2 class="s-m-h2 lg:s-d-h1 block-title desktop-title" id="desktop-title-{{ section.id }}">{{ section.settings.title }}</h2>
+        <h2 class="s-m-h2 lg:s-d-h1 block-title mobile-title" id="mobile-title-{{ section.id }}">{{ section.settings.mobile_title }}</h2>
+
         {% if section.settings.mobile_title != blank %}
           <h2 class="s-m-h2 lg:s-d-h1 block-title mobile-title" id="mobile-title-{{ section.id }}">{{ section.settings.mobile_title }}</h2>
         {% else %}
@@ -184,6 +186,7 @@
   }
   {%- endif -%}
 
+  /* Default mobile styles */
   @media only screen and (max-width: 767px) {
     #desktop-title-{{ section.id }} {
       display: none;
@@ -191,15 +194,21 @@
     #mobile-title-{{ section.id }} {
       display: block;
     }
+    #shopify-section-{{ section.id }} .s-m-h2 {
+      font-size: {{ section.settings.review_carousel_title_font_size_mob }}px;
+    }
   }
 
-  /* Desktop specific styles */
+  /* Desktop-specific styles */
   @media only screen and (min-width: 768px) {
     #mobile-title-{{ section.id }} {
       display: none;
     }
     #desktop-title-{{ section.id }} {
       display: block;
+    }
+    #shopify-section-{{ section.id }} .s-m-h2 {
+      font-size: {{ section.settings.review_carousel_title_font_size_desktop }}px;
     }
   }
 {% endstyle %}
