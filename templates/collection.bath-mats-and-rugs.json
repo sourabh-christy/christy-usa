@@ -40,17 +40,6 @@
             "position": 7
           }
         },
-        "77b7bcba-adf8-4b59-84fa-2aed599efb4a": {
-          "type": "infocard",
-          "settings": {
-            "text": "Renaissance Bath Mat",
-            "copy": "<p>After an indulgent soak, step onto the fluffy warmth of our Renaissance bath mat. <\/p><p>It's soft and cushiony underfoot, adding a touch of luxury to any bathroom.<\/p>",
-            "button_text": "Discover Collection",
-            "button_url": "shopify:\/\/products\/renaissance-bath-mat",
-            "styled": true,
-            "position": 8
-          }
-        },
         "723c09cd-40b5-4949-8c55-69dab142f5e5": {
           "type": "listsc",
           "disabled": true,
@@ -65,6 +54,18 @@
             "product_3": "",
             "pos_l_3": 50,
             "pos_t_3": 50
+          }
+        },
+        "77b7bcba-adf8-4b59-84fa-2aed599efb4a": {
+          "type": "infocard",
+          "disabled": true,
+          "settings": {
+            "text": "Renaissance Bath Mat",
+            "copy": "<p>After an indulgent soak, step onto the fluffy warmth of our Renaissance bath mat. <\/p><p>It's soft and cushiony underfoot, adding a touch of luxury to any bathroom.<\/p>",
+            "button_text": "Discover Collection",
+            "button_url": "shopify:\/\/products\/renaissance-bath-mat",
+            "styled": true,
+            "position": 8
           }
         },
         "9dd9db74-0cb2-4848-9653-157d62c90364": {
@@ -86,12 +87,22 @@
       },
       "block_order": [
         "5a878969-3318-42e0-87f9-e02a64758016",
-        "77b7bcba-adf8-4b59-84fa-2aed599efb4a",
         "723c09cd-40b5-4949-8c55-69dab142f5e5",
+        "77b7bcba-adf8-4b59-84fa-2aed599efb4a",
         "9dd9db74-0cb2-4848-9653-157d62c90364"
       ],
       "settings": {
         "products_per": 10,
+        "excerpt": "Towels",
+        "title_font_size_mob": 26,
+        "title_font_size_desktop": 40,
+        "title_font_weight": "500",
+        "title_font_family": "Hatton, serif",
+        "seo_liner": "Indulge in the ultimate comfort with our luxury towels, crafted from the finest materials for a plush, spa-like experience every day.",
+        "seo_liner_font_size_mob": 14,
+        "seo_liner_font_size_desktop": 14,
+        "seo_liner_font_weight": "300",
+        "seo_liner_font_family": "Tomato Grotesk",
         "enable_filtering": true,
         "enable_sorting": true
       }
@@ -170,6 +181,7 @@
       ],
       "settings": {
         "title": "Why Our Customers Love Christy",
+        "mobile_title": "Rave Reviews",
         "review_carousel_title_font_size_mob": 24,
         "review_carousel_title_font_size_desktop": 36,
         "review_carousel_title_font_weight": "400",
@@ -181,6 +193,7 @@
       "type": "products-carousel",
       "settings": {
         "title": "Pair With Matching Towels",
+        "mobile_title": "Our Best Sellers",
         "title_font_size_mob": 24,
         "title_font_size_desktop": 36,
         "title_font_weight": "400",
