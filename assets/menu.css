@@ -14,5 +14,9 @@
         font-weight: 100 !important;
         line-height: 70px;
     }
+
+  .totals__subtotal {
+    font-family: Tomato Grotesk, sans-serif;
+  }
   
 }
