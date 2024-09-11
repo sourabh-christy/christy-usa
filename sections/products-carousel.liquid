@@ -15,12 +15,18 @@
       '
     >
       <header class="flex gap-12 md:items-center">
-        <h2 class="block-title desktop-title" id="desktop-title-{{ section.id }}">{{ section.settings.title }}</h2>
-        {% if section.settings.mobile_title != blank %}
-          <h2 class="block-title mobile-title" id="mobile-title-{{ section.id }}">{{ section.settings.mobile_title }}</h2>
-        {% else %}
-          <h2 class="block-title mobile-title" id="mobile-title-{{ section.id }}" style="display: none;">{{ section.settings.title }}</h2>
-        {% endif %}
+        <h2 class="block-title desktop-title" id="desktop-title-{{ section.id }}">
+          {{ section.settings.title }}
+        </h2>
+        
+        <!-- Mobile Title -->
+        <h2 class="block-title mobile-title" id="mobile-title-{{ section.id }}">
+          {% if section.settings.mobile_title != blank %}
+            {{ section.settings.mobile_title }}
+          {% else %}
+            {{ section.settings.title }}
+          {% endif %}
+        </h2>
  
         <div class="flex flex-1 justify-between items-center">
           {% if section.settings.button_title and section.settings.button_link %}
@@ -107,6 +113,12 @@
   }
   {%- endif -%}
 
+  #desktop-title-{{ section.id }}, #mobile-title-{{ section.id }} {
+    font-size: {{ section.settings.title_font_size_mob }}px;
+    font-weight: {{ section.settings.title_font_weight }};
+    font-family: {{ section.settings.title_font_family }};
+  }
+
   /* Mobile specific styles */
   @media only screen and (max-width: 767px) {
     #desktop-title-{{ section.id }} {
@@ -119,11 +131,11 @@
 
   /* Desktop specific styles */
   @media only screen and (min-width: 768px) {
-    #mobile-title-{{ section.id }} {
-      display: none;
-    }
     #desktop-title-{{ section.id }} {
       display: block;
+    }
+    #mobile-title-{{ section.id }} {
+      display: none;
     }
   }
 {% endstyle %}
