@@ -1,0 +1,285 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+      }
+    },
+    "169276539839bf5a49": {
+      "type": "apps",
+      "settings": {
+      }
+    },
+    "0ad58283-c2d8-447c-8af9-def5168e727f": {
+      "type": "hero-image",
+      "disabled": true,
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Gifting_1200_800.jpg",
+        "link": "",
+        "full_width": true
+      }
+    },
+    "d5e9403d-9612-4e0b-ab04-7bca0ebb33b0": {
+      "type": "heading",
+      "disabled": true,
+      "settings": {
+        "heading": "<p>Discover the magic in <br\/>everyday moments.<\/p>",
+        "heading_width": "4",
+        "copy": "",
+        "copy_style": "default",
+        "alignment": "center",
+        "alignment_mob": "center",
+        "horiz_padding": true,
+        "margin_top": false
+      }
+    },
+    "a9d98147-a8ba-4d77-ac71-8eb3097f3e2b": {
+      "type": "images-copy-cta",
+      "disabled": true,
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Screenshot_2023-11-01_at_8.00.42_PM.jpg",
+        "image2": "shopify:\/\/shop_images\/Oslo_denim_location_1-938218.jpg",
+        "subtitle": "",
+        "title": "<p>Create your own Gift Box<\/p>",
+        "copy": "<p>Elevate your gift-giving experience with our luxurious signature gift box. <\/p><p>To add that personal touch, we also offer the option to include a heartfelt, personalised message. It's the perfect way to convey your warmest wishes and sentiments, making your gift truly unique and special.<\/p>",
+        "button_label": "",
+        "button_link": "shopify:\/\/collections\/all",
+        "content_position": "right",
+        "header_position": false,
+        "images_half_width": false,
+        "anchor_id": ""
+      }
+    },
+    "3cc62f4c-8e02-4d7c-963d-87349ff400a2": {
+      "type": "c-info-columns",
+      "blocks": {
+        "template--21202654101792__3cc62f4c-8e02-4d7c-963d-87349ff400a2-column-1": {
+          "type": "column",
+          "settings": {
+            "image_aspect": "1:1",
+            "title": "Step 1",
+            "text": "<p>Choose your gift items from across our collections and add to cart.<\/p>",
+            "button_label": "",
+            "button_link": "",
+            "collection_tag": ""
+          }
+        },
+        "template--21202654101792__3cc62f4c-8e02-4d7c-963d-87349ff400a2-column-2": {
+          "type": "column",
+          "settings": {
+            "image_aspect": "1:1",
+            "title": "Step 2",
+            "text": "<p>Check the \"Make it extra special with a gift box\" option at the bottom of the cart (£4.99 per gift box)<\/p>",
+            "button_label": "",
+            "button_link": "",
+            "collection_tag": ""
+          }
+        },
+        "template--21202654101792__3cc62f4c-8e02-4d7c-963d-87349ff400a2-column-3": {
+          "type": "column",
+          "settings": {
+            "image_aspect": "1:1",
+            "title": "Step 3",
+            "text": "<p>Add a free personal message to your loved one and proceed to checkout. All done!<\/p>",
+            "button_label": "",
+            "button_link": "",
+            "collection_tag": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--21202654101792__3cc62f4c-8e02-4d7c-963d-87349ff400a2-column-1",
+        "template--21202654101792__3cc62f4c-8e02-4d7c-963d-87349ff400a2-column-2",
+        "template--21202654101792__3cc62f4c-8e02-4d7c-963d-87349ff400a2-column-3"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "It takes 3 Simple Steps"
+      }
+    },
+    "e660d413-61a7-4b04-9427-45b7ec1301f9": {
+      "type": "heading",
+      "disabled": true,
+      "settings": {
+        "heading": "<p>From Robes to Towels & Throws to Bedding<\/p>",
+        "heading_width": "4",
+        "copy": "",
+        "copy_style": "default",
+        "alignment": "center",
+        "alignment_mob": "center",
+        "horiz_padding": true,
+        "margin_top": false
+      }
+    },
+    "be8c1844-ff08-49a2-a258-af9002bf1a72": {
+      "type": "products-carousel",
+      "disabled": true,
+      "settings": {
+        "title": "The Ultimate Relaxation Gift: Bathrobes",
+        "button_title": "Shop the Range",
+        "button_link": "shopify:\/\/collections\/all-loungewear",
+        "products": [
+          "super-soft-cosy-robe",
+          "supreme-velour-robe",
+          "luxury-egyptian-robes",
+          "brixton-robe"
+        ],
+        "screen_visibility": "both"
+      }
+    },
+    "d9abfb53-1fd1-4d85-ad48-07a4200a954b": {
+      "type": "collections-carousel",
+      "blocks": {
+        "63e5a2ba-0423-4582-b360-c33860185bbc": {
+          "type": "collection",
+          "settings": {
+            "collection": "gifts-for-living",
+            "usp_title": "Throws & Cushions",
+            "image": "shopify:\/\/shop_images\/Jaipur_Hazelnut_Lifestyle_2.jpg",
+            "alt_title": "Gifts for Living",
+            "excerpt": "<p>Explore throws & cushions that exude cosy comfort.<\/p>"
+          }
+        },
+        "7e2b7beb-9391-4023-ac4b-5173156434f4": {
+          "type": "collection",
+          "settings": {
+            "collection": "gifts-for-rest",
+            "usp_title": "Bedding",
+            "image": "shopify:\/\/shop_images\/gifts-for-living.jpg",
+            "alt_title": "Gifts for Rest",
+            "excerpt": "<p>Treat your loved ones to relaxing moments with our comforting bedding.<\/p>"
+          }
+        },
+        "959d3109-4a09-42e0-a50e-ac701272a47d": {
+          "type": "collection",
+          "settings": {
+            "collection": "gifts-for-bathing",
+            "usp_title": "Towels",
+            "image": "shopify:\/\/shop_images\/gifts-for-bathing.jpg",
+            "alt_title": "",
+            "excerpt": "<p>Upgrade their bathing rituals with spa-worthy towels.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "63e5a2ba-0423-4582-b360-c33860185bbc",
+        "7e2b7beb-9391-4023-ac4b-5173156434f4",
+        "959d3109-4a09-42e0-a50e-ac701272a47d"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "Our Gift Collections",
+        "screen_visibility": "both"
+      }
+    },
+    "3daf9a22-676a-48e1-b44f-8a8516e19976": {
+      "type": "images-copy-cta",
+      "disabled": true,
+      "settings": {
+        "image": "shopify:\/\/shop_images\/WIMD150-809824.jpg",
+        "image2": "shopify:\/\/shop_images\/WimbledonChampionship2023Detail-273571.jpg",
+        "subtitle": "Wimbledon Championship Towel 2023",
+        "title": "<p>Ace Your Christmas Gift-Giving!<\/p>",
+        "copy": "<p>Elevate your Christmas gifting game with the official Wimbledon Championship Towel 2023. It's a versatile, stylish, and ultra-absorbent gift that tennis lovers and anyone with an appreciation for quality will adore. <\/p>",
+        "button_label": "Shop the Collection",
+        "button_link": "shopify:\/\/collections\/wimbledon-collection",
+        "content_position": "right",
+        "header_position": false,
+        "images_half_width": false,
+        "anchor_id": ""
+      }
+    },
+    "25d0b83d-e0ac-41c8-8b23-cadf423f2450": {
+      "type": "benefits-icons",
+      "blocks": {
+        "template--21202654101792__25d0b83d-e0ac-41c8-8b23-cadf423f2450-block-1": {
+          "type": "block",
+          "settings": {
+            "title": "Legacy of Innovation",
+            "copy": "<p>Bringing you quality and durability through 170 years of legacy and innovation.<\/p>",
+            "button_link": "shopify:\/\/pages\/our-heritage",
+            "button_title": "Learn More"
+          }
+        },
+        "template--21202654101792__25d0b83d-e0ac-41c8-8b23-cadf423f2450-block-2": {
+          "type": "block",
+          "settings": {
+            "title": "Sustainability",
+            "copy": "<p>Sustainable material to ethical manufacturing and mindful packaging.<\/p>",
+            "button_link": "shopify:\/\/pages\/responsibility",
+            "button_title": "Learn More"
+          }
+        },
+        "template--21202654101792__25d0b83d-e0ac-41c8-8b23-cadf423f2450-block-3": {
+          "type": "block",
+          "settings": {
+            "title": "Loved by our Customers",
+            "copy": "<p>3000+ 5 star reviews with a score of 4.5 out of 5 on Trustpilot<\/p>",
+            "button_link": "shopify:\/\/collections\/all",
+            "button_title": "Shop the Range"
+          }
+        },
+        "template--21202654101792__25d0b83d-e0ac-41c8-8b23-cadf423f2450-block-4": {
+          "type": "block",
+          "settings": {
+            "title": "Free Shipping & Returns",
+            "copy": "<p>Free Shipping above GBP 50 plus our Worry-Free Return Guarantee.<\/p>",
+            "button_link": "shopify:\/\/policies\/shipping-policy",
+            "button_title": "Learn More"
+          }
+        }
+      },
+      "block_order": [
+        "template--21202654101792__25d0b83d-e0ac-41c8-8b23-cadf423f2450-block-1",
+        "template--21202654101792__25d0b83d-e0ac-41c8-8b23-cadf423f2450-block-2",
+        "template--21202654101792__25d0b83d-e0ac-41c8-8b23-cadf423f2450-block-3",
+        "template--21202654101792__25d0b83d-e0ac-41c8-8b23-cadf423f2450-block-4"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "Why Christy?",
+        "margin": "yes"
+      }
+    },
+    "ac0df73f-6df0-4292-a763-1ccbaa8f6b31": {
+      "type": "billboard",
+      "disabled": true,
+      "settings": {
+        "screen_visibility": "both",
+        "subtitle": "Explore",
+        "title": "<p>Bath<\/p>",
+        "copy": "<p>Step into a spa-like sanctuary with our luxurious selection of bathroom products.<\/p>",
+        "button_label": "Shop All",
+        "button_link": "shopify:\/\/collections\/all",
+        "button_type": "default",
+        "colour_theme": "white",
+        "alignment": "left",
+        "alignment_vertical": "top",
+        "mobile_content_position": "overlay"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "169276539839bf5a49",
+    "0ad58283-c2d8-447c-8af9-def5168e727f",
+    "d5e9403d-9612-4e0b-ab04-7bca0ebb33b0",
+    "a9d98147-a8ba-4d77-ac71-8eb3097f3e2b",
+    "3cc62f4c-8e02-4d7c-963d-87349ff400a2",
+    "e660d413-61a7-4b04-9427-45b7ec1301f9",
+    "be8c1844-ff08-49a2-a258-af9002bf1a72",
+    "d9abfb53-1fd1-4d85-ad48-07a4200a954b",
+    "3daf9a22-676a-48e1-b44f-8a8516e19976",
+    "25d0b83d-e0ac-41c8-8b23-cadf423f2450",
+    "ac0df73f-6df0-4292-a763-1ccbaa8f6b31"
+  ]
+}
