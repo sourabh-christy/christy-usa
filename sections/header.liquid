@@ -20,7 +20,8 @@
     max-height: 600px;
     overflow-y: auto; /* Enables vertical scrolling */
     overflow-x: hidden; /* Prevents horizontal scrolling */
-    padding: 10px; /* Optional: Adjust padding if needed */
+    padding: 10px;
+    padding-left: 20px;
   }
   @media (max-width: 1022px){
   #search-icon{
@@ -243,16 +244,17 @@
           <div class=" lg:max-w-[317px] flex-1">
             {% render 'header-search', input_id: 'search_desktop' %}
           </div> 
-          <ul class="menu" style="margin-top:15px;">
+          <ul class="menu">
             {% for link in section.settings.menu.links %}
-              <li class="space-y-4 break-inside-avoid border-blue-1/10 border-b last:border-b-0">
+              <li class="space-y-4 break-inside-avoid border-blue-1/10 border-b last:border-b-0" style="padding-bottom: 10px; padding-top:10px;">
                 {% comment %} <details class="block  !my-0 py-5 lg:py-7 group/acc"> {% endcomment %}
                   <summary class="font-semibold m-body-copy lg:d-h5 space-x-6 flex w-full items-center cursor-pointer">
                     <a href="{{ link.url }}">{{ link.title }}</a>
                   </summary>
                 
-                <div class="pt-5 lg:pt-7">
+                
                 {% if link.links.size > 0 %}
+                  <div class="lg:pt-7" style="margin-top:0px;">
                   <ul class="menu dropdown-child space-y-3 font-light">
                     {% for child_link in link.links %}
                       <li class="menu-link font-semibold m-body-copy lg:d-h5 space-x-6 flex w-full items-center cursor-pointer">
@@ -270,8 +272,9 @@
                       </li>
                     {% endfor %}
                   </ul>
+                </div>
                 {% endif %}
-              </div>
+              
               {% comment %} </details> {% endcomment %}
               </li>
             {% endfor %}
