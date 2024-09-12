@@ -164,26 +164,6 @@
         "disabled": false,
         "settings": {
         }
-      },
-      "7198969862865215404": {
-        "type": "shopify:\/\/apps\/omnishop-country-redirect\/blocks\/geofilter\/8cff2c4b-746e-4e55-b33e-8dec451b2b2c",
-        "disabled": false,
-        "settings": {
-          "banner_background_color": "#fff",
-          "banner_font_color": "#000",
-          "banner_font_size": "",
-          "banner_height": "",
-          "banner_button_background_color": "#000",
-          "banner_button_font_color": "#fff",
-          "banner_button_font_size": "",
-          "popin_background_color": "#fff",
-          "popin_font_color": "#000",
-          "popin_font_size": "",
-          "popin_button_background_color": "#000",
-          "popin_button_font_color": "#fff",
-          "popin_button_font_size": "",
-          "additional_css": ""
-        }
       }
     },
     "color_schemes": {
