@@ -615,7 +615,7 @@
             "hero_collection_copy_font_size_desktop": 24,
             "hero_collection_copy_font_weight": "300",
             "hero_collection_copy_font_family": "Hatton, serif",
-            "copy_visibility": "all",
+            "copy_visibility": "mobile",
             "collection": "",
             "button_text": "Shop Bed"
           }
@@ -642,7 +642,7 @@
             "hero_collection_copy_font_size_desktop": 24,
             "hero_collection_copy_font_weight": "300",
             "hero_collection_copy_font_family": "Hatton, serif",
-            "copy_visibility": "all",
+            "copy_visibility": "mobile",
             "collection": "",
             "button_text": "Shop Bed"
           }
