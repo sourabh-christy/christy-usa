@@ -6,9 +6,9 @@
     {% if totalCompare > totalPrice %}
       <span class="flex gap-x-2 font-semibold ">
         <span class="line-through opacity-60">
-          {{- totalCompare | money -}}
+          {{- totalCompare -}}
         </span>
-        <span>{{ totalPrice | money }}</span>
+        <span>{{ totalPrice }}</span>
       </span>
 
     {% else %}
@@ -16,7 +16,10 @@
     {% endif %}
   </div>
 
-  <span style="display:none" class="bundlesavings inline-flex {% if hideSavingsMob != true %}flex-row-reverse{% endif %} items-center gap-1 whitespace-nowrap ui-pill ui-pill--bg-blue ui-shimmer before:animate-[shimmer_1s_linear_both]">
+  <span
+    style="display:none"
+    class="bundlesavings inline-flex {% if hideSavingsMob != true %}flex-row-reverse{% endif %} items-center gap-1 whitespace-nowrap ui-pill ui-pill--bg-blue ui-shimmer before:animate-[shimmer_1s_linear_both]"
+  >
     {% if hideSavingsMob == true %}
       <span>Bundle <span class="max-sm:hidden">Savings</span></span>
     {% else -%}
@@ -24,7 +27,6 @@
     {%- endif %}
     {% if showPerc != false -%}
       {%- if bundleDiscount > 0 %}
-       
         {{ bundleDiscount }}% Off
       {% endif %}
     {% endif %}
