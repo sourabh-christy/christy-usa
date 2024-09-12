@@ -451,6 +451,7 @@
         "image_7pLNAi",
         "image_CNDAJf"
       ],
+      "disabled": true,
       "settings": {
         "fullscreen": true
       }
@@ -685,7 +686,6 @@
         "slide_TtNqdg",
         "slide_z3iiXi"
       ],
-      "disabled": true,
       "settings": {
       }
     },
