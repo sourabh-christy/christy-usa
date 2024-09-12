@@ -33,7 +33,7 @@ var bundleApp = {
       productBundleBlocker.classList.remove('!opacity-100', '!visible');
     }
     function formatMoney(cents, format) {
-      var money_format = "£{{amount}}";
+      var money_format = "${{amount}}";
       // ---------------------------------------------------------------------------
       // Money format handler
       // ---------------------------------------------------------------------------
