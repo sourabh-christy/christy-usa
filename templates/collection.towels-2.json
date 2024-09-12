@@ -157,6 +157,7 @@
         },
         "block_cCgmnB": {
           "type": "block",
+          "disabled": true,
           "settings": {
             "product": "luxe-towels",
             "title": "Luxe Towels",
@@ -193,7 +194,7 @@
       "type": "products-carousel",
       "settings": {
         "title": "Pair With Bath Mats & Rugs",
-        "mobile_title": "Our Best Sellers",
+        "mobile_title": "Best Sellers",
         "title_font_size_mob": 24,
         "title_font_size_desktop": 36,
         "title_font_weight": "400",
