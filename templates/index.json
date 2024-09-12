@@ -300,23 +300,13 @@
             "testimonial": "<p>\"Brilliant towels.  They do not shed exactly as described on website.  These are the best towels I have ever owned.  5🌟🌟🌟🌟🌟\"<\/p>",
             "name": "Averii Richards"
           }
-        },
-        "block_ABz44k": {
-          "type": "block",
-          "settings": {
-            "product": "",
-            "title": "Customer Reviews",
-            "testimonial": "<p>“One of the highest quality products I have experienced. Very very soft and drapes beautifully on my bed.”<\/p>",
-            "name": "John Smith"
-          }
         }
       },
       "block_order": [
         "block_yJF6td",
         "block_azJUct",
         "block_fDyMtK",
-        "template--21202652987680__0e8d554c-badf-4239-a36e-276ffacfb5fc-block-1",
-        "block_ABz44k"
+        "template--21202652987680__0e8d554c-badf-4239-a36e-276ffacfb5fc-block-1"
       ],
       "settings": {
         "title": "Why Our Customers Love Christy",
