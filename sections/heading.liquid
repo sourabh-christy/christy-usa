@@ -124,9 +124,14 @@
 
   {%- if section.settings.heading_copy_font_size_desktop != blank -%}
   @media all and (min-width: 1024px) {
-    #shopify-section-{{ section.id }} .wysiwyg {
-      font-size: 15px;
+    /* #shopify-section-{{ section.id }} .wysiwyg {
+      font-size: {{ section.settings.heading_copy_font_size_desktop }}px;
     }
+ */
+  #shopify-section-{{ section.id }} .wysiwyg {
+      font-size: {{ section.settings.heading_copy_font_size_desktop }}px;
+    }
+    
   }
   {%- endif -%}
 {% endstyle %}
