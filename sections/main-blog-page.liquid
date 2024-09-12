@@ -51,7 +51,9 @@
       <div
         class="grid__item {% if forloop.index0 == 0 %}md:!col-start-6{% endif %}"
       >
+        {% comment %}}
         {%- render 'article-card', article: article, img_float: 'float' -%}
+      {% endcomment %}}
       </div>
     {%- endfor -%}
   </div>
