@@ -41,6 +41,7 @@
         "template--19974381371680__8f9e3ef3-0d55-43c1-b496-14c674ab688e-anchor_link-1",
         "template--19974381371680__8f9e3ef3-0d55-43c1-b496-14c674ab688e-anchor_link-2"
       ],
+      "disabled": true,
       "settings": {
       }
     },
@@ -63,7 +64,7 @@
         "alignment_mob": "right",
         "horiz_padding": true,
         "margin_top": false,
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "font_color": "#000000"
       }
     },
@@ -198,8 +199,8 @@
         "e14b8b02-c53c-4069-85cc-43e31732c3cb": {
           "type": "product",
           "settings": {
-            "product": "supreme-velour-robe",
-            "text": "<p>Wrap yourself up in pure luxury with our ultra soft and absorbant Supreme Hygro® towel collection<\/p>"
+            "product": "supreme-bath-mat",
+            "text": "<p>Made with the same technology weave that blooms with plushness after washing, this extra absorbent, bouncy feeling mat levels up everyday essentials.<\/p>"
           }
         },
         "d21bf329-3944-47a0-832b-9162c451db72": {
