@@ -5,7 +5,7 @@
     container md:flex max-md:space-y-6 {% if section.settings.alignment == 'center' %}md:justify-center md:text-center{% endif %} {% if section.settings.alignment == 'right' and section.settings.copy == blank %}md:justify-end{% endif %} {% if section.settings.copy != blank %}md:items-center md:gap-5 lg:gap-6{% endif %}
     {% if section.settings.alignment_mob == 'center' %}max-md:justify-center max-md:text-center{% endif %} {% if section.settings.alignment_mob == 'right' %}max-md:justify-end max-md:text-right{% endif %} {% if section.settings.margin_top == true %}{% endif %}
   "
-  style="background-color: {{ section.settings.background_color }};
+  style="background-color: {{ section.settings.background_color }}; padding-top: 10px;
   "
 >
   
