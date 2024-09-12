@@ -5,9 +5,15 @@ var checkPageIsReloaded =
       .includes('reload')
  
 
-if( !checkPageIsReloaded && window.location.href == location.origin.toString() +'/' &&  document.referrer.endsWith('/cart') )  {
-  document.getElementById('cart-icon-bubble').click();
+if (!checkPageIsReloaded && window.location.href == location.origin.toString() + '/') {
+  if (document.referrer.endsWith('/cart') || document.referrer.endsWith('/cart?logged_in=true')) {
+    document.getElementById('cart-icon-bubble').click();
+  } else if (document.referrer.endsWith('/account/register')) {
+    // hack for redirecting after account creation to redirect to again account page
+    window.location.href = '/account'
+  }
 }
+
 
 async function myfun(t, e){
 
