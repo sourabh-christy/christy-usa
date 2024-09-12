@@ -131,7 +131,7 @@
         "billboard_copy_font_weight": "200",
         "billboard_copy_font_family": "sans-serif",
         "button_label": "Get in touch",
-        "button_link": "shopify:\/\/pages\/contact",
+        "button_link": "shopify:\/\/pages\/contact-us",
         "button_type": "tertiary",
         "colour_theme": "white",
         "alignment": "left",
