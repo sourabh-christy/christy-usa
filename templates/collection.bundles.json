@@ -600,7 +600,7 @@
         "seo_liner_font_weight": "300",
         "seo_liner_font_family": "Tomato Grotesk",
         "enable_filtering": true,
-        "enable_sorting": true
+        "enable_sorting": false
       }
     },
     "07a57dc8-34ac-41ee-96df-37021aef7941": {
