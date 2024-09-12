@@ -472,7 +472,7 @@
         "slide_rnBLML": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/1_2.png",
+            "image": "shopify:\/\/shop_images\/1.webp",
             "mobile_media": "image",
             "subtitle": "1850",
             "hero_collection_subtitle_font_size_mob": 16,
@@ -499,7 +499,7 @@
         "slide_x4tjjL": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/2_2.png",
+            "image": "shopify:\/\/shop_images\/2.webp",
             "mobile_media": "image",
             "subtitle": "1920",
             "hero_collection_subtitle_font_size_mob": 16,
@@ -526,7 +526,7 @@
         "slide_H6RFg3": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/3_1.png",
+            "image": "shopify:\/\/shop_images\/3.webp",
             "mobile_media": "image",
             "subtitle": "1937",
             "hero_collection_subtitle_font_size_mob": 16,
@@ -553,7 +553,7 @@
         "slide_7LJM9w": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/4_1.png",
+            "image": "shopify:\/\/shop_images\/4.webp",
             "mobile_media": "image",
             "subtitle": "1975",
             "hero_collection_subtitle_font_size_mob": 16,
@@ -580,7 +580,7 @@
         "slide_yTTBhU": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/5_1.png",
+            "image": "shopify:\/\/shop_images\/5.webp",
             "mobile_media": "image",
             "subtitle": "1988",
             "hero_collection_subtitle_font_size_mob": 16,
@@ -607,7 +607,7 @@
         "slide_pw3Y9a": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/6_1.png",
+            "image": "shopify:\/\/shop_images\/6.webp",
             "mobile_media": "image",
             "subtitle": "2003",
             "hero_collection_subtitle_font_size_mob": 16,
@@ -634,7 +634,7 @@
         "slide_TtNqdg": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/7_1.png",
+            "image": "shopify:\/\/shop_images\/7.webp",
             "mobile_media": "image",
             "subtitle": "2020",
             "hero_collection_subtitle_font_size_mob": 16,
@@ -661,7 +661,7 @@
         "slide_z3iiXi": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/8_1.png",
+            "image": "shopify:\/\/shop_images\/8.webp",
             "mobile_media": "image",
             "subtitle": "2023",
             "hero_collection_subtitle_font_size_mob": 16,
