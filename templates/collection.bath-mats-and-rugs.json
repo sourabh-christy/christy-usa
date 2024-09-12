@@ -104,7 +104,7 @@
         "seo_liner_font_weight": "300",
         "seo_liner_font_family": "Tomato Grotesk",
         "enable_filtering": true,
-        "enable_sorting": true
+        "enable_sorting": false
       }
     },
     "recent-products": {
