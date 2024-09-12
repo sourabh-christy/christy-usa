@@ -283,7 +283,14 @@
             </header>
 
             <div id="product-price" class="flex gap-3 justify-between md:items-center max-md:flex-col !mt-5 not-step-0">
-              <div></div>
+              <div>
+                {% render 'bundle-builder-price',
+                  totalCompare: totalCompare,
+                  totalPrice: totalPrice,
+                  totalPercentOff: totalPercentOff,
+                  bundleDiscount: bundleDataValue.bundleDiscount
+                %}
+              </div>
             </div>
 
             <div class="wysiwyg max-md:order-10 max-md:border-t max-md:border-blue-1/10 max-md:pt-5 not-step-0">
