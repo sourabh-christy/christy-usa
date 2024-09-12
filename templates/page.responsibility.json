@@ -377,6 +377,7 @@
     },
     "billboard2": {
       "type": "billboard",
+      "disabled": true,
       "settings": {
         "screen_visibility": "both",
         "image": "shopify:\/\/shop_images\/perfect-towel_7b6f2a34-1d35-4624-bc88-9e7432cbb3a9.jpg",
