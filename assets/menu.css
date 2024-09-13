@@ -4,7 +4,13 @@
   font-family:Tomato Grotesk,sans-serif;
 }
 
-@media (min-width: 1024px and max-width: 1049px) {
+@media (resolution: 120dpi) {
+    .lg\:pl-8 {
+        padding-left: 4rem !important;
+    }
+}
+
+@media (min-width: 1024px) {
     .lg\:pl-8 {
         padding-left: 6rem !important;
     }
@@ -19,12 +25,6 @@
         font-weight: 100 !important;
         line-height: 70px;
     }  
-}
-
-@media (min-width: 1050px) {
-      .lg\:pl-8 {
-        padding-left: 4rem !important;
-    }
 }
 
 .totals__subtotal {
