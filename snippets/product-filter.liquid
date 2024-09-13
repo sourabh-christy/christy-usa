@@ -31,8 +31,7 @@
           {% endif %}
         {% endif %}
       {% endfor %}
-    {% endfor %}
-  
+    {% endfor %} 
     {% comment %} Adjust margin for small screens {% endcomment %}
     {% if collection.tags.size > 0 %}
       <div class="qt-btn-wrapper">
@@ -59,6 +58,7 @@
               <button type="button" class="close-btn" onclick="toggleDropdown()">
                 &times; <!-- Unicode character for the close icon -->
               </button>
+             
               {%- for filter in collection.filters -%}
                 <a
                   class="qt-dropdown-item"
@@ -124,37 +124,39 @@
                       >
                         <div class="filter-group-display__price-range-from">
                           <label for="Filter-{{ filter.min_value.param_name }}" class="block">From</label>
-                          <span>{{ cart.currency.symbol }}</span>
-                          <input
-                            name="{{ filter.min_value.param_name }}"
-                            id="Filter-{{ filter.min_value.param_name }}"
-                            class="border border-gray-400 rounded-sm p-1"
-                            onblur="loadFilteredProducts()"
-                            {% if filter.min_value.value -%}
-                              value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"
-                            {%- endif %}
-                            type="number"
-                            placeholder="0"
-                            min="0"
-                            max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
-                          >
+                          <div class="price-text-box-continer border border-gray-400 rounded-sm relative">
+                            <span class="z-1 absolute">{{ cart.currency.symbol }}</span>
+                            <input
+                              name="{{ filter.min_value.param_name }}"
+                              id="Filter-{{ filter.min_value.param_name }}" 
+                              class="border-0 p-1 w-[100px]" style="padding-left:10px"
+                              onblur="loadFilteredProducts()"
+                              {% if filter.min_value.value -%}
+                                value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"
+                              {%- endif %}
+                              type="number"
+                              placeholder="0"
+                              min="0"
+                              max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                            >
+                          </div>
                         </div>
                         <div class="filter-group-display__price-range-to">
                           <label for="Filter-{{ filter.max_value.param_name }}" class="block">To</label>
-  
-                          <span>{{ cart.currency.symbol }}</span>
+                          <div class="price-text-box-continer border border-gray-400 rounded-sm relative">
+                          <span class="z-1 absolute">{{ cart.currency.symbol }}</span>
                           <input
                             name="{{ filter.max_value.param_name }}"
                             id="Filter-{{ filter.max_value.param_name }}"
-                            class="border border-gray-400 rounded-sm p-1"
+                            class="border-0 p-1 w-[100px]" style="padding-left:10px"
                             {% if filter.max_value.value -%}
                               value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"
                             {%- endif %}
                             type="number"
                             placeholder="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
-                            min="0"
-                            max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
-                          >
+                            min="0" 
+                          />
+                        </div> 
                         </div>
                       </div>
   
@@ -547,7 +549,7 @@
         };
   
         var filterLabel = document.createElement('span');
-        filterLabel.textContent = `${filter.label}`;
+        filterLabel.textContent = `${filter.value}`;
   
         filterElement.appendChild(removeButton);
         filterElement.appendChild(filterLabel);
