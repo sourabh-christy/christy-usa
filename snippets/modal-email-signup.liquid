@@ -79,6 +79,14 @@
 
                   {%- if form.posted_successfully? -%}
                   {%- else -%}
+
+                  <script type="text/javascript">
+                  	document.querySelector('.klaviyo_form_trigger').addEventListener('click', function (){
+                  		window._klOnsite = window._klOnsite || []; 
+                  		window._klOnsite.push(['openForm', 'FORM_ID']);
+                  	});
+                  </script>
+                    
                     <div class="space-y-4 lg:space-y-6">
                       <div class="field-large">
                         <input
