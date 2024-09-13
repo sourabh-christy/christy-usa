@@ -3,11 +3,6 @@
 #menu a {
   font-family:Tomato Grotesk,sans-serif;
 }
-@media (min-width: 1050px) {
-      .lg\:pl-8 {
-        padding-left: 4rem !important;
-    }
-}
 
 @media (min-width: 1024px) {
     .lg\:pl-8 {
@@ -24,6 +19,12 @@
         font-weight: 100 !important;
         line-height: 70px;
     }  
+}
+
+@media (min-width: 1050px) {
+      .lg\:pl-8 {
+        padding-left: 4rem !important;
+    }
 }
 
 .totals__subtotal {
