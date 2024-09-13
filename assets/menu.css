@@ -3,7 +3,7 @@
 #menu a {
   font-family:Tomato Grotesk,sans-serif;
 }
-@media (resolution: 120dpi) {
+@media (min-width: 955px and max-width: 1355px) {
       .lg\:pl-8 {
         padding-left: 5rem !important;
     }
