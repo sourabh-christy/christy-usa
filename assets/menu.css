@@ -3,11 +3,11 @@
 #menu a {
   font-family:Tomato Grotesk,sans-serif;
 }
-/*@media (resolution: 120dpi) {
+@media (resolution: 120dpi) {
       .lg\:pl-8 {
         padding-left: 5rem !important;
     }
-}*/
+}
 
 @media (min-width: 1024px) {
     .lg\:pl-8 {
