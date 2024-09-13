@@ -3,16 +3,21 @@
 #menu a {
   font-family:Tomato Grotesk,sans-serif;
 }
-@media (resolution: 120dpi) {
+/*@media (resolution: 120dpi) {
       .lg\:pl-8 {
         padding-left: 5rem !important;
     }
-}
+}*/
 
 @media (min-width: 1024px) {
     .lg\:pl-8 {
         padding-left: 6rem !important;
     }
+
+  .search__input field__input {
+    padding-left: 0px;
+  }
+  
 
     .lg\:d-h1 {
         font-size: 36px;
