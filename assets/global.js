@@ -1228,15 +1228,31 @@ class VariantSelects extends HTMLElement {
         // QT 14-8-2024 start
         if (html.getElementById("aplusproducts") && document.querySelector("#aplusproducts")) {
           document.querySelector("#aplusproducts").innerHTML = html.getElementById("aplusproducts").innerHTML
-          document.querySelector("#aplus_cart_price").innerHTML = html.getElementById("aplus_cart_price").innerHTML
+          if( document.querySelector("#aplus_cart_price") ) {
+            document.querySelector("#aplus_cart_price").innerHTML = ""; 
+            if(html.getElementById("aplus_cart_price")) {
+               document.querySelector("#aplus_cart_price").innerHTML = html.getElementById("aplus_cart_price")?.innerHTML 
+            }
+          } 
+          
           if( html.getElementById("aplusproducts-cb")){
             document.getElementById("aplusproducts-cb").addEventListener("change",(e)=>{
               if(e.target.checked){
-                document.getElementById("price-small-snip").classList.add("hidden")
-                document.getElementById("aplus_cart_price").classList.remove("hidden")
+                if(document.getElementById("price-small-snip")) {
+                  document.getElementById("price-small-snip").classList.add("hidden")
+                }
+                if(document.getElementById("aplus_cart_price")) {
+                  document.getElementById("aplus_cart_price").classList.remove("hidden")
+                }
+                
               }else{
-                document.getElementById("price-small-snip").classList.remove("hidden")
-                document.getElementById("aplus_cart_price").classList.add("hidden")
+                if(document.getElementById("price-small-snip")) {
+                  document.getElementById("price-small-snip").classList.remove("hidden")
+                }
+                if(document.getElementById("aplus_cart_price")) {
+                  document.getElementById("aplus_cart_price").classList.add("hidden")
+                }
+                 
               }
             })
           }
