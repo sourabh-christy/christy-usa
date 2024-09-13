@@ -4,7 +4,7 @@
   font-family:Tomato Grotesk,sans-serif;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1024px and max-width: 1049px) {
     .lg\:pl-8 {
         padding-left: 6rem !important;
     }
