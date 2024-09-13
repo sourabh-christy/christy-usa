@@ -47,15 +47,15 @@
           -%}
         </div>
       {% endif %}
-{% comment %}
+
                   <script type="text/javascript">
                   	document.querySelector('.klaviyo_form_trigger').addEventListener('click', function (){
                   		window._klOnsite = window._klOnsite || []; 
                   		window._klOnsite.push(['openForm', 'FORM_ID']);
                   	});
                   </script>
-         {% endcomment %}}
-     
+ 
+ {% comment %}    
       <div class="container pt-5 lg:pt-8 pb-10 lg:pb-20 space-y-4 lg:space-y-6 flex-1 flex justify-center flex-col">
         <div class="max-w-[365px] mx-auto space-y-5 lg:space-y-8">
           <div class="s-m-h4 lg:s-d-h3">{{ settings.email_modal_signup_text }}</div>
@@ -183,7 +183,7 @@
           </div>
         </div>
       </div>
-   
+         {% endcomment %}}  
     </div>
   </div>
 </div>
