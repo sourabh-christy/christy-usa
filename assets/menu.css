@@ -10,6 +10,13 @@
     }
 }
 
+@media (min-width: 1024px) {
+    .lg\:pl-8 {
+        padding-left: 0rem !important;
+    }
+}
+
+
 @media (min-width: 1025px) {
     .lg\:pl-8 {
         padding-left: 6rem !important;
