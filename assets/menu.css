@@ -18,6 +18,11 @@
   .search__input {
     padding-left: 0px;
   }
+
+  .predictive-search{
+    width: 400px;
+  }
+  
   
 
     .lg\:d-h1 {
