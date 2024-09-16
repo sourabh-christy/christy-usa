@@ -13,9 +13,50 @@
       "type": "main-article",
       "settings": {
       }
+    },
+    "article_additional_LQNBY9": {
+      "type": "article-additional",
+      "blocks": {
+        "text_zPJ4FG": {
+          "type": "text",
+          "settings": {
+            "title": "<p>Title<\/p>",
+            "text": "<p>Lorem Ipsum.<\/p>"
+          }
+        },
+        "image_MpXxQb": {
+          "type": "image",
+          "settings": {
+          }
+        },
+        "products_TbnJqL": {
+          "type": "products",
+          "settings": {
+            "products": [
+
+            ]
+          }
+        }
+      },
+      "block_order": [
+        "text_zPJ4FG",
+        "image_MpXxQb",
+        "products_TbnJqL"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "Title"
+      }
+    },
+    "article_related_4b3BHV": {
+      "type": "article-related",
+      "settings": {
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "article_additional_LQNBY9",
+    "article_related_4b3BHV"
   ]
 }
