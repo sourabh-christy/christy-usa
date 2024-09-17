@@ -79,6 +79,7 @@
                       {% assign rel_product = block.settings.product %}
                        
                       {% if block.settings.review_carousel_image != blank %}
+                        <a href="{{ rel_product.url }}">
                         {%-
                           render 'lazyimg',
                           img: block.settings.review_carousel_image,
@@ -89,6 +90,7 @@
                           sizes: sizes,
                           
                         -%}
+                        </a>
                         <style>
                           .inline-object-fit img {
                             object-fit: fill; /* Adjust as needed */
