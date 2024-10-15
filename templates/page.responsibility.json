@@ -145,25 +145,25 @@
         "e1fa53b6-c495-4a81-aba7-f9493869f9f0": {
           "type": "subtitle",
           "settings": {
-            "subtitle": "But what does better mean?"
+            "subtitle": ""
           }
         },
         "aca3113c-97cb-48bd-ad31-1a56263404aa": {
           "type": "copy",
           "settings": {
-            "copy": "<p>A few things, really. The Better Cotton  trains farmers in practices that actively promote soil health, water stewardship, carbon capture, and biodiversity. </p>"
+            "copy": ""
           }
         },
         "87ccc695-1c4d-4ea9-afe9-32ff4781f1f6": {
           "type": "subtitle",
           "settings": {
-            "subtitle": "Their 2030 strategy maps out five impact targets:-"
+            "subtitle": "The Better Cotton 2030 strategy in five:-"
           }
         },
         "c5b1210b-7ac1-4264-8168-37f59a5afd19": {
           "type": "copy",
           "settings": {
-            "copy": "<p>Increasing the net income and resilience of two million   smallholder cotton farmers and workers- Empower women working in cotton through educational   training and resources- Ensure that 100% of Better Cotton Farmers have improved    the health of their soil- Reduce the use and risk of synthetic pesticides applied by    BCI farmers by at least half. - Reduce greenhouse gas emissions by 50% per tonne of    Better Cotton lint.</p>"
+            "copy": "<ol><li>Income: increasing net incomes<br/>and security for two million smallholder cotton farmers and workers.</li><li>Empowering women: With a focus on educational training and resources.</li><li>Soil health: Supporting cotton farmers to improve the health of their soil.</li><li>Reducing pesticides: Limiting the use and risk of synthetic pesticides applied by BCI farmers by at least half. </li><li>Greenhouse emissions: Reducing greenhouse gases by 50% per tonne of Better Cotton lint.</li></ol>"
           }
         }
       },
