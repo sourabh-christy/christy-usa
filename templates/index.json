@@ -1,20 +1,21 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "97fe06ff-d1d9-4c8d-9cb3-24b8e821d00d": {
       "type": "hero-image",
       "settings": {
-        "image": "shopify://shop_images/N-ROBES_BANNER_768X768_2_6.jpg",
-        "video": "shopify://files/videos/HP Banner video (Medium quality).mp4",
-        "link": "shopify://collections/towels",
+        "image": "shopify://shop_images/Desktop.jpg",
+        "image_mobile": "shopify://shop_images/Mobile.jpg",
+        "image_tab": "shopify://shop_images/Tablet.jpg",
+        "link": "shopify://products/renaissance",
         "full_width": true
       }
     },
