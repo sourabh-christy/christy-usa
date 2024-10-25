@@ -15,7 +15,7 @@
         "image": "shopify://shop_images/Desktop.jpg",
         "image_mobile": "shopify://shop_images/Mobile.jpg",
         "image_tab": "shopify://shop_images/Tablet.jpg",
-        "link": "shopify://products/renaissance",
+        "link": "https://christyhome.com/collections/towels",
         "full_width": true
       }
     },
