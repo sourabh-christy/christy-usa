@@ -32,7 +32,7 @@
           "type": "text",
           "settings": {
             "title": "",
-            "text": "<p>Wrap up your Christmas shopping early! We will now accept returns and exchanges till 31st January 2024.</p>"
+            "text": "<p>Wrap up your Christmas shopping early! We will now accept returns and exchanges till 31st January 2025.</p>"
           }
         },
         "template--21521866129696__c66f958a-b771-485c-bd16-7e2841ec3c60-image-1": {
@@ -343,7 +343,7 @@
         "alignment_mob": "center",
         "horiz_padding": true,
         "margin_top": false,
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "font_color": "#000000"
       }
     },
@@ -449,7 +449,7 @@
         "alignment_mob": "center",
         "horiz_padding": true,
         "margin_top": false,
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "font_color": "#000000"
       }
     },
@@ -598,7 +598,7 @@
         "alignment_mob": "center",
         "horiz_padding": true,
         "margin_top": false,
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "font_color": "#000000"
       }
     },
