@@ -25,6 +25,66 @@
         "full_width": true
       }
     },
+    "9c1de53b-ac15-4e36-a743-64c26dabf7e2": {
+      "type": "collections-carousel",
+      "blocks": {
+        "4d759cd0-37d8-4277-9cda-5841b0bb3c4b": {
+          "type": "collection",
+          "settings": {
+            "collection": "towels",
+            "usp_title": "",
+            "image": "shopify://shop_images/Trellis_White_db079fcd-0fa0-4d0e-b6a9-48597bd01e12.jpg",
+            "alt_title": "Luxury Towels",
+            "excerpt": "",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 30,
+            "collection_carousel_excerpt_font_weight": "400",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
+          }
+        },
+        "1ae70297-a748-4b57-b0a1-b53cc14bb4f5": {
+          "type": "collection",
+          "settings": {
+            "collection": "bundle",
+            "usp_title": "",
+            "image": "shopify://shop_images/Brixton-Slate-001-Lifestyle.jpg",
+            "alt_title": "Bundles",
+            "excerpt": "",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 30,
+            "collection_carousel_excerpt_font_weight": "400",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
+          }
+        },
+        "484f5ca2-a708-49c4-9ac3-08032d35cb5b": {
+          "type": "collection",
+          "settings": {
+            "collection": "bath-mats-and-rugs",
+            "usp_title": "",
+            "image": "shopify://shop_images/Brown_Photo_Quote_Gallery_Collage_Aesthetic_Instagram_Post.png",
+            "alt_title": "Mats & Rugs",
+            "excerpt": "",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 30,
+            "collection_carousel_excerpt_font_weight": "400",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
+          }
+        }
+      },
+      "block_order": [
+        "4d759cd0-37d8-4277-9cda-5841b0bb3c4b",
+        "1ae70297-a748-4b57-b0a1-b53cc14bb4f5",
+        "484f5ca2-a708-49c4-9ac3-08032d35cb5b"
+      ],
+      "settings": {
+        "title": "",
+        "collection_carousel_title_font_size_mob": 18,
+        "collection_carousel_title_font_size_desktop": 30,
+        "collection_carousel_title_font_weight": "500",
+        "collection_carousel_title_font_family": "Hatton, serif",
+        "screen_visibility": "both"
+      }
+    },
     "c66f958a-b771-485c-bd16-7e2841ec3c60": {
       "type": "article-additional",
       "blocks": {
@@ -51,65 +111,9 @@
         "template--21521866129696__c66f958a-b771-485c-bd16-7e2841ec3c60-image-1",
         "template--21521866129696__c66f958a-b771-485c-bd16-7e2841ec3c60-products-1"
       ],
-      "settings": {
-        "title": "Extended Hassle Free Returns"
-      }
-    },
-    "d9b008b3-a56b-404c-b4bb-41b09f268aee": {
-      "type": "products-carousel",
       "disabled": true,
       "settings": {
-        "title": "Flash Sale | Flat 50% off on Bath",
-        "mobile_title": "Our Best Sellers",
-        "title_font_size_mob": 18,
-        "title_font_size_desktop": 30,
-        "title_font_weight": "500",
-        "title_font_family": "Hatton, serif",
-        "button_title": "Shop all Bath Offers",
-        "button_link": "shopify://collections/all-bath",
-        "products": [
-          "mode-towels",
-          "super-soft-cosy-robe",
-          "renaissance",
-          "tribeca-towels",
-          "deep-pile-rug",
-          "brixton-towels",
-          "signum-675-gsm-combed-cotton",
-          "reversible-bath-rug",
-          "serene-550-gsm-combed-cotton"
-        ],
-        "screen_visibility": "both"
-      }
-    },
-    "296b5fdf-eac7-4cd0-922e-5d27c605fc41": {
-      "type": "products-carousel",
-      "settings": {
-        "title": "Minimum 50% off",
-        "mobile_title": "Our Best Sellers",
-        "title_font_size_mob": 18,
-        "title_font_size_desktop": 30,
-        "title_font_weight": "500",
-        "title_font_family": "Hatton, serif",
-        "button_title": "Shop All",
-        "button_link": "shopify://collections/clearance",
-        "products": [
-          "smooth-and-silky-cotton-sateen-sheet-sets-400-thread-count",
-          "brixton-towels",
-          "super-soft-cosy-robe",
-          "signum-675-gsm-combed-cotton",
-          "coniston-bed-linen",
-          "appleby-bed-linen",
-          "serene-550-gsm-combed-cotton",
-          "tribeca-towels",
-          "katsura-bed-linen",
-          "meeko-bed-linen",
-          "midori-towels",
-          "metropolitan-throw",
-          "metropolitan-cushion",
-          "cosy-throw",
-          "anti-allergy-mattress-and-pillow-protectors"
-        ],
-        "screen_visibility": "both"
+        "title": "Extended Hassle Free Returns"
       }
     },
     "82bff3e6-7ee4-4ad7-9806-4ffa6631c225": {
@@ -137,114 +141,6 @@
           "deep-pile-rug"
         ],
         "screen_visibility": "both"
-      }
-    },
-    "06cfb5b0-ef0d-40ac-b0f2-de55cebec04c": {
-      "type": "c-info-columns",
-      "blocks": {
-        "template--21202653085984__06cfb5b0-ef0d-40ac-b0f2-de55cebec04c-column-1": {
-          "type": "column",
-          "settings": {
-            "image_aspect": "1:1",
-            "title": "",
-            "text": "",
-            "button_label": "Shop Now",
-            "button_link": "all-bath",
-            "collection_tag": ""
-          }
-        },
-        "template--21202653085984__06cfb5b0-ef0d-40ac-b0f2-de55cebec04c-column-2": {
-          "type": "column",
-          "settings": {
-            "image_aspect": "1:1",
-            "title": "",
-            "text": "",
-            "button_label": "Shop Now",
-            "button_link": "bedroom-bedroom-sale",
-            "collection_tag": ""
-          }
-        },
-        "template--21202653085984__06cfb5b0-ef0d-40ac-b0f2-de55cebec04c-column-3": {
-          "type": "column",
-          "settings": {
-            "image_aspect": "1:1",
-            "title": "",
-            "text": "",
-            "button_label": "Shop Now",
-            "button_link": "all-loungewear",
-            "collection_tag": ""
-          }
-        }
-      },
-      "block_order": [
-        "template--21202653085984__06cfb5b0-ef0d-40ac-b0f2-de55cebec04c-column-1",
-        "template--21202653085984__06cfb5b0-ef0d-40ac-b0f2-de55cebec04c-column-2",
-        "template--21202653085984__06cfb5b0-ef0d-40ac-b0f2-de55cebec04c-column-3"
-      ],
-      "settings": {
-        "title": "",
-        "title_font_size_mob": 16,
-        "title_font_size_desktop": 20,
-        "title_font_weight": "600",
-        "title_font_family": "sans-serif",
-        "copy_font_size_mob": 12,
-        "copy_font_size_desktop": 14,
-        "copy_font_weight": "300",
-        "copy_font_family": "sans-serif"
-      }
-    },
-    "e922dd6b-de11-4348-9389-5260d6fa205a": {
-      "type": "c-info-columns",
-      "blocks": {
-        "template--21521866129696__e922dd6b-de11-4348-9389-5260d6fa205a-column-1": {
-          "type": "column",
-          "settings": {
-            "image_aspect": "1:1",
-            "title": "",
-            "text": "",
-            "button_label": "Shop Now",
-            "button_link": "all-accessories",
-            "collection_tag": ""
-          }
-        },
-        "template--21521866129696__e922dd6b-de11-4348-9389-5260d6fa205a-column-2": {
-          "type": "column",
-          "settings": {
-            "image_aspect": "1:1",
-            "title": "",
-            "text": "",
-            "button_label": "Shop Now",
-            "button_link": "wimbledon-collection",
-            "collection_tag": ""
-          }
-        },
-        "template--21521866129696__e922dd6b-de11-4348-9389-5260d6fa205a-column-3": {
-          "type": "column",
-          "settings": {
-            "image_aspect": "1:1",
-            "title": "",
-            "text": "",
-            "button_label": "Shop Now",
-            "button_link": "clearance",
-            "collection_tag": ""
-          }
-        }
-      },
-      "block_order": [
-        "template--21521866129696__e922dd6b-de11-4348-9389-5260d6fa205a-column-1",
-        "template--21521866129696__e922dd6b-de11-4348-9389-5260d6fa205a-column-2",
-        "template--21521866129696__e922dd6b-de11-4348-9389-5260d6fa205a-column-3"
-      ],
-      "settings": {
-        "title": "",
-        "title_font_size_mob": 16,
-        "title_font_size_desktop": 20,
-        "title_font_weight": "600",
-        "title_font_family": "sans-serif",
-        "copy_font_size_mob": 12,
-        "copy_font_size_desktop": 14,
-        "copy_font_weight": "300",
-        "copy_font_family": "sans-serif"
       }
     },
     "955ae530-8662-43db-b9cc-df67f9e5bda7": {
@@ -345,63 +241,6 @@
         "margin_top": false,
         "background_color": "#ffffff",
         "font_color": "#000000"
-      }
-    },
-    "9c1de53b-ac15-4e36-a743-64c26dabf7e2": {
-      "type": "collections-carousel",
-      "blocks": {
-        "4d759cd0-37d8-4277-9cda-5841b0bb3c4b": {
-          "type": "collection",
-          "settings": {
-            "collection": "towels",
-            "usp_title": "",
-            "alt_title": "Luxury Towels",
-            "excerpt": "",
-            "collection_carousel_excerpt_font_size_mob": 18,
-            "collection_carousel_excerpt_font_size_desktop": 30,
-            "collection_carousel_excerpt_font_weight": "400",
-            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
-          }
-        },
-        "1ae70297-a748-4b57-b0a1-b53cc14bb4f5": {
-          "type": "collection",
-          "settings": {
-            "collection": "all-loungewear",
-            "usp_title": "",
-            "alt_title": "Plush Bath Robes",
-            "excerpt": "",
-            "collection_carousel_excerpt_font_size_mob": 18,
-            "collection_carousel_excerpt_font_size_desktop": 30,
-            "collection_carousel_excerpt_font_weight": "400",
-            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
-          }
-        },
-        "484f5ca2-a708-49c4-9ac3-08032d35cb5b": {
-          "type": "collection",
-          "settings": {
-            "collection": "bath-mats-and-rugs",
-            "usp_title": "",
-            "alt_title": "Mats & Rugs",
-            "excerpt": "",
-            "collection_carousel_excerpt_font_size_mob": 18,
-            "collection_carousel_excerpt_font_size_desktop": 30,
-            "collection_carousel_excerpt_font_weight": "400",
-            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
-          }
-        }
-      },
-      "block_order": [
-        "4d759cd0-37d8-4277-9cda-5841b0bb3c4b",
-        "1ae70297-a748-4b57-b0a1-b53cc14bb4f5",
-        "484f5ca2-a708-49c4-9ac3-08032d35cb5b"
-      ],
-      "settings": {
-        "title": "",
-        "collection_carousel_title_font_size_mob": 18,
-        "collection_carousel_title_font_size_desktop": 30,
-        "collection_carousel_title_font_weight": "500",
-        "collection_carousel_title_font_family": "Hatton, serif",
-        "screen_visibility": "both"
       }
     },
     "0ea7c509-a0e6-4f26-8f0f-2d0f5eb7a796": {
@@ -953,16 +792,12 @@
   "order": [
     "c13e9ca8-ca9c-4ed4-9a12-8bfd34eb0a02",
     "9cbbf3db-9560-4cc3-8e41-727f9fe4d27c",
+    "9c1de53b-ac15-4e36-a743-64c26dabf7e2",
     "c66f958a-b771-485c-bd16-7e2841ec3c60",
-    "d9b008b3-a56b-404c-b4bb-41b09f268aee",
-    "296b5fdf-eac7-4cd0-922e-5d27c605fc41",
     "82bff3e6-7ee4-4ad7-9806-4ffa6631c225",
-    "06cfb5b0-ef0d-40ac-b0f2-de55cebec04c",
-    "e922dd6b-de11-4348-9389-5260d6fa205a",
     "955ae530-8662-43db-b9cc-df67f9e5bda7",
     "20b0aa22-bb43-4d2e-a28b-0d6b9fa691c1",
     "1faadb62-9346-46cf-8500-cc18fc75bda3",
-    "9c1de53b-ac15-4e36-a743-64c26dabf7e2",
     "0ea7c509-a0e6-4f26-8f0f-2d0f5eb7a796",
     "c35d7fce-a552-4f31-9ffb-048a8c4c5b25",
     "d38727e6-070e-4d88-af8b-6b75b41f7719",
