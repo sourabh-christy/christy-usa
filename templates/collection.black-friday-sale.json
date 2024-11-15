@@ -119,26 +119,20 @@
     "82bff3e6-7ee4-4ad7-9806-4ffa6631c225": {
       "type": "products-carousel",
       "settings": {
-        "title": "Big Discounts on Best Sellers",
+        "title": "Plush Perfection Awaits: Black Friday Towel Sale",
         "mobile_title": "Our Best Sellers",
         "title_font_size_mob": 18,
         "title_font_size_desktop": 30,
         "title_font_weight": "500",
         "title_font_family": "Hatton, serif",
         "button_title": "Shop All",
-        "button_link": "shopify://collections/shop-all",
+        "button_link": "shopify://collections/towels",
         "products": [
           "renaissance",
-          "400-thread-count-sateen-plain-dye",
-          "essence-towels-650-gsm-combed-cotton",
-          "jaipur-throw",
-          "supreme-velour-robe",
-          "wimbledon-2023-championship-towel",
           "luxe-towels",
-          "luxury-microfibre-13-5-tog-duvet",
           "supreme-hygro",
-          "jaipur-cushion",
-          "deep-pile-rug"
+          "trellis-towels",
+          "brixton-textured-towels-1"
         ],
         "screen_visibility": "both"
       }
