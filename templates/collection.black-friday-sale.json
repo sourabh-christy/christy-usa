@@ -77,7 +77,7 @@
         "484f5ca2-a708-49c4-9ac3-08032d35cb5b"
       ],
       "settings": {
-        "title": "",
+        "title": "Shop By Category",
         "collection_carousel_title_font_size_mob": 18,
         "collection_carousel_title_font_size_desktop": 30,
         "collection_carousel_title_font_weight": "500",
@@ -194,32 +194,6 @@
         "margin": "yes"
       }
     },
-    "20b0aa22-bb43-4d2e-a28b-0d6b9fa691c1": {
-      "type": "products-carousel",
-      "disabled": true,
-      "settings": {
-        "title": "The Flat 60% Off Collection",
-        "mobile_title": "Our Best Sellers",
-        "title_font_size_mob": 18,
-        "title_font_size_desktop": 30,
-        "title_font_weight": "500",
-        "title_font_family": "Hatton, serif",
-        "button_title": "See more",
-        "button_link": "shopify://collections/clearance",
-        "products": [
-          "signum-675-gsm-combed-cotton",
-          "signum-bath-mat",
-          "katsura-bed-linen",
-          "tribeca-towels",
-          "serene-550-gsm-combed-cotton",
-          "midori-towels",
-          "meeko-bed-linen",
-          "appleby-bed-linen",
-          "anti-allergy-mattress-and-pillow-protectors"
-        ],
-        "screen_visibility": "both"
-      }
-    },
     "1faadb62-9346-46cf-8500-cc18fc75bda3": {
       "type": "heading",
       "settings": {
@@ -292,188 +266,17 @@
         "font_color": "#000000"
       }
     },
-    "d38727e6-070e-4d88-af8b-6b75b41f7719": {
-      "type": "collections-carousel",
-      "blocks": {
-        "3f15cc9c-c32d-43a2-b8a0-175614a8ae86": {
-          "type": "collection",
-          "settings": {
-            "collection": "duvet-sets",
-            "usp_title": "",
-            "alt_title": "",
-            "excerpt": "",
-            "collection_carousel_excerpt_font_size_mob": 18,
-            "collection_carousel_excerpt_font_size_desktop": 30,
-            "collection_carousel_excerpt_font_weight": "400",
-            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
-          }
-        },
-        "76a7aa40-fad4-4756-b863-71f413788066": {
-          "type": "collection",
-          "settings": {
-            "collection": "sheets",
-            "usp_title": "",
-            "alt_title": "",
-            "excerpt": "",
-            "collection_carousel_excerpt_font_size_mob": 18,
-            "collection_carousel_excerpt_font_size_desktop": 30,
-            "collection_carousel_excerpt_font_weight": "400",
-            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
-          }
-        },
-        "6748815e-680b-4a82-9435-2cf556cc867c": {
-          "type": "collection",
-          "settings": {
-            "collection": "duvet-pillows",
-            "usp_title": "",
-            "alt_title": "",
-            "excerpt": "",
-            "collection_carousel_excerpt_font_size_mob": 18,
-            "collection_carousel_excerpt_font_size_desktop": 30,
-            "collection_carousel_excerpt_font_weight": "400",
-            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
-          }
-        },
-        "2c4374cb-ef41-43b7-96f5-f6b61b083b01": {
-          "type": "collection",
-          "settings": {
-            "collection": "flat-sheets",
-            "usp_title": "",
-            "alt_title": "",
-            "excerpt": "<p> </p>",
-            "collection_carousel_excerpt_font_size_mob": 18,
-            "collection_carousel_excerpt_font_size_desktop": 30,
-            "collection_carousel_excerpt_font_weight": "400",
-            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
-          }
-        },
-        "b67ebaca-9de3-43d0-9ee0-554bcc673479": {
-          "type": "collection",
-          "settings": {
-            "collection": "pillowcases",
-            "usp_title": "",
-            "alt_title": "Pillowcases",
-            "excerpt": "<p> </p>",
-            "collection_carousel_excerpt_font_size_mob": 18,
-            "collection_carousel_excerpt_font_size_desktop": 30,
-            "collection_carousel_excerpt_font_weight": "400",
-            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
-          }
-        },
-        "1c561ecc-6e7c-4c2d-ae57-409320a93e2f": {
-          "type": "collection",
-          "settings": {
-            "collection": "protectors-and-toppers",
-            "usp_title": "",
-            "image": "shopify://shop_images/10.png",
-            "alt_title": "",
-            "excerpt": "<p> </p>",
-            "collection_carousel_excerpt_font_size_mob": 18,
-            "collection_carousel_excerpt_font_size_desktop": 30,
-            "collection_carousel_excerpt_font_weight": "400",
-            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
-          }
-        }
-      },
-      "block_order": [
-        "3f15cc9c-c32d-43a2-b8a0-175614a8ae86",
-        "76a7aa40-fad4-4756-b863-71f413788066",
-        "6748815e-680b-4a82-9435-2cf556cc867c",
-        "2c4374cb-ef41-43b7-96f5-f6b61b083b01",
-        "b67ebaca-9de3-43d0-9ee0-554bcc673479",
-        "1c561ecc-6e7c-4c2d-ae57-409320a93e2f"
-      ],
-      "settings": {
-        "title": "",
-        "collection_carousel_title_font_size_mob": 18,
-        "collection_carousel_title_font_size_desktop": 30,
-        "collection_carousel_title_font_weight": "500",
-        "collection_carousel_title_font_family": "Hatton, serif",
-        "screen_visibility": "both"
-      }
-    },
-    "543b28bf-821e-4b5d-bfe7-b6b214117f7d": {
-      "type": "products-carousel",
-      "settings": {
-        "title": "Elevate Your Sanctuary: Cosy Bedding Offers",
-        "mobile_title": "Our Best Sellers",
-        "title_font_size_mob": 18,
-        "title_font_size_desktop": 30,
-        "title_font_weight": "500",
-        "title_font_family": "Hatton, serif",
-        "button_title": "Shop Now",
-        "button_link": "shopify://collections/bedroom-bedroom-sale",
-        "products": [
-          "smooth-and-silky-cotton-sateen-fitted-sheet",
-          "luxury-microfibre-13-5-tog-duvet",
-          "coniston-bed-linen",
-          "katsura-bed-linen",
-          "200-thread-count-egyptian-percale",
-          "anti-allergy-mattress-and-pillow-protectors",
-          "luxury-king-size-pillow",
-          "organic-retreat",
-          "appleby-bed-linen",
-          "meeko-bed-linen"
-        ],
-        "screen_visibility": "both"
-      }
-    },
-    "393634d4-53d9-4c8e-be41-45c5d425188a": {
-      "type": "heading",
-      "settings": {
-        "heading": "<p>Pair with our exquisite Throws & Cushions</p>",
-        "heading_font_size_mob": 24,
-        "heading_font_size_desktop": 36,
-        "heading_font_weight": "600",
-        "heading_font_family": "Hatton, serif",
-        "heading_width": "4",
-        "copy": "",
-        "heading_copy_font_size_mob": 12,
-        "heading_copy_font_size_desktop": 14,
-        "heading_copy_font_weight": "300",
-        "heading_copy_font_family": "Tomato Grotesk",
-        "copy_style": "default",
-        "alignment": "center",
-        "alignment_mob": "center",
-        "horiz_padding": true,
-        "margin_top": false,
-        "background_color": "#ffffff",
-        "font_color": "#000000"
-      }
-    },
-    "2c7e8cac-6078-4c3b-b5eb-fd09baf5939e": {
-      "type": "products-carousel",
-      "settings": {
-        "title": "",
-        "mobile_title": "Our Best Sellers",
-        "title_font_size_mob": 18,
-        "title_font_size_desktop": 30,
-        "title_font_weight": "500",
-        "title_font_family": "Hatton, serif",
-        "button_title": "Explore the Range",
-        "button_link": "shopify://collections/all-accessories",
-        "products": [
-          "jaipur-throw",
-          "edmonton",
-          "oslo",
-          "jaipur-cushion",
-          "cosy-throw",
-          "metropolitan-throw",
-          "metropolitan-cushion"
-        ],
-        "screen_visibility": "both"
-      }
-    },
     "product-grid": {
       "type": "main-collection-product-grid",
       "blocks": {
         "77b7bcba-adf8-4b59-84fa-2aed599efb4a": {
           "type": "infocard",
+          "disabled": true,
           "settings": {
-            "text": "Cotton Sateen Sheets",
-            "copy": "<p>Resist the temptation to take just a few more minutes nestled up in the indulgent comfort our smooth cotton sheets.  <br/>The sateen fabric has a gentle sheen and feels oh-so-nice against the skin. Once you've snuggled up in bed, you may never want to get out again.</p>",
-            "button_text": "Discover Collection",
-            "button_url": "shopify://products/400-thread-count-sateen-plain-dye",
+            "text": "",
+            "copy": "",
+            "button_text": "Shop All Sale",
+            "button_url": "shopify://collections/shop-all-sale",
             "styled": true,
             "position": 8
           }
@@ -549,117 +352,6 @@
       "disabled": true,
       "settings": {
         "heading": "Previously explored"
-      }
-    },
-    "d9350269-9c53-4976-897a-27cf368fb2c9": {
-      "type": "rich-text",
-      "blocks": {
-        "template--21521866129696__d9350269-9c53-4976-897a-27cf368fb2c9-heading-1": {
-          "type": "heading",
-          "settings": {
-            "heading": "",
-            "sub_title_size": "h2"
-          }
-        },
-        "template--21521866129696__d9350269-9c53-4976-897a-27cf368fb2c9-main_heading-1": {
-          "type": "main_heading",
-          "settings": {
-            "heading": "Klarna"
-          }
-        },
-        "template--21521866129696__d9350269-9c53-4976-897a-27cf368fb2c9-text-1": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Split your Purchase into three interest free payments</p>"
-          }
-        },
-        "abe23243-0761-4a67-854b-6cdcae812b64": {
-          "type": "button",
-          "settings": {
-            "button_label": "Learn More",
-            "button_link": "https://www.christy.co.uk/pages/klarna-faqs?ose=false",
-            "button_label_2": "",
-            "button_link_2": ""
-          }
-        }
-      },
-      "block_order": [
-        "template--21521866129696__d9350269-9c53-4976-897a-27cf368fb2c9-heading-1",
-        "template--21521866129696__d9350269-9c53-4976-897a-27cf368fb2c9-main_heading-1",
-        "template--21521866129696__d9350269-9c53-4976-897a-27cf368fb2c9-text-1",
-        "abe23243-0761-4a67-854b-6cdcae812b64"
-      ],
-      "settings": {
-        "full_width": false,
-        "anchor_id": ""
-      }
-    },
-    "2842eb42-811e-4056-970a-2f1bcc377e84": {
-      "type": "images-copy-cta",
-      "settings": {
-        "subtitle": "",
-        "title": "<p>Create your own Gift Box</p>",
-        "copy": "<p>Elevate your gift-giving experience with our luxurious signature gift box.</p><p>To add that personal touch, we also offer the option to include a heartfelt, personalised message. It's the perfect way to convey your warmest wishes and sentiments, making your gift truly unique and special.</p>",
-        "button_label": "Shop our Gifting Range",
-        "button_link": "shopify://collections/gifts",
-        "content_position": "right",
-        "header_position": false,
-        "images_half_width": false,
-        "anchor_id": ""
-      }
-    },
-    "ed3fec5f-2dcd-4456-9169-b2f17089966f": {
-      "type": "c-info-columns",
-      "blocks": {
-        "template--21521866129696__ed3fec5f-2dcd-4456-9169-b2f17089966f-column-1": {
-          "type": "column",
-          "settings": {
-            "image_aspect": "1:1",
-            "title": "Step 1",
-            "text": "<p>Choose your gift items from across our collections and add to cart.</p>",
-            "button_label": "",
-            "button_link": "",
-            "collection_tag": ""
-          }
-        },
-        "template--21521866129696__ed3fec5f-2dcd-4456-9169-b2f17089966f-column-2": {
-          "type": "column",
-          "settings": {
-            "image_aspect": "1:1",
-            "title": "Step 2",
-            "text": "<p>Check the \"Make it extra special with a gift box\" option at the bottom of the cart (£5 per gift box).</p>",
-            "button_label": "",
-            "button_link": "",
-            "collection_tag": ""
-          }
-        },
-        "template--21521866129696__ed3fec5f-2dcd-4456-9169-b2f17089966f-column-3": {
-          "type": "column",
-          "settings": {
-            "image_aspect": "1:1",
-            "title": "Step 3",
-            "text": "<p>Add a free personal message to your loved one and proceed to checkout. All done!</p>",
-            "button_label": "",
-            "button_link": "",
-            "collection_tag": ""
-          }
-        }
-      },
-      "block_order": [
-        "template--21521866129696__ed3fec5f-2dcd-4456-9169-b2f17089966f-column-1",
-        "template--21521866129696__ed3fec5f-2dcd-4456-9169-b2f17089966f-column-2",
-        "template--21521866129696__ed3fec5f-2dcd-4456-9169-b2f17089966f-column-3"
-      ],
-      "settings": {
-        "title": "It takes 3 Simple Steps",
-        "title_font_size_mob": 16,
-        "title_font_size_desktop": 20,
-        "title_font_weight": "600",
-        "title_font_family": "sans-serif",
-        "copy_font_size_mob": 12,
-        "copy_font_size_desktop": 14,
-        "copy_font_weight": "300",
-        "copy_font_family": "sans-serif"
       }
     },
     "toggled-body-content": {
@@ -796,19 +488,11 @@
     "c66f958a-b771-485c-bd16-7e2841ec3c60",
     "82bff3e6-7ee4-4ad7-9806-4ffa6631c225",
     "955ae530-8662-43db-b9cc-df67f9e5bda7",
-    "20b0aa22-bb43-4d2e-a28b-0d6b9fa691c1",
     "1faadb62-9346-46cf-8500-cc18fc75bda3",
     "0ea7c509-a0e6-4f26-8f0f-2d0f5eb7a796",
     "c35d7fce-a552-4f31-9ffb-048a8c4c5b25",
-    "d38727e6-070e-4d88-af8b-6b75b41f7719",
-    "543b28bf-821e-4b5d-bfe7-b6b214117f7d",
-    "393634d4-53d9-4c8e-be41-45c5d425188a",
-    "2c7e8cac-6078-4c3b-b5eb-fd09baf5939e",
     "product-grid",
     "recent-products",
-    "d9350269-9c53-4976-897a-27cf368fb2c9",
-    "2842eb42-811e-4056-970a-2f1bcc377e84",
-    "ed3fec5f-2dcd-4456-9169-b2f17089966f",
     "toggled-body-content"
   ]
 }
