@@ -20,7 +20,7 @@
     "9cbbf3db-9560-4cc3-8e41-727f9fe4d27c": {
       "type": "hero-image",
       "settings": {
-        "image": "shopify://shop_images/THIN_BANNER_2.jpg",
+        "image": "shopify://shop_images/THIN_BANNER.jpg",
         "link": "",
         "full_width": true
       }
@@ -137,6 +137,27 @@
         "screen_visibility": "both"
       }
     },
+    "0ea7c509-a0e6-4f26-8f0f-2d0f5eb7a796": {
+      "type": "products-carousel",
+      "settings": {
+        "title": "Sink Your Toes Into Bath Mat & Rug Deals",
+        "mobile_title": "Bath Mat & Rug Deals",
+        "title_font_size_mob": 18,
+        "title_font_size_desktop": 30,
+        "title_font_weight": "500",
+        "title_font_family": "Hatton, serif",
+        "button_title": "Shop Now",
+        "button_link": "shopify://collections/bath-mats-and-rugs",
+        "products": [
+          "brixton-shower-mat",
+          "deep-pile-rug",
+          "renaissance-bath-mat",
+          "reversible-bath-rug",
+          "supreme-bath-mat"
+        ],
+        "screen_visibility": "both"
+      }
+    },
     "955ae530-8662-43db-b9cc-df67f9e5bda7": {
       "type": "benefits-icons",
       "blocks": {
@@ -209,27 +230,6 @@
         "margin_top": false,
         "background_color": "#ffffff",
         "font_color": "#000000"
-      }
-    },
-    "0ea7c509-a0e6-4f26-8f0f-2d0f5eb7a796": {
-      "type": "products-carousel",
-      "settings": {
-        "title": "Sink Your Toes Into Bath Mat & Rug Deals",
-        "mobile_title": "Bath Mat & Rug Deals",
-        "title_font_size_mob": 18,
-        "title_font_size_desktop": 30,
-        "title_font_weight": "500",
-        "title_font_family": "Hatton, serif",
-        "button_title": "Shop Now",
-        "button_link": "shopify://collections/bath-mats-and-rugs",
-        "products": [
-          "brixton-shower-mat",
-          "deep-pile-rug",
-          "renaissance-bath-mat",
-          "reversible-bath-rug",
-          "supreme-bath-mat"
-        ],
-        "screen_visibility": "both"
       }
     },
     "products_carousel_YNLdiJ": {
