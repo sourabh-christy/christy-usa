@@ -1,1 +1,50 @@
-{"name":"t:sections.footer.name","type":"footer","sections":{"9e90f861-dcea-48bf-98a1-5a52bc9c0da7":{"type":"revy-contents","disabled":true,"settings":{}},"footer":{"type":"footer","blocks":{"1e7969e2-e46d-4f05-8747-02807e3876f4":{"type":"link_list","settings":{"footer_links":"footer"}}},"block_order":["1e7969e2-e46d-4f05-8747-02807e3876f4"],"settings":{"email_signup_text":"<p>Enter your email for our monthly newsletter + <strong>10% off your first purchase.<\/strong><\/p><p>You can opt out at any time. View the Privacy Policy <a href=\"\/pages\/privacy-policy\" title=\"Privacy Policy\">here.<\/a><\/p>"}},"footer-copyright":{"type":"footer-copyright","settings":{"terms_links":"footer-terms-privacy","social_links":"footer-social-media","copyright":"© CHRISTY 2024. ALL RIGHTS RESERVED"}}},"order":["9e90f861-dcea-48bf-98a1-5a52bc9c0da7","footer","footer-copyright"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "9e90f861-dcea-48bf-98a1-5a52bc9c0da7": {
+      "type": "revy-contents",
+      "disabled": true,
+      "settings": {}
+    },
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "1e7969e2-e46d-4f05-8747-02807e3876f4": {
+          "type": "link_list",
+          "settings": {
+            "footer_links": "footer"
+          }
+        }
+      },
+      "block_order": [
+        "1e7969e2-e46d-4f05-8747-02807e3876f4"
+      ],
+      "settings": {
+        "email_signup_text": "<p>Enter your email for our monthly newsletter + <strong>20% off your first purchase.</strong></p><p>You can opt out at any time. View the Privacy Policy <a href=\"/pages/privacy-policy\" title=\"Privacy Policy\">here.</a></p>"
+      }
+    },
+    "footer-copyright": {
+      "type": "footer-copyright",
+      "settings": {
+        "terms_links": "footer-terms-privacy",
+        "social_links": "footer-social-media",
+        "copyright": "© CHRISTY 2024. ALL RIGHTS RESERVED"
+      }
+    }
+  },
+  "order": [
+    "9e90f861-dcea-48bf-98a1-5a52bc9c0da7",
+    "footer",
+    "footer-copyright"
+  ]
+}
