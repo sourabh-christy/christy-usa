@@ -12,10 +12,10 @@
     "97fe06ff-d1d9-4c8d-9cb3-24b8e821d00d": {
       "type": "hero-image",
       "settings": {
-        "image": "shopify://shop_images/Desktop.jpg",
-        "image_mobile": "shopify://shop_images/Mobile.jpg",
-        "image_tab": "shopify://shop_images/Tablet.jpg",
-        "link": "https://christyhome.com/collections/towels",
+        "image": "shopify://shop_images/DESKTOP_0069a612-d3da-4ebc-970f-65856eadc53f.jpg",
+        "image_mobile": "shopify://shop_images/MOBILE_05fca021-175f-4ac7-89f3-54eec68f1add.jpg",
+        "image_tab": "shopify://shop_images/TABLET_972f9ab0-c2d9-4b2c-9e95-91786cea1db2.jpg",
+        "link": "shopify://collections/black-friday-sale",
         "full_width": true
       }
     },
@@ -133,9 +133,7 @@
         "ade5aede-0029-4b09-aee8-6e48f8cfe8be",
         "collection_GTHHpe"
       ],
-      "custom_css": [
-
-      ],
+      "custom_css": [],
       "settings": {
         "title": "Shop By Category",
         "collection_carousel_title_font_size_mob": 24,
@@ -687,8 +685,7 @@
         "slide_z3iiXi"
       ],
       "disabled": true,
-      "settings": {
-      }
+      "settings": {}
     },
     "ab40295a-0b7a-4298-9100-6079c0215e8e": {
       "type": "heading",
@@ -981,15 +978,13 @@
       "blocks": {
         "instagram_feed_instafeed_rptr_raptor_instagram_Neh9if": {
           "type": "shopify://apps/instagram-feed-instafeed-rptr/blocks/raptor-instagram/557ff51a-dc31-4dee-a7df-4610643fa410",
-          "settings": {
-          }
+          "settings": {}
         }
       },
       "block_order": [
         "instagram_feed_instafeed_rptr_raptor_instagram_Neh9if"
       ],
-      "settings": {
-      }
+      "settings": {}
     },
     "heading4": {
       "type": "heading",
