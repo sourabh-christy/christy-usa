@@ -70,7 +70,9 @@
                   </figure>
                 {%- endif -%}
 
+                {% if block.settings.hide_carousel_title == false or block.settings.hide_carousel_excerpt == false %}
                 <div class="space-y-6 max-sm:order-1">
+                  {% if block.settings.hide_carousel_title == false %}
                   <div class="space-y-3 lg:space-y-6">
                     <h3 class="s-m-h1 lg:s-m-h2">
                       {% if block.settings.alt_title != blank %}
@@ -80,7 +82,9 @@
                       {% endif %}
                     </h3>
                   </div>
+                {% endif %}
 
+                {% if block.settings.hide_carousel_excerpt == false %}
                   {% if block.settings.excerpt != blank %}
                     <div class="wysiwyg" style="
                       {% if block.settings.collection_carousel_excerpt_font_size_mob != blank %}
@@ -121,12 +125,22 @@
                       {{ collection.description | strip_html | truncatewords: 20 }}
                     </div>
                   {% endif %}
+                {% endif %}
                 </div>
-                <div class="max-sm:order-3 max-sm:!mb-0 {{ btn_wrap_class }}">
-                  <a href="{{ collection.url }}" class="{{ btn_class }}">
+              {% endif %}
+
+              {% if block.settings.hide_shopnow == false %}
+                <div class="max-sm:order-3 max-sm:!mb-0 {{ btn_wrap_class }} ">
+                  <a
+                    href="{{ collection.url }}"
+                    class="{{ btn_class }}"
+                  >
                     {{ btn_label }}
                   </a>
                 </div>
+              {% endif %}
+
+              
               </article>
             </div>
           {% endfor %}
@@ -423,6 +437,24 @@
             }
           ],
           "default": "Tomato Grotesk"
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_carousel_title",
+          "label": "Hide Title",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_carousel_excerpt",
+          "label": "Hide Excerpt",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_shopnow",
+          "label": "Hide Shop Now",
+          "default": false
         }
         
       ]
