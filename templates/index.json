@@ -12,9 +12,9 @@
     "97fe06ff-d1d9-4c8d-9cb3-24b8e821d00d": {
       "type": "hero-image",
       "settings": {
-        "image": "shopify://shop_images/DESKTOP_0069a612-d3da-4ebc-970f-65856eadc53f.jpg",
-        "image_mobile": "shopify://shop_images/MOBILE_05fca021-175f-4ac7-89f3-54eec68f1add.jpg",
-        "image_tab": "shopify://shop_images/TABLET_972f9ab0-c2d9-4b2c-9e95-91786cea1db2.jpg",
+        "image": "shopify://shop_images/DESKTOP_3.jpg",
+        "image_mobile": "shopify://shop_images/MOBILE_2aa7e763-0ade-4a12-816f-bc9a24a30af5.jpg",
+        "image_tab": "shopify://shop_images/TABLET_ae3242d9-6975-49e2-8715-55781002848d.jpg",
         "link": "shopify://collections/black-friday-sale",
         "full_width": true
       }
