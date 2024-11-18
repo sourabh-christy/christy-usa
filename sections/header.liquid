@@ -9,6 +9,11 @@
 <link rel="stylesheet" href="{{ 'menu.css' | asset_url }}" media="print" onload="this.media='all'">
 
 <script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'counter-timer.js' | asset_url }}"></script>
+<script>
+  var saleEndDate = '{{ section.settings.sale_end_date }}';
+  salesCounter(saleEndDate);
+</script>
 {% comment %}
   {% for collection in collections %}
     {% echo collection.title %}
@@ -23,6 +28,10 @@
     padding: 10px;
     padding-left: 20px;
   }
+  #countdown-timer {
+    margin-left: 5px;
+    margin-top: 2px;
+  }
   @media (max-width: 1022px){
   #search-icon{
     display:none;
@@ -31,9 +40,7 @@
         display: block;
       }
     }  
-   
-    
-  
+
   @media (max-width: 768px) {
     #search-icon{
       display:none;
@@ -56,10 +63,18 @@
 </style>
 <header id="header" class="sticky top-0 left-0 z-40">
   <div class="header-bar bg-white/90 h-[70px] lg:h-[107px] !h-[var(--header-height)] lg:!h-[var(--header-height-lg)] flex flex-col justify-center items-center text-blue-1 will-change-transform pointer-events-auto">
-    {% if section.settings.announcement != blank %}
+    {% if section.settings.announcement != blank or section.settings.announcement != blank or section.settings.sale_end_date != blank %}
       <aside id="c" class="relative text-white text-center bg-blue-1 top-0 left-0 font-bold w-full">
         <div class="py-3 container truncate flex justify-center [&>*]:truncate h-[44px] lg:h-[48px] [&_a]:underline">
-          {{ section.settings.announcement }}
+          <span>{{ section.settings.announcement }}</span>
+          {% if section.settings.sale_end_date != blank %}
+            {% assign current_date = 'now' | date: '%Y-%m-%d' %}
+            {% if section.settings.sale_end_date > current_date %}
+              <span id="countdown-timer"></span>
+            {% else %}
+  
+            {% endif %}
+          {% endif %}
         </div>
       </aside>
     {% endif %}
@@ -602,6 +617,12 @@
       "id": "announcement",
       "label": "Announcement bar",
       "info": "If copy is entered, announcement will show"
+    },
+    {
+      "type": "text",
+      "id": "sale_end_date",
+      "label": "Sale End Date",
+      "info": "Enter the sale end date in YYYY-MM-DD format."
     },
     {
       "type": "link_list",
