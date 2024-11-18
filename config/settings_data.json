@@ -1,20 +1,20 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
-    "og_default_image": "shopify:\/\/shop_images\/Christy_Signifier_Egyptian_Blue_RGB_1.png",
-    "cart_drawer_intro_loggedin": "<p>Earn up to <strong>{points} loyalty points<\/strong> for this order when you check out.<\/p>",
-    "cart_drawer_intro_loggedout": "<p>Join the Christy Community and earn up to <strong>{points} loyalty points<\/strong> for this order when you check out.<\/p>",
-    "cart_drawer_intro": "<p>Welcome to your basket<\/p>",
-    "product_delivery_returns": "<p><strong>US Standard shipping 3 to 8 business days.<\/strong><\/p><p>- Free for US orders of $50 and over<\/p><p>- There is a $5 charge for orders under $50<\/p><p>- Orders will be dispatched Monday through Friday<\/p><p><strong>US Expedited shipping (order by 12pm)<\/strong><\/p><p>- Choose to upgrade your order to a 3 business day delivery at a fee of $20<\/p><p>- Expedited shipping orders will be dispatched Monday through Friday<\/p><p>- Orders with expedited shipping must be placed by 12pm EST to ship within the same day<\/p><p>* Not available during sale periods<\/p><p><strong>Returns<\/strong><\/p><p>We hope your love your Christy products. But if you don't—for whatever reason our free returns process is simple and easy. You have 30 days to return the product from the date that you receive the item. For more details, find our returns page <a href=\"https:\/\/christyhome.com\/pages\/returns-policy\" title=\"Returns Policy\">here<\/a>.<\/p>",
-    "email_modal_signup_image": "shopify:\/\/shop_images\/modal-email-signup.jpg",
+    "og_default_image": "shopify://shop_images/Christy_Signifier_Egyptian_Blue_RGB_1.png",
+    "cart_drawer_intro_loggedin": "<p>Earn up to <strong>{points} loyalty points</strong> for this order when you check out.</p>",
+    "cart_drawer_intro_loggedout": "<p>Join the Christy Community and earn up to <strong>{points} loyalty points</strong> for this order when you check out.</p>",
+    "cart_drawer_intro": "<p>Welcome to your basket</p>",
+    "product_delivery_returns": "<p><strong>US Standard shipping 3 to 8 business days.</strong></p><p>- Free for US orders of $50 and over</p><p>- There is a $5 charge for orders under $50</p><p>- Orders will be dispatched Monday through Friday</p><p><strong>US Expedited shipping (order by 12pm)</strong></p><p>- Choose to upgrade your order to a 3 business day delivery at a fee of $20</p><p>- Expedited shipping orders will be dispatched Monday through Friday</p><p>- Orders with expedited shipping must be placed by 12pm EST to ship within the same day</p><p>* Not available during sale periods</p><p><strong>Returns</strong></p><p>We hope your love your Christy products. But if you don't—for whatever reason our free returns process is simple and easy. You have 30 days to return the product from the date that you receive the item. For more details, find our returns page <a href=\"https://christyhome.com/pages/returns-policy\" title=\"Returns Policy\">here</a>.</p>",
+    "email_modal_signup_image": "shopify://shop_images/modal-email-signup.jpg",
     "social_facebook_link": "",
     "social_instagram_link": "",
     "social_youtube_link": "",
@@ -25,7 +25,7 @@
     "social_tumblr_link": "",
     "social_vimeo_link": "",
     "currency_code_enabled": true,
-    "checkout_logo_image": "shopify:\/\/shop_images\/christy-logo.svg",
+    "checkout_logo_image": "shopify://shop_images/christy-logo.svg",
     "checkout_logo_position": "center",
     "main_blog_page": "all-posts",
     "logo_width": 90,
@@ -143,27 +143,22 @@
         }
       }
     },
-    "content_for_index": [
-
-    ],
+    "content_for_index": [],
     "blocks": {
       "855628211100114053": {
-        "type": "shopify:\/\/apps\/klaviyo-email-marketing-sms\/blocks\/klaviyo-onsite-embed\/2632fe16-c075-4321-a88b-50b567f42507",
+        "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
         "disabled": false,
-        "settings": {
-        }
+        "settings": {}
       },
       "15475920322851709167": {
-        "type": "shopify:\/\/apps\/securify-block-ip-country\/blocks\/app-embed\/e3ed2576-9111-486f-86eb-a36b6bee4e94",
+        "type": "shopify://apps/securify-block-ip-country/blocks/app-embed/e3ed2576-9111-486f-86eb-a36b6bee4e94",
         "disabled": false,
-        "settings": {
-        }
+        "settings": {}
       },
       "246135896087123374": {
-        "type": "shopify:\/\/apps\/1clickpopup\/blocks\/main\/233742b9-16cb-4f75-9de7-3fe92c29fdff",
+        "type": "shopify://apps/1clickpopup/blocks/main/233742b9-16cb-4f75-9de7-3fe92c29fdff",
         "disabled": false,
-        "settings": {
-        }
+        "settings": {}
       }
     },
     "color_schemes": {
