@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "1d82b188-dbd0-4b5a-9133-e748104fe16d": {
@@ -19,9 +19,9 @@
     },
     "350a0dfc-aa6f-4324-a5e0-c8df8361e76f": {
       "type": "hero-image",
-      "disabled": true,
       "settings": {
-        "link": "",
+        "image": "shopify://shop_images/THIN_BANNER_0e2739de-260d-40bd-9cbb-2f9dc139852b.jpg",
+        "link": "shopify://collections/black-friday-sale",
         "full_width": true
       }
     },
@@ -33,9 +33,9 @@
           "disabled": true,
           "settings": {
             "text": "Build your Bundle",
-            "copy": "<p>Discover your perfect match for a restful night’s slumber.<\/p>",
+            "copy": "<p>Discover your perfect match for a restful night’s slumber.</p>",
             "button_text": "Build your Dream Towel Set",
-            "button_url": "https:\/\/quickstart-3a56366d.myshopify.com\/collections\/bed-duvet-sets",
+            "button_url": "https://quickstart-3a56366d.myshopify.com/collections/bed-duvet-sets",
             "styled": false,
             "position": 7
           }
@@ -45,7 +45,7 @@
           "disabled": true,
           "settings": {
             "text": "Easycare Percale",
-            "copy": "<p>This stylish collection is made from a high quality polycotton blend, which is both practical and easy to care for.<br\/><br\/>The range of gorgeous colours and simple tailoring make this collection a real winner.<\/p>",
+            "copy": "<p>This stylish collection is made from a high quality polycotton blend, which is both practical and easy to care for.<br/><br/>The range of gorgeous colours and simple tailoring make this collection a real winner.</p>",
             "button_text": "Discover Collection",
             "button_url": "",
             "styled": true,
@@ -56,7 +56,7 @@
           "type": "listsc",
           "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/zero-twist-yarn-2.jpg",
+            "image": "shopify://shop_images/zero-twist-yarn-2.jpg",
             "product_1": "cabana-beach-towels-450-gsm-cotton",
             "pos_l_1": 70,
             "pos_t_1": 45,
@@ -123,18 +123,18 @@
         "billboard_subtitle_font_size_desktop": 16,
         "billboard_subtitle_font_weight": "600",
         "billboard_subtitle_font_family": "sans-serif",
-        "title": "<p>7 simple everyday self-care rituals<\/p>",
+        "title": "<p>7 simple everyday self-care rituals</p>",
         "billboard_title_font_size_mob": 16,
         "billboard_title_font_size_desktop": 40,
         "billboard_title_font_weight": "500",
         "billboard_title_font_family": "Hatton, serif",
-        "copy": "<p>Add a bit of TLC to your daily routine with these ideas to help you pause and enjoy the little moments.<\/p>",
+        "copy": "<p>Add a bit of TLC to your daily routine with these ideas to help you pause and enjoy the little moments.</p>",
         "billboard_copy_font_size_mob": 14,
         "billboard_copy_font_size_desktop": 14,
         "billboard_copy_font_weight": "200",
         "billboard_copy_font_family": "sans-serif",
         "button_label": "Read more",
-        "button_link": "https:\/\/quickstart-3a56366d.myshopify.com\/collections\/bed-duvet-sets",
+        "button_link": "https://quickstart-3a56366d.myshopify.com/collections/bed-duvet-sets",
         "button_type": "tertiary",
         "colour_theme": "white",
         "alignment": "left",
@@ -149,9 +149,9 @@
           "type": "block",
           "settings": {
             "product": "supreme-hygro",
-            "review_carousel_image": "shopify:\/\/shop_images\/Why_our_customers_love_Christy_c037a2c5-dd09-469e-b516-0a3a6da28bef.png",
+            "review_carousel_image": "shopify://shop_images/Why_our_customers_love_Christy_c037a2c5-dd09-469e-b516-0a3a6da28bef.png",
             "title": "Supreme Hygro® Towels",
-            "testimonial": "<p>“Beautiful towel , so thick and soft . Highly recommend.”<\/p>",
+            "testimonial": "<p>“Beautiful towel , so thick and soft . Highly recommend.”</p>",
             "name": "Sheila Wray"
           }
         },
@@ -161,7 +161,7 @@
           "settings": {
             "product": "luxe-towels",
             "title": "Luxe Towels",
-            "testimonial": "<p>“I have purchased Christie towels many times over the years and continue to find them excellent quality, very soft and absorbant.”<\/p>",
+            "testimonial": "<p>“I have purchased Christie towels many times over the years and continue to find them excellent quality, very soft and absorbant.”</p>",
             "name": "Sandra Thurlow"
           }
         },
@@ -170,7 +170,7 @@
           "settings": {
             "product": "renaissance",
             "title": "Renaissance Towels",
-            "testimonial": "<p>“Absolutely beautiful towels excellent size and very soft and thick.”<\/p>",
+            "testimonial": "<p>“Absolutely beautiful towels excellent size and very soft and thick.”</p>",
             "name": "Christine Davies"
           }
         }
@@ -223,7 +223,7 @@
             "why_christy_block_title_font_size_desktop": 24,
             "why_christy_block_title_font_weight": "600",
             "why_christy_block_title_font_family": "Hatton, serif",
-            "text": "<p>Textures matter and luxury quality reigns supreme across every Christy product, with a dedication to championing the world’s most delectable fabrics.<\/p>"
+            "text": "<p>Textures matter and luxury quality reigns supreme across every Christy product, with a dedication to championing the world’s most delectable fabrics.</p>"
           }
         },
         "block_mQt38b": {
@@ -234,7 +234,7 @@
             "why_christy_block_title_font_size_desktop": 24,
             "why_christy_block_title_font_weight": "600",
             "why_christy_block_title_font_family": "Hatton, serif",
-            "text": "<p>We’ve been making home textiles to be loved well and treasured over time with our heritage flair, unwavering innovation and luxury craftsmanship since 1850. <\/p>"
+            "text": "<p>We’ve been making home textiles to be loved well and treasured over time with our heritage flair, unwavering innovation and luxury craftsmanship since 1850. </p>"
           }
         },
         "block_xxnK3t": {
@@ -245,7 +245,7 @@
             "why_christy_block_title_font_size_desktop": 24,
             "why_christy_block_title_font_weight": "600",
             "why_christy_block_title_font_family": "Hatton, serif",
-            "text": "<p>From the moment you place your order, we’re here to get it to you fast, troubleshoot any issues and arrange hassle-free returns if you need it. <\/p>"
+            "text": "<p>From the moment you place your order, we’re here to get it to you fast, troubleshoot any issues and arrange hassle-free returns if you need it. </p>"
           }
         }
       },
@@ -284,14 +284,14 @@
         "text_9Rbnqr": {
           "type": "text",
           "settings": {
-            "text": "<p>Christy towels are renowned for their superior quality, plush softness, and exceptional absorbency. Crafted from the finest cotton, our towels are a must-have for anyone seeking to elevate their bathing experience. Whether you're stepping out of the shower or lounging by the pool, our towels provide the perfect blend of luxury and functionality.<\/p>"
+            "text": "<p>Christy towels are renowned for their superior quality, plush softness, and exceptional absorbency. Crafted from the finest cotton, our towels are a must-have for anyone seeking to elevate their bathing experience. Whether you're stepping out of the shower or lounging by the pool, our towels provide the perfect blend of luxury and functionality.</p>"
           }
         },
         "button_DfGTeh": {
           "type": "button",
           "settings": {
             "button_label": "Discover More",
-            "button_link": "shopify:\/\/blogs\/news",
+            "button_link": "shopify://blogs/news",
             "button_label_2": "",
             "button_link_2": ""
           }
