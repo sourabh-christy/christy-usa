@@ -71,8 +71,8 @@
           loading="lazy"
           class="motion-reduce w-full h-full left-0 top-0 -z-10  {% if block.overlay == true %}qt-info-content-block-img {% endif %}"
         />
-
-        <div class="absolute z-0 w-full h-full flex flex-col items-center justify-center px-8 gap-6 text-white text-center">
+      
+        <div class="absolute z-0 flex flex-col items-center justify-center px-8 gap-6 text-white text-center">
           <p class="text-xl">{{ block.short_title }}</p>
           <p class="text-4xl">{{ block.long_title }}</p>
           <p>{{ block.description | metafield_tag }}</p>
