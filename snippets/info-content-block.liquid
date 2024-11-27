@@ -38,6 +38,7 @@
       </style>
       
       {%- if block.background_image -%}
+        <a href="{{ block.button_link }}" class="block relative w-full h-full">
         {% comment %} {{
           block.background_image
           | image_url: width: 500 
@@ -76,10 +77,10 @@
           <p class="text-4xl">{{ block.long_title }}</p>
           <p>{{ block.description | metafield_tag }}</p>
           {% if block.button_text and block.button_text != '' %}
-            <a href="{{ block.button_url }}" class="px-4 py-2 bg-white text-blue-1">{{ block.button_text }}</a>
+            <a href="{{ block.button_link }}" class="px-4 py-2 bg-white text-blue-1">{{ block.button_text }}</a>
           {% endif %}
-     
         </div>
+      </a>
       {% endif %}
     </div>
   </div>
