@@ -32,7 +32,7 @@
           "type": "collection",
           "settings": {
             "collection": "towels",
-            "usp_title": "Up to 50% Off",
+            "usp_title": "Up to 35% Off",
             "image": "shopify://shop_images/Trellis_White_db079fcd-0fa0-4d0e-b6a9-48597bd01e12.jpg",
             "alt_title": "Luxury Towels",
             "excerpt": "",
@@ -46,7 +46,7 @@
           "type": "collection",
           "settings": {
             "collection": "bundle",
-            "usp_title": "Up to 60% Off",
+            "usp_title": "Up to 40% Off",
             "image": "shopify://shop_images/Brixton-Slate-001-Lifestyle.jpg",
             "alt_title": "Bundles",
             "excerpt": "",
@@ -60,7 +60,7 @@
           "type": "collection",
           "settings": {
             "collection": "bath-mats-and-rugs",
-            "usp_title": "Up to 50% Off",
+            "usp_title": "Up to 35% Off",
             "image": "shopify://shop_images/Brown_Photo_Quote_Gallery_Collage_Aesthetic_Instagram_Post.png",
             "alt_title": "Mats & Rugs",
             "excerpt": "",
