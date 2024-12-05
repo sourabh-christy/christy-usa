@@ -74,7 +74,7 @@
           "settings": {
             "collection": "towels",
             "usp_title": "",
-            "image": "shopify://shop_images/Towels_febff82c-ff89-463c-b6cc-504d60837d0a.jpg",
+            "image": "shopify://shop_images/Trellis_Oak_Lifestyle.jpg",
             "alt_title": "Towels",
             "excerpt": "<p>Wrap yourself in plush, indulgent luxury & comfort.</p>",
             "collection_carousel_excerpt_font_size_mob": 15,
@@ -88,7 +88,7 @@
           "settings": {
             "collection": "bath-mats-and-rugs",
             "usp_title": "",
-            "image": "shopify://shop_images/Bath_mats.jpg",
+            "image": "shopify://shop_images/9.png",
             "alt_title": "Bath Mats & Rugs",
             "excerpt": "<p>Experience the soft embrace of luxury underfoot.</p>",
             "collection_carousel_excerpt_font_size_mob": 15,
@@ -102,7 +102,7 @@
           "settings": {
             "collection": "bundle",
             "usp_title": "",
-            "image": "shopify://shop_images/Bundles_1.jpg",
+            "image": "shopify://shop_images/4.png",
             "alt_title": "Bundles",
             "excerpt": "<p>Create your spa escape with premium bundles.</p>",
             "collection_carousel_excerpt_font_size_mob": 15,
