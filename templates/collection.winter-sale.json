@@ -20,7 +20,7 @@
     "9cbbf3db-9560-4cc3-8e41-727f9fe4d27c": {
       "type": "hero-image",
       "settings": {
-        "image": "shopify://shop_images/THIN_BANNER_805dbf51-6449-4987-b0df-3cac52d63084.jpg",
+        "image": "shopify://shop_images/THIN_BANNER_3ff80d53-b6b0-4120-b933-64583cbc2581.jpg",
         "link": "",
         "full_width": true
       }
@@ -140,8 +140,8 @@
     "0ea7c509-a0e6-4f26-8f0f-2d0f5eb7a796": {
       "type": "products-carousel",
       "settings": {
-        "title": "Black Friday Bundles",
-        "mobile_title": "Black Friday Bundles",
+        "title": "Winter Sale Bundles",
+        "mobile_title": "Winter Sale Bundles",
         "title_font_size_mob": 18,
         "title_font_size_desktop": 30,
         "title_font_weight": "500",
@@ -162,9 +162,8 @@
     },
     "products_carousel_YNLdiJ": {
       "type": "products-carousel",
-      "disabled": true,
       "settings": {
-        "title": "Fluff and Fold: Black Friday Towel Frenzy!",
+        "title": "Sink Your Toes Into Bath Mat Deals",
         "mobile_title": "Our Best Sellers",
         "title_font_size_mob": 18,
         "title_font_size_desktop": 30,
@@ -173,16 +172,11 @@
         "button_title": "Shop Now",
         "button_link": "shopify://collections/offers-towels",
         "products": [
-          "renaissance",
-          "signum-675-gsm-combed-cotton",
-          "brixton-towels",
-          "luxe-towels",
-          "supreme-hygro",
-          "carnaby-stripe",
-          "mode-towels",
-          "serene-550-gsm-combed-cotton",
-          "midori-towels",
-          "tribeca-towels"
+          "brixton-shower-mat",
+          "deep-pile-rug",
+          "renaissance-bath-mat",
+          "reversible-bath-rug",
+          "supreme-bath-mat"
         ],
         "screen_visibility": "both"
       }
@@ -493,6 +487,7 @@
         "5cd53bb9-0042-45f8-bccc-44aadf259f78",
         "9c788114-0e17-4e4a-90ac-0edf460cd23f"
       ],
+      "disabled": true,
       "settings": {
         "title": "Discover Black Friday",
         "copy": "<p>Unwrap Joy this Black Friday with Christy's Exclusive Deals! </p><p>Dive into a world of luxury and savings this Black Friday, featuring exclusive deals with up to 35% off on premium towels, bath mats & rugs.</p><p>Upgrade your bathroom with Christy's plush towels and bath mats. Wrap yourself in pure comfort and experience the epitome of indulgence after every bath or shower.</p><p>These exclusive Black Friday deals won't last forever! Shop now to secure your favourites before they're gone. Don't miss out on the chance to elevate your home with Christy's timeless elegance. </p><p>Black Friday is your golden opportunity to experience luxury for less so get ready to elevate your home with Christy!</p>"
