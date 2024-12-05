@@ -204,6 +204,7 @@
         },
         "template--21389292339488__955ae530-8662-43db-b9cc-df67f9e5bda7-block-3": {
           "type": "block",
+          "disabled": true,
           "settings": {
             "title": "Loved by our Customers",
             "copy": "<p>3000+ 5 star reviews with a score of 4.5 out of 5 on Trustpilot</p>",
@@ -213,6 +214,7 @@
         },
         "template--21389292339488__955ae530-8662-43db-b9cc-df67f9e5bda7-block-4": {
           "type": "block",
+          "disabled": true,
           "settings": {
             "title": "Free Shipping & Returns",
             "copy": "<p>Free Shipping above £50 plus our Worry-Free Extended Return Guarantee.</p>",
