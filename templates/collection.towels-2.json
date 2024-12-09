@@ -19,6 +19,7 @@
     },
     "350a0dfc-aa6f-4324-a5e0-c8df8361e76f": {
       "type": "hero-image",
+      "disabled": true,
       "settings": {
         "image": "shopify://shop_images/THIN_BANNER_3ff80d53-b6b0-4120-b933-64583cbc2581.jpg",
         "link": "shopify://collections/black-friday-sale",
