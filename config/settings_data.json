@@ -160,6 +160,11 @@
         "type": "shopify://apps/1clickpopup/blocks/main/233742b9-16cb-4f75-9de7-3fe92c29fdff",
         "disabled": false,
         "settings": {}
+      },
+      "5182184951224911228": {
+        "type": "shopify://apps/rapid-search/blocks/script/bd827795-feaa-41a8-9219-2b83f238aa7d",
+        "disabled": false,
+        "settings": {}
       }
     },
     "color_schemes": {
