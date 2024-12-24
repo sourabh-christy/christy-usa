@@ -164,13 +164,13 @@
       "type": "products-carousel",
       "settings": {
         "title": "Sink Your Toes Into Bath Mat Deals",
-        "mobile_title": "Our Best Sellers",
+        "mobile_title": "Bath Mat Deals",
         "title_font_size_mob": 18,
         "title_font_size_desktop": 30,
         "title_font_weight": "500",
         "title_font_family": "Hatton, serif",
         "button_title": "Shop Now",
-        "button_link": "shopify://collections/offers-towels",
+        "button_link": "https://christyhome.com/collections/bath-mats-and-rugs",
         "products": [
           "brixton-shower-mat",
           "deep-pile-rug",
