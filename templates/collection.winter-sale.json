@@ -120,7 +120,7 @@
       "type": "products-carousel",
       "settings": {
         "title": "Plush Perfection Awaits: Towel Sale",
-        "mobile_title": "Our Best Sellers",
+        "mobile_title": "Towel Sale",
         "title_font_size_mob": 18,
         "title_font_size_desktop": 30,
         "title_font_weight": "500",
@@ -141,7 +141,7 @@
       "type": "products-carousel",
       "settings": {
         "title": "Bundle Up: Towel Sets Savings",
-        "mobile_title": "Winter Sale Bundles",
+        "mobile_title": "Bundle Offers",
         "title_font_size_mob": 18,
         "title_font_size_desktop": 30,
         "title_font_weight": "500",
