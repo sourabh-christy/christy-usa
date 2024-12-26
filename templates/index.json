@@ -12,10 +12,10 @@
     "97fe06ff-d1d9-4c8d-9cb3-24b8e821d00d": {
       "type": "hero-image",
       "settings": {
-        "image": "shopify://shop_images/XMAS.webp",
-        "image_mobile": "shopify://shop_images/XMAS.webp",
-        "image_tab": "shopify://shop_images/XMAS.webp",
-        "link": "shopify://collections/towels",
+        "image": "shopify://shop_images/DESKTOP_f443975f-6408-466c-8de6-ad868ea5101d.jpg",
+        "image_mobile": "shopify://shop_images/MOBILE_7ee9d6b6-fca3-40dd-91f7-fe91408cb5a3.jpg",
+        "image_tab": "shopify://shop_images/TABLET_0dceb07b-b64a-4f16-bf7d-9975304dd626.jpg",
+        "link": "shopify://collections/winter-sale",
         "full_width": true
       }
     },
