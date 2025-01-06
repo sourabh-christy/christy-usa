@@ -146,13 +146,13 @@
     "heading2": {
       "type": "heading",
       "settings": {
-        "heading": "<p>By Royal Appointment</p>",
+        "heading": "<p>Fit For Royalty</p>",
         "heading_font_size_mob": 24,
         "heading_font_size_desktop": 36,
         "heading_font_weight": "400",
         "heading_font_family": "Hatton, serif",
         "heading_width": "6",
-        "copy": "<p>Since 1851, when they caught the eye of none other than Queen Victoria, our towels have been cherished by the Royal Family.</p>",
+        "copy": "<p>Since 1851, when they caught the eye of none other than Queen Victoria, our towels have been cherished by many.</p>",
         "heading_copy_font_size_mob": 15,
         "heading_copy_font_size_desktop": 15,
         "heading_copy_font_weight": "300",
