@@ -11,6 +11,7 @@
   "sections": {
     "1e4fcb9f-7716-4d21-b610-9cab633d219a": {
       "type": "hero-image",
+      "disabled": true,
       "settings": {
         "image": "shopify://shop_images/THIN_BANNER.webp",
         "link": "shopify://collections/black-friday-sale",
