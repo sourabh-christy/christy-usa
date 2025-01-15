@@ -12,10 +12,10 @@
     "97fe06ff-d1d9-4c8d-9cb3-24b8e821d00d": {
       "type": "hero-image",
       "settings": {
-        "image": "shopify://shop_images/Desktop.jpg",
-        "image_mobile": "shopify://shop_images/Mobile.jpg",
-        "image_tab": "shopify://shop_images/Tablet.jpg",
-        "link": "shopify://collections/winter-sale",
+        "image": "shopify://shop_images/DESKTOP_8efb978d-3b85-4132-b3f9-578f952e2375.jpg",
+        "image_mobile": "shopify://shop_images/MOBILE_167e3c87-44d4-4dff-8bd8-6fe9a0b2dfc2.jpg",
+        "image_tab": "shopify://shop_images/TABLET_32431be4-3986-4a1d-9fd5-6a89119e77d2.jpg",
+        "link": "shopify://collections/all-bath",
         "full_width": true
       }
     },
