@@ -25,6 +25,63 @@
         "full_width": true
       }
     },
+    "c_info_columns_qNQRgN": {
+      "type": "c-info-columns",
+      "blocks": {
+        "column_VRCfkw": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Towels_fe44426a-be89-4c8b-a5fd-b43c1aacf864.jpg",
+            "image_aspect": "1:1",
+            "title": "",
+            "text": "",
+            "button_label": "",
+            "button_link": "towels",
+            "collection_tag": ""
+          }
+        },
+        "column_YVLfD7": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Bundles.jpg",
+            "image_aspect": "1:1",
+            "title": "",
+            "text": "",
+            "button_label": "",
+            "button_link": "bundle",
+            "collection_tag": ""
+          }
+        },
+        "column_gCDmGy": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Bath_mats_Rugs_copy.jpg",
+            "image_aspect": "1:1",
+            "title": "",
+            "text": "",
+            "button_label": "",
+            "button_link": "bath-mats-and-rugs",
+            "collection_tag": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_VRCfkw",
+        "column_YVLfD7",
+        "column_gCDmGy"
+      ],
+      "settings": {
+        "title": "",
+        "title_font_size_mob": 16,
+        "title_font_size_desktop": 20,
+        "title_font_weight": "600",
+        "title_font_family": "sans-serif",
+        "copy_font_size_mob": 12,
+        "copy_font_size_desktop": 14,
+        "copy_font_weight": "300",
+        "copy_font_family": "sans-serif"
+      }
+    },
     "9c1de53b-ac15-4e36-a743-64c26dabf7e2": {
       "type": "collections-carousel",
       "blocks": {
@@ -76,6 +133,7 @@
         "1ae70297-a748-4b57-b0a1-b53cc14bb4f5",
         "484f5ca2-a708-49c4-9ac3-08032d35cb5b"
       ],
+      "disabled": true,
       "settings": {
         "title": "Shop By Category",
         "collection_carousel_title_font_size_mob": 18,
@@ -498,6 +556,7 @@
   "order": [
     "c13e9ca8-ca9c-4ed4-9a12-8bfd34eb0a02",
     "9cbbf3db-9560-4cc3-8e41-727f9fe4d27c",
+    "c_info_columns_qNQRgN",
     "9c1de53b-ac15-4e36-a743-64c26dabf7e2",
     "c66f958a-b771-485c-bd16-7e2841ec3c60",
     "82bff3e6-7ee4-4ad7-9806-4ffa6631c225",
