@@ -70,6 +70,7 @@
         "column_YVLfD7",
         "column_gCDmGy"
       ],
+      "disabled": true,
       "settings": {
         "title": "",
         "title_font_size_mob": 16,
@@ -133,7 +134,6 @@
         "1ae70297-a748-4b57-b0a1-b53cc14bb4f5",
         "484f5ca2-a708-49c4-9ac3-08032d35cb5b"
       ],
-      "disabled": true,
       "settings": {
         "title": "Shop By Category",
         "collection_carousel_title_font_size_mob": 18,
