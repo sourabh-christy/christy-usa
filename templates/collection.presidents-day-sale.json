@@ -9,18 +9,10 @@
  */
 {
   "sections": {
-    "c13e9ca8-ca9c-4ed4-9a12-8bfd34eb0a02": {
-      "type": "hero-image",
-      "disabled": true,
-      "settings": {
-        "link": "",
-        "full_width": true
-      }
-    },
     "9cbbf3db-9560-4cc3-8e41-727f9fe4d27c": {
       "type": "hero-image",
       "settings": {
-        "image": "shopify://shop_images/THIN_BANNER_1c4bf461-263a-47a7-b92c-1eedd1b81ca6.jpg",
+        "image": "shopify://shop_images/THIN_BANNER_4bb346c9-90d0-4768-b3bd-8dc40f264e6b.jpg",
         "link": "",
         "full_width": true
       }
@@ -31,7 +23,7 @@
         "column_VRCfkw": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/Towels_fe44426a-be89-4c8b-a5fd-b43c1aacf864.jpg",
+            "image": "shopify://shop_images/Towels_febff82c-ff89-463c-b6cc-504d60837d0a.jpg",
             "image_aspect": "1:1",
             "title": "",
             "text": "",
@@ -55,7 +47,7 @@
         "column_gCDmGy": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/Bath_mats_Rugs_copy.jpg",
+            "image": "shopify://shop_images/Bath_mats.jpg",
             "image_aspect": "1:1",
             "title": "",
             "text": "",
@@ -554,7 +546,6 @@
     }
   },
   "order": [
-    "c13e9ca8-ca9c-4ed4-9a12-8bfd34eb0a02",
     "9cbbf3db-9560-4cc3-8e41-727f9fe4d27c",
     "c_info_columns_qNQRgN",
     "9c1de53b-ac15-4e36-a743-64c26dabf7e2",
