@@ -12,10 +12,10 @@
     "97fe06ff-d1d9-4c8d-9cb3-24b8e821d00d": {
       "type": "hero-image",
       "settings": {
-        "image": "shopify://shop_images/DESKTOP_c3c73c8c-1196-4b66-8e0c-c4b5fe58ad71.jpg",
-        "image_mobile": "shopify://shop_images/MOBILE_9866a1ee-b1fe-4c48-898f-c76de0fdec2b.jpg",
-        "image_tab": "shopify://shop_images/TABLET_ca86dad9-622a-447c-ac01-7908aba6aa2c.jpg",
-        "link": "shopify://collections/valentines-sale",
+        "image": "shopify://shop_images/DESKTOP_076cd72a-1dec-4a10-87fa-3e91eaf3acac.jpg",
+        "image_mobile": "shopify://shop_images/MOBILE_306d538b-40e7-453f-8cf0-d1cc77ece639.jpg",
+        "image_tab": "shopify://shop_images/TABLET_fe179c79-1933-42ac-bb6b-1bf026319b2f.jpg",
+        "link": "shopify://collections/presidents-day-sale",
         "full_width": true
       }
     },
