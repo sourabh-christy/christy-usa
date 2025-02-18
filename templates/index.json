@@ -12,10 +12,10 @@
     "97fe06ff-d1d9-4c8d-9cb3-24b8e821d00d": {
       "type": "hero-image",
       "settings": {
-        "image": "shopify://shop_images/DESKTOP_1d10b122-d99f-453f-9006-80a8d06377aa.jpg",
-        "image_mobile": "shopify://shop_images/MOBILE_2ff311e4-74f3-49ad-8bb3-00b354264dd0.jpg",
-        "image_tab": "shopify://shop_images/TABLET_19c772e2-0845-4d58-b42e-6b016d485a1e.jpg",
-        "link": "shopify://collections/presidents-day-sale",
+        "image": "shopify://shop_images/DESKTOP_8efb978d-3b85-4132-b3f9-578f952e2375.jpg",
+        "image_mobile": "shopify://shop_images/MOBILE_a62cedc3-691c-4332-b9b8-cf994ba33c1e.jpg",
+        "image_tab": "shopify://shop_images/TABLET_32431be4-3986-4a1d-9fd5-6a89119e77d2.jpg",
+        "link": "shopify://collections",
         "full_width": true
       }
     },
