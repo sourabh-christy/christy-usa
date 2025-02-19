@@ -11,9 +11,8 @@
   "sections": {
     "1141d3ad-2866-4abb-8256-033fc8707c39": {
       "type": "hero-image",
-      "disabled": true,
       "settings": {
-        "image": "shopify://shop_images/THIN_BANNER_c731d52c-01d1-410b-8d98-f8552d3457a5.jpg",
+        "image": "shopify://shop_images/Bath-Bestseller-THIN_BANNER.jpg",
         "link": "",
         "full_width": true
       }
