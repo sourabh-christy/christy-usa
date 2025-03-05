@@ -1,1 +1,185 @@
-{"sections":{"6707d50c-5555-48d5-ade4-86ed7f2b1da0":{"type":"hero-image","settings":{"image":"shopify:\/\/shop_images\/MicrosoftTeams-image_25.png","link":"","full_width":true}},"product-grid":{"type":"main-collection-product-grid","blocks":{"5a878969-3318-42e0-87f9-e02a64758016":{"type":"infocard","disabled":true,"settings":{"text":"Build your Bundle","copy":"<p>Discover your perfect match for a restful night’s slumber.<\/p>","button_text":"Build your Dream Towel Set","button_url":"https:\/\/quickstart-3a56366d.myshopify.com\/collections\/bed-duvet-sets","styled":false,"position":7}},"77b7bcba-adf8-4b59-84fa-2aed599efb4a":{"type":"infocard","disabled":true,"settings":{"text":"Easycare Percale","copy":"<p>This stylish collection is made from a high quality polycotton blend, which is both practical and easy to care for.<br\/><br\/>The range of gorgeous colours and simple tailoring make this collection a real winner.<\/p>","button_text":"Discover Collection","button_url":"","styled":true,"position":8}},"723c09cd-40b5-4949-8c55-69dab142f5e5":{"type":"listsc","disabled":true,"settings":{"image":"shopify:\/\/shop_images\/zero-twist-yarn-2.jpg","product_1":"","pos_l_1":70,"pos_t_1":45,"product_2":"","pos_l_2":20,"pos_t_2":75,"product_3":"","pos_l_3":50,"pos_t_3":50}},"9dd9db74-0cb2-4848-9653-157d62c90364":{"type":"listsc","disabled":true,"settings":{"image":"shopify:\/\/shop_images\/zero-twist-yarn-2.jpg","product_1":"","pos_l_1":25,"pos_t_1":15,"product_2":"","pos_l_2":50,"pos_t_2":70,"product_3":"","pos_l_3":50,"pos_t_3":50}}},"block_order":["5a878969-3318-42e0-87f9-e02a64758016","77b7bcba-adf8-4b59-84fa-2aed599efb4a","723c09cd-40b5-4949-8c55-69dab142f5e5","9dd9db74-0cb2-4848-9653-157d62c90364"],"settings":{"products_per":24}},"recent-products":{"type":"recent-products","settings":{"heading":"Previously explored"}},"32651ade-df62-44f5-8355-bb4039f60426":{"type":"billboard","disabled":true,"settings":{"screen_visibility":"both","subtitle":"Christy Life","title":"<p>7 simple everyday self-care rituals<\/p>","copy":"<p>Add a bit of TLC to your daily routine with these ideas to help you pause and enjoy the little moments.<\/p>","button_label":"Read more","button_link":"https:\/\/quickstart-3a56366d.myshopify.com\/collections\/bed-duvet-sets","button_type":"tertiary","colour_theme":"white","alignment":"left","alignment_vertical":"center","mobile_content_position":"overlay"}},"1668fefd-51e6-4979-a05c-eeeceabb9e78":{"type":"product-showcase","disabled":true,"settings":{}},"ad4b03ab-98bc-4656-a9aa-42b221953e67":{"type":"rich-text","blocks":{"template--21202653151520__ad4b03ab-98bc-4656-a9aa-42b221953e67-heading-1":{"type":"heading","settings":{"heading":"Sub Title","sub_title_size":"h2"}},"template--21202653151520__ad4b03ab-98bc-4656-a9aa-42b221953e67-main_heading-1":{"type":"main_heading","settings":{"heading":"Main Title"}},"template--21202653151520__ad4b03ab-98bc-4656-a9aa-42b221953e67-text-1":{"type":"text","settings":{"text":"<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"}}},"block_order":["template--21202653151520__ad4b03ab-98bc-4656-a9aa-42b221953e67-heading-1","template--21202653151520__ad4b03ab-98bc-4656-a9aa-42b221953e67-main_heading-1","template--21202653151520__ad4b03ab-98bc-4656-a9aa-42b221953e67-text-1"],"disabled":true,"settings":{"full_width":false,"anchor_id":""}}},"order":["6707d50c-5555-48d5-ade4-86ed7f2b1da0","product-grid","recent-products","32651ade-df62-44f5-8355-bb4039f60426","1668fefd-51e6-4979-a05c-eeeceabb9e78","ad4b03ab-98bc-4656-a9aa-42b221953e67"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "6707d50c-5555-48d5-ade4-86ed7f2b1da0": {
+      "type": "hero-image",
+      "disabled": true,
+      "settings": {
+        "link": "",
+        "full_width": true
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "blocks": {
+        "5a878969-3318-42e0-87f9-e02a64758016": {
+          "type": "infocard",
+          "disabled": true,
+          "settings": {
+            "text": "Build your Bundle",
+            "copy": "<p>Discover your perfect match for a restful night’s slumber.</p>",
+            "button_text": "Build your Dream Towel Set",
+            "button_url": "https://quickstart-3a56366d.myshopify.com/collections/bed-duvet-sets",
+            "styled": false,
+            "position": 7
+          }
+        },
+        "77b7bcba-adf8-4b59-84fa-2aed599efb4a": {
+          "type": "infocard",
+          "disabled": true,
+          "settings": {
+            "text": "Easycare Percale",
+            "copy": "<p>This stylish collection is made from a high quality polycotton blend, which is both practical and easy to care for.<br/><br/>The range of gorgeous colours and simple tailoring make this collection a real winner.</p>",
+            "button_text": "Discover Collection",
+            "button_url": "",
+            "styled": true,
+            "position": 8
+          }
+        },
+        "723c09cd-40b5-4949-8c55-69dab142f5e5": {
+          "type": "listsc",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/zero-twist-yarn-2.jpg",
+            "product_1": "",
+            "pos_l_1": 70,
+            "pos_t_1": 45,
+            "product_2": "",
+            "pos_l_2": 20,
+            "pos_t_2": 75,
+            "product_3": "",
+            "pos_l_3": 50,
+            "pos_t_3": 50
+          }
+        },
+        "9dd9db74-0cb2-4848-9653-157d62c90364": {
+          "type": "listsc",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/zero-twist-yarn-2.jpg",
+            "product_1": "",
+            "pos_l_1": 25,
+            "pos_t_1": 15,
+            "product_2": "",
+            "pos_l_2": 50,
+            "pos_t_2": 70,
+            "product_3": "",
+            "pos_l_3": 50,
+            "pos_t_3": 50
+          }
+        }
+      },
+      "block_order": [
+        "5a878969-3318-42e0-87f9-e02a64758016",
+        "77b7bcba-adf8-4b59-84fa-2aed599efb4a",
+        "723c09cd-40b5-4949-8c55-69dab142f5e5",
+        "9dd9db74-0cb2-4848-9653-157d62c90364"
+      ],
+      "settings": {
+        "products_per": 24,
+        "excerpt": "Towels",
+        "title_font_size_mob": 26,
+        "title_font_size_desktop": 40,
+        "title_font_weight": "500",
+        "title_font_family": "Hatton, serif",
+        "seo_liner": "Indulge in the ultimate comfort with our luxury towels, crafted from the finest materials for a plush, spa-like experience every day.",
+        "seo_liner_font_size_mob": 14,
+        "seo_liner_font_size_desktop": 14,
+        "seo_liner_font_weight": "300",
+        "seo_liner_font_family": "Tomato Grotesk",
+        "enable_filtering": true,
+        "enable_sorting": true
+      }
+    },
+    "recent-products": {
+      "type": "recent-products",
+      "settings": {
+        "heading": "Previously explored"
+      }
+    },
+    "32651ade-df62-44f5-8355-bb4039f60426": {
+      "type": "billboard",
+      "disabled": true,
+      "settings": {
+        "screen_visibility": "both",
+        "subtitle": "Christy Life",
+        "billboard_subtitle_font_size_mob": 16,
+        "billboard_subtitle_font_size_desktop": 16,
+        "billboard_subtitle_font_weight": "600",
+        "billboard_subtitle_font_family": "sans-serif",
+        "title": "<p>7 simple everyday self-care rituals</p>",
+        "billboard_title_font_size_mob": 16,
+        "billboard_title_font_size_desktop": 40,
+        "billboard_title_font_weight": "500",
+        "billboard_title_font_family": "Hatton, serif",
+        "copy": "<p>Add a bit of TLC to your daily routine with these ideas to help you pause and enjoy the little moments.</p>",
+        "billboard_copy_font_size_mob": 14,
+        "billboard_copy_font_size_desktop": 14,
+        "billboard_copy_font_weight": "200",
+        "billboard_copy_font_family": "Tomato Grotesk",
+        "button_label": "Read more",
+        "button_link": "https://quickstart-3a56366d.myshopify.com/collections/bed-duvet-sets",
+        "button_type": "tertiary",
+        "colour_theme": "white",
+        "alignment": "left",
+        "alignment_vertical": "center",
+        "mobile_content_position": "overlay"
+      }
+    },
+    "1668fefd-51e6-4979-a05c-eeeceabb9e78": {
+      "type": "product-showcase",
+      "disabled": true,
+      "settings": {}
+    },
+    "ad4b03ab-98bc-4656-a9aa-42b221953e67": {
+      "type": "rich-text",
+      "blocks": {
+        "template--21202653151520__ad4b03ab-98bc-4656-a9aa-42b221953e67-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "Sub Title",
+            "sub_title_size": "h2"
+          }
+        },
+        "template--21202653151520__ad4b03ab-98bc-4656-a9aa-42b221953e67-main_heading-1": {
+          "type": "main_heading",
+          "settings": {
+            "heading": "Main Title"
+          }
+        },
+        "template--21202653151520__ad4b03ab-98bc-4656-a9aa-42b221953e67-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--21202653151520__ad4b03ab-98bc-4656-a9aa-42b221953e67-heading-1",
+        "template--21202653151520__ad4b03ab-98bc-4656-a9aa-42b221953e67-main_heading-1",
+        "template--21202653151520__ad4b03ab-98bc-4656-a9aa-42b221953e67-text-1"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": false,
+        "anchor_id": ""
+      }
+    }
+  },
+  "order": [
+    "6707d50c-5555-48d5-ade4-86ed7f2b1da0",
+    "product-grid",
+    "recent-products",
+    "32651ade-df62-44f5-8355-bb4039f60426",
+    "1668fefd-51e6-4979-a05c-eeeceabb9e78",
+    "ad4b03ab-98bc-4656-a9aa-42b221953e67"
+  ]
+}
