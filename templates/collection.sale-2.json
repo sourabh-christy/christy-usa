@@ -1,1 +1,825 @@
-{"sections":{"c13e9ca8-ca9c-4ed4-9a12-8bfd34eb0a02":{"type":"hero-image","settings":{"image":"shopify:\/\/shop_images\/MicrosoftTeams-image_9.png","link":"","full_width":true}},"e81c268d-881b-4c6d-a674-f0f49b2c9321":{"type":"hero-collection","blocks":{"template--21202653085984__e81c268d-881b-4c6d-a674-f0f49b2c9321-slide-1":{"type":"slide","settings":{"image":"shopify:\/\/shop_images\/Halloween_1200X628_1_1.jpg","mobile_media":"image","subtitle":"","mobile_subtitle":"show","title":"","mob_title":"","copy":"","copy_visibility":"mobile","collection":"","button_text":""}}},"block_order":["template--21202653085984__e81c268d-881b-4c6d-a674-f0f49b2c9321-slide-1"],"disabled":true,"settings":{}},"76c6e56b-583c-4e8e-82a1-c452644a34b6":{"type":"heading","settings":{"heading":"<p>Discover the magic in everyday moments.<\/p>","heading_width":"4","copy":"","copy_style":"default","alignment":"center","alignment_mob":"center","horiz_padding":true,"margin_top":false}},"06cfb5b0-ef0d-40ac-b0f2-de55cebec04c":{"type":"c-info-columns","blocks":{"template--21202653085984__06cfb5b0-ef0d-40ac-b0f2-de55cebec04c-column-1":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/Egyptian_Lifestyle_Cream_8e5eba5a-ed2c-49e0-bfa7-4f9106830747-648169.jpg","image_aspect":"1:1","title":"Duvet Sets","text":"<p>Your passport to a world of premium comfort and timeless style for the ultimate bedroom retreat.<\/p>","button_label":"Shop Now","button_link":"duvet-sets","collection_tag":""}},"template--21202653085984__06cfb5b0-ef0d-40ac-b0f2-de55cebec04c-column-2":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/200TC_White_Fitted_Sheet_Detail-888706.jpg","image_aspect":"1:1","title":"Fitted Sheets","text":"<p>The epitome of both snug precision and luxurious comfort, ensuring a perfect fit that stays in place throughout the night.<\/p>","button_label":"Shop Now","button_link":"sheets","collection_tag":""}},"template--21202653085984__06cfb5b0-ef0d-40ac-b0f2-de55cebec04c-column-3":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/Sateen_Gold_Flat_Sheet_Detail-855643.jpg","image_aspect":"1:1","title":"Flat Sheets","text":"<p>Elevate your bedroom with our flat sheets, where quality and elegance meet in a seamless blend of softness and design.<\/p>","button_label":"Shop Now","button_link":"","collection_tag":""}},"3072f136-c23c-4563-876f-15a69fb5729d":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/200TC_Fig_Oxford_Pillowcase_fca745b4-12d8-4db9-816e-9e3ddc93a271-594675.jpg","image_aspect":"1:1","title":"Pillowcases","text":"<p>Where impeccable craftsmanship and a variety of colors and patterns allow you to express your unique style.<\/p>","button_label":"Shop Now","button_link":"pillowcases","collection_tag":""}},"159406bd-019d-4005-a068-5ff04e88e3c7":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/blog_duvet.jpg","image_aspect":"1:1","title":"Duvets & Pillows","text":"<p>Discover a world of personalized comfort, available in a range of togs and firmness levels to suit your unique sleep preferences.<\/p>","button_label":"Shop Now","button_link":"duvet-pillows","collection_tag":""}},"0e44cbf6-5127-44b8-ae2a-026a5627deda":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/Christy_MattressTopper_Lifestyle_4.jpg","image_aspect":"1:1","title":"Protectors & Toppers","text":"<p>Offer a sanctuary of softness and hygiene, providing a cocoon of comfort while safeguarding your mattress from wear and tear.<\/p>","button_label":"Shop Now","button_link":"protectors-and-toppers","collection_tag":""}}},"block_order":["template--21202653085984__06cfb5b0-ef0d-40ac-b0f2-de55cebec04c-column-1","template--21202653085984__06cfb5b0-ef0d-40ac-b0f2-de55cebec04c-column-2","template--21202653085984__06cfb5b0-ef0d-40ac-b0f2-de55cebec04c-column-3","3072f136-c23c-4563-876f-15a69fb5729d","159406bd-019d-4005-a068-5ff04e88e3c7","0e44cbf6-5127-44b8-ae2a-026a5627deda"],"disabled":true,"settings":{"title":"Shop our Collection"}},"9c1de53b-ac15-4e36-a743-64c26dabf7e2":{"type":"collections-carousel","blocks":{"4d759cd0-37d8-4277-9cda-5841b0bb3c4b":{"type":"collection","settings":{"collection":"towels","usp_title":"Up to 40% Off + 22% above £ 100","image":"shopify:\/\/shop_images\/Organic_Natural_Lifestyle-905959.jpg","alt_title":"Luxury Towels","excerpt":"<h1>Step into a spa-like sanctuary with our luxurious selection of bath towels.<\/h1>"}},"1ae70297-a748-4b57-b0a1-b53cc14bb4f5":{"type":"collection","settings":{"collection":"all-loungewear","usp_title":"Up to 30% Off + 22% above £ 100","image":"shopify:\/\/shop_images\/7_3_1-954698_f80f94a7-0cef-44ca-b300-4efa2a36f373.jpg","alt_title":"Plush Bath Robes","excerpt":"<h1>Embrace the feeling of a gentle hug all day with our bath robes.<\/h1>"}},"484f5ca2-a708-49c4-9ac3-08032d35cb5b":{"type":"collection","settings":{"collection":"bath-mats-and-rugs","usp_title":"Up to 40% Off + 22% above £ 100","image":"shopify:\/\/shop_images\/christy_bath_mat_kingfisher-507987.jpg","alt_title":"","excerpt":"<p>Crafted with the perfect blend of plushness & durability, adding a touch of elegance.<\/p>"}}},"block_order":["4d759cd0-37d8-4277-9cda-5841b0bb3c4b","1ae70297-a748-4b57-b0a1-b53cc14bb4f5","484f5ca2-a708-49c4-9ac3-08032d35cb5b"],"settings":{"title":"Bath","screen_visibility":"both"}},"4773ebfa-1456-4daf-80c3-f9c6478bf05e":{"type":"products-carousel","settings":{"title":"Luxury Towel Offers for Your Self-Care Retreat","button_title":"Shop Now","button_link":"shopify:\/\/collections\/offers-towels","products":["renaissance","luxe-towels","supreme-hygro","signum-675-gsm-combed-cotton","brixton-towels","tribeca-towels","serene-550-gsm-combed-cotton"],"screen_visibility":"both"}},"c35d7fce-a552-4f31-9ffb-048a8c4c5b25":{"type":"heading","settings":{"heading":"<p>Because Self-Love Deserves a Celebration!<\/p>","heading_width":"4","copy":"","copy_style":"default","alignment":"center","alignment_mob":"center","horiz_padding":true,"margin_top":false}},"d38727e6-070e-4d88-af8b-6b75b41f7719":{"type":"collections-carousel","blocks":{"3f15cc9c-c32d-43a2-b8a0-175614a8ae86":{"type":"collection","settings":{"collection":"duvet-sets","usp_title":"Up to 40% Off + 22% above £ 100","image":"shopify:\/\/shop_images\/Egyptian_Lifestyle_Cream_8e5eba5a-ed2c-49e0-bfa7-4f9106830747-648169.jpg","alt_title":"","excerpt":"<p>Your passport to a world of premium comfort and timeless style for the ultimate bedroom retreat.<\/p>"}},"76a7aa40-fad4-4756-b863-71f413788066":{"type":"collection","settings":{"collection":"sheets","usp_title":"Up to 20% Off + 22% above £ 100","image":"shopify:\/\/shop_images\/200TC_White_Fitted_Sheet_Detail-888706.jpg","alt_title":"","excerpt":"<p>The epitome of both snug precision and luxurious comfort, ensuring a perfect fit that stays in place throughout the night.<\/p>"}},"2c4374cb-ef41-43b7-96f5-f6b61b083b01":{"type":"collection","settings":{"collection":"flat-sheets","usp_title":"Up to 40% Off + 22% above £ 100","image":"shopify:\/\/shop_images\/Sateen_Gold_Flat_Sheet_Detail-855643.jpg","alt_title":"","excerpt":"<p>Elevate your bedroom with our flat sheets, where quality and elegance meet in a seamless blend of softness and design.<\/p>"}},"6748815e-680b-4a82-9435-2cf556cc867c":{"type":"collection","settings":{"collection":"duvet-pillows","usp_title":"Up to 30% Off + 22% above £ 100","image":"shopify:\/\/shop_images\/subcategory_duvetandpillowoffers_desktop.jpg","alt_title":"","excerpt":"<p>Discover a world of personalized comfort, available in a range of togs and firmness levels to suit your unique sleep preferences.<\/p>"}},"b67ebaca-9de3-43d0-9ee0-554bcc673479":{"type":"collection","settings":{"collection":"pillowcases","usp_title":"","image":"shopify:\/\/shop_images\/200TC_Storm_Oxford_Pillow_Detail_f5f2f257-5325-4427-8858-f5ead033a124-129748.jpg","alt_title":"Pillowcases","excerpt":"<p>Where impeccable craftsmanship and a variety of colors and patterns allow you to express your unique style.<\/p>"}},"1c561ecc-6e7c-4c2d-ae57-409320a93e2f":{"type":"collection","settings":{"collection":"protectors-and-toppers","usp_title":"","image":"shopify:\/\/shop_images\/Christy_MattressTopper_Lifestyle_1-562387.jpg","alt_title":"","excerpt":"<p>Offer a sanctuary of softness and hygiene, providing a cocoon of comfort while safeguarding your mattress from wear and tear.<\/p>"}}},"block_order":["3f15cc9c-c32d-43a2-b8a0-175614a8ae86","76a7aa40-fad4-4756-b863-71f413788066","2c4374cb-ef41-43b7-96f5-f6b61b083b01","6748815e-680b-4a82-9435-2cf556cc867c","b67ebaca-9de3-43d0-9ee0-554bcc673479","1c561ecc-6e7c-4c2d-ae57-409320a93e2f"],"settings":{"title":"Bedding","screen_visibility":"both"}},"543b28bf-821e-4b5d-bfe7-b6b214117f7d":{"type":"products-carousel","settings":{"title":"Elevate Your Sanctuary: Cosy Bedding Offers","button_title":"Shop Now","button_link":"shopify:\/\/collections\/bedroom-bedroom-sale","products":["smooth-and-silky-cotton-sateen-fitted-sheet","luxury-microfibre-13-5-tog-duvet","coniston-bed-linen","organic-retreat","200-thread-count-egyptian-percale","luxury-king-size-pillow"],"screen_visibility":"both"}},"955ae530-8662-43db-b9cc-df67f9e5bda7":{"type":"benefits-icons","blocks":{"template--21389292339488__955ae530-8662-43db-b9cc-df67f9e5bda7-block-1":{"type":"block","settings":{"title":"Legacy of Innovation","copy":"<p>Bringing you quality and durability through 170 years of legacy and innovation.<\/p>","button_link":"shopify:\/\/pages\/our-heritage","button_title":"Learn More"}},"template--21389292339488__955ae530-8662-43db-b9cc-df67f9e5bda7-block-2":{"type":"block","settings":{"title":"Sustainability","copy":"<p>Sustainable material to ethical manufacturing and mindful packaging.<\/p>","button_link":"shopify:\/\/pages\/responsibility","button_title":"Learn More"}},"template--21389292339488__955ae530-8662-43db-b9cc-df67f9e5bda7-block-3":{"type":"block","settings":{"title":"Loved by our Customers","copy":"<p>3000+ 5 star reviews with a score of 4.5 out of 5 on Trustpilot<\/p>","button_link":"shopify:\/\/collections\/all","button_title":"Shop the Range"}},"template--21389292339488__955ae530-8662-43db-b9cc-df67f9e5bda7-block-4":{"type":"block","settings":{"title":"Free Shipping & Returns","copy":"<p>Free Shipping above GBP 50 plus our Worry-Free Return Guarantee.<\/p>","button_link":"shopify:\/\/policies\/shipping-policy","button_title":"Learn More"}}},"block_order":["template--21389292339488__955ae530-8662-43db-b9cc-df67f9e5bda7-block-1","template--21389292339488__955ae530-8662-43db-b9cc-df67f9e5bda7-block-2","template--21389292339488__955ae530-8662-43db-b9cc-df67f9e5bda7-block-3","template--21389292339488__955ae530-8662-43db-b9cc-df67f9e5bda7-block-4"],"settings":{"title":"Why Christy?","margin":"yes"}},"6851d866-adb6-4f4b-8e77-da4ae8ec22ef":{"type":"images-copy-cta","settings":{"image":"shopify:\/\/shop_images\/SuperiorSoftTouchDuvet_Lifestyle_3.jpg","image2":"shopify:\/\/shop_images\/Duvet-1024x1024_c434d424-997b-4160-b314-2c0a36d3680a.jpg","subtitle":"New Arrival","title":"<p>Feather & Down Duvets & Pillows<\/p>","copy":"<p>Want a duvet that is incredibly soft and warm? Made with the softest duck feather and down and a clever box construction, the naturally breathable filling remains even sleep after sleep to keep you cosy when it's colder.<\/p>","button_label":"Discover the Collection","button_link":"shopify:\/\/collections\/feather-down","content_position":"right","header_position":false,"images_half_width":false,"anchor_id":""}},"393634d4-53d9-4c8e-be41-45c5d425188a":{"type":"heading","settings":{"heading":"<p>Pair with our exquisite Throws & Cushions<\/p>","heading_width":"4","copy":"","copy_style":"default","alignment":"center","alignment_mob":"center","horiz_padding":true,"margin_top":false}},"2c7e8cac-6078-4c3b-b5eb-fd09baf5939e":{"type":"products-carousel","settings":{"title":"","button_title":"Explore the Range","button_link":"shopify:\/\/collections\/all-accessories","products":["jaipur-throw","cosy-throw","oslo","metropolitan-throw","jaipur-cushion","metropolitan-cushion"],"screen_visibility":"both"}},"b9932fb5-c80a-402d-977c-e883e9dff131":{"type":"images-copy-cta","settings":{"image":"shopify:\/\/shop_images\/WIMD150-809824.jpg","image2":"shopify:\/\/shop_images\/WimbledonChampionship2023Detail-273571.jpg","subtitle":"","title":"<p>Wimbledon Championship Towel<\/p>","copy":"","button_label":"Flat 25% Off - Shop Now","button_link":"shopify:\/\/products\/wimbledon-2023-championship-towel","content_position":"right","header_position":false,"images_half_width":false,"anchor_id":""}},"07a57dc8-34ac-41ee-96df-37021aef7941":{"type":"reviews-carousel","blocks":{"template--21202653085984__07a57dc8-34ac-41ee-96df-37021aef7941-block-1":{"type":"block","settings":{"product":"smooth-and-silky-cotton-sateen-fitted-sheet","title":"Smooth & Silky Cotton Sateen Deep Fitted Sheet - 400 TC","testimonial":"<p>\"I have bought Christy bedding before and have always been impressed by the quality - This purchase as no different, excellent items and enhances my sleep quality\"<\/p>","name":"Charles Shelley"}},"template--21202653085984__07a57dc8-34ac-41ee-96df-37021aef7941-block-2":{"type":"block","settings":{"product":"luxury-microfibre-13-5-tog-duvet","title":"Luxury Microfibre 13.5 Tog Duvet","testimonial":"<p>“One of the highest quality products I have experienced. Very very soft and drapes beautifully on my bed.”<\/p>","name":"John Smith"}}},"block_order":["template--21202653085984__07a57dc8-34ac-41ee-96df-37021aef7941-block-1","template--21202653085984__07a57dc8-34ac-41ee-96df-37021aef7941-block-2"],"disabled":true,"settings":{"title":"Unveiling the Christy Experience: Happy Customer Reviews","margin":"yes"}},"32651ade-df62-44f5-8355-bb4039f60426":{"type":"billboard","disabled":true,"settings":{"screen_visibility":"both","image":"shopify:\/\/shop_images\/WimbledonChampionship2023Detail-273571.jpg","subtitle":"","title":"<p>Wimbledon Championship Towel<\/p><p><\/p><p>Flat 25% Off<\/p>","copy":"","button_label":"Shop Now","button_link":"shopify:\/\/products\/wimbledon-2023-championship-towel","button_type":"default","colour_theme":"white","alignment":"left","alignment_vertical":"top","mobile_content_position":"below"}},"product-grid":{"type":"main-collection-product-grid","blocks":{"77b7bcba-adf8-4b59-84fa-2aed599efb4a":{"type":"infocard","settings":{"text":"Cotton Sateen Sheets","copy":"<p>Resist the temptation to take just a few more minutes nestled up in the indulgent comfort our smooth cotton sheets.  <br\/>The sateen fabric has a gentle sheen and feels oh-so-nice against the skin. Once you've snuggled up in bed, you may never want to get out again.<\/p>","button_text":"Discover Collection","button_url":"shopify:\/\/products\/400-thread-count-sateen-plain-dye","styled":true,"position":8}},"8704fef6-e4b5-4c39-bba2-de943e89068e":{"type":"listsc","disabled":true,"settings":{"product_1":"egyptian-cotton-plain-dye","pos_l_1":25,"pos_t_1":15,"product_2":"egyptian-cotton-plain-dye-1","pos_l_2":90,"pos_t_2":30,"product_3":"","pos_l_3":50,"pos_t_3":50}},"5a878969-3318-42e0-87f9-e02a64758016":{"type":"infocard","disabled":true,"settings":{"text":"Build your Bundle","copy":"<p>Discover your perfect match for a restful night’s slumber.<\/p>","button_text":"Build your Dream Duvet Set","button_url":"shopify:\/\/collections\/duvet-sets","styled":false,"position":7}},"9b178935-07f5-49c1-b91b-796defd6ca93":{"type":"listsc","disabled":true,"settings":{"product_1":"","pos_l_1":50,"pos_t_1":50,"product_2":"","pos_l_2":50,"pos_t_2":50,"product_3":"","pos_l_3":50,"pos_t_3":50}}},"block_order":["77b7bcba-adf8-4b59-84fa-2aed599efb4a","8704fef6-e4b5-4c39-bba2-de943e89068e","5a878969-3318-42e0-87f9-e02a64758016","9b178935-07f5-49c1-b91b-796defd6ca93"],"disabled":true,"settings":{"products_per":12}},"recent-products":{"type":"recent-products","disabled":true,"settings":{"heading":"Previously explored"}},"toggled-body-content":{"type":"toggled-body-content","blocks":{"0cfbd7f1-f235-41c9-9b2b-cd5201339d29":{"type":"imagetext","disabled":true,"settings":{"title":"Drift into a peaceful slumber with our lovingly-crafted bedding","copy":"<p>Are you looking for luxury bedding sets that are designed by experts and woven to the highest thread count? Are you tired of settling for bedding sets that don't hold up to the quality that you deserve? After 170 years of crafting household linens, <a href=\"\/collections\/all-bedding\" title=\"All Bedding\">Christy is here for you.<\/a><br\/><br\/>You deserve nothing less than a nightly warm hug, the bedding you can sink into, and a safe space to sleep your troubles away. And we're here to help you get it. We know that a good night's sleep means the difference between a good day and a perfect one. That's why we only use the finest fabrics and expert craftsmanship to create our luxury bedding sets.<br\/><br\/>We believe that you deserve a great night's sleep every night. Our goal is to create bedding that provides a relaxing feel while maintaining its quality over time so you can enjoy the benefits of a great night's sleep for years to come. Our team of experts takes pride in every stitch, every seam, and every detail - so don't settle for anything less than perfection when it comes to your bedding.<\/p>"}},"f0ffe5d8-79c4-48a3-987e-d638b7875931":{"type":"copy","disabled":true,"settings":{"copy":"<p>Our <a href=\"\/collections\/duvet-sets\" title=\"Duvet Sets\">duvet covers<\/a> provide the ultimate indulgence. Your bedding is the first thing you see when you wake up in the morning and the last thing you see before going to sleep at night so we want you to experience ultimate satisfaction when you see and feel their opulence. Your bed should be soft and inviting, but also durable enough to stand up to years of use and regular wash cycles.<\/p>","title":"Escape into a world of tranquillity with Christy duvet covers","copy_alignment":"left","background":false}},"d5387739-f478-4cb8-8355-9b3492df7469":{"type":"imagegroup","disabled":true,"settings":{"image1_copy":"<p>Our duvet covers and bed sheets are made from a range of quality fabrics including <a href=\"\/collections\/all-bedding\" title=\"All Bedding\">high thread count Egyptian percale<\/a> so they feel soft against your skin and luxurious in every way.<\/p>","image1_aspect":"2:3","image2_copy":"<p>From regal jacquard to elegant florals and geometric patterns, we have a range of <a href=\"\/collections\/all-bedding\" title=\"All Bedding\">cotton bedding sets<\/a> to match any room's colour palette.<\/p>","image2_aspect":"1:1","image3_copy":"<p>Our extensive bedding collection is made to withstand the test of time due to the quality of textiles and craftsmanship we utilise.  We have an array of bedding options to suit all bed sizes, from single to double duvets to super king.<\/p>","image3_aspect":"1:1","background":false}},"6b7f8a08-3319-4c8f-8c4e-46eec67e2708":{"type":"copy","disabled":true,"settings":{"copy":"<p>When you're searching for quality bedding and duvet covers that enhance your beauty sleep, <a href=\"\/collections\/all-bedding\" title=\"All Bedding\">our wide range of bedding<\/a> is just what you need. Our products are crafted with top-quality fabrics and materials, so they will feel great against your skin while also providing long-lasting comfort. <br\/><br\/><strong>Cloud Nine is the place to be. Let our beautiful bedding take you there.<br\/><\/strong><\/p>","title":"","copy_alignment":"right","background":false}},"60f49944-c7ff-4d2d-9f83-c87d00b9b607":{"type":"copy","disabled":true,"settings":{"copy":"<p>When you're shopping for duvets and pillows, you want to know that you're getting the best quality materials and craftsmanship possible. That's why we've created an entire line of sleep products designed to make your bed the most comfortable and luxurious place in the world - <a href=\"\/collections\/all-bedding\" title=\"All Bedding\">from duvets to pillows to mattress protectors<\/a>.<\/p>","title":"Experience the cloud-like comfort of our duvets and pillows","copy_alignment":"right","background":true}},"db13e1ca-642d-46f3-bbd2-e7502ddb4f93":{"type":"imagegroup","disabled":true,"settings":{"image1_copy":"<p>To enhance comfort and warmth throughout the seasons, you can choose from a range of tog duvets or hollow fibre blend duvets.<\/p>","image1_aspect":"1:1","image2_copy":"<p>With our soft touch, anti-allergy pillows and duvets, you'll have all the support you need to gain a restful night's sleep every night.<\/p>","image2_aspect":"1:1","image3_copy":"<p>Our luxury mattress protectors are designed to keep your bed clean, dry, and comfortable.<\/p>","image3_aspect":"2:3","background":true}},"98522fad-02e8-4ea2-b527-1c001422b598":{"type":"copy","disabled":true,"settings":{"copy":"<p>We believe in quality, luxury materials and thoughtful design that's backed by science. Everything we create is made with only the best materials and manufactured by people who really care about what they do. We know how important it is for you to have a good night’s sleep, so we ensure that everything we produce helps you get just that.<br\/><br\/><strong>Now that you've found Christy, you're ready to make all of your bedtime dreams come true. Your perfect bedding is just a few clicks away!<\/strong><\/p>","title":"","copy_alignment":"left","background":true}},"3a33be87-d24e-40bd-aab9-12e862ae6bcb":{"type":"copy","disabled":true,"settings":{"copy":"<p>Create a cosy place to dream with our premium edit of <a href=\"\/collections\/all-accessories\" title=\"All Accessories\">cushions and throws<\/a>. From velvet plush throws to chunky knit blankets, we've got what you need to create a welcoming and relaxing space for you and your loved ones. Whether you're after the perfect scatter cushion for your favourite chair or something to keep you warm on frosty evenings, our range of throws, cushions and blankets has everything you could possibly want.<\/p>","title":"Transform your bedroom into a sleep sanctuary with cushions and throws","copy_alignment":"left","background":false}},"5cd53bb9-0042-45f8-bccc-44aadf259f78":{"type":"imagegroup","disabled":true,"settings":{"image1_copy":"<p>Our softest bed sheets are carefully crafted to provide a luxurious feel, and our thick, plush throws are guaranteed to keep you warm even when the temperature drops.<\/p>","image1_aspect":"2:3","image2_copy":"<p>Add a splash of colour with throws and cushions in rich vivid hues and calming neutrals.<\/p>","image2_aspect":"1:1","image3_copy":"<p>Accentuate your home decor with our soft, plump cushions - sure to be an eye-catching addition to any room in your home.<\/p>","image3_aspect":"1:1","background":false}},"9c788114-0e17-4e4a-90ac-0edf460cd23f":{"type":"imagetext","disabled":true,"settings":{"title":"Doze into dreamland with bedding created by experts - Shop with Christy","copy":"<p>Cocoon yourself in a world of pure luxury as you discover the perfect bedding produced by our craftsmen.<br\/><br\/>The best bedding is like a warm cuddle. It's like a soft kiss goodnight. It's like rainbows and sunshine, all wrapped up into one cosy package. And at Christy, we're committed to finding the best materials and techniques to create bedding that will ease you gently and comfortably into the land of nod. Simply put, we know how to make you feel like royalty - we've been doing it for decades.<br\/><br\/><strong>Check out our bedding collection today, and get a good night's sleep tomorrow.<\/strong><\/p>"}}},"block_order":["0cfbd7f1-f235-41c9-9b2b-cd5201339d29","f0ffe5d8-79c4-48a3-987e-d638b7875931","d5387739-f478-4cb8-8355-9b3492df7469","6b7f8a08-3319-4c8f-8c4e-46eec67e2708","60f49944-c7ff-4d2d-9f83-c87d00b9b607","db13e1ca-642d-46f3-bbd2-e7502ddb4f93","98522fad-02e8-4ea2-b527-1c001422b598","3a33be87-d24e-40bd-aab9-12e862ae6bcb","5cd53bb9-0042-45f8-bccc-44aadf259f78","9c788114-0e17-4e4a-90ac-0edf460cd23f"],"disabled":true,"settings":{"title":"Discover Bedding","copy":"<p>You deserve the best of rest. Our bedding gently envelops you in a soft embrace to settle you into the sweetest dreams. Discover hand-painted designs, sumptuous fabrics, and durable materials at Christy. Your bed will be a haven for rest, relaxation, and deep sleep. From crisp, clean sheets to soft, snuggly throws, we've got the perfect combination for you.<\/p><p>Forget about your stresses and responsibilities and slip into a deep, peaceful sleep safely swaddled in the splendour of Christy’s bedding.<\/p>"}}},"order":["c13e9ca8-ca9c-4ed4-9a12-8bfd34eb0a02","e81c268d-881b-4c6d-a674-f0f49b2c9321","76c6e56b-583c-4e8e-82a1-c452644a34b6","06cfb5b0-ef0d-40ac-b0f2-de55cebec04c","9c1de53b-ac15-4e36-a743-64c26dabf7e2","4773ebfa-1456-4daf-80c3-f9c6478bf05e","c35d7fce-a552-4f31-9ffb-048a8c4c5b25","d38727e6-070e-4d88-af8b-6b75b41f7719","543b28bf-821e-4b5d-bfe7-b6b214117f7d","955ae530-8662-43db-b9cc-df67f9e5bda7","6851d866-adb6-4f4b-8e77-da4ae8ec22ef","393634d4-53d9-4c8e-be41-45c5d425188a","2c7e8cac-6078-4c3b-b5eb-fd09baf5939e","b9932fb5-c80a-402d-977c-e883e9dff131","07a57dc8-34ac-41ee-96df-37021aef7941","32651ade-df62-44f5-8355-bb4039f60426","product-grid","recent-products","toggled-body-content"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "c13e9ca8-ca9c-4ed4-9a12-8bfd34eb0a02": {
+      "type": "hero-image",
+      "disabled": true,
+      "settings": {
+        "image": "shopify://shop_images/MicrosoftTeams-image_9.png",
+        "link": "",
+        "full_width": true
+      }
+    },
+    "e81c268d-881b-4c6d-a674-f0f49b2c9321": {
+      "type": "hero-collection",
+      "blocks": {
+        "template--21202653085984__e81c268d-881b-4c6d-a674-f0f49b2c9321-slide-1": {
+          "type": "slide",
+          "settings": {
+            "mobile_media": "image",
+            "subtitle": "",
+            "hero_collection_subtitle_font_size_mob": 16,
+            "hero_collection_subtitle_font_size_desktop": 16,
+            "hero_collection_subtitle_font_weight": "600",
+            "hero_collection_subtitle_font_family": "sans-serif",
+            "mobile_subtitle": "show",
+            "title": "",
+            "hero_collection_title_font_size_mob": 16,
+            "hero_collection_title_font_size_desktop": 36,
+            "hero_collection_title_font_weight": "400",
+            "hero_collection_title_font_family": "Hatton, serif",
+            "mob_title": "",
+            "copy": "",
+            "hero_collection_copy_font_size_mob": 16,
+            "hero_collection_copy_font_size_desktop": 36,
+            "hero_collection_copy_font_weight": "400",
+            "hero_collection_copy_font_family": "Hatton, serif",
+            "copy_visibility": "mobile",
+            "collection": "",
+            "button_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--21202653085984__e81c268d-881b-4c6d-a674-f0f49b2c9321-slide-1"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "76c6e56b-583c-4e8e-82a1-c452644a34b6": {
+      "type": "heading",
+      "settings": {
+        "heading": "<p>Discover the magic in everyday moments.</p>",
+        "heading_font_size_mob": 24,
+        "heading_font_size_desktop": 36,
+        "heading_font_weight": "600",
+        "heading_font_family": "Hatton, serif",
+        "heading_width": "4",
+        "copy": "",
+        "heading_copy_font_size_mob": 12,
+        "heading_copy_font_size_desktop": 14,
+        "heading_copy_font_weight": "300",
+        "heading_copy_font_family": "Tomato Grotesk",
+        "copy_style": "default",
+        "alignment": "center",
+        "alignment_mob": "center",
+        "horiz_padding": true,
+        "margin_top": false,
+        "background_color": "#FFFFFF",
+        "font_color": "#000000"
+      }
+    },
+    "06cfb5b0-ef0d-40ac-b0f2-de55cebec04c": {
+      "type": "c-info-columns",
+      "blocks": {
+        "template--21202653085984__06cfb5b0-ef0d-40ac-b0f2-de55cebec04c-column-1": {
+          "type": "column",
+          "settings": {
+            "image_aspect": "1:1",
+            "title": "Duvet Sets",
+            "text": "<p>Your passport to a world of premium comfort and timeless style for the ultimate bedroom retreat.</p>",
+            "button_label": "Shop Now",
+            "button_link": "duvet-sets",
+            "collection_tag": ""
+          }
+        },
+        "template--21202653085984__06cfb5b0-ef0d-40ac-b0f2-de55cebec04c-column-2": {
+          "type": "column",
+          "settings": {
+            "image_aspect": "1:1",
+            "title": "Fitted Sheets",
+            "text": "<p>The epitome of both snug precision and luxurious comfort, ensuring a perfect fit that stays in place throughout the night.</p>",
+            "button_label": "Shop Now",
+            "button_link": "sheets",
+            "collection_tag": ""
+          }
+        },
+        "template--21202653085984__06cfb5b0-ef0d-40ac-b0f2-de55cebec04c-column-3": {
+          "type": "column",
+          "settings": {
+            "image_aspect": "1:1",
+            "title": "Flat Sheets",
+            "text": "<p>Elevate your bedroom with our flat sheets, where quality and elegance meet in a seamless blend of softness and design.</p>",
+            "button_label": "Shop Now",
+            "button_link": "",
+            "collection_tag": ""
+          }
+        },
+        "3072f136-c23c-4563-876f-15a69fb5729d": {
+          "type": "column",
+          "settings": {
+            "image_aspect": "1:1",
+            "title": "Pillowcases",
+            "text": "<p>Where impeccable craftsmanship and a variety of colors and patterns allow you to express your unique style.</p>",
+            "button_label": "Shop Now",
+            "button_link": "pillowcases",
+            "collection_tag": ""
+          }
+        },
+        "159406bd-019d-4005-a068-5ff04e88e3c7": {
+          "type": "column",
+          "settings": {
+            "image_aspect": "1:1",
+            "title": "Duvets & Pillows",
+            "text": "<p>Discover a world of personalized comfort, available in a range of togs and firmness levels to suit your unique sleep preferences.</p>",
+            "button_label": "Shop Now",
+            "button_link": "duvet-pillows",
+            "collection_tag": ""
+          }
+        },
+        "0e44cbf6-5127-44b8-ae2a-026a5627deda": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Christy_MattressTopper_Lifestyle_4.jpg",
+            "image_aspect": "1:1",
+            "title": "Protectors & Toppers",
+            "text": "<p>Offer a sanctuary of softness and hygiene, providing a cocoon of comfort while safeguarding your mattress from wear and tear.</p>",
+            "button_label": "Shop Now",
+            "button_link": "protectors-and-toppers",
+            "collection_tag": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--21202653085984__06cfb5b0-ef0d-40ac-b0f2-de55cebec04c-column-1",
+        "template--21202653085984__06cfb5b0-ef0d-40ac-b0f2-de55cebec04c-column-2",
+        "template--21202653085984__06cfb5b0-ef0d-40ac-b0f2-de55cebec04c-column-3",
+        "3072f136-c23c-4563-876f-15a69fb5729d",
+        "159406bd-019d-4005-a068-5ff04e88e3c7",
+        "0e44cbf6-5127-44b8-ae2a-026a5627deda"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "Shop our Collection",
+        "title_font_size_mob": 16,
+        "title_font_size_desktop": 20,
+        "title_font_weight": "600",
+        "title_font_family": "sans-serif",
+        "copy_font_size_mob": 12,
+        "copy_font_size_desktop": 14,
+        "copy_font_weight": "300",
+        "copy_font_family": "sans-serif"
+      }
+    },
+    "9c1de53b-ac15-4e36-a743-64c26dabf7e2": {
+      "type": "collections-carousel",
+      "blocks": {
+        "4d759cd0-37d8-4277-9cda-5841b0bb3c4b": {
+          "type": "collection",
+          "settings": {
+            "collection": "towels",
+            "usp_title": "Up to 40% Off + 22% above £ 100",
+            "alt_title": "Luxury Towels",
+            "excerpt": "<h1>Step into a spa-like sanctuary with our luxurious selection of bath towels.</h1>",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 30,
+            "collection_carousel_excerpt_font_weight": "400",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
+          }
+        },
+        "1ae70297-a748-4b57-b0a1-b53cc14bb4f5": {
+          "type": "collection",
+          "settings": {
+            "collection": "all-loungewear",
+            "usp_title": "Up to 30% Off + 22% above £ 100",
+            "alt_title": "Plush Bath Robes",
+            "excerpt": "<h1>Embrace the feeling of a gentle hug all day with our bath robes.</h1>",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 30,
+            "collection_carousel_excerpt_font_weight": "400",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
+          }
+        },
+        "484f5ca2-a708-49c4-9ac3-08032d35cb5b": {
+          "type": "collection",
+          "settings": {
+            "collection": "bath-mats-and-rugs",
+            "usp_title": "Up to 40% Off + 22% above £ 100",
+            "alt_title": "",
+            "excerpt": "<p>Crafted with the perfect blend of plushness & durability, adding a touch of elegance.</p>",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 30,
+            "collection_carousel_excerpt_font_weight": "400",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
+          }
+        }
+      },
+      "block_order": [
+        "4d759cd0-37d8-4277-9cda-5841b0bb3c4b",
+        "1ae70297-a748-4b57-b0a1-b53cc14bb4f5",
+        "484f5ca2-a708-49c4-9ac3-08032d35cb5b"
+      ],
+      "settings": {
+        "title": "Bath",
+        "collection_carousel_title_font_size_mob": 18,
+        "collection_carousel_title_font_size_desktop": 30,
+        "collection_carousel_title_font_weight": "500",
+        "collection_carousel_title_font_family": "Hatton, serif",
+        "screen_visibility": "both"
+      }
+    },
+    "4773ebfa-1456-4daf-80c3-f9c6478bf05e": {
+      "type": "products-carousel",
+      "settings": {
+        "title": "Luxury Towel Offers for Your Self-Care Retreat",
+        "mobile_title": "Our Best Sellers",
+        "title_font_size_mob": 18,
+        "title_font_size_desktop": 30,
+        "title_font_weight": "500",
+        "title_font_family": "Hatton, serif",
+        "button_title": "Shop Now",
+        "button_link": "shopify://collections/offers-towels",
+        "products": [
+          "renaissance",
+          "luxe-towels",
+          "supreme-hygro",
+          "signum-675-gsm-combed-cotton",
+          "brixton-towels",
+          "tribeca-towels",
+          "serene-550-gsm-combed-cotton"
+        ],
+        "screen_visibility": "both"
+      }
+    },
+    "c35d7fce-a552-4f31-9ffb-048a8c4c5b25": {
+      "type": "heading",
+      "settings": {
+        "heading": "<p>Because Self-Love Deserves a Celebration!</p>",
+        "heading_font_size_mob": 24,
+        "heading_font_size_desktop": 36,
+        "heading_font_weight": "600",
+        "heading_font_family": "Hatton, serif",
+        "heading_width": "4",
+        "copy": "",
+        "heading_copy_font_size_mob": 12,
+        "heading_copy_font_size_desktop": 14,
+        "heading_copy_font_weight": "300",
+        "heading_copy_font_family": "Tomato Grotesk",
+        "copy_style": "default",
+        "alignment": "center",
+        "alignment_mob": "center",
+        "horiz_padding": true,
+        "margin_top": false,
+        "background_color": "#FFFFFF",
+        "font_color": "#000000"
+      }
+    },
+    "d38727e6-070e-4d88-af8b-6b75b41f7719": {
+      "type": "collections-carousel",
+      "blocks": {
+        "3f15cc9c-c32d-43a2-b8a0-175614a8ae86": {
+          "type": "collection",
+          "settings": {
+            "collection": "duvet-sets",
+            "usp_title": "Up to 40% Off + 22% above £ 100",
+            "alt_title": "",
+            "excerpt": "<p>Your passport to a world of premium comfort and timeless style for the ultimate bedroom retreat.</p>",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 30,
+            "collection_carousel_excerpt_font_weight": "400",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
+          }
+        },
+        "76a7aa40-fad4-4756-b863-71f413788066": {
+          "type": "collection",
+          "settings": {
+            "collection": "sheets",
+            "usp_title": "Up to 20% Off + 22% above £ 100",
+            "alt_title": "",
+            "excerpt": "<p>The epitome of both snug precision and luxurious comfort, ensuring a perfect fit that stays in place throughout the night.</p>",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 30,
+            "collection_carousel_excerpt_font_weight": "400",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
+          }
+        },
+        "2c4374cb-ef41-43b7-96f5-f6b61b083b01": {
+          "type": "collection",
+          "settings": {
+            "collection": "flat-sheets",
+            "usp_title": "Up to 40% Off + 22% above £ 100",
+            "alt_title": "",
+            "excerpt": "<p>Elevate your bedroom with our flat sheets, where quality and elegance meet in a seamless blend of softness and design.</p>",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 30,
+            "collection_carousel_excerpt_font_weight": "400",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
+          }
+        },
+        "6748815e-680b-4a82-9435-2cf556cc867c": {
+          "type": "collection",
+          "settings": {
+            "collection": "duvet-pillows",
+            "usp_title": "Up to 30% Off + 22% above £ 100",
+            "image": "shopify://shop_images/subcategory_duvetandpillowoffers_desktop.jpg",
+            "alt_title": "",
+            "excerpt": "<p>Discover a world of personalized comfort, available in a range of togs and firmness levels to suit your unique sleep preferences.</p>",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 30,
+            "collection_carousel_excerpt_font_weight": "400",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
+          }
+        },
+        "b67ebaca-9de3-43d0-9ee0-554bcc673479": {
+          "type": "collection",
+          "settings": {
+            "collection": "pillowcases",
+            "usp_title": "",
+            "alt_title": "Pillowcases",
+            "excerpt": "<p>Where impeccable craftsmanship and a variety of colors and patterns allow you to express your unique style.</p>",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 30,
+            "collection_carousel_excerpt_font_weight": "400",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
+          }
+        },
+        "1c561ecc-6e7c-4c2d-ae57-409320a93e2f": {
+          "type": "collection",
+          "settings": {
+            "collection": "protectors-and-toppers",
+            "usp_title": "",
+            "alt_title": "",
+            "excerpt": "<p>Offer a sanctuary of softness and hygiene, providing a cocoon of comfort while safeguarding your mattress from wear and tear.</p>",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 30,
+            "collection_carousel_excerpt_font_weight": "400",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
+          }
+        }
+      },
+      "block_order": [
+        "3f15cc9c-c32d-43a2-b8a0-175614a8ae86",
+        "76a7aa40-fad4-4756-b863-71f413788066",
+        "2c4374cb-ef41-43b7-96f5-f6b61b083b01",
+        "6748815e-680b-4a82-9435-2cf556cc867c",
+        "b67ebaca-9de3-43d0-9ee0-554bcc673479",
+        "1c561ecc-6e7c-4c2d-ae57-409320a93e2f"
+      ],
+      "settings": {
+        "title": "Bedding",
+        "collection_carousel_title_font_size_mob": 18,
+        "collection_carousel_title_font_size_desktop": 30,
+        "collection_carousel_title_font_weight": "500",
+        "collection_carousel_title_font_family": "Hatton, serif",
+        "screen_visibility": "both"
+      }
+    },
+    "543b28bf-821e-4b5d-bfe7-b6b214117f7d": {
+      "type": "products-carousel",
+      "settings": {
+        "title": "Elevate Your Sanctuary: Cosy Bedding Offers",
+        "mobile_title": "Our Best Sellers",
+        "title_font_size_mob": 18,
+        "title_font_size_desktop": 30,
+        "title_font_weight": "500",
+        "title_font_family": "Hatton, serif",
+        "button_title": "Shop Now",
+        "button_link": "shopify://collections/bedroom-bedroom-sale",
+        "products": [
+          "smooth-and-silky-cotton-sateen-fitted-sheet",
+          "luxury-microfibre-13-5-tog-duvet",
+          "coniston-bed-linen",
+          "organic-retreat",
+          "200-thread-count-egyptian-percale",
+          "luxury-king-size-pillow"
+        ],
+        "screen_visibility": "both"
+      }
+    },
+    "955ae530-8662-43db-b9cc-df67f9e5bda7": {
+      "type": "benefits-icons",
+      "blocks": {
+        "template--21389292339488__955ae530-8662-43db-b9cc-df67f9e5bda7-block-1": {
+          "type": "block",
+          "settings": {
+            "title": "Legacy of Innovation",
+            "copy": "<p>Bringing you quality and durability through 170 years of legacy and innovation.</p>",
+            "button_link": "shopify://pages/our-heritage",
+            "button_title": "Learn More"
+          }
+        },
+        "template--21389292339488__955ae530-8662-43db-b9cc-df67f9e5bda7-block-2": {
+          "type": "block",
+          "settings": {
+            "title": "Sustainability",
+            "copy": "<p>Sustainable material to ethical manufacturing and mindful packaging.</p>",
+            "button_link": "shopify://pages/responsibility",
+            "button_title": "Learn More"
+          }
+        },
+        "template--21389292339488__955ae530-8662-43db-b9cc-df67f9e5bda7-block-3": {
+          "type": "block",
+          "settings": {
+            "title": "Loved by our Customers",
+            "copy": "<p>3000+ 5 star reviews with a score of 4.5 out of 5 on Trustpilot</p>",
+            "button_link": "shopify://collections/all",
+            "button_title": "Shop the Range"
+          }
+        },
+        "template--21389292339488__955ae530-8662-43db-b9cc-df67f9e5bda7-block-4": {
+          "type": "block",
+          "settings": {
+            "title": "Free Shipping & Returns",
+            "copy": "<p>Free Shipping above GBP 50 plus our Worry-Free Return Guarantee.</p>",
+            "button_link": "shopify://policies/shipping-policy",
+            "button_title": "Learn More"
+          }
+        }
+      },
+      "block_order": [
+        "template--21389292339488__955ae530-8662-43db-b9cc-df67f9e5bda7-block-1",
+        "template--21389292339488__955ae530-8662-43db-b9cc-df67f9e5bda7-block-2",
+        "template--21389292339488__955ae530-8662-43db-b9cc-df67f9e5bda7-block-3",
+        "template--21389292339488__955ae530-8662-43db-b9cc-df67f9e5bda7-block-4"
+      ],
+      "settings": {
+        "title": "Why Christy?",
+        "margin": "yes"
+      }
+    },
+    "6851d866-adb6-4f4b-8e77-da4ae8ec22ef": {
+      "type": "images-copy-cta",
+      "settings": {
+        "image": "shopify://shop_images/SuperiorSoftTouchDuvet_Lifestyle_3.jpg",
+        "image2": "shopify://shop_images/Duvet-1024x1024_c434d424-997b-4160-b314-2c0a36d3680a.jpg",
+        "subtitle": "New Arrival",
+        "title": "<p>Feather & Down Duvets & Pillows</p>",
+        "copy": "<p>Want a duvet that is incredibly soft and warm? Made with the softest duck feather and down and a clever box construction, the naturally breathable filling remains even sleep after sleep to keep you cosy when it's colder.</p>",
+        "button_label": "Discover the Collection",
+        "button_link": "shopify://collections/feather-down",
+        "content_position": "right",
+        "header_position": false,
+        "images_half_width": false,
+        "anchor_id": ""
+      }
+    },
+    "393634d4-53d9-4c8e-be41-45c5d425188a": {
+      "type": "heading",
+      "settings": {
+        "heading": "<p>Pair with our exquisite Throws & Cushions</p>",
+        "heading_font_size_mob": 24,
+        "heading_font_size_desktop": 36,
+        "heading_font_weight": "600",
+        "heading_font_family": "Hatton, serif",
+        "heading_width": "4",
+        "copy": "",
+        "heading_copy_font_size_mob": 12,
+        "heading_copy_font_size_desktop": 14,
+        "heading_copy_font_weight": "300",
+        "heading_copy_font_family": "Tomato Grotesk",
+        "copy_style": "default",
+        "alignment": "center",
+        "alignment_mob": "center",
+        "horiz_padding": true,
+        "margin_top": false,
+        "background_color": "#FFFFFF",
+        "font_color": "#000000"
+      }
+    },
+    "2c7e8cac-6078-4c3b-b5eb-fd09baf5939e": {
+      "type": "products-carousel",
+      "settings": {
+        "title": "",
+        "mobile_title": "Our Best Sellers",
+        "title_font_size_mob": 18,
+        "title_font_size_desktop": 30,
+        "title_font_weight": "500",
+        "title_font_family": "Hatton, serif",
+        "button_title": "Explore the Range",
+        "button_link": "shopify://collections/all-accessories",
+        "products": [
+          "jaipur-throw",
+          "cosy-throw",
+          "oslo",
+          "metropolitan-throw",
+          "jaipur-cushion",
+          "metropolitan-cushion"
+        ],
+        "screen_visibility": "both"
+      }
+    },
+    "b9932fb5-c80a-402d-977c-e883e9dff131": {
+      "type": "images-copy-cta",
+      "settings": {
+        "subtitle": "",
+        "title": "<p>Wimbledon Championship Towel</p>",
+        "copy": "",
+        "button_label": "Flat 25% Off - Shop Now",
+        "button_link": "shopify://products/wimbledon-2023-championship-towel",
+        "content_position": "right",
+        "header_position": false,
+        "images_half_width": false,
+        "anchor_id": ""
+      }
+    },
+    "07a57dc8-34ac-41ee-96df-37021aef7941": {
+      "type": "reviews-carousel",
+      "blocks": {
+        "template--21202653085984__07a57dc8-34ac-41ee-96df-37021aef7941-block-1": {
+          "type": "block",
+          "settings": {
+            "product": "smooth-and-silky-cotton-sateen-fitted-sheet",
+            "title": "Smooth & Silky Cotton Sateen Deep Fitted Sheet - 400 TC",
+            "testimonial": "<p>\"I have bought Christy bedding before and have always been impressed by the quality - This purchase as no different, excellent items and enhances my sleep quality\"</p>",
+            "name": "Charles Shelley"
+          }
+        },
+        "template--21202653085984__07a57dc8-34ac-41ee-96df-37021aef7941-block-2": {
+          "type": "block",
+          "settings": {
+            "product": "luxury-microfibre-13-5-tog-duvet",
+            "title": "Luxury Microfibre 13.5 Tog Duvet",
+            "testimonial": "<p>“One of the highest quality products I have experienced. Very very soft and drapes beautifully on my bed.”</p>",
+            "name": "John Smith"
+          }
+        }
+      },
+      "block_order": [
+        "template--21202653085984__07a57dc8-34ac-41ee-96df-37021aef7941-block-1",
+        "template--21202653085984__07a57dc8-34ac-41ee-96df-37021aef7941-block-2"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "Unveiling the Christy Experience: Happy Customer Reviews",
+        "mobile_title": "Our Best Sellers",
+        "review_carousel_title_font_size_mob": 26,
+        "review_carousel_title_font_size_desktop": 40,
+        "review_carousel_title_font_weight": "500",
+        "review_carousel_title_font_family": "Hatton, serif",
+        "margin": "yes"
+      }
+    },
+    "32651ade-df62-44f5-8355-bb4039f60426": {
+      "type": "billboard",
+      "disabled": true,
+      "settings": {
+        "screen_visibility": "both",
+        "subtitle": "",
+        "billboard_subtitle_font_size_mob": 16,
+        "billboard_subtitle_font_size_desktop": 16,
+        "billboard_subtitle_font_weight": "600",
+        "billboard_subtitle_font_family": "sans-serif",
+        "title": "<p>Wimbledon Championship Towel</p><p></p><p>Flat 25% Off</p>",
+        "billboard_title_font_size_mob": 16,
+        "billboard_title_font_size_desktop": 40,
+        "billboard_title_font_weight": "500",
+        "billboard_title_font_family": "Hatton, serif",
+        "copy": "",
+        "billboard_copy_font_size_mob": 14,
+        "billboard_copy_font_size_desktop": 14,
+        "billboard_copy_font_weight": "200",
+        "billboard_copy_font_family": "Tomato Grotesk",
+        "button_label": "Shop Now",
+        "button_link": "shopify://products/wimbledon-2023-championship-towel",
+        "button_type": "default",
+        "colour_theme": "white",
+        "alignment": "left",
+        "alignment_vertical": "top",
+        "mobile_content_position": "below"
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "blocks": {
+        "77b7bcba-adf8-4b59-84fa-2aed599efb4a": {
+          "type": "infocard",
+          "settings": {
+            "text": "Cotton Sateen Sheets",
+            "copy": "<p>Resist the temptation to take just a few more minutes nestled up in the indulgent comfort our smooth cotton sheets.  <br/>The sateen fabric has a gentle sheen and feels oh-so-nice against the skin. Once you've snuggled up in bed, you may never want to get out again.</p>",
+            "button_text": "Discover Collection",
+            "button_url": "shopify://products/400-thread-count-sateen-plain-dye",
+            "styled": true,
+            "position": 8
+          }
+        },
+        "8704fef6-e4b5-4c39-bba2-de943e89068e": {
+          "type": "listsc",
+          "disabled": true,
+          "settings": {
+            "product_1": "egyptian-cotton-plain-dye",
+            "pos_l_1": 25,
+            "pos_t_1": 15,
+            "product_2": "egyptian-cotton-plain-dye-1",
+            "pos_l_2": 90,
+            "pos_t_2": 30,
+            "product_3": "",
+            "pos_l_3": 50,
+            "pos_t_3": 50
+          }
+        },
+        "5a878969-3318-42e0-87f9-e02a64758016": {
+          "type": "infocard",
+          "disabled": true,
+          "settings": {
+            "text": "Build your Bundle",
+            "copy": "<p>Discover your perfect match for a restful night’s slumber.</p>",
+            "button_text": "Build your Dream Duvet Set",
+            "button_url": "shopify://collections/duvet-sets",
+            "styled": false,
+            "position": 7
+          }
+        },
+        "9b178935-07f5-49c1-b91b-796defd6ca93": {
+          "type": "listsc",
+          "disabled": true,
+          "settings": {
+            "product_1": "",
+            "pos_l_1": 50,
+            "pos_t_1": 50,
+            "product_2": "",
+            "pos_l_2": 50,
+            "pos_t_2": 50,
+            "product_3": "",
+            "pos_l_3": 50,
+            "pos_t_3": 50
+          }
+        }
+      },
+      "block_order": [
+        "77b7bcba-adf8-4b59-84fa-2aed599efb4a",
+        "8704fef6-e4b5-4c39-bba2-de943e89068e",
+        "5a878969-3318-42e0-87f9-e02a64758016",
+        "9b178935-07f5-49c1-b91b-796defd6ca93"
+      ],
+      "disabled": true,
+      "settings": {
+        "products_per": 12,
+        "excerpt": "Towels",
+        "title_font_size_mob": 26,
+        "title_font_size_desktop": 40,
+        "title_font_weight": "500",
+        "title_font_family": "Hatton, serif",
+        "seo_liner": "Indulge in the ultimate comfort with our luxury towels, crafted from the finest materials for a plush, spa-like experience every day.",
+        "seo_liner_font_size_mob": 14,
+        "seo_liner_font_size_desktop": 14,
+        "seo_liner_font_weight": "300",
+        "seo_liner_font_family": "Tomato Grotesk",
+        "enable_filtering": true,
+        "enable_sorting": true
+      }
+    },
+    "recent-products": {
+      "type": "recent-products",
+      "disabled": true,
+      "settings": {
+        "heading": "Previously explored"
+      }
+    },
+    "toggled-body-content": {
+      "type": "toggled-body-content",
+      "blocks": {
+        "0cfbd7f1-f235-41c9-9b2b-cd5201339d29": {
+          "type": "imagetext",
+          "disabled": true,
+          "settings": {
+            "title": "Drift into a peaceful slumber with our lovingly-crafted bedding",
+            "copy": "<p>Are you looking for luxury bedding sets that are designed by experts and woven to the highest thread count? Are you tired of settling for bedding sets that don't hold up to the quality that you deserve? After 170 years of crafting household linens, <a href=\"/collections/all-bedding\" title=\"All Bedding\">Christy is here for you.</a><br/><br/>You deserve nothing less than a nightly warm hug, the bedding you can sink into, and a safe space to sleep your troubles away. And we're here to help you get it. We know that a good night's sleep means the difference between a good day and a perfect one. That's why we only use the finest fabrics and expert craftsmanship to create our luxury bedding sets.<br/><br/>We believe that you deserve a great night's sleep every night. Our goal is to create bedding that provides a relaxing feel while maintaining its quality over time so you can enjoy the benefits of a great night's sleep for years to come. Our team of experts takes pride in every stitch, every seam, and every detail - so don't settle for anything less than perfection when it comes to your bedding.</p>"
+          }
+        },
+        "f0ffe5d8-79c4-48a3-987e-d638b7875931": {
+          "type": "copy",
+          "disabled": true,
+          "settings": {
+            "copy": "<p>Our <a href=\"/collections/duvet-sets\" title=\"Duvet Sets\">duvet covers</a> provide the ultimate indulgence. Your bedding is the first thing you see when you wake up in the morning and the last thing you see before going to sleep at night so we want you to experience ultimate satisfaction when you see and feel their opulence. Your bed should be soft and inviting, but also durable enough to stand up to years of use and regular wash cycles.</p>",
+            "title": "Escape into a world of tranquillity with Christy duvet covers",
+            "copy_alignment": "left",
+            "background": false
+          }
+        },
+        "d5387739-f478-4cb8-8355-9b3492df7469": {
+          "type": "imagegroup",
+          "disabled": true,
+          "settings": {
+            "image1_copy": "<p>Our duvet covers and bed sheets are made from a range of quality fabrics including <a href=\"/collections/all-bedding\" title=\"All Bedding\">high thread count Egyptian percale</a> so they feel soft against your skin and luxurious in every way.</p>",
+            "image1_aspect": "2:3",
+            "image2_copy": "<p>From regal jacquard to elegant florals and geometric patterns, we have a range of <a href=\"/collections/all-bedding\" title=\"All Bedding\">cotton bedding sets</a> to match any room's colour palette.</p>",
+            "image2_aspect": "1:1",
+            "image3_copy": "<p>Our extensive bedding collection is made to withstand the test of time due to the quality of textiles and craftsmanship we utilise.  We have an array of bedding options to suit all bed sizes, from single to double duvets to super king.</p>",
+            "image3_aspect": "1:1",
+            "background": false
+          }
+        },
+        "6b7f8a08-3319-4c8f-8c4e-46eec67e2708": {
+          "type": "copy",
+          "disabled": true,
+          "settings": {
+            "copy": "<p>When you're searching for quality bedding and duvet covers that enhance your beauty sleep, <a href=\"/collections/all-bedding\" title=\"All Bedding\">our wide range of bedding</a> is just what you need. Our products are crafted with top-quality fabrics and materials, so they will feel great against your skin while also providing long-lasting comfort. <br/><br/><strong>Cloud Nine is the place to be. Let our beautiful bedding take you there.<br/></strong></p>",
+            "title": "",
+            "copy_alignment": "right",
+            "background": false
+          }
+        },
+        "60f49944-c7ff-4d2d-9f83-c87d00b9b607": {
+          "type": "copy",
+          "disabled": true,
+          "settings": {
+            "copy": "<p>When you're shopping for duvets and pillows, you want to know that you're getting the best quality materials and craftsmanship possible. That's why we've created an entire line of sleep products designed to make your bed the most comfortable and luxurious place in the world - <a href=\"/collections/all-bedding\" title=\"All Bedding\">from duvets to pillows to mattress protectors</a>.</p>",
+            "title": "Experience the cloud-like comfort of our duvets and pillows",
+            "copy_alignment": "right",
+            "background": true
+          }
+        },
+        "db13e1ca-642d-46f3-bbd2-e7502ddb4f93": {
+          "type": "imagegroup",
+          "disabled": true,
+          "settings": {
+            "image1_copy": "<p>To enhance comfort and warmth throughout the seasons, you can choose from a range of tog duvets or hollow fibre blend duvets.</p>",
+            "image1_aspect": "1:1",
+            "image2_copy": "<p>With our soft touch, anti-allergy pillows and duvets, you'll have all the support you need to gain a restful night's sleep every night.</p>",
+            "image2_aspect": "1:1",
+            "image3_copy": "<p>Our luxury mattress protectors are designed to keep your bed clean, dry, and comfortable.</p>",
+            "image3_aspect": "2:3",
+            "background": true
+          }
+        },
+        "98522fad-02e8-4ea2-b527-1c001422b598": {
+          "type": "copy",
+          "disabled": true,
+          "settings": {
+            "copy": "<p>We believe in quality, luxury materials and thoughtful design that's backed by science. Everything we create is made with only the best materials and manufactured by people who really care about what they do. We know how important it is for you to have a good night’s sleep, so we ensure that everything we produce helps you get just that.<br/><br/><strong>Now that you've found Christy, you're ready to make all of your bedtime dreams come true. Your perfect bedding is just a few clicks away!</strong></p>",
+            "title": "",
+            "copy_alignment": "left",
+            "background": true
+          }
+        },
+        "3a33be87-d24e-40bd-aab9-12e862ae6bcb": {
+          "type": "copy",
+          "disabled": true,
+          "settings": {
+            "copy": "<p>Create a cosy place to dream with our premium edit of <a href=\"/collections/all-accessories\" title=\"All Accessories\">cushions and throws</a>. From velvet plush throws to chunky knit blankets, we've got what you need to create a welcoming and relaxing space for you and your loved ones. Whether you're after the perfect scatter cushion for your favourite chair or something to keep you warm on frosty evenings, our range of throws, cushions and blankets has everything you could possibly want.</p>",
+            "title": "Transform your bedroom into a sleep sanctuary with cushions and throws",
+            "copy_alignment": "left",
+            "background": false
+          }
+        },
+        "5cd53bb9-0042-45f8-bccc-44aadf259f78": {
+          "type": "imagegroup",
+          "disabled": true,
+          "settings": {
+            "image1_copy": "<p>Our softest bed sheets are carefully crafted to provide a luxurious feel, and our thick, plush throws are guaranteed to keep you warm even when the temperature drops.</p>",
+            "image1_aspect": "2:3",
+            "image2_copy": "<p>Add a splash of colour with throws and cushions in rich vivid hues and calming neutrals.</p>",
+            "image2_aspect": "1:1",
+            "image3_copy": "<p>Accentuate your home decor with our soft, plump cushions - sure to be an eye-catching addition to any room in your home.</p>",
+            "image3_aspect": "1:1",
+            "background": false
+          }
+        },
+        "9c788114-0e17-4e4a-90ac-0edf460cd23f": {
+          "type": "imagetext",
+          "disabled": true,
+          "settings": {
+            "title": "Doze into dreamland with bedding created by experts - Shop with Christy",
+            "copy": "<p>Cocoon yourself in a world of pure luxury as you discover the perfect bedding produced by our craftsmen.<br/><br/>The best bedding is like a warm cuddle. It's like a soft kiss goodnight. It's like rainbows and sunshine, all wrapped up into one cosy package. And at Christy, we're committed to finding the best materials and techniques to create bedding that will ease you gently and comfortably into the land of nod. Simply put, we know how to make you feel like royalty - we've been doing it for decades.<br/><br/><strong>Check out our bedding collection today, and get a good night's sleep tomorrow.</strong></p>"
+          }
+        }
+      },
+      "block_order": [
+        "0cfbd7f1-f235-41c9-9b2b-cd5201339d29",
+        "f0ffe5d8-79c4-48a3-987e-d638b7875931",
+        "d5387739-f478-4cb8-8355-9b3492df7469",
+        "6b7f8a08-3319-4c8f-8c4e-46eec67e2708",
+        "60f49944-c7ff-4d2d-9f83-c87d00b9b607",
+        "db13e1ca-642d-46f3-bbd2-e7502ddb4f93",
+        "98522fad-02e8-4ea2-b527-1c001422b598",
+        "3a33be87-d24e-40bd-aab9-12e862ae6bcb",
+        "5cd53bb9-0042-45f8-bccc-44aadf259f78",
+        "9c788114-0e17-4e4a-90ac-0edf460cd23f"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "Discover Bedding",
+        "copy": "<p>You deserve the best of rest. Our bedding gently envelops you in a soft embrace to settle you into the sweetest dreams. Discover hand-painted designs, sumptuous fabrics, and durable materials at Christy. Your bed will be a haven for rest, relaxation, and deep sleep. From crisp, clean sheets to soft, snuggly throws, we've got the perfect combination for you.</p><p>Forget about your stresses and responsibilities and slip into a deep, peaceful sleep safely swaddled in the splendour of Christy’s bedding.</p>"
+      }
+    }
+  },
+  "order": [
+    "c13e9ca8-ca9c-4ed4-9a12-8bfd34eb0a02",
+    "e81c268d-881b-4c6d-a674-f0f49b2c9321",
+    "76c6e56b-583c-4e8e-82a1-c452644a34b6",
+    "06cfb5b0-ef0d-40ac-b0f2-de55cebec04c",
+    "9c1de53b-ac15-4e36-a743-64c26dabf7e2",
+    "4773ebfa-1456-4daf-80c3-f9c6478bf05e",
+    "c35d7fce-a552-4f31-9ffb-048a8c4c5b25",
+    "d38727e6-070e-4d88-af8b-6b75b41f7719",
+    "543b28bf-821e-4b5d-bfe7-b6b214117f7d",
+    "955ae530-8662-43db-b9cc-df67f9e5bda7",
+    "6851d866-adb6-4f4b-8e77-da4ae8ec22ef",
+    "393634d4-53d9-4c8e-be41-45c5d425188a",
+    "2c7e8cac-6078-4c3b-b5eb-fd09baf5939e",
+    "b9932fb5-c80a-402d-977c-e883e9dff131",
+    "07a57dc8-34ac-41ee-96df-37021aef7941",
+    "32651ade-df62-44f5-8355-bb4039f60426",
+    "product-grid",
+    "recent-products",
+    "toggled-body-content"
+  ]
+}
