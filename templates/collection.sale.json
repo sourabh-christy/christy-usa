@@ -11,8 +11,8 @@
   "sections": {
     "6707d50c-5555-48d5-ade4-86ed7f2b1da0": {
       "type": "hero-image",
-      "disabled": true,
       "settings": {
+        "image": "shopify://shop_images/THIN_BANNER_231283ad-0d0a-4c02-8b86-4f2017ecf57f.jpg",
         "link": "",
         "full_width": true
       }
