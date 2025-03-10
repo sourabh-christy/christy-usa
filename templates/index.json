@@ -12,10 +12,10 @@
     "97fe06ff-d1d9-4c8d-9cb3-24b8e821d00d": {
       "type": "hero-image",
       "settings": {
-        "image": "shopify://shop_images/DESKTOP_7ddb1aff-7eed-49ac-8cda-4563be161db5.jpg",
-        "image_mobile": "shopify://shop_images/MOBILE_a606790b-6272-46c9-bb82-048313bb71c2.jpg",
-        "image_tab": "shopify://shop_images/TABLET_b02e09ed-9e7d-4f74-b61b-a7e03cd81b18.jpg",
-        "link": "shopify://collections/womens-day-sale",
+        "image": "shopify://shop_images/Bath-Bestseller-DESKTOP.jpg",
+        "image_mobile": "shopify://shop_images/Bath-Bestseller-MOBILE.jpg",
+        "image_tab": "shopify://shop_images/Bath-Bestseller-TABLET.jpg",
+        "link": "shopify://collections/all-bath",
         "full_width": true
       }
     },
