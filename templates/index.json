@@ -13,9 +13,9 @@
       "type": "hero-image",
       "settings": {
         "image": "shopify://shop_images/Bath-Bestseller-DESKTOP.jpg",
-        "image_mobile": "shopify://shop_images/MOBILE_0914ddcc-5f55-4ec1-81e3-1873f150d268.jpg",
-        "image_tab": "shopify://shop_images/TABLET_3387b39a-a82b-45fa-a160-e039e0202241.jpg",
-        "link": "shopify://collections/spring-sale",
+        "image_mobile": "shopify://shop_images/Bath-Bestseller-MOBILE.jpg",
+        "image_tab": "shopify://shop_images/Bath-Bestseller-TABLET.jpg",
+        "link": "shopify://collections/towels",
         "full_width": true
       }
     },
