@@ -12,10 +12,10 @@
     "97fe06ff-d1d9-4c8d-9cb3-24b8e821d00d": {
       "type": "hero-image",
       "settings": {
-        "image": "shopify://shop_images/Bath-Bestseller-DESKTOP.jpg",
-        "image_mobile": "shopify://shop_images/Bath-Bestseller-MOBILE.jpg",
-        "image_tab": "shopify://shop_images/Bath-Bestseller-TABLET.jpg",
-        "link": "shopify://collections/towels",
+        "image": "shopify://shop_images/DESKTOP_63b0cfc7-90b4-412e-82d9-5843c62b8e03.jpg",
+        "image_mobile": "shopify://shop_images/MOBILE_017e8b88-9688-4741-879d-2c578cd14f06.jpg",
+        "image_tab": "shopify://shop_images/TABLET_d8d42887-4da6-4364-b0be-2ec1c03cce2b.jpg",
+        "link": "shopify://collections/easter-sale",
         "full_width": true
       }
     },
