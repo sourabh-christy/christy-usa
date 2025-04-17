@@ -151,11 +151,6 @@
         "disabled": false,
         "settings": {}
       },
-      "15475920322851709167": {
-        "type": "shopify://apps/securify-block-ip-country/blocks/app-embed/e3ed2576-9111-486f-86eb-a36b6bee4e94",
-        "disabled": false,
-        "settings": {}
-      },
       "246135896087123374": {
         "type": "shopify://apps/1clickpopup/blocks/main/233742b9-16cb-4f75-9de7-3fe92c29fdff",
         "disabled": false,
