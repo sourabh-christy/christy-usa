@@ -1,70 +1,64 @@
 <div class="product-card group/card info-content-block col-span-3  qt-info-content-fullwidth-block ">
-  
+  <div
+    class="space-y-4 h-full"
+  >
     <div
-      class="space-y-4 h-full"
-      
+      class="card__inner relative h-full flex flex-col gap-4 items-center justify-center qt-card-shop-now"
     >
-      <div
-        class="card__inner relative h-full flex flex-col gap-4 items-center justify-center qt-card-shop-now"
-      >
-       
-        {% comment %}QT 8-5-2024{% endcomment %}
-        <style>
-          .qt-info-content-fullwidth-block{
-            width:100%;
-            grid-column: span 3;
-            position:relative;
-          }
-      
-          .text-xl{
-            font-size:1.25rem;
-            line-height:1.75rem
-          }
-          
-          .text-4xl{font-size:2.25rem;line-height:2.5rem}
+      {% comment %}QT 8-5-2024{% endcomment %}
+      <style>
+        .qt-info-content-fullwidth-block{
+          width:100%;
+          grid-column: span 3;
+          position:relative;
+        }
 
-          .full-width-info-content-block-img{
-            filter: brightness(50%);
+        .text-xl{
+          font-size:1.25rem;
+          line-height:1.75rem
+        }
+
+        .text-4xl{font-size:2.25rem;line-height:2.5rem}
+
+        .full-width-info-content-block-img{
+          filter: brightness(50%);
+        }
+        @media (max-width: 768px) {
+          .qt-card-shop-now {
+            padding: 20px 0px 25px;
           }
-          @media (max-width: 768px) {
-            .qt-card-shop-now {
-              padding: 20px 0px 25px;
-            }
-            .qt-info-content-fullwidth-block{
-              {% comment %} width:334px; {% endcomment %}
-              grid-column: span 2;
-            }
+          .qt-info-content-fullwidth-block{
+            {% comment %} width:334px; {% endcomment %}
+            grid-column: span 2;
           }
-        </style>
-        
-        {%- if block.background_image -%}
-          {% comment %} {{
+        }
+      </style>
+
+      {%- if block.background_image -%}
+        {% comment %}
+          {{
             block.background_image
             | image_url: width: 1500
             | image_tag:
               alt: 'Gallery Image',
               class: 'w-full h-full object-cover left-0 top-0 -z-10 absolute brightness-50 qt-info-content-block-img',
-             
-              srcset: null
-          }} {% endcomment %}
 
-          {% assign image_class = 'object-cover object-center w-full h-full inset-0' %}
-          {% if block.overlay == true %}
-            {% assign image_class = image_class | append: ' full-width-info-content-block-img' %}
-          {% endif %}
-           
-          {% liquid
-            assign widths = '61, 122, 375, 550, 664, 750, 1100, 1344, 1500, 1780, 1920'
-            assign sizes = '(max-width: 767px) 100vw, (min-width: 768px) 332px'
-            %}
-  
-          {%- render 'lazyblockimg', 
-            img:   block.background_image ,
-            widths: widths,
-            class: image_class,
-            sizes: sizes
-          -%}  
-          {% comment %} 
+              srcset: null
+          }}
+        {% endcomment %}
+
+        {% assign image_class = 'object-cover object-center w-full h-full inset-0' %}
+        {% if block.overlay == true %}
+          {% assign image_class = image_class | append: ' full-width-info-content-block-img' %}
+        {% endif %}
+
+        {% liquid
+          assign widths = '61, 122, 375, 550, 664, 750, 1100, 1344, 1500, 1780, 1920'
+          assign sizes = '(max-width: 767px) 100vw, (min-width: 768px) 332px'
+        %}
+
+        {%- render 'lazyblockimg', img: block.background_image, widths: widths, class: image_class, sizes: sizes -%}
+        {% comment %}
           <img
             srcset="
               {%- if block.background_image.width >= 165 -%}{{ block.background_image | image_url: width: 165 }} 165w,{%- endif -%}
@@ -87,19 +81,18 @@
             width="{{ block.background_image.width }}"
             loading="lazy"
             class="motion-reduce w-full h-full object-cover left-0 top-0 -z-10 absolute brightness-50 qt-info-content-block-img"
-          /> 
-        {% endcomment %}  
-    
-          <div class="absolute z-0 w-full h-full flex flex-col items-center justify-center px-8 gap-6 text-white text-center">
-            <p class="text-xl">{{ block.short_title }}</p>
-            <p class="text-4xl">{{ block.long_title }}</p>
-            <p>{{ block.description | metafield_tag }}</p>
-            {% if block.button_text and block.button_text != '' %}
+          />
+        {% endcomment %}
+
+        <div class="absolute z-0 w-full h-full flex flex-col items-center justify-center px-8 gap-6 text-white text-center">
+          <p class="text-xl">{{ block.short_title }}</p>
+          <p class="text-4xl">{{ block.long_title }}</p>
+          <p>{{ block.description | metafield_tag }}</p>
+          {% if block.button_text and block.button_text != '' %}
             <a href="{{ block.button_url }}" class="px-4 py-2 bg-white text-blue-1">{{ block.button_text }}</a>
-            {% endif %}
-          </div>
-        {% endif %}
-      </div>
+          {% endif %}
+        </div>
+      {% endif %}
     </div>
   </div>
-  
+</div>

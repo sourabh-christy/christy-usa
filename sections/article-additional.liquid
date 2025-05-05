@@ -51,7 +51,7 @@
               {% if products.count > 0 %}
                 <div {{ block.shopify_attributes }} class="grid grid-cols-2 gap-14 lg:gap-24 animation an-fadeup">
                   {% for product in block.settings.products %}
-                    {% render 'card-product', card_product: product, section_id: section.id %}
+                    {% render 'card-product', dragable: true,  card_product: product, section_id: section.id %}
                   {% endfor %}
                 </div>
               {% endif %}

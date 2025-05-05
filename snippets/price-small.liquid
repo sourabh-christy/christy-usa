@@ -31,6 +31,8 @@
 -%}
 
 <div
+  id="price-small-snip"
+  data-price-value="price-small-snip"
   class="
     {%- if available == false %} price--sold-out {% endif -%}
     {%- if compare_at_price > price %} price--on-sale {% endif -%}
@@ -46,26 +48,26 @@
     {%- endcomment -%}
     <div class="price__regular {%- if compare_at_price > price %} hidden{% endif %}">
       <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
-      <span class="price-item price-item--regular">
+      <span class="price-item price-item--regular font-semibold">
         {{ money_price }}
       </span>
     </div>
-    <div class="price__sale {%- unless compare_at_price > price %} hidden{% endunless %}">
+    <div class="price__sale space-x-1 {%- unless compare_at_price > price %} hidden{% endunless %}">
       {%- unless current_variant.price_varies == false and current_variant.compare_at_price_varies %}
         <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
         <span>
-          <s class="price-item price-item--regular">
+          <s class="price-item price-item--regular inline-block font-normal">
             {% if settings.currency_code_enabled %}
-              {{ compare_at_price | money }}
+              {{- compare_at_price | money -}}
             {% else %}
-              {{ compare_at_price | money }}
+              {{- compare_at_price | money -}}
             {% endif %}
           </s>
         </span>
       {%- endunless -%}
-      <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.sale_price' | t }}</span>
+      <span class="visually-hidden visually-hidden--inline">{{- 'products.product.price.sale_price' | t -}}</span>
       <span class="price-item price-item--sale price-item--last">
-        {{ money_price }}
+        {{- money_price -}}
       </span>
     </div>
   </div>

@@ -1,36 +1,113 @@
 <section>
-  <div class="container py-20 grid md:grid-cols-3 gap-12 md:gap-3 md:gap-y-20">
-    <div class="flex items-center max-md:justify-center">
-      <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
-        <img class="" loading="eager" src="{{ 'christy-logo.svg' | asset_url }}" width="181" height="27" alt="{{ shop.name }}">
-        
-      </a>
-    </div>
-    <div class="md:col-span-2">
-      {% render 'email-signup-button', text: section.settings.email_signup_text %}
-    </div>
-    <div class="md:col-span-2 md:col-start-2">
-      {% for block in section.blocks %}
-        {% case block.type %}
-          {% when 'link_list' %}
-            {% assign menu = block.settings.footer_links %}
-            {% assign links = linklists[menu].links %}
-            {% if links != blank %}
-              <ul class="[&_a:hover]:underline grid grid-cols-2 lg:grid-cols-4 lg:grid-rows-6 lg:grid-flow-col [&_li:nth-child(2n+2)]:max-md:text-right gap-4 md:gap-3">
-                {% for link in links %}
-                  <li>
-                    <a href="{{link.url}}">{{ link.title }}</a>
-                  </li>
-                {% endfor %}
-              </ul>
-            {% endif %}
-        {% endcase %}
-      {% endfor %}
+  <div class="container container-sm pt-12 md:pb-8 pb-0 ">
+    <div class="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-y-0 gap-x-6 md:gap-x-6 md:gap-y-6 lg:gap-x-12 lg:gap-y-12 ">
+      <ul class="xl:max-w-[252px] flex xl:flex-col xl:mt-[92px] xl:justify-start justify-center gap-6 max-xl:gap-x-[38px]  md:row-start-1 md:row-end-2 md:col-start-1 md:col-end-4 xl:row-start-1 xl:row-end-2 xl:col-start-1 xl:col-end-2 mb-4 md:mb-0">
+        {%- if settings.social_instagram_link != blank -%}
+          <li>
+            <a
+              href="{{ settings.social_instagram_link }}"
+              class="grid grid-cols-[24px_1fr] grid-rows-[1fr] xl:gap-x-[13px] gap-y-0 items-center"
+              target="_blank"
+            >
+              {%- render 'icon-instagram' -%}
+              <span class="font-semibold text-xs tracking-tighter hidden xl:block">
+                {{- 'general.social.links.instagram' | t -}}
+              </span>
+            </a>
+          </li>
+        {%- endif -%}
+        {%- if settings.social_facebook_link != blank -%}
+          <li>
+            <a
+              href="{{ settings.social_facebook_link }}"
+              class="grid grid-cols-[24px_1fr] grid-rows-[1fr] xl:gap-x-[13px] gap-y-0 items-center"
+              target="_blank"
+            >
+              {%- render 'icon-facebook' -%}
+              <span class="font-semibold text-xs tracking-tighter hidden xl:block">
+                {{- 'general.social.links.facebook' | t -}}
+              </span>
+            </a>
+          </li>
+        {%- endif -%}
+        {%- if settings.social_twitter_link != blank -%}
+          <li>
+            <a
+              href="{{ settings.social_twitter_link }}"
+              class="grid grid-cols-[24px_1fr] grid-rows-[1fr] xl:gap-x-[13px] gap-y-0 items-center"
+              target="_blank"
+            >
+              {%- render 'icon-twitter' -%}
+              <span class="font-semibold text-xs tracking-tighter hidden xl:block">
+                {{- 'general.social.links.twitter' | t -}}
+              </span>
+            </a>
+          </li>
+        {%- endif -%}
+        {%- if settings.social_youtube_link != blank -%}
+          <li>
+            <a
+              href="{{ settings.social_youtube_link }}"
+              class="grid grid-cols-[24px_1fr] grid-rows-[1fr] xl:gap-x-[13px] gap-y-0 items-center"
+              target="_blank"
+            >
+              {%- render 'icon-youtube' -%}
+              <span class="font-semibold text-xs tracking-tighter hidden xl:block">
+                {{- 'general.social.links.youtube' | t -}}
+              </span>
+            </a>
+          </li>
+        {%- endif -%}
+        {%- if settings.social_pinterest_link != blank -%}
+          <li>
+            <a
+              href="{{ settings.social_pinterest_link }}"
+              class="grid grid-cols-[24px_1fr] grid-rows-[1fr] xl:gap-x-[13px] gap-y-0 items-center"
+              target="_blank"
+            >
+              {%- render 'icon-pinterest' -%}
+              <span class="font-semibold text-xs tracking-tighter hidden xl:block">
+                {{- 'general.social.links.pinterest' | t -}}
+              </span>
+            </a>
+          </li>
+        {%- endif -%}
+      </ul>
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'link_list' -%}
+          {%- assign menu = block.settings.footer_links -%}
+          {%- assign links = linklists[menu].links -%}
+          {%- if links != blank -%}
+            <div class="lg:max-w-[252px] dropdown-component mob-only overflow-hidden border-b md:border-b-0 border-secondary-blue-50">
+              {%- if block.settings.title != blank -%}
+                <li class="title grid grid-cols-[1fr_auto] grid-rows-[1fr] gap-x-[13px] gap-y-0 items-center md:[&>svg]:hidden text-[16px] md:text-xl font-semibold md:font-normal md:font-sec pt-6 pb-6 md:pt-2 md:pb-2 md:border-b border-secondary-blue-50">
+                  {{- block.settings.title -}}
+                  {%- render 'icon-arrow' -%}
+                </li>
+              {%- else -%}
+                <li class="title grid grid-cols-[1fr_auto] grid-rows-[1fr] gap-x-[13px] gap-y-0 items-center md:[&>svg]:hidden text-[16px] md:text-xl font-semibold md:font-normal md:font-sec pt-6 pb-6 md:pt-2 md:pb-2 md:border-b border-secondary-blue-50">
+                  {{- block.settings.footer_links.title -}}
+                  {%- render 'icon-arrow' -%}
+                </li>
+              {%- endif -%}
+              <div class="content content-max-height content-padding-s transition-all md:mt-[23px]  duration-300">
+                <ul class="pb-6 pt-3 grid grid-cols-2 md:grid-cols-1">
+                  {%- for link in links -%}
+                    <li class="text-sm mt-[9px] mb-[9px]">
+                      <a class="animated-underline font-normal" href="{{link.url}}">{{ link.title }}</a>
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              </div>
+            </div>
+          {%- endif -%}
+        {%- endif -%}
+      {%- endfor -%}
     </div>
   </div>
 </section>
 
-{% schema %}
+{%- schema %}
 {
   "name": "t:sections.footer.name",
   "blocks": [
@@ -42,20 +119,17 @@
       "name": "Footer Links",
       "settings": [
         {
+          "type": "text",
+          "id": "footer_title",
+          "label": "Footer Title"
+        },
+        {
           "type": "link_list",
           "id": "footer_links",
           "label": "Footer Links",
           "info": "Add links to your footer"
         }
       ]
-    }
-  ],
-  "settings": [
-    {
-      "type": "richtext",
-      "id": "email_signup_text",
-      "label": "Email Signup Text",
-      "default": "<p>Enter your email for our monthly newsletter + <strong>10% off your first purchase.</strong></p>"
     }
   ],
   "default": {
@@ -66,4 +140,4 @@
     ]
   }
 }
-{% endschema %}
+{% endschema -%}

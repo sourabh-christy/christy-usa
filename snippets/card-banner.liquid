@@ -1,0 +1,71 @@
+<article class="flex bg-[#DBD4CC]/20 items-center w-full h-full">
+  <div class="relative w-full h-full flex justify-center items-end">
+    <div class="block w-full h-full">
+      {% liquid
+        assign widths = '300, 375, 550, 660, 750, 1024, 1336'
+        assign sizes = '(max-width: 1023px) 50vw, (min-width: 1024px) 330px, 100vw'
+      %}
+
+      {% assign media_parts = media | split: '/' %}
+      {% if media_parts contains 'Video' %}
+        <div class="w-full h-full [&>video]:w-full [&>video]:h-full max-md:[&>video]:aspect-square [&>video]:object-cover [&>video]:object-center">
+          {{ media  | metafield_tag }}
+        </div>
+      {% else %}
+        <div class="w-full h-full [&>img]:w-full [&>img]:h-full [&>img]:object-cover [&>img]:object-center">
+        {{ media  | metafield_tag }}
+      </div>
+      {% endif %}
+      
+    </div>
+    <div
+      class="
+        flex-col flex absolute pb-11 px-2 w-full max-w-xs
+        {% if alignment == 'left' %}items-start text-start{% endif %}
+        {% if alignment == 'center' %}items-center text-center{% endif %}
+        {% if alignment == 'right' %}items-end text-right{% endif %}
+      "
+    >
+      <div class="flex w-full {% if collection_banner_number == 'second' %} flex-col-reverse {% else %} flex-col {% endif %}">
+        <h3 class="card-banner_title title text-wrap text-[32px] lg:text-ellipsis xl:break-words
+          font-sec font-normal leading-[52px] mb-4 w-full max-w-xs xl:text-[{{title_font_size}}px] 2xl:break-normal
+          {% if text_colour %} text-primary-white-cotton {% else %} text-primary-blue {% endif %}
+          "
+        >
+          {{ title }}
+        </h3>
+        <div class="subtitle text-[{{subtitle_font_size}}px] text-wrap
+          {% if text_colour %} text-primary-white-cotton {% else %} text-primary-blue {% endif %}
+          {% if collection_banner_number == 'second' %} font-semibold mb-2 {% else %} font-normal mb-6 {% endif %}
+          "
+        >
+          {{ subtitle }}
+        </div>
+      </div>
+      {% if button_text and button_url %}
+        <div class="w-full md:max-w-[260px]">
+          <a class="btn-large relative w-full md:max-w-[260px] font-normal
+            {% if btn_colour %} btn-secondary-white btn-hover-animated btn-hover-animated-secondary-white
+          {% else %} btn-primary btn-hover-animated-primary {% endif %}
+            " 
+            href="{{ button_url }}"
+          >
+            {{ button_text }}
+          </a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</article>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('video').forEach(video => {
+      video.setAttribute('loop', '');
+      video.setAttribute('autoplay', '');
+      video.setAttribute('muted', '');
+      video.setAttribute('playsinline', '');
+      video.play().catch(e => console.warn('Autoplay prevented:', e));
+    });
+  });
+</script>

@@ -2,25 +2,19 @@
   {% assign show_modal = false %}
   {% form 'customer', class: 'newsletter-form' %}
     {%- if form.posted_successfully? or form.errors -%}
-      {% assign show_modal = true %}
+      {% assign show_modal = false %}
     {% endif %}
   {% endform %}
 </div>
 
-{% comment %}}
-<script>
-  window._klOnsite = window._klOnsite || []; window._klOnsite.push(['openForm', 'WNjm8W']);
-</script>
-{% endcomment %}
-
 <div
   data-modal="email_signup"
-  class="modal group/drawer drawer z-40 [&.active]:visible fixed w-full h-full top-0 right-0 {% if show_modal %}active{% endif %}"
+  class="modal group/drawer drawer z-[2147483605] [&.active]:visible fixed w-full h-full top-0 right-0 {% if show_modal %}active{% endif %}"
 >
-  <div class="h-full flex justify-end opacity-0 transition-opacity group-[.active]/drawer:opacity-100 ">
+  <div class="h-full flex justify-end items-end opacity-0 transition-opacity group-[.active]/drawer:opacity-100 ">
     <div data-modalclose class="absolute w-full h-full bg-black/50"></div>
 
-    <div class="drawer__inner max-lg:self-end overflow-auto group/overflow js-overflow-styled bg-white max-h-full lg:h-full w-full md:max-w-[595px] translate-x-full group-[.active]/drawer:translate-x-0 duration-500 flex flex-col has-overflow">
+    <div class="drawer__inner max-lg:self-end overflow-auto group/overflow js-overflow-styled bg-white max-h-full w-full md:max-w-[595px] translate-x-full group-[.active]/drawer:translate-x-0 duration-500 flex flex-col has-overflow">
       <button
         class="drawer__close fixed cursor-pointer top-5 lg:top-14 right-5 lg:right-14 z-[60] w-[12px] h-[12px] lg:w-[16px] lg:h-[16px]  [&_svg]:w-full [&_svg]:h-auto close-icon"
         type="button"
@@ -48,18 +42,6 @@
         </div>
       {% endif %}
 
-                  <script type="text/javascript">
-                  	document.querySelector('.klaviyo_form_trigger').addEventListener('click', function (){
-                  		// window._klOnsite = window._klOnsite || []; 
-                  		//window._klOnsite.push(['openForm', 'FORM_ID']);
-
-                        window._klOnsite = window._klOnsite || []; 
-                        window._klOnsite.push(['openForm', 'WNjm8W']);
-                      
-                  	});
-                  </script>
- 
- {% comment %}    
       <div class="container pt-5 lg:pt-8 pb-10 lg:pb-20 space-y-4 lg:space-y-6 flex-1 flex justify-center flex-col">
         <div class="max-w-[365px] mx-auto space-y-5 lg:space-y-8">
           <div class="s-m-h4 lg:s-d-h3">{{ settings.email_modal_signup_text }}</div>
@@ -78,7 +60,7 @@
                       Thank you for signing up for our newsletter.
                     </h3>
 
-                    <p>Enter the code <strong>WELCOME10</strong> in the cart for 10% off your first order.</p>
+                    <p>Please check your email for your 10% discount code and to confirm your interest.</p>
                   {%- endif -%}
 
                   {%- if form.errors -%}
@@ -91,14 +73,6 @@
 
                   {%- if form.posted_successfully? -%}
                   {%- else -%}
-
-                  <script type="text/javascript">
-                  	document.querySelector('.klaviyo_form_trigger').addEventListener('click', function (){
-                  		window._klOnsite = window._klOnsite || []; 
-                  		window._klOnsite.push(['openForm', 'FORM_ID']);
-                  	});
-                  </script>
-                    
                     <div class="space-y-4 lg:space-y-6">
                       <div class="field-large">
                         <input
@@ -187,7 +161,6 @@
           </div>
         </div>
       </div>
-         {% endcomment %}}  
     </div>
   </div>
 </div>

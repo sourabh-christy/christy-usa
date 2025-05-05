@@ -1,0 +1,81 @@
+<article
+  class="md:flex bg-primary-white-cotton relative fullhd:container"
+>
+  <div class="block max-2xl:w-full max-2xl:max-w-[820px]">
+    {% assign media_parts = media | split: '/' %}
+    {% if media_parts contains 'Video' %}
+      <div class="max-md:[&>video]:h-[520px] md:[&>video]:h-[560px] max-xl:[&>video]:w-full xl:[&>video]:max-w-[820px] [&>video]:object-cover [&>video]:object-center max-xl:[&>video]:aspect-square">
+        {{ media  | metafield_tag }}
+      </div>
+    {% else %}
+      <div class="max-2xl:[&>img]:w-full 2xl:[&>img]:w-[820px] md:[&>img]:h-[560px] [&>img]:object-cover [&>img]:object-center [&>img]:hidden md:[&>img]:block">
+        {{ media  | metafield_tag }}
+      </div>
+      {% if media_mobile %}
+        <div class="[&>img]:w-full [&>img]:max-h-[520px] [&>img]:object-cover [&>img]:object-center [&>img]:opacity-100 [&>img]:block md:[&>img]:hidden">
+          {{ media_mobile  | metafield_tag }}
+        </div>
+      {% endif %}
+    {% endif %}
+  </div>
+
+  <div
+    class="max-lg:w-full max-2xl:px-4
+      flex-col flex justify-center max-w-[306px] md:mx-auto max-md:absolute max-md:inset-0 max-md:m-auto max-md:w-[306px] max-md:h-[306px]
+      {% if alignment == 'left' %}items-start text-start{% endif %}
+      {% if alignment == 'center' %}items-center text-center{% endif %}
+      {% if alignment == 'right' %}items-end text-right{% endif %}
+    "
+  >
+    <style>
+      .fluffy-title-{{id}} {
+        font-size: {{title_font_size_mobile}}px;
+      }
+      .fluffy-subtitle-{{id}} {
+        font-size: {{subtitle_font_size_mobile}}px;
+      }
+        @media all and ( min-width: 768px ) {
+          .fluffy-title-{{id}} {
+            font-size: {{title_font_size_desktop}}px;
+          }
+          .fluffy-subtitle-{{id}} {
+          font-size: {{subtitle_font_size_desktop}}px;
+          }
+        }
+    </style>
+    <h2
+      class="
+        fluffy-title-{{id}} font-sec font-normal leading-10 md:leading-[52px] mb-8 
+        {% if text_color_mobile %} max-md:text-primary-blue {% else %} max-md:text-primary-white-cotton {% endif %}
+        {% if text_color_desktop %} md:text-primary-blue {% else %} md:text-primary-white-cotton {% endif %}
+      "
+    >
+      {{- title -}}
+    </h2>
+
+    {% if subtitle %}
+      <p
+        class="
+          fluffy-subtitle-{{id}} font-normal leading-5 md:leading-6 mb-8
+          {% if text_color_mobile %} max-md:text-primary-blue {% else %} max-md:text-primary-white-cotton {% endif %}
+          {% if text_color_desktop %} md:text-primary-blue {% else %} md:text-primary-white-cotton {% endif %}
+        "
+      >
+        {{- subtitle -}}
+      </p>
+    {% endif %}
+
+    {% if button_text and button_url %}
+      <a
+        href="{{ button_url }}"
+        class="
+          text-sm text-center max-w-[205px] md:max-w-[321px] w-full py-3 px-8 relative
+          {% if button_color %} btn-primary btn-hover-animated-primary
+        {% else %} border btn-secondary btn-hover-animated btn-hover-animated-secondary {% endif %}
+        "
+      >
+        {{- button_text -}}
+      </a>
+    {% endif %}
+  </div>
+</article>

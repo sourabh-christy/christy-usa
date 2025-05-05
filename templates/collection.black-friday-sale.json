@@ -1,86 +1,239 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
-    "c13e9ca8-ca9c-4ed4-9a12-8bfd34eb0a02": {
-      "type": "hero-image",
-      "disabled": true,
-      "settings": {
-        "link": "",
-        "full_width": true
-      }
-    },
-    "9cbbf3db-9560-4cc3-8e41-727f9fe4d27c": {
-      "type": "hero-image",
-      "settings": {
-        "image": "shopify://shop_images/THIN_BANNER_805dbf51-6449-4987-b0df-3cac52d63084.jpg",
-        "link": "",
-        "full_width": true
-      }
-    },
-    "9c1de53b-ac15-4e36-a743-64c26dabf7e2": {
-      "type": "collections-carousel",
+    "c_info_columns_KCfUMt": {
+      "type": "c-info-columns",
       "blocks": {
-        "4d759cd0-37d8-4277-9cda-5841b0bb3c4b": {
-          "type": "collection",
+        "column_iwtN8U": {
+          "type": "column",
           "settings": {
-            "collection": "towels",
-            "usp_title": "Up to 50% Off",
-            "image": "shopify://shop_images/Trellis_White_db079fcd-0fa0-4d0e-b6a9-48597bd01e12.jpg",
-            "alt_title": "Luxury Towels",
-            "excerpt": "",
-            "collection_carousel_excerpt_font_size_mob": 18,
-            "collection_carousel_excerpt_font_size_desktop": 30,
-            "collection_carousel_excerpt_font_weight": "400",
-            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
+            "image": "shopify:\/\/shop_images\/Towels_8224a0cc-8d59-4de8-bb6c-56a15638ff40.jpg",
+            "image_aspect": "1:1",
+            "title": "",
+            "text": "",
+            "button_label": "",
+            "button_link": "offers-towels",
+            "collection_tag": ""
           }
         },
-        "1ae70297-a748-4b57-b0a1-b53cc14bb4f5": {
-          "type": "collection",
+        "column_FTjtyL": {
+          "type": "column",
           "settings": {
-            "collection": "bundle",
-            "usp_title": "Up to 60% Off",
-            "image": "shopify://shop_images/Brixton-Slate-001-Lifestyle.jpg",
-            "alt_title": "Bundles",
-            "excerpt": "",
-            "collection_carousel_excerpt_font_size_mob": 18,
-            "collection_carousel_excerpt_font_size_desktop": 30,
-            "collection_carousel_excerpt_font_weight": "400",
-            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
+            "image": "shopify:\/\/shop_images\/Artboard_7-02_39e9003a-fa66-45d5-8013-a30c375dc695.jpg",
+            "image_aspect": "1:1",
+            "title": "",
+            "text": "",
+            "button_label": "",
+            "button_link": "all-loungewear",
+            "collection_tag": ""
           }
         },
-        "484f5ca2-a708-49c4-9ac3-08032d35cb5b": {
-          "type": "collection",
+        "column_BrLxwR": {
+          "type": "column",
           "settings": {
-            "collection": "bath-mats-and-rugs",
-            "usp_title": "Up to 50% Off",
-            "image": "shopify://shop_images/Brown_Photo_Quote_Gallery_Collage_Aesthetic_Instagram_Post.png",
-            "alt_title": "Mats & Rugs",
-            "excerpt": "",
-            "collection_carousel_excerpt_font_size_mob": 18,
-            "collection_carousel_excerpt_font_size_desktop": 30,
-            "collection_carousel_excerpt_font_weight": "400",
-            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
+            "image": "shopify:\/\/shop_images\/Artboard_7-14_5c6bd922-a35d-45ee-a31c-3b4c3ca4019c.jpg",
+            "image_aspect": "1:1",
+            "title": "",
+            "text": "",
+            "button_label": "",
+            "button_link": "duvet-sets-sale",
+            "collection_tag": ""
+          }
+        },
+        "column_AMPJir": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Artboard_7-04_049dfbda-e328-43ac-8fd0-eaf2e871bd5e.jpg",
+            "image_aspect": "1:1",
+            "title": "",
+            "text": "",
+            "button_label": "",
+            "button_link": "bedroom-cushions-throws",
+            "collection_tag": ""
+          }
+        },
+        "column_q3zfUR": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Artboard_7-06_dfef4cba-fffb-4594-9cb5-b24339609266.jpg",
+            "image_aspect": "1:1",
+            "title": "",
+            "text": "",
+            "button_label": "",
+            "button_link": "offers-duvets-pillows",
+            "collection_tag": ""
+          }
+        },
+        "column_UibetA": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Artboard_7-07.jpg",
+            "image_aspect": "1:1",
+            "title": "",
+            "text": "",
+            "button_label": "",
+            "button_link": "clearance",
+            "collection_tag": ""
           }
         }
       },
       "block_order": [
-        "4d759cd0-37d8-4277-9cda-5841b0bb3c4b",
-        "1ae70297-a748-4b57-b0a1-b53cc14bb4f5",
-        "484f5ca2-a708-49c4-9ac3-08032d35cb5b"
+        "column_iwtN8U",
+        "column_FTjtyL",
+        "column_BrLxwR",
+        "column_AMPJir",
+        "column_q3zfUR",
+        "column_UibetA"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "title_font_size_mob": 16,
+        "title_font_size_desktop": 20,
+        "title_font_weight": "600",
+        "title_font_family": "sans-serif",
+        "copy_font_size_mob": 12,
+        "copy_font_size_desktop": 14,
+        "copy_font_weight": "300",
+        "copy_font_family": "sans-serif"
+      }
+    },
+    "collections_carousel_kYrrme": {
+      "type": "collections-carousel",
+      "blocks": {
+        "collection_Xw8677": {
+          "type": "collection",
+          "settings": {
+            "collection": "offers-towels",
+            "usp_title": "",
+            "image": "shopify:\/\/shop_images\/Towels_8224a0cc-8d59-4de8-bb6c-56a15638ff40.jpg",
+            "alt_title": "",
+            "excerpt": "",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 14,
+            "collection_carousel_excerpt_font_weight": "300",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk",
+            "hide_carousel_title": true,
+            "hide_carousel_excerpt": true,
+            "hide_shopnow": true
+          }
+        },
+        "collection_B7AKrw": {
+          "type": "collection",
+          "settings": {
+            "collection": "robes",
+            "usp_title": "",
+            "image": "shopify:\/\/shop_images\/Artboard_7-03_4d985ccb-91ad-4584-8dba-1cee6659ae8d.jpg",
+            "alt_title": "",
+            "excerpt": "",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 14,
+            "collection_carousel_excerpt_font_weight": "300",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk",
+            "hide_carousel_title": true,
+            "hide_carousel_excerpt": true,
+            "hide_shopnow": true
+          }
+        },
+        "collection_f9UzUM": {
+          "type": "collection",
+          "settings": {
+            "collection": "duvet-sets-sale",
+            "usp_title": "",
+            "image": "shopify:\/\/shop_images\/Artboard_7-13_445b31b8-e2b4-41e7-b671-d5431540869d.jpg",
+            "alt_title": "",
+            "excerpt": "",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 14,
+            "collection_carousel_excerpt_font_weight": "300",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk",
+            "hide_carousel_title": true,
+            "hide_carousel_excerpt": true,
+            "hide_shopnow": true
+          }
+        },
+        "collection_Yd4PLV": {
+          "type": "collection",
+          "disabled": true,
+          "settings": {
+            "collection": "bedroom-bedroom-sale",
+            "usp_title": "",
+            "alt_title": "",
+            "excerpt": "",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 14,
+            "collection_carousel_excerpt_font_weight": "300",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk",
+            "hide_carousel_title": false,
+            "hide_carousel_excerpt": true,
+            "hide_shopnow": false
+          }
+        },
+        "collection_NG79BR": {
+          "type": "collection",
+          "settings": {
+            "collection": "bedroom-cushions-throws",
+            "usp_title": "",
+            "image": "shopify:\/\/shop_images\/Artboard_7-04_049dfbda-e328-43ac-8fd0-eaf2e871bd5e.jpg",
+            "alt_title": "",
+            "excerpt": "",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 14,
+            "collection_carousel_excerpt_font_weight": "300",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk",
+            "hide_carousel_title": true,
+            "hide_carousel_excerpt": true,
+            "hide_shopnow": true
+          }
+        },
+        "collection_pJfKVF": {
+          "type": "collection",
+          "settings": {
+            "collection": "offers-duvets-pillows",
+            "usp_title": "",
+            "image": "shopify:\/\/shop_images\/Artboard_7-06_dfef4cba-fffb-4594-9cb5-b24339609266.jpg",
+            "alt_title": "",
+            "excerpt": "",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 14,
+            "collection_carousel_excerpt_font_weight": "300",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk",
+            "hide_carousel_title": true,
+            "hide_carousel_excerpt": true,
+            "hide_shopnow": true
+          }
+        },
+        "collection_JQkygB": {
+          "type": "collection",
+          "settings": {
+            "collection": "clearance",
+            "usp_title": "",
+            "image": "shopify:\/\/shop_images\/Artboard_7-07.jpg",
+            "alt_title": "",
+            "excerpt": "",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 14,
+            "collection_carousel_excerpt_font_weight": "300",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk",
+            "hide_carousel_title": true,
+            "hide_carousel_excerpt": true,
+            "hide_shopnow": true
+          }
+        }
+      },
+      "block_order": [
+        "collection_Xw8677",
+        "collection_B7AKrw",
+        "collection_f9UzUM",
+        "collection_Yd4PLV",
+        "collection_NG79BR",
+        "collection_pJfKVF",
+        "collection_JQkygB"
       ],
       "settings": {
         "title": "Shop By Category",
         "collection_carousel_title_font_size_mob": 18,
-        "collection_carousel_title_font_size_desktop": 30,
-        "collection_carousel_title_font_weight": "500",
+        "collection_carousel_title_font_size_desktop": 36,
+        "collection_carousel_title_font_weight": "400",
         "collection_carousel_title_font_family": "Hatton, serif",
         "screen_visibility": "both"
       }
@@ -91,8 +244,8 @@
         "template--21521866129696__c66f958a-b771-485c-bd16-7e2841ec3c60-text-1": {
           "type": "text",
           "settings": {
-            "title": "",
-            "text": "<p>Wrap up your Christmas shopping early! We will now accept returns and exchanges till 31st January 2025.</p>"
+            "title": "Wrap up your Christmas shopping early!",
+            "text": "<p>Enjoy peace of mind this festive season with our extended gift return period. We will now accept returns and exchanges until 31st January 2025.<\/p>"
           }
         },
         "template--21521866129696__c66f958a-b771-485c-bd16-7e2841ec3c60-image-1": {
@@ -111,78 +264,491 @@
         "template--21521866129696__c66f958a-b771-485c-bd16-7e2841ec3c60-image-1",
         "template--21521866129696__c66f958a-b771-485c-bd16-7e2841ec3c60-products-1"
       ],
-      "disabled": true,
       "settings": {
         "title": "Extended Hassle Free Returns"
+      }
+    },
+    "296b5fdf-eac7-4cd0-922e-5d27c605fc41": {
+      "type": "products-carousel",
+      "settings": {
+        "title": "Minimum 50% Off",
+        "title_font_size_mob": 18,
+        "title_font_size_desktop": 36,
+        "title_font_weight": "400",
+        "title_font_family": "serif",
+        "button_title": "",
+        "button_link": "",
+        "products": [
+          "signum-675-gsm-combed-cotton",
+          "flannel-marl-duvet-set",
+          "serene-550-gsm-combed-cotton",
+          "flannel-stripe-duvet-set",
+          "flannel-marl-fitted-sheet",
+          "flannel-marl-pillowcases",
+          "anti-allergy-mattress-and-pillow-protectors",
+          "metropolitan-throw",
+          "metropolitan-cushion",
+          "reversible-bath-rug",
+          "mode-towels"
+        ],
+        "screen_visibility": "both"
       }
     },
     "82bff3e6-7ee4-4ad7-9806-4ffa6631c225": {
       "type": "products-carousel",
       "settings": {
-        "title": "Plush Perfection Awaits: Towel Sale",
-        "mobile_title": "Our Best Sellers",
+        "title": "Big Discounts on Best Sellers",
         "title_font_size_mob": 18,
-        "title_font_size_desktop": 30,
-        "title_font_weight": "500",
-        "title_font_family": "Hatton, serif",
-        "button_title": "Shop All",
-        "button_link": "shopify://collections/towels",
+        "title_font_size_desktop": 36,
+        "title_font_weight": "400",
+        "title_font_family": "serif",
+        "button_title": "",
+        "button_link": "",
         "products": [
+          "super-soft-cosy-robe",
           "renaissance",
-          "luxe-towels",
+          "400-thread-count-sateen-plain-dye",
+          "jaipur-throw",
+          "200tc-organic",
+          "brixton-towels",
           "supreme-hygro",
-          "trellis-towels",
-          "brixton-textured-towels-1"
+          "luxe-towels",
+          "prism-towels"
         ],
+        "screen_visibility": "both"
+      }
+    },
+    "article_additional_BB6A99": {
+      "type": "article-additional",
+      "blocks": {
+        "text_efKYdm": {
+          "type": "text",
+          "settings": {
+            "title": "Wrap up your Christmas shopping early!",
+            "text": "<p>Enjoy peace of mind this festive season with our extended gift return period. We will now accept returns and exchanges until 31st January 2025.<\/p>"
+          }
+        },
+        "image_TTNQgm": {
+          "type": "image",
+          "settings": {}
+        },
+        "products_x8rFda": {
+          "type": "products",
+          "settings": {
+            "products": []
+          }
+        }
+      },
+      "block_order": [
+        "text_efKYdm",
+        "image_TTNQgm",
+        "products_x8rFda"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "Why Christy?"
+      }
+    },
+    "benefits_icons_PLWVJD": {
+      "type": "benefits-icons",
+      "blocks": {
+        "block_7DMfH3": {
+          "type": "block",
+          "settings": {
+            "title": "Legacy of Innovation",
+            "copy": "<p>Bringing you quality and durability through 170 years of legacy and innovation.<\/p>",
+            "button_link": "shopify:\/\/pages\/our-heritage",
+            "button_title": "Learn More"
+          }
+        },
+        "block_a3y8XM": {
+          "type": "block",
+          "settings": {
+            "title": "Sustainability",
+            "copy": "<p>Sustainable material to ethical manufacturing and mindful packaging.<\/p>",
+            "button_link": "shopify:\/\/pages\/responsibility",
+            "button_title": "Learn More"
+          }
+        },
+        "block_knTb7Y": {
+          "type": "block",
+          "settings": {
+            "title": "Loved by our Customers",
+            "copy": "<p>3000+ 5 star reviews with a score of 4.5 out of 5 on Trustpilot<\/p>",
+            "button_link": "shopify:\/\/collections\/shop-all",
+            "button_title": "Shop the Range"
+          }
+        },
+        "block_tU8E8g": {
+          "type": "block",
+          "settings": {
+            "title": "Free Shipping & Returns",
+            "copy": "<p>Free Shipping above £50 plus our Worry-Free Extended Return Guarantee.<\/p>",
+            "button_link": "shopify:\/\/pages\/shipping-policy",
+            "button_title": "Learn More"
+          }
+        }
+      },
+      "block_order": [
+        "block_7DMfH3",
+        "block_a3y8XM",
+        "block_knTb7Y",
+        "block_tU8E8g"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "Why Christy?",
+        "margin": "yes"
+      }
+    },
+    "2842eb42-811e-4056-970a-2f1bcc377e84": {
+      "type": "images-copy-cta",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/1080X1700_3.jpg",
+        "image2": "shopify:\/\/shop_images\/Gift-box2.jpg",
+        "subtitle": "",
+        "title": "<p>For Everyone On Your List<\/p>",
+        "copy": "<p>Elevate your gift-giving experience with our luxurious gifting collection.<\/p><p>To add that personal touch, we offer a gift box service with the option to include a heartfelt, personalised message. It's the perfect way to convey your warmest wishes and sentiments, making your gift truly unique and special.<\/p>",
+        "button_label": "Shop our Gifting Range",
+        "button_link": "shopify:\/\/collections\/gifts",
+        "content_position": "right",
+        "header_position": false,
+        "images_half_width": false,
+        "anchor_id": ""
+      }
+    },
+    "1faadb62-9346-46cf-8500-cc18fc75bda3": {
+      "type": "heading",
+      "disabled": true,
+      "settings": {
+        "heading": "<p>Threaded Bliss: Unwrap Luxury with Black Friday Bath Deals!<\/p>",
+        "heading_font_size_mob": 24,
+        "heading_font_size_desktop": 36,
+        "heading_font_weight": "400",
+        "heading_font_family": "Hatton, serif",
+        "heading_width": "4",
+        "copy": "",
+        "heading_copy_font_size_mob": 12,
+        "heading_copy_font_size_desktop": 14,
+        "heading_copy_font_weight": "300",
+        "heading_copy_font_family": "Tomato Grotesk",
+        "copy_style": "default",
+        "alignment": "center",
+        "alignment_mob": "center",
+        "horiz_padding": true,
+        "margin_top": false
+      }
+    },
+    "9c1de53b-ac15-4e36-a743-64c26dabf7e2": {
+      "type": "collections-carousel",
+      "blocks": {
+        "4d759cd0-37d8-4277-9cda-5841b0bb3c4b": {
+          "type": "collection",
+          "settings": {
+            "collection": "offers-towels",
+            "usp_title": "",
+            "image": "shopify:\/\/shop_images\/Artboard_7-01_62f667ad-918a-4278-b80f-f202ce5dda01.jpg",
+            "alt_title": "Luxury Towels",
+            "excerpt": "",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 14,
+            "collection_carousel_excerpt_font_weight": "300",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk",
+            "hide_carousel_title": true,
+            "hide_carousel_excerpt": true,
+            "hide_shopnow": true
+          }
+        },
+        "1ae70297-a748-4b57-b0a1-b53cc14bb4f5": {
+          "type": "collection",
+          "settings": {
+            "collection": "robes",
+            "usp_title": "",
+            "image": "shopify:\/\/shop_images\/Artboard_7-02_39e9003a-fa66-45d5-8013-a30c375dc695.jpg",
+            "alt_title": "Plush Bath Robes",
+            "excerpt": "",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 14,
+            "collection_carousel_excerpt_font_weight": "300",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk",
+            "hide_carousel_title": true,
+            "hide_carousel_excerpt": true,
+            "hide_shopnow": true
+          }
+        },
+        "484f5ca2-a708-49c4-9ac3-08032d35cb5b": {
+          "type": "collection",
+          "settings": {
+            "collection": "bath-mats-and-rugs",
+            "usp_title": "",
+            "image": "shopify:\/\/shop_images\/Artboard_7-08_728506fd-a67f-4340-8194-4951f99d66bb.jpg",
+            "alt_title": "Mats & Rugs",
+            "excerpt": "",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 14,
+            "collection_carousel_excerpt_font_weight": "300",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk",
+            "hide_carousel_title": true,
+            "hide_carousel_excerpt": true,
+            "hide_shopnow": true
+          }
+        }
+      },
+      "block_order": [
+        "4d759cd0-37d8-4277-9cda-5841b0bb3c4b",
+        "1ae70297-a748-4b57-b0a1-b53cc14bb4f5",
+        "484f5ca2-a708-49c4-9ac3-08032d35cb5b"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "Threaded Bliss: Unwrap Luxury with Bathroom Deals!",
+        "collection_carousel_title_font_size_mob": 18,
+        "collection_carousel_title_font_size_desktop": 30,
+        "collection_carousel_title_font_weight": "500",
+        "collection_carousel_title_font_family": "Hatton, serif",
         "screen_visibility": "both"
       }
     },
     "0ea7c509-a0e6-4f26-8f0f-2d0f5eb7a796": {
       "type": "products-carousel",
       "settings": {
-        "title": "Black Friday Bundles",
-        "mobile_title": "Black Friday Bundles",
+        "title": "Fluffy Towel Frenzy!",
         "title_font_size_mob": 18,
-        "title_font_size_desktop": 30,
-        "title_font_weight": "500",
-        "title_font_family": "Hatton, serif",
+        "title_font_size_desktop": 36,
+        "title_font_weight": "400",
+        "title_font_family": "serif",
         "button_title": "Shop Now",
-        "button_link": "shopify://collections/bundle",
+        "button_link": "shopify:\/\/collections\/offers-towels",
         "products": [
-          "supreme-refresh-bundle",
-          "reversible-rug-duo-bundle",
-          "renaissance-refresh-plus-bundle",
-          "renaissance-complete-home-plus-bundle",
-          "deep-pile-rug-duo-bundle",
-          "brixton-mat-duo-bundle",
-          "brixton-deluxe-starter-bundle"
+          "trellis-towel",
+          "brixton-towels",
+          "cirrus-towels-450-gsm-cotton",
+          "supreme-hygro",
+          "organic",
+          "prism-towels",
+          "carnaby-stripe",
+          "mode-towels",
+          "renaissance",
+          "luxe-towels",
+          "signum-675-gsm-combed-cotton",
+          "serene-550-gsm-combed-cotton"
         ],
         "screen_visibility": "both"
       }
     },
-    "products_carousel_YNLdiJ": {
-      "type": "products-carousel",
+    "c35d7fce-a552-4f31-9ffb-048a8c4c5b25": {
+      "type": "heading",
       "disabled": true,
       "settings": {
-        "title": "Fluff and Fold: Black Friday Towel Frenzy!",
-        "mobile_title": "Our Best Sellers",
+        "heading": "<p>Dreamy Deals Await: Unbeatable Black Friday Bedding Discounts<\/p>",
+        "heading_font_size_mob": 24,
+        "heading_font_size_desktop": 36,
+        "heading_font_weight": "400",
+        "heading_font_family": "Hatton, serif",
+        "heading_width": "4",
+        "copy": "",
+        "heading_copy_font_size_mob": 12,
+        "heading_copy_font_size_desktop": 14,
+        "heading_copy_font_weight": "300",
+        "heading_copy_font_family": "Tomato Grotesk",
+        "copy_style": "default",
+        "alignment": "center",
+        "alignment_mob": "center",
+        "horiz_padding": true,
+        "margin_top": false
+      }
+    },
+    "d38727e6-070e-4d88-af8b-6b75b41f7719": {
+      "type": "collections-carousel",
+      "blocks": {
+        "3f15cc9c-c32d-43a2-b8a0-175614a8ae86": {
+          "type": "collection",
+          "settings": {
+            "collection": "duvet-sets",
+            "usp_title": "",
+            "image": "shopify:\/\/shop_images\/Artboard_7-14_5c6bd922-a35d-45ee-a31c-3b4c3ca4019c.jpg",
+            "alt_title": "",
+            "excerpt": "",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 14,
+            "collection_carousel_excerpt_font_weight": "300",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk",
+            "hide_carousel_title": true,
+            "hide_carousel_excerpt": true,
+            "hide_shopnow": true
+          }
+        },
+        "76a7aa40-fad4-4756-b863-71f413788066": {
+          "type": "collection",
+          "settings": {
+            "collection": "sheets",
+            "usp_title": "",
+            "image": "shopify:\/\/shop_images\/Artboard_7-10_7dfb9e55-7da1-48d7-9a0a-8b4d34aab6cb.jpg",
+            "alt_title": "",
+            "excerpt": "",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 14,
+            "collection_carousel_excerpt_font_weight": "300",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk",
+            "hide_carousel_title": true,
+            "hide_carousel_excerpt": true,
+            "hide_shopnow": true
+          }
+        },
+        "6748815e-680b-4a82-9435-2cf556cc867c": {
+          "type": "collection",
+          "settings": {
+            "collection": "duvet-pillows",
+            "usp_title": "",
+            "image": "shopify:\/\/shop_images\/Artboard_7-05_36caa916-44e2-448f-8403-9b68d68f7c67.jpg",
+            "alt_title": "",
+            "excerpt": "",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 14,
+            "collection_carousel_excerpt_font_weight": "300",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk",
+            "hide_carousel_title": true,
+            "hide_carousel_excerpt": true,
+            "hide_shopnow": true
+          }
+        },
+        "2c4374cb-ef41-43b7-96f5-f6b61b083b01": {
+          "type": "collection",
+          "settings": {
+            "collection": "flat-sheets",
+            "usp_title": "",
+            "image": "shopify:\/\/shop_images\/Artboard_7-09_e726843d-c3d7-4070-97ad-9ece04baf400.jpg",
+            "alt_title": "",
+            "excerpt": "<p> <\/p>",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 14,
+            "collection_carousel_excerpt_font_weight": "300",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk",
+            "hide_carousel_title": true,
+            "hide_carousel_excerpt": true,
+            "hide_shopnow": true
+          }
+        },
+        "b67ebaca-9de3-43d0-9ee0-554bcc673479": {
+          "type": "collection",
+          "settings": {
+            "collection": "pillowcases",
+            "usp_title": "",
+            "image": "shopify:\/\/shop_images\/Artboard_7-11_f0a218bd-9406-411a-9a39-12bef19ac69b.jpg",
+            "alt_title": "Pillowcases",
+            "excerpt": "<p> <\/p>",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 14,
+            "collection_carousel_excerpt_font_weight": "300",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk",
+            "hide_carousel_title": true,
+            "hide_carousel_excerpt": true,
+            "hide_shopnow": true
+          }
+        },
+        "1c561ecc-6e7c-4c2d-ae57-409320a93e2f": {
+          "type": "collection",
+          "settings": {
+            "collection": "protectors-and-toppers",
+            "usp_title": "",
+            "image": "shopify:\/\/shop_images\/Artboard_7-12_7204a315-1328-416a-8b7b-d03354e0225d.jpg",
+            "alt_title": "",
+            "excerpt": "<p> <\/p>",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 14,
+            "collection_carousel_excerpt_font_weight": "300",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk",
+            "hide_carousel_title": true,
+            "hide_carousel_excerpt": true,
+            "hide_shopnow": true
+          }
+        }
+      },
+      "block_order": [
+        "3f15cc9c-c32d-43a2-b8a0-175614a8ae86",
+        "76a7aa40-fad4-4756-b863-71f413788066",
+        "6748815e-680b-4a82-9435-2cf556cc867c",
+        "2c4374cb-ef41-43b7-96f5-f6b61b083b01",
+        "b67ebaca-9de3-43d0-9ee0-554bcc673479",
+        "1c561ecc-6e7c-4c2d-ae57-409320a93e2f"
+      ],
+      "settings": {
+        "title": "Dreamy Bedding Deals Await",
+        "collection_carousel_title_font_size_mob": 18,
+        "collection_carousel_title_font_size_desktop": 36,
+        "collection_carousel_title_font_weight": "400",
+        "collection_carousel_title_font_family": "Hatton, serif",
+        "screen_visibility": "both"
+      }
+    },
+    "543b28bf-821e-4b5d-bfe7-b6b214117f7d": {
+      "type": "products-carousel",
+      "settings": {
+        "title": "Cosy Bedding Offers",
         "title_font_size_mob": 18,
-        "title_font_size_desktop": 30,
-        "title_font_weight": "500",
-        "title_font_family": "Hatton, serif",
+        "title_font_size_desktop": 36,
+        "title_font_weight": "400",
+        "title_font_family": "serif",
         "button_title": "Shop Now",
-        "button_link": "shopify://collections/offers-towels",
+        "button_link": "shopify:\/\/collections\/bedroom-bedroom-sale",
         "products": [
-          "renaissance",
-          "signum-675-gsm-combed-cotton",
-          "brixton-towels",
-          "luxe-towels",
-          "supreme-hygro",
-          "carnaby-stripe",
-          "mode-towels",
-          "serene-550-gsm-combed-cotton",
-          "midori-towels",
-          "tribeca-towels"
+          "smooth-and-silky-cotton-sateen-fitted-sheet",
+          "200tc-organic",
+          "magnolia-duvet-set",
+          "flannel-stripe-duvet-set",
+          "botanical-duvet-set",
+          "scallop-edge-duvet-set",
+          "anti-allergy-mattress-and-pillow-protectors",
+          "organic-ruffle-duvet-set",
+          "luxury-king-size-pillow",
+          "coniston-bed-linen",
+          "luxury-microfibre-13-5-tog-duvet"
+        ],
+        "screen_visibility": "both"
+      }
+    },
+    "393634d4-53d9-4c8e-be41-45c5d425188a": {
+      "type": "heading",
+      "disabled": true,
+      "settings": {
+        "heading": "<p>Pair with our exquisite Throws & Cushions<\/p>",
+        "heading_font_size_mob": 24,
+        "heading_font_size_desktop": 36,
+        "heading_font_weight": "400",
+        "heading_font_family": "Hatton, serif",
+        "heading_width": "4",
+        "copy": "",
+        "heading_copy_font_size_mob": 12,
+        "heading_copy_font_size_desktop": 14,
+        "heading_copy_font_weight": "300",
+        "heading_copy_font_family": "Tomato Grotesk",
+        "copy_style": "default",
+        "alignment": "center",
+        "alignment_mob": "center",
+        "horiz_padding": true,
+        "margin_top": false
+      }
+    },
+    "2c7e8cac-6078-4c3b-b5eb-fd09baf5939e": {
+      "type": "products-carousel",
+      "settings": {
+        "title": "Exquisite Throws & Cushions",
+        "title_font_size_mob": 18,
+        "title_font_size_desktop": 36,
+        "title_font_weight": "400",
+        "title_font_family": "serif",
+        "button_title": "Explore the Range",
+        "button_link": "",
+        "products": [
+          "jaipur-throw",
+          "edmonton",
+          "oslo",
+          "jaipur-cushion",
+          "metropolitan-throw",
+          "metropolitan-cushion",
+          "lisbon-throw",
+          "madeira-throw",
+          "porto-throw"
         ],
         "screen_visibility": "both"
       }
@@ -194,17 +760,18 @@
           "type": "block",
           "settings": {
             "title": "Legacy of Innovation",
-            "copy": "<p>Bringing you quality and durability through 170 years of legacy and innovation.</p>",
-            "button_link": "shopify://pages/our-heritage",
-            "button_title": "Learn More"
+            "copy": "<p>Bringing you quality and durability through 175 years of legacy and innovation.<\/p>",
+            "button_link": "",
+            "button_title": ""
           }
         },
         "template--21389292339488__955ae530-8662-43db-b9cc-df67f9e5bda7-block-2": {
           "type": "block",
+          "disabled": true,
           "settings": {
             "title": "Sustainability",
-            "copy": "<p>Sustainable material to ethical manufacturing and mindful packaging.</p>",
-            "button_link": "shopify://pages/responsibility",
+            "copy": "<p>Sustainable material to ethical manufacturing and mindful packaging.<\/p>",
+            "button_link": "shopify:\/\/pages\/responsibility",
             "button_title": "Learn More"
           }
         },
@@ -212,17 +779,18 @@
           "type": "block",
           "settings": {
             "title": "Loved by our Customers",
-            "copy": "<p>3000+ 5 star reviews with a score of 4.5 out of 5 on Trustpilot</p>",
-            "button_link": "shopify://collections/shop-all",
-            "button_title": "Shop the Range"
+            "copy": "<p>3000+ 5 star reviews with a score of 4.5 out of 5 on Trustpilot<\/p>",
+            "button_link": "",
+            "button_title": ""
           }
         },
         "template--21389292339488__955ae530-8662-43db-b9cc-df67f9e5bda7-block-4": {
           "type": "block",
+          "disabled": true,
           "settings": {
             "title": "Free Shipping & Returns",
-            "copy": "<p>Free Shipping above £50 plus our Worry-Free Extended Return Guarantee.</p>",
-            "button_link": "shopify://pages/shipping-policy",
+            "copy": "<p>Free Shipping above £50 plus our Worry-Free Extended Return Guarantee.<\/p>",
+            "button_link": "shopify:\/\/pages\/shipping-policy",
             "button_title": "Learn More"
           }
         }
@@ -238,63 +806,16 @@
         "margin": "yes"
       }
     },
-    "1faadb62-9346-46cf-8500-cc18fc75bda3": {
-      "type": "heading",
-      "settings": {
-        "heading": "<p>Threaded Bliss: Unwrap Luxury with Black Friday Bath Deals!</p>",
-        "heading_font_size_mob": 24,
-        "heading_font_size_desktop": 36,
-        "heading_font_weight": "600",
-        "heading_font_family": "Hatton, serif",
-        "heading_width": "4",
-        "copy": "",
-        "heading_copy_font_size_mob": 12,
-        "heading_copy_font_size_desktop": 14,
-        "heading_copy_font_weight": "300",
-        "heading_copy_font_family": "Tomato Grotesk",
-        "copy_style": "default",
-        "alignment": "center",
-        "alignment_mob": "center",
-        "horiz_padding": true,
-        "margin_top": false,
-        "background_color": "#ffffff",
-        "font_color": "#000000"
-      }
-    },
-    "c35d7fce-a552-4f31-9ffb-048a8c4c5b25": {
-      "type": "heading",
-      "settings": {
-        "heading": "<p>Dream in Style: Black Friday Luxury Bedding Bonanza!</p>",
-        "heading_font_size_mob": 24,
-        "heading_font_size_desktop": 36,
-        "heading_font_weight": "600",
-        "heading_font_family": "Hatton, serif",
-        "heading_width": "4",
-        "copy": "",
-        "heading_copy_font_size_mob": 12,
-        "heading_copy_font_size_desktop": 14,
-        "heading_copy_font_weight": "300",
-        "heading_copy_font_family": "Tomato Grotesk",
-        "copy_style": "default",
-        "alignment": "center",
-        "alignment_mob": "center",
-        "horiz_padding": true,
-        "margin_top": false,
-        "background_color": "#ffffff",
-        "font_color": "#000000"
-      }
-    },
     "product-grid": {
       "type": "main-collection-product-grid",
       "blocks": {
         "77b7bcba-adf8-4b59-84fa-2aed599efb4a": {
           "type": "infocard",
-          "disabled": true,
           "settings": {
-            "text": "",
-            "copy": "",
-            "button_text": "Shop All Sale",
-            "button_url": "shopify://collections/shop-all-sale",
+            "text": "Cotton Sateen Sheets",
+            "copy": "<p>Resist the temptation to take just a few more minutes nestled up in the indulgent comfort our smooth cotton sheets.  <br\/>The sateen fabric has a gentle sheen and feels oh-so-nice against the skin. Once you've snuggled up in bed, you may never want to get out again.<\/p>",
+            "button_text": "Discover Collection",
+            "button_url": "shopify:\/\/products\/400-thread-count-sateen-plain-dye",
             "styled": true,
             "position": 8
           }
@@ -319,9 +840,9 @@
           "disabled": true,
           "settings": {
             "text": "Build your Bundle",
-            "copy": "<p>Discover your perfect match for a restful night’s slumber.</p>",
+            "copy": "<p>Discover your perfect match for a restful night’s slumber.<\/p>",
             "button_text": "Build your Dream Duvet Set",
-            "button_url": "shopify://collections/duvet-sets",
+            "button_url": "shopify:\/\/collections\/duvet-sets",
             "styled": false,
             "position": 7
           }
@@ -351,17 +872,6 @@
       "disabled": true,
       "settings": {
         "products_per": 12,
-        "excerpt": "Towels",
-        "title_font_size_mob": 26,
-        "title_font_size_desktop": 40,
-        "title_font_weight": "500",
-        "title_font_family": "Hatton, serif",
-        "seo_liner": "Indulge in the ultimate comfort with our luxury towels, crafted from the finest materials for a plush, spa-like experience every day.",
-        "seo_liner_font_size_mob": 14,
-        "seo_liner_font_size_desktop": 14,
-        "seo_liner_font_weight": "300",
-        "seo_liner_font_family": "Tomato Grotesk",
-        "enable_filtering": true,
         "enable_sorting": true
       }
     },
@@ -372,6 +882,104 @@
         "heading": "Previously explored"
       }
     },
+    "d9350269-9c53-4976-897a-27cf368fb2c9": {
+      "type": "rich-text",
+      "blocks": {
+        "template--21521866129696__d9350269-9c53-4976-897a-27cf368fb2c9-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "",
+            "sub_title_size": "h2"
+          }
+        },
+        "template--21521866129696__d9350269-9c53-4976-897a-27cf368fb2c9-main_heading-1": {
+          "type": "main_heading",
+          "settings": {
+            "heading": "Klarna"
+          }
+        },
+        "template--21521866129696__d9350269-9c53-4976-897a-27cf368fb2c9-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Split your Purchase into three interest free payments<\/p>"
+          }
+        },
+        "abe23243-0761-4a67-854b-6cdcae812b64": {
+          "type": "button",
+          "settings": {
+            "button_label": "Learn More",
+            "button_link": "https:\/\/www.christy.co.uk\/pages\/klarna-faqs?ose=false",
+            "button_label_2": "",
+            "button_link_2": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--21521866129696__d9350269-9c53-4976-897a-27cf368fb2c9-heading-1",
+        "template--21521866129696__d9350269-9c53-4976-897a-27cf368fb2c9-main_heading-1",
+        "template--21521866129696__d9350269-9c53-4976-897a-27cf368fb2c9-text-1",
+        "abe23243-0761-4a67-854b-6cdcae812b64"
+      ],
+      "settings": {
+        "full_width": false,
+        "anchor_id": ""
+      }
+    },
+    "ed3fec5f-2dcd-4456-9169-b2f17089966f": {
+      "type": "c-info-columns",
+      "blocks": {
+        "template--21521866129696__ed3fec5f-2dcd-4456-9169-b2f17089966f-column-1": {
+          "type": "column",
+          "settings": {
+            "image_aspect": "1:1",
+            "title": "Step 1",
+            "text": "<p>Choose your gift items from across our collections and add to cart.<\/p>",
+            "button_label": "",
+            "button_link": "",
+            "collection_tag": ""
+          }
+        },
+        "template--21521866129696__ed3fec5f-2dcd-4456-9169-b2f17089966f-column-2": {
+          "type": "column",
+          "settings": {
+            "image_aspect": "1:1",
+            "title": "Step 2",
+            "text": "<p>Check the \"Make it extra special with a gift box\" option at the bottom of the cart (£5 per gift box).<\/p>",
+            "button_label": "",
+            "button_link": "",
+            "collection_tag": ""
+          }
+        },
+        "template--21521866129696__ed3fec5f-2dcd-4456-9169-b2f17089966f-column-3": {
+          "type": "column",
+          "settings": {
+            "image_aspect": "1:1",
+            "title": "Step 3",
+            "text": "<p>Add a free personal message to your loved one and proceed to checkout. All done!<\/p>",
+            "button_label": "",
+            "button_link": "",
+            "collection_tag": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--21521866129696__ed3fec5f-2dcd-4456-9169-b2f17089966f-column-1",
+        "template--21521866129696__ed3fec5f-2dcd-4456-9169-b2f17089966f-column-2",
+        "template--21521866129696__ed3fec5f-2dcd-4456-9169-b2f17089966f-column-3"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "It takes 3 Simple Steps",
+        "title_font_size_mob": 16,
+        "title_font_size_desktop": 20,
+        "title_font_weight": "400",
+        "title_font_family": "serif",
+        "copy_font_size_mob": 12,
+        "copy_font_size_desktop": 14,
+        "copy_font_weight": "300",
+        "copy_font_family": "sans-serif"
+      }
+    },
     "toggled-body-content": {
       "type": "toggled-body-content",
       "blocks": {
@@ -380,14 +988,14 @@
           "disabled": true,
           "settings": {
             "title": "Drift into a peaceful slumber with our lovingly-crafted bedding",
-            "copy": "<p>Are you looking for luxury bedding sets that are designed by experts and woven to the highest thread count? Are you tired of settling for bedding sets that don't hold up to the quality that you deserve? After 170 years of crafting household linens, <a href=\"/collections/all-bedding\" title=\"All Bedding\">Christy is here for you.</a><br/><br/>You deserve nothing less than a nightly warm hug, the bedding you can sink into, and a safe space to sleep your troubles away. And we're here to help you get it. We know that a good night's sleep means the difference between a good day and a perfect one. That's why we only use the finest fabrics and expert craftsmanship to create our luxury bedding sets.<br/><br/>We believe that you deserve a great night's sleep every night. Our goal is to create bedding that provides a relaxing feel while maintaining its quality over time so you can enjoy the benefits of a great night's sleep for years to come. Our team of experts takes pride in every stitch, every seam, and every detail - so don't settle for anything less than perfection when it comes to your bedding.</p>"
+            "copy": "<p>Are you looking for luxury bedding sets that are designed by experts and woven to the highest thread count? Are you tired of settling for bedding sets that don't hold up to the quality that you deserve? After 170 years of crafting household linens, <a href=\"\/collections\/all-bedding\" title=\"All Bedding\">Christy is here for you.<\/a><br\/><br\/>You deserve nothing less than a nightly warm hug, the bedding you can sink into, and a safe space to sleep your troubles away. And we're here to help you get it. We know that a good night's sleep means the difference between a good day and a perfect one. That's why we only use the finest fabrics and expert craftsmanship to create our luxury bedding sets.<br\/><br\/>We believe that you deserve a great night's sleep every night. Our goal is to create bedding that provides a relaxing feel while maintaining its quality over time so you can enjoy the benefits of a great night's sleep for years to come. Our team of experts takes pride in every stitch, every seam, and every detail - so don't settle for anything less than perfection when it comes to your bedding.<\/p>"
           }
         },
         "f0ffe5d8-79c4-48a3-987e-d638b7875931": {
           "type": "copy",
           "disabled": true,
           "settings": {
-            "copy": "<p>Our <a href=\"/collections/duvet-sets\" title=\"Duvet Sets\">duvet covers</a> provide the ultimate indulgence. Your bedding is the first thing you see when you wake up in the morning and the last thing you see before going to sleep at night so we want you to experience ultimate satisfaction when you see and feel their opulence. Your bed should be soft and inviting, but also durable enough to stand up to years of use and regular wash cycles.</p>",
+            "copy": "<p>Our <a href=\"\/collections\/duvet-sets\" title=\"Duvet Sets\">duvet covers<\/a> provide the ultimate indulgence. Your bedding is the first thing you see when you wake up in the morning and the last thing you see before going to sleep at night so we want you to experience ultimate satisfaction when you see and feel their opulence. Your bed should be soft and inviting, but also durable enough to stand up to years of use and regular wash cycles.<\/p>",
             "title": "Escape into a world of tranquillity with Christy duvet covers",
             "copy_alignment": "left",
             "background": false
@@ -397,11 +1005,11 @@
           "type": "imagegroup",
           "disabled": true,
           "settings": {
-            "image1_copy": "<p>Our duvet covers and bed sheets are made from a range of quality fabrics including <a href=\"/collections/all-bedding\" title=\"All Bedding\">high thread count Egyptian percale</a> so they feel soft against your skin and luxurious in every way.</p>",
+            "image1_copy": "<p>Our duvet covers and bed sheets are made from a range of quality fabrics including <a href=\"\/collections\/all-bedding\" title=\"All Bedding\">high thread count Egyptian percale<\/a> so they feel soft against your skin and luxurious in every way.<\/p>",
             "image1_aspect": "2:3",
-            "image2_copy": "<p>From regal jacquard to elegant florals and geometric patterns, we have a range of <a href=\"/collections/all-bedding\" title=\"All Bedding\">cotton bedding sets</a> to match any room's colour palette.</p>",
+            "image2_copy": "<p>From regal jacquard to elegant florals and geometric patterns, we have a range of <a href=\"\/collections\/all-bedding\" title=\"All Bedding\">cotton bedding sets<\/a> to match any room's colour palette.<\/p>",
             "image2_aspect": "1:1",
-            "image3_copy": "<p>Our extensive bedding collection is made to withstand the test of time due to the quality of textiles and craftsmanship we utilise.  We have an array of bedding options to suit all bed sizes, from single to double duvets to super king.</p>",
+            "image3_copy": "<p>Our extensive bedding collection is made to withstand the test of time due to the quality of textiles and craftsmanship we utilise.  We have an array of bedding options to suit all bed sizes, from single to double duvets to super king.<\/p>",
             "image3_aspect": "1:1",
             "background": false
           }
@@ -410,7 +1018,7 @@
           "type": "copy",
           "disabled": true,
           "settings": {
-            "copy": "<p>When you're searching for quality bedding and duvet covers that enhance your beauty sleep, <a href=\"/collections/all-bedding\" title=\"All Bedding\">our wide range of bedding</a> is just what you need. Our products are crafted with top-quality fabrics and materials, so they will feel great against your skin while also providing long-lasting comfort. <br/><br/><strong>Cloud Nine is the place to be. Let our beautiful bedding take you there.<br/></strong></p>",
+            "copy": "<p>When you're searching for quality bedding and duvet covers that enhance your beauty sleep, <a href=\"\/collections\/all-bedding\" title=\"All Bedding\">our wide range of bedding<\/a> is just what you need. Our products are crafted with top-quality fabrics and materials, so they will feel great against your skin while also providing long-lasting comfort. <br\/><br\/><strong>Cloud Nine is the place to be. Let our beautiful bedding take you there.<br\/><\/strong><\/p>",
             "title": "",
             "copy_alignment": "right",
             "background": false
@@ -420,7 +1028,7 @@
           "type": "copy",
           "disabled": true,
           "settings": {
-            "copy": "<p>When you're shopping for duvets and pillows, you want to know that you're getting the best quality materials and craftsmanship possible. That's why we've created an entire line of sleep products designed to make your bed the most comfortable and luxurious place in the world - <a href=\"/collections/all-bedding\" title=\"All Bedding\">from duvets to pillows to mattress protectors</a>.</p>",
+            "copy": "<p>When you're shopping for duvets and pillows, you want to know that you're getting the best quality materials and craftsmanship possible. That's why we've created an entire line of sleep products designed to make your bed the most comfortable and luxurious place in the world - <a href=\"\/collections\/all-bedding\" title=\"All Bedding\">from duvets to pillows to mattress protectors<\/a>.<\/p>",
             "title": "Experience the cloud-like comfort of our duvets and pillows",
             "copy_alignment": "right",
             "background": true
@@ -430,11 +1038,11 @@
           "type": "imagegroup",
           "disabled": true,
           "settings": {
-            "image1_copy": "<p>To enhance comfort and warmth throughout the seasons, you can choose from a range of tog duvets or hollow fibre blend duvets.</p>",
+            "image1_copy": "<p>To enhance comfort and warmth throughout the seasons, you can choose from a range of tog duvets or hollow fibre blend duvets.<\/p>",
             "image1_aspect": "1:1",
-            "image2_copy": "<p>With our soft touch, anti-allergy pillows and duvets, you'll have all the support you need to gain a restful night's sleep every night.</p>",
+            "image2_copy": "<p>With our soft touch, anti-allergy pillows and duvets, you'll have all the support you need to gain a restful night's sleep every night.<\/p>",
             "image2_aspect": "1:1",
-            "image3_copy": "<p>Our luxury mattress protectors are designed to keep your bed clean, dry, and comfortable.</p>",
+            "image3_copy": "<p>Our luxury mattress protectors are designed to keep your bed clean, dry, and comfortable.<\/p>",
             "image3_aspect": "2:3",
             "background": true
           }
@@ -443,7 +1051,7 @@
           "type": "copy",
           "disabled": true,
           "settings": {
-            "copy": "<p>We believe in quality, luxury materials and thoughtful design that's backed by science. Everything we create is made with only the best materials and manufactured by people who really care about what they do. We know how important it is for you to have a good night’s sleep, so we ensure that everything we produce helps you get just that.<br/><br/><strong>Now that you've found Christy, you're ready to make all of your bedtime dreams come true. Your perfect bedding is just a few clicks away!</strong></p>",
+            "copy": "<p>We believe in quality, luxury materials and thoughtful design that's backed by science. Everything we create is made with only the best materials and manufactured by people who really care about what they do. We know how important it is for you to have a good night’s sleep, so we ensure that everything we produce helps you get just that.<br\/><br\/><strong>Now that you've found Christy, you're ready to make all of your bedtime dreams come true. Your perfect bedding is just a few clicks away!<\/strong><\/p>",
             "title": "",
             "copy_alignment": "left",
             "background": true
@@ -453,7 +1061,7 @@
           "type": "copy",
           "disabled": true,
           "settings": {
-            "copy": "<p>Create a cosy place to dream with our premium edit of <a href=\"/collections/all-accessories\" title=\"All Accessories\">cushions and throws</a>. From velvet plush throws to chunky knit blankets, we've got what you need to create a welcoming and relaxing space for you and your loved ones. Whether you're after the perfect scatter cushion for your favourite chair or something to keep you warm on frosty evenings, our range of throws, cushions and blankets has everything you could possibly want.</p>",
+            "copy": "<p>Create a cosy place to dream with our premium edit of <a href=\"\/collections\/all-accessories\" title=\"All Accessories\">cushions and throws<\/a>. From velvet plush throws to chunky knit blankets, we've got what you need to create a welcoming and relaxing space for you and your loved ones. Whether you're after the perfect scatter cushion for your favourite chair or something to keep you warm on frosty evenings, our range of throws, cushions and blankets has everything you could possibly want.<\/p>",
             "title": "Transform your bedroom into a sleep sanctuary with cushions and throws",
             "copy_alignment": "left",
             "background": false
@@ -463,11 +1071,11 @@
           "type": "imagegroup",
           "disabled": true,
           "settings": {
-            "image1_copy": "<p>Our softest bed sheets are carefully crafted to provide a luxurious feel, and our thick, plush throws are guaranteed to keep you warm even when the temperature drops.</p>",
+            "image1_copy": "<p>Our softest bed sheets are carefully crafted to provide a luxurious feel, and our thick, plush throws are guaranteed to keep you warm even when the temperature drops.<\/p>",
             "image1_aspect": "2:3",
-            "image2_copy": "<p>Add a splash of colour with throws and cushions in rich vivid hues and calming neutrals.</p>",
+            "image2_copy": "<p>Add a splash of colour with throws and cushions in rich vivid hues and calming neutrals.<\/p>",
             "image2_aspect": "1:1",
-            "image3_copy": "<p>Accentuate your home decor with our soft, plump cushions - sure to be an eye-catching addition to any room in your home.</p>",
+            "image3_copy": "<p>Accentuate your home decor with our soft, plump cushions - sure to be an eye-catching addition to any room in your home.<\/p>",
             "image3_aspect": "1:1",
             "background": false
           }
@@ -477,7 +1085,7 @@
           "disabled": true,
           "settings": {
             "title": "Doze into dreamland with bedding created by experts - Shop with Christy",
-            "copy": "<p>Cocoon yourself in a world of pure luxury as you discover the perfect bedding produced by our craftsmen.<br/><br/>The best bedding is like a warm cuddle. It's like a soft kiss goodnight. It's like rainbows and sunshine, all wrapped up into one cosy package. And at Christy, we're committed to finding the best materials and techniques to create bedding that will ease you gently and comfortably into the land of nod. Simply put, we know how to make you feel like royalty - we've been doing it for decades.<br/><br/><strong>Check out our bedding collection today, and get a good night's sleep tomorrow.</strong></p>"
+            "copy": "<p>Cocoon yourself in a world of pure luxury as you discover the perfect bedding produced by our craftsmen.<br\/><br\/>The best bedding is like a warm cuddle. It's like a soft kiss goodnight. It's like rainbows and sunshine, all wrapped up into one cosy package. And at Christy, we're committed to finding the best materials and techniques to create bedding that will ease you gently and comfortably into the land of nod. Simply put, we know how to make you feel like royalty - we've been doing it for decades.<br\/><br\/><strong>Check out our bedding collection today, and get a good night's sleep tomorrow.<\/strong><\/p>"
           }
         }
       },
@@ -495,23 +1103,49 @@
       ],
       "settings": {
         "title": "Discover Black Friday",
-        "copy": "<p>Unwrap Joy this Black Friday with Christy's Exclusive Deals! </p><p>Dive into a world of luxury and savings this Black Friday, featuring exclusive deals with up to 35% off on premium towels, bath mats & rugs.</p><p>Upgrade your bathroom with Christy's plush towels and bath mats. Wrap yourself in pure comfort and experience the epitome of indulgence after every bath or shower.</p><p>These exclusive Black Friday deals won't last forever! Shop now to secure your favourites before they're gone. Don't miss out on the chance to elevate your home with Christy's timeless elegance. </p><p>Black Friday is your golden opportunity to experience luxury for less so get ready to elevate your home with Christy!</p>"
+        "copy": "<p>Unwrap Joy this Black Friday with Christy's Exclusive Deals! <\/p><p>Dive into a world of luxury and savings this Black Friday, featuring exclusive deals with up to 50% off on premium bedding, towels, bath robes and throws.<\/p><p>Transform your bedroom into a sanctuary of tranquillity with our sumptuous bedding collections. From silky-soft sheets to opulent duvet covers, indulge in the luxury you deserve.<\/p><p>Upgrade your bathroom with Christy's plush towels and bathrobes. Wrap yourself in pure comfort and experience the epitome of indulgence after every bath or shower.<\/p><p>These exclusive Black Friday deals won't last forever! Shop now to secure your favourites before they're gone. Don't miss out on the chance to elevate your home with Christy's timeless elegance. <\/p><p>Black Friday is your golden opportunity to experience luxury for less so get ready to elevate your home with Christy!<\/p>"
+      }
+    },
+    "hero_static_BQqnWt": {
+      "type": "hero-static",
+      "disabled": true,
+      "settings": {
+        "subtitle": "Sub Title",
+        "title": "Title",
+        "copy": "<p>We're working to build a better future, and are improving our processes for the good of our consumers, our communities and the wider environment.<\/p>",
+        "button_label": "Shop now",
+        "button_link": "",
+        "subtitle2": "Sub Title",
+        "title2": "Title",
+        "copy2": "<p>We're working to build a better future, and are improving our processes for the good of our consumers, our communities and the wider environment.<\/p>",
+        "button_label2": "Shop now",
+        "button_link2": ""
       }
     }
   },
   "order": [
-    "c13e9ca8-ca9c-4ed4-9a12-8bfd34eb0a02",
-    "9cbbf3db-9560-4cc3-8e41-727f9fe4d27c",
-    "9c1de53b-ac15-4e36-a743-64c26dabf7e2",
+    "c_info_columns_KCfUMt",
+    "collections_carousel_kYrrme",
     "c66f958a-b771-485c-bd16-7e2841ec3c60",
+    "296b5fdf-eac7-4cd0-922e-5d27c605fc41",
     "82bff3e6-7ee4-4ad7-9806-4ffa6631c225",
-    "0ea7c509-a0e6-4f26-8f0f-2d0f5eb7a796",
-    "products_carousel_YNLdiJ",
-    "955ae530-8662-43db-b9cc-df67f9e5bda7",
+    "article_additional_BB6A99",
+    "benefits_icons_PLWVJD",
+    "2842eb42-811e-4056-970a-2f1bcc377e84",
     "1faadb62-9346-46cf-8500-cc18fc75bda3",
+    "9c1de53b-ac15-4e36-a743-64c26dabf7e2",
+    "0ea7c509-a0e6-4f26-8f0f-2d0f5eb7a796",
     "c35d7fce-a552-4f31-9ffb-048a8c4c5b25",
+    "d38727e6-070e-4d88-af8b-6b75b41f7719",
+    "543b28bf-821e-4b5d-bfe7-b6b214117f7d",
+    "393634d4-53d9-4c8e-be41-45c5d425188a",
+    "2c7e8cac-6078-4c3b-b5eb-fd09baf5939e",
+    "955ae530-8662-43db-b9cc-df67f9e5bda7",
     "product-grid",
     "recent-products",
-    "toggled-body-content"
+    "d9350269-9c53-4976-897a-27cf368fb2c9",
+    "ed3fec5f-2dcd-4456-9169-b2f17089966f",
+    "toggled-body-content",
+    "hero_static_BQqnWt"
   ]
 }

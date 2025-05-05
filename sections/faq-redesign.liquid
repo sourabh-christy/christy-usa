@@ -1,0 +1,82 @@
+{%- unless template == 'search' -%}
+  <div class="md:flex hidden container container-sm faq-section">
+    <div class="dropdown-component  overflow-hidden child-underline">
+      <h3 class="title flex items-start justify-center gap-4 cursor-pointer text-2xl lg:text-[40px] lg:leading-[42px] font-sec p-[40px] text-primary-blue lg:[&>svg]:mt-2 [&>svg]:mt-1 lg:[&>svg]:w-6 [&>svg]:w-4 lg:[&>svg]:h-6 [&>svg]:h-4">
+        {{ section.settings.heading }}
+        {%- render 'icon-arrow' -%}
+      </h3>
+      <div class="content content-max-height max-h-0 overflow-hidden transition-all duration-300">
+        <div class="pb-12 grid grid-cols-1 gap-8">
+          {%- if template == 'collection' and collection.metafields.custom.faq != blank -%}
+            {% for faq in collection.metafields.custom.faq.value %}
+              <div class="dropdown-component overflow-hidden">
+                <div class="title flex items-center gap-4 cursor-pointer  font-semibold text-[22px] text-primary-blue">
+                  {{ faq.title }}
+                  {%- render 'icon-arrow' -%}
+                </div>
+                <div class="content max-h-0 overflow-hidden transition-all duration-300 grid grid-cols-1 lg:grid-cols-1 gap-8">
+                  <div class="text-[16px] text-primary-blue [&>div>p>em]:font-semibold [&>div>p>em]:not-italic [&>div>p>strong]:block [&>div>p>strong]:mt-8 [&>div>p>strong]:mb-2">
+                    {{ faq.text | metafield_tag }}
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          {%- else -%}
+            {%- for block in section.blocks -%}
+              <div class="dropdown-component overflow-hidden">
+                <div class="title flex items-center gap-4 cursor-pointer  font-semibold text-[22px] text-primary-blue">
+                  {{ block.settings.title }}
+                  {%- render 'icon-arrow' -%}
+                </div>
+                <div class="content max-h-0 overflow-hidden transition-all duration-300 grid grid-cols-1 lg:grid-cols-1 gap-8">
+                  <div class="text-[16px] text-primary-blue [&>p>em]:font-semibold [&>p>em]:not-italic [&>p>strong]:block [&>p>strong]:mt-8 [&>p>strong]:mb-2">
+                    {{ block.settings.text }}
+                  </div>
+                </div>
+              </div>
+            {%- endfor -%}
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+{%- endunless -%}
+
+{% schema %}
+{
+  "name": "FAQ",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "FAQs?"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Content",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ"
+    }
+  ]
+}
+{% endschema %}

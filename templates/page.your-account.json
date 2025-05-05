@@ -1,0 +1,30 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-your-account",
+      "settings": {
+        "first_line": "Not a member yet?",
+        "second_line": "Not a Join the Christy program to start earning points and exclusive benefits.",
+        "link_text": "Learn more",
+        "link_url": "shopify:\/\/pages\/loyalty-points",
+        "bottom_text": "<ul><li>For faster checkout<\/li><li>For easier order tracking<\/li><li>To use saved addresses and payment types<\/li><li>To access your Saved Items<\/li><\/ul>"
+      }
+    },
+    "track": {
+      "type": "track-your-account",
+      "settings": {
+        "heading": "Need help with your recent order?",
+        "middle_text": "You can track your order or create a return without signing in using the links below.",
+        "returns_text": "Returns",
+        "returns_icon": "shopify:\/\/shop_images\/delivery-status_2_1.svg",
+        "returns_link": "https:\/\/returns.christy.co.uk\/",
+        "track_text": "Track Order",
+        "track_link": "https:\/\/track.christy.co.uk\/"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "track"
+  ]
+}

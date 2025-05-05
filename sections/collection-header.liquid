@@ -2,7 +2,7 @@
   <ul class="flex flex-wrap text-blue-1 gap-1">
     {% assign collectionsCount = product.collections.size %}
     <li>
-      <a href="{{ shop.url }}">Home</a>
+      <a href="{{ shop.url }}" class="text-xs font-normal">Home</a>
     </li>
 
     {%- assign parent_collection = collection.metafields.custom.parent_collection.value %}
@@ -10,14 +10,14 @@
       <li>/</li>
 
       <li>
-        <a href="{{ parent_collection.url }}">{{ parent_collection.title }}</a>
+        <a href="{{ parent_collection.url }}" class="text-xs font-normal">{{ parent_collection.title }}</a>
       </li>
     {%- endif -%}
 
     <li>/</li>
 
-    <li>
-      <a href="{{ collection.url }}">{{ collection.title }}</a>
+    <li class="font-normal last:font-semibold">
+      <a href="{{ collection.url }}" class="text-xs">{{ collection.title }}</a>
     </li>
 
     {%- for filter in collection.filters -%}
@@ -26,7 +26,7 @@
           {% if value.active %}
             <li>/</li>
             <li>
-              <strong>{{ value.label }}</strong>
+              <strong class="text-xs font-semibold">{{ value.label }}</strong>
             </li>
           {% endif %}
         {%- endfor -%}

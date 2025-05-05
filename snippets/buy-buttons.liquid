@@ -24,8 +24,8 @@
       endif
     -%}
 
-    <product-form class="product-form" data-hide-errors="{{ gift_card_recipient_feature_active }}">
-      <div class="product-form__error-message-wrapper" role="alert" hidden>
+    <product-form data-main-product-form class="product-form" data-hide-errors="{{ gift_card_recipient_feature_active }}">
+      <div class="product-form__error-message-wrapper flex items-center gap-2 mt-2" role="alert" hidden>
         <svg
           aria-hidden="true"
           focusable="false"
@@ -55,13 +55,28 @@
           class="product-variant-id"
         >
 
-        {%- if gift_card_recipient_feature_active -%}
-          {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
-        {%- endif -%}
+        {% comment %} {%- if product.gift_card? -%}
+          {%- render 'gift-card-recipient-form',
+            product: product,
+            form: form,
+            section: section,
+            block: block,
+            current_variant: current_variant,
+            variant_images: variant_images,
+            product_form_id: product_form_id,
+            section_id: section.id,
+            show_pickup_availability: true -%}
+        {%- endif -%} {% endcomment %}
 
         <div id="add-dynamic-props"></div>
 
-        <div class="product-form__buttons flex flex-col gap-2">
+        <a href="{{ product.url }}"
+           class="btn-product-full-details font-normal hidden btn-secondary btn-secondary-mob-default btn-hover-animated btn-hover-animated-secondary h-10
+           w-full !mt-2 uppercase justify-center items-center relative">
+          View full details
+        </a>
+
+        <div class="product-form__buttons flex flex-col">
           {%- liquid
             assign check_against_inventory = true
             assign allow_pre_order = false
@@ -73,7 +88,7 @@
             endif
             if current_variant.metafields.custom.pre_order_qunatity > 0
               assign quantity_rule_soldout = false
-              assign allow_pre_order = false
+              assign allow_pre_order = true
             endif
           -%}
           {% if allow_pre_order == true %}
@@ -84,9 +99,9 @@
               id="note"
             >
           {% endif %}
-         
-          {% comment %} {% echo current_variant.metafields.custom|json %} {% endcomment %}
-          
+
+          {% assign gift_box_product = product.metafields.custom.gift_box_product.value %}
+
           {% assign aplus_variants = current_variant.metafields.custom.a_plus_variants.value %}
           {% assign show_a_plus = true %}
           {% assign value = '' %}
@@ -109,35 +124,62 @@
             %}
           {% endfor %}
 
-          {% if current_variant.metafields.custom.a_plus_display_text != blank and show_a_plus == true %}            
-          <div id="aplusproducts" class="flex flex-row items-center pb-3 justify-start gap-2">
-            
+          <div id="aplusproducts" class="hidden [&:not(:empty)]:flex flex-row items-center justify-start gap-2">
+            {%- if current_variant.metafields.custom.a_plus_display_text != blank and show_a_plus == true -%}
               <input
-                name="aplusproducts"
-                type="checkbox"
-                value="{{ value }}"
-                price="{{ aplus_price }}"
-                id="aplusproducts-cb"
+                  name="aplusproducts"
+                  hidden
+                  type="checkbox"
+                  data-aplus-variant-id="{{ value | split: '-' | first }}"
+                  onchange="updateFakeCheckbox(this)"
+                  value="{{ value }}"
+                  price="{{ aplus_price }}"
+                  id="aplusproducts-cb"
               >
-              <label for="aplusproducts-cb">
-                {{- current_variant.metafields.custom.a_plus_display_text }} - {{ aplus_price | money -}}
-              </label>
+            {%- endif -%}
           </div>
-          {% endif %}
 
-          <div class="flex gap-2 items-end">
-            <p class="font-semibold lg:d-h5 hidden sm:max-md:!block self-start max-w-[40%]">{{ product.title }}</p>
+          <div class="flex gap-2 items-end product-cta-buttons-row {% if product.gift_card? %} !gap-0 {% endif %}">
+            <p class="font-semibold lg:d-h5 hidden">{{ product.title }}</p>
+
+            {% comment %}
+              Quantity selector
+            {% endcomment %}
+            <div class="shrink-0">
+              {% unless product.tags contains 'hide-quantity' %}
+                <custom-input-number data-sync-input-selector="[data-quantity-input]">
+                  <div class="flex items-center justify-between border border-secondary-blue-50 text-sm leading-normal uppercase h-[48px]">
+                    {% assign buttons_classes = 'hover:cursor-pointer w-[37px] h-[47px] xl:w-[47px] flex items-center justify-center select-none disabled:text-secondary-blue-100' %}
+                    <button type="button" class="{{ buttons_classes }}" data-decrement>—</button>
+                    <input
+                      class="w-[37px] xl:w-[47px] h-[46px] aspect-square text-center"
+                      type="number"
+                      name="quantity"
+                      data-quantity-input
+                      value="1"
+                      max="5"
+                      min="1"
+                    >
+                    <button type="button" class="{{ buttons_classes }}" data-increment>+</button>
+                  </div>
+                </custom-input-number>
+              {% endunless %}
+            </div>
+
+            {% comment %}
+              Submit btn
+            {% endcomment %}
             <div class="flex-[2] overflow-hidden">
               <button
                 id="ProductSubmitButton-{{ section_id }}"
                 type="submit"
                 name="add"
-                class="product-form__submit button button--full-width btn-large btn-primary relative overflow-hidden"
+                class="product-form__submit button button--full-width btn-large uppercase relative overflow-hidden btn-primary btn-hover-animated-primary max-md:!max-w-[unset] 2xl:!max-w-[unset] {% if product.gift_card? %} !max-w-[unset] {% endif %}"
                 {% if current_variant.available == false or quantity_rule_soldout %}
                   disabled
                 {% endif %}
               >
-                <span class="truncate">
+                <span class="truncate font-normal">
                   {%- if current_variant.available == false or quantity_rule_soldout -%}
                     {{ 'products.product.sold_out' | t }}
                   {%- elsif allow_pre_order == true -%}
@@ -147,15 +189,28 @@
                   {%- endif -%}
                 </span>
 
-                <span>&nbsp;-&nbsp;</span>
+                <span>&nbsp;&nbsp;</span>
                 <div
-                  class="no-js-hidden font-semibold"
+                  class="no-js-hidden font-semibold flex items-center gap-1"
                   id="price-{{ section.id }}"
                   data-price="price-{{ section.id }}"
                   role="status"
                   {{ block.shopify_attributes }}
                 >
                   {%- render 'price-small', product: product, use_variant: true, current_variant: current_variant -%}
+                  <div data-price-value="aplus_cart_price" id="aplus_cart_price" class="hidden">
+                    {{ aplus_price | plus: current_variant.price | money }}
+                  </div>
+
+                  {% if gift_box_product != blank %}
+                    {% assign gift_box_variant = gift_box_product.variants | first %}
+                    <div data-price-value="giftBoxCartPrice" id="giftBoxCartPrice" class="hidden">
+                      {{ gift_box_variant.price | plus: current_variant.price | money }}
+                    </div>
+                    <div data-price-value="aplusGiftBoxCartPrice" id="aplusGiftBoxCartPrice" class="hidden">
+                      {{ gift_box_variant.price | plus: aplus_price | plus: current_variant.price | money }}
+                    </div>
+                  {% endif %}
                 </div>
 
                 <div class="loading-overlay__spinner hidden g absolute top-1/2 right-3 -translate-y-1/2">
@@ -172,30 +227,23 @@
               </button>
             </div>
 
-            <div class="relative flex h-[50px] lg:h-[60px] shrink-0">
-              <select name="quantity" id="quantity" class="quantity-selector fancy-select flex-1">
-                {% for i in (1..5) %}
-                  <option value="{{ i }}">{{ i }}</option>
-                {% endfor %}
-              </select>
-
-              <div class="absolute w-[6px] rotate-90 right-3 top-1/2 -translate-y-1/2 pointer-events-none">
-                {% render 'caret-down' %}
-              </div>
-            </div>
-
-            <div class="lg:min-w-[60px] max-lg:hidden shrink-0">
-              <button
-                type="button"
-                aria-label="Add to wishlist"
-                button-wishlist
-                data-product-handle="{{ product.handle }}"
-                class="btn-large btn-secondary [&_path]:!stroke-current [&.active_path]:!stroke-orange-1 max-lg:min-w-[50px] lg:max-xl:min-w-[60px]"
-              >
-                <span class="max-2xl:hidden">Add to Wishlist</span>
-                <span class="w-[16px] lg:w-[18px] block 2xl:ml-2">{% render 'icon-heart' %}</span>
-              </button>
-            </div>
+            {% comment %}
+              Wishlist btn
+            {% endcomment %}
+            <button
+              type="button"
+              aria-label="Add to wishlist"
+              button-wishlist
+              data-product-handle="{{ product.handle }}"
+              class="
+                btn-large btn-secondary 
+                [&_path]:fill-white [&.active_path]:!fill-current max-xl:bg-white max-xl:[&.active_path]:!fill-primary-blue
+                aspect-square max-lg:hidden shrink-0 grow-0 w-12 relative btn-hover-animated btn-hover-animated-secondary
+                {% if product.gift_card? %} ml-2.5 {% endif %}
+              "
+            >
+              <span class="w-[16px] lg:w-6 block">{% render 'icon-heart' %}</span>
+            </button>
           </div>
 
           {%- if show_dynamic_checkout -%}

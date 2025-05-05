@@ -1,7 +1,7 @@
 {% assign bundleDataValue = bundleData.value %}
 {% assign totalPriceAct = 0 %}
 {% assign totalCompareAct = 0 %}
-
+{% assign productFromBundleDataValue = all_products[bundleDataValue.mainHandle] %}
 <script type="application/json" id="bundleJson">
   {
     "bundleData": {{ bundleDataValue | json }},
@@ -15,8 +15,8 @@
                     check if colour matches, if not, get first variant
                 {%- endcomment %}
                 {% assign hasMainVariantId = false -%}
-                {%- if all_products[bundleDataValue.mainHandle].variants -%}
-                    {%- for variant in all_products[bundleDataValue.mainHandle].variants -%}
+                {%- if productFromBundleDataValue.variants -%}
+                    {%- for variant in productFromBundleDataValue.variants -%}
                         {% if variant.compare_at_price %}
                           {% assign thisComp = variant.compare_at_price %}
                         {% else %}
@@ -40,17 +40,17 @@
                     {%- endfor -%}
                 {%- endif -%}
                 {%- if hasMainVariantId == false -%}
-                "variantId": {{ all_products[bundleDataValue.mainHandle].selected_or_first_available_variant.id | json -}},
-                "image": "{%- if all_products[bundleDataValue.mainHandle].selected_or_first_available_variant.featured_image.src != blank -%}
-                  {{- all_products[bundleDataValue.mainHandle].selected_or_first_available_variant.featured_image.src | image_url: width: 200, height: 200 -}}
+                "variantId": {{ productFromBundleDataValue.selected_or_first_available_variant.id | json -}},
+                "image": "{%- if productFromBundleDataValue.selected_or_first_available_variant.featured_image.src != blank -%}
+                  {{- productFromBundleDataValue.selected_or_first_available_variant.featured_image.src | image_url: width: 200, height: 200 -}}
                 {%- endif -%}",
-                "price": {{ all_products[bundleDataValue.mainHandle].selected_or_first_available_variant.price | json -}}{% liquid
-                  assign thisPrice = all_products[bundleDataValue.mainHandle].selected_or_first_available_variant.price | times: bundleDataValue.mainStepQuantity
+                "price": {{ productFromBundleDataValue.selected_or_first_available_variant.price | json -}}{% liquid
+                  assign thisPrice = productFromBundleDataValue.selected_or_first_available_variant.price | times: bundleDataValue.mainStepQuantity
                   assign totalPriceAct = totalPriceAct | plus: thisPrice
-                  if all_products[bundleDataValue.mainHandle].selected_or_first_available_variant.compare_at_price
-                    assign thisComp = all_products[bundleDataValue.mainHandle].selected_or_first_available_variant.compare_at_price
+                  if productFromBundleDataValue.selected_or_first_available_variant.compare_at_price
+                    assign thisComp = productFromBundleDataValue.selected_or_first_available_variant.compare_at_price
                   else
-                    assign thisComp = all_products[bundleDataValue.mainHandle].selected_or_first_available_variant.price
+                    assign thisComp = productFromBundleDataValue.selected_or_first_available_variant.price
                   endif
                 %},
                 "compare_at_price": {{ thisComp }}{% liquid
@@ -128,10 +128,11 @@
             {%- endif %}
         ],
     "variants": [
-      {%- if all_products[bundleDataValue.mainHandle].variants  -%}
-        {%- for item in  all_products[bundleDataValue.mainHandle].variants %}
+      {%- if productFromBundleDataValue.variants  -%}
+        {%- for item in  productFromBundleDataValue.variants %}
           {
             "id": {{ item.id }},
+            "available": {{ item.available }},
             "product_title": "{{ item.product.title }}",
             "price": {{ item.price }},
             "compare_at_price": {% if item.compare_at_price %}{{ item.compare_at_price }}{% else %}{{ item.price }}{% endif %},
@@ -155,6 +156,7 @@
           {
             "id": {{ item.id }},
             "product_title": "{{ item.product.title }}",
+            "available": {{ item.available }},
             "price": {{ item.price }},
             "compare_at_price": {% if item.compare_at_price %}{{ item.compare_at_price }}{% else %}{{ item.price }}{% endif %},
             "featured_image": "{% if item.featured_image.src %}{{ item.featured_image.src | image_url }}{% endif %}",
@@ -181,34 +183,6 @@
 
 {% assign totalPercentOff = 0 %}
 
-{% comment %}
-  {% assign totalCompare = 0 %}
-  {% assign totalPrice = 0 %}
-
-  {% if all_products[bundleDataValue.mainHandle].selected_or_first_available_variant.compare_at_price_varies == false %}
-    {% assign mainCap = all_products[bundleDataValue.mainHandle].selected_or_first_available_variant.price %}
-  {% else %}
-    {% assign mainCap = all_products[bundleDataValue.mainHandle].selected_or_first_available_variant.compare_at_price %}
-  {% endif %}
-  {% assign mainPrice = all_products[bundleDataValue.mainHandle].selected_or_first_available_variant.price %}
-
-  {% assign totalCompare = totalCompare | plus: mainCap %}
-  {% assign totalPrice = totalPrice | plus: mainPrice %}
-
-  {% for item in bundleDataValue.items %}
-    {% if all_products[item.handle].selected_or_first_available_variant.compare_at_price_varies == false %}
-      {% assign itemcap = all_products[item.handle].selected_or_first_available_variant.price %}
-    {% else %}
-      {% assign itemcap = all_products[item.handle].selected_or_first_available_variant.compare_at_price %}
-    {% endif %}
-
-    {% assign itemprice = all_products[item.handle].selected_or_first_available_variant.price %}
-
-    {% assign totalCompare = totalCompare | plus: itemcap %}
-    {% assign totalPrice = totalPrice | plus: itemprice %}
-  {% endfor %}
-{% endcomment %}
-
 {% assign totalCompare = totalCompareAct %}
 {% assign totalPrice = totalPriceAct %}
 
@@ -233,28 +207,84 @@
 
 <div
   id="product-bundle"
-  class="product product-bundle relative group/bundle md:flex md:space-x-6 md:justify-between container [&:not([data-step='0'])_.product\_\_info-wrapper]:max-md:border-b  [&:not([data-step='0'])_.not-step-0]:!hidden [&[data-step='0']_.hide-step-0]:!hidden [&[data-step='0']_#product-actions]:md:my-10 [&[data-step='0']_#product-actions]:lg:my-20"
+  class="
+    product product-bundle product-main-container px-4 md:grid md:gap-x-[22px] md:container xl:flex
+    [&:not([data-step='0'])_.product\_\_info-wrapper]:max-md:border-b  [&:not([data-step='0'])_.not-step-0]:!hidden
+    [&[data-step='0']_.hide-step-0]:!hidden [&[data-step='0']_#product-actions]:md:my-10 [&[data-step='0']_#product-actions]:lg:my-20
+  "
   data-step="0"
 >
+  <div class="quick-add-mob-product-header">
+    <p class="text-lg font-semibold tracking-[.15px] quick-add-mob-product-title">
+      {{ product.title | escape }}
+    </p>
+    <div class="quick-add-mob-product-price" data-dynprice>
+      {% if is_product_bundle %}
+        {% liquid
+          assign bp_compare_at_price = current_variant.compare_at_price
+          assign bp_price = current_variant.price
+        %}
+        {% render 'bundle-price-discount', bp_compare_at_price: bp_compare_at_price, bp_price: bp_price %}
+      {% else %}
+        {% if product.price_min != product.price_max %}
+          <p>
+            <strong class="inline-block text-base font-semibold">
+              {{- product.price_min | money }} - {{ product.price_max | money -}}
+            </strong>
+          </p>
+        {% else %}
+          <p>
+            <strong class="inline-block text-base font-semibold">{{ product.price | money }}</strong>
+          </p>
+        {% endif %}
+      {% endif %}
+    </div>
+  </div>
   {% if product.media.size > 0 %}
-    <div class="product__gallery md:w-6/12 ">
+    <div class="product__gallery grid grid-cols-1 xl:grid-cols-[126px_1fr] gap-2 md:top-5 md:sticky xl:flex-1">
       {% render 'product-media-gallery',
         variant_images: variant_images,
         current_variant: current_variant,
-        image_handle: 'bundle_image'
+        image_handle: 'bundle_image',
+        totalCompare: totalCompare,
+        totalPrice: totalPrice,
+        product: product,
+        bundleData: bundleData
       %}
     </div>
   {% endif %}
 
-  <div class="product__info-wrapper md:w-6/12 lg:w-5/12 self-start md:sticky md:top-[100px] relative max-md:pt-7 z-10 max-md:pb-7 max-md:border-blue-1/10">
+  <div class="max-md:pt-7 z-20 product__info-wrapper relative self-start">
+    {% if product.collections.size > 0 %}
+      <nav class="breadcrumb max-md:hidden" date-url="{{ request.params }}">
+        <ul class="flex text-blue-1 gap-x-1 overflow-x-auto no-scrollbar">
+          {% assign collectionsCount = product.collections.size %}
+          <li class="flex items-center">
+            <a href="{{ shop.url }}" class="text-xs font-normal whitespace-nowrap">Home</a>
+          </li>
+          <li class="flex items-center gap-x-1">/</li>
+          {% for collection in product.collections %}
+            <li class="flex items-center gap-x-1">
+              <a href="{{ collection.url }}" class="text-xs font-normal whitespace-nowrap">{{ collection.title }}</a>
+              <span>/</span>
+            </li>
+            {% break %}
+          {% endfor %}
+          <li class="select-none">
+            <strong class="text-xs font-semibold whitespace-nowrap">{{ product.title }}</strong>
+          </li>
+        </ul>
+      </nav>
+    {% endif %}
+
     <product-info
       id="ProductInfo-{{ section.id }}"
       data-section="{{ section.id }}"
       data-url="{{ product.url }}"
       data-url-actual="{{ current_url }}"
-      data-productprice=""
-      data-featimage=""
-      data-variantid=""
+      data-productprice="{{ productFromBundleDataValue.selected_or_first_available_variant.price }}"
+      data-featimage="{%- if productFromBundleDataValue.selected_or_first_available_variant.featured_image.src != blank -%}{{- productFromBundleDataValue.selected_or_first_available_variant.featured_image.src | image_url: width: 200, height: 200 -}}{%- endif -%}"
+      data-variantid="{{ productFromBundleDataValue.selected_or_first_available_variant.id | json -}}"
       class="text-blue-1 space-y-6"
     >
       {%- assign product_form_id = 'product-form-' | append: section.id -%}
@@ -262,85 +292,164 @@
       <div>
         <div
           id="product-panel"
-          class="max-md:bg-white/90 transition-colors "
+          class="max-md:bg-white/90 transition-colors product-panel"
         >
-          <div id="product-panel-child" class="space-y-7 max-md:flex max-md:flex-col max-md:items-stretch">
-            <header class="space-y-2 md:space-y-4">
-              <p class="hide-step-0 group-[.last-step]/bundle:!hidden">
-                Step <span data-currentstep>0</span> of <span data-totalstep></span>
-              </p>
-              <p class="hidden group-[.last-step]/bundle:!block">Review your bundle</p>
+          <div id="product-panel-child" class="max-md:flex max-md:flex-col max-md:items-stretch space-y-6">
+            <div class="space-y-4 product-header">
+              <header class="space-y-2 md:space-y-4">
+                <h1 id="product-title" class="text-base font-normal md:text-[22px] md:leading-7 md:font-semibold">
+                  {{ bundleDataValue.bundleTitle | escape }}
+                </h1>
 
-              <h1 id="product-title" class="m-h1 lg:s-d-h4">{{ bundleDataValue.bundleTitle | escape }}</h1>
-
-              {% if product.metafields.christy23.tagline_pdp %}
-                <div id="product-tagline" class="flex justify-between space-x-5 not-step-0">
-                  <div>
-                    <p class="font-semibold lg:d-h5">{{ product.metafields.christy23.tagline_pdp.value }}</p>
+                {% if product.metafields.christy23.tagline_pdp %}
+                  <div id="product-tagline" class="flex justify-between space-x-5 not-step-0">
+                    <div>
+                      <p class="font-normal">{{ product.metafields.christy23.tagline_pdp.value }}</p>
+                    </div>
                   </div>
+                {% endif %}
+              </header>
+
+              <div class="flex gap-3 justify-between items-center">
+                <div id="product-price" class="flex gap-3 justify-between md:items-center max-md:flex-col not-step-0">
+                  {% render 'bundle-builder-page-price', totalCompare: totalCompare, totalPrice: totalPrice %}
                 </div>
-              {% endif %}
-            </header>
 
-            <div id="product-price" class="flex gap-3 justify-between md:items-center max-md:flex-col !mt-5 not-step-0">
-              <div>
-                {% render 'bundle-builder-price',
-                  totalCompare: totalCompare,
-                  totalPrice: totalPrice,
-                  totalPercentOff: totalPercentOff,
-                  bundleDiscount: bundleDataValue.bundleDiscount
-                %}
+                <div class="yotpo bottomLine" id="yotpoProductStartRating" onClick="scrollToElement('yotpoProductReviews')" data-product-id="{{ product.id }}"></div>
               </div>
+
+              {% render 'bundle-builder-page-savings', totalCompare: totalCompare, totalPrice: totalPrice %}
             </div>
 
-            <div class="wysiwyg max-md:order-10 max-md:border-t max-md:border-blue-1/10 max-md:pt-5 not-step-0">
-              {{ product.description }}
+            <div class="product-bundle-cards">
+              {% render 'bundle-item-card',
+                item_product: productFromBundleDataValue,
+                item_step_quantity: bundleDataValue.mainStepQuantity,
+                item_step_title: bundleDataValue.mainStepTitle,
+                card_index: 1
+              %}
+
+              {% for item in bundleData.value.items %}
+                {% assign item_product = all_products[item.handle] %}
+                {% assign card_index = forloop.index | plus: 1 %}
+                {% if item_product == blank %}
+                  {% continue %}
+                {% endif %}
+
+                {% render 'bundle-item-card',
+                  item: item,
+                  item_product: item_product,
+                  item_step_quantity: item.stepQuantity,
+                  item_step_title: item.stepTitle,
+                  card_index: card_index
+                %}
+              {% endfor %}
             </div>
 
-            <div
-              id="product-options"
-              data-moboptions="true"
-              class=" md:!h-auto overflow-hidden !mt-0 md:!my-10 max-md:pt-7 hide-step-0 group-[.last-step]/bundle:!hidden"
-            ></div>
-
-            <div id="bundle-review" class="hidden group-[.last-step]/bundle:!block">
-              <ul class="list space-y-5"></ul>
-            </div>
-
-            <div
-              id="product-actions"
-              class="max-md:!mt-0 max-md:py-5 max-md:px-10 max-md:border-y max-md:border-blue-1 max-md:bg-white max-md:fixed max-md:left-0 max-md:bottom-0 z-10 max-md:w-full"
+            <a
+              href="{{ product.url }}"
+              class="
+                btn-product-full-details font-normal hidden btn-secondary btn-secondary-mob-default btn-hover-animated btn-hover-animated-secondary h-10
+                w-full !mt-2 uppercase justify-center items-center relative
+              "
             >
-              <button class="btn-primary btn-large not-step-0 js-bundle-next">Build Your Bundle</button>
+              View full details
+            </a>
 
-              <div class="product-bundle-addcart space-y-10 hidden group-[.last-step]/bundle:!block">
-                {% render 'bundle-builder-price',
-                  totalCompare: totalCompare,
-                  totalPrice: totalPrice,
-                  totalPercentOff: totalPercentOff,
-                  bundleDiscount: bundleDataValue.bundleDiscount
-                %}
-                <button class="btn-primary btn-large" data-addcart>Add to Basket</button>
+            <div class="flex gap-2 items-end product-form__buttons">
+              <p class="font-semibold lg:d-h5 hidden">{{ product.title }}</p>
+
+              {% comment %}
+                Quantity selector
+              {% endcomment %}
+              <div class="shrink-0">
+                {% unless product.tags contains 'hide-quantity' %}
+                  <custom-input-number data-sync-input-selector="[data-quantity-input]">
+                    <div class="flex items-center justify-between border border-secondary-blue-100 text-sm leading-normal uppercase h-[48px]">
+                      {% assign buttons_classes = 'hover:cursor-pointer w-[37px] h-[47px] xl:w-[47px] flex items-center justify-center select-none disabled:text-secondary-blue-100' %}
+                      <button type="button" class="{{ buttons_classes }}" data-decrement>—</button>
+                      <input
+                        class="w-[37px] xl:w-[47px] h-[46px] aspect-square text-center"
+                        type="number"
+                        name="quantity"
+                        data-quantity-input
+                        value="1"
+                        max="5"
+                        min="1"
+                      >
+                      <button type="button" class="{{ buttons_classes }}" data-increment>+</button>
+                    </div>
+                  </custom-input-number>
+                {% endunless %}
               </div>
 
-              <div
-                id="bundle-actions-{{ section.id }}"
-                class="grid grid-cols-2 gap-5 hide-step-0  group-[.last-step]/bundle:!hidden"
-              >
-                <button class="btn-secondary btn-large js-bundle-prev" data-bundlebtn="prev">Previous</button>
+              {% comment %}
+                Submit btn
+              {% endcomment %}
+              <div class="flex-[2] overflow-hidden">
                 <button
-                  class="btn-primary btn-large js-bundle-next group"
-                  data-bundlebtn="next"
+                  data-addcart
+                  id="ProductSubmitButton-{{ section_id }}"
+                  type="submit"
+                  name="add"
+                  class="product-form__submit button btn-primary button--full-width btn-large uppercase relative overflow-hidden btn-hover-animated-primary max-md:!max-w-[unset] 2xl:!max-w-[unset]"
+                  {% if current_variant.available == false or quantity_rule_soldout %}
+                    disabled
+                  {% endif %}
                 >
-                  Next
+                  <span class="truncate leading-none">
+                    {%- if current_variant.available == false or quantity_rule_soldout -%}
+                      {{ 'products.product.sold_out' | t }}
+                    {%- elsif allow_pre_order == true -%}
+                      Pre Order
+                    {% else %}
+                      {{ 'products.product.add_to_cart' | t }}
+                    {%- endif -%}
+                  </span>
+
+                  <span>&nbsp;&nbsp;</span>
+
+                  {% render 'bundle-builder-page-price',
+                    totalCompare: totalCompare,
+                    totalPrice: totalPrice,
+                    onlyNumbers: true
+                  %}
+
+                  <div class="loading-overlay__spinner hidden absolute top-1/2 right-3 -translate-y-1/2">
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      class="spinner"
+                      viewBox="0 0 66 66"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle class="path !stroke-current" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                    </svg>
+                  </div>
                 </button>
               </div>
+
+              {% comment %}
+                Wishlist btn
+              {% endcomment %}
+              <button
+                type="button"
+                aria-label="Add to wishlist"
+                button-wishlist
+                data-product-handle="{{ product.handle }}"
+                class="
+                  btn-large btn-secondary [&_path]:!stroke-current [&.active_path]:!fill-current
+                  aspect-square max-lg:hidden shrink-0 grow-0 w-12 relative btn-hover-animated btn-hover-animated-secondary
+                "
+              >
+                <span class="w-[16px] lg:w-6 block">{% render 'icon-heart' %}</span>
+              </button>
             </div>
           </div>
         </div>
       </div>
 
-      <div id="product-dropdowns" class="space-y-6 not-step-0">
+      <div class="space-y-6 product-info-accordions">
         {%- for block in section.blocks -%}
           {%- case block.type -%}
             {%- when '@app' -%}
@@ -465,6 +574,43 @@
               {% assign share_url = product.selected_variant.url | default: product.url | prepend: request.origin %}
               {% render 'share-button', block: block, share_link: share_url %}
 
+            {%- when 'rating' -%}
+              {%- if product.metafields.reviews.rating.value != blank -%}
+                {% liquid
+                  assign rating_decimal = 0
+                  assign decimal = product.metafields.reviews.rating.value.rating | modulo: 1
+                  if decimal >= 0.3 and decimal <= 0.7
+                    assign rating_decimal = 0.5
+                  elsif decimal > 0.7
+                    assign rating_decimal = 1
+                  endif
+                %}
+                <div
+                  class="rating"
+                  role="img"
+                  aria-label="{{ 'accessibility.star_reviews_info' | t: rating_value: product.metafields.reviews.rating.value, rating_max: product.metafields.reviews.rating.value.scale_max }}"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="rating-star"
+                    style="--rating: {{ product.metafields.reviews.rating.value.rating | floor }}; --rating-max: {{ product.metafields.reviews.rating.value.scale_max }}; --rating-decimal: {{ rating_decimal }};"
+                  ></span>
+                </div>
+                <p class="rating-text caption">
+                  <span aria-hidden="true">
+                    {{- product.metafields.reviews.rating.value }} /
+                    {{ product.metafields.reviews.rating.value.scale_max -}}
+                  </span>
+                </p>
+                <p class="rating-count caption">
+                  <span aria-hidden="true">({{ product.metafields.reviews.rating_count }})</span>
+                  <span class="visually-hidden">
+                    {{- product.metafields.reviews.rating_count }}
+                    {{ 'accessibility.total_reviews' | t -}}
+                  </span>
+                </p>
+              {%- endif -%}
+
             {%- when 'icon-with-text' -%}
               {% render 'icon-with-text', block: block %}
             {%- when 'accordion' %}
@@ -500,30 +646,31 @@
         {%- endfor -%}
 
         {% comment %}
-          Responsibility
+          Description
         {% endcomment %}
-        {% if product.metafields.christy23.product_responsibility != blank %}
+        {% if product.description != blank %}
           <div
-            class="!my-0 md:!mt-10 lg:!mt-20 py-5 lg:py-7 border-b border-blue-1/10 group/acc"
+            id="Description"
+            class="product-expanded !my-0 mt-6 border-b border-blue-1/10 group/acc open scroll-mt-[--header-height-lg,100]"
           >
             <h4
               data-acc
-              class="font-semibold m-body-copy lg:d-h5 space-x-6 flex w-full items-center cursor-pointer"
+              class="font-semibold text-base m-body-copy py-6 space-x-6 flex w-full items-center cursor-pointer"
             >
-              <span class="mr-auto">Responsibility</span>
+              <span class="mr-auto">Description</span>
               <span
-                class="acc-toggle"
+                class="acc-toggle w-3.5 h-3.5"
               ></span>
             </h4>
-            <div class="gap-3 flex-wrap pt-5 lg:pt-7 clear-left hidden group-[.open]/acc:!flex group-[.open]/acc:opacity-100 opacity-0 transition-opacity delay-[0.5s]">
-              <div class="wysiwyg flex-1">
-                {{ product.metafields.christy23.product_responsibility | metafield_tag }}
+            <div class="gap-3 flex-wrap pb-6 md:pb-4 clear-left hidden group-[.open]/acc:!flex group-[.open]/acc:opacity-100 opacity-0 transition-opacity delay-[0.5s]">
+              <div class="flex-1 text-sm space-y-3.5 font-normal">
+                {{ product.description }}
               </div>
             </div>
           </div>
         {% endif %}
         {% comment %}
-          END Responsibility
+          END Description
         {% endcomment %}
 
         {% comment %}
@@ -531,75 +678,20 @@
         {% endcomment %}
         {% if product.metafields.christy23.product_specification != blank %}
           <div
-            class="!my-0 py-5 lg:py-7 border-b border-blue-1/10 group/acc"
+            class="product-expanded !my-0 border-b border-blue-1/10 group/acc"
           >
             <h4
               data-acc
-              class="font-semibold m-body-copy lg:d-h5 space-x-6 flex w-full items-center cursor-pointer"
+              class="font-semibold text-base m-body-copy py-6 space-x-6 flex w-full items-center cursor-pointer"
             >
               <span class="mr-auto">Specifications</span>
               <span
-                class="acc-toggle"
+                class="acc-toggle w-3.5 h-3.5"
               ></span>
             </h4>
-            <div class="gap-3 flex-wrap pt-5 lg:pt-7 clear-left hidden group-[.open]/acc:!flex group-[.open]/acc:opacity-100 opacity-0 transition-opacity delay-[0.5s]">
-              <div class="wysiwyg flex-1">
+            <div class="gap-3 flex-wrap pb-6 md:pb-4 clear-left hidden group-[.open]/acc:!flex group-[.open]/acc:opacity-100 opacity-0 transition-opacity delay-[0.5s]">
+              <div class="flex-1 text-sm space-y-3.5 font-normal">
                 {{ product.metafields.christy23.product_specification | metafield_tag }}
-              </div>
-            </div>
-          </div>
-        {% endif %}
-        {% comment %}
-          END Specification
-        {% endcomment %}
-
-        {% comment %}
-          Size Guide
-        {% endcomment %}
-        {% if product.metafields.custom.size_guide != blank %}
-          <div
-            class="!my-0 py-5 lg:py-7 border-b border-blue-1/10 group/acc"
-            data-sizeguide
-            id="sizeguide"
-          >
-            <h4
-              data-acc
-              class="font-semibold m-body-copy lg:d-h5 space-x-6 flex w-full items-center cursor-pointer"
-            >
-              <span class="mr-auto">Size Guide</span>
-              <span
-                class="acc-toggle"
-              ></span>
-            </h4>
-            <div class="gap-3 flex-wrap pt-5 lg:pt-7 clear-left hidden group-[.open]/acc:!flex group-[.open]/acc:opacity-100 opacity-0 transition-opacity delay-[0.5s]">
-              <div class=" flex-1 w-full max-lg:-mr-[40px]">
-                <div class="wysiwyg max-lg:overflow-auto max-lg:pr-[40px] [&_table]:max-lg:text-[10px]">
-                  {{ product.metafields.custom.size_guide }}
-                </div>
-              </div>
-            </div>
-          </div>
-
-        {% elsif product.metafields.custom.product_specification != blank %}
-          <div
-            class="!my-0 py-5 lg:py-7 border-b border-blue-1/10 group/acc"
-            data-sizeguide
-            id="sizeguide"
-          >
-            <h4
-              data-acc
-              class="font-semibold m-body-copy lg:d-h5 space-x-6 flex w-full items-center cursor-pointer"
-            >
-              <span class="mr-auto">Size Guide</span>
-              <span
-                class="acc-toggle"
-              ></span>
-            </h4>
-            <div class="gap-3 flex-wrap pt-5 lg:pt-7 clear-left hidden group-[.open]/acc:!flex group-[.open]/acc:opacity-100 opacity-0 transition-opacity delay-[0.5s]">
-              <div class=" flex-1 w-full max-lg:-mr-[40px]">
-                <div class="wysiwyg max-lg:overflow-auto max-lg:pr-[40px] [&_table]:max-lg:text-[10px]">
-                  {{ product.metafields.custom.product_specification }}
-                </div>
               </div>
             </div>
           </div>
@@ -613,19 +705,19 @@
         {% endcomment %}
         {% if product.metafields.christy23.care_guide != blank %}
           <div
-            class="!my-0 py-5 lg:py-7 border-b border-blue-1/10 group/acc"
+            class="product-expanded !my-0 border-b border-blue-1/10 group/acc"
           >
             <h4
               data-acc
-              class="font-semibold m-body-copy lg:d-h5 space-x-6 flex w-full items-center cursor-pointer"
+              class="font-semibold text-base py-6 m-body-copy space-x-6 flex w-full items-center cursor-pointer"
             >
               <span class="mr-auto">Care Guide</span>
               <span
-                class="acc-toggle"
+                class="acc-toggle w-3.5 h-3.5"
               ></span>
             </h4>
-            <div class="gap-3 flex-wrap pt-5 lg:pt-7 clear-left hidden group-[.open]/acc:!flex group-[.open]/acc:opacity-100 opacity-0 transition-opacity delay-[0.5s]">
-              <div class="wysiwyg flex-1">
+            <div class="gap-3 flex-wrap pb-6 md:pb-4 clear-left hidden group-[.open]/acc:!flex group-[.open]/acc:opacity-100 opacity-0 transition-opacity delay-[0.5s]">
+              <div class="flex-1 text-sm space-y-3.5 font-normal">
                 {{ product.metafields.christy23.care_guide | metafield_tag }}
               </div>
             </div>
@@ -640,19 +732,20 @@
         {% endcomment %}
         {% if settings.product_delivery_returns != blank or product.metafields.custom.delivery_returns != blank %}
           <div
-            class="!my-0 py-5 lg:py-7 border-b border-blue-1/10 group/acc"
+            id="DeliveryReturns"
+            class="product-expanded !my-0 border-b border-blue-1/10 group/acc scroll-mt-[--header-height-lg,100]"
           >
             <h4
               data-acc
-              class="font-semibold m-body-copy lg:d-h5 space-x-6 flex w-full items-center cursor-pointer"
+              class="font-semibold text-base m-body-copy py-6 space-x-6 flex w-full items-center cursor-pointer"
             >
               <span class="mr-auto">Delivery & Returns</span>
               <span
-                class="acc-toggle"
+                class="acc-toggle w-3.5 h-3.5"
               ></span>
             </h4>
-            <div class="gap-3 flex-wrap pt-5 lg:pt-7 clear-left hidden group-[.open]/acc:!flex group-[.open]/acc:opacity-100 opacity-0 transition-opacity delay-[0.5s]">
-              <div class="wysiwyg flex-1">
+            <div class="gap-3 flex-wrap pb-6 md:pb-4 clear-left hidden group-[.open]/acc:!flex group-[.open]/acc:opacity-100 opacity-0 transition-opacity delay-[0.5s]">
+              <div class="flex-1 text-sm space-y-3.5 font-normal">
                 {% if product.metafields.custom.delivery_returns != blank %}
                   {{ product.metafields.custom.delivery_returns }}
                 {% else %}
@@ -667,6 +760,19 @@
         {% endcomment %}
       </div>
     </product-info>
+
+    {% render 'sticky-bar',
+      block: block,
+      is_product_bundle: true,
+      totalCompare: totalCompare,
+      totalPrice: totalPrice,
+      product: product,
+      current_variant: current_variant,
+      variant_images: variant_images,
+      product_form_id: product_form_id,
+      section_id: section.id,
+      show_pickup_availability: true
+    %}
   </div>
 
   {% if product.metafields.custom.size_guide != blank or product.metafields.custom.product_specification != blank %}
@@ -700,13 +806,7 @@
       </div>
     </aside>
   {% endif %}
-
-  <div
-    id="product-bundle-blocker"
-    class="invisible opacity-0 bg-white transition-[opacity,visibility] transition-500 z-10 absolute -inset-[1px] flex justify-center items-center !opacity-100 !visible"
-  >
-    {%- render 'spinner', show: true -%}
-  </div>
 </div>
 
+<script src="{{ 'BundleItemCard.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'bundle-app.js' | asset_url }}" defer></script>

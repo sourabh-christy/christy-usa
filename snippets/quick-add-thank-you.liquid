@@ -1,0 +1,95 @@
+<quick-add-thank-you-modal id="QuickAddThankYou" class="quick-add-thank-you">
+  <div
+      role="dialog"
+      aria-modal="true"
+      class="qaty-content global-settings-popup"
+      tabindex="-1"
+  >
+    <div class="p-4 bg-primary-blue flex justify-between text-white">
+      <div class="flex items-center py-2.5">
+        {% render 'icon-checkmark', class: 'text-system-success w-5 h-5 mr-2' %}
+        <span class="text-sm font-semibold tracking-[.1px] text-primary-white-cotton">Size added to your bag</span>
+      </div>
+
+      <button
+          id="ModalClose-QuickAddThankYou"
+          type="button"
+          class="w-6 h-6 p-1 text-primary-white-cotton [&_path]:stroke-current"
+          aria-label="{{ 'accessibility.close' | t }}"
+      >
+        {% render 'icon-close' %}
+      </button>
+    </div>
+
+    <div id="QuickAddThankYou-Content">
+      <p class="font-sec text-xl text-center font-normal py-6">Add to bag</p>
+
+      <div data-spinner class="h-96 flex items-center justify-center">{% render 'spinner', show: true %}</div>
+      <div class="w-full px-4 md:px-6 overflow-hidden">
+        <div
+            hidden
+            class="splide group/splide flex flex-col-reverse gap-y-3 lg:gap-y-4 {{ class }}"
+            data-splide='{"arrows":true,"pagination":false,"type":"slide","autoWidth":true,"focus":0,"gap":"8px","omitEnd":true,"perPage":3,"perMove":3,"breakpoints":{"767":{"perPage":2,"perMove":2},"640":{"perPage":1,"perMove":1}}}'
+        >
+          <!-- arrows -->
+          <div data-splide-nav class="splide__arrows splide__arrows--ltr hidden group-[.is-initialized]/splide:!flex justify-center items-center">
+            <!-- counter -->
+            <div class="text-xs">
+              <span data-splide-current-page class="data-[splide-is-last-page=true]:text-secondary-blue-200">1</span>
+              /
+              <span data-splide-total-pages class="text-secondary-blue-200"></span>
+            </div>
+
+            <!-- buttons -->
+            <div class="ml-auto flex items-center space-x-4 absolute right-0">
+              <button
+                  class="splide__arrow splide__arrow--prev disabled:!text-secondary-blue-200 transition-colors !bg-transparent
+          !static !transform-none outline-none"
+                  type="button"
+                  aria-label="Previous slide"
+                  aria-controls="splide01-track"
+              >
+                {%- render 'icon-long-arrow-right', class: '!w-6 !h-6' -%}
+              </button>
+
+              <button
+                  class="splide__arrow splide__arrow--next disabled:!text-secondary-blue-200 transition-colors
+          !bg-transparent !static !transform-none outline-none"
+                  type="button"
+                  aria-label="Next slide"
+                  aria-controls="splide01-track"
+              >
+                {%- render 'icon-long-arrow-right', class: '!w-6 !h-6' -%}
+              </button>
+            </div>
+          </div>
+
+          <!-- progress bar -->
+          <div data-splide-progress-bar class="space-y-3 lg:space-y-4 mt-3 lg:mt-2">
+            <div class="bg-secondary-blue-100 slider-progress h-px flex items-center">
+              <div class="bg-secondary-blue-600 h-px transition-all w-0 lg:h-0.5 slider-progress-bar"></div>
+            </div>
+          </div>
+
+          <!-- track -->
+          <div class="splide__track max-md:!overflow-visible">
+            <div class="splide__list text-blue-1">
+              {% for i in (1..9) %}
+                <div class="splide__slide w-4/5  sm:w-[calc(50%-6px)] md:w-[calc(33.3333%-6px)]">
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-4 md:p-6 flex justify-center md:justify-end items-center gap-9">
+      <button class="modal-closer-js underline underline-offset-4 text-sm font-semibold">Continue shopping</button>
+      <button class="open-cart-button-js relative btn-primary xl:btn-hover-animated-primary text-sm font-normal uppercase px-16 py-2.5 mob:w-full mob:max-w-[175px] md:max-w-[210px]">
+        Go to
+      </button>
+    </div>
+  </div>
+
+</quick-add-thank-you-modal>

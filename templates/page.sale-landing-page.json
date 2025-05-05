@@ -1,1 +1,422 @@
-{"sections":{"images":{"type":"images","blocks":{"f7349441-914d-4efc-8916-20c989feb67a":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/1200X628_1.png","width":"full","aspect":"16\/9"}}},"block_order":["f7349441-914d-4efc-8916-20c989feb67a"],"settings":{"fullscreen":true}},"hero-static":{"type":"hero-static","settings":{"image":"shopify:\/\/shop_images\/responsibility-1.jpg","subtitle":"Responsibility","title":"Timeless products, consciously made","copy":"<p>We're working to build a better future, and are improving our processes for the good of our consumers, our communities and the wider environment<\/p>","image2":"shopify:\/\/shop_images\/responsibility-2.jpg"}},"99b35547-252f-4a43-8e71-7986509c237d":{"type":"collections-carousel","blocks":{"011aec37-bf4d-4aaf-8938-fc5d7f858e06":{"type":"collection","settings":{"collection":"bedroom-bedroom-sale","usp_title":"Bedding Sale - up to 30% off","alt_title":"","excerpt":""}}},"block_order":["011aec37-bf4d-4aaf-8938-fc5d7f858e06"],"settings":{"title":"","screen_visibility":"mobile"}},"featured-collection":{"type":"featured-collection","blocks":{"4a655c37-2240-43bd-aa0c-b3e113217a08":{"type":"product","settings":{"product":"400-thread-count-sateen-plain-dye","text":"<p>Wrap yourself up in pure luxury with our ultra soft and absorbant Supreme Hygro® towel collection<\/p>"}},"e14b8b02-c53c-4069-85cc-43e31732c3cb":{"type":"product","settings":{"product":"anti-allergy-mattress-and-pillow-protectors","text":"<p>Wrap yourself up in pure luxury with our ultra soft and absorbant Supreme Hygro® towel collection<\/p>"}},"d21bf329-3944-47a0-832b-9162c451db72":{"type":"product","settings":{"product":"appleby-bed-linen","text":"<p>Wrap yourself up in pure luxury with our ultra soft and absorbant Supreme Hygro® towel collection<\/p>"}}},"block_order":["4a655c37-2240-43bd-aa0c-b3e113217a08","e14b8b02-c53c-4069-85cc-43e31732c3cb","d21bf329-3944-47a0-832b-9162c451db72"],"settings":{"title":"Shop the Halloween Sale now","collection":"offers-shop-all-sale"}},"8f9e3ef3-0d55-43c1-b496-14c674ab688e":{"type":"page-anchors","blocks":{"template--19974381371680__8f9e3ef3-0d55-43c1-b496-14c674ab688e-anchor_link-1":{"type":"anchor_link","settings":{"title":"Better Cotton (BC)","anchor_id":"better-cotton"}},"template--19974381371680__8f9e3ef3-0d55-43c1-b496-14c674ab688e-anchor_link-2":{"type":"anchor_link","settings":{"title":"Made in Green by OEKO-TEX","anchor_id":"made-in-green"}},"template--19974381371680__8f9e3ef3-0d55-43c1-b496-14c674ab688e-anchor_link-3":{"type":"anchor_link","settings":{"title":"Global Organic Textile Standard","anchor_id":"gots"}},"a96b90be-0de5-4063-a37a-ced6f72b034b":{"type":"anchor_link","settings":{"title":"FSC","anchor_id":"fsc"}}},"block_order":["template--19974381371680__8f9e3ef3-0d55-43c1-b496-14c674ab688e-anchor_link-1","template--19974381371680__8f9e3ef3-0d55-43c1-b496-14c674ab688e-anchor_link-2","template--19974381371680__8f9e3ef3-0d55-43c1-b496-14c674ab688e-anchor_link-3","a96b90be-0de5-4063-a37a-ced6f72b034b"],"disabled":true,"settings":{}},"heading":{"type":"heading","disabled":true,"settings":{"heading":"<p>We are proud members of Better Cotton <\/p>","heading_width":"4","copy":"","copy_style":"default","alignment":"right","alignment_mob":"right","horiz_padding":true,"margin_top":false}},"heading2":{"type":"heading","settings":{"heading":"<p>Up to 50% OFF<\/p>","heading_width":"6","copy":"<p>On towels, bedding, accessories, robes and more<\/p>","copy_style":"heading3","alignment":"right","alignment_mob":"right","horiz_padding":true,"margin_top":false}},"rich-text":{"type":"rich-text","blocks":{"1398f43f-f918-4187-b50f-70492610063a":{"type":"heading","settings":{"heading":"Our Approach","sub_title_size":"h2"}},"a7dab157-b607-401b-b61d-2976f78d0bbe":{"type":"text","settings":{"text":"<p>At Christy, we know that everything we make has an impact and we're developing systems to reduce ours. We're striving to create dreamy nights' sleeps and relaxing bath routines that are gentler on our planet. Since 1850, we've had an uncompromising design philosophy; creating functional, beautiful products that are made to last. In recent years, it's become clear that we need to go farther than that—so we can all rest a little easier.<\/p>"}}},"block_order":["1398f43f-f918-4187-b50f-70492610063a","a7dab157-b607-401b-b61d-2976f78d0bbe"],"disabled":true,"settings":{"full_width":false,"anchor_id":""}},"billboard":{"type":"billboard","disabled":true,"settings":{"screen_visibility":"both","image":"shopify:\/\/shop_images\/just-getting-started.jpg","subtitle":"Our Mission","title":"<p>We’re just getting started<\/p>","copy":"<p>From transitioning to Better Cotton, to introducing our first certified organic collection, we're continuously learning and improving so that we can make products that are better for you and better for the planet. You're invited to learn more about our current certifications, goals, how we're developing, and what we're moving towards.<\/p>","button_label":"Get in touch","button_link":"shopify:\/\/pages\/contact","button_type":"tertiary","colour_theme":"white","alignment":"left","alignment_vertical":"center","mobile_content_position":"overlay"}},"images-copy-cta":{"type":"images-copy-cta","blocks":{"e1fa53b6-c495-4a81-aba7-f9493869f9f0":{"type":"subtitle","settings":{"subtitle":"But what does better mean?"}},"aca3113c-97cb-48bd-ad31-1a56263404aa":{"type":"copy","settings":{"copy":"<p>A few things, really. The Better Cotton  trains farmers in practices that actively promote soil health, water stewardship, carbon capture, and biodiversity. <\/p>"}},"87ccc695-1c4d-4ea9-afe9-32ff4781f1f6":{"type":"subtitle","settings":{"subtitle":"Their 2030 strategy maps out five impact targets:-"}},"c5b1210b-7ac1-4264-8168-37f59a5afd19":{"type":"copy","settings":{"copy":"<p>Increasing the net income and resilience of two million   smallholder cotton farmers and workers- Empower women working in cotton through educational   training and resources- Ensure that 100% of Better Cotton Farmers have improved    the health of their soil- Reduce the use and risk of synthetic pesticides applied by    BCI farmers by at least half. - Reduce greenhouse gas emissions by 50% per tonne of    Better Cotton lint.<\/p>"}}},"block_order":["e1fa53b6-c495-4a81-aba7-f9493869f9f0","aca3113c-97cb-48bd-ad31-1a56263404aa","87ccc695-1c4d-4ea9-afe9-32ff4781f1f6","c5b1210b-7ac1-4264-8168-37f59a5afd19"],"disabled":true,"settings":{"image":"shopify:\/\/shop_images\/better-cotton-1.jpg","image2":"shopify:\/\/shop_images\/better-cotton-2.jpg","subtitle":"Our Certifications","title":"<p>Better Cotton (BC)<\/p>","copy":"<p>The Better Cotton  (BC) is a global non-profit that aims to make the cotton industry better for the people that produce it, better for the environment that it grows in and better for the cotton industry's future.<\/p>","button_label":"","button_link":"shopify:\/\/collections\/all","content_position":"left","header_position":true,"images_half_width":true,"anchor_id":"better-cotton"}},"rich-text2":{"type":"rich-text","blocks":{"baf52df9-650b-459f-886f-675e4538ba12":{"type":"heading","disabled":true,"settings":{"heading":"Our Certifications","sub_title_size":"h5"}},"8f7002da-26e4-414a-bd23-f81f38b7e43a":{"type":"main_heading","settings":{"heading":"Made in Green by OEKO-TEX®"}},"a7be0c86-54d2-47e3-8d0d-9ca75a9a0e79":{"type":"text","settings":{"text":"<p>OEKO-TEX's Made in Green certification is a fairly rigorous standard. While it's not as stringent as certified organic, any products that have earned the Made in Green label have been held to a high ethical standard guided by four key principles:<\/p>"}}},"block_order":["baf52df9-650b-459f-886f-675e4538ba12","8f7002da-26e4-414a-bd23-f81f38b7e43a","a7be0c86-54d2-47e3-8d0d-9ca75a9a0e79"],"disabled":true,"settings":{"full_width":false,"anchor_id":"made-in-green"}},"info-cards":{"type":"info-cards","blocks":{"31ca2767-17ed-4295-b5d5-a235fd6c3ad9":{"type":"card","settings":{"image":"shopify:\/\/shop_images\/Christy_Newletter_Icon_exploration_Sustainability.svg","title":"Free standard delivery on orders over £50","content_title":"","text":""}},"cf002eb8-5721-44b8-a686-690fd99e78b1":{"type":"card","settings":{"image":"shopify:\/\/shop_images\/environmentally-friendly-production.svg","title":"No fuss, free returns with Evri","content_title":"","text":""}},"a5263566-0655-4775-ab38-e1de94d70e23":{"type":"card","settings":{"image":"shopify:\/\/shop_images\/social-working0conditions.svg","title":"TBC","content_title":"","text":""}},"8998fe16-bb53-4a46-a0f6-8a84c6d54da7":{"type":"card","settings":{"image":"shopify:\/\/shop_images\/trasparent-supply-chains.svg","title":"TBC","content_title":"","text":""}}},"block_order":["31ca2767-17ed-4295-b5d5-a235fd6c3ad9","cf002eb8-5721-44b8-a686-690fd99e78b1","a5263566-0655-4775-ab38-e1de94d70e23","8998fe16-bb53-4a46-a0f6-8a84c6d54da7"],"settings":{"title":"Why Christy"}},"rich-text3":{"type":"rich-text","blocks":{"263ecdbb-4031-4243-b9f0-7741e9466334":{"type":"heading","settings":{"heading":"Our Certifications","sub_title_size":"h5"}},"99671758-4269-4bf7-8409-8740c3782cf4":{"type":"main_heading","settings":{"heading":"Global Organic Textile Standard (GOTS)"}},"e411df9c-a1eb-4df0-abce-00a6f86321c2":{"type":"text","settings":{"text":"<p>We launched our first organic cotton collection in 2022, an important step in pushing our sustainability efforts forward. To make it official, we sought certification by the Global Organic Textile Standard (GOTS), the world's leading textile-processing authority on for organic fibers, and the most stringent certification that exists.<br\/><br\/>GOTS certification starts with organic farming and moves all of the way up the supply chain. From harvesting to processing, weaving, and sewing, GOTS covers everything from the dyes that can be used, to wastewater treatment, to the final packaging that our soft cotton sheets can be folded into and sent to you. It's the gold standard in responsible manufacturing.<\/p>"}}},"block_order":["263ecdbb-4031-4243-b9f0-7741e9466334","99671758-4269-4bf7-8409-8740c3782cf4","e411df9c-a1eb-4df0-abce-00a6f86321c2"],"disabled":true,"settings":{"full_width":false,"anchor_id":"gots"}},"images-copy-cta2":{"type":"images-copy-cta","disabled":true,"settings":{"image":"shopify:\/\/shop_images\/forest-stewardship-1.jpg","image2":"shopify:\/\/shop_images\/forest-stewardship-2.jpg","subtitle":"Certifications","title":"<p>Forest Stewardship Council<\/p>","copy":"<p>We've dramatically reduced our waste plastic by switching to cloth and paper based packaging materials. All of the card used in our packaging is certified by the FSC (Forest Stewardship Council), which means it's been given the thumbs up by the world's most trusted sustainable forest management agency.<\/p>","button_label":"","button_link":"shopify:\/\/collections\/all","content_position":"right","header_position":false,"images_half_width":false,"anchor_id":"fsc"}},"billboard2":{"type":"billboard","disabled":true,"settings":{"screen_visibility":"both","image":"shopify:\/\/shop_images\/perfect-towel_7b6f2a34-1d35-4624-bc88-9e7432cbb3a9.jpg","subtitle":"Feature","title":"<p>Only the best: picking your perfect towel<\/p>","copy":"<p>There's an art to choosing the right towel. Absorb our expert tips to discover your ideal drying-down companion.<\/p>","button_label":"Read more","button_link":"shopify:\/\/pages\/responsibility","button_type":"tertiary","colour_theme":"white","alignment":"left","alignment_vertical":"center","mobile_content_position":"overlay"}}},"order":["images","hero-static","99b35547-252f-4a43-8e71-7986509c237d","featured-collection","8f9e3ef3-0d55-43c1-b496-14c674ab688e","heading","heading2","rich-text","billboard","images-copy-cta","rich-text2","info-cards","rich-text3","images-copy-cta2","billboard2"]}
+{
+  "sections": {
+    "images": {
+      "type": "images",
+      "blocks": {
+        "f7349441-914d-4efc-8916-20c989feb67a": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/1200X628_1.png",
+            "width": "full",
+            "aspect": "16\/9"
+          }
+        }
+      },
+      "block_order": [
+        "f7349441-914d-4efc-8916-20c989feb67a"
+      ],
+      "settings": {
+        "fullscreen": true
+      }
+    },
+    "hero-static": {
+      "type": "hero-static",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/responsibility-1.jpg",
+        "subtitle": "Responsibility",
+        "title": "Timeless products, consciously made",
+        "copy": "<p>We're working to build a better future, and are improving our processes for the good of our consumers, our communities and the wider environment<\/p>",
+        "image2": "shopify:\/\/shop_images\/responsibility-2.jpg"
+      }
+    },
+    "99b35547-252f-4a43-8e71-7986509c237d": {
+      "type": "collections-carousel",
+      "blocks": {
+        "011aec37-bf4d-4aaf-8938-fc5d7f858e06": {
+          "type": "collection",
+          "settings": {
+            "collection": "bedroom-bedroom-sale",
+            "usp_title": "Bedding Sale - up to 30% off",
+            "alt_title": "",
+            "excerpt": ""
+          }
+        }
+      },
+      "block_order": [
+        "011aec37-bf4d-4aaf-8938-fc5d7f858e06"
+      ],
+      "settings": {
+        "title": "",
+        "screen_visibility": "mobile"
+      }
+    },
+    "featured-collection": {
+      "type": "featured-collection",
+      "blocks": {
+        "4a655c37-2240-43bd-aa0c-b3e113217a08": {
+          "type": "product",
+          "settings": {
+            "product": "400-thread-count-sateen-plain-dye",
+            "text": "<p>Wrap yourself up in pure luxury with our ultra soft and absorbant Supreme Hygro® towel collection<\/p>"
+          }
+        },
+        "e14b8b02-c53c-4069-85cc-43e31732c3cb": {
+          "type": "product",
+          "settings": {
+            "product": "anti-allergy-mattress-and-pillow-protectors",
+            "text": "<p>Wrap yourself up in pure luxury with our ultra soft and absorbant Supreme Hygro® towel collection<\/p>"
+          }
+        },
+        "d21bf329-3944-47a0-832b-9162c451db72": {
+          "type": "product",
+          "settings": {
+            "product": "appleby-bed-linen",
+            "text": "<p>Wrap yourself up in pure luxury with our ultra soft and absorbant Supreme Hygro® towel collection<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "4a655c37-2240-43bd-aa0c-b3e113217a08",
+        "e14b8b02-c53c-4069-85cc-43e31732c3cb",
+        "d21bf329-3944-47a0-832b-9162c451db72"
+      ],
+      "settings": {
+        "title": "Shop the Halloween Sale now",
+        "collection": "offers-shop-all-sale"
+      }
+    },
+    "8f9e3ef3-0d55-43c1-b496-14c674ab688e": {
+      "type": "page-anchors",
+      "blocks": {
+        "template--19974381371680__8f9e3ef3-0d55-43c1-b496-14c674ab688e-anchor_link-1": {
+          "type": "anchor_link",
+          "settings": {
+            "title": "Better Cotton (BC)",
+            "anchor_id": "better-cotton"
+          }
+        },
+        "template--19974381371680__8f9e3ef3-0d55-43c1-b496-14c674ab688e-anchor_link-2": {
+          "type": "anchor_link",
+          "settings": {
+            "title": "Made in Green by OEKO-TEX",
+            "anchor_id": "made-in-green"
+          }
+        },
+        "template--19974381371680__8f9e3ef3-0d55-43c1-b496-14c674ab688e-anchor_link-3": {
+          "type": "anchor_link",
+          "settings": {
+            "title": "Global Organic Textile Standard",
+            "anchor_id": "gots"
+          }
+        },
+        "a96b90be-0de5-4063-a37a-ced6f72b034b": {
+          "type": "anchor_link",
+          "settings": {
+            "title": "FSC",
+            "anchor_id": "fsc"
+          }
+        }
+      },
+      "block_order": [
+        "template--19974381371680__8f9e3ef3-0d55-43c1-b496-14c674ab688e-anchor_link-1",
+        "template--19974381371680__8f9e3ef3-0d55-43c1-b496-14c674ab688e-anchor_link-2",
+        "template--19974381371680__8f9e3ef3-0d55-43c1-b496-14c674ab688e-anchor_link-3",
+        "a96b90be-0de5-4063-a37a-ced6f72b034b"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "heading": {
+      "type": "heading",
+      "disabled": true,
+      "settings": {
+        "heading": "<p>We are proud members of Better Cotton <\/p>",
+        "heading_width": "4",
+        "copy": "",
+        "copy_style": "default",
+        "alignment": "right",
+        "alignment_mob": "right",
+        "horiz_padding": true,
+        "margin_top": false
+      }
+    },
+    "heading2": {
+      "type": "heading",
+      "settings": {
+        "heading": "<p>Up to 50% OFF<\/p>",
+        "heading_width": "6",
+        "copy": "<p>On towels, bedding, accessories, robes and more<\/p>",
+        "copy_style": "heading3",
+        "alignment": "right",
+        "alignment_mob": "right",
+        "horiz_padding": true,
+        "margin_top": false
+      }
+    },
+    "rich-text": {
+      "type": "rich-text",
+      "blocks": {
+        "1398f43f-f918-4187-b50f-70492610063a": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our Approach",
+            "sub_title_size": "h2"
+          }
+        },
+        "a7dab157-b607-401b-b61d-2976f78d0bbe": {
+          "type": "text",
+          "settings": {
+            "text": "<p>At Christy, we know that everything we make has an impact and we're developing systems to reduce ours. We're striving to create dreamy nights' sleeps and relaxing bath routines that are gentler on our planet. Since 1850, we've had an uncompromising design philosophy; creating functional, beautiful products that are made to last. In recent years, it's become clear that we need to go farther than that—so we can all rest a little easier.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "1398f43f-f918-4187-b50f-70492610063a",
+        "a7dab157-b607-401b-b61d-2976f78d0bbe"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": false,
+        "anchor_id": ""
+      }
+    },
+    "billboard": {
+      "type": "billboard",
+      "disabled": true,
+      "settings": {
+        "screen_visibility": "both",
+        "image": "shopify:\/\/shop_images\/just-getting-started.jpg",
+        "subtitle": "Our Mission",
+        "title": "<p>We’re just getting started<\/p>",
+        "copy": "<p>From transitioning to Better Cotton, to introducing our first certified organic collection, we're continuously learning and improving so that we can make products that are better for you and better for the planet. You're invited to learn more about our current certifications, goals, how we're developing, and what we're moving towards.<\/p>",
+        "button_label": "Get in touch",
+        "button_link": "shopify:\/\/pages\/contact",
+        "button_type": "tertiary",
+        "colour_theme": "white",
+        "alignment": "left",
+        "alignment_vertical": "center",
+        "mobile_content_position": "overlay"
+      }
+    },
+    "images-copy-cta": {
+      "type": "images-copy-cta",
+      "blocks": {
+        "e1fa53b6-c495-4a81-aba7-f9493869f9f0": {
+          "type": "subtitle",
+          "settings": {
+            "subtitle": "But what does better mean?"
+          }
+        },
+        "aca3113c-97cb-48bd-ad31-1a56263404aa": {
+          "type": "copy",
+          "settings": {
+            "copy": "<p>A few things, really. The Better Cotton  trains farmers in practices that actively promote soil health, water stewardship, carbon capture, and biodiversity. <\/p>"
+          }
+        },
+        "87ccc695-1c4d-4ea9-afe9-32ff4781f1f6": {
+          "type": "subtitle",
+          "settings": {
+            "subtitle": "Their 2030 strategy maps out five impact targets:-"
+          }
+        },
+        "c5b1210b-7ac1-4264-8168-37f59a5afd19": {
+          "type": "copy",
+          "settings": {
+            "copy": "<p>Increasing the net income and resilience of two million   smallholder cotton farmers and workers- Empower women working in cotton through educational   training and resources- Ensure that 100% of Better Cotton Farmers have improved    the health of their soil- Reduce the use and risk of synthetic pesticides applied by    BCI farmers by at least half. - Reduce greenhouse gas emissions by 50% per tonne of    Better Cotton lint.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "e1fa53b6-c495-4a81-aba7-f9493869f9f0",
+        "aca3113c-97cb-48bd-ad31-1a56263404aa",
+        "87ccc695-1c4d-4ea9-afe9-32ff4781f1f6",
+        "c5b1210b-7ac1-4264-8168-37f59a5afd19"
+      ],
+      "disabled": true,
+      "settings": {
+        "image": "shopify:\/\/shop_images\/better-cotton-1.jpg",
+        "image2": "shopify:\/\/shop_images\/better-cotton-2.jpg",
+        "subtitle": "Our Certifications",
+        "title": "<p>Better Cotton (BC)<\/p>",
+        "copy": "<p>The Better Cotton  (BC) is a global non-profit that aims to make the cotton industry better for the people that produce it, better for the environment that it grows in and better for the cotton industry's future.<\/p>",
+        "button_label": "",
+        "button_link": "shopify:\/\/collections\/all",
+        "content_position": "left",
+        "header_position": true,
+        "images_half_width": true,
+        "anchor_id": "better-cotton"
+      }
+    },
+    "rich-text2": {
+      "type": "rich-text",
+      "blocks": {
+        "baf52df9-650b-459f-886f-675e4538ba12": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "Our Certifications",
+            "sub_title_size": "h5"
+          }
+        },
+        "8f7002da-26e4-414a-bd23-f81f38b7e43a": {
+          "type": "main_heading",
+          "settings": {
+            "heading": "Made in Green by OEKO-TEX®"
+          }
+        },
+        "a7be0c86-54d2-47e3-8d0d-9ca75a9a0e79": {
+          "type": "text",
+          "settings": {
+            "text": "<p>OEKO-TEX's Made in Green certification is a fairly rigorous standard. While it's not as stringent as certified organic, any products that have earned the Made in Green label have been held to a high ethical standard guided by four key principles:<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "baf52df9-650b-459f-886f-675e4538ba12",
+        "8f7002da-26e4-414a-bd23-f81f38b7e43a",
+        "a7be0c86-54d2-47e3-8d0d-9ca75a9a0e79"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": false,
+        "anchor_id": "made-in-green"
+      }
+    },
+    "info-cards": {
+      "type": "info-cards",
+      "blocks": {
+        "31ca2767-17ed-4295-b5d5-a235fd6c3ad9": {
+          "type": "card",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Christy_Newletter_Icon_exploration_Sustainability.svg",
+            "title": "Free standard delivery on orders over £50",
+            "content_title": "",
+            "text": ""
+          }
+        },
+        "cf002eb8-5721-44b8-a686-690fd99e78b1": {
+          "type": "card",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/environmentally-friendly-production.svg",
+            "title": "No fuss, free returns with Evri",
+            "content_title": "",
+            "text": ""
+          }
+        },
+        "a5263566-0655-4775-ab38-e1de94d70e23": {
+          "type": "card",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/social-working0conditions.svg",
+            "title": "TBC",
+            "content_title": "",
+            "text": ""
+          }
+        },
+        "8998fe16-bb53-4a46-a0f6-8a84c6d54da7": {
+          "type": "card",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/trasparent-supply-chains.svg",
+            "title": "TBC",
+            "content_title": "",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "31ca2767-17ed-4295-b5d5-a235fd6c3ad9",
+        "cf002eb8-5721-44b8-a686-690fd99e78b1",
+        "a5263566-0655-4775-ab38-e1de94d70e23",
+        "8998fe16-bb53-4a46-a0f6-8a84c6d54da7"
+      ],
+      "settings": {
+        "title": "Why Christy"
+      }
+    },
+    "rich-text3": {
+      "type": "rich-text",
+      "blocks": {
+        "263ecdbb-4031-4243-b9f0-7741e9466334": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our Certifications",
+            "sub_title_size": "h5"
+          }
+        },
+        "99671758-4269-4bf7-8409-8740c3782cf4": {
+          "type": "main_heading",
+          "settings": {
+            "heading": "Global Organic Textile Standard (GOTS)"
+          }
+        },
+        "e411df9c-a1eb-4df0-abce-00a6f86321c2": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We launched our first organic cotton collection in 2022, an important step in pushing our sustainability efforts forward. To make it official, we sought certification by the Global Organic Textile Standard (GOTS), the world's leading textile-processing authority on for organic fibers, and the most stringent certification that exists.<br\/><br\/>GOTS certification starts with organic farming and moves all of the way up the supply chain. From harvesting to processing, weaving, and sewing, GOTS covers everything from the dyes that can be used, to wastewater treatment, to the final packaging that our soft cotton sheets can be folded into and sent to you. It's the gold standard in responsible manufacturing.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "263ecdbb-4031-4243-b9f0-7741e9466334",
+        "99671758-4269-4bf7-8409-8740c3782cf4",
+        "e411df9c-a1eb-4df0-abce-00a6f86321c2"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": false,
+        "anchor_id": "gots"
+      }
+    },
+    "images-copy-cta2": {
+      "type": "images-copy-cta",
+      "disabled": true,
+      "settings": {
+        "image": "shopify:\/\/shop_images\/forest-stewardship-1.jpg",
+        "image2": "shopify:\/\/shop_images\/forest-stewardship-2.jpg",
+        "subtitle": "Certifications",
+        "title": "<p>Forest Stewardship Council<\/p>",
+        "copy": "<p>We've dramatically reduced our waste plastic by switching to cloth and paper based packaging materials. All of the card used in our packaging is certified by the FSC (Forest Stewardship Council), which means it's been given the thumbs up by the world's most trusted sustainable forest management agency.<\/p>",
+        "button_label": "",
+        "button_link": "shopify:\/\/collections\/all",
+        "content_position": "right",
+        "header_position": false,
+        "images_half_width": false,
+        "anchor_id": "fsc"
+      }
+    },
+    "billboard2": {
+      "type": "billboard",
+      "disabled": true,
+      "settings": {
+        "screen_visibility": "both",
+        "image": "shopify:\/\/shop_images\/perfect-towel_7b6f2a34-1d35-4624-bc88-9e7432cbb3a9.jpg",
+        "subtitle": "Feature",
+        "title": "<p>Only the best: picking your perfect towel<\/p>",
+        "copy": "<p>There's an art to choosing the right towel. Absorb our expert tips to discover your ideal drying-down companion.<\/p>",
+        "button_label": "Read more",
+        "button_link": "shopify:\/\/pages\/responsibility",
+        "button_type": "tertiary",
+        "colour_theme": "white",
+        "alignment": "left",
+        "alignment_vertical": "center",
+        "mobile_content_position": "overlay"
+      }
+    }
+  },
+  "order": [
+    "images",
+    "hero-static",
+    "99b35547-252f-4a43-8e71-7986509c237d",
+    "featured-collection",
+    "8f9e3ef3-0d55-43c1-b496-14c674ab688e",
+    "heading",
+    "heading2",
+    "rich-text",
+    "billboard",
+    "images-copy-cta",
+    "rich-text2",
+    "info-cards",
+    "rich-text3",
+    "images-copy-cta2",
+    "billboard2"
+  ]
+}

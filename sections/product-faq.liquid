@@ -1,0 +1,23 @@
+{% schema %}
+    {
+        "name": "FAQ: Product",
+        "settings": [
+            {
+            "type": "text",
+            "id": "heading",
+            "label": "Section Heading",
+            "default": "FAQ"
+            }
+        ],
+        "presets": [
+            {
+            "name": "FAQ: Product"
+            }
+        ]
+    }
+{% endschema %}
+
+{% render 'faq', heading_text: section.settings.heading, left_box: product.metafields.custom.faq_left_box, right_box: product.metafields.custom.faq_right_box %}
+
+{{ 'faq-style.css' | asset_url | stylesheet_tag }}
+{{ 'faq-script.js' | asset_url | script_tag }}

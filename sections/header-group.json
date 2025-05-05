@@ -1,21 +1,55 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "name": "t:sections.header.name",
   "type": "header",
   "sections": {
     "header": {
       "type": "header",
+      "blocks": {
+        "quiz_aETVmr": {
+          "type": "quiz",
+          "settings": {
+            "quiz_image": "shopify:\/\/shop_images\/Slipping_into_a_light.jpg",
+            "quiz_title": "Robes",
+            "quiz_product": "brixton-hooded-robe-copy"
+          }
+        },
+        "quiz_tTcDgm": {
+          "type": "quiz",
+          "settings": {
+            "quiz_image": "shopify:\/\/shop_images\/I_like_to_recreate_the_feel_of_a_luxury.jpg",
+            "quiz_title": "Towels",
+            "quiz_product": "amalfi-beach-towel"
+          }
+        },
+        "quiz_YwrGbH": {
+          "type": "quiz",
+          "settings": {
+            "quiz_image": "shopify:\/\/shop_images\/One_made_for_lounge-worthy_moments.jpg",
+            "quiz_title": "Bedding",
+            "quiz_product": "400-thread-count-sateen-plain-dye"
+          }
+        }
+      },
+      "block_order": [
+        "quiz_aETVmr",
+        "quiz_tTcDgm",
+        "quiz_YwrGbH"
+      ],
       "settings": {
-        "announcement": "<p>Free Standard Delivery over $50  | 30 Day Hassle Free Returns</p>",
-        "menu": "shop-menu-new-theme"
+        "announcement": "<p>Free Standard Delivery over £50 | Stress-free <a href=\"\/pages\/returns-policy\" title=\"Returns Policy\">Returns<\/a><\/p>",
+        "sale_end_date": "2024-11-7",
+        "menu": "redesign-menu",
+        "popular_searches": "Towels,Jaipur,Bedding",
+        "featured_products": [
+          "flannel-stripe-duvet-set",
+          "supreme-hygro",
+          "400-thread-count-sateen-plain-dye"
+        ],
+        "mobile_navigation_bg": "shopify:\/\/shop_images\/banner.png",
+        "mobile_navigation_text": "<p>Find the your product <\/p>",
+        "mobile_navigation_button": "<p><a href=\"#\" title=\"#\">Start quiz<\/a><\/p>",
+        "quiz_title": "Discover Your Signature Comfort",
+        "quiz_subtitle": "Indulge in luxury made just for you. Let us guide you to your perfect match"
       }
     }
   },

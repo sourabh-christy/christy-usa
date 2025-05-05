@@ -1,0 +1,407 @@
+{%- assign related_product_ids = recomended_product.metafields.shopify--discovery--product_recommendation.related_products.value -%}
+{%- assign related_product_size = related_product_ids | join: "," | split: "," | size -%}
+{%- assign remaining_size = size | minus: related_product_size -%}
+{%- assign main_collection = recomended_product.metafields.custom.fallback_collection.value -%}
+{%- if main_collection -%}
+  {%- assign main_collection_products = main_collection.products -%}
+{%- else -%}
+  {%- assign main_collection_products = collections.all.products -%}
+{%- endif -%}
+{%- assign main_collection_size = main_collection_products | size -%}
+
+{%- if remaining_size > 0 -%}
+  {%- if main_collection_size > remaining_size -%}
+    {%- assign collection_product_size = remaining_size -%}
+    {%- assign all_collection_size = 0 -%}
+  {%- else -%}
+    {%- assign collection_product_size = main_collection_size -%}
+    {%- assign all_collection_size = remaining_size | minus: main_collection_size -%}
+  {%- endif -%}
+{%- else -%}
+  {%- assign collection_product_size = 0 -%}
+  {%- assign all_collection_size = 0 -%}
+{%- endif -%}
+
+{%- for related_product in related_product_ids limit: size -%}
+  <div class="splide__slide w-full">
+    <div class="grid grid-cols-[155px_auto] gap-2">
+      <a href="{{ related_product.url }}">
+        <img class="w-[155px] h-[155px] object-cover" src="{{ related_product.featured_image | img_url:'155x' }}" loading="lazy">
+      </a>
+      <div class="flex flex-col gap-2">
+        <a href="{{ related_product.url }}" class="text-sm font-semibold text-primary-blue">
+          {{- related_product.title -}}
+        </a>
+        {%- if settings.upsell_debug == true -%}
+            <p class="text-blue-500 text-xs">From {{ recomended_product.title }} showing {{ size }} products (Related Products)</p>
+        {%- endif -%}
+        {% assign first_variant = related_product.variants.first %}
+        {% if first_variant %}
+          {% if first_variant.options[0] %}
+            <p class="flex justify-between">
+              <span class="text-xs font-normal text-primary-blue">
+                {{- related_product.options[0] }}:
+              </span>
+              <span class="text-xs font-normal text-primary-blue">
+                {{- first_variant.options[0] -}}
+              </span>
+            </p>
+          {% endif %}
+          {% if first_variant.options[1] %}
+            <p class="flex justify-between">
+              <span class="text-xs font-normal text-primary-blue">
+                {{- related_product.options[1] }}:
+              </span>
+              <span class="text-xs font-normal text-primary-blue">
+                {{- first_variant.options[1] -}}
+              </span>
+            </p>
+          {% endif %}
+        {% endif %}
+        <div class="flex justify-between items-center mt-auto">
+          <div class="flex flex-col lg:flex-row gap-[2px] lg:gap-3">
+            {% assign price_range = related_product.variants | map: 'price' | sort %}
+            {% if price_range.first < price_range.last %}
+              <span class="text-sm font-semibold text-primary-blue">
+                {{- price_range.first | money }} - {{ price_range.last | money -}}
+              </span>
+            {% else %}
+              {% if first_variant.compare_at_price > first_variant.price %}
+                <span class="text-[11px] font-semibold text-primary-blue line-through">
+                  {{ first_variant.compare_at_price | money }}
+                </span>
+                <span class="text-sm font-semibold text-primary-blue">
+                  {{ first_variant.price | money }}
+                </span>
+              {% else %}
+                <span class="text-sm font-semibold text-primary-blue">
+                  {{ first_variant.price | money }}
+                </span>
+              {% endif %}
+            {% endif %}
+          </div>
+          <div>
+            {%- assign product_form_id = 'quick-add-' | append: section_id | append: related_product.id -%}
+            <modal-opener class="shrink-0 grow-0" data-modal="#QuickAdd-{{ related_product.id }}">
+              <button
+                id="{{ product_form_id }}-submit"
+                type="submit"
+                name="add"
+                class="
+                  quick-add__submit px-[26px] py-3 btn-large group relative btn-hover-animated-primary [&_path]:!stroke-current [&.active_path]:!fill-current
+                  aspect-square w-[100px]
+                "
+                aria-haspopup="dialog"
+                aria-labelledby="{{ product_form_id }}-submit title-{{ section_id }}-{{ related_product.id }}"
+                data-product-url="{{ related_product.url }}"
+              >
+                <span class="qatc-icon text-base">+ ADD</span>
+                <span style="--color-foreground: 255,255,255" class="loading-overlay__spinner hidden">
+                  <svg
+                    aria-hidden="true"
+                    focusable="false"
+                    class="spinner"
+                    viewBox="0 0 66 66"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle class="path group-hover:stroke-primary-blue" fill="none" stroke-width="4" cx="33" cy="33" r="30"></circle>
+                  </svg>
+                </span>
+              </button>
+            </modal-opener>
+            <quick-add-modal
+              id="QuickAdd-{{ related_product.id }}"
+              class="quick-add-modal"
+            >
+              <script data-related-handles type="application/json">
+                {
+                  "related_handles": "{% for prod in related_product.collections.first.products limit:9 %}{{ prod.handle }}{% unless forloop.last %},{% endunless %}{%endfor%}"
+                }
+              </script>
+              <div
+                role="dialog"
+                aria-label="{{ 'products.product.choose_product_options' | t: product_name: related_product.title | escape }}"
+                aria-modal="true"
+                class="quick-add-modal__content global-settings-popup z-[2147483605]"
+                tabindex="-1"
+              >
+                <button
+                  id="ModalClose-{{ related_product.id }}"
+                  type="button"
+                  class="quick-add-modal__toggle"
+                  aria-label="{{ 'accessibility.close' | t }}"
+                >
+                  {% render 'icon-close' %}
+                </button>
+                <div
+                  id="QuickAddInfo-{{ related_product.id }}"
+                  class="quick-add-modal__content-info"
+                ></div>
+              </div>
+            </quick-add-modal>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{%- endfor -%}
+
+{%- if collection_product_size > 0 -%}
+  {%- assign for_main_count = 0 -%}
+  {%- for main_collection_product in main_collection_products limit: collection_product_size -%}
+    {% assign for_main_count = for_main_count | plus: 1 %}
+    <div class="splide__slide w-full" data-collection="{{ main_collection.title }}">
+      <div class="grid grid-cols-[155px_auto] gap-2">
+        <a href="{{ main_collection_product.url }}">
+          <img class="w-[155px] h-[155px] object-cover" src="{{ main_collection_product.featured_image | img_url:'155x' }}" loading="lazy">
+        </a>
+        <div class="flex flex-col gap-2">
+          <a href="{{ main_collection_product.url }}" class="text-sm font-semibold text-primary-blue">
+            {{- main_collection_product.title -}}
+          </a>
+          {%- if settings.upsell_debug == true -%}
+            {% if main_collection %}
+              <p class="text-blue-500 text-xs">From {{ recomended_product.title }} showing {{ size }} products (Main Collection: {{ main_collection.title }})</p>
+            {% else %}
+              <p class="text-blue-500 text-xs">From {{ recomended_product.title }} showing {{ size }} products (Collection All)</p>
+            {% endif %}
+          {%- endif -%}
+          {% assign first_variant = main_collection_product.variants.first %}
+          {% if first_variant %}
+            {% if first_variant.options[0] %}
+              <p class="flex justify-between">
+                <span class="text-xs font-normal text-primary-blue">
+                  {{- main_collection_product.options[0] }}:
+                </span>
+                <span class="text-xs font-normal text-primary-blue">
+                  {{- first_variant.options[0] -}}
+                </span>
+              </p>
+            {% endif %}
+            {% if first_variant.options[1] %}
+              <p class="flex justify-between">
+                <span class="text-xs font-normal text-primary-blue">
+                  {{- main_collection_product.options[1] }}:
+                </span>
+                <span class="text-xs font-normal text-primary-blue">
+                  {{- first_variant.options[1] -}}
+                </span>
+              </p>
+            {% endif %}
+          {% endif %}
+          <div class="flex justify-between items-center mt-auto">
+            <div class="flex flex-col lg:flex-row gap-[2px] lg:gap-3">
+              {% assign price_range = main_collection_product.variants | map: 'price' | sort %}
+              {% if price_range.first < price_range.last %}
+                <span class="text-sm font-semibold text-primary-blue">
+                  {{- price_range.first | money }} - {{ price_range.last | money -}}
+                </span>
+              {% else %}
+                {% if first_variant and first_variant.compare_at_price > first_variant.price %}
+                  <span class="text-[11px] font-semibold text-primary-blue line-through">
+                    {{ first_variant.compare_at_price | money }}
+                  </span>
+                  <span class="text-sm font-semibold text-primary-blue">
+                    {{ first_variant.price | money }}
+                  </span>
+                {% elsif first_variant %}
+                  <span class="text-sm font-semibold text-primary-blue">
+                    {{ first_variant.price | money }}
+                  </span>
+                {% endif %}
+              {% endif %}
+            </div>
+            <div>
+              {%- assign product_form_id = 'quick-add-' | append: section_id | append: main_collection_product.id -%}
+              <modal-opener class="shrink-0 grow-0" data-modal="#QuickAdd-{{ main_collection_product.id }}">
+                <button
+                  id="{{ product_form_id }}-submit"
+                  type="submit"
+                  name="add"
+                  class="
+                    quick-add__submit px-[26px] py-3 btn-large group relative btn-hover-animated-primary [&_path]:!stroke-current [&.active_path]:!fill-current
+                    aspect-square w-[100px]
+                  "
+                  aria-haspopup="dialog"
+                  aria-labelledby="{{ product_form_id }}-submit title-{{ section_id }}-{{ main_collection_product.id }}"
+                  data-product-url="{{ main_collection_product.url }}"
+                >
+                  <span class="qatc-icon text-base">+ ADD</span>
+                  <span style="--color-foreground: 255,255,255" class="loading-overlay__spinner hidden">
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      class="spinner"
+                      viewBox="0 0 66 66"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle class="path group-hover:stroke-primary-blue" fill="none" stroke-width="4" cx="33" cy="33" r="30"></circle>
+                    </svg>
+                  </span>
+                </button>
+              </modal-opener>
+              <quick-add-modal
+                id="QuickAdd-{{ main_collection_product.id }}"
+                class="quick-add-modal"
+              >
+                <script data-related-handles type="application/json">
+                  {
+                    "related_handles": "{% for prod in main_collection_product.collections.first.products limit:9 %}{{ prod.handle }}{% unless forloop.last %},{% endunless %}{%endfor%}"
+                  }
+                </script>
+                <div
+                  role="dialog"
+                  aria-label="{{ 'products.product.choose_product_options' | t: product_name: main_collection_product.title | escape }}"
+                  aria-modal="true"
+                  class="quick-add-modal__content global-settings-popup z-[2147483605]"
+                  tabindex="-1"
+                >
+                  <button
+                    id="ModalClose-{{ main_collection_product.id }}"
+                    type="button"
+                    class="quick-add-modal__toggle"
+                    aria-label="{{ 'accessibility.close' | t }}"
+                  >
+                    {% render 'icon-close' %}
+                  </button>
+                  <div
+                    id="QuickAddInfo-{{ main_collection_product.id }}"
+                    class="quick-add-modal__content-info"
+                  ></div>
+                </div>
+              </quick-add-modal>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {%- endfor -%}
+{%- endif -%}
+
+{%- if all_collection_size > 0 -%}
+  {%- assign for_all_count = 0 -%}
+  {%- for collection_product in collections.all.products limit: all_collection_size -%}
+    {% assign for_all_count = for_all_count | plus: 1 %}
+    <div class="splide__slide w-full" data-collection="Collection All">
+      <div class="grid grid-cols-[155px_auto] gap-2">
+        <a href="{{ collection_product.url }}">
+          <img class="w-[155px] h-[155px] object-cover" src="{{ collection_product.featured_image | img_url:'155x' }}" loading="lazy">
+        </a>
+        <div class="flex flex-col gap-2">
+          <a href="{{ collection_product.url }}" class="text-sm font-semibold text-primary-blue">
+            {{- collection_product.title -}}
+          </a>
+          {%- if settings.upsell_debug == true -%}
+            <p class="text-blue-500 text-xs">From {{ recomended_product.title }} showing {{ size }} products (Collection All)</p>
+          {%- endif -%}
+          {% assign first_variant = collection_product.variants.first %}
+          {% if first_variant %}
+            {% if first_variant.options[0] %}
+              <p class="flex justify-between">
+                <span class="text-xs font-normal text-primary-blue">
+                  {{- collection_product.options[0] }}:
+                </span>
+                <span class="text-xs font-normal text-primary-blue">
+                  {{- first_variant.options[0] -}}
+                </span>
+              </p>
+            {% endif %}
+            {% if first_variant.options[1] %}
+              <p class="flex justify-between">
+                <span class="text-xs font-normal text-primary-blue">
+                  {{- collection_product.options[1] }}:
+                </span>
+                <span class="text-xs font-normal text-primary-blue">
+                  {{- first_variant.options[1] -}}
+                </span>
+              </p>
+            {% endif %}
+          {% endif %}
+          <div class="flex justify-between items-center mt-auto">
+            <div class="flex flex-col lg:flex-row gap-[2px] lg:gap-3">
+              {% assign price_range = collection_product.variants | map: 'price' | sort %}
+              {% if price_range.first < price_range.last %}
+                <span class="text-sm font-semibold text-primary-blue">
+                  {{- price_range.first | money }} - {{ price_range.last | money -}}
+                </span>
+              {% else %}
+                {% if first_variant and first_variant.compare_at_price > first_variant.price %}
+                  <span class="text-[11px] font-semibold text-primary-blue line-through">
+                    {{ first_variant.compare_at_price | money }}
+                  </span>
+                  <span class="text-sm font-semibold text-primary-blue">
+                    {{ first_variant.price | money }}
+                  </span>
+                {% elsif first_variant %}
+                  <span class="text-sm font-semibold text-primary-blue">
+                    {{ first_variant.price | money }}
+                  </span>
+                {% endif %}
+              {% endif %}
+            </div>
+            <div>
+              {%- assign product_form_id = 'quick-add-' | append: section_id | append: collection_product.id -%}
+              <modal-opener class="shrink-0 grow-0" data-modal="#QuickAdd-{{ collection_product.id }}">
+                <button
+                  id="{{ product_form_id }}-submit"
+                  type="submit"
+                  name="add"
+                  class="
+                    quick-add__submit px-[26px] py-3 btn-large group relative btn-hover-animated-primary [&_path]:!stroke-current [&.active_path]:!fill-current
+                    aspect-square w-[100px]
+                  "
+                  aria-haspopup="dialog"
+                  aria-labelledby="{{ product_form_id }}-submit title-{{ section_id }}-{{ collection_product.id }}"
+                  data-product-url="{{ collection_product.url }}"
+                >
+                  <span class="qatc-icon text-base">+ ADD</span>
+                  <span style="--color-foreground: 255,255,255" class="loading-overlay__spinner hidden">
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      class="spinner"
+                      viewBox="0 0 66 66"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle class="path group-hover:stroke-primary-blue" fill="none" stroke-width="4" cx="33" cy="33" r="30"></circle>
+                    </svg>
+                  </span>
+                </button>
+              </modal-opener>
+              <quick-add-modal
+                id="QuickAdd-{{ collection_product.id }}"
+                class="quick-add-modal"
+              >
+                <script data-related-handles type="application/json">
+                  {
+                    "related_handles": "{% for prod in collection_product.collections.first.products limit:9 %}{{ prod.handle }}{% unless forloop.last %},{% endunless %}{%endfor%}"
+                  }
+                </script>
+                <div
+                  role="dialog"
+                  aria-label="{{ 'products.product.choose_product_options' | t: product_name: collection_product.title | escape }}"
+                  aria-modal="true"
+                  class="quick-add-modal__content global-settings-popup z-[2147483605]"
+                  tabindex="-1"
+                >
+                  <button
+                    id="ModalClose-{{ collection_product.id }}"
+                    type="button"
+                    class="quick-add-modal__toggle"
+                    aria-label="{{ 'accessibility.close' | t }}"
+                  >
+                    {% render 'icon-close' %}
+                  </button>
+                  <div
+                    id="QuickAddInfo-{{ collection_product.id }}"
+                    class="quick-add-modal__content-info"
+                  ></div>
+                </div>
+              </quick-add-modal>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {%- endfor -%}
+{%- endif -%}

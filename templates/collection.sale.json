@@ -1,20 +1,90 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
-    "6707d50c-5555-48d5-ade4-86ed7f2b1da0": {
-      "type": "hero-image",
+    "collections_carousel_rF3hjV": {
+      "type": "collections-carousel",
+      "blocks": {
+        "collection_tjQNw9": {
+          "type": "collection",
+          "settings": {
+            "collection": "offers-towels",
+            "usp_title": "",
+            "image": "shopify:\/\/shop_images\/Artboard_7_47_7b74a5be-fea8-4270-9044-869377e65c2f.jpg",
+            "alt_title": "Towels",
+            "excerpt": "<p>Wrap up in a cocoon of luxury after every shower.<\/p>",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 14,
+            "collection_carousel_excerpt_font_weight": "300",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk",
+            "hide_carousel_title": false,
+            "hide_carousel_excerpt": false,
+            "hide_shopnow": false
+          }
+        },
+        "collection_VbmqVP": {
+          "type": "collection",
+          "settings": {
+            "collection": "bedroom-bedroom-sale",
+            "usp_title": "",
+            "image": "shopify:\/\/shop_images\/Artboard_7_15ef095b-c50f-4f82-9b50-8bfe30167c6a.jpg",
+            "alt_title": "Bedding",
+            "excerpt": "<p>Get set for a blissful sleep in our snug bedding.<\/p>",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 14,
+            "collection_carousel_excerpt_font_weight": "300",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk",
+            "hide_carousel_title": false,
+            "hide_carousel_excerpt": false,
+            "hide_shopnow": false
+          }
+        },
+        "collection_cx7QX7": {
+          "type": "collection",
+          "settings": {
+            "collection": "robes-accessories-sale",
+            "usp_title": "",
+            "image": "shopify:\/\/shop_images\/Artboard_8_15_b3515490-4480-4d58-832e-6a348366efa3.jpg",
+            "alt_title": "Cushions & Throws",
+            "excerpt": "<p>Adorn with rich colors and tantalising texture.<\/p>",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 14,
+            "collection_carousel_excerpt_font_weight": "300",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk",
+            "hide_carousel_title": false,
+            "hide_carousel_excerpt": false,
+            "hide_shopnow": false
+          }
+        },
+        "collection_DdaArt": {
+          "type": "collection",
+          "settings": {
+            "collection": "offers-duvets-pillows",
+            "usp_title": "",
+            "image": "shopify:\/\/shop_images\/Artboard_9-2_1.jpg",
+            "alt_title": "Duvets & Pillows",
+            "excerpt": "<p>Turn up the tog, it's time to get cosy.<\/p>",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 14,
+            "collection_carousel_excerpt_font_weight": "300",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk",
+            "hide_carousel_title": false,
+            "hide_carousel_excerpt": false,
+            "hide_shopnow": false
+          }
+        }
+      },
+      "block_order": [
+        "collection_tjQNw9",
+        "collection_VbmqVP",
+        "collection_cx7QX7",
+        "collection_DdaArt"
+      ],
       "settings": {
-        "image": "shopify://shop_images/Bath-Bestseller-THIN_BANNER.jpg",
-        "link": "",
-        "full_width": true
+        "title": "Shop by category",
+        "collection_carousel_title_font_size_mob": 18,
+        "collection_carousel_title_font_size_desktop": 30,
+        "collection_carousel_title_font_weight": "500",
+        "collection_carousel_title_font_family": "Tomato Grotesk",
+        "screen_visibility": "both"
       }
     },
     "product-grid": {
@@ -25,9 +95,9 @@
           "disabled": true,
           "settings": {
             "text": "Build your Bundle",
-            "copy": "<p>Discover your perfect match for a restful night’s slumber.</p>",
+            "copy": "<p>Discover your perfect match for a restful night’s slumber.<\/p>",
             "button_text": "Build your Dream Towel Set",
-            "button_url": "https://quickstart-3a56366d.myshopify.com/collections/bed-duvet-sets",
+            "button_url": "https:\/\/quickstart-3a56366d.myshopify.com\/collections\/bed-duvet-sets",
             "styled": false,
             "position": 7
           }
@@ -37,7 +107,7 @@
           "disabled": true,
           "settings": {
             "text": "Easycare Percale",
-            "copy": "<p>This stylish collection is made from a high quality polycotton blend, which is both practical and easy to care for.<br/><br/>The range of gorgeous colours and simple tailoring make this collection a real winner.</p>",
+            "copy": "<p>This stylish collection is made from a high quality polycotton blend, which is both practical and easy to care for.<br\/><br\/>The range of gorgeous colours and simple tailoring make this collection a real winner.<\/p>",
             "button_text": "Discover Collection",
             "button_url": "",
             "styled": true,
@@ -48,7 +118,7 @@
           "type": "listsc",
           "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/zero-twist-yarn-2.jpg",
+            "image": "shopify:\/\/shop_images\/zero-twist-yarn-2.jpg",
             "product_1": "",
             "pos_l_1": 70,
             "pos_t_1": 45,
@@ -64,7 +134,7 @@
           "type": "listsc",
           "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/zero-twist-yarn-2.jpg",
+            "image": "shopify:\/\/shop_images\/zero-twist-yarn-2.jpg",
             "product_1": "",
             "pos_l_1": 25,
             "pos_t_1": 15,
@@ -85,22 +155,12 @@
       ],
       "settings": {
         "products_per": 24,
-        "excerpt": "Towels",
-        "title_font_size_mob": 26,
-        "title_font_size_desktop": 40,
-        "title_font_weight": "500",
-        "title_font_family": "Hatton, serif",
-        "seo_liner": "Indulge in the ultimate comfort with our luxury towels, crafted from the finest materials for a plush, spa-like experience every day.",
-        "seo_liner_font_size_mob": 14,
-        "seo_liner_font_size_desktop": 14,
-        "seo_liner_font_weight": "300",
-        "seo_liner_font_family": "Tomato Grotesk",
-        "enable_filtering": true,
         "enable_sorting": true
       }
     },
     "recent-products": {
       "type": "recent-products",
+      "disabled": true,
       "settings": {
         "heading": "Previously explored"
       }
@@ -111,22 +171,10 @@
       "settings": {
         "screen_visibility": "both",
         "subtitle": "Christy Life",
-        "billboard_subtitle_font_size_mob": 16,
-        "billboard_subtitle_font_size_desktop": 16,
-        "billboard_subtitle_font_weight": "600",
-        "billboard_subtitle_font_family": "sans-serif",
-        "title": "<p>7 simple everyday self-care rituals</p>",
-        "billboard_title_font_size_mob": 16,
-        "billboard_title_font_size_desktop": 40,
-        "billboard_title_font_weight": "500",
-        "billboard_title_font_family": "Hatton, serif",
-        "copy": "<p>Add a bit of TLC to your daily routine with these ideas to help you pause and enjoy the little moments.</p>",
-        "billboard_copy_font_size_mob": 14,
-        "billboard_copy_font_size_desktop": 14,
-        "billboard_copy_font_weight": "200",
-        "billboard_copy_font_family": "Tomato Grotesk",
+        "title": "<p>7 simple everyday self-care rituals<\/p>",
+        "copy": "<p>Add a bit of TLC to your daily routine with these ideas to help you pause and enjoy the little moments.<\/p>",
         "button_label": "Read more",
-        "button_link": "https://quickstart-3a56366d.myshopify.com/collections/bed-duvet-sets",
+        "button_link": "https:\/\/quickstart-3a56366d.myshopify.com\/collections\/bed-duvet-sets",
         "button_type": "tertiary",
         "colour_theme": "white",
         "alignment": "left",
@@ -158,7 +206,7 @@
         "template--21202653151520__ad4b03ab-98bc-4656-a9aa-42b221953e67-text-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
           }
         }
       },
@@ -175,7 +223,7 @@
     }
   },
   "order": [
-    "6707d50c-5555-48d5-ade4-86ed7f2b1da0",
+    "collections_carousel_rF3hjV",
     "product-grid",
     "recent-products",
     "32651ade-df62-44f5-8355-bb4039f60426",

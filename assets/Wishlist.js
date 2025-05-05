@@ -17,9 +17,11 @@ const Wishlist = (function () {
     };
 
     document.addEventListener('DOMContentLoaded', () => {
-        initGrid();
-        initButtons();
-        initDrawerButtons();
+        setTimeout(() => {
+            initGrid();
+            initButtons();
+            initDrawerButtons();
+        }, 1000);
     });
 
     document.addEventListener('shopify-wishlist:updated', (event) => {
@@ -225,9 +227,3 @@ const Wishlist = (function () {
     };
 
 })();
-
-
-function wishRemove(e) {
-    const cartItems = e.closest('cart-items') || e.closest('cart-drawer-items');
-    cartItems.updateQuantity(e.dataset.rowindex, 0);
-}

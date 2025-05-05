@@ -1,19 +1,10 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "1141d3ad-2866-4abb-8256-033fc8707c39": {
       "type": "hero-image",
       "disabled": true,
       "settings": {
-        "image": "shopify://shop_images/Bath-Bestseller-THIN_BANNER.jpg",
+        "image": "shopify:\/\/shop_images\/Up_to_50_Off_Extra_20_off_orders_100.jpg",
         "link": "",
         "full_width": true
       }
@@ -22,6 +13,7 @@
       "type": "hero-image",
       "disabled": true,
       "settings": {
+        "image": "shopify:\/\/shop_images\/MicrosoftTeams-image_25.png",
         "link": "",
         "full_width": true
       }
@@ -34,18 +26,29 @@
           "disabled": true,
           "settings": {
             "text": "Build your Bundle",
-            "copy": "<p>Discover your perfect match for a restful night’s slumber.</p>",
+            "copy": "<p>Discover your perfect match for a restful night’s slumber.<\/p>",
             "button_text": "Build your Dream Duvet Set",
-            "button_url": "https://quickstart-3a56366d.myshopify.com/collections/bed-duvet-sets",
+            "button_url": "https:\/\/quickstart-3a56366d.myshopify.com\/collections\/bed-duvet-sets",
             "styled": false,
             "position": 7
+          }
+        },
+        "77b7bcba-adf8-4b59-84fa-2aed599efb4a": {
+          "type": "infocard",
+          "settings": {
+            "text": "Renaissance Bath Mat",
+            "copy": "<p>After an indulgent soak, step onto the fluffy warmth of our Renaissance bath mat. <\/p><p>It's soft and cushiony underfoot, adding a touch of luxury to any bathroom.<\/p>",
+            "button_text": "Discover Collection",
+            "button_url": "shopify:\/\/products\/renaissance-bath-mat",
+            "styled": true,
+            "position": 8
           }
         },
         "723c09cd-40b5-4949-8c55-69dab142f5e5": {
           "type": "listsc",
           "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/innovation-1.jpg",
+            "image": "shopify:\/\/shop_images\/innovation-1.jpg",
             "product_1": "prism-bath-mat",
             "pos_l_1": 70,
             "pos_t_1": 45,
@@ -57,23 +60,11 @@
             "pos_t_3": 50
           }
         },
-        "77b7bcba-adf8-4b59-84fa-2aed599efb4a": {
-          "type": "infocard",
-          "disabled": true,
-          "settings": {
-            "text": "Renaissance Bath Mat",
-            "copy": "<p>After an indulgent soak, step onto the fluffy warmth of our Renaissance bath mat. </p><p>It's soft and cushiony underfoot, adding a touch of luxury to any bathroom.</p>",
-            "button_text": "Discover Collection",
-            "button_url": "shopify://products/renaissance-bath-mat",
-            "styled": true,
-            "position": 8
-          }
-        },
         "9dd9db74-0cb2-4848-9653-157d62c90364": {
           "type": "listsc",
           "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/innovation-1.jpg",
+            "image": "shopify:\/\/shop_images\/innovation-1.jpg",
             "product_1": "organic-shower-mat",
             "pos_l_1": 25,
             "pos_t_1": 15,
@@ -88,29 +79,16 @@
       },
       "block_order": [
         "5a878969-3318-42e0-87f9-e02a64758016",
-        "723c09cd-40b5-4949-8c55-69dab142f5e5",
         "77b7bcba-adf8-4b59-84fa-2aed599efb4a",
+        "723c09cd-40b5-4949-8c55-69dab142f5e5",
         "9dd9db74-0cb2-4848-9653-157d62c90364"
       ],
       "settings": {
-        "products_per": 10,
-        "excerpt": "Towels",
-        "title_font_size_mob": 26,
-        "title_font_size_desktop": 40,
-        "title_font_weight": "500",
-        "title_font_family": "Hatton, serif",
-        "seo_liner": "Indulge in the ultimate comfort with our luxury towels, crafted from the finest materials for a plush, spa-like experience every day.",
-        "seo_liner_font_size_mob": 14,
-        "seo_liner_font_size_desktop": 14,
-        "seo_liner_font_weight": "300",
-        "seo_liner_font_family": "Tomato Grotesk",
-        "enable_filtering": true,
-        "enable_sorting": false
+        "products_per": 10
       }
     },
     "recent-products": {
       "type": "recent-products",
-      "disabled": true,
       "settings": {
         "heading": "Previously explored"
       }
@@ -121,198 +99,15 @@
       "settings": {
         "screen_visibility": "both",
         "subtitle": "Christy Life",
-        "billboard_subtitle_font_size_mob": 16,
-        "billboard_subtitle_font_size_desktop": 16,
-        "billboard_subtitle_font_weight": "600",
-        "billboard_subtitle_font_family": "sans-serif",
-        "title": "<p>7 simple everyday self-care rituals</p>",
-        "billboard_title_font_size_mob": 16,
-        "billboard_title_font_size_desktop": 40,
-        "billboard_title_font_weight": "500",
-        "billboard_title_font_family": "Hatton, serif",
-        "copy": "<p>Add a bit of TLC to your daily routine with these ideas to help you pause and enjoy the little moments.</p>",
-        "billboard_copy_font_size_mob": 14,
-        "billboard_copy_font_size_desktop": 14,
-        "billboard_copy_font_weight": "200",
-        "billboard_copy_font_family": "sans-serif",
+        "title": "<p>7 simple everyday self-care rituals<\/p>",
+        "copy": "<p>Add a bit of TLC to your daily routine with these ideas to help you pause and enjoy the little moments.<\/p>",
         "button_label": "Read more",
-        "button_link": "https://quickstart-3a56366d.myshopify.com/collections/bed-duvet-sets",
+        "button_link": "https:\/\/quickstart-3a56366d.myshopify.com\/collections\/bed-duvet-sets",
         "button_type": "tertiary",
         "colour_theme": "white",
         "alignment": "left",
         "alignment_vertical": "center",
         "mobile_content_position": "overlay"
-      }
-    },
-    "reviews_carousel_RrtjLf": {
-      "type": "reviews-carousel",
-      "blocks": {
-        "block_nNQLGX": {
-          "type": "block",
-          "settings": {
-            "product": "deep-pile-rug",
-            "title": "Deep Pile Rug",
-            "testimonial": "<p>“Luxurious rug to step out of the bath or shower onto, anti slip underneath and a range of lovely colours to choose from .”</p>",
-            "name": "Rhonda Savin"
-          }
-        },
-        "block_RL6wFr": {
-          "type": "block",
-          "settings": {
-            "product": "brixton-shower-mat",
-            "title": "Brixton Shower Mat",
-            "testimonial": "<p>“Perfect size. I have older mats which are bigger, bulkier and take forever to dry when washed. With these I can change more regularly (as easy to get washed and dried) and still feel nice underfoot.”</p>",
-            "name": "Lesley"
-          }
-        },
-        "block_tyLfrH": {
-          "type": "block",
-          "settings": {
-            "product": "reversible-bath-rug",
-            "title": "Reversible Bath Rug",
-            "testimonial": "<p>“I am very pleased with the two bath rugs I purchsed. They are thick, absorbant and a rich colour.”</p>",
-            "name": "Sue Holland"
-          }
-        }
-      },
-      "block_order": [
-        "block_nNQLGX",
-        "block_RL6wFr",
-        "block_tyLfrH"
-      ],
-      "settings": {
-        "title": "Why Our Customers Love Christy",
-        "mobile_title": "Rave Reviews",
-        "review_carousel_title_font_size_mob": 24,
-        "review_carousel_title_font_size_desktop": 36,
-        "review_carousel_title_font_weight": "400",
-        "review_carousel_title_font_family": "Hatton, serif",
-        "margin": "yes"
-      }
-    },
-    "products_carousel_y9eFaH": {
-      "type": "products-carousel",
-      "settings": {
-        "title": "Pair With Matching Towels",
-        "mobile_title": "Our Best Sellers",
-        "title_font_size_mob": 24,
-        "title_font_size_desktop": 36,
-        "title_font_weight": "400",
-        "title_font_family": "Hatton, serif",
-        "button_title": "",
-        "button_link": "",
-        "products": [
-          "supreme-hygro",
-          "renaissance",
-          "luxe-towels",
-          "brixton-towels",
-          "trellis-towels"
-        ],
-        "screen_visibility": "both"
-      }
-    },
-    "why_christy_mdngni": {
-      "type": "why-christy",
-      "blocks": {
-        "block_hwCGLT": {
-          "type": "block",
-          "settings": {
-            "title": "The Finest Materials",
-            "why_christy_block_title_font_size_mob": 16,
-            "why_christy_block_title_font_size_desktop": 24,
-            "why_christy_block_title_font_weight": "600",
-            "why_christy_block_title_font_family": "Hatton, serif",
-            "text": "<p>Textures matter and luxury quality reigns supreme across every Christy product, with a dedication to championing the world’s most delectable fabrics.</p>"
-          }
-        },
-        "block_LUQ6BF": {
-          "type": "block",
-          "settings": {
-            "title": "Heritage of Excellence",
-            "why_christy_block_title_font_size_mob": 16,
-            "why_christy_block_title_font_size_desktop": 24,
-            "why_christy_block_title_font_weight": "600",
-            "why_christy_block_title_font_family": "Hatton, serif",
-            "text": "<p>We’ve been making home textiles to be loved well and treasured over time with our heritage flair, unwavering innovation and luxury craftsmanship since 1850. </p>"
-          }
-        },
-        "block_JTt7Wc": {
-          "type": "block",
-          "settings": {
-            "title": "Easy Delivery & Returns",
-            "why_christy_block_title_font_size_mob": 16,
-            "why_christy_block_title_font_size_desktop": 24,
-            "why_christy_block_title_font_weight": "600",
-            "why_christy_block_title_font_family": "Hatton, serif",
-            "text": "<p>From the moment you place your order, we’re here to get it to you fast, troubleshoot any issues and arrange hassle-free returns if you need it.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "block_hwCGLT",
-        "block_LUQ6BF",
-        "block_JTt7Wc"
-      ],
-      "settings": {
-        "title": "Step Inside Our World",
-        "why_christy_title_font_size_mob": 26,
-        "why_christy_title_font_size_desktop": 40,
-        "why_christy_title_font_weight": "400",
-        "why_christy_title_font_family": "Hatton, serif",
-        "button_title": "",
-        "button_link": "",
-        "margin": "no"
-      }
-    },
-    "rich_text_mtMG4U": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_NkaL3U": {
-          "type": "heading",
-          "settings": {
-            "heading": "",
-            "sub_title_size": "h2"
-          }
-        },
-        "main_heading_x9hxhi": {
-          "type": "main_heading",
-          "settings": {
-            "heading": "Bath Mats & Rugs"
-          }
-        },
-        "text_mNajRP": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "text": "<p>Discover the epitome of elegance and comfort with our luxury bath mats and rugs, meticulously crafted to transform your bathroom into a serene oasis. Each piece is designed with attention to detail, using premium materials that offer plush softness underfoot, while also ensuring durability and long-lasting beauty. Our bath mats and rugs not only enhance the aesthetic appeal of your space but also provide exceptional absorbency. Available in a range of sophisticated designs, colors, and textures, they seamlessly blend with any décor, from modern minimalism to classic opulence.</p>"
-          }
-        },
-        "text_FTtjrD": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Indulge in the luxurious feel of our bath mats and rugs, perfect for creating a spa-like atmosphere in your home. Whether you're stepping out of the shower or simply adding a touch of refinement to your bathroom, our collection promises to deliver both style and comfort, making every day a little more indulgent.</p>"
-          }
-        },
-        "button_hwDJ8y": {
-          "type": "button",
-          "settings": {
-            "button_label": "Discover More",
-            "button_link": "shopify://blogs/news",
-            "button_label_2": "",
-            "button_link_2": ""
-          }
-        }
-      },
-      "block_order": [
-        "heading_NkaL3U",
-        "main_heading_x9hxhi",
-        "text_mNajRP",
-        "text_FTtjrD",
-        "button_hwDJ8y"
-      ],
-      "settings": {
-        "full_width": true,
-        "anchor_id": ""
       }
     }
   },
@@ -321,10 +116,6 @@
     "75ff7348-8c55-4232-af26-43c33e5ae748",
     "product-grid",
     "recent-products",
-    "32651ade-df62-44f5-8355-bb4039f60426",
-    "reviews_carousel_RrtjLf",
-    "products_carousel_y9eFaH",
-    "why_christy_mdngni",
-    "rich_text_mtMG4U"
+    "32651ade-df62-44f5-8355-bb4039f60426"
   ]
 }

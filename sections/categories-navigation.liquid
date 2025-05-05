@@ -1,0 +1,561 @@
+<div
+  id="categories-navigation-{{ section.id }}"
+  class="categories-navigation overflow-hidden"
+>
+  <div class="pt-6 container container-sm md:py-12">
+    <div class="navigation__block !overflow-visible flex flex-col items-end md:flex-row md:items-stretch">
+      <!-- Desktop Navigation -->
+      <ul class="navigation__grid hidden w-full max-w-[660px] md:grid md:grid-cols-2 md:gap-x-2 md:gap-y-2 md:mr-2 md:mb-0">
+        {%- for block in section.blocks -%}
+          {% if block.type == 'desktop_block' %}
+            <li
+              id="block-{{ block.id }}"
+              class="navigation__item"
+            >
+              {%- liquid
+                assign image_class = 'navigation__image w-full h-full opacity-0'
+              -%}
+
+              <div class="group relative h-full">
+                {%- if block.settings.image != blank -%}
+                  <figure class="h-full">
+                    {% render 'spinner' %}
+                    {%- render 'lazyimg', img: block.settings.image, height: 326, width: 326, class: image_class -%}
+                    <div class="absolute top-0 h-full w-full bg-[rgba(0,_0,_0,_0.3)] group-hover:bg-transparent"></div>
+                  </figure>
+                {%- endif -%}
+
+                {%- if block.settings.title != blank -%}
+                  <h3 class="navigation__title absolute top-2/4 right-2/4 -translate-y-2/4 translate-x-2/4 transition-all h-fit group-hover:top-[8px] lg:group-hover:top-5 group-hover:translate-y-0 group-hover:z-10 z-[1] duration-300 ease-in-out text-primary-white-cotton font-sec text-base lg:text-xl font-normal no-underline">
+                    {{ block.settings.title }}
+                  </h3>
+                {%- endif -%}
+
+                <div class="navigation__links absolute inset-0 flex items-center justify-center p-6 bg-[rgba(0,_0,_0,_0.5)] opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity ease-in-out duration-[500ms] group-hover:duration-[1500ms] text-white text-center">
+                  {% comment %} {% assign filter_label = block.settings['filter-label'] %}
+                  {% assign url = block.settings.button_link %}
+                  {% assign url_filter = url | append: '?open_filters' %} {% endcomment %}
+
+                  {% comment %} <div class="flex flex-col">
+                    <a
+                      href="/collections/{{ url }}"
+                      class="no-underline animated-underline-white block mb-1 xl:mb-5 text-base font-semibold"
+                    >
+                      All {{ block.settings.title }}
+                    </a>
+                    <a
+                      href="/collections/{{ url_filter }}=Colour"
+                      class="no-underline animated-underline-white block mb-1 xl:mb-[15px] text-base font-semibold"
+                    >
+                      By colour
+                    </a>
+                    <a
+                      href="/collections/{{ url_filter }}={{ filter_label }}"
+                      class="no-underline animated-underline-white block mb-1 xl:mb-[15px] text-base font-semibold"
+                    >
+                      By style
+                    </a>
+                    <a
+                      href="/collections/{{ url }}"
+                      class="no-underline animated-underline-white block text-base font-semibold"
+                    >
+                      Collection
+                    </a>
+                  </div> {% endcomment %}
+                  <div class="flex flex-col">
+                    <a
+                      href="/collections/{{ block.settings.collection_link_1 }}"
+                      class="no-underline animated-underline-white block mb-1 xl:mb-5 text-base font-semibold w-fit self-center"
+                    >
+                      {{- block.settings.collection_title_1 -}}
+                    </a>
+                    <a
+                      href="/collections/{{ block.settings.collection_link_2 }}"
+                      class="no-underline animated-underline-white block mb-1 xl:mb-[15px] text-base font-semibold w-fit self-center"
+                    >
+                      {{- block.settings.collection_title_2 -}}
+                    </a>
+                    <a
+                      href="/collections/{{ block.settings.collection_link_3 }}"
+                      class="no-underline animated-underline-white block mb-1 xl:mb-[15px] text-base font-semibold w-fit self-center"
+                    >
+                      {{- block.settings.collection_title_3 -}}
+                    </a>
+                    <a
+                      href="/collections/{{ block.settings.collection_link_4 }}"
+                      class="no-underline animated-underline-white block text-base font-semibold w-fit self-center"
+                    >
+                      {{- block.settings.collection_title_4 -}}
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </li>
+          {% endif %}
+        {%- endfor -%}
+      </ul>
+
+      <!-- Mobile Navigation -->
+      <div id="tabs" class="navigation__tabs w-full md:hidden">
+        <div class="mb-4 relative overflow-x-auto [scrollbar-width:none] w-full">
+          <nav-underline-animated>
+            <div data-nav-list class="tabs tabs-js flex">
+              {%- for block in section.blocks -%}
+                {% if block.type == 'mobile_block' %}
+                  {%- liquid
+                    assign active_class = ''
+
+                    if forloop.index == 1
+                      assign active_class = 'active'
+                    endif
+                  -%}
+
+                  <button
+                    class="tab-link {{active_class}} border-solid border-primary-blue pb-4 w-full min-w-[119px] max-mob:min-w-[110px]"
+                    data-tab="tab{{ forloop.index }}"
+                    data-nav-item
+                  >
+                    {%- if block.settings.title != blank -%}
+                      <h3 class="navigation__title text-primary-blue text-xl  font-sec no-underline">
+                        {{ block.settings.title }}
+                      </h3>
+                    {%- endif -%}
+                  </button>
+                {% endif %}
+              {%- endfor -%}
+            </div>
+            <div data-underline-track class="absolute bottom-0 left-0 w-full h-px bg-secondary-blue-200">
+              <div data-underline class="absolute bottom-0 h-0.5 bg-primary-blue transition-all"></div>
+            </div>
+          </nav-underline-animated>
+        </div>
+
+        {%- for block in section.blocks -%}
+          {% if block.type == 'mobile_block' %}
+            <div
+              id="tab{{ forloop.index }}"
+              class="tab-content {% if forloop.index == 1 %}active{% else %}hidden{% endif %}"
+            >
+              {% comment %} {% assign filter_label = block.settings['filter-label'] %}
+              {% assign url = block.settings.button_link %}
+              {% assign url_filter = url | append: '?open_filters' %}
+
+              <ul class="tab__grid grid grid-cols-2 gap-x-2 gap-y-2 mb-2 md:mb-6">
+                <li class="relative">
+                  <a
+                    href="/collections/{{ url }}"
+                    class="no-underline block h-full"
+                  >
+                    <h4 class="absolute z-[1] top-4 left-4 text-primary-white-cotton font-sec text-base font-normal no-underline">
+                      All {{ block.settings.title }}
+                    </h4>
+
+                    {%- if block.settings['mob-filter-image-gifting'] != blank -%}
+                      <figure class="h-full">
+                        {% render 'spinner' %}
+                        {%- render 'lazyimg',
+                          img: block.settings['mob-filter-image-gifting'],
+                          height: 175,
+                          width: 202,
+                          class: image_class
+                        -%}
+                        <div
+                          class="absolute top-0 h-full w-full bg-[rgba(0,_0,_0,_0.3)] group-hover:bg-transparent"
+                        ></div>
+                      </figure>
+                    {%- endif -%}
+                  </a>
+                </li>
+                <li class="relative">
+                  <a
+                    href="/collections/{{ url_filter }}=Colour"
+                    class="no-underline block h-full"
+                  >
+                    <h4 class="absolute z-[1] top-4 left-4 text-primary-white-cotton font-sec text-base font-normal no-underline">
+                      By Colour
+                    </h4>
+
+                    {%- if block.settings['mob-filter-image-color'] != blank -%}
+                      <figure class="h-full">
+                        {% render 'spinner' %}
+                        {%- render 'lazyimg',
+                          img: block.settings['mob-filter-image-color'],
+                          height: 175,
+                          width: 202,
+                          class: image_class
+                        -%}
+                        <div
+                          class="absolute top-0 h-full w-full bg-[rgba(0,_0,_0,_0.3)] group-hover:bg-transparent"
+                        ></div>
+                      </figure>
+                    {%- endif -%}
+                  </a>
+                </li>
+                <li class="relative">
+                  <a
+                    href="/collections/{{ url_filter }}={{ filter_label }}"
+                    class="no-underline block h-full"
+                  >
+                    <h4 class="absolute z-[1] top-4 left-4 text-primary-white-cotton font-sec text-base font-normal no-underline">
+                      By Style
+                    </h4>
+
+                    {%- if block.settings['mob-filter-image-style'] != blank -%}
+                      <figure class="h-full">
+                        {% render 'spinner' %}
+                        {%- render 'lazyimg',
+                          img: block.settings['mob-filter-image-style'],
+                          height: 175,
+                          width: 202,
+                          class: image_class
+                        -%}
+                        <div
+                          class="absolute top-0 h-full w-full bg-[rgba(0,_0,_0,_0.3)] group-hover:bg-transparent"
+                        ></div>
+                      </figure>
+                    {%- endif -%}
+                  </a>
+                </li>
+                <li class="relative">
+                  <a
+                    href="/collections/{{ url }}"
+                    class="no-underline block h-full"
+                  >
+                    <h4 class="absolute z-[1] top-4 left-4 text-primary-white-cotton font-sec text-base font-normal no-underline">
+                      Collection
+                    </h4>
+
+                    {%- if block.settings['mob-filter-image-collection'] != blank -%}
+                      <figure class="h-full">
+                        {% render 'spinner' %}
+                        {%- render 'lazyimg',
+                          img: block.settings['mob-filter-image-collection'],
+                          height: 175,
+                          width: 202,
+                          class: image_class
+                        -%}
+                        <div
+                          class="absolute top-0 h-full w-full bg-[rgba(0,_0,_0,_0.3)] group-hover:bg-transparent"
+                        ></div>
+                      </figure>
+                    {%- endif -%}
+                  </a>
+                </li>
+              </ul> {% endcomment %}
+              <ul class="tab__grid grid grid-cols-2 gap-x-2 gap-y-2 mb-2 md:mb-6">
+                <li class="relative">
+                  <a
+                    href="/collections/{{ block.settings.collection_link_1 }}"
+                    class="no-underline block h-full"
+                  >
+                    <h4 class="absolute z-[1] top-4 left-4 text-primary-white-cotton font-sec text-base font-normal no-underline">
+                      {{- block.settings.collection_title_1 -}}
+                    </h4>
+
+                    {%- if block.settings['mob-filter-image-collection-1'] != blank -%}
+                      <figure class="h-full">
+                        {% render 'spinner' %}
+                        {%- render 'lazyimg',
+                          img: block.settings['mob-filter-image-collection-1'],
+                          height: 175,
+                          width: 202,
+                          class: image_class
+                        -%}
+                        <div
+                          class="absolute top-0 h-full w-full bg-[rgba(0,_0,_0,_0.3)] group-hover:bg-transparent"
+                        ></div>
+                      </figure>
+                    {%- endif -%}
+                  </a>
+                </li>
+                <li class="relative">
+                  <a
+                    href="/collections/{{ block.settings.collection_link_2 }}"
+                    class="no-underline block h-full"
+                  >
+                    <h4 class="absolute z-[1] top-4 left-4 text-primary-white-cotton font-sec text-base font-normal no-underline">
+                      {{- block.settings.collection_title_2 -}}
+                    </h4>
+
+                    {%- if block.settings['mob-filter-image-collection-2'] != blank -%}
+                      <figure class="h-full">
+                        {% render 'spinner' %}
+                        {%- render 'lazyimg',
+                          img: block.settings['mob-filter-image-collection-2'],
+                          height: 175,
+                          width: 202,
+                          class: image_class
+                        -%}
+                        <div
+                          class="absolute top-0 h-full w-full bg-[rgba(0,_0,_0,_0.3)] group-hover:bg-transparent"
+                        ></div>
+                      </figure>
+                    {%- endif -%}
+                  </a>
+                </li>
+                <li class="relative">
+                  <a
+                    href="/collections/{{block.settings.collection_link_3}}"
+                    class="no-underline block h-full"
+                  >
+                    <h4 class="absolute z-[1] top-4 left-4 text-primary-white-cotton font-sec text-base font-normal no-underline">
+                      {{- block.settings.collection_title_3 -}}
+                    </h4>
+
+                    {%- if block.settings['mob-filter-image-collection-3'] != blank -%}
+                      <figure class="h-full">
+                        {% render 'spinner' %}
+                        {%- render 'lazyimg',
+                          img: block.settings['mob-filter-image-collection-3'],
+                          height: 175,
+                          width: 202,
+                          class: image_class
+                        -%}
+                        <div
+                          class="absolute top-0 h-full w-full bg-[rgba(0,_0,_0,_0.3)] group-hover:bg-transparent"
+                        ></div>
+                      </figure>
+                    {%- endif -%}
+                  </a>
+                </li>
+                <li class="relative">
+                  <a
+                    href="/collections/{{ block.settings.collection_link_4 }}"
+                    class="no-underline block h-full"
+                  >
+                    <h4 class="absolute z-[1] top-4 left-4 text-primary-white-cotton font-sec text-base font-normal no-underline">
+                      {{- block.settings.collection_title_4 -}}
+                    </h4>
+
+                    {%- if block.settings['mob-filter-image-collection-4'] != blank -%}
+                      <figure class="h-full">
+                        {% render 'spinner' %}
+                        {%- render 'lazyimg',
+                          img: block.settings['mob-filter-image-collection-4'],
+                          height: 175,
+                          width: 202,
+                          class: image_class
+                        -%}
+                        <div
+                          class="absolute top-0 h-full w-full bg-[rgba(0,_0,_0,_0.3)] group-hover:bg-transparent"
+                        ></div>
+                      </figure>
+                    {%- endif -%}
+                  </a>
+                </li>
+              </ul>
+            </div>
+          {% endif %}
+        {%- endfor -%}
+      </div>
+
+      <div class="navigation__baner group relative w-full mb-4 md:mb-0">
+        {% liquid
+          assign class = 'inset-0 opacity-0 h-full object-cover max-md:w-full max-sm:max-h-[400px]'
+        %}
+        {%- render 'lazyimg', img: section.settings.baner, height: 660, width: 676, class: class -%}
+        <div class="absolute top-0 h-full w-full bg-[rgba(0,_0,_0,_0.3)]"></div>
+        <div class="absolute inset-0 flex flex-col items-center justify-end text-white text-center pb-12 md:pb-[95px] px-[8px]">
+          <h2 class="font-sec text-[32px] mb-[16px] leading-[1.25] max-w-[290px] md:text-[45px] md:mb-5 md:leading-[1.15] md:max-w-[461px]">
+            {{ section.settings['baner-title'] }}
+          </h2>
+          <p class="block text-sm mb-6 md:text-base md:mb-5 max-sm:max-w-[300px]">
+            {{ section.settings['baner-text'] }}
+          </p>
+          <a
+            href="{{ section.settings['baner-link'] }}"
+            class="
+              max-w-[290px] md:max-w-[260px] relative btn-hover-animated btn-hover-animated-secondary-white
+              btn-large btn-primary
+            "
+          >
+            {{ section.settings['baner-cta'] }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="{{ 'tabs.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "Categories navigation",
+  "tag": "section",
+  "class": "section-categories-navigation",
+  "disabled_on": {
+    "groups": ["header", "footer"],
+    "templates": ["article"]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "baner",
+      "label": "Baner image"
+    },
+    {
+      "type": "text",
+      "id": "baner-title",
+      "label": "Baner title"
+    },
+    {
+      "type": "text",
+      "id": "baner-text",
+      "label": "Baner text"
+    },
+    {
+      "type": "text",
+      "id": "baner-cta",
+      "label": "Baner CTA"
+    },
+    {
+      "type": "url",
+      "id": "baner-link",
+      "label": "Button Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "desktop_block",
+      "name": "Desktop Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Desktop Image"
+        },
+        {
+          "type": "text",
+          "id": "collection_title_1",
+          "label": "Collection title 1"
+        },
+        {
+          "type": "collection",
+          "id": "collection_link_1",
+          "label": "Collection 1"
+        },
+        {
+          "type": "text",
+          "id": "collection_title_2",
+          "label": "Collection title 2"
+        },
+        {
+          "type": "collection",
+          "id": "collection_link_2",
+          "label": "Collection 2"
+        },
+        {
+          "type": "text",
+          "id": "collection_title_3",
+          "label": "Collection title 3"
+        },
+        {
+          "type": "collection",
+          "id": "collection_link_3",
+          "label": "Collection 3"
+        },
+        {
+          "type": "text",
+          "id": "collection_title_4",
+          "label": "Collection title 4"
+        },
+        {
+          "type": "collection",
+          "id": "collection_link_4",
+          "label": "Collection 4"
+        }
+      ]
+    },
+    {
+      "type": "mobile_block",
+      "name": "Mobile Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "collection_title_1",
+          "label": "Collection title 1"
+        },
+        {
+          "type": "collection",
+          "id": "collection_link_1",
+          "label": "Collection 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "mob-filter-image-collection-1",
+          "label": "Mobile Image for Collection 1"
+        },
+        {
+          "type": "text",
+          "id": "collection_title_2",
+          "label": "Collection title 2"
+        },
+        {
+          "type": "collection",
+          "id": "collection_link_2",
+          "label": "Collection 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "mob-filter-image-collection-2",
+          "label": "Mobile Image for Collection 2"
+        },
+        {
+          "type": "text",
+          "id": "collection_title_3",
+          "label": "Collection title 3"
+        },
+        {
+          "type": "collection",
+          "id": "collection_link_3",
+          "label": "Collection 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "mob-filter-image-collection-3",
+          "label": "Mobile Image for Collection 3"
+        },
+        {
+          "type": "text",
+          "id": "collection_title_4",
+          "label": "Collection title 4"
+        },
+        {
+          "type": "collection",
+          "id": "collection_link_4",
+          "label": "Collection 4"
+        },
+        {
+          "type": "image_picker",
+          "id": "mob-filter-image-collection-4",
+          "label": "Mobile Image for Collection 4"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Categories navigation",
+      "blocks": [
+        {
+          "type": "desktop_block"
+        },
+        {
+          "type": "mobile_block"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

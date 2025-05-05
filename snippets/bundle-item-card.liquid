@@ -1,0 +1,207 @@
+{% liquid
+  assign img_width = 150
+  assign widths = '150, 300, 450'
+  assign class1 = 'w-full h-full object-cover opacity-0 transition-opacity duration-300'
+  assign sizes = '(min-width: 1024px) 450px, (min-width: 640px) 300px, 150px'
+
+  assign item_variant = item_product.variants.first
+  assign item_variant_image = item_variant.featured_image
+
+  assign item_variant_id = item_variant.id
+  assign item_variant_option1 = item_variant.option1
+  assign item_variant_option2 = item_variant.option2
+
+  if item != blank
+    assign item_first_variant = item.variants.first
+    assign item_options_arr = item_first_variant.title | split: ' / '
+    assign item_variant_option1 = item_options_arr[0] | strip
+    assign item_variant_option2 = item_options_arr[1] | strip
+    assign item_variant_id = item_first_variant.id | split: '/' | last
+
+    assign variants_titles = item.variants | map: 'title'
+  endif
+%}
+
+{%- for image in item_product.images %}
+  {%- assign alt_array = image.alt | split: '-' -%}
+  {%- assign alt_striped = alt_array[0] | strip -%}
+
+  {%- if alt_array[1] == 'product_swatch'  -%}
+    {% continue %}
+  {%- endif -%}
+
+  {%- if item_variant_option1 == alt_striped -%}
+    {%- assign item_variant_image = image -%}
+    {% break %}
+  {%- endif -%}
+{%- endfor %}
+
+<bundle-item-card data-product-url="{{ item_product.url }}/c:{{ item_variant_option1 | handleize | replace: '/', '-' }}{% if item_variant_option2 != blank %},s:{{ item_variant_option2 | handleize | replace: '/', '-' }}{% endif %}"
+                  data-variant-id="{{ item_variant_id }}"
+                  data-item-quantity="{{ item_step_quantity }}"
+>
+  <script type="application/json" data-bundle-item-json>
+    {{ item | json }}
+  </script>
+
+  <div class="flex justify-between items-center">
+    <span class="text-sm xl:text-base overflow-ellipsis overflow-hidden text-nowrap font-normal">
+    {{ card_index }}. {{ item_step_title }}
+    </span>
+    {% unless item_product.url == product.url %}
+      <a href="{{ item_product.url }}" class="text-primary-blue underline font-semibold underline-offset-4 xl:hidden">Details</a>
+    {% endunless %}
+  </div>
+
+  <div class="bundle-card_body grid grid-cols-[100px_minmax(0,1fr)] xl:grid-cols-[150px_minmax(0,1fr)_auto] items-center gap-x-4 mt-4 xl:gap-x-6 xl:mt-6">
+
+    <div class="relative">
+      {%- render 'spinner', class: '!m-0 !w-full !h-full flex items-center justify-center [&>svg]:w-5 [&>svg]:h-5 bg-primary-white-cotton/75' -%}
+      <div data-image-wrapper>
+        {%- render 'lazyimg',
+            img: item_variant_image,
+            width: img_width,
+            height: img_width,
+            widths: widths,
+            class: class1,
+            sizes: sizes,
+            crop: 'center'
+        -%}
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-2 xl:gap-4 text-xs xl:text-sm tracking-[.25px]">
+      <p>Colour: <span data-colour-selected>{{ item_variant_option1 }}</span></p>
+
+      {%- unless item_product.has_only_default_variant -%}
+        <ul class="flex flex-wrap gap-1 xl:gap-2 bundle-card_color-items">
+          {%- for option in item_product.options_with_values -%}
+            {%- if option.name == "Color" or option.name == "Colour" -%}
+              {%- for value in option.values -%}
+                {%- assign variant_available = false -%}
+                {%- for variant in item_product.variants -%}
+                  {%- if item_variant_option2 != blank -%}
+                    {%- if variant.option1 == value and variant.option2 == item_variant_option2 -%}
+                      {%- assign variant_available = variant.available  -%}
+                      {%- break -%}
+                    {%- endif -%}
+                  {%- else -%}
+                    {%- if variant.option1 == value -%}
+                      {%- assign variant_available = variant.available  -%}
+                      {%- break -%}
+                    {%- endif -%}
+                  {%- endif -%}
+                {%- endfor -%}
+
+                {% assign option_swatch_image = '' %}
+
+                {%- for image in item_product.images -%}
+                  {%- assign alt_array = image.alt | split: '-' -%}
+                  {%- assign alt_striped = alt_array[0] | strip -%}
+                  {%- assign colour_striped = value | strip -%}
+                  {%- if colour_striped == alt_striped and alt_array[1] == 'product_swatch' -%}
+                    {%- assign option_swatch_image = image -%}
+                    {% break %}
+                  {%- endif -%}
+                {%- endfor -%}
+
+                {%- if option_swatch_image != blank %}
+                  <li class="w-6 h-6 xl:w-8 xl:h-8 flex-none bundle-card_color-item">
+                    <label class="hover:cursor-pointer">
+                      <input
+                          type="radio"
+                          name="colour-radio-{{ item_product.id }}-{{ card_index }}"
+                          value="{{ value }}"
+                          class="hidden peer"
+                          data-colour-radio
+                          data-option-bundle-input
+                          data-colour-value="{{ value }}"
+                          {% if item_variant_option1 == value and variant_available %}checked{% endif %}
+                        {% unless variant_available %}disabled{% endunless %}
+                      >
+                      <img
+                          class="w-full h-full rounded-full object-cover peer-checked:outline-2 peer-checked:outline
+                          peer-checked:outline-primary-white-cotton peer-checked:outline-offset-[-3px]
+                          peer-checked:border peer-checked:border-primary-blue transition-all peer-disabled:opacity-50
+                          peer-disabled:filter-grayscale peer-disabled:filter-opacity-50 peer-disabled:cursor-not-allowed"
+                          src="{{ option_swatch_image | img_url: '32x32' }}"
+                          alt="{{ value }}"
+                          title="{{ value }}">
+                    </label>
+                  </li>
+                {%- endif %}
+              {%- endfor -%}
+
+            {%- elsif option.name == "Size" -%}
+              {%- assign size_values_count = 0 -%}
+              {%- for value in option.values -%}
+                {%- assign variant_available = false -%}
+                {%- assign skip_variant = false -%}
+
+                {%- for variant in item_product.variants -%}
+                  {%- if item != blank -%}
+                    {%- unless variants_titles contains variant.title  -%}
+                      {%- assign skip_variant = true -%}
+                      {%- break -%}
+                    {%- endunless -%}
+                  {%- endif -%}
+
+                  {%- if variant.option1 == item_variant_option1 and variant.option2 == value -%}
+                    {%- assign variant_available = variant.available  -%}
+                    {% break %}
+                  {%- endif -%}
+                {%- endfor -%}
+
+                {%- if skip_variant -%}
+                  {%- continue -%}
+                {%- endif -%}
+
+                {%- capture size_content -%}
+                  {{ size_content }}
+                  <li>
+                    <label class="hover:cursor-pointer">
+                      <input
+                          type="radio"
+                          name="size-radio-{{ item_product.id }}-{{ card_index }}"
+                          value="{{ value }}"
+                          class="hidden peer"
+                          data-size-radio
+                          data-option-bundle-input
+                          data-size-value="{{ value }}"
+                          {% if item_variant_option2 == value and variant_available %}checked{% endif %}
+                        {% unless variant_available %}disabled{% endunless %}
+                      >
+                      <span class="max-md:text-[11px] py-0.5 px-1 inline-block md:px-2 md:py-1 text-primary-blue
+                      bg-white border border-primary-blue  peer-disabled:!opacity-50 peer-disabled:!line-through
+                        relative btn-hover-animated btn-hover-animated-secondary peer-checked:bg-primary-blue peer-checked:text-white">
+                        {{ value }} 
+                      </span>
+                    </label>
+                  </li>
+                  {%- assign size_values_count = size_values_count | plus: 1 -%}
+                {%endcapture%}
+              {%- endfor -%}
+
+            {%- endif -%}
+          {%- endfor %}
+        </ul>
+      {%- endunless -%}
+
+      {% if item_variant_option2 != blank %}
+        <p>Size: <span data-size-selected>{{ item_variant_option2 }}</span></p>
+      {% endif %}
+
+      {%- if size_content and size_values_count > 1 -%}
+        <ul class="flex flex-wrap gap-1 xl:gap-2">
+          {{ size_content }}
+        </ul>
+      {%- endif -%}
+    </div>
+
+    {% unless item_product.url == product.url %}
+    <a href="{{ item_product.url }}" class="text-primary-blue underline font-semibold underline-offset-4 max-xl:hidden">Details</a>
+    {% endunless %}
+  </div>
+
+  <hr class="border-t border-secondary-blue-100 my-4 bundle-card_hr">
+</bundle-item-card>

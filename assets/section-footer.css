@@ -190,9 +190,7 @@
     margin: 0;
   }
 
-  .footer-block__newsletter:not(:only-child) .newsletter-form__message--success {
-    left: auto;
-  }
+ 
 
   .footer__follow-on-shop {
     margin-bottom: 0.4rem;

@@ -5,9 +5,14 @@ if (!customElements.get('recipient-form')) {
       constructor() {
         super();
         this.checkboxInput = this.querySelector(`#Recipient-checkbox-${this.dataset.sectionId}`);
-        this.checkboxInput.disabled = false;
+        if (this.checkboxInput) {
+          this.checkboxInput.disabled = false;
+        }
+
         this.hiddenControlField = this.querySelector(`#Recipient-control-${this.dataset.sectionId}`);
-        this.hiddenControlField.disabled = true;
+        if (this.hiddenControlField) {
+          this.hiddenControlField.disabled = false;
+        }
         this.emailInput = this.querySelector(`#Recipient-email-${this.dataset.sectionId}`);
         this.nameInput = this.querySelector(`#Recipient-name-${this.dataset.sectionId}`);
         this.messageInput = this.querySelector(`#Recipient-message-${this.dataset.sectionId}`);
@@ -63,7 +68,7 @@ if (!customElements.get('recipient-form')) {
       }
 
       onChange() {
-        if (this.checkboxInput.checked) {
+        if (this.checkboxInput?.checked) {
           this.enableInputFields();
         } else {
           this.clearInputFields();
@@ -134,6 +139,7 @@ if (!customElements.get('recipient-form')) {
       }
 
       clearErrorMessage() {
+        if (!this.errorMessageWrapper) return;
         this.errorMessageWrapper.hidden = true;
 
         if (this.errorMessageList) this.errorMessageList.innerHTML = '';
@@ -150,11 +156,36 @@ if (!customElements.get('recipient-form')) {
         });
       }
 
+      closeModal() {
+        const checkbox = document.querySelector('[data-modaltrigger="giftform"]');
+        const modal = document.querySelector('[data-modal="giftform"]');
+        const overlay = document.getElementById('gift-form-overlay');
+        const stickyBar = document.getElementById('stickyBar');
+        const productInfoWrapper = document.querySelector('.product__info-wrapper');
+        const formErrorMessage = document.querySelector('.product-form__gift-error-message-wrapper');
+        const quickAddModalContent = modal.closest('.quick-add-modal__content-info');
+        const htmlElement = document.documentElement;
+
+        modal.classList.remove('active');
+        overlay.classList.remove('active');
+        !quickAddModalContent && htmlElement.classList.remove('overflow-hidden');
+        quickAddModalContent?.classList.remove('overflow-hidden');
+        if (stickyBar) {
+          stickyBar.classList.remove('hidden');
+          stickyBar.classList.add('visible');
+        }
+        checkbox.checked = false;
+  
+        productInfoWrapper?.classList.remove('modal-open-inside');
+        formErrorMessage?.setAttribute('hidden', 'true');
+      };
+
       resetRecipientForm() {
         if (this.checkboxInput.checked) {
           this.checkboxInput.checked = false;
           this.clearInputFields();
           this.clearErrorMessage();
+          this.closeModal();
         }
       }
     }

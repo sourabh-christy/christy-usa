@@ -1,0 +1,482 @@
+<h2 class="font-sec text-[32px] leading-[40px] lg:text-[45px] lg:leading-[52px] mx-auto my-6 lg:my-12 lg:mb-[30px] text-center font-normal text-primary-blue ">
+  {{ section.settings.title }}
+</h2>
+<div class="shop-the-look-section mb-[221px] lg:mb-0 relative w-full flex flex-col">
+  <img
+    class="w-full h-full hidden lg:flex"
+    src="{{ section.settings.image | img_url: "master" }}"
+    loading="lazy"
+    alt="Shop the look"
+  >
+  <img
+    class="w-full h-full flex lg:hidden"
+    src="{{ section.settings.mob_image | img_url: "master" }}"
+    loading="lazy"
+    alt="Shop the look"
+  >
+  {% for block in section.blocks %}
+    {% assign product = block.settings.product %}
+    <div
+      class="mob-dot {% if forloop.index == 1 %}visible{% endif %}"
+      style="top: {{ block.settings.mob_possition_y }}%; left: {{ block.settings.mob_possition_x }}%"
+    >
+      <span></span>
+    </div>
+    <div
+      class="dot hidden lg:flex {% if section.settings.visible == true %}visible{% endif %}"
+      style="top: {{ block.settings.possition_y }}%; left: {{ block.settings.possition_x }}%"
+    >
+      <span></span>
+
+      <div
+        class="product-card-container"
+        style="transform: translate(calc({%- if block.settings.negative_x == true -%}-{%- endif -%}{{ block.settings.possition_product_x }}% {% if block.settings.negative_x == true %}- 60px{% endif %}) , calc( {%- if block.settings.negative_y == true -%}-{%- endif -%}{{ block.settings.possition_product_y }}% {% if block.settings.negative_y == true %}- 60px{% endif %} ) );"
+      >
+        {% render 'card-product', dragable: true, card_product: product %}
+      </div>
+    </div>
+    <a
+      href="{{ product.url }}"
+      class="mob-product-card-container {% if forloop.index == 1 %}visible{% endif %} w-full absolute top-full grid-cols-[100px_1fr] gap-x-2 py-6 px-4"
+    >
+      <img
+        class="flex cover"
+        src="{{ product.featured_image | img_url: "master" }}"
+        alt="{{ product.featured_image.alt }}"
+        loading="lazy"
+      >
+      <div class="flex flex-col justify-between  min-h-[100px]">
+        <div class="text-sm font-semibold text-primary-blue mb-3">
+          {% assign title_length = product.title | size %}
+          {% if title_length > 56 %}
+            {{ product.title | slice: 0, 53 }}...
+          {% else %}
+            {{ product.title }}
+          {% endif %}
+        </div>
+        <div class="grid grid-cols-[1fr_48px] gap-x-2">
+          <div>
+            <div class="text-sm font-normal text-primary-blue mb-2">
+              {% assign price_range = product.variants | map: 'price' | sort %}
+              {% if price_range.first < price_range.last %}
+                {{ price_range.first | money }} - {{ price_range.last | money }}
+              {% else %}
+                {{ product.price | money }}
+              {% endif %}
+            </div>
+            <div class="text-xs font-normal text-primary-blue">
+              {{ product.selected_or_first_available_variant.title }}
+            </div>
+          </div>
+
+          {% comment %}
+            Quick add btn
+          {% endcomment %}
+          {%- assign product_form_id = 'quick-add-' | append: section.id | append: product.id -%}
+          <modal-opener class="shrink-0 grow-0 h-12" data-modal="#QuickAdd-{{ product.id }}">
+            <button
+              id="{{ product_form_id }}-submit"
+              type="submit"
+              name="add"
+              class="
+                quick-add__submit btn-large btn-primary xl:btn-secondary [&_path]:!stroke-current [&.active_path]:!fill-current
+                aspect-square w-12
+              "
+              aria-haspopup="dialog"
+              aria-labelledby="{{ product_form_id }}-submit title-{{ section.id }}-{{ product.id }}"
+              data-product-url="{{ product.url }}"
+            >
+              <span class="qatc-icon block">{% render 'icon-plus' %}</span>
+              <span
+                style="--color-foreground: 255,255,255"
+                class="loading-overlay__spinner hidden absolute top-auto right-[34px] md:top-3 md:right-[2px]"
+              >
+                <svg
+                  aria-hidden="true"
+                  focusable="false"
+                  class="spinner"
+                  viewBox="0 0 66 66"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle class="path" fill="none" stroke-width="4" cx="33" cy="33" r="30"></circle>
+                </svg>
+              </span>
+            </button>
+          </modal-opener>
+          <quick-add-modal
+            id="QuickAdd-{{ product.id }}"
+            class="quick-add-modal"
+          >
+            <script data-related-handles type="application/json">
+              {
+                "related_handles": "{% for prod in product.collections.first.products limit:9 %}{{ prod.handle }}{% unless forloop.last %},{% endunless %}{%endfor%}"
+              }
+            </script>
+            <div
+                role="dialog"
+                aria-label="{{ 'products.product.choose_product_options' | t: product_name: product.title | escape }}"
+                aria-modal="true"
+                class="quick-add-modal__content global-settings-popup z-[2147483605]"
+                tabindex="-1"
+            >
+              <button
+                id="ModalClose-{{ product.id }}"
+                type="button"
+                class="quick-add-modal__toggle"
+                aria-label="{{ 'accessibility.close' | t }}"
+              >
+                {% render 'icon-close' %}
+              </button>
+              <div id="QuickAddInfo-{{ product.id }}" class="quick-add-modal__content-info"></div>
+            </div>
+          </quick-add-modal>
+        </div>
+      </div>
+    </a>
+  {% endfor %}
+  {%- assign product_form_id = 'quick-add-' | append: section.id | append: section.settings.product_bundle.id -%}
+  <modal-opener class="shrink-0 grow-0" data-modal="#QuickAdd-{{ section.settings.product_bundle.id }}">
+    <button
+      id="{{ product_form_id }}-submit"
+      type="submit"
+      name="add"
+      class="btn-hover-animated btn-hover-animated-secondary-white max-w-80 w-[80%] lg:w-auto flex justify-center absolute bottom-[-195px] lg:bottom-[48px] transform translate-x-[-50%] translate-y-0 left-1/2 text-sm text-center py-3 px-8 border md:text-base leading-normal font-normal {% if section.settings.button_style == "blue" %}btn-primary{% else %}btn-secondary-white{% endif %} [&_path]:!stroke-current [&.active_path]:!fill-current"
+      aria-haspopup="dialog"
+      aria-labelledby="{{ product_form_id }}-submit title-{{ section.id }}-{{ section.settings.product_bundle.id }}"
+      data-product-url="{{ section.settings.product_bundle.url }}"
+    >
+      <span class="whitespace-nowrap">
+        {{ section.settings.button_text }}
+        {% assign product_bundle = section.settings.product_bundle %}
+        {% assign price_range = product_bundle.variants | map: 'price' | sort %}
+        {% if price_range.first < price_range.last %}
+          {{ price_range.first | money }} - {{ price_range.last | money }}
+        {% else %}
+          {{ product_bundle.price | money }}
+        {% endif -%}
+      </span>
+      <span class="qatc-icon block"> </span>
+      <span
+        style="--color-foreground: 255,255,255"
+        class="loading-overlay__spinner hidden absolute top-3 right-4 md:right-[2px]"
+      >
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          class="spinner h-4 mt-[3px]"
+          viewBox="0 0 66 66"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle class="path" fill="none" stroke-width="4" cx="33" cy="33" r="30"></circle>
+        </svg>
+      </span>
+    </button>
+  </modal-opener>
+  <quick-add-modal
+    id="QuickAdd-{{ section.settings.product_bundle.id }}"
+    class="quick-add-modal"
+  >
+    <script data-related-handles type="application/json">
+      {
+        "related_handles": "{% for prod in section.settings.product_bundle.collections.first.products limit:9 %}{{ prod.handle }}{% unless forloop.last %},{% endunless %}{%endfor%}"
+      }
+    </script>
+    <div
+      role="dialog"
+      aria-label="{{ 'products.product.choose_product_options' | t: product_name: section.settings.product_bundle.title | escape }}"
+      aria-modal="true"
+      class="quick-add-modal__content global-settings-popup"
+      tabindex="-1"
+    >
+      <button
+        id="ModalClose-{{ section.settings.product_bundle.id }}"
+        type="button"
+        class="quick-add-modal__toggle"
+        aria-label="{{ 'accessibility.close' | t }}"
+      >
+        {% render 'icon-close' %}
+      </button>
+      <div id="QuickAddInfo-{{ section.settings.product_bundle.id }}" class="quick-add-modal__content-info"></div>
+    </div>
+  </quick-add-modal>
+</div>
+
+<style>
+  .shop-the-look-section .mob-dot,
+  .shop-the-look-section .dot {
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  .shop-the-look-section .mob-dot > span,
+  .shop-the-look-section .dot > span {
+    width: 16px;
+    height: 16px;
+    display: block;
+    border-radius: 50%;
+    background: white;
+    transition: all 0.3s ease;
+  }
+  .product-card-container {
+    width: 370px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background-color: white;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    padding: 16px 18px;
+  }
+
+  .mob-product-card-container,
+  .shop-the-look-section .mob-dot,
+  .shop-the-look-section .mob-dot.visible,
+  .mob-product-card-container.visible {
+    display: none;
+  }
+
+  .shop-the-look-section .mob-dot.visible > span,
+  .shop-the-look-section .dot.visible > span {
+    background: #1c355e;
+  }
+
+  .dot.visible .product-card-container {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  @media (max-width: 1024px) {
+    .shop-the-look-section .mob-dot.visible,
+    .shop-the-look-section .mob-dot {
+      display: flex;
+    }
+    .mob-product-card-container.visible {
+      display: grid;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .product-card-container {
+      width: 300px;
+    }
+  }
+</style>
+
+<script defer>
+  document.addEventListener('DOMContentLoaded', () => {
+    const dots = document.querySelectorAll('.shop-the-look-section .dot');
+    const mobDots = document.querySelectorAll('.shop-the-look-section .mob-dot');
+    const mobProductCards = document.querySelectorAll('.shop-the-look-section .mob-product-card-container');
+    const delayTime = 300;
+    const timers = new Map();
+
+    mobDots.forEach((mobDot, index) => {
+      mobDot.addEventListener('click', () => {
+        mobDots.forEach((dot) => dot.classList.remove('visible'));
+        mobProductCards.forEach((card) => card.classList.remove('visible'));
+
+        mobDot.classList.add('visible');
+        mobProductCards[index].classList.add('visible');
+      });
+    });
+
+    dots.forEach((dot) => {
+      const productCard = dot.querySelector('.product-card-container');
+
+      dot.addEventListener('mouseenter', () => {
+        if (productCard) {
+          dot.classList.add('visible');
+          const timerId = timers.get(dot);
+          if (timerId) {
+            clearTimeout(timerId);
+            timers.delete(dot);
+          }
+        }
+      });
+
+      dot.addEventListener('mouseleave', () => {
+        const timerId = setTimeout(() => {
+          if (!productCard.matches(':hover')) {
+            dot.classList.remove('visible');
+          }
+        }, delayTime);
+        timers.set(dot, timerId);
+      });
+
+      if (productCard) {
+        productCard.addEventListener('mouseenter', () => {
+          const timerId = timers.get(dot);
+          if (timerId) {
+            clearTimeout(timerId);
+            timers.delete(dot);
+          }
+          dot.classList.add('visible');
+        });
+
+        productCard.addEventListener('mouseleave', () => {
+          const timerId = setTimeout(() => {
+            dot.classList.remove('visible');
+          }, delayTime);
+          timers.set(dot, timerId);
+        });
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Shop The Look",
+  "tag": "section",
+  "class": "section-shop-the-look",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Shop the look"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mob_image",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Shop the look -"
+    },
+    {
+      "type": "product",
+      "id": "product_bundle",
+      "label": "Product Bundle"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button Style",
+      "default": "blue",
+      "options": [
+        {
+          "value": "white",
+          "label": "White"
+        },
+        {
+          "value": "blue",
+          "label": "Blue"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "visible",
+      "label": "Visible Products",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "range",
+          "id": "possition_y",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "Position Y",
+          "default": 20
+        },
+        {
+          "type": "range",
+          "id": "possition_x",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "Position X",
+          "default": 20
+        },
+        {
+          "type": "range",
+          "id": "mob_possition_y",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "Mobile Position Y",
+          "default": 20
+        },
+        {
+          "type": "range",
+          "id": "mob_possition_x",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "Mobile Position X",
+          "default": 20
+        },
+        {
+          "type": "checkbox",
+          "id": "negative_y",
+          "label": "Position negative Y",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "negative_x",
+          "label": "Position negative X",
+          "default": false
+        },
+        {
+          "type": "range",
+          "id": "possition_product_y",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "Position Product Y",
+          "default": 10
+        },
+        {
+          "type": "range",
+          "id": "possition_product_x",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "Positionn Product X",
+          "default": 10
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shop The Look"
+    }
+  ]
+}
+{% endschema %}

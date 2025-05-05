@@ -1,6 +1,6 @@
 <div class="product-images">
   {%- if product.media.size > 0 -%}
-    {% liquid
+    {%- liquid
       assign path_array = request.path | split: '/'
       assign path_array_length = path_array | size
       assign ind = path_array_length | minus: 1
@@ -10,13 +10,13 @@
       assign selected_size = ''
       if variant_option_array_length > 0
         if variant_option_array[0] contains 'c:'
-          assign selected_colour = variant_option_array[0] | replace: 'c:', '' | handleize
+          assign selected_colour = variant_option_array[0] | replace: 'c:', '' | url_decode | handleize
         endif
         if variant_option_array[1] contains 's:'
-          assign selected_size = variant_option_array[1] | replace: 's:', '' | handleize
+          assign selected_size = variant_option_array[1] | replace: 's:', '' | url_decode | handleize
         endif
         if variant_option_array[2] contains 's:'
-          assign option3 = variant_option_array[2] | replace: 's:', '' | handleize
+          assign option3 = variant_option_array[2] | replace: 's:', '' | url_decode | handleize
         endif
       endif
 
@@ -51,65 +51,181 @@
         assign current_variant = product.selected_or_first_available_variant
       endif
 
-      assign widths = '300, 375, 550, 660, 750, 1024, 1336'
-      assign sizes = '(max-width: 1023px) 50vw, (min-width: 1024px) 330px, 100vw'
-      assign width = 330
-      assign height = 330 | divided_by: 2 | plus: 330
-    %}
+      assign widths = section.settings.image_widths
+      assign sizes = section.settings.image_sizes
+      assign width = section.settings.image_width
+      assign default_height =  330 | divided_by: 2 | plus: 330
+      assign height = section.settings.image_height | default: default_height
 
-    {% assign first_image = true %}
-    {% assign has_product_image = false %}
-    {% assign count = 0 %}
+      assign dragable = section.settings.slider_draggable
+    -%}
+    {%- assign first_image = true -%}
+    {%- assign has_product_image = false -%}
+    {%- assign count = 0 -%}
+    {%- assign limit = 1 -%}
+    {%- if section.settings.images_slider -%}
+      {%- assign limit = 5 -%}
+    {%- endif -%}
     {%- for media in product.media -%}
-      {% assign class = 'h-full w-full object-contain opacity-0' %}
-
+      {%- assign class = section.settings.image_class -%}
       {%- assign alt_array = media.alt | split: '-' -%}
       {%- assign alt_striped = alt_array[0] | strip -%}
-      {% comment %}{%- alt_striped == current_variant.option1 -%}{% endcomment %}
-
-      {% if alt_array[1] == 'product_image' and media.media_type == 'image' %}
-        {% if has_product_image == false %}
-          {% assign has_product_image = true %}
-        {% endif %}
-
+      {%- if alt_array[1] == 'product_image' and media.media_type == 'image' -%}
+        {%- if has_product_image == false -%}
+          {%- assign has_product_image = true -%}
+        {%- endif -%}
         {%- assign loading = 'lazy' %}
-
         {%- assign aspect_ratio = media.height | times: 100 | divided_by: media.width | times: 100 -%}
-
-        {% if current_variant.option1 == alt_striped and first_image == true %}
-          {%- render 'spinner' -%}
-        {% endif %}
-
-        {% if first_image == false %}
-          {% assign class = 'h-full w-full object-cover !opacity-0 group-hover/card:!opacity-100 absolute inset-0 notouchhover ' %}
-        {% endif %}
-
-        {% if current_variant.option1 == alt_striped %}
-          {%- render 'lazyimg',
-            img: media,
-            width: width,
-            height: height,
-            widths: widths,
-            class: class,
-            sizes: sizes,
-            crop: 'center',
-            loading: loading
-          -%}
-
-          {% assign first_image = false %}
-          {% assign count = count | plus: 1 %}
-        {% endif %}
+        {%- if section.settings.image_spinner and current_variant.option1 == alt_striped and first_image == true -%}
+          {%- render 'spinner', class: '!m-0 !w-full !h-full flex items-center justify-center [&>svg]:w-5 [&>svg]:h-5 bg-primary-white-cotton/75' -%}
+        {%- endif -%}
+        {%- if first_image == false -%}
+          {%- assign class = 'h-full w-full object-cover absolute inset-0' -%}
+        {%- endif -%}
+        {%- if current_variant.option1 == alt_striped -%}
+          {%- capture items_rendered -%}
+            {{ items_rendered }}
+            {%- if section.settings.images_slider -%}
+              <li class="splide__slide">
+                {%- if section.settings.image_clickable -%}
+                <a data-variant-id="{{ current_variant.id }}" href="{{ product.url }}">
+                {%- else  -%}
+                  <div data-variant-id="{{ current_variant.id }}">
+                {%- endif  -%}
+                    {%- render 'lazyimg',
+                      img: media,
+                      width: width,
+                      height: height,
+                      widths: widths,
+                      class: class,
+                      sizes: sizes,
+                      crop: 'center',
+                      loading: loading
+                  -%}
+                {%- unless section.settings.image_clickable -%}
+                  </div>
+                {%- else -%}
+                </a>
+                {%- endunless -%}
+              </li>
+            {%- else -%}
+              {%- if section.settings.image_clickable -%}
+                <a data-variant-id="{{ current_variant.id }}" href="{{ product.url }}">
+                  {%- else  -%}
+                  <div data-variant-id="{{ current_variant.id }}">
+                    {%- endif  -%}
+                {%- render 'lazyimg',
+                    img: media,
+                    width: width,
+                    height: height,
+                    widths: widths,
+                    class: class,
+                    sizes: sizes,
+                    crop: 'center',
+                    loading: loading
+                -%}
+              {%- unless section.settings.image_clickable -%}
+                  </div>
+              {%- else -%}
+                </a>
+              {%- endunless -%}
+            {%- endif -%}
+          {%- endcapture -%}
+          {%- assign first_image = false -%}
+          {%- assign count = count | plus: 1 -%}
+        {%- endif -%}
       {%- endif -%}
-
-      {% if count == 1 %}
-        {% break %}
-      {% endif %}
+      {%- if count == limit -%}
+        {%- break -%}
+      {%- endif -%}
     {%- endfor -%}
+  {%- endif -%}
+  {%- if items_rendered != blank -%}
+    {%- if section.settings.images_slider -%}
+      <product-card-slider class="aspect-square block bg-grey-2 {{ slider_class }}">
+        <div class="splide custom-splider group/customSplider h-full"
+            data-splide='{"arrows": true,"pagination": true,"type": "loop","rewind": true,"cloneStatus": true,"gap": "4px","drag": {{ dragable | default: false }} }'>
+          <div class="splide__track h-full">
+            <ul class="splide__list !flex">
+              {{ items_rendered }}
+            </ul>
+          </div>
+          <div class="splide__arrows splide__arrows--ltr splide__custom-arrows xl:transition-opacity max-lg:hidden
+              xl:opacity-0 xl:group-hover/card-images:opacity-100 ">
+            <button class="splide__arrow splide__arrow--prev">
+              {% render 'icon-arrow-drop-down' %}
+            </button>
+            <button class="splide__arrow splide__arrow--next">
+              {% render 'icon-arrow-drop-down' %}
+            </button>
+          </div>
+          <ul class="{% unless dragable %}max-lg:!hidden{% endunless %} splide__pagination splide__custom-pagination splide__pagination--ltr xl:transition-opacity
+              xl:opacity-0 xl:group-hover/card-images:opacity-100 "></ul>
+        </div>
+      </product-card-slider>
+    {%- else -%}
+      {{ items_rendered }}
+    {%- endif -%}
   {%- endif -%}
 </div>
 
 {% schema %}
 {
-  "templates": ["product"]
+  "templates": ["product"],
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "images_slider",
+      "label": "Enable images slider",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_draggable",
+      "label": "Slider draggable",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "image_widths",
+      "label": "Image widths",
+      "default": "400, 800, 1336"
+    },
+    {
+      "type": "text",
+      "id": "image_sizes",
+      "label": "Image sizes",
+      "default": "(max-width: 1023px) 50vw, (min-width: 1024px) 330px, 100vw"
+    },
+    {
+      "type": "number",
+      "id": "image_width",
+      "label": "Image width",
+      "default": 330
+    },
+    {
+      "type": "number",
+      "id": "image_height",
+      "label": "Image height"
+    },
+    {
+      "type": "text",
+      "id": "image_class",
+      "label": "Image class",
+      "default": "h-full w-full object-cover absolute inset-0"
+    },
+    {
+      "type": "checkbox",
+      "id": "image_clickable",
+      "label": "Image clickable",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "image_spinner",
+      "label": "Image spinner",
+      "default": true
+    }
+  ]
 }
 {% endschema %}

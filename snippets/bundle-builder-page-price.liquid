@@ -1,0 +1,23 @@
+<div
+    class="inline-flex flex-wrap gap-2 items-center select-none {% if noWrap == true %} !flex-nowrap flex-col !items-start {% endif  %}"
+    data-bundlepricehtml
+>
+  <div class="bundleprice">
+    {% if totalCompare > totalPrice %}
+      <span class="flex gap-x-2 font-semibold tracking-[.15px] items-baseline">
+        <span class="line-through font-normal">
+          {{- totalCompare | money -}}
+        </span>
+        {%- unless onlyNumbers -%}
+          <span>{{- totalPrice | money -}}</span>
+        {%- else -%}
+          <span class="font-semibold">{{- totalPrice | money -}}</span>
+        {%- endunless -%}
+      </span>
+    {% else %}
+      <span class="font-semibold tracking-[.15px]">
+        {{ shop.money_format | split: '{' | first }}<span class="bundle-total-price-js">{{ totalPrice | money_without_currency }}</span>
+        </span>
+    {% endif %}
+  </div>
+</div>

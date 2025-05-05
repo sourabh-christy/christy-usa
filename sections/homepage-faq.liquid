@@ -1,0 +1,125 @@
+{% schema %}
+    {
+        "name": "Homepage FAQ",
+        "tag": "section",
+        "settings": [
+            {
+                "type": "text",
+                "id": "heading",
+                "label": "Section Heading",
+                "default": "FAQ home page"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "text_block",
+                "name": "Question-Answer Block",
+                "settings": [
+                    {
+                    "type": "text",
+                    "id": "question",
+                    "label": "Question",
+                    "default": "Your question here"
+                    },
+                    {
+                    "type": "text",
+                    "id": "answer",
+                    "label": "Answer",
+                    "default": "Your answer here"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Homepage FAQ",
+                "category": "Custom"
+            }
+        ]
+    }
+{% endschema %}
+
+{% if section.blocks != blank %}
+<div class="product-faq container">
+    <a href="#" id="faq-list">
+        <h2 class="m-h1 lg:d-h1 text-blue-1">
+            {{ section.settings.heading }}
+            {%- render 'faq-arrow-icons' -%}
+        </h2>
+    </a>
+    <div id="container_inner_wrap" style="display:none;">
+        <div class="container_inner" id="container_inner">
+            {% for block in section.blocks %}
+            <div class="column" id="faq-list-left">
+                <p class="faq-question">{{ block.settings.question }}</p>
+                <p class="faq-answer">{{ block.settings.answer }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<style>
+    .product-faq {
+        padding: 20px; margin-top: 20px;
+    }
+    .product-faq h2{
+        text-align: center;
+        cursor: pointer;
+    }
+    .faq-item {
+        margin-bottom: 5px;
+    }
+    .faq-question {
+        font-weight: bold; cursor: pointer;
+    }
+    .faq-answer {
+        color: #555;
+        margin-bottom: 15px;
+    }
+
+    .container_inner {
+        display: flex;
+        width: 100%;
+        padding-top: 30px;
+    }
+
+    .column {
+        flex: 1; /* Equal width */
+        padding: 20px;
+    }
+
+    /* Desktop - Two divs side by side (50% each) */
+    @media (max-width: 600px) {
+        .container_inner {
+            flex-direction: column;
+        }
+    }
+
+    /* Tablet & Mobile - Two divs in a row (100% each) */
+    @media (max-width: 1023px) {
+        .column {
+            width: 100%;
+            padding-bottom: 0;
+            padding-top: 0;
+        }
+        .m-h1 {
+            font-size: 30px;
+        }
+    }
+</style>
+
+<script>
+    document.getElementById("faq-list").addEventListener("click", function(event) {
+        event.preventDefault();
+        var answer = document.getElementById('container_inner_wrap');
+        answer.style.display = answer.style.display === "none" ? "block" : "none";
+
+        var btn1 = document.getElementById('right-arr');
+        btn1.style.display = btn1.style.display === "none" ? "inline" : "none";
+
+        var btn2 = document.getElementById('down-arr');
+        btn2.style.display = btn2.style.display === "none" ? "inline" : "none";
+    });
+</script>

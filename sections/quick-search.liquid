@@ -1,0 +1,40 @@
+{% if predictive_search.resources.products == blank %}
+  <div id="predsearchErrorNoResult" class="bg-primary-white-cotton rounded text-sm tracking-[.1px] py-3 px-6 w-full text-center">
+    Your search returned 0 results.
+  </div>
+{% else %}
+  <div id="predsearch">
+    <div class="w-full flex-shrink-0 flex-grow-0 flex flex-col gap-y-8 lg:grid lg:grid-cols-[30%_minmax(0,1fr)] lg:gap-1">
+      <div class="space-y-4">
+        <p class="text-sm tracking-[.1px] font-semibold">Suggestions</p>
+        <ul class="flex flex-col gap-2">
+          {% for query in predictive_search.resources.queries %}
+            <li>
+              <a href="{{ query.url }}" class="text-sm font-normal tracking-[.25px]
+            [&>mark]:bg-transparent [&>mark]:font-semibold [&>mark]:tracking-[.1px] [&>mark]:text-primary-blue">
+                {{ query.styled_text | highlight: query.terms }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="space-y-4">
+        <p class="text-sm tracking-[.1px] font-semibold">Suggestion products</p>
+
+        <div class="flex gap-x-2 overflow-x-auto no-scrollbar -mx-4 px-4 sm:grid sm:grid-cols-3 sm:gap-x-0.5
+                sm:gap-y-8 sm:overflow-hidden sm:mx-0 sm:px-0 max-tab:pb-4">
+          {% for product in predictive_search.resources.products limit: 3 %}
+            {% render 'card-product',
+                card_product: product,
+                section_id: section.id,
+                horizontal_quick_add: true,
+                show_rating: false,
+                class: 'max-sm:w-4/5 flex-shrink-0 sm:w-auto'
+            %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}

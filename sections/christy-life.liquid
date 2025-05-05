@@ -1,0 +1,429 @@
+{{ 'splide.min.css' | asset_url | stylesheet_tag }}
+<div
+  id="ChristyLife-{{ section.id }}"
+>
+  {%- liquid
+    assign widths = '375, 550, 768, 1100, 1920'
+    assign sizes = '100vw'
+  -%}
+  <header class="md:container flex flex-col items-center text-center py-12 pb-[30px] max-tab:pt-4 px-[42px] md:px-0 md:max-w-[800px] md:w-full">
+    <h2 class="font-sec font-normal text-primary-blue text-[32px] md:text-[45px] mb-6 leading-10 md:leading-[52px]">{{ section.settings.title }}</h2>
+    <p class="text-primary-blue font-normal text-sm md:text-base">{{ section.settings.text }}</p>
+    <a href="/pages/christy-life"
+      class="text-sm text-center max-w-[205px] md:hidden w-full py-3 px-8 mt-6 border border-primary-blue leading-normal text-primary-white-cotton font-normal bg-primary-blue hover:bg-transparent focus:bg-transparent hover:text-primary-blue focus:text-primary-blue hover:border-primary-blue focus:border-primary-blue"
+    >
+      {{ section.settings.button }}
+  </a>
+  </header>
+  <div
+    class="splide group/splide splide--dotted-pag relative"
+    data-splide='
+      {"arrows": false, "pagination": true, "type": "fade", "gap": "0", "autoWidth": false, "breakpoints": {
+        "768": {
+          "gap": "0"
+        }
+      }}
+    '
+  >
+    <div class="splide__track !overflow-visible">
+      <div class="splide__list text-blue-1 flex group-[.is-initialized]/splide:!block">
+        {%- for block in section.blocks -%}
+          <div class="splide__slide !translate-x-0">
+            <div
+              class="h-full relative flex max-md:justify-center max-sm:items-start
+              {% if block.settings.positioning == 'top-left' %}justify-start items-start{% endif %}
+              {% if block.settings.positioning == 'top-center' %}justify-center items-start{% endif %}
+              {% if block.settings.positioning == 'top-right' %}justify-end items-start{% endif %}
+              {% if block.settings.positioning == 'center-left' %}justify-start items-center{% endif %}
+              {% if block.settings.positioning == 'center-center' %}justify-center items-center{% endif %}
+              {% if block.settings.positioning == 'center-right' %}justify-end items-center{% endif %}
+              {% if block.settings.positioning == 'bottom-left' %}justify-start items-end{% endif %}
+              {% if block.settings.positioning == 'bottom-center' %}justify-center items-end{% endif %}
+              {% if block.settings.positioning == 'bottom-right' %}justify-end items-end{% endif %}
+              "
+            >
+              <div class="w-full{% if block.settings.full_width != true %}container{% endif %}">
+                {% if block.settings.video %}
+                  {{
+                    block.settings.video
+                    | video_tag:
+                      muted: true,
+                      autoplay: true,
+                      loop: true,
+                      playsinline: true,
+                      class: 'w-full h-[390px] md:h-[800px] object-cover inset-0'
+                  }}
+                {%- elsif block.settings.gif != blank -%}
+                  {%- render 'lazyimg', 
+                    img: block.settings.gif, 
+                    width: 2000, 
+                    widths: widths, 
+                    class: 'w-full h-[390px] md:h-[800px] object-cover object-center', 
+                    sizes: sizes 
+                  -%}
+                {%- elsif block.settings.image != blank -%}
+                  {%- render 'lazyimg', 
+                      img: block.settings.image,
+                      loading: 'eager',
+                      preload: true,
+                      width: 1920,
+                      height: 800,
+                      class: 'w-full h-[800px] object-cover object-center hidden md:block',
+                      sizes: sizes,
+                      widths: widths
+                  -%}
+                  {%- if block.settings.image_mobile != blank -%}
+                    {%- render 'lazyimg', 
+                        img: block.settings.image_mobile,
+                        preload: true,
+                        loading: 'eager',
+                        width: 390,
+                        height: 390,
+                        class: 'w-full h-[390px] block md:hidden',
+                        sizes: sizes,
+                        widths: widths
+                    -%}
+                  {% endif %}
+                {%- endif -%}
+              </div>
+              <div class="flex flex-col absolute pt-[38px] px-[42px] md:pt-0 md:px-0
+                {% if block.settings.alignment == 'left' %}items-start text-start{% endif %} 
+                {% if block.settings.alignment == 'center' %}items-center text-center{% endif %} 
+                {% if block.settings.alignment == 'right' %}items-end text-right{% endif %}
+                "
+              >
+                {%- if block.settings.sub-title != blank -%}
+                  <p class="image-subtitle-{{ block.id }} font-semibold md:font-normal mb-4 md:mb-6 text-primary-white-cotton
+                    {% if block.settings.text-colour == 'blue' %}!text-primary-blue{% endif %}
+                    "
+                  >
+                    {{ block.settings.sub-title }}
+                  </p>
+                {%- endif -%}
+                {%- if block.settings.title != blank -%}
+                  <h3 class="image-title-{{ block.id }} font-sec font-normal text-primary-white-cotton mb-4 leading-tight md:mb-6
+                    {% if block.settings.text-colour == 'blue' %}!text-primary-blue{% endif %}
+                    ">
+                    {{ block.settings.title }}
+                  </h3>
+                {%- endif -%}
+
+                {%- if block.settings.text != blank -%}
+                  <p class="image-text-{{ block.id }} font-normal mb-4 md:mb-6 text-primary-white-cotton md:max-w-[672px]
+                    {% if block.settings.text-colour == 'blue' %}!text-primary-blue{% endif %}
+                    "
+                  >
+                    {{ block.settings.text }}
+                  </p>
+                {%- endif -%}
+
+                {% if block.settings.btn-title and block.settings.btn-link %}
+                  <a
+                    href="{{ block.settings.btn-link }}"
+                    class="text-sm relative text-center max-w-[205px] md:max-w-[321px] btn-large
+                    {% if block.settings.btn-colour == 'blue'%} btn-primary btn-hover-animated btn-hover-animated-secondary-white {% else %} btn-secondary-white btn-hover-animated btn-hover-animated-secondary-white {% endif %}"
+                  >
+                    {{- block.settings.btn-title -}}
+                  </a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+        <ul class="{% if section.blocks.size < 2 %}!hidden{% endif %} splide__pagination absolute !bottom-[34px] md:!bottom-12 mt-0 right-1/2 [&>li>button.is-active]:pointer-events-none"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% style %}
+ {%- for block in section.blocks -%}
+    {%- if block.settings.title_font_size_mob != blank -%}
+    #shopify-section-{{ section.id }} .image-title-{{ block.id }} {
+      font-size: {{ block.settings.title_font_size_mob }}px;
+    }
+    {%- endif -%}
+
+    {%- if block.settings.sub-title_font_size_mob != blank -%}
+    #shopify-section-{{ section.id }} .image-subtitle-{{ block.id }} {
+      font-size: {{ block.settings.sub-title_font_size_mob }}px;
+    }
+    {%- endif -%}
+
+    {%- if block.settings.text_font_size_mob != blank -%}
+    #shopify-section-{{ section.id }} .image-text-{{ block.id }} {
+      font-size: {{ block.settings.text_font_size_mob }}px;
+    }
+    {%- endif -%}
+
+    @media all and ( min-width: 768px ) {
+      {%- if block.settings.title_font_size_desktop != blank -%}
+        #shopify-section-{{ section.id }} .image-title-{{ block.id }} {
+          font-size: {{ block.settings.title_font_size_desktop }}px;
+        }
+      {%- endif -%}
+      {%- if block.settings.sub-title_font_size_desktop != blank -%}
+        #shopify-section-{{ section.id }} .image-subtitle-{{ block.id }} {
+          font-size: {{ block.settings.sub-title_font_size_desktop }}px;
+        }
+      {%- endif -%}
+      {%- if block.settings.text_font_size_desktop != blank -%}
+        #shopify-section-{{ section.id }} .image-text-{{ block.id }} {
+          font-size: {{ block.settings.text_font_size_desktop }}px;
+        }
+      {%- endif -%}
+    }
+  {% endfor %}
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Christy Life",
+  "tag": "section",
+  "class": "section-christy-life",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "button",
+      "label": "Button Title",
+      "default": "OUR BLOG"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "sub-title",
+          "label": "Sub Title"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "range",
+          "id": "title_font_size_mob",
+          "label": "Title font size mobile",
+          "min": 12,
+          "max": 57,
+          "step": 1,
+          "unit": "px",
+          "default": 20
+        },
+        {
+          "type": "range",
+          "id": "title_font_size_desktop",
+          "label": "Title font size desktop",
+          "min": 12,
+          "max": 57,
+          "step": 1,
+          "unit": "px",
+          "default": 45
+        },
+        {
+          "type": "range",
+          "id": "sub-title_font_size_mob",
+          "label": "Sub Title font size mobile",
+          "min": 12,
+          "max": 57,
+          "step": 1,
+          "unit": "px",
+          "default": 16
+        },
+        {
+          "type": "range",
+          "id": "sub-title_font_size_desktop",
+          "min": 12,
+          "max": 57,
+          "step": 1,
+          "unit": "px",
+          "label": "Sub Title font size desktop",
+          "default": 16
+        },
+        {
+          "type": "range",
+          "id": "text_font_size_mob",
+          "label": "Text font size mobile",
+          "min": 12,
+          "max": 57,
+          "step": 1,
+          "unit": "px",
+          "default": 14
+        },
+        {
+          "type": "range",
+          "id": "text_font_size_desktop",
+          "min": 12,
+          "max": 57,
+          "step": 1,
+          "unit": "px",
+          "label": "Text font size desktop",
+          "default": 16
+        },
+        {
+          "type": "select",
+          "id": "alignment",
+          "label": "Title Alignment",
+          "info": "Choose title alignment.",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "select",
+          "id": "text-colour",
+          "label": "Text Colour",
+          "info": "Choose the colour for text",
+          "options": [
+            {
+              "value": "white",
+              "label": "White"
+            },
+            {
+              "value": "blue",
+              "label": "Blue"
+            }
+          ],
+          "default": "white"
+        },
+        {
+          "type": "select",
+          "id": "positioning",
+          "label": "Positioning of text",
+          "info": "Choose positioning of text.",
+          "options": [
+            {
+              "value": "top-left",
+              "label": "Top Left"
+            },
+            {
+              "value": "top-center",
+              "label": "Top Center"
+            },
+            {
+              "value": "top-right",
+              "label": "Top Right"
+            },
+            {
+              "value": "center-left",
+              "label": "Center Left"
+            },
+            {
+              "value": "center-center",
+              "label": "Center Center"
+            },
+            {
+              "value": "center-right",
+              "label": "Center Right"
+            },
+            {
+              "value": "bottom-left",
+              "label": "Bottom Left"
+            },
+            {
+              "value": "bottom-center",
+              "label": "Bottom Center"
+            },
+            {
+              "value": "bottom-right",
+              "label": "Bottom Right"
+            }
+          ],
+          "default": "center-center"
+        },
+        {
+          "type": "url",
+          "id": "btn-link",
+          "label": "Button Link"
+        },
+        {
+          "type": "text",
+          "id": "btn-title",
+          "label": "Button Title",
+          "default": "READ MORE"
+        },
+        {
+          "type": "select",
+          "id": "btn-colour",
+          "label": "Button Colour",
+          "info": "Choose the colour for button",
+          "options": [
+            {
+              "value": "white",
+              "label": "White"
+            },
+            {
+              "value": "blue",
+              "label": "Blue"
+            }
+          ],
+          "default": "white"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Choose image for Desktop"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "Choose image for Mobile"
+        },
+        {
+          "type": "image_picker",
+          "id": "gif",
+          "label": "Choose a GIF"
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Choose a video",
+          "info": "Video will override image"
+        },
+        {
+          "type": "checkbox",
+          "id": "full_width",
+          "label": "Full width",
+          "default": true
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Christy Life"
+    }
+  ]
+}
+{% endschema %}

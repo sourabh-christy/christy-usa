@@ -1,5 +1,3 @@
-{% render 'rapid-search-results-template' %}
-{% render 'rapid-search-results-template-v2' %}
 {% comment %}
     {{ 'template-collection.css' | asset_url | stylesheet_tag }}
     {{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
@@ -22,348 +20,81 @@
   assign productsPerPage = section.settings.products_per
   assign collectionProducts = collection
   assign hideViewToggle = collection.metafields.custom.hide_view_toggle.value
-  assign indexCount = 0
 %}
-{% comment %}QT 18-7-2024{% endcomment %}
+
 <style>
-   .grid-cols-1 {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
+  .qt-towel-seo-content-excerpt {
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+    display: grid;
+    gap: 10px;
   }
-    .selected-filters {
-      /* display: flex; */
-      padding: 10px;
-  }
-  .selected-filter {
-    display: inline-flex;
-    align-items: center;
-    padding: 5px 15px 5px 5px;
-    height: 45px;
-    border-radius: 4px;
-    background-color: rgb(249 249 249);
-    margin: 2px 2px;
+  .qt-towel-seo-content-full {
+    padding: 1rem 0;
 
+    overflow: hidden;
   }
-  .remove-filter {
-    background: none;
-    border: none;
-    color: #2c3b96;
-    font-size: 30px;
-   margin-right: 10px; 
+  .qt-towel-seo-content-full.expanded {
+    height: auto;
+  }
+  .qt-toggle-link {
+    color: rgb(44 59 150);
+    text-decoration: underline;
     cursor: pointer;
+    display: inline-block;
   }
-  .selected-filters-btn{
-display:flex;
+  .qt-seo-towel-excerpt {
+    margin: 50px auto;
+    display: grid;
+    gap: 10px;
+    max-width: 1350px;
   }
-      .qt-sorting-btn button {
-        background-color: white;
-        display: flex;
-        align-items: left;
-      }
-     
-      .product-grid-filter {
-        display: flex;
-        justify-content: space-between;
-      }
-
-      .qt-btn-wrapper {
-      }
-      .qt-btn {
-        color: #2c3b96;
-        {% comment %} padding: 0.5rem 1rem; {% endcomment %}
-        font-weight:500;
-        border-radius: 0.25rem;
-        cursor: pointer;
-        display: block;
-        align-items: center;
-        background-origin: content-box;
-      }
-
-      .qt-btn > img {
-        display: inline-block;
-        color: #2c3b96;
-        margin-left: 4px;
-        margin-bottom:3px;
-        vertical-align: middle;
-        width: 14px;
-        height: 14px;
-      }
-      .qt-dropdown-menu {
-        display: none;
-        position: absolute;
-        background-color: #fff;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        z-index: 1;
-        width: auto;
-      }
-
-      .qt-dropdown-menu.show {
-        display: block;
-        width: 270px;
-        margin-top:10px;
-      }
-      .qt-dropdown-item {
-        display: block;
-        padding: 10px;
-        text-decoration: none;
-        color: #333;
-        transition: background-color 0.3s;
-        padding-top: 1.25rem;
-        padding-left: 1.25rem;
-        padding-bottom: 1.25rem;
-        font-weight: 500;
-        color: #2c3b96;
-        background-image: url({{ 'plus.svg' | asset_url }});
-        background-repeat: no-repeat;
-        background-position-x: right;
-        background-position-y: center;
-        background-origin: content-box;
-      }
-      .qt-dropdown-item.open {
-        background-image: url({{ 'minus.svg' | asset_url}});
-        background-repeat: no-repeat;
-        background-position-x: right;
-        background-position-y: center;
-      }
-      .qt-dropdown-item:hover {
-        background-color: #f2f2f2;
-      }
-    .qt-sorting-btn{
+  #more-content {
+    display: inline;
+    white-space: normal;
+  }
+  .less-content {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  @media (max-width: 1400px) {
+    .qt-seo-towel-excerpt {
+      margin: 50px;
     }
-      .qt-sortby-dropdown-menu {
-        display: none; /* Hidden by default */
-        position: absolute;
-        background-color: #fff;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        z-index: 1; /* Ensure it sits above other content */
-        width: auto;
-      }
+  }
 
-      .qt-sortby-dropdown-menu.show {
-        display: block; /* Show when toggled */
-        width: 270px; /* Set the width of the dropdown */
-      }
-
-      .qt-sortby-dropdown-item {
-        display: block;
-        padding: 10px;
-        text-decoration: none;
-        color: #2c3b96; /* Text color */
-        transition: background-color 0.3s;
-        font-weight: 500;
-        background-color: #fff; /* Background color */
-        background-image: none; /* No background image for sort items */
-      }
-
-      .qt-sortby-dropdown-item:hover {
-        background-color: #f2f2f2; /* Background color on hover */
-      }
-      .qt-accordion-item-box {
-        display: none;
-        padding-left: 2.25rem;
-        {% comment %} overflow-y: auto;
-        max-height: 100px; {% endcomment %}
-      }
-      .qt-accordion-item-box.show {
-        display: block;
-        padding-left: 1.25rem;
-      }
-      input[type='checkbox'] {
-        margin-right: 5px;
-      }
-      .qt-towel-seo-content-excerpt {
-        font-size: inherit;
-        font-family: inherit;
-        font-weight: inherit;
-      }
-      .qt-towel-seo-content-full {
-        padding: 1rem 0;
-
-        overflow: hidden;
-      }
-      .qt-towel-seo-content-full.expanded {
-        height: auto;
-      }
-      .qt-seo-towel-excerpt {
-        margin: auto;
-        max-width: 1350px;
-         margin-top:40px;
-        margin-bottom:40px; 
-      }
-      .qt-toggle-content {
-        margin-top: 10px;
-      }
-
-      .qt-toggle-link {
-        color: rgb(44 59 150);
-        text-decoration: underline;
-        cursor: pointer;
-        display: inline-block;
-        margin-top: 10px;
-      }
-      .qt-towel-seo-content-title {
-        {% comment %} margin-top: 40px; {% endcomment %}
-      }
-      .mobile-only {
-        display: none;
-      }
-      .close-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 24px;
-  border: none;
-  display:none;
-  background: none;
-  color: #333;
-  cursor: pointer;
-  z-index: 2;
-}
-
-      @media only screen and (min-width: 769px) and (max-width: 1023px) {
-        #product-grid {
-          grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-        } 
-      }
-      @media only screen and (max-width: 300) {
-        #product-grid {
-          grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
-        } 
-      }
-      @media (max-width: 1400px) {
-        .qt-seo-towel-excerpt {
-          margin: 0px 40px;
-          margin-top:40px;
-          margin-bottom:40px; 
-        }
-      }
-      @media (max-width: 768px) {
-        .selected-filters-btn{
-          display:block;
-            }
-        .qt-dropdown-item{
-          margin:30px;
-        }
-        .product-grid-filter {
-         /* margin: 0px 40px;*/
-          display:block;
-        }
-        .qt-sorting-btn button {
-          width: 100%;
-          display:block;
-          text-align: center;
-          border:1px solid #2c3b96;
-          border-radius:0.25rem;
-        }
-        .qt-sorting-btn label {
-          margin-left: -15px !important; 
-        }
-        .qt-sorting-btn .facet-filters_sort {
-          text-align: center !important;
-        }
-        .qt-towel-seo-liner {
-          margin-bottom: 20px;
-          text-align: center;
-        }
-        .qt-towel-seo-title {
-          margin-top: 20px;
-          text-align: center;
-        }
-        .qt-towel-seo-content-title {
-          text-align: center;
-        }
-        .qt-towel-seo-content-excerpt {
-          font-size: inherit;
-          font-family: inherit;
-          font-weight: inherit;
-          text-align: justify;
-          margin-top: 20px;
-        }
-        .qt-seo-towel-excerpt {
-          margin: 0px 40px;
-          margin-top:40px;
-          margin-bottom:40px; 
-        }
-        .qt-toggle-link {
-          text-align: center;
-        }
-        .qt-btn.qt-filter-button {
-          display: block;
-          width:100% !important;
-          text-align: center !important;
-          background: border-box;
-          border:1px solid #2c3b96;
-          
-        }
-        .qt-filter-button label{
-          margin-left:-25px;
-        }
-        .qt-btn {
-          text-align: center;
-          padding: 0.5rem 1rem;
-        }
-        .qt-dropdown-menu {
-          position: fixed;
-          top: 0;
-          left: 0;
-          height: 100%;
-          width: 100%;
-          background-color: #fff;
-          overflow-y: auto;
-          transform: translateY(-100%);
-          transition: transform 0.3s ease;
-          z-index: 1000;
-        }
-
-        .qt-dropdown-menu.show {
-            transform: translateY(0);
-          width:100%;
-          font-size: medium;
-        }
-
-        .qt-btn.qt-filter-button.hidden {
-          width:100%;
-        }
-        .filter-buttons {
-          position: sticky;
-          bottom: 10px;
-          left: 0;
-          width: 100%;
-          background-color: #fff;
-          border-top: 1px solid #ddd;
-          z-index: 1000; /* Ensure it stays above other content */
-          padding: 0 3rem;
-        }
-        .filter-buttons button {
-          margin:10px;
-          margin-left: 20px;
-          border: 1px solid #2c3b96;
-        }
-        .mobile-only {
-          display: flex;
-          justify-content: space-between;
-        }
-        .close-btn {
-          display:block;
-        }
-      }
+  @media (max-width: 768px) {
+    .qt-towel-seo-content-title {
+      text-align: justify;
+    }
+    .qt-towel-seo-content-excerpt {
+      font-size: inherit;
+      font-family: inherit;
+      font-weight: inherit;
+      text-align: justify;
+    }
+    .qt-toggle-link {
+      text-align: center;
+    }
+  }
 </style>
-{% comment %}
-  <div style="display:none">
-    {% render 'filters', results: collection, enable_sorting: section.settings.enable_filtering %}
-  </div>
-{% endcomment %}
-
 <div
   id="prodlist"
   data-hidetoggle="{{ hideViewToggle }}"
   class="section-{{ section.id }}-padding group/prodlist [&.list_ul#product-grid>li:nth-child(6n+3)]:col-span-2 [&.list_ul#product-grid>li:nth-child(6n+4)]:col-span-2 "
 >
   {%- paginate collection.products by productsPerPage -%}
-    <nav id="breadcrumbs" class="breadcrumb container mt-10 mb-12 max-md:hidden">
-      <ul class="flex flex-wrap text-blue-1 gap-1">
+    <nav id="breadcrumbs" class="breadcrumb container mt-10 max-tab:hidden">
+      <ul class="flex flex-wrap text-blue-1 gap-1 items-center">
         {% assign collectionsCount = product.collections.size %}
         <li>
-          <a href="{{ shop.url }}">Home</a>
+          <a href="{{ shop.url }}" class="text-xs font-normal block">Home</a>
         </li>
 
         {%- assign parent_collection = collection.metafields.custom.parent_collection.value %}
@@ -371,14 +102,14 @@ display:flex;
           <li>/</li>
 
           <li>
-            <a href="{{ parent_collection.url }}">{{ parent_collection.title }}</a>
+            <a href="{{ parent_collection.url }}" class="text-xs font-normal block">{{ parent_collection.title }}</a>
           </li>
         {%- endif -%}
 
         <li>/</li>
 
-        <li>
-          <a href="{{ collection.url }}">{{ collection.title }}</a>
+        <li class="font-normal last:font-semibold">
+          <a href="{{ collection.url }}" class="text-xs block">{{ collection.title }}</a>
         </li>
 
         {%- for filter in collection.filters -%}
@@ -387,7 +118,7 @@ display:flex;
               {% if value.active %}
                 <li>/</li>
                 <li>
-                  <strong>{{ value.label }}</strong>
+                  <strong class="text-xs font-semibold block">{{ value.label }}</strong>
                 </li>
               {% endif %}
             {%- endfor -%}
@@ -397,55 +128,159 @@ display:flex;
       </ul>
     </nav>
 
-    <header class="flex items-center justify-center flex-col container">
-      
-      {% assign alt_title = collection.metafields.custom.alternative_collection_title %}
-    
-      {% if section.settings.title != blank %}
-        <h1 class="s-m-h4 lg:s-d-h3 qt-towel-seo-title">{{ section.settings.title }}</h1>
-      {% else %}
-        {% if alt_title != blank %}
-          <h1 class="s-m-h4 lg:s-d-h3">{{ alt_title.value }}</h1>
-        {% else -%}
-          <h1 class="s-m-h4 lg:s-d-h3 qt-towel-seo-title">{{ collection.title }}</h1>
-        {% endif %}
-      {% endif %}  
-      
+    <header class="flex items-center justify-center max-tab:relative max-tab:px-4 max-tab:px-[43px] my-4 container tab:mb-12 tab:mt-8">
+      <div class="go-back tab:hidden absolute left-4 top-px">
+        <button
+          onclick="goBack()"
+          class="text-primary-blue text-sm font-normal w-6 rotate-180"
+        >
+          {% render 'icon-long-arrow-right' %}
+        </button>
+      </div>
 
-      <p class="qt-towel-seo-liner" style="margin-top:20px;">{{ collection.metafields.custom.seo_1_liner }}</p>
-      {% comment %} {% echo collection.metafields.custom | json %} {% endcomment %}
-      {% comment %}
-        <div>
-          {% render 'facets-drawer',
-            results: collection,
-            enable_filtering: section.settings.enable_filtering,
-            enable_sorting: section.settings.enable_sorting,
-            filter_type: section.settings.filter_type,
-            paginate: paginate
-          %}
-        </div>
-      {% endcomment %}
+      <div class="flex flex-col items-center space-y-4 text-sm font-normal text-center">
+        {% assign alt_title = collection.metafields.custom.alternative_collection_title %}
+        {% if alt_title != blank %}
+          <h1 class="font-sec d-h5 text-center max-tab:font-sans tab:text-[45px] tab:font-normal tab:leading-[52px]">
+            {{ alt_title.value }}
+          </h1>
+        {% else -%}
+          <h1 class="font-sec d-h5 text-center max-tab:font-sans tab:text-[45px] tab:font-normal tab:leading-[52px]">
+            {{ collection.title }}
+          </h1>
+        {% endif %}
+
+        {% if collection.description != blank %}
+          <p class="text-sm font-normal text-center">{{ collection.description }}</p>
+        {% endif %}
+      </div>
     </header>
 
-    {% assign has_sub_collections = false %}
-    {% for block in section.blocks -%}
-      {% case block.type %}
-        {% when 'sub_collections' %}
-          {% if has_sub_collections == false %}
-            {% assign has_sub_collections = true %}
-            {% break %}
-          {% endif %}
-      {% endcase %}
-    {% endfor %}
-
-    {% if has_sub_collections %}
-      {% render 'sub-collection-carousel', blocks: section.blocks %}
+    {% assign featured_collections = collection.metafields.custom.featured_collections.value %}
+    {% if featured_collections != blank %}
+      {% render 'featured-collections', collections: featured_collections %}
     {% endif %}
 
+    {% comment %}{% assign has_sub_collections = false %}{% endcomment %}
+    {% comment %}{% for block in section.blocks -%}{% endcomment %}
+    {% comment %}{% case block.type %}{% endcomment %}
+    {% comment %}{% when 'sub_collections' %}{% endcomment %}
+    {% comment %}{% if has_sub_collections == false %}{% endcomment %}
+    {% comment %}{% assign has_sub_collections = true %}{% endcomment %}
+    {% comment %}{% break %}{% endcomment %}
+    {% comment %}{% endif %}{% endcomment %}
+    {% comment %}{% endcase %}{% endcomment %}
+    {% comment %}{% endfor %}{% endcomment %}
+    {% comment %}{% endcomment %}
+    {% comment %}{% if has_sub_collections %}{% endcomment %}
+    {% comment %}{% render 'sub-collection-carousel', blocks: section.blocks %}{% endcomment %}
+    {% comment %}{% endif %}{% endcomment %}
+    {% comment %}{% endcomment %}
+
+    <div class="container container-sm max-sm:flex-col-reverse max-sm:items-start flex items-center justify-between">
+      <div class="product-count-vertical light w-full max-sm:mb-4" role="status">
+        <div class="max-md:w-full max-md:pt-1 product-count__text text-sm font-normal font-sans text-secondary-blue-500 flex items-center gap-x-6">
+          <span id="ProductCount" class="text-sm font-normal font-sans text-secondary-blue-500">
+            {{ collection.products_count }} results
+          </span>
+
+          <div class="bg-secondary-blue-50 w-px h-10 max-sm:hidden"></div>
+
+          <div class="flex items-center gap-x-6 select-none max-sm:ml-auto">
+            View:
+
+            <input data-view-switch class="absolute invisible peer/first" type="radio" name="view" id="viewFirst" value="first" checked>
+            <label class="cursor-pointer peer-checked/first:block hidden" for="viewSecond">
+              {% render 'icon-view-2', class: 'w-5 h-5' %}
+            </label>
+            <input data-view-switch class="absolute invisible peer/second" type="radio" name="view" id="viewSecond" value="second">
+            <label class="cursor-pointer peer-checked/second:block hidden" for="viewFirst">
+              {% render 'icon-view-1', class: 'w-5 h-5' %}
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex gap-2 max-sm:my-4 max-mob:w-full max-mob:justify-between">
+        {%- if section.settings.enable_sorting -%}
+          <facet-filters-form class="facets small-hide">
+            <form
+              id="FacetFiltersForm"
+              class="facets__form"
+            >
+              <div class="facet-filters sorting caption">
+                <div class="facet-filters__field relative w-[175px] h-[48px] px-4 pt-1 border border-secondary-blue-50 cursor-pointer">
+                  <label
+                    for="SortBy"
+                    class="facet-filters__label max-tab:hidden text-[11px] leading-4 font-sans mb-1 text-secondary-blue-400 font-semibold"
+                  >
+                    {{ 'products.facets.sort_by_label' | t }}
+                  </label>
+
+                  <div class="select dropdown-component cursor-pointer">
+                    {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
+                    <select
+                      name="sort_by"
+                      class="facet-filters__sort select__select cursor-pointer absolute z-20 w-[175px] h-[48px] top-0 left-0 bg-transparent tab:pb-2 tab:pt-5 py-2 px-4 max-tab:text-[11px] text-xs font-semibold appearance-none focus:outline-none"
+                      id="SortBy"
+                      aria-describedby="a11y-refresh-page-message"
+                    >
+                      {%- for option in collection.sort_options -%}
+                        {%- if option.value == 'manual'
+                          or option.value == 'price-ascending'
+                          or option.value == 'price-descending'
+                          or option.value == 'created-descending'
+                        -%}
+                          {% case option.value %}
+                            {% when 'manual' %}
+                              {% assign title = 'Recommended' %}
+                            {% when 'price-ascending' %}
+                              {% assign title = 'Lowest price' %}
+                            {% when 'price-descending' %}
+                              {% assign title = 'Highest price' %}
+                            {% when 'created-descending' %}
+                              {% assign title = 'Newest' %}
+                          {% endcase %}
+                          <option
+                            value="{{ option.value | escape }}"
+                            {% if option.value == sort_by %}
+                              selected="selected"
+                            {% endif %}
+                          >
+                            {{ title }}
+                          </option>
+                        {%- endif -%}
+                      {%- endfor -%}
+                    </select>
+                    <span class="absolute z-10 bg-white inset-y-0 right-1.5 flex items-center px-2 rotate-90">
+                      {%- render 'icon-arrow' -%}
+                    </span>
+                  </div>
+                </div>
+
+                <noscript>
+                  <button type="submit" class="facets__button-no-js button button--secondary">
+                    {{ 'products.facets.sort_button' | t }}
+                  </button>
+                </noscript>
+              </div>
+            </form>
+          </facet-filters-form>
+        {% endif %}
+
+        {% render 'facets-drawer',
+          results: collection,
+          enable_filtering: section.settings.enable_filtering,
+          enable_sorting: section.settings.enable_sorting,
+          filter_type: section.settings.filter_type,
+          paginate: paginate
+        %}
+      </div>
+    </div>
     {%- if collection.products.size > 0 -%}
       <aside
         aria-labelledby="verticalTitle"
-        class="relative md:sticky md:top-0 z-10 bg-white/95 max-md:overflow-hidden md:overflow-x-clip"
+        class="relative max-md:overflow-hidden md:overflow-x-clip"
         id="main-collection-filters"
         data-id="{{ section.id }}"
       >
@@ -463,19 +298,67 @@ display:flex;
       <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
     {% endif %}
 
-    <div class="">
-      {% render 'product-filter' %}
+    <div class="container container-sm active-facets active-facets-mobile flex items-start max-tab:space-y-4 max-tab:flex-col tab:items-center tab:flex-wrap">
+      {% liquid
+        assign sort_by = collection.sort_by | default: collection.default_sort_by
+        if collection.url
+        assign results_url = collection.url
+        else
+        assign terms = collection.terms | escape
+        assign results_url = '?q=' | append: terms | append: '&options%5Bprefix%5D=last&sort_by=' | append: sort_by
+        endif
+      %}
+      <div class="active-facets-list flex gap-1.5 tab:flex-wrap items-center max-tab:pb-1.5 max-tab:w-full max-tab:overflow-auto max-tab:no-scrollbar tab:mr-10">
+        {%- assign has_active_filters = false -%}
+        {%- for filter in collection.filters -%}
+          {%- if filter.type == 'price_range' -%}
+            {%- if filter.min_value.value != null or filter.max_value.value != null -%}
+              {%- assign has_active_filters = true -%}
+              <div class="flex items-center py-2.5 px-4 bg-primary-white-cotton">
+                <span class="mr-2.5 text-sm font-normal w-max">
+                  {%- assign min_value = filter.min_value.value | default: 0 -%}
+                  {%- assign max_value = filter.max_value.value | default: filter.range_max -%}
+                  {{ min_value | money }} - {{ max_value | money }}
+                </span>
+                <a href="{{ filter.url_to_remove }}" class="w-6 h-6 flex items-center justify-center">
+                  {% render 'icon-close' %}
+                </a>
+              </div>
+            {%- endif -%}
+          {%- else -%}
+            {%- for filter_value in filter.active_values -%}
+              {%- assign has_active_filters = true -%}
+              <div class="flex items-center py-2.5 px-4 bg-primary-white-cotton">
+                <span class="mr-2.5 text-sm font-normal w-max">{{ filter_value.label }}</span>
+                <a href="{{ filter_value.url_to_remove }}" class="w-6 h-6 flex items-center justify-center">
+                  {% render 'icon-close' %}
+                </a>
+              </div>
+            {%- endfor -%}
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
 
+      {%- if has_active_filters -%}
+        <facet-remove class="active-facets__button-wrapper max-md:!mb-6 tab:py-2">
+          <a href="{{ results_url }}" class="active-facets__button-remove underline text-sm font-semibold w-max">
+            Clear all
+          </a>
+        </facet-remove>
+      {%- endif -%}
+    </div>
+
+    <div class="">
       <div
-        class="product-grid-container mt-5 lg:mt-12"
+        class="product-grid-container md:mt-6"
         id="ProductGridContainer"
-        
       >
         {%- if collection.products.size == 0 -%}
           <div
-            class="collection collection--empty container [&.loading]:opacity-50  transition-opacity"
+            class="collection collection--empty container container-sm [&.loading]:opacity-50  transition-opacity"
             id="product-grid"
             data-id="{{ section.id }}"
+            data-view="first"
           >
             <div class="loading-overlay gradient"></div>
             <div class="title-wrapper center">
@@ -490,17 +373,18 @@ display:flex;
             </div>
           </div>
         {%- else -%}
-          <div id="collection-products" class="collection container [&.loading]:opacity-50  transition-opacity">
+          <div id="collection-products" class="collection container container-sm [&.loading]:opacity-50  transition-opacity max-md:mb-6">
             <div class="loading-overlay gradient"></div>
 
             <ul
               id="product-grid"
               data-id="{{ section.id }}"
-              class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-1 max-sm:grid-cols-1 gap-4 gap-y-10 grid-flow-dense"
+              data-view="first"
+              class="grid gap-x-4 data-[view=first]:grid-cols-1 data-[view=second]:grid-cols-2
+              sm:data-[view=first]:grid-cols-2 sm:data-[view=second]:grid-cols-3
+              lg:data-[view=first]:grid-cols-3 lg:data-[view=second]:grid-cols-4 sm:gap-x-0.5 gap-y-6 grid-flow-dense"
             >
               {% assign listscIndex = 0 %}
-              {% assign infoContentBlock = collection.metafields.custom.info_content_block.value %}
-
               {% assign listscCount = 0 %}
               {% assign pagOffset = paginate.current_page | times: productsPerPage %}
 
@@ -509,7 +393,6 @@ display:flex;
               {% assign infoCardCount = 0 %}
 
               {%- for product in collection.products -%}
-                {% assign indexCount = indexCount | plus: 1 %}
                 {% if product.handle contains 'docapp-free-gift-' %}{% continue %}{% endif %}
 
                 {% if product.type == 'giftbox_ghost_product' %}{% continue %}{% endif %}
@@ -522,52 +405,36 @@ display:flex;
                   {%- assign lazy_load = true -%}
                 {%- endif -%}
 
-                {% for block in collection.metafields.custom.info_content_block.value %}
-                  {% comment %} {% echo block.position %} {% endcomment %}
-                  {% if block.position == indexCount %} 
-                    {% render 'info-content-block', block: block %} 
-                    {% assign indexCount = indexCount | plus: 1 %}
-                 {% endif %}
-                {% endfor %}
-                {% comment %}}
-                {% for block in collection.metafields.custom.info_content_fullwidth_block.value %}
-                  {% if block.position == indexCount %}
-                    {% render 'info-content-block-fullwidth', block: block %}
-                    {% assign indexCount = indexCount | plus: 1 %}
-                 {% endif %}
-                {% endfor %} 
-              {% endcomment %}
-                
                 {% capture prodBlocks %}
-                {% for block in section.blocks -%}
-                  {% case block.type %}
-                    {% when 'listsc' %}
-                      {% if productInd == 1 or productInd == 2 %}
-                        {% if forloop.index > listscIndex %}
-                          {% render 'product-list-showcase',
-                            block: block,
-                            bgImage: block.settings.image,
-                            product_1: block.settings.product_1,
-                            pos_l_1: block.settings.pos_l_1,
-                            pos_t_1: block.settings.pos_t_1,
-                            product_2: block.settings.product_2,
-                            pos_l_2: block.settings.pos_l_2,
-                            pos_t_2: block.settings.pos_t_2,
-                            product_3: block.settings.product_3,
-                            pos_l_3: block.settings.pos_l_3,
-                            pos_t_3: block.settings.pos_t_3,
-                            availableProds: collectionProducts
-                          %}
-                          {% assign listscIndex = forloop.index %}
-                          {% assign colSpanSet = true %}
-                          {% assign listscCount = listscCount | plus: 1%}
+                  {% for block in section.blocks -%}
+                    {% case block.type %}
+                      {% when 'listsc' %}
+                        {% if productInd == 1 or productInd == 2 %}
+                          {% if forloop.index > listscIndex %}
+                            {% render 'product-list-showcase',
+                              block: block,
+                              bgImage: block.settings.image,
+                              product_1: block.settings.product_1,
+                              pos_l_1: block.settings.pos_l_1,
+                              pos_t_1: block.settings.pos_t_1,
+                              product_2: block.settings.product_2,
+                              pos_l_2: block.settings.pos_l_2,
+                              pos_t_2: block.settings.pos_t_2,
+                              product_3: block.settings.product_3,
+                              pos_l_3: block.settings.pos_l_3,
+                              pos_t_3: block.settings.pos_t_3,
+                              availableProds: collectionProducts
+                            %}
+                            {% assign listscIndex = forloop.index %}
+                            {% assign colSpanSet = true %}
+                            {% assign listscCount = listscCount | plus: 1%}
+                          {% endif %}
                         {% endif %}
-                      {% endif %}
                     {% when 'infocard' %}
                       {% assign position = block.settings.position | minus: 2 %}
                       {% if position == mainLoopIndexOffset %}
                         <li
-                          class="{% unless request.design_mode %}animate-fadeinup{% endunless %} max-md:py-6 max-md:col-span-2 view-grid-only {% if infoCardCount == 0 %}max-md:row-start-3{% endif %} {% if infoCardCount == 1 %}max-md:hidden{% endif %}"
+                          class=" max-md:py-6 max-md:col-span-2 view-grid-only {% if infoCardCount == 0 %}max-md:row-start-3{% endif %} {% if infoCardCount == 1 %}max-md:hidden{% endif %}"
                           {{ block.shopify_attributes }}
                         >
                           {% render 'card-info',
@@ -584,12 +451,197 @@ display:flex;
                 {% endfor %}
                 {% endcapture %}
 
+                {% if collection.metafields.custom.collection_banner_first != blank %}
+                  {%- for collection_banner_first in collection.metafields.custom.collection_banner_first.value -%}
+                    {% assign position = collection_banner_first.list_position | minus: 1 %}
+                  {%- endfor -%}
+
+                  {% if position == mainLoopIndexOffset %}
+                    <li
+                      class="{% unless request.design_mode %}animate-fadeinup{% endunless %}  grid__item group-[.list]/prodlist:max-sm:col-span-full collection-banner"
+                    >
+                      <div
+                        class="splide group/splide splide-collection-banner h-full w-full flex flex-col"
+                        data-splide='
+                          {"arrows": true, "pagination": false, "type": "fade", "gap": "0", "autoWidth": false, "breakpoints": {
+                            "768": {
+                              "gap": "0"
+                            }
+                          }}
+                        '
+                      >
+                        <div class="splide__track !overflow-visible bg-primary-white-cotton h-full z-10">
+                          <div class="splide__list text-blue-1 flex group-[.is-initialized]/splide:!block">
+                            {%- for collection_banner_first in collection.metafields.custom.collection_banner_first.value -%}
+                              <div class="splide__slide !transition-none !translate-x-0 h-full">
+                                {% render 'card-banner',
+                                  media: collection_banner_first.media,
+                                  title: collection_banner_first.title,
+                                  subtitle: collection_banner_first.subtitle,
+                                  title_font_size: collection_banner_first.title_font_size,
+                                  subtitle_font_size: collection_banner_first.subtitle_font_size,
+                                  alignment: collection_banner_first.alignment,
+                                  text_colour: collection_banner_first.text_color,
+                                  button_text: collection_banner_first.button_text,
+                                  button_url: collection_banner_first.button_link,
+                                  btn_colour: collection_banner_first.button_color,
+                                  collection_banner_number: 'first'
+                                %}
+                              </div>
+                            {%- endfor -%}
+                          </div>
+                        </div>
+                        <div class="splide__arrows hidden"></div>
+                        {% if collection.metafields.custom.collection_banner_first.value.count > 1 %}
+                          <div class="container px-0 mt-4 space-y-3 w-full">
+                            <!-- progress bar -->
+                            <div class="bg-secondary-blue-100 slider-progress h-px flex items-center">
+                              <div
+                                class="bg-secondary-blue-600 h-px transition-all w-0 lg:h-0.5 slider-progress-bar"
+                              ></div>
+                            </div>
+                            <!-- arrows -->
+                            <div class="splide__arrows splide__arrows--ltr hidden group-[.is-initialized]/splide:!flex justify-between items-center">
+                              <button
+                                class="
+                                  splide__arrow splide__arrow--prev disabled:!text-secondary-blue-200 transition-colors !bg-transparent
+                                  !static !transform-none outline-none
+                                "
+                                type="button"
+                                aria-label="Previous slide"
+                                aria-controls="splide01-track"
+                              >
+                                {%- render 'icon-long-arrow-right', class: '!w-6 !h-6' -%}
+                              </button>
+                              <!-- counter -->
+                              <div class="text-xs">
+                                <span
+                                  data-splide-current-page
+                                  class="data-[splide-is-last-page=true]:text-secondary-blue-200"
+                                  >1</span
+                                >
+                                /
+                                <span data-splide-total-pages class="text-secondary-blue-200"></span>
+                              </div>
+                              <button
+                                class="
+                                  splide__arrow splide__arrow--next disabled:!text-secondary-blue-200 transition-colors
+                                  !bg-transparent !static !transform-none outline-none
+                                "
+                                type="button"
+                                aria-label="Next slide"
+                                aria-controls="splide01-track"
+                              >
+                                {%- render 'icon-long-arrow-right', class: '!w-6 !h-6' -%}
+                              </button>
+                            </div>
+                          </div>
+                        {% endif %}
+                      </div>
+                    </li>
+                    {% assign infoCardCount = infoCardCount | plus: 1 %}
+                  {% endif %}
+                {% endif %}
+
+                {% if collection.metafields.custom.collection_banner_second != blank %}
+                  {%- for collection_banner_second in collection.metafields.custom.collection_banner_second.value -%}
+                    {% assign position = collection_banner_second.list_position | minus: 1 %}
+                  {%- endfor -%}
+
+                  {% if position == mainLoopIndexOffset %}
+                    <li
+                      class="{% unless request.design_mode %}animate-fadeinup{% endunless %} grid__item group-[.list]/prodlist:max-sm:col-span-full collection-banner"
+                    >
+                      <div
+                        class="splide group/splide splide-collection-banner h-full w-full flex flex-col"
+                        data-splide='
+                          {"arrows": true, "pagination": false, "type": "fade", "gap": "0", "autoWidth": false, "breakpoints": {
+                            "768": {
+                              "gap": "0"
+                            }
+                          }}
+                        '
+                      >
+                        <div class="splide__track !overflow-visible bg-primary-white-cotton h-full z-10">
+                          <div class="splide__list text-blue-1 flex group-[.is-initialized]/splide:!block">
+                            {%- for collection_banner_second in collection.metafields.custom.collection_banner_second.value -%}
+                              <div class="splide__slide !transition-none !translate-x-0 h-full w-full">
+                                {% render 'card-banner',
+                                  media: collection_banner_second.media,
+                                  title: collection_banner_second.title,
+                                  subtitle: collection_banner_second.subtitle,
+                                  title_font_size: collection_banner_second.title_font_size,
+                                  subtitle_font_size: collection_banner_second.subtitle_font_size,
+                                  alignment: collection_banner_second.alignment,
+                                  text_colour: collection_banner_second.text_color,
+                                  button_text: collection_banner_second.button_text,
+                                  button_url: collection_banner_second.button_link,
+                                  btn_colour: collection_banner_second.button_color,
+                                  collection_banner_number: 'second'
+                                %}
+                              </div>
+                            {%- endfor -%}
+                          </div>
+                        </div>
+                        <div class="splide__arrows hidden"></div>
+                        {% if collection.metafields.custom.collection_banner_second.value.count > 1 %}
+                          <div class="container px-0 mt-4 space-y-3 w-full">
+                            <!-- progress bar -->
+                            <div class="bg-secondary-blue-100 slider-progress h-px flex items-center">
+                              <div
+                                class="bg-secondary-blue-600 h-px transition-all w-0 lg:h-0.5 slider-progress-bar"
+                              ></div>
+                            </div>
+                            <!-- arrows -->
+                            <div class="splide__arrows splide__arrows--ltr hidden group-[.is-initialized]/splide:!flex justify-between items-center">
+                              <button
+                                class="
+                                  splide__arrow splide__arrow--prev disabled:!text-secondary-blue-200 transition-colors !bg-transparent
+                                  !static !transform-none outline-none
+                                "
+                                type="button"
+                                aria-label="Previous slide"
+                                aria-controls="splide01-track"
+                              >
+                                {%- render 'icon-long-arrow-right', class: '!w-6 !h-6' -%}
+                              </button>
+                              <!-- counter -->
+                              <div class="text-xs">
+                                <span
+                                  data-splide-current-page
+                                  class="data-[splide-is-last-page=true]:text-secondary-blue-200"
+                                  >1</span
+                                >
+                                /
+                                <span data-splide-total-pages class="text-secondary-blue-200"></span>
+                              </div>
+                              <button
+                                class="
+                                  splide__arrow splide__arrow--next disabled:!text-secondary-blue-200 transition-colors
+                                  !bg-transparent !static !transform-none outline-none
+                                "
+                                type="button"
+                                aria-label="Next slide"
+                                aria-controls="splide01-track"
+                              >
+                                {%- render 'icon-long-arrow-right', class: '!w-6 !h-6' -%}
+                              </button>
+                            </div>
+                          </div>
+                        {% endif %}
+                      </div>
+                    </li>
+                    {% assign infoCardCount = infoCardCount | plus: 1 %}
+                  {% endif %}
+                {% endif %}
+
                 {% assign prodClass = '' %}
 
                 <li
-                  class="{% unless request.design_mode %}animate-fadeinup{% endunless %} grid__item {{ prodClass }} group-[.list]/prodlist:max-sm:col-span-full"
+                  class="grid__item {{ prodClass }} group-[.list]/prodlist:max-sm:col-span-full"
                 >
                   {% render 'card-product',
+                    dragable: true,
                     card_product: product,
                     media_aspect_ratio: section.settings.image_ratio,
                     image_shape: section.settings.image_shape,
@@ -639,356 +691,369 @@ display:flex;
 </div>
 
 <script>
-      function initReviews() {
-        if (ratingSnippet !== undefined)
-          ratingSnippet('ruk_rating_snippet', {
-            store: 'www.christy.co.uk',
-            mode: 'default',
-            color: '#2c3b96',
-            linebreak: false,
-            text: 'Reviews',
-            singularText: 'Review',
-            lang: 'en',
-            usePolaris: true,
-            showEmptyStars: false,
-          });
-      }
-      function sectionProductGridInit() {
-        // view toggle
-
-        // if local storage has product list set, show list view
-        const prodList = document.querySelector('#prodlist');
-        const viewToggle = document.querySelector('#view-toggle');
-        const viewToggleMob = document.querySelector('#view-toggle-mob');
-        const FacetFiltersForm = document.querySelector('#FacetFiltersForm');
-
-        const prodlistView = localStorage.getItem('prodlistView');
-        if (prodlistView == 'true' && prodlist.dataset.hidetoggle != 'true') {
-          viewToggle.classList.add('list');
-          viewToggleMob.classList.add('list');
-          prodList.classList.add('list');
-
-          document.querySelector('[name="view"][value="list"]').checked = true;
-
-          document
-            .getElementById('ProductGridContainer')
-            .querySelectorAll('.view-grid-only')
-            .forEach((element) => {
-              element.remove();
-            });
-        } else {
-          document
-            .getElementById('ProductGridContainer')
-            .querySelectorAll('.view-list-only')
-            .forEach((element) => {
-              element.remove();
-            });
-        }
-
-        function viewToggleHandler() {
-          let checkedView = document.querySelector('[name="view"]:checked').value;
-
-          if (checkedView == 'list') {
-            localStorage.setItem('prodlistView', true);
-            viewToggle.classList.add('list');
-            viewToggleMob.classList.add('list');
-          } else {
-            localStorage.setItem('prodlistView', false);
-            viewToggle.classList.remove('list');
-            viewToggleMob.classList.remove('list');
-          }
-        }
-        FacetFiltersForm.addEventListener('input', function () {
-          viewToggleHandler();
-        });
-
-        if (viewToggleMob) {
-          viewToggleMob.querySelectorAll('label').forEach(function (el) {
-            el.addEventListener('click', function () {
-              let forName = el.getAttribute('for');
-              console.log(document.getElementById(forName));
-              document.getElementById(forName).click();
-            });
-          });
-        }
-
-        document.querySelectorAll('[name="shop_by"]').forEach(function (el) {
-          el.addEventListener('change', function () {
-            el.closest('.shop_by').classList.remove('tag', 'collection', 'default');
-            el.closest('.shop_by').classList.add(el.value);
-
-            let checks = document.querySelectorAll('[name="filter.p.product_type"], [name="filter.p.tag"]');
-            checks.forEach(function (check) {
-              check.checked = false;
-            });
-          });
-        });
-      }
-
-      function changeListImgSrcset() {
-        let els = document.querySelectorAll(
-          '#prodlist.list #product-grid>li:nth-child(6n+3),#prodlist.list #product-grid>li:nth-child(6n+4), #prodlist.list #product-grid>li:nth-child(6n+4)'
-        );
-
-        if (els.length) {
-          els.forEach(function (el) {
-            let imgs = el.querySelectorAll('.card__inner > a > img');
-            if (imgs.length) {
-              imgs.forEach(function (img, i) {
-                img.setAttribute('sizes', '(max-width: 1023px) 50vw, (min-width: 1024px) 668px, 100vw');
-
-                if (i == 0) {
-                  img.style.objectFit = 'cover';
-                }
-              });
-            }
-          });
-        }
-      }
-
-      document.addEventListener('DOMContentLoaded', function () {
-        sectionProductGridInit();
-
-        const viewToggleMob = document.querySelector('#view-toggle-mob');
-        const viewToggle = document.querySelector('#view-toggle');
-        const filtersMob = document.querySelector('#filters-mob');
-        const menuDrawer = document.querySelector('#prodlist menu-drawer summary');
-
-        filtersMob.addEventListener('click', function (e) {
-          e.preventDefault();
-          menuDrawer.click();
-        });
-
-        if (viewToggleMob) {
-          viewToggleMob.addEventListener('click', function (e) {
-            e.preventDefault();
-            viewToggle.click();
-          });
-        }
+  function initReviews() {
+    /*
+    if (ratingSnippet !== undefined)
+      ratingSnippet('ruk_rating_snippet', {
+        store: 'www.christy.co.uk',
+        mode: 'default',
+        color: '#2c3b96',
+        linebreak: false,
+        text: 'Reviews',
+        singularText: 'Review',
+        lang: 'en',
+        usePolaris: true,
+        showEmptyStars: false,
       });
-
-      document.addEventListener('shopify:section:load', function (event) {
-        sectionProductGridInit();
-      });
-
-    {% comment %}QT 19-7-2024{% endcomment %}
-    function openAccordion(element) {
-      var accordionId = element.getAttribute('data-id');
-      var accordionContent = document.getElementById(accordionId);
-
-      // Toggle visibility of the accordion content
-      if (accordionContent.style.display === 'block') {
-       // console.log(accordionBtn, typeof accordionBtn.click )
-
-          accordionContent.style.display = 'none';
-          element.classList.remove('open'); // Remove 'open' class to change icon to plus
-
-      } else {
-          // Close all other open accordion items
-          var allAccordions = document.querySelectorAll('.qt-dropdown-item');
-          allAccordions.forEach(function(item) {
-              if (item !== element) {
-                  var otherAccordionId = item.getAttribute('data-id');
-                  var otherAccordionContent = document.getElementById(otherAccordionId);
-                  otherAccordionContent.style.display = 'none';
-                  item.classList.remove('open');
-              }
-          });
-
-          accordionContent.style.display = 'block';
-          element.classList.add('open'); // Add 'open' class to change icon to minus
-
-      }
+    */
   }
-      let showMoreBtn = document.querySelector('#show-more');
-      let showMoreBtnTop;
 
-      function getShowBtnTop() {
-        if (showMoreBtn) {
-          showMoreBtnTop = showMoreBtn.getBoundingClientRect().top + window.scrollY;
+  const initViewSelector = () => {
+    const LOCAL_STORAGE_KEY = 'collectionGridView';
+    let productGrid = document.querySelector('#product-grid');
+    if (!productGrid) return
+
+    productGrid.dataset.view = localStorage?.getItem(LOCAL_STORAGE_KEY) ?? 'first';
+    window.dispatchEvent(new CustomEvent('product-splider-refresh'))
+
+    document.querySelectorAll('[data-view-switch]').forEach((el) => {
+      if (el.classList.contains('is-initialized')) return;
+      el.checked = el.value === (localStorage?.getItem(LOCAL_STORAGE_KEY) ?? 'first');
+
+      el.addEventListener('change', debounce((e) => {
+        productGrid = document.querySelector('#product-grid');
+        if (!productGrid) return
+        if (e.target.checked) {
+          productGrid.dataset.view = e.target.value
+          console.log(e.target.value)
+
+          localStorage.setItem(LOCAL_STORAGE_KEY, e.target.value)
+
+          window.dispatchEvent(new CustomEvent('product-splider-refresh'))
         }
-      }
-      getShowBtnTop();
+      }, 300));
 
-      window.addEventListener('scroll', function () {
-        if (showMoreBtn) {
-          if (
-            window.scrollY > showMoreBtnTop - window.innerHeight &&
-            !showMoreBtn.classList.contains('loading') &&
-            document.querySelector('#show-more')
-          ) {
-            loadMoreProducts(showMoreBtn);
-          }
+      el.classList.add('is-initialized')
+    });
+  }
+
+  function sectionProductGridInit() {
+    // view toggle
+
+    // if local storage has product list set, show list view
+    const prodList = document.querySelector('#prodlist');
+    const viewToggle = document.querySelector('#view-toggle');
+    const viewToggleMob = document.querySelector('#view-toggle-mob');
+    const FacetFiltersForm = document.querySelector('#FacetFiltersForm');
+
+    const prodlistView = localStorage.getItem('prodlistView');
+    if (prodlistView == 'true' && prodlist.dataset.hidetoggle != 'true') {
+      viewToggle.classList.add('list');
+      viewToggleMob.classList.add('list');
+      prodList.classList.add('list');
+
+      document.querySelector('[name="view"][value="list"]').checked = true;
+
+      document
+        .getElementById('ProductGridContainer')
+        .querySelectorAll('.view-grid-only')
+        .forEach((element) => {
+          element.remove();
+        });
+    } else {
+      document
+        .getElementById('ProductGridContainer')
+        .querySelectorAll('.view-list-only')
+        .forEach((element) => {
+          element.remove();
+        });
+    }
+
+    function viewToggleHandler() {
+      let checkedView = document.querySelector('[name="view"]:checked').value;
+
+      if (checkedView == 'list') {
+        localStorage.setItem('prodlistView', true);
+        viewToggle.classList.add('list');
+        viewToggleMob.classList.add('list');
+      } else {
+        localStorage.setItem('prodlistView', false);
+        viewToggle.classList.remove('list');
+        viewToggleMob.classList.remove('list');
+      }
+    }
+    FacetFiltersForm.addEventListener('input', function () {
+      viewToggleHandler();
+    });
+
+    if (viewToggleMob) {
+      viewToggleMob.querySelectorAll('label').forEach(function (el) {
+        el.addEventListener('click', function () {
+          let forName = el.getAttribute('for');
+          console.log(document.getElementById(forName));
+          document.getElementById(forName).click();
+        });
+      });
+    }
+
+    document.querySelectorAll('[name="shop_by"]').forEach(function (el) {
+      el.addEventListener('change', function () {
+        el.closest('.shop_by').classList.remove('tag', 'collection', 'default');
+        el.closest('.shop_by').classList.add(el.value);
+
+        let checks = document.querySelectorAll('[name="filter.p.product_type"], [name="filter.p.tag"]');
+        checks.forEach(function (check) {
+          check.checked = false;
+        });
+      });
+    });
+  }
+
+  function changeListImgSrcset() {
+    let els = document.querySelectorAll(
+      '#prodlist.list #product-grid>li:nth-child(6n+3),#prodlist.list #product-grid>li:nth-child(6n+4), #prodlist.list #product-grid>li:nth-child(6n+4)'
+    );
+
+    if (els.length) {
+      els.forEach(function (el) {
+        let imgs = el.querySelectorAll('.card__inner > a > img');
+        if (imgs.length) {
+          imgs.forEach(function (img, i) {
+            img.setAttribute('sizes', '(max-width: 1023px) 50vw, (min-width: 1024px) 668px, 100vw');
+
+            if (i == 0) {
+              img.style.objectFit = 'cover';
+            }
+          });
         }
       });
+    }
+  }
 
-      function loadMoreProducts(el) {
-        var collectionProducts = document.getElementById('collection-products');
-        var productListing = document.getElementById('product-grid');
-
-        el.classList.add('loading');
-
-        var requestUrl =
-          window.location.pathname + window.location.search + '?limit={{ productsPerPage }}&page=' + el.dataset.page;
-
-        //history.pushState(requestUrl, '', requestUrl);
-        fetch(requestUrl)
-          .then((response) => response.text())
-          .then(function (responseText) {
-            const html = new DOMParser().parseFromString(responseText, 'text/html');
-            html.querySelectorAll('.info-content-block').forEach((el) => {
-              el.remove();
-            });
-            const productHtml = html.querySelector('#product-grid');
-            if (productHtml && productHtml.querySelectorAll('.grid__item').length > 0) {
-              productListing.insertAdjacentHTML('beforeend', productHtml.innerHTML);
-
-              // lazy load
-              const lazyimg = new Event('lazyimg');
-              window.dispatchEvent(lazyimg);
-
-              // reinit colour selectors
-              const initcolourselector = new Event('initcolourselector');
-              window.dispatchEvent(initcolourselector);
-
-              el.classList.remove('loading');
-            }
-
-            if (html.querySelector('#show-more')) {
-              el.dataset.page = html.querySelector('#show-more').dataset.page;
-            } else {
-              el.remove();
-            }
-
-            getShowBtnTop();
-            initReviews();
-          })
-          .catch(function (error) {
-            console.error('Error loading products:', error);
-          });
+  
+  function updateMargin() {
+    const facetsList = document.querySelector(".active-facets-list");
+    const facetsMobile = document.querySelector(".active-facets-mobile");
+    const collectionBanner = document.querySelectorAll(".collection-banner");
+  
+    if (facetsList && facetsMobile) {
+      if (facetsList.children.length === 0) {
+        facetsMobile.style.marginTop = "0px";
+      } else {
+        facetsMobile.style.marginTop = "10px";
       }
+
+      collectionBanner.forEach(banner =>  {
+        if (facetsList.children.length === 0) {
+          banner.classList.remove('hidden')
+        } else {
+          banner.classList.add('hidden')
+        }
+      })
+    }
+  }
+
+  function observeFacetsList() {
+    const facetsList = document.querySelector(".active-facets-list");
+    
+    if (facetsList) {
+      const observer = new MutationObserver(updateMargin);
+      observer.observe(facetsList, { childList: true });
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    updateMargin();
+    observeFacetsList();
+  });
+
+  document.addEventListener("shopify-facets:container-rendered", function () {
+    updateMargin();
+    observeFacetsList();
+  });
+  
+  document.addEventListener('DOMContentLoaded', function () {
+    sectionProductGridInit();
+
+    const filtersMob = document.querySelector('#filters-mob');
+    const menuDrawer = document.querySelector('#prodlist menu-drawer summary');
+
+    filtersMob.addEventListener('click', function (e) {
+      e.preventDefault();
+      menuDrawer.click();
+      console.log('view filter');
+    });
+
+    initViewSelector();
+  });
+
+  let showMoreBtn = document.querySelector('#show-more');
+  const observerLoadMore = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        loadMoreProducts(entry.target);
+      }
+    });
+  });
+
+  if (showMoreBtn) {
+    observerLoadMore.observe(showMoreBtn);
+  }
+
+  document.addEventListener('shopify-facets:container-rendered', function () {
+    if (showMoreBtn) {
+      observerLoadMore.unobserve(showMoreBtn);
+    }
+    showMoreBtn = document.querySelector('#show-more');
+    if (showMoreBtn) {
+      observerLoadMore.observe(showMoreBtn);
+    }
+
+    initViewSelector();
+  });
+
+  function loadMoreProducts(el) {
+    const productListing = document.getElementById('product-grid');
+
+    if (el.disabled) return;
+    el.classList.add('loading');
+    el.disabled = true;
+
+    const requestUrl = new URL(window.location.href);
+    requestUrl.searchParams.set('page', el.dataset.page);
+
+    //history.pushState(requestUrl, '', requestUrl);
+    fetch(requestUrl)
+      .then((response) => response.text())
+      .then(function (responseText) {
+        const html = new DOMParser().parseFromString(responseText, 'text/html');
+        const productHtml = html?.querySelector('#product-grid');
+        if (productHtml && productHtml.querySelectorAll('.grid__item').length > 0) {
+          productListing.insertAdjacentHTML('beforeend', productHtml.innerHTML);
+
+          // lazy load
+          const lazyimg = new Event('lazyimg');
+          window.dispatchEvent(lazyimg);
+
+          // reinit colour selectors
+          const initcolourselector = new Event('initcolourselector');
+          window.dispatchEvent(initcolourselector);
+
+          // Refresh wishlist buttons
+          const wishlistRefresh = new Event('shopify-wishlist:setup-buttons');
+          document.dispatchEvent(wishlistRefresh);
+
+          el.classList.remove('loading');
+        }
+
+        if (html?.querySelector('#show-more')) {
+          el.dataset.page = html.querySelector('#show-more').dataset.page;
+          el.disabled = false;
+        } else {
+          el.remove();
+        }
+
+        initReviews();
+      })
+      .catch(function (error) {
+        console.error('Error loading products:', error);
+      });
+  }
 </script>
 
-{% comment %}QT 25-7-2024{% endcomment %}
+{% comment %}QT 29-10-2024{% endcomment %}
 
 {% if collection.metafields.custom.seo_content_excerpt or collection.metafields.custom.seo_content_full %}
   <div class="qt-seo-towel-excerpt">
     {% if collection.metafields.custom.seo_content_excerpt %}
       <h1 class="s-m-h4 lg:s-d-h3 qt-towel-seo-content-title">{{ collection.title }}</h1>
-      <h2 class="qt-towel-seo-content-excerpt" id="excerpt-content">
-        {{ collection.metafields.custom.seo_content_excerpt | metafield_tag }}
+      {% assign excerpt = collection.metafields.custom.seo_content_excerpt | metafield_tag %}
+
+      <h2 class="qt-towel-seo-content-excerpt">
+        {% if excerpt.size > 630 %}
+          <div id="less-content" style="display:block;">{{ excerpt }}</div>
+          <div id="more-content" style="display:none;">{{ excerpt }}</div>
+          <div id="toggle-link" class="qt-toggle-link"><a href="javascript:void(0);">Read more </a> ...</div>
+        {% else %}
+          {{ excerpt }}
+        {% endif %}
       </h2>
     {% endif %}
 
     {% if collection.metafields.custom.seo_content_full %}
-      <div class="qt-towel-seo-content">
-        <div class="qt-towel-seo-content-full" id="full-content" style="display: none;">
-          {{ collection.metafields.custom.seo_content_full | metafield_tag }}
-        </div>
-        <a class="qt-toggle-link" id="toggle-link" href="javascript:void(0);">Read more...</a>
+      <div class="qt-towel-seo-content-full" id="full-content" style="display: none;">
+        {{ collection.metafields.custom.seo_content_full | metafield_tag }}
       </div>
     {% endif %}
   </div>
 {% endif %}
 
-
 <script>
+  function truncateRichText(element, maxLength) {
+    console.log('element', element);
+    if (!element) return;
+    let currentLength = 0;
+    let isTruncated = false;
+
+    for (let i = 0; i < element.childNodes.length; i++) {
+      var node = element.childNodes[i];
+      var length = currentLength + node.textContent.length;
+      if (isTruncated) {
+        node.textContent = '';
+        continue;
+      }
+      if (length > maxLength) {
+        const truncatedText = node.textContent.substring(0, maxLength - currentLength) + '...';
+        node.textContent = truncatedText;
+        isTruncated = true;
+        continue; // Stop iterating
+      } else {
+        currentLength += node.textContent.length;
+      }
+    }
+
+    if (!isTruncated && currentLength > maxLength) {
+      // If the entire text is too long, truncate the last text node
+      const lastTextNode = element.childNodes[element.childNodes.length - 1];
+      lastTextNode.textContent = lastTextNode.textContent.substring(0, maxLength - currentLength) + '...';
+    }
+  }
   document.addEventListener('DOMContentLoaded', function () {
     const toggleLink = document.getElementById('toggle-link');
-    const fullContent = document.getElementById('full-content');
-
+    const moreContent = document.getElementById('more-content');
+    const lessContent = document.getElementById('less-content');
+    if (!toggleLink || !moreContent || !lessContent) return;
+    truncateRichText(document.getElementById('less-content').childNodes[0], 630);
     toggleLink.addEventListener('click', function () {
-      if (fullContent.style.display === 'none') {
-        fullContent.style.display = 'block';
-        toggleLink.textContent = 'Read less...';
-      } else {
-        fullContent.style.display = 'none';
-        toggleLink.textContent = 'Read more...';
-      }
+      const isHidden = moreContent.style.display === 'none';
+      lessContent.style.display = isHidden ? 'none' : 'block';
+      moreContent.style.display = isHidden ? 'block' : 'none';
+      toggleLink.textContent = isHidden ? 'Read less' : 'Read more...';
     });
   });
 </script>
-{% style %}
-{%- if section.settings.title_font_size_mob != blank -%}
-  #shopify-section-{{ section.id }} .s-m-h4 {
-    font-size: {{ section.settings.title_font_size_mob }}px;
-  }
-  {%- endif -%}
 
-  {%- if section.settings.title_font_weight != blank -%}
-  #shopify-section-{{ section.id }} .s-m-h4 {
-    font-weight: {{ section.settings.title_font_weight }};
-  }
-  {%- endif -%}
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('open_filters')) {
+      const filterSidebar = document.querySelector('.mobile-facets__disclosure');
 
-  {%- if section.settings.title_font_family != blank -%}
-  #shopify-section-{{ section.id }} .s-m-h4 {
-    font-family: 
-      {%- if section.settings.title_font_family == 'serif' -%}
-        serif
-      {%- elsif section.settings.title_font_family == 'sans-serif' -%}
-        sans-serif
-      {%- else -%}
-        "Hatton", serif
-      {%- endif -%};
-  }
-  {%- endif -%}
-  {%- if section.settings.seo_liner_font_size_mob != blank -%}
-  #shopify-section-{{ section.id }} .qt-towel-seo-liner {
-    font-size: {{ section.settings.seo_liner_font_size_mob }}px;
-  }
-  {%- endif -%}
-
-  {%- if section.settings.seo_liner_font_weight != blank -%}
-  #shopify-section-{{ section.id }} .qt-towel-seo-liner {
-    font-weight: {{ section.settings.seo_liner_font_weight }};
-  }
-  {%- endif -%}
-
-  {%- if section.settings.seo_liner_font_family != blank -%}
-  #shopify-section-{{ section.id }} .qt-towel-seo-liner {
-    font-family: 
-      {%- if section.settings.seo_liner_font_family == 'serif' -%}
-        serif
-      {%- elsif section.settings.seo_liner_font_family == 'sans-serif' -%}
-        sans-serif
-      {%- else -%}
-        'Tomato Grotesk', sans-serif
-      {%- endif -%};
-  }
-  {%- endif -%}
-
-  {% if section.settings.screen_visibility == 'mobile' %}
-    @media all and (min-width: 768px ) {
-        #shopify-section-{{ section.id }} {
-            display: none !important;
-        }
-    }  
-  {% endif %}
-
-  {% if section.settings.screen_visibility == 'desktop' %}
-    @media all and (max-width: 767px ) {
-        #shopify-section-{{ section.id }} {
-            display: none !important;
-        }  
+      filterSidebar.classList.add('menu-opening');
+      filterSidebar.setAttribute('open', 'open');
+      console.log('open 111');
     }
-  {% endif %}
+    const filterLabel = urlParams.get('open_filters');
+    const specificFilter = document.querySelector(`details[data-filter-label="${filterLabel}"]`);
+    if (specificFilter) {
+      specificFilter.classList.add('menu-opening');
+      specificFilter.setAttribute('open', 'open');
+      console.log('open 222');
+    }
+  });
+</script>
 
-  {%- if section.settings.title_font_size_desktop != blank -%}
-  @media all and (min-width: 1024px) {
-    #shopify-section-{{ section.id }} .s-m-h4 {
-      font-size: {{ section.settings.title_font_size_desktop }}px;
-    }
-  }
-  {%- endif -%}
-  {%- if section.settings.seo_liner_font_size_desktop != blank -%}
-  @media all and (min-width: 1024px) {
-    #shopify-section-{{ section.id }} .qt-towel-seo-liner {
-      font-size: {{ section.settings.seo_liner_font_size_desktop }}px;
-    }
-  }
-  {%- endif -%}
-{% endstyle %}
+<script src="{{ 'back-button.js' | asset_url }}" defer></script>
 
 {% schema %}
 {
@@ -1003,153 +1068,6 @@ display:flex;
       "step": 1,
       "label": "Products Per Page",
       "default": 12
-    },
-    {
-      "type": "text",
-      "id": "excerpt",
-      "label": "Title",
-      "default": "Towels"
-    },
-    {
-      "type": "range",
-      "id": "title_font_size_mob",
-      "min": 12,
-      "max": 54,
-      "step": 1,
-      "unit": "px",
-      "label": "Title Font Size MOBILE",
-      "default": 26
-    },
-    {
-      "type": "range",
-      "id": "title_font_size_desktop",
-      "min": 12,
-      "max": 54,
-      "step": 1,
-      "unit": "px",
-      "label": "Title Font Size DESKTOP",
-      "default": 40
-    },
-    {
-      "type": "select",
-      "id": "title_font_weight",
-      "label": "Title Font Weight",
-      "options": [
-        {
-          "value": "300",
-          "label": "Light"
-        },
-        {
-          "value": "400",
-          "label": "Normal"
-        },
-        {
-          "value": "500",
-          "label": "Semi Bold"
-        },
-        {
-          "value": "600",
-          "label": "Bold"
-        }
-      ],
-      "default": "500"
-    },
-    {
-      "type": "select",
-      "id": "title_font_family",
-      "label": "Title Font Type",
-      "options": [
-        {
-          "value": "sans-serif",
-          "label": "Sans Serif"
-        },
-        {
-          "value": "serif",
-          "label": "Serif"
-        },
-        {
-          "value": "Hatton, serif",
-          "label": "Hatton, serif"
-        }
-      ],
-      "default": "Hatton, serif"
-    },
-    {
-      "type": "text",
-      "id": "seo_liner",
-      "label": "Seo_Liner",
-      "default": "Indulge in the ultimate comfort with our luxury towels, crafted from the finest materials for a plush, spa-like experience every day."
-    },
-    {
-      "type": "range",
-      "id": "seo_liner_font_size_mob",
-      "min": 12,
-      "max": 54,
-      "step": 1,
-      "unit": "px",
-      "label": "Seo liner Font Size MOBILE",
-      "default": 14
-    },
-    {
-      "type": "range",
-      "id": "seo_liner_font_size_desktop",
-      "min": 12,
-      "max": 54,
-      "step": 1,
-      "unit": "px",
-      "label": "Seo liner Font Size DESKTOP",
-      "default": 14
-    },
-    {
-      "type": "select",
-      "id": "seo_liner_font_weight",
-      "label": "Seo liner Font Weight",
-      "options": [
-        {
-          "value": "300",
-          "label": "Light"
-        },
-        {
-          "value": "400",
-          "label": "Normal"
-        },
-        {
-          "value": "500",
-          "label": "Semi Bold"
-        },
-        {
-          "value": "600",
-          "label": "Bold"
-        }
-      ],
-      "default": "300"
-    },
-    {
-      "type": "select",
-      "id": "seo_liner_font_family",
-      "label": "Seo liner Font Type",
-      "options": [
-        {
-          "value": "sans-serif",
-          "label": "Sans Serif"
-        },
-        {
-          "value": "serif",
-          "label": "Serif"
-        },
-        {
-          "value": "Tomato Grotesk",
-          "label": "Tomato Grotesk, sans-serif"
-        }
-      ],
-      "default": "Tomato Grotesk"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_filtering",
-      "default": true,
-      "label": "t:sections.main-collection-product-grid.settings.enable_filtering.label",
-      "info": "t:sections.main-collection-product-grid.settings.enable_filtering.info"
     },
     {
       "type": "checkbox",
@@ -1339,6 +1257,3 @@ display:flex;
   ]
 }
 {% endschema %}
-
-{% comment %}QT 13/07/2024{% endcomment %}
- {% render 'quickview-drawer' -%} 

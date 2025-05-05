@@ -1,22 +1,16 @@
 {{ 'splide.min.css' | asset_url | stylesheet_tag }}
 
 {% liquid
-  assign widths = '300, 375, 550, 640, 768 1280'
+  assign widths = '300, 375, 510'
   assign sizes = '(max-width: 767px) 100vw, (min-width: 768px) 50vw'
 
-  assign class1 = 'h-full w-full object-cover object-center opacity-0 aspect-[1/1]'
-  assign class2 = 'h-full w-full object-cover aspect-[1/1] !opacity-0 group-hover/card:!opacity-100 absolute inset-0 notouchhover '
-
-  
+  assign class1 = 'h-full w-full object-cover object-center opacity-0 md:max-w-[510px]'
+  assign class2 = 'h-full w-full object-cover !opacity-0 group-hover/card:!opacity-100 absolute inset-0 notouchhover '
 %}
 {%- render 'spinner' -%}
 
-{% assign img_width = 640 %}
-
-{% assign height_cropped = 640 | divided_by: 1.77778 %}
-
-<div class="">
-  <div class="container">
+<div id="customer-reviews-{{ section.id }}">
+  <div class="md:container md:container-sm">
     <div
       class="splide group/splide  space-y-8 lg:space-y-16"
       data-splide='
@@ -27,118 +21,100 @@
         }}
       '
     >
-      <header class="flex gap-12 md:items-center">
-        {% comment %} {% if section.settings.title %}
-          <h2 class="s-m-h2 lg:s-d-h1">{{ section.settings.title }}</h2>
-        {% endif %} {% endcomment %}
-        <h2 class="s-m-h2 lg:s-d-h1 block-title desktop-title" id="desktop-title-{{ section.id }}">{{ section.settings.title }}</h2>
-        <h2 class="block-title mobile-title" id="mobile-title-{{ section.id }}">
-          {% if section.settings.mobile_title != blank %}
-            {{ section.settings.mobile_title }}
-          {% else %}
-            {{ section.settings.title }}
-          {% endif %}
-        </h2>
-
-        <div class="flex flex-1 justify-between">
-          <div class="splide__arrows splide__arrows--ltr hidden group-[.is-initialized]/splide:!flex justify-end  !-mr-[15px] !ml-auto">
-            <button
-              class="splide__arrow splide__arrow--prev !w-10 !h-10 disabled:!opacity-0 transition-opacity !bg-transparent !static !transform-none outline-none"
-              type="button"
-              aria-label="Previous slide"
-              aria-controls="splide01-track"
-            >
-              <svg class="w-full" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                <path class="fill-blue-1" d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z"/>
-              </svg>
-            </button>
-            <button
-              class="splide__arrow splide__arrow--next !w-10 !h-10 disabled:!opacity-0 transition-opacity !bg-transparent !static !transform-none outline-none"
-              type="button"
-              aria-label="Next slide"
-              aria-controls="splide01-track"
-            >
-              <svg class="w-full" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                <path class="fill-blue-1" d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z"/>
-              </svg>
-            </button>
-          </div>
-        </div>
-      </header>
-      <div class="animation an-fadeup">
-        <div class="splide__track !overflow-visible">
+      <div class="relative">
+        <div class="splide__track !overflow-visible bg-primary-white-cotton">
           <div class="splide__list text-blue-1 flex group-[.is-initialized]/splide:!block">
             {%- for block in section.blocks -%}
               <div class="splide__slide !translate-x-0">
                 <div
                   {{ block.shopify_attributes }}
-                  class="grid md:grid-cols-2 gap-8 md:gap-16"
+                  class="px-4 pt-12 pb-[107px] md:px-0 md:py-0 flex flex-col md:flex-row bg-primary-white-cotton"
                 >
                   {% if block.settings.product %}
-                    <div class="max-md:order-2">
-                      {% assign rel_product = block.settings.product %}
-                       
-                      {% if block.settings.review_carousel_image != blank %}
-                        <a href="{{ rel_product.url }}">
-                        {%-
-                          render 'lazyimg',
-                          img: block.settings.review_carousel_image,
-                          width: img_width,
-                          height: 500,
+                    {% assign rel_product = block.settings.product %}
+
+                    {% if rel_product.featured_media.media_type == 'image' %}
+                      <div class="block mb-12 md:mb-0 md:mr-[40px] xl:mr-[90px]">
+                        {%- render 'lazyimg',
+                          img: rel_product.featured_media,
+                          width: '510px',
+                          height: '510px',
                           widths: widths,
-                          class: 'inline-object-fit',
-                          sizes: sizes,
-                          
+                          class: class1,
+                          sizes: sizes
                         -%}
-                        </a>
-                        <style>
-                          .inline-object-fit img {
-                            object-fit: fill; /* Adjust as needed */
-                        }</style>
-                      {% elsif rel_product.featured_media.media_type == 'image' %}
-                        <a class="block" href="{{ rel_product.url }}" >
-                          {%-
-                            render 'lazyimg',
-                            img: rel_product.featured_media,
-                            width: img_width,
-                            height: 500,
-                            widths: widths,
-                            class: 'inline-object-fit',
-                            sizes: sizes,
-                            
-                          -%}
-                        </a>
-                        <style>
-                          .inline-object-fit img {
-                            object-fit: fill; /* Adjust as needed */
-                        }</style>
-                      {% endif %}
-
-                      
-                    </div>
+                      </div>
+                    {% endif %}
                   {% endif %}
+                  <div class="flex-col flex items-center justify-center text-center md:items-start md:text-left md:max-w-[488px] md:py-[63px] md:justify-start md:pr-5 2xl:pr-0 flex-1">
+                    <p class="text-xl leading-8 font-sec font-normal text-primary-blue mb-6 md:mb-10">
+                      {{ block.settings.title }}
+                    </p>
 
-                  <div class="space-y-3 lg:space-y-5 flex-1 flex-col flex items-start justify-center">
-                    <p class="m-h2 lg:d-h2">{{ block.settings.title }}</p>
-
-                    <div class="gap-3 flex text-[#E3AD7C] !mb-5 lg:mb-8">
-                      {%- render 'icon-star' %}
-                      {%- render 'icon-star' %}
-                      {%- render 'icon-star' %}
-                      {%- render 'icon-star' %}
-                      {%- render 'icon-star' %}
+                    <div class="mb-4 md:mb-6">
+                      {%- render 'icon-five-stars' %}
                     </div>
 
-                    <div class="wysiwyg s-m-h3 lg:s-d-h3">{{ block.settings.testimonial }}</div>
+                    <div class="wysiwyg font-sans text-sm text-primary-blue mb-4 md:mb-6 md:text-base md:font-semibold md:h-[100px] md:overflow-hidden md:line-clamp-4">
+                      {{ block.settings.testimonial }}
+                    </div>
 
                     {% if block.settings.name %}
-                      <p class="m-h4 lg:d-h4">{{ block.settings.name }}</p>
+                      <p class="m-h4 text-xs font-semibold md:font-normal text-primary-blue mb-4 md:mb-6">
+                        {{ block.settings.name }}
+                      </p>
                     {% endif %}
-                    <a class="btn-tertiary mt-5" href="{{ rel_product.url }}">Shop Now</a>
+
+                    <a class="btn-tertiary text-sm text-primary-blue hover:font-normal" href="{{ rel_product.url }}">
+                      {{- rel_product.title -}}
+                    </a>
                   </div>
                 </div>
               </div>
             {%- endfor -%}
+          </div>
+        </div>
+
+        <div class="max-md:px-4 space-y-3 absolute w-full bottom-[25px] md:botton-[5%] md:right-[35px] 2xl:bottom-[63px] md:w-auto">
+          <!-- progress bar -->
+          <div class="bg-secondary-blue-100 slider-progress h-px flex items-center md:hidden">
+            <div class="bg-secondary-blue-600 h-px transition-all w-0 lg:h-0.5 slider-progress-bar"></div>
+          </div>
+
+          <!-- arrows -->
+          <div class="splide__arrows splide__arrows--ltr hidden group-[.is-initialized]/splide:!flex justify-center items-center relative">
+            <!-- counter -->
+            <div class="text-xs md:hidden">
+              <span data-splide-current-page class="data-[splide-is-last-page=true]:text-secondary-blue-200">1</span>
+              /
+              <span data-splide-total-pages class="text-secondary-blue-200"></span>
+            </div>
+
+            <div class="flex items-center absolute right-0">
+              <button
+                class="
+                  splide__arrow splide__arrow--prev disabled:!text-secondary-blue-200 transition-colors !bg-transparent
+                  !static !transform-none outline-none
+                "
+                type="button"
+                aria-label="Previous slide"
+                aria-controls="splide01-track"
+              >
+                {%- render 'icon-long-arrow-right', class: '!w-6 !h-6' -%}
+              </button>
+
+              <button
+                class="
+                  splide__arrow splide__arrow--next disabled:!text-secondary-blue-200 transition-colors
+                  !bg-transparent !static !transform-none outline-none
+                "
+                type="button"
+                aria-label="Next slide"
+                aria-controls="splide01-track"
+              >
+                {%- render 'icon-long-arrow-right', class: '!w-6 !h-6' -%}
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -146,183 +122,16 @@
   </div>
 </div>
 
-{% if section.settings.margin == 'no' %}
-  <style>
-    #shopify-section-{{ section.id }} {
-        margin: 0 !important;
-    }
-  </style>
-{% endif %}
-
-{% style %}
-{%- if section.settings.review_carousel_title_font_size_mob != blank -%}
-  #shopify-section-{{ section.id }} .s-m-h2 {
-    font-size: {{ section.settings.review_carousel_title_font_size_mob }}px;
-  }
-  {%- endif -%}
-
-  {%- if section.settings.review_carousel_title_font_weight != blank -%}
-  #shopify-section-{{ section.id }} .s-m-h2 {
-    font-weight: {{ section.settings.review_carousel_title_font_weight }};
-  }
-  {%- endif -%}
-
-  {%- if section.settings.review_carousel_title_font_family != blank -%}
-  #shopify-section-{{ section.id }} .s-m-h2 {
-    font-family: 
-      {%- if section.settings.review_carousel_title_font_family == 'serif' -%}
-        serif
-      {%- elsif section.settings.review_carousel_title_font_family == 'sans-serif' -%}
-        sans-serif
-      {%- else -%}
-        "Hatton", serif
-      {%- endif -%};
-  }
-  {%- endif -%}
-
-  {%- if section.settings.review_carousel_title_font_size_desktop != blank -%}
-  @media all and (min-width: 1024px) {
-      #shopify-section-{{ section.id }} .s-m-h2 {
-        font-size: {{ section.settings.title_font_size_desktop }}px;
-      }
-  }
-  {%- endif -%}
-  #desktop-title-{{ section.id }}, #mobile-title-{{ section.id }} {
-    font-size: {{ section.settings.review_carousel_title_font_size_mob }}px;
-    font-weight: {{ section.settings.review_carousel_title_font_weight }};
-    font-family: {{ section.settings.review_carousel_title_font_family }};
-  }
-
-  /* Default mobile styles */
-  @media only screen and (max-width: 767px) {
-    #desktop-title-{{ section.id }} {
-      display: none;
-    }
-    #mobile-title-{{ section.id }} {
-      display: block;
-    }
-    #shopify-section-{{ section.id }} .s-m-h2 {
-      font-size: {{ section.settings.review_carousel_title_font_size_mob }}px;
-    }
-  }
-
-  /* Desktop-specific styles */
-  @media only screen and (min-width: 768px) {
-    #mobile-title-{{ section.id }} {
-      display: none;
-    }
-    #desktop-title-{{ section.id }} {
-      display: block;
-    }
-    #shopify-section-{{ section.id }} .s-m-h2 {
-      font-size: {{ section.settings.review_carousel_title_font_size_desktop }}px;
-    }
-  }
-{% endstyle %}
-
 {% schema %}
 {
   "name": "Reviews Carousel",
   "tag": "section",
-  "class": "section-reviews",
+  "class": "section-customer-reviews",
   "disabled_on": {
     "groups": ["header", "footer"],
     "templates": ["article"]
   },
-  "settings": [
-    {
-      "type": "text",
-      "id": "title",
-      "label": "Title",
-      "default": "100,000+ Happy Customers"
-    },
-    {
-      "type": "text",
-      "id": "mobile_title",
-      "label": "Mobile Title",
-      "default": "Our Best Sellers"
-    },
-    {
-      "type": "range",
-      "id": "review_carousel_title_font_size_mob",
-      "min": 12,
-      "max": 54,
-      "step": 1,
-      "unit": "px",
-      "label": "Review carousel Title Font Size MOBILE",
-      "default": 26
-    },
-    {
-      "type": "range",
-      "id": "review_carousel_title_font_size_desktop",
-      "min": 12,
-      "max": 54,
-      "step": 1,
-      "unit": "px",
-      "label": "Review carousel Title Font Size DESKTOP",
-      "default": 40
-    },
-    {
-      "type": "select",
-      "id": "review_carousel_title_font_weight",
-      "label": "Review carousel Title Font Weight",
-      "options": [
-        {
-          "value": "300",
-          "label": "Light"
-        },
-        {
-          "value": "400",
-          "label": "Normal"
-        },
-        {
-          "value": "500",
-          "label": "Semi Bold"
-        },
-        {
-          "value": "600",
-          "label": "Bold"
-        }
-      ],
-      "default": "500"
-    },
-    {
-      "type": "select",
-      "id": "review_carousel_title_font_family",
-      "label": "Review carousel Title Font Type",
-      "options": [
-        {
-          "value": "sans-serif",
-          "label": "Sans Serif"
-        },
-        {
-          "value": "serif",
-          "label": "Serif"
-        },
-        {
-          "value": "Hatton, serif",
-          "label": "Hatton, serif"
-        }
-      ],
-      "default": "Hatton, serif"
-    },
-    {
-      "type": "radio",
-      "id": "margin",
-      "label": "Include Margin",
-      "options": [
-        {
-          "value": "yes",
-          "label": "Yes"
-        },
-        {
-          "value": "no",
-          "label": "No"
-        }
-      ],
-      "default": "yes"
-    }
-  ],
+  "settings": [],
   "blocks": [
     {
       "type": "block",
@@ -336,11 +145,6 @@
           "type": "product",
           "id": "product",
           "label": "Product"
-        },
-        {
-          "type": "image_picker",
-          "id": "review_carousel_image",
-          "label": "Choose a static image"
         },
         {
           "type": "header",
@@ -385,4 +189,3 @@
   ]
 }
 {% endschema %}
-{% render 'quickview-drawer' -%} 

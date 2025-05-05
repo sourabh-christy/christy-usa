@@ -8,6 +8,18 @@
     "theme_support_url": "https:\/\/support.shopify.com\/"
   },
   {
+    "name": "Custom",
+    "settings": [
+      {
+        "type": "number",
+        "id": "free_shipping_threshold",
+        "label": "Free Shipping Threshold",
+        "info": "The minimum order value for free shipping. Set to 0 to disable.",
+        "default": 50
+      }
+    ]
+  },
+  {
     "name": "t:settings_schema.colors.name",
     "settings": [
       {
@@ -72,6 +84,13 @@
           "on_secondary_button": "secondary_button_label",
           "secondary_button_border": "secondary_button_label"
         }
+      },
+      {
+        "type": "textarea",
+        "id": "color_swatches",
+        "label": "Color swatch configuration",
+        "default": "Black:#000000\nBeige:#F5F5DC\nBlue:#6495ED\nBlack/Grey: Black-Grey.png",
+        "info": "Each rule must be its own line. [Learn more](https:\/\/support.troopthemes.com\/guide\/color-swatch-guide) about naming conventions."
       }
     ]
   },
@@ -173,7 +192,36 @@
         "type": "text",
         "id": "cart_pre_order_text",
         "label": "Pre Order Text - Cart",
-        "default":"This Item is a pre order. Will be delivered as soon as stock is available. Normal delivery timelines do not apply."
+        "default": "This Item is a pre order. Will be delivered as soon as stock is available. Normal delivery timelines do not apply."
+      },
+      {
+        "type": "text",
+        "id": "upsell_title",
+        "label": "Upsell title",
+        "default": "Complete the look"
+      },
+      {
+        "type": "checkbox",
+        "id": "upsell_debug",
+        "label": "Upsell debug",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "product_samples_title",
+        "label": "Product Samples Title",
+        "default": "Add product samples to the order for testing"
+      },
+      {
+        "type": "text",
+        "id": "product_samples_description",
+        "label": "Product Samples Description",
+        "default": "If you didn’t find the color you’re looking for, we can show you all our material samples."
+      },
+      {
+        "type": "product_list",
+        "id": "product_samples",
+        "label": "Product Samples"
       }
     ]
   },
@@ -210,7 +258,7 @@
         "type": "text",
         "id": "product_pre_order_text",
         "label": "Pre Order Text - Product",
-        "default":"This item is currently out of stock. You can still place an order. We will deliver your order as soon as the stock is back."
+        "default": "This item is currently out of stock. You can still place an order. We will deliver your order as soon as the stock is back."
       }
     ]
   },

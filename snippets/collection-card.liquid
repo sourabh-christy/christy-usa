@@ -1,0 +1,49 @@
+{% comment %}
+  props:
+    - card_collection | required | collection
+    - class
+{% endcomment %}
+
+{% if card_collection != blank %}
+  {% liquid
+    assign img_widths = '178, 356, 534, 245, 490, 735'
+    assign img_sizes = '(min-width: 768px) 245px, 178px'
+    assign img_class = 'object-cover w-full h-[108px] inset-0 opacity-0 md:h-[132px]'
+  %}
+
+  {% assign img_width = 245 %}
+  {% assign img_height = 132 %}
+
+  <a href="{{ card_collection.url }}" class="block w-full {{ class }}">
+    {% if card_collection.featured_image != blank %}
+      <div class="relative flex items-center justify-center">
+        {% render 'spinner' %}
+        {%- render 'lazyimg',
+            img: card_collection.featured_image,
+            width: img_width,
+            height: img_height,
+            widths: img_widths,
+            class: img_class,
+            sizes: img_sizes,
+            crop: 'center'
+        -%}
+      </div>
+    {% else %}
+      {% assign img_class = img_class | replace: 'opacity-0', 'h-[132px]' %}
+      {{ 'hero-apparel-1' | placeholder_svg_tag: img_class }}
+    {% endif %}
+
+    <div class="max-md:pt-2 p-4 space-y-2 bg-primary-white-cotton h-[98px] md:h-28 md:space-y-4">
+      <h3 class="font-semibold font-sans text-sm tracking-[.1px] overflow-hidden text-nowrap whitespace-nowrap text-ellipsis md:text-base md:tracking-[.15px]"
+          title="{{ card_collection.title }}"
+      >
+        {{ card_collection.title }}
+      </h3>
+      {%- if card_collection.metafields.custom.carousel_seo_text != blank -%}
+        <p class="font-normal text-xs tracking-[.4px] line-clamp-3 md:tracking-[.25px] md:line-clamp-2 md:text-sm" title="{{ card_collection.metafields.custom.carousel_seo_text }}">{{ card_collection.metafields.custom.carousel_seo_text }}</p>
+      {%- else -%}
+        <p class="font-normal text-xs tracking-[.4px] line-clamp-3 md:tracking-[.25px] md:line-clamp-2 md:text-sm" title="{{ card_collection.description | strip_html }}">{{ card_collection.description | strip_html }}</p>
+      {%- endif -%}
+    </div>
+    </a>
+  {% endif %}

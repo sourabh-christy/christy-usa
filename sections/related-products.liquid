@@ -1,94 +1,27 @@
-{{ 'splide.min.css' | asset_url | stylesheet_tag }}
-
-{%- liquid
-  assign span_class = 'w-[245px] lg:w-[327px]'
-  assign btn_class = 'btn-tertiary'
-  assign btn_label = 'Read More'
-  assign btn_wrap_class = '!mt-7'
+{% liquid
+  assign items = section.settings.products | default: product.collections.first.products
 -%}
 
-{%- capture items -%}
+{%- if section.settings.heading %}
+  <h2 class="related-products-title text-[30px] leading-[32px] xl:text-[40px] xl:leading-[52px] text-center mb-4 lg:mb-[30px] font-sec">{{ section.settings.heading }}</h2>
+{% endif -%}
 
-  {% if section.settings.products != blank %}
-      {% for related_product in section.settings.products limit: 10 %}
-        {% if related_product.id != product.id %}
-          <div class="splide__slide {{ span_class }}">
-            {% render 'card-product', card_product: related_product %}
-          </div>
-        {% endif %}
-      {% endfor %}
-  {% elsif product.collections != blank %}
-    {% for collection in product.collections limit: 1 %}
-      {% for related_product in collection.products limit: 10 %}
-        {% if related_product.id != product.id %}
-          <div class="splide__slide {{ span_class }}">
-            {% render 'card-product', card_product: related_product %}
-          </div>
-        {% endif %}
-      {% endfor %}
-    {% endfor %}
-  {% endif %}
-
-{%- endcapture -%}
-
-{% if items != blank %}
+{%- if items != blank %}
   <div
     id="RelatedProducts-{{ section.id }}"
     class="overflow-hidden"
   >
-    <div class="container space-y-5 lg:space-y-8">
-      <div
-        class="splide group/splide space-y-5 lg:space-y-8"
-        data-splide='
-          {"arrows": true, "pagination": false, "type": "slide", "gap": "40px", "autoWidth": true, "focus": 0, "omitEnd": true, "breakpoints": {
-            "768": {
-              "gap": "20px"
-            }
-          }}
-        '
-      >
-        <header class="flex justify-between space-x-5 items-center">
-          <h2 class="m-h1 lg:d-h1 text-blue-1">You may also like</h2>
-
-          <div class="splide__arrows splide__arrows--ltr hidden group-[.is-initialized]/splide:!flex justify-end">
-            <button
-              class="splide__arrow splide__arrow--prev !w-10 !h-10 disabled:!opacity-0 transition-opacity !bg-transparent !static !transform-none outline-none"
-              type="button"
-              aria-label="Previous slide"
-              aria-controls="splide01-track"
-            >
-              <svg class="w-full" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                <path class="fill-blue-1" d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z"/>
-              </svg>
-            </button>
-            <button
-              class="splide__arrow splide__arrow--next !w-10 !h-10 disabled:!opacity-0 transition-opacity !bg-transparent !static !transform-none outline-none"
-              type="button"
-              aria-label="Next slide"
-              aria-controls="splide01-track"
-            >
-              <svg class="w-full" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                <path class="fill-blue-1" d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z"/>
-              </svg>
-            </button>
-          </div>
-        </header>
-
-        <div class="splide__track !overflow-visible">
-          <div class="splide__list text-blue-1 flex">
-            {{ items }}
-          </div>
-        </div>
-      </div>
+    <div class="container px-4 md:px-12 space-y-5 lg:space-y-8">
+      {% render 'products-carousel-with-nav', products: items, products_limit: section.settings.products_limit %}
     </div>
   </div>
-{% endif %}
+{% endif -%}
 
-{% schema %}
+{%- schema %}
 {
   "name": "Related Products Carousel",
   "tag": "section",
-  "class": "section-recentproducts",
+  "class": "section-related-products",
   "disabled_on": {
     "groups": ["header", "footer"],
     "templates": ["article"]
@@ -99,6 +32,22 @@
       "id": "products",
       "label": "Featured Products",
       "info": "Select products to feature in this section. If you don't select any, the section will show products from the collection."
+    },
+    {
+      "type": "number",
+      "id": "products_limit",
+      "label": "Product limit",
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Recommended the same style"
     }
   ],
   "presets": [
@@ -107,4 +56,4 @@
     }
   ]
 }
-{% endschema %}
+{%- endschema %}

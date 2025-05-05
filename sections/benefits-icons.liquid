@@ -1,44 +1,44 @@
 {% liquid
-  assign widths = '50, 100, 200'
-  assign sizes = '(max-width: 767px) 50px, 100px'
-  assign class = 'w-[50px] h-[50px] md:w-[100px] md:h-[100px] object-contain opacity-0 mx-auto'
+  assign widths = '42'
+  assign sizes = '(max-width: 767px) 42px'
+  assign class = 'w-[42px] h-[42px] object-contain opacity-0 mx-auto mb-2 md:mb-8'
 %}
 
 {% assign img_width = 640 %}
 
-<div class="bg-blue-1/10 py-12 lg:py-24">
-  <div class="container">
+<div class="bg-primary-white-cotton py-12 pb-[30px]">
+  <div class="px-4 md:container">
     <div
-      class="max-md:space-y-8 md:grid md:grid-cols-[auto_1fr] gap-16"
+      class="flex flex-col items-center"
     >
-      <header class="">
+      <header class="mb-12">
         {% if section.settings.title %}
-          <h2 class="s-m-h2 lg:s-d-h1">{{ section.settings.title }}</h2>
+          <h2 class="text-[32px] leading-10 font-normal md:text-[45px] md:leading-[52px] font-sec">{{ section.settings.title }}</h2>
         {% endif %}
       </header>
 
-      <div class="animation an-fadeup grid grid-cols-2 gap-6 lg:gap-10 text-left">
+      <div class="grid grid-cols-2 gap-6 md:grid-cols-4 text-center">
         {%- for block in section.blocks -%}
-          <div class="space-y-3 lg:space-y-5" {{ block.shopify_attributes }}>
+          <div {{ block.shopify_attributes }} class="flex flex-col items-center justify-between">
+            <div>
             {% if block.settings.image != blank %}
               {%- render 'lazyimg',
                 img: block.settings.image,
-                width: 100,
-                height: 100,
+                width: 42,
+                height: 42,
                 widths: widths,
                 class: class,
                 sizes: sizes
               -%}
             {% endif %}
-
-            <div class="space-y-1">
-              <h4 class="max-lg:font-semibold lg:d-h5">{{ block.settings.title }}</h4>
-              <div class="wysiwyg">{{ block.settings.copy }}</div>
+              <h4 class="text-base font-semibold">{{ block.settings.title }}</h4>
             </div>
-
-            {% if block.settings.button_link and block.settings.button_title %}
-              <a class="btn-tertiary" href="{{ block.settings.button_link}}">{{ block.settings.button_title }}</a>
-            {% endif %}
+            <div>
+              <div class="text-xs font-normal tracking-[.25px] h-[50px] overflow-hidden line-clamp-3 mt-6 px-4">{{ block.settings.copy }}</div>
+              {% if block.settings.button_link and block.settings.button_title %}
+                <a class="btn-tertiary cursor-pointer !font-normal hover:!font-normal mt-6 text-xs md:text-sm" href="{{ block.settings.button_link}}">{{ block.settings.button_title }}</a>
+              {% endif %}
+            </div>
           </div>
         {%- endfor -%}
       </div>
@@ -58,7 +58,7 @@
 {
   "name": "Benefits Icons",
   "tag": "section",
-  "class": "section-reviews",
+  "class": "section-why-christy",
   "disabled_on": {
     "groups": ["header", "footer"],
     "templates": ["article"]

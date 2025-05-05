@@ -1,4 +1,4 @@
-{% liquid
+{%- liquid
   if width == null
     assign width = 1024
   endif
@@ -21,20 +21,19 @@
       assign img_url = img.src | image_url: width: width, height: height, crop: crop
     endif
   endif
-%}
-
+-%}
 <img
   loading="{{ loading | default: 'lazy' }}"
   width="{%- if width -%} {{-width-}} {%- else -%} {{-img.src.width-}} {%- endif -%}"
   height="{%- if height -%} {{-height-}} {%- else -%} {{-img.src.height-}} {%- endif -%}"
   class="lazy transition-opacity duration-500 ease-in-out  {{ class }}"
-  {% if loading == 'lazy' %}
+  {%- if loading == 'lazy' -%}
     data-src="{{ img_url }}"
-  {% else %}
+  {%- else -%}
     src="{{ img_url }}"
-  {% endif %}
+  {%- endif -%}
   alt="{{ img.alt | escape }}"
-  {% if loading == 'lazy' %}
+  {%- if loading == 'lazy' -%}
     data-srcset="
       {%- assign widths_array = widths | split: ', ' -%}
       {%- for width_item in widths_array -%}
@@ -52,10 +51,9 @@
           {{ img.src | image_url: width: int, height: int_height }} {{int}}w
           {%- endif -%}
         {%- endif -%}
-
       {%- endfor -%}
     "
-  {% else %}
+  {%- else -%}
     srcset="
       {%- assign widths_array = widths | split: ', ' -%}
       {%- for width_item in widths_array -%}
@@ -76,7 +74,7 @@
 
       {%- endfor -%}
     "
-  {% endif %}
+  {%- endif -%}
   sizes="{{ sizes }}"
   draggable="false"
 >

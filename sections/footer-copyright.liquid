@@ -1,31 +1,21 @@
-<section class="text-[10px] lg:text-[11px] uppercase">
-  <div class="container ">
-    <div class="lg:py-7 lg:gap-3 flex lg:grid lg:grid-cols-3 max-lg:flex-col justify-between [&_.sec]:max-lg:border-t [&_.sec]:border-blue-1/10 [&_a:hover]:underline [&_.sec]:max-lg:py-5 max-lg:text-center lg:border-t border-blue-1/10">
+<section class="text-[10px] lg:text-[11px]">
+  <div class="footer-copyright container container-sm">
+    <div class="lg:py-4 lg:gap-3 flex lg:grid lg:grid-cols-3 max-lg:flex-col justify-between [&_.sec]:max-lg:border-t [&_.sec]:border-secondary-blue-50 [&_.sec]:max-lg:py-5 max-lg:text-center lg:border-t border-secondary-blue-50">
       {% if section.settings.terms_links != blank %}
-        <ul class="sec col-span-1 flex md:gap-5 lg:gap-10 max-lg:justify-around max-lg:order-2 whitespace-nowrap">
+        <ul class="border-top-0 sec col-span-1 flex md:gap-5 lg:gap-10 max-lg:justify-between max-lg:order-2 whitespace-nowrap">
           {% for link in linklists[section.settings.terms_links].links %}
-            <li>
-              <a href="{{link.url}}">{{ link.title }}</a>
+            <li class="text-[12px] sm:text-sm">
+              <a class="animated-underline" href="{{link.url}}">{{ link.title }}</a>
             </li>
           {% endfor %}
         </ul>
       {% endif %}
 
-      <div class="lg:col-span-2 lg:flex flex-wrap gap-3">
-        {% if section.settings.social_links != blank %}
-          <ul class="sec flex md:gap-5 lg:gap-x-10 lg:gap-y-1 justify-around">
-            {% for link in linklists[section.settings.social_links].links %}
-              <li>
-                <a target="_blank" href="{{link.url}}">{{ link.title }}</a>
-              </li>
-            {% endfor %}
-          </ul>
-        {% endif %}
-
+      <div class="text-[12px] sm:text-sm lg:col-span-2 lg:flex flex-wrap gap-3">
         <p class="sec max-lg:hidden lg:text-right lg:ml-auto">{{ section.settings.copyright }}</p>
       </div>
 
-      <p class="sec lg:hidden max-lg:order-3">{{ section.settings.copyright }}</p>
+      <p class="text-[12px] sm:text-sm sec lg:hidden max-lg:order-3">{{ section.settings.copyright }}</p>
     </div>
   </div>
 </section>
@@ -39,11 +29,6 @@
       "type": "link_list",
       "id": "terms_links",
       "label": "Terms/Privacy Links"
-    },
-    {
-      "type": "link_list",
-      "id": "social_links",
-      "label": "Social Links"
     },
     {
       "type": "text",

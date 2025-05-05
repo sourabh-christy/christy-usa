@@ -1,0 +1,37 @@
+{% if left_box != blank or right_box != blank%}
+<div class="product-faq container">
+    <a href="#" id="faq-list">
+        <h2 class="m-h1 lg:d-h1 text-blue-1">
+            {{ heading_text }}
+            {%- render 'faq-arrow-icons' -%}
+        </h2>
+    </a>
+    <div class="container_inner">
+        <div class="column" id="faq-list-left"  style="display:none;">
+            {% for faq in left_box.value %}
+            {% assign remainder = forloop.index | modulo: 2 %}
+            <div class="faq-item">
+                {% if  remainder == 0 %}
+                <p class="faq-answer" id="faq-{{ forloop.index }}">{{ faq }}</p>
+                {% else %}
+                <p class="faq-question">{{ faq }}</p>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+        <div class="column" id="faq-list-right"  style="display:none;">
+            {% for faq in right_box.value %}
+            {% assign remainder = forloop.index | modulo: 2 %}
+            <div class="faq-item">
+                {% if remainder == 0 %}
+                <p class="faq-answer" id="faq-{{ forloop.index }}">{{ faq }}</p>
+                {% else %}
+                <p class="faq-question">{{ faq }}</p>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+{% endif %}

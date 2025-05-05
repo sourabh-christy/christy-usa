@@ -1,12 +1,3 @@
-/*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
 {
   "sections": {
     "hero-static": {
@@ -16,7 +7,14 @@
         "subtitle": "Innovation",
         "title": "Introducing our oh-so-clever fabrics and detail-driven designs.",
         "copy": "<p>Christy's products are designed to work. From oversized, extra plush towels that hug you dry in seconds (though you may well wish it was longer) to fitted sheets that won't slide off your mattress.<\/p>",
-        "image2": "shopify:\/\/shop_images\/innovation-2.jpg"
+        "button_label": "Shop now",
+        "button_link": "",
+        "image2": "shopify:\/\/shop_images\/innovation-2.jpg",
+        "subtitle2": "",
+        "title2": "",
+        "copy2": "",
+        "button_label2": "Shop now",
+        "button_link2": ""
       }
     },
     "page-anchors": {
@@ -41,9 +39,7 @@
         "template--19974381371680__8f9e3ef3-0d55-43c1-b496-14c674ab688e-anchor_link-1",
         "template--19974381371680__8f9e3ef3-0d55-43c1-b496-14c674ab688e-anchor_link-2"
       ],
-      "disabled": true,
-      "settings": {
-      }
+      "settings": {}
     },
     "heading": {
       "type": "heading",
@@ -51,21 +47,19 @@
         "heading": "<p>Brighten up your morning and start every day with a win by choosing HygroCotton®.<\/p>",
         "heading_font_size_mob": 24,
         "heading_font_size_desktop": 36,
-        "heading_font_weight": "600",
-        "heading_font_family": "sans-serif",
+        "heading_font_weight": "400",
+        "heading_font_family": "Hatton, serif",
         "heading_width": "4",
         "copy": "",
         "heading_copy_font_size_mob": 12,
         "heading_copy_font_size_desktop": 14,
         "heading_copy_font_weight": "300",
-        "heading_copy_font_family": "sans-serif",
+        "heading_copy_font_family": "Tomato Grotesk",
         "copy_style": "default",
-        "alignment": "right",
+        "alignment": "left",
         "alignment_mob": "right",
         "horiz_padding": true,
-        "margin_top": false,
-        "background_color": "#ffffff",
-        "font_color": "#000000"
+        "margin_top": false
       }
     },
     "rich-text": {
@@ -100,7 +94,7 @@
         "5b646956-a5dd-4637-a66e-a4ca816853e0": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/innovation-3.jpg",
+            "image": "shopify:\/\/shop_images\/Waffle_All-Cols-_7_22466a0d-f9b9-4cb8-8fd8-bb5a67c1fd3e.jpg",
             "width": "full",
             "aspect": "16\/9"
           }
@@ -199,8 +193,8 @@
         "e14b8b02-c53c-4069-85cc-43e31732c3cb": {
           "type": "product",
           "settings": {
-            "product": "supreme-bath-mat",
-            "text": "<p>Made with the same technology weave that blooms with plushness after washing, this extra absorbent, bouncy feeling mat levels up everyday essentials.<\/p>"
+            "product": "supreme-velour-robe",
+            "text": "<p>Wrap yourself up in pure luxury with our ultra soft and absorbant Supreme Hygro® towel collection<\/p>"
           }
         },
         "d21bf329-3944-47a0-832b-9162c451db72": {
@@ -219,14 +213,14 @@
       ],
       "settings": {
         "title": "Shop the Collection",
-        "collection": "supreme-hygro-cotton"
+        "collection": "core-collection-towels-supreme-hygro"
       }
     },
     "images-copy-cta": {
       "type": "images-copy-cta",
       "settings": {
         "image": "shopify:\/\/shop_images\/zero-twist-yarn-1.jpg",
-        "image2": "shopify:\/\/shop_images\/zero-twist-yarn-2.jpg",
+        "image2": "shopify:\/\/shop_images\/Luxe_Navy_Model_3.jpg",
         "subtitle": "Products",
         "title": "<p>Zero Twist Yarn<\/p>",
         "copy": "<p>Zero twist yarns are velvety-soft yarns that create super-absorbent, refreshing towels. Most towels are made with cotton that is spun by twisting it together. This twisting process joins the fibers to make a long, fine yarn, which is very durable and which means that you can work with shorter (read: lower quality) fibers. <br\/><br\/>But for Zero Twist yarns, the fibers aren't twisted together to increase length and strength—they have to be high quality and naturally strong from the get go. And because they aren't twisted, each yarn has more surface area. The result is a smooth, plush towel that is wonderfully soft-to-the-touch. Dry off in the embrace of a super-soft, velvety Mode towel made with Zero Twist cotton yarn.<\/p>",
@@ -243,21 +237,9 @@
       "settings": {
         "screen_visibility": "both",
         "image": "shopify:\/\/shop_images\/perfect-towel-innovation.jpg",
-        "subtitle": "",
-        "billboard_subtitle_font_size_mob": 16,
-        "billboard_subtitle_font_size_desktop": 16,
-        "billboard_subtitle_font_weight": "300",
-        "billboard_subtitle_font_family": "sans-serif",
+        "subtitle": "Feature",
         "title": "<p>Only the best: picking your perfect towel<\/p>",
-        "billboard_title_font_size_mob": 16,
-        "billboard_title_font_size_desktop": 40,
-        "billboard_title_font_weight": "300",
-        "billboard_title_font_family": "Hatton, serif",
         "copy": "<p>There's an art to choosing the right towel. Absorb our expert tips to discover your ideal drying-down companion.<\/p>",
-        "billboard_copy_font_size_mob": 14,
-        "billboard_copy_font_size_desktop": 14,
-        "billboard_copy_font_weight": "200",
-        "billboard_copy_font_family": "sans-serif",
         "button_label": "Read More",
         "button_link": "shopify:\/\/pages\/innovation",
         "button_type": "tertiary",

@@ -1,0 +1,365 @@
+<div
+  id="HeroBanner-{{ section.id }}"
+>
+  {%- liquid
+    assign widths = '375, 550, 768, 1100, 1920'
+    assign sizes = '100vw'
+  -%}
+  <div
+    class="h-full relative flex
+    {% if section.settings.positioning == 'top-left' %}justify-start items-start{% endif %}
+    {% if section.settings.positioning == 'top-center' %}justify-center items-start{% endif %}
+    {% if section.settings.positioning == 'top-right' %}justify-end items-start{% endif %}
+    {% if section.settings.positioning == 'center-left' %}justify-start items-center{% endif %}
+    {% if section.settings.positioning == 'center-center' %}justify-center items-center{% endif %}
+    {% if section.settings.positioning == 'center-right' %}justify-end items-center{% endif %}
+    {% if section.settings.positioning == 'bottom-left' %}justify-start items-end{% endif %}
+    {% if section.settings.positioning == 'bottom-center' %}justify-center items-end{% endif %}
+    {% if section.settings.positioning == 'bottom-right' %}justify-end items-end{% endif %}
+    "
+  >
+    <div class="w-full{% if section.settings.full_width != true %}container{% endif %}">
+      {% if section.settings.video %}
+        {{
+          section.settings.video
+          | video_tag:
+            muted: true,
+            autoplay: true,
+            loop: true,
+            playsinline: true,
+            class: 'w-full h-[600px] object-cover inset-0 hero-video'
+        }}
+      {%- elsif section.settings.gif != blank -%}
+        {%- render 'lazyimg', 
+          img: section.settings.gif, 
+          width: 2000, 
+          widths: widths, 
+          class: 'w-full h-[600px] object-cover object-center hero-gif', 
+          sizes: sizes 
+        -%}
+      {%- elsif section.settings.image != blank -%}
+        {%- render 'lazyimg', 
+            img: section.settings.image,
+            loading: 'eager',
+            preload: true,
+            width: 1920,
+            height: 600,
+            class: 'w-full h-[600px] object-cover object-center hidden md:block hero-image',
+            sizes: sizes,
+            widths: widths
+        -%}
+        {%- if section.settings.image_mobile != blank -%}
+          {%- render 'lazyimg', 
+              img: section.settings.image_mobile,
+              preload: true,
+              loading: 'eager',
+              width: 768,
+              height: 600,
+              class: 'w-full h-[600px] block md:hidden',
+              sizes: sizes,
+              widths: widths
+          -%}
+        {% endif %}
+      {%- endif -%}
+    </div>
+    <div class="flex flex-col absolute p-12 tab:pb-[120px] xl:p-12
+      {% if section.settings.alignment == 'left' %}items-start text-start{% endif %} 
+      {% if section.settings.alignment == 'center' %}items-center text-center{% endif %} 
+      {% if section.settings.alignment == 'right' %}items-end text-right{% endif %}
+      "
+    >
+      {%- if section.settings.sub-title != blank -%}
+        <p class="banner-subtitle mb-10 font-sec text-primary-white-cotton tracking-[6px]
+          {% if section.settings.text-colour == 'blue' %}!text-primary-blue{% endif %}
+          {% if section.settings.mobile_subtitle == 'hide' %}max-md:hidden{% endif %}
+          {% if section.settings.desktop_subtitle == 'hide' %}md:hidden{% endif %}
+          "
+        >
+          {{ section.settings.sub-title }}
+        </p>
+      {%- endif -%}
+      {%- if section.settings.title != blank -%}
+        <h1 class="banner-title max-w-[528px] font-sec text-primary-white-cotton mb-12 leading-tight md:mb-9
+          {% if section.settings.text-colour == 'blue' %}!text-primary-blue{% endif %}
+          ">
+          {{ section.settings.title }}
+        </h1>
+      {%- endif -%}
+
+      {% if section.settings.btn-title and section.settings.btn-link %}
+        <a
+          href="{{ section.settings.btn-link }}"
+          class="relative btn-hover-animated btn-hover-animated-secondary-white max-w-[290px]
+          md:max-w-[260px] btn-large
+          {% if section.settings.btn-colour == 'blue'%} btn-primary {% else %} btn-secondary-white{% endif %}"
+        >
+          {{- section.settings.btn-title -}}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% style %}
+  {%- if section.settings.title_font_size_mob != blank -%}
+  #shopify-section-{{ section.id }} .banner-title {
+    font-size: {{ section.settings.title_font_size_mob }}px;
+  }
+  {%- endif -%}
+
+  {%- if section.settings.sub-title_font_size_mob != blank -%}
+  #shopify-section-{{ section.id }} .banner-subtitle {
+    font-size: {{ section.settings.sub-title_font_size_mob }}px;
+  }
+  {%- endif -%}
+
+  @media all and ( min-width: 1024px ) {
+    {%- if section.settings.title_font_size_desktop != blank -%}
+      #shopify-section-{{ section.id }} .banner-title {
+        font-size: {{ section.settings.title_font_size_desktop }}px;
+      }
+    {%- endif -%}
+    {%- if section.settings.sub-title_font_size_desktop != blank -%}
+      #shopify-section-{{ section.id }} .banner-subtitle {
+        font-size: {{ section.settings.sub-title_font_size_desktop }}px;
+      }
+    {%- endif -%}
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Hero-Banner",
+  "tag": "section",
+  "class": "section-hero-banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "sub-title",
+      "label": "Sub Title"
+    },
+    {
+      "type": "range",
+      "id": "title_font_size_mob",
+      "label": "Title font size mobile",
+      "min": 12,
+      "max": 57,
+      "step": 1,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "title_font_size_desktop",
+      "label": "Title font size desktop",
+      "min": 12,
+      "max": 57,
+      "step": 1,
+      "unit": "px",
+      "default": 57
+    },
+    {
+      "type": "range",
+      "id": "sub-title_font_size_mob",
+      "label": "Sub Title font size mobile",
+      "min": 12,
+      "max": 57,
+      "step": 1,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "sub-title_font_size_desktop",
+      "min": 12,
+      "max": 57,
+      "step": 1,
+      "unit": "px",
+      "label": "Sub Title font size desktop",
+      "default": 57
+    },
+    {
+      "type": "select",
+      "id": "mobile_subtitle",
+      "label": "Sub Title Mobile",
+      "default": "show",
+      "info": "Choose whether to display Sub Title on mobile.",
+      "options": [
+        {
+          "value": "show",
+          "label": "Show"
+        },
+        {
+          "value": "hide",
+          "label": "Hide"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "desktop_subtitle",
+      "label": "Sub Title Desktop",
+      "default": "hide",
+      "info": "Choose whether to display Sub Title on desktop.",
+      "options": [
+        {
+          "value": "show",
+          "label": "Show"
+        },
+        {
+          "value": "hide",
+          "label": "Hide"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Title Alignment",
+      "info": "Choose title alignment.",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "text-colour",
+      "label": "Text Colour",
+      "info": "Choose the colour for text",
+      "options": [
+        {
+          "value": "white",
+          "label": "White"
+        },
+        {
+          "value": "blue",
+          "label": "Blue"
+        }
+      ],
+      "default": "white"
+    },
+    {
+      "type": "select",
+      "id": "positioning",
+      "label": "Positioning of text",
+      "info": "Choose positioning of text.",
+      "options": [
+        {
+          "value": "top-left",
+          "label": "Top Left"
+        },
+        {
+          "value": "top-center",
+          "label": "Top Center"
+        },
+        {
+          "value": "top-right",
+          "label": "Top Right"
+        },
+        {
+          "value": "center-left",
+          "label": "Center Left"
+        },
+        {
+          "value": "center-center",
+          "label": "Center Center"
+        },
+        {
+          "value": "center-right",
+          "label": "Center Right"
+        },
+        {
+          "value": "bottom-left",
+          "label": "Bottom Left"
+        },
+        {
+          "value": "bottom-center",
+          "label": "Bottom Center"
+        },
+        {
+          "value": "bottom-right",
+          "label": "Bottom Right"
+        }
+      ],
+      "default": "center-center"
+    },
+    {
+      "type": "url",
+      "id": "btn-link",
+      "label": "Button Link"
+    },
+    {
+      "type": "text",
+      "id": "btn-title",
+      "label": "Button Title",
+      "default": "Discover Christy"
+    },
+    {
+      "type": "select",
+      "id": "btn-colour",
+      "label": "Button Colour",
+      "info": "Choose the colour for button",
+      "options": [
+        {
+          "value": "white",
+          "label": "White"
+        },
+        {
+          "value": "blue",
+          "label": "Blue"
+        }
+      ],
+      "default": "white"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Choose image for Desktop"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Choose image for Mobile"
+    },
+    {
+      "type": "image_picker",
+      "id": "gif",
+      "label": "Choose a GIF"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Choose a video",
+      "info": "Video will override image"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full width",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero-Banner"
+    }
+  ]
+}
+{% endschema %}

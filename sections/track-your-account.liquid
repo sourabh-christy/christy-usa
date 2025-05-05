@@ -1,0 +1,83 @@
+<div class="pt-12 px-4 pb-16 bg-primary-blue text-primary-white-cotton space-y-8 border-b-2">
+  <div class="max-w-sm mx-auto text-center space-y-4">
+    {% if section.settings.heading != blank  %}
+      <h2 class="text-xl leading-relaxed font-sec inline-block max-w-[185px]">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    {% if section.settings.middle_text != blank  %}
+      <p class="text-sm tracking-[.25px]">{{ section.settings.middle_text }}</p>
+    {% endif %}
+  </div>
+
+  <div class="flex gap-x-2 max-w-sm mx-auto">
+    {% if section.settings.returns_text != blank and section.settings.returns_link != blank %}
+      <a target="_blank" rel="nofollow" href="{{ section.settings.returns_link }}" class="border border-primary-white-cotton text-primary-white-cotton xl:hover:bg-primary-white-cotton xl:hover:text-primary-blue btn-huge flex-1">
+        {% render 'icon-returns', class: 'w-12 h-12' %}
+        <span>{{ section.settings.returns_text }}</span>
+      </a>
+    {% endif %}
+    {% if section.settings.track_text != blank and section.settings.track_link != blank %}
+      <a target="_blank" rel="nofollow" href="{{ section.settings.track_link }}" class="border border-primary-white-cotton text-primary-white-cotton xl:hover:bg-primary-white-cotton xl:hover:text-primary-blue btn-huge flex-1">
+        {% render 'icon-tracking', class: 'w-12 h-12' %}
+        <span class="w-[50px]">{{ section.settings.track_text }}</span>
+      </a>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Track Your Account",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Need help with your recent order?"
+    },
+    {
+      "type": "textarea",
+      "id": "middle_text",
+      "label": "Middle text",
+      "default": "You can track your order or create a return without signing in using the links below."
+    },
+    {
+      "type": "header",
+      "content": "Returns link settings"
+    },
+    {
+      "type": "text",
+      "id": "returns_text",
+      "label": "Returns button text",
+      "default": "Returns"
+    },
+    {
+      "type": "image_picker",
+      "id": "returns_icon",
+      "label": "Returns icon"
+    },
+    {
+      "type": "url",
+      "id": "returns_link",
+      "label": "Returns link"
+    },
+    {
+      "type": "header",
+      "content": "Track link settings"
+    },
+    {
+      "type": "text",
+      "id": "track_text",
+      "label": "Track button text",
+      "default": "Track Order"
+    },
+    {
+      "type": "url",
+      "id": "track_link",
+      "label": "Returns link"
+    }
+  ]
+}
+{% endschema %}

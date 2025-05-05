@@ -3,20 +3,36 @@
   <div class="container space-y-5 lg:space-y-8">
     <div
       class="splide group/splide space-y-5 lg:space-y-8"
-      data-splide='{"arrows": true, "pagination": false, "type": "slide", "gap": "40px", "autoWidth": true, "focus": 0, "omitEnd": true, "breakpoints": {"768": {"gap": "20px"}}}'
+      data-splide='
+        {"arrows": true, "pagination": false, "type": "slide", "gap": "40px", "autoWidth": true, "focus": 0, "omitEnd": true, "breakpoints": {
+          "768": {
+            "gap": "20px"
+          }
+        }}
+      '
     >
       <header class="flex justify-between space-x-5 items-center">
         {% if section.settings.title != blank %}
           <h2 class="m-h1 lg:d-h1 text-blue-1">{{ section.settings.title }}</h2>
         {% endif %}
 
-        <div class="splide__arrows splide__arrows--ltr hidden group-[.is-initialized]/splide:!flex justify-end !-mr-[15px]">
-          <button class="splide__arrow splide__arrow--prev !w-10 !h-10 disabled:!opacity-0 transition-opacity !bg-transparent !static !transform-none outline-none" type="button" aria-label="Previous slide" aria-controls="splide01-track">
+        <div class="splide__arrows splide__arrows--ltr hidden group-[.is-initialized]/splide:!flex justify-end  !-mr-[15px]">
+          <button
+            class="splide__arrow splide__arrow--prev !w-10 !h-10 disabled:!opacity-0 transition-opacity !bg-transparent !static !transform-none outline-none"
+            type="button"
+            aria-label="Previous slide"
+            aria-controls="splide01-track"
+          >
             <svg class="w-full" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
               <path class="fill-blue-1" d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z"/>
             </svg>
           </button>
-          <button class="splide__arrow splide__arrow--next !w-10 !h-10 disabled:!opacity-0 transition-opacity !bg-transparent !static !transform-none outline-none" type="button" aria-label="Next slide" aria-controls="splide01-track">
+          <button
+            class="splide__arrow splide__arrow--next !w-10 !h-10 disabled:!opacity-0 transition-opacity !bg-transparent !static !transform-none outline-none"
+            type="button"
+            aria-label="Next slide"
+            aria-controls="splide01-track"
+          >
             <svg class="w-full" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
               <path class="fill-blue-1" d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z"/>
             </svg>
@@ -26,7 +42,17 @@
 
       <div class="splide__track !overflow-visible">
         <div class="splide__list text-blue-1">
-          {% for block in section.blocks %}
+          {% for block in section.blocks -%}
+         
+            {% comment %} <style>   
+            {% if block.settings.collection_carousel_excerpt_font_size_desktop != blank %}
+              #shopify-section-{{ section.id }} #{{ block.id }}.wysiwyg{
+                  font-size: {{ block.settings.collection_carousel_excerpt_font_size_desktop }}px !important;
+              }
+            {% endif %}
+
+            </style> {% endcomment %}
+
             {% assign collection = block.settings.collection %}
             {% assign theimage = blank %}
 
@@ -41,6 +67,7 @@
                 {%- liquid
                   assign widths = '245, 327, 490, 550, 654'
                   assign sizes = '(max-width: 1023px) 245px, (min-width: 1024px) 327px'
+
                   assign image_class = 'object-cover object-center w-full h-full inset-0 aspect-[1/1] opacity-0'
                 -%}
                 {% if block.settings.image != blank %}
@@ -70,63 +97,73 @@
                   </figure>
                 {%- endif -%}
 
-                <div class="space-y-6 max-sm:order-1">
-                  <div class="space-y-3 lg:space-y-6">
-                    <h3 class="s-m-h1 lg:s-m-h2">
-                      {% if block.settings.alt_title != blank %}
-                        {{ block.settings.alt_title }}
-                      {% else %}
-                        {{ collection.title }}
-                      {% endif %}
-                    </h3>
-                  </div>
+                {% if block.settings.hide_carousel_title == false or block.settings.hide_carousel_excerpt == false %}
+                  <div class="space-y-6 max-sm:order-1">
+                    {% if block.settings.hide_carousel_title == false %}
+                      <div class="space-y-3 lg:space-y-6 ">
+                        <h3 class="s-m-h1 lg:s-m-h2">
+                          {% if block.settings.alt_title != blank %}
+                            {{ block.settings.alt_title }}
+                          {% else %}
+                            {{ collection.title }}
+                          {% endif %}
+                        </h3>
+                      </div>
+                    {% endif %}
 
-                  {% if block.settings.excerpt != blank %}
-                    <div class="wysiwyg" style="
-                      {% if block.settings.collection_carousel_excerpt_font_size_mob != blank %}
-                        font-size: {{ block.settings.collection_carousel_excerpt_font_size_mob }}px;
+                    {% if block.settings.hide_carousel_excerpt == false %}
+                      {% if block.settings.excerpt != blank %}
+                        <div class="wysiwyg" id="{{ block.id }}" style="  
+                          {% if block.settings.collection_carousel_excerpt_font_size_mob != blank %}
+                          font-size: {{ block.settings.collection_carousel_excerpt_font_size_mob }}px;
+                          {% endif %}                        
+                          {% if block.settings.collection_carousel_excerpt_font_weight != blank %}
+                            font-weight: {{ block.settings.collection_carousel_excerpt_font_weight }};
+                          {% endif %}
+                          {% if block.settings.collection_carousel_excerpt_font_family == 'serif' %}
+                            font-family: serif;
+                          {% elsif block.settings.collection_carousel_excerpt_font_family == 'sans-serif' %}
+                            font-family: sans-serif;
+                          {% elsif block.settings.collection_carousel_excerpt_font_family == 'Tomato Grotesk' %}
+                            font-family: 'Tomato Grotesk', sans-serif;
+                          {% else %}
+                            font-family: 'Tomato Grotesk', sans-serif; // Default fallback
+                          {% endif %}
+                        ">{{ block.settings.excerpt }}
+                        </div>
+                      {% elsif collection.description != blank %}
+                        <div class="wysiwyg" style="
+                          {% if block.settings.collection_carousel_excerpt_font_size_mob != blank %}
+                            font-size: {{ block.settings.collection_carousel_excerpt_font_size_mob }}px;
+                          {% endif %}
+                          {% if block.settings.collection_carousel_excerpt_font_weight != blank %}
+                            font-weight: {{ block.settings.collection_carousel_excerpt_font_weight }};
+                          {% endif %}
+                          {%- if section.settings.collection_carousel_excerpt_font_family == 'serif' -%}
+                            serif
+                          {%- elsif section.settings.collection_carousel_excerpt_font_family == 'sans-serif' -%}
+                            sans-serif
+                          {%- else -%}
+                            'Tomato Grotesk', sans-serif
+                          {%- endif -%};
+                          ">
+                          {{ collection.description | strip_html | truncatewords: 20 }}
+                        </div>
                       {% endif %}
-                      {% if block.settings.collection_carousel_excerpt_font_weight != blank %}
-                        font-weight: {{ block.settings.collection_carousel_excerpt_font_weight }};
-                      {% endif %}
-                      {% if block.settings.collection_carousel_excerpt_font_family == 'serif' %}
-                        font-family: serif;
-                      {% elsif block.settings.collection_carousel_excerpt_font_family == 'sans-serif' %}
-                        font-family: sans-serif;
-                      {% elsif block.settings.collection_carousel_excerpt_font_family == 'Tomato Grotesk' %}
-                        font-family: 'Tomato Grotesk', sans-serif;
-                      {% else %}
-                        font-family: 'Tomato Grotesk', sans-serif; // Default fallback
-                      {% endif %}
-                    ">
-                      {{ block.settings.excerpt }}
-                    </div>
-                    
-                  {% elsif collection.description != blank %}
-                    <div class="wysiwyg" style="
-                      {% if block.settings.collection_carousel_excerpt_font_size_mob != blank %}
-                        font-size: {{ block.settings.collection_carousel_excerpt_font_size_mob }}px;
-                      {% endif %}
-                      {% if block.settings.collection_carousel_excerpt_font_weight != blank %}
-                        font-weight: {{ block.settings.collection_carousel_excerpt_font_weight }};
-                      {% endif %}
-                      {%- if section.settings.collection_carousel_excerpt_font_family == 'serif' -%}
-          serif
-        {%- elsif section.settings.collection_carousel_excerpt_font_family == 'sans-serif' -%}
-          sans-serif
-        {%- else -%}
-          'Tomato Grotesk', sans-serif
-        {%- endif -%};
-                    ">
-                      {{ collection.description | strip_html | truncatewords: 20 }}
-                    </div>
-                  {% endif %}
-                </div>
-                <div class="max-sm:order-3 max-sm:!mb-0 {{ btn_wrap_class }}">
-                  <a href="{{ collection.url }}" class="{{ btn_class }}">
-                    {{ btn_label }}
-                  </a>
-                </div>
+                    {% endif %}
+                  </div>
+                {% endif %}
+
+                {% if block.settings.hide_shopnow == false %}
+                  <div class="max-sm:order-3 max-sm:!mb-0 {{ btn_wrap_class }}">
+                    <a
+                      href="{{ collection.url }}"
+                      class="{{ btn_class }}"
+                    >
+                      {{ btn_label }}
+                    </a>
+                  </div>
+                {% endif %}
               </article>
             </div>
           {% endfor %}
@@ -150,81 +187,47 @@
   {%- endif -%}
 
   {%- if section.settings.collection_carousel_title_font_family != blank -%}
-    #shopify-section-{{ section.id }} .m-h1 {
-      font-family: 
-        {%- if section.settings.collection_carousel_title_font_family == 'serif' -%}
-          serif
-        {%- elsif section.settings.collection_carousel_title_font_family == 'sans-serif' -%}
-          sans-serif
-        {%- else -%}
-          "Hatton", serif
-        {%- endif -%};
-    }
-  {%- endif -%}
-
-  {% if section.settings.screen_visibility == 'mobile' %}
-    @media all and (min-width: 768px ) {
-        #shopify-section-{{ section.id }} {
-            display: none !important;
-        }
-    }
-  {% endif %}
-
-  {% if section.settings.screen_visibility == 'desktop' %}
-    @media all and (max-width: 767px ) {
-        #shopify-section-{{ section.id }} {
-            display: none !important;
-        }
-    }
-  {% endif %}
-
-  {%- if section.settings.collection_carousel_title_font_size_desktop != blank -%}
-  @media all and (min-width: 1024px) {
-    #shopify-section-{{ section.id }} .m-h1 {
-      font-size: {{ section.settings.collection_carousel_title_font_size_desktop }}px;
-    }
+  #shopify-section-{{ section.id }} .m-h1 {
+    font-family: 
+      {%- if section.settings.collection_carousel_title_font_family == 'serif' -%}
+        serif
+      {%- elsif section.settings.collection_carousel_title_font_family == 'sans-serif' -%}
+        sans-serif
+      {%- elsif section.settings.collection_carousel_title_font_family == 'Hatton, serif' -%}
+        "Hatton", serif
+      {%- elsif section.settings.collection_carousel_title_font_family == 'Tomato Grotesk' -%}
+        "Tomato Grotesk", sans-serif
+      {%- else -%}
+        "Hatton", serif
+      {%- endif -%};
   }
-  {%- endif -%}
+   {%- endif -%}
 
-  {% for block in section.blocks %}
-    {% assign excerpt_font_size_desktop = block.settings.collection_carousel_excerpt_font_size_desktop %}
-    {% assign excerpt_font_weight = block.settings.collection_carousel_excerpt_font_weight %}
-    {% assign excerpt_font_family = block.settings.collection_carousel_excerpt_font_family %}
-
-    {%- if excerpt_font_size_desktop != blank -%}
-      @media all and (min-width: 1024px) {
-        #shopify-section-{{ section.id }} #{{ block.id }} .wysiwyg {
-          font-size: {{ excerpt_font_size_desktop }}px;
-        }
+    {% if section.settings.screen_visibility == 'mobile' %}
+      @media all and (min-width: 768px ) {
+          #shopify-section-{{ section.id }} {
+              display: none !important;
+          }
       }
+    {% endif %}
+
+    {% if section.settings.screen_visibility == 'desktop' %}
+      @media all and (max-width: 767px ) {
+          #shopify-section-{{ section.id }} {
+              display: none !important;
+          }
+      }
+    {% endif %}
+
+    {%- if section.settings.collection_carousel_title_font_size_desktop != blank -%}
+    @media all and (min-width: 1024px) {
+      #shopify-section-{{ section.id }} .m-h1 {
+        font-size: {{ section.settings.collection_carousel_title_font_size_desktop }}px;
+      }
+    }
     {%- endif -%}
 
-    {%- if excerpt_font_weight != blank -%}
-      #shopify-section-{{ section.id }} #{{ block.id }} .wysiwyg {
-        font-weight: {{ excerpt_font_weight }};
-      }
-    {%- endif -%}
-
-    {%- if excerpt_font_family == 'serif' -%}
-      #shopify-section-{{ section.id }} #{{ block.id }} .wysiwyg {
-        font-family: serif;
-      }
-    {%- elsif excerpt_font_family == 'sans-serif' -%}
-      #shopify-section-{{ section.id }} #{{ block.id }} .wysiwyg {
-        font-family: sans-serif;
-      }
-    {%- elsif excerpt_font_family == 'Tomato Grotesk' -%}
-      #shopify-section-{{ section.id }} #{{ block.id }} .wysiwyg {
-        font-family: 'Tomato Grotesk', sans-serif !important;
-      }
-    {%- else -%}
-      #shopify-section-{{ section.id }} #{{ block.id }} .wysiwyg {
-        font-family: 'Tomato Grotesk', sans-serif !important; // Default fallback
-      }
-    {%- endif -%}
-  {% endfor %}
-{% endstyle %}
-
+{% endstyle %} 
 
 {% schema %}
 {
@@ -301,9 +304,13 @@
         {
           "value": "Hatton, serif",
           "label": "Hatton, serif"
+        },
+        {
+          "value": "Tomato Grotesk",
+          "label": "'Tomato Grotesk', sans-serif"
         }
       ],
-      "default": "Hatton, serif"
+      "default": "Tomato Grotesk"
     },
     {
       "type": "select",
@@ -378,7 +385,7 @@
           "step": 1,
           "unit": "px",
           "label": "Collection carousel Excerpt Font Size DESKTOP",
-          "default": 30
+          "default": 14
         },
         {
           "type": "select",
@@ -402,7 +409,7 @@
               "label": "Bold"
             }
           ],
-          "default": "400"
+          "default": "300"
         },
         {
           "type": "select",
@@ -423,8 +430,25 @@
             }
           ],
           "default": "Tomato Grotesk"
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_carousel_title",
+          "label": "Hide Title",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_carousel_excerpt",
+          "label": "Hide Excerpt",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_shopnow",
+          "label": "Hide Shop Now",
+          "default": false
         }
-        
       ]
     }
   ],
@@ -435,4 +459,3 @@
   ]
 }
 {% endschema %}
-{% render 'quickview-drawer' -%} 

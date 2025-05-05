@@ -1,0 +1,546 @@
+{% if product.metafields.section.shop_the_look != blank %}
+  <h2
+    id="pdp-shop-the-look-section"
+    class="section-{{ section.id }}-top-padding  font-sec text-[30px] leading-[32px] xl:text-[40px] xl:leading-[52px] mx-auto text-center font-normal text-primary-blue "
+  >
+    {{ section.settings.title }}
+  </h2>
+  <div class="max-w-screen-2xl section-{{ section.id }}-bottom-padding mx-auto pt-4 xl:pt-[30px] grid grid-cols-1 xl:grid-cols-[1.32fr_1fr]">
+    <div>
+      <img
+        class="h-full object-cover hidden xl:flex"
+        src="{{ product.metafields.section.shop_the_look.value.image | img_url: "master" }}"
+        loading="lazy"
+      >
+      <img
+        class="flex w-full xl:hidden"
+        src="{{ product.metafields.section.shop_the_look.value.mobile_image | img_url: "master" }}"
+        loading="lazy"
+      >
+    </div>
+    <div class="pt-0 px-4 xl:pt-6 xl:pl-7 xl:pb-0 xl:pr-12">
+      <div class="shop-the-look-container">
+        <div
+          id="shop-the-look-toggle"
+          class="shop-the-look-toggle flex items-center justify-between h-[72px] px-4 cursor-pointer xl:hidden"
+        >
+          <span class="text-base font-semibold text-primary-blue">Explore the look</span>
+          <svg
+            class="shop-the-look-arrow transition-all duration-300"
+            width="24"
+            height="25"
+            viewBox="0 0 24 25"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6.5 23.5L17.5 12.5L6.5 1.5"
+              stroke="#1C355E"
+              stroke-width="1.54"
+            />
+          </svg>
+        </div>
+
+        <div
+          id="shop-the-look-scrollbar"
+          class="h-0 xl:h-[570px] grid grid-rows-[155px]  sm:grid-rows-[250px] md:grid-rows-[174px]  xl:grid-rows-[174px] grid-cols-1 md:grid-cols-2 xl:grid-cols-1 gap-6 shop-the-look-scrollbar mob-hidden transition-all duration-300"
+        >
+          {%- for shop_products in product.metafields.section.shop_the_look.value.products.value -%}
+            <div class="grid grid-cols-1 xl:grid-cols-[24px_1fr] gap-6 relative xl:items-center">
+              <input
+                type="checkbox"
+                class="pdp-shop-the-look-product hidden"
+                value="{{ shop_products.variants.first.id }}"
+                checked
+              >
+              <div class="pdp-shop-the-look-checkbox absolute top-2 left-2 z-[2] xl:static xl:top-auto xl:left-auto upsell-product-card_checkbox cursor-pointer">
+                {% render 'icon-checkmark' %}
+              </div>
+              {% render 'card-product',
+                card_product: shop_products,
+                class: 'product-card--horizontal',
+                images_slider: false,
+                hide_badges: true,
+                hide_buttons: true
+              %}
+            </div>
+          {%- endfor -%}
+        </div>
+        <div class="custom-scrollbar"></div>
+      </div>
+
+      <div class="bg-white xl:pl-12 xl:pt-[50px]">
+        <button
+          class="w-full pdp-shop-the-look-button btn-hover-animated-primary flex justify-center transform text-sm xl:text-base text-center py-[11px] xl:py-[15px] px-8 border leading-6 xl:leading-normal font-normal uppercase "
+        >
+          Shop all
+        </button>
+          <div class="you-save-title flex xl:!hidden justify-center items-center gap-1 text-sm uppercase text-center leading-normal font-semibold text-primary-blue bg-primary-blue/20 mt-2 h-12 py-[8px] px-8"></div>
+      </div>
+    </div>
+  </div>
+
+
+  {% style %}
+    .shop-the-look-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .shop-the-look-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .custom-scrollbar {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 3px;
+      height: 100%;
+      background: white;
+    }
+
+    .custom-scrollbar .thumb {
+      width: 100%;
+      background: #2c3b96;
+      position: absolute;
+      top: 0;
+      cursor: pointer;
+    }
+
+    .shop-the-look-scrollbar {
+      width: 100%;
+      height: 100%;
+      overflow-y: scroll;
+      padding-right: 15px;
+      box-sizing: content-box;
+    }
+    svg.shop-the-look-arrow.active {
+      transform: rotate(90deg);
+    }
+
+    .shop-the-look-scrollbar .upsell-product-card_checkbox.text-white {
+      background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+      border-color: rgb(181 177 216 / var(--tw-border-opacity));
+      --tw-text-opacity: 1;
+      color: white;
+    }
+
+    .shop-the-look-scrollbar .upsell-product-card_checkbox {
+      background-color: #1c355e;
+      border-color: #1c355e;
+      --tw-text-opacity: 1;
+      color: white;
+    }
+
+    .shop-the-look-scrollbar .card__information h3 {
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 400;
+    }
+
+    .shop-the-look-scrollbar .card__colours > a {
+      width: 32px;
+      height: 32px;
+    }
+    .two-line-text {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    @media (max-width: 1360px) and (min-width: 1280px) {
+      .shop-the-look-container
+        .product-card
+        .leading-tight.text-\[11px\].font-semibold.tracking-\[\.5px\].xl\:text-sm.xl\:font-normal.xl\:tracking-\[\.25px\] {
+        grid-area: 2 / 3 / 3 / 6;
+        text-align: right;
+      }
+    }
+    @media (min-width: 1280px) {
+      .shop-the-look-container {
+        width: 100%;
+        height: 570px;
+        overflow: hidden;
+        position: relative;
+      }
+      .shop-the-look-scrollbar .card__information h3 {
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 400;
+      }
+    }
+
+    @media (max-width: 1279px) {
+      .shop-the-look-container .notouchhover {
+        display: none !important;
+      }
+      .shop-the-look-scrollbar .product-card .card__inner a {
+        pointer-events: none;
+      }
+      .mob-hidden {
+        display: none;
+      }
+
+      .shop-the-look-scrollbar .card__colours a.text-nowrap {
+        font-size: 14px;
+        font-weight: 400;
+      }
+      .shop-the-look-scrollbar {
+        margin-bottom: 24px;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .shop-the-look-scrollbar .card__colours a.text-nowrap {
+        font-size: 12px;
+      }
+    }
+
+    @media (min-width: 320px) {
+      .product-card--horizontal {
+        grid-template-columns: 155px minmax(0, 1fr);
+      }
+    }
+    @media (min-width: 640px) {
+      .product-card--horizontal {
+        grid-template-columns: 250px minmax(0, 1fr);
+      }
+    }
+    @media (min-width: 768px) {
+      .product-card--horizontal {
+        grid-template-columns: 174px minmax(0, 1fr);
+      }
+    }
+
+    .section-{{ section.id }}-top-padding{
+      padding-top: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px;
+    }
+    .section-{{ section.id }}-bottom-padding{
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-top-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+      }
+      .section-{{ section.id }}-bottom-padding {
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+  {% endstyle %}
+
+  <script defer>
+    document.addEventListener('DOMContentLoaded', function () {
+      const addToCartButton = document.querySelector('.pdp-shop-the-look-button');
+
+      function updateButtonPrice() {
+        const productInputs = document.querySelectorAll('input.pdp-shop-the-look-product:checked');
+        let totalPrice = 0;
+        let totalOriginalPrice = 0;
+
+        productInputs.forEach((input) => {
+          const parentWrapper = input.closest('.grid');
+          let priceElement = parentWrapper?.querySelector('.whitespace-nowrap p');
+          let priceText = '';
+
+          if (priceElement) {
+            priceText = priceElement.textContent.trim();
+
+            if (priceText.includes('-')) {
+              priceText = priceText.split('-')[0].trim();
+            }
+          } else {
+            priceElement =
+              parentWrapper?.querySelector('.bundleprice span span') ||
+              parentWrapper?.querySelector('.bundleprice span');
+            priceText = priceElement?.textContent.trim() || '';
+          }
+
+          const priceValue = parseFloat(priceText.replace(/[^0-9.]/g, ''));
+          if (!isNaN(priceValue)) {
+            totalPrice += priceValue;
+          }
+
+          const originalPriceElement = parentWrapper?.querySelector('.whitespace-nowrap p .line-through');
+          if (originalPriceElement) {
+            const originalText = originalPriceElement.textContent.trim();
+            const originalValue = parseFloat(originalText.replace(/[^0-9.]/g, ''));
+            if (!isNaN(originalValue)) {
+              totalOriginalPrice += originalValue;
+            } else {
+              totalOriginalPrice += priceValue;
+            }
+          } else {
+            totalOriginalPrice += priceValue;
+          }
+        });
+
+        addToCartButton.textContent = totalPrice > 0 ? `Shop all £${totalPrice.toFixed(2)}` : 'Shop all';
+
+        const savings = totalOriginalPrice - totalPrice;
+        const youSaveElement = document.querySelector('.you-save-title');
+
+        if (youSaveElement) {
+          if (savings > 0) {
+            const savingsPercent = Math.round((savings / totalOriginalPrice) * 100);
+            youSaveElement.innerHTML = `
+              <span style="display: inline-flex; align-items: center;">
+                <img src="https://cdn.shopify.com/s/files/1/0727/6075/4464/files/card_e1417ddf-5c60-4a66-a0d6-993ea9c2daf2.png?v=1743407538" 
+                    alt="Save icon" 
+                    style="width: 32px; height: 32px; margin-right: 4px;" />
+                Save £${savings.toFixed(2)} / ${savingsPercent}%
+              </span>
+            `;
+            youSaveElement.style.setProperty('display', 'block');
+          } else {
+            youSaveElement.style.setProperty('display', 'none');
+          }
+        }
+
+        if (savings > 0) {
+          const savingsPercent = Math.round((savings / totalOriginalPrice) * 100);
+        }
+      }
+      function handleCardColoursForSmallScreens() {
+        if (window.innerWidth < 1280) {
+          const productCards = document.querySelectorAll('.shop-the-look-scrollbar .product-card');
+
+          productCards.forEach((card) => {
+            const coloursContainer = card.querySelector('.card__colours');
+            const colourLinks = coloursContainer?.querySelectorAll('.card__colours > a');
+            const leadingTightLink = coloursContainer?.querySelector('.leading-tight > a');
+
+            if (colourLinks && leadingTightLink) {
+              const totalColours = colourLinks.length;
+
+              if (totalColours > 3) {
+                colourLinks.forEach((link, index) => {
+                  link.style.display = index < 3 ? 'flex' : 'none';
+                });
+
+                const extraColours = totalColours - 3;
+                const existingText = leadingTightLink.textContent.trim();
+                const currentExtra = parseInt(existingText.replace(/[^0-9]/g, ''), 10);
+
+                leadingTightLink.textContent = `+${currentExtra + extraColours} more`;
+              }
+            }
+          });
+        }
+      }
+
+      addToCartButton?.addEventListener('click', function () {
+        const productInputs = document.querySelectorAll('input.pdp-shop-the-look-product:checked');
+
+        if (productInputs.length === 0) {
+          return;
+        }
+
+        const itemsToAdd = [];
+
+        productInputs.forEach((input) => {
+          const parentWrapper = input.closest('.grid');
+          const productCard = parentWrapper?.querySelector('.product-card');
+
+          if (productCard) {
+            const selectedId = productCard.dataset.selectedid;
+
+            if (selectedId) {
+              itemsToAdd.push({
+                id: selectedId,
+                quantity: 1,
+              });
+            }
+          }
+        });
+
+        if (itemsToAdd.length === 0) {
+          return;
+        }
+
+        fetch('/cart/add.js', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ items: itemsToAdd }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            const cartDrawer = document.querySelector('cart-drawer');
+            if (cartDrawer) {
+              cartDrawer.refreshCart();
+
+              setTimeout(() => {
+                cartDrawer.open();
+              }, 700);
+            }
+          })
+          .catch((error) => {
+            console.error('Error adding items to cart:', error);
+          });
+      });
+
+      const fakeCheckboxes = document.querySelectorAll('.pdp-shop-the-look-checkbox');
+
+      fakeCheckboxes.forEach((fakeCheckbox) => {
+        fakeCheckbox.addEventListener('click', () => {
+          const realCheckbox = fakeCheckbox.previousElementSibling;
+
+          if (realCheckbox) {
+            realCheckbox.checked = !realCheckbox.checked;
+
+            fakeCheckbox.classList.toggle('text-white', !realCheckbox.checked);
+            updateButtonPrice();
+          }
+        });
+
+        const realCheckbox = fakeCheckbox.previousElementSibling;
+        if (realCheckbox && !realCheckbox.checked) {
+          fakeCheckbox.classList.remove('text-white');
+        }
+      });
+
+      if (window.innerWidth < 1280) {
+        const cardInnerElements = document.querySelectorAll('.shop-the-look-scrollbar .product-card .card__inner');
+
+        cardInnerElements.forEach((cardInner) => {
+          cardInner.addEventListener('click', (event) => {
+            const parentWrapper = cardInner.closest('.grid');
+            const realCheckbox = parentWrapper?.querySelector('input.pdp-shop-the-look-product');
+
+            if (realCheckbox) {
+              realCheckbox.checked = !realCheckbox.checked;
+
+              const fakeCheckbox = parentWrapper.querySelector('.pdp-shop-the-look-checkbox');
+              if (fakeCheckbox) {
+                fakeCheckbox.classList.toggle('text-white', !realCheckbox.checked);
+              }
+
+              updateButtonPrice();
+            }
+          });
+        });
+      }
+
+      const toggle = document.getElementById('shop-the-look-toggle');
+      const content = document.getElementById('shop-the-look-scrollbar');
+      const arrow = document.querySelector('.shop-the-look-arrow');
+
+      if (!toggle || !content || !arrow) {
+        return;
+      }
+
+      toggle.addEventListener('click', () => {
+        if (content.classList.contains('mob-hidden')) {
+          content.classList.remove('mob-hidden');
+          content.style.height = `100%`;
+          arrow.classList.add('active');
+        } else {
+          content.style.height = '0';
+          setTimeout(() => content.classList.add('mob-hidden'), 300);
+          arrow.classList.remove('active');
+        }
+      });
+
+      const container = document.querySelector('.shop-the-look-container');
+      const scrollbar = document.querySelector('.custom-scrollbar');
+
+      const thumb = document.createElement('div');
+      thumb.classList.add('thumb');
+      scrollbar.appendChild(thumb);
+
+      let isDragging = false;
+      let startY = 0;
+      let startScrollTop = 0;
+
+      const updateThumb = () => {
+        const contentHeight = content.scrollHeight;
+        const visibleHeight = content.clientHeight;
+        const scrollRatio = visibleHeight / contentHeight;
+        const thumbHeight = visibleHeight * scrollRatio;
+
+        thumb.style.height = `${thumbHeight}px`;
+        thumb.style.top = `${content.scrollTop * scrollRatio}px`;
+      };
+
+      const onDragStart = (e) => {
+        isDragging = true;
+        startY = e.clientY;
+        startScrollTop = content.scrollTop;
+        document.body.style.userSelect = 'none';
+      };
+
+      const onDrag = (e) => {
+        if (!isDragging) return;
+
+        const deltaY = e.clientY - startY;
+        const contentHeight = content.scrollHeight;
+        const visibleHeight = content.clientHeight;
+        const scrollRatio = contentHeight / visibleHeight;
+
+        content.scrollTop = startScrollTop + deltaY * scrollRatio;
+      };
+
+      const onDragEnd = () => {
+        isDragging = false;
+        document.body.style.userSelect = '';
+      };
+
+      thumb.addEventListener('mousedown', onDragStart);
+      document.addEventListener('mousemove', onDrag);
+      document.addEventListener('mouseup', onDragEnd);
+
+      content.addEventListener('scroll', updateThumb);
+      container.addEventListener('mouseenter', updateThumb);
+
+      updateThumb();
+      updateButtonPrice();
+
+      handleCardColoursForSmallScreens();
+    });
+  </script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Shop the look section",
+  "tag": "section",
+  "class": "shop-the-look-section",
+  "settings": [
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Title",
+      "default": "Shop the look"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 48
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Shop the look section"
+    }
+  ]
+}
+{% endschema %}

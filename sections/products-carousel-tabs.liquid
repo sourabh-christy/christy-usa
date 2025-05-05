@@ -1,0 +1,104 @@
+{{ 'splide.min.css' | asset_url | stylesheet_tag }}
+
+<div id="tabs" class="tabs-soft-js">
+  <nav-underline-animated>
+    <div class="container container-sm flex justify-center items-center flex-col w-full mb-4 md:mb-[30px] relative">
+      <div data-nav-list class="flex justify-center w-full md:w-auto md:inline-flex md:mx-auto">
+        {% for block in section.blocks %}
+          {% assign bs = block.settings %}
+          <button
+            class="tab-link {% if forloop.first %}active{% endif %} text-xl pb-4 md:px-8 flex-1 md:flex-initial md:[&.active+.shop-all-link]:block"
+            data-tab="tab{{ forloop.index }}"
+            data-nav-item
+          >
+            {%- if block.settings.title != blank -%}
+              <h2 class="font-sec text-xl whitespace-nowrap font-normal">{{ block.settings.title }}</h2>
+            {%- endif -%}
+          </button>
+
+          {% capture tabsContent %}
+            {{ tabsContent }}
+
+            <div id="tab{{ forloop.index }}"
+                 class="container container-sm space-y-5 lg:space-y-8 overflow-hidden tab-content {% unless forloop.first %}tab-content-hidden-soft{% endunless %}">
+              {% unless forloop.first %}
+                {% assign slider_class = 'splide-delayed-init' %}
+              {% endunless %}
+              {% render 'products-carousel-with-nav', products: bs.products, class: slider_class  %}
+
+              {% if bs.link_text != blank and bs.link_url != blank %}
+                <a href="{{ bs.link_url }}"
+                   class="shop-all-link-mob text-xs font-normal text-primary-blue underline inline-block !mt-0
+                   -top-[18px] relative leading-[0] md:hidden">
+                  {{ bs.link_text }}
+                </a>
+              {% endif %}
+            </div>
+          {% endcapture %}
+
+          {%- if block.settings.link_text != blank and block.settings.link_url != blank -%}
+            <a href="{{ block.settings.link_url }}"
+               class="absolute shop-all-link top-0.5 right-4 lg:right-12 text-sm font-normal text-primary-blue underline hidden">
+              {{ block.settings.link_text }}
+            </a>
+          {%- endif -%}
+        {% endfor %}
+      </div>
+
+      <div data-underline-track class="relative h-px bg-secondary-blue-200">
+        <div data-underline class="absolute bottom-0 h-0.5 bg-primary-blue transition-all"></div>
+      </div>
+    </div>
+  </nav-underline-animated>
+
+  {{ tabsContent }}
+</div>
+
+{% schema %}
+{
+  "name": "Products Carousel Tabs",
+  "tag": "section",
+  "class": "section-slider-tabs",
+  "disabled_on": {
+    "groups": ["header", "footer"],
+    "templates": ["article"]
+  },
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Best Sellers"
+        },
+        {
+          "type": "product_list",
+          "id": "products",
+          "label": "Products",
+          "info": "Choose a list of products which will display as a carousel."
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link Text",
+          "default": "Shop all"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Link URL"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Products Carousel Tabs"
+    }
+  ]
+}
+{% endschema %}

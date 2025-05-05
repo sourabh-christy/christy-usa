@@ -1,0 +1,46 @@
+.product-faq {
+     padding: 20px; margin-top: 20px;
+ }
+.product-faq h2{
+    text-align: center;
+    cursor: pointer;
+}
+.faq-item {
+    margin-bottom: 5px;
+}
+.faq-question {
+    font-weight: bold; cursor: pointer;
+}
+.faq-answer {
+    color: #555;
+    margin-bottom: 15px;
+}
+.container_inner {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-top: 30px;
+}
+
+.column {
+    padding: 20px;
+}
+
+/* Desktop - Two divs side by side (50% each) */
+@media (min-width: 1024px) {
+    .column {
+        width: 50%;
+    }
+}
+
+/* Tablet & Mobile - Two divs in a row (100% each) */
+@media (max-width: 1023px) {
+    .column {
+        width: 100%;
+        padding-bottom: 0;
+        padding-top: 0;
+    }
+    .m-h1 {
+        font-size: 30px;
+    }
+}

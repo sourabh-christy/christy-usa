@@ -1,143 +1,70 @@
 {{ 'splide.min.css' | asset_url | stylesheet_tag }}
 <div
-  id="FeaturedBlogs-{{ section.id }}"
-  class="overflow-hidden"
+    id="FeaturedBlogs-{{ section.id }}"
+    class="overflow-hidden"
 >
-  <div class="container space-y-5 lg:space-y-8">
-    <div
-      class="splide group/splide space-y-5 lg:space-y-8"
-      data-splide='
-        {"arrows": true, "pagination": false, "type": "slide", "gap": "40px", "autoWidth": true, "focus": 0, "omitEnd": true, "breakpoints": {
-          "768": {
-            "gap": "20px"
-          }
-        }}
-      '
-    >
-      <header class="flex gap-12 md:items-center">
-        <h2 class="block-title desktop-title" id="desktop-title-{{ section.id }}">
-          {{ section.settings.title }}
-        </h2>
-        
-        <!-- Mobile Title -->
-        <h2 class="block-title mobile-title" id="mobile-title-{{ section.id }}">
-          {% if section.settings.mobile_title != blank %}
-            {{ section.settings.mobile_title }}
-          {% else %}
-            {{ section.settings.title }}
-          {% endif %}
-        </h2>
- 
-        <div class="flex flex-1 justify-between items-center">
-          {% if section.settings.button_title and section.settings.button_link %}
-            <a class="btn-secondary btn-medium" href="{{ section.settings.button_link }}">
-              {{- section.settings.button_title -}}
-            </a>
-          {% endif %}
+  <div class="container space-y-5 lg:space-y-8 overflow-hidden">
+    <div class="flex gap-12 md:items-center">
+      {% if section.settings.title != blank %}
+        <h2 class="block-title text-blue-1">{{ section.settings.title }}</h2>
+      {% endif %}
 
-          <div class="splide__arrows splide__arrows--ltr hidden group-[.is-initialized]/splide:!flex justify-end  !-mr-[15px] !ml-auto">
-            <button
-              class="splide__arrow splide__arrow--prev !w-10 !h-10 disabled:!opacity-0 transition-opacity !bg-transparent !static !transform-none outline-none"
-              type="button"
-              aria-label="Previous slide"
-              aria-controls="splide01-track"
-            >
-              <svg class="w-full" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                <path class="fill-blue-1" d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z"/>
-              </svg>
-            </button>
-            <button
-              class="splide__arrow splide__arrow--next !w-10 !h-10 disabled:!opacity-0 transition-opacity !bg-transparent !static !transform-none outline-none"
-              type="button"
-              aria-label="Next slide"
-              aria-controls="splide01-track"
-            >
-              <svg class="w-full" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                <path class="fill-blue-1" d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z"/>
-              </svg>
-            </button>
-          </div>
-        </div>
-      </header>
-
-      <div class="splide__track !overflow-visible">
-        <div class="splide__list text-blue-1">
-          {% for car_product in section.settings.products -%}
-            {% assign collection = block.settings.collection %}
-            {% assign theimage = blank %}
-
-            {% liquid
-              assign span_class = 'w-[245px] lg:w-[327px]'
-            %}
-            <div class="splide__slide {{ span_class }}">
-              {% render 'card-product', card_product: car_product, section_id: section.id %}
-            </div>
-          {% endfor %}
-        </div>
+      <div class="flex flex-1 justify-between items-center">
+        {% if section.settings.button_title and section.settings.button_link %}
+          <a class="btn-secondary btn-medium" href="{{ section.settings.button_link }}">
+            {{- section.settings.button_title -}}
+          </a>
+        {% endif %}
       </div>
     </div>
+
+    {% render 'products-carousel-with-nav', products: section.settings.products %}
   </div>
 </div>
 
 {% style %}
   {%- if section.settings.title_font_size_mob != blank -%}
-  #shopify-section-{{ section.id }} .block-title {
+    #shopify-section-{{ section.id }} .block-title {
     font-size: {{ section.settings.title_font_size_mob }}px;
-  }
+    }
   {%- endif -%}
 
   {%- if section.settings.title_font_weight != blank -%}
-  #shopify-section-{{ section.id }} .block-title {
-    font-weight: {{ section.settings.title_font_weight }};
-  }
-  {%- endif -%}
-
-  {%- if section.settings.title_font_family != blank -%}
     #shopify-section-{{ section.id }} .block-title {
-      font-family: 
-        {%- if section.settings.title_font_family == 'serif' -%}
-          serif
-        {%- elsif section.settings.title_font_family == 'sans-serif' -%}
-          sans-serif
-        {%- else -%}
-          "Hatton", serif
-        {%- endif -%};
+    font-weight: {{ section.settings.title_font_weight }};
     }
   {%- endif -%}
+
+  {%- if section.settings.title_font_family != blank and section.settings.title_font_family == 'serif' -%}
+    #shopify-section-{{ section.id }} .block-title {
+    font-family: "Hatton", serif;
+    }
+  {%- endif -%}
+
+  {% if section.settings.screen_visibility == 'mobile' %}
+    @media all and (min-width: 768px ) {
+    #shopify-section-{{ section.id }} {
+    display: none !important;
+    }
+    }
+  {% endif %}
+
+  {% if section.settings.screen_visibility == 'desktop' %}
+    @media all and (max-width: 767px ) {
+    #shopify-section-{{ section.id }} {
+    display: none !important;
+    }
+    }
+  {% endif %}
 
   {%- if section.settings.title_font_size_desktop != blank -%}
-  @media all and (min-width: 1024px) {
-      #shopify-section-{{ section.id }} .block-title {
-        font-size: {{ section.settings.title_font_size_desktop }}px;
-      }
-  }
+    @media all and ( min-width: 1024px ) {
+
+    #shopify-section-{{ section.id }} .block-title {
+    font-size: {{ section.settings.title_font_size_desktop }}px;
+    }
+    }
   {%- endif -%}
-
-  #desktop-title-{{ section.id }}, #mobile-title-{{ section.id }} {
-    font-size: {{ section.settings.title_font_size_mob }}px;
-    font-weight: {{ section.settings.title_font_weight }};
-    font-family: {{ section.settings.title_font_family }};
-  }
-
-  /* Mobile specific styles */
-  @media only screen and (max-width: 767px) {
-    #desktop-title-{{ section.id }} {
-      display: none;
-    }
-    #mobile-title-{{ section.id }} {
-      display: block;
-    }
-  }
-
-  /* Desktop specific styles */
-  @media only screen and (min-width: 768px) {
-    #desktop-title-{{ section.id }} {
-      display: block;
-    }
-    #mobile-title-{{ section.id }} {
-      display: none;
-    }
-  }
 {% endstyle %}
 
 {% schema %}
@@ -154,12 +81,6 @@
       "type": "text",
       "id": "title",
       "label": "Title",
-      "default": "Our Best Sellers"
-    },
-    {
-      "type": "text",
-      "id": "mobile_title",
-      "label": "Mobile Title",
       "default": "Our Best Sellers"
     },
     {
@@ -196,15 +117,15 @@
           "label": "Normal"
         },
         {
-          "value": "500",
+          "value": "600",
           "label": "Semi Bold"
         },
         {
-          "value": "600",
+          "value": "700",
           "label": "Bold"
         }
       ],
-      "default": "500"
+      "default": "600"
     },
     {
       "type": "select",
@@ -218,13 +139,9 @@
         {
           "value": "serif",
           "label": "Serif"
-        },
-        {
-          "value": "Hatton, serif",
-          "label": "Hatton, serif"
         }
       ],
-      "default": "Hatton, serif"
+      "default": "sans-serif"
     },
     {
       "type": "text",
@@ -272,4 +189,3 @@
   ]
 }
 {% endschema %}
-{% render 'quickview-drawer' -%} 

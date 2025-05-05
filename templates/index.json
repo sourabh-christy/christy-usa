@@ -9,185 +9,512 @@
  */
 {
   "sections": {
-    "97fe06ff-d1d9-4c8d-9cb3-24b8e821d00d": {
-      "type": "hero-image",
+    "hero_banner_YkXbVW": {
+      "type": "hero-banner",
       "settings": {
-        "image": "shopify://shop_images/Bath-Bestseller-DESKTOP.jpg",
-        "image_mobile": "shopify://shop_images/Bath-Bestseller-MOBILE.jpg",
-        "image_tab": "shopify://shop_images/Bath-Bestseller-TABLET.jpg",
-        "link": "shopify://collections/towels",
+        "title": "",
+        "sub-title": "",
+        "title_font_size_mob": 28,
+        "title_font_size_desktop": 57,
+        "sub-title_font_size_mob": 32,
+        "sub-title_font_size_desktop": 57,
+        "mobile_subtitle": "show",
+        "desktop_subtitle": "hide",
+        "alignment": "center",
+        "text-colour": "blue",
+        "positioning": "bottom-center",
+        "btn-link": "shopify://collections/bedroom-new-in",
+        "btn-title": "SHOP SS25",
+        "btn-colour": "blue",
+        "image": "shopify://shop_images/DESKTOP_a7c7236f-0df6-4bb4-b6de-e780fb425bf9.jpg",
+        "image_mobile": "shopify://shop_images/780X1200.jpg",
         "full_width": true
       }
     },
-    "d1799047-2d3f-4748-9804-8038692b0c63": {
-      "type": "heading",
-      "settings": {
-        "heading": "<p>Creating Luxuries Since 1850</p>",
-        "heading_font_size_mob": 24,
-        "heading_font_size_desktop": 36,
-        "heading_font_weight": "400",
-        "heading_font_family": "Hatton, serif",
-        "heading_width": "6",
-        "copy": "<p>Often called the inventors of the modern towel, our heritage is a testament to unparalleled precision and the artistry of British craftsmanship.</p><p><a href=\"/pages/our-heritage\" title=\"Our Heritage\">Discover More</a></p>",
-        "heading_copy_font_size_mob": 15,
-        "heading_copy_font_size_desktop": 14,
-        "heading_copy_font_weight": "300",
-        "heading_copy_font_family": "Tomato Grotesk",
-        "copy_style": "default",
-        "alignment": "left",
-        "alignment_mob": "center",
-        "horiz_padding": false,
-        "margin_top": false,
-        "background_color": "#f3f3f3",
-        "font_color": "#2c3b96"
-      }
-    },
-    "heading": {
-      "type": "heading",
-      "disabled": true,
-      "settings": {
-        "heading": "<p>Discover the magic in <br/>everyday moments.</p>",
-        "heading_font_size_mob": 24,
-        "heading_font_size_desktop": 36,
-        "heading_font_weight": "600",
-        "heading_font_family": "sans-serif",
-        "heading_width": "4",
-        "copy": "",
-        "heading_copy_font_size_mob": 12,
-        "heading_copy_font_size_desktop": 14,
-        "heading_copy_font_weight": "300",
-        "heading_copy_font_family": "sans-serif",
-        "copy_style": "default",
-        "alignment": "center",
-        "alignment_mob": "center",
-        "horiz_padding": true,
-        "margin_top": false,
-        "background_color": "#ffffff",
-        "font_color": "#000000"
-      }
-    },
-    "de1b0a2d-4cb0-4dbd-a641-18437895549a": {
-      "type": "collections-carousel",
+    "categories_navigation_hamAih": {
+      "type": "categories-navigation",
       "blocks": {
-        "683c86e1-1e16-4aa5-b1fc-ed306a9535cc": {
-          "type": "collection",
+        "mobile_block_ynPXXY": {
+          "type": "mobile_block",
           "settings": {
-            "collection": "towels",
-            "usp_title": "",
-            "image": "shopify://shop_images/Trellis_Oak_Lifestyle.jpg",
-            "alt_title": "Towels",
-            "excerpt": "<p>Wrap yourself in plush, indulgent luxury & comfort.</p>",
-            "collection_carousel_excerpt_font_size_mob": 15,
-            "collection_carousel_excerpt_font_size_desktop": 25,
-            "collection_carousel_excerpt_font_weight": "300",
-            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
+            "title": "Bath",
+            "collection_title_1": "All Bath",
+            "collection_link_1": "bathroom",
+            "mob-filter-image-collection-1": "shopify://shop_images/Bath_ByGifting.webp",
+            "collection_title_2": "Towels",
+            "collection_link_2": "towels",
+            "mob-filter-image-collection-2": "shopify://shop_images/Bath_ByColours.webp",
+            "collection_title_3": "Bath Mats & Rugs",
+            "collection_link_3": "bathroom-all-luxury-mats-rugs",
+            "mob-filter-image-collection-3": "shopify://shop_images/Bath_mat.jpg",
+            "collection_title_4": "Robes",
+            "collection_link_4": "bathroom-bathrobes-view-all-robes",
+            "mob-filter-image-collection-4": "shopify://shop_images/ROBES_-_By_Collection.webp"
           }
         },
-        "2f3cb25a-b518-49ee-afab-a5c33fb259f7": {
-          "type": "collection",
+        "mobile_block_DBcaJ9": {
+          "type": "mobile_block",
           "settings": {
-            "collection": "bath-mats-and-rugs",
-            "usp_title": "",
-            "image": "shopify://shop_images/9.png",
-            "alt_title": "Bath Mats & Rugs",
-            "excerpt": "<p>Experience the soft embrace of luxury underfoot.</p>",
-            "collection_carousel_excerpt_font_size_mob": 15,
-            "collection_carousel_excerpt_font_size_desktop": 24,
-            "collection_carousel_excerpt_font_weight": "300",
-            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
+            "title": "Bed",
+            "collection_title_1": "All Bed",
+            "collection_link_1": "bedroom",
+            "mob-filter-image-collection-1": "shopify://shop_images/BED_-_Gifting.webp",
+            "collection_title_2": "Duvet Sets",
+            "collection_link_2": "duvet-sets",
+            "mob-filter-image-collection-2": "shopify://shop_images/BED_-_By_Style.webp",
+            "collection_title_3": "Throws & Cushions",
+            "collection_link_3": "bedroom-cushions-throws",
+            "mob-filter-image-collection-3": "shopify://shop_images/BED_ByStyle.webp",
+            "collection_title_4": "Duvets & Pillows",
+            "collection_link_4": "bedroom-duvets-pillows",
+            "mob-filter-image-collection-4": "shopify://shop_images/BED_ByCollection.webp"
           }
         },
-        "ade5aede-0029-4b09-aee8-6e48f8cfe8be": {
-          "type": "collection",
+        "mobile_block_wyzK6g": {
+          "type": "mobile_block",
           "settings": {
-            "collection": "bundle",
-            "usp_title": "",
-            "image": "shopify://shop_images/4.png",
-            "alt_title": "Bundles",
-            "excerpt": "<p>Create your spa escape with premium bundles.</p>",
-            "collection_carousel_excerpt_font_size_mob": 15,
-            "collection_carousel_excerpt_font_size_desktop": 24,
-            "collection_carousel_excerpt_font_weight": "300",
-            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
+            "title": "Robes",
+            "collection_title_1": "All Robes",
+            "collection_link_1": "bathroom-bathrobes-view-all-robes",
+            "mob-filter-image-collection-1": "shopify://shop_images/ROBES_-_By_Colour.webp",
+            "collection_title_2": "Mens Robes",
+            "collection_link_2": "mens-robes",
+            "mob-filter-image-collection-2": "shopify://shop_images/Men_s_Robe-Revised.jpg",
+            "collection_title_3": "Womens Robes",
+            "collection_link_3": "womens-robes",
+            "mob-filter-image-collection-3": "shopify://shop_images/Women_s_Robe-Revised.jpg",
+            "collection_title_4": "Baby Robes",
+            "collection_link_4": "baby-robes",
+            "mob-filter-image-collection-4": "shopify://shop_images/Robe_Blue-24.jpg"
           }
         },
-        "collection_GTHHpe": {
-          "type": "collection",
-          "disabled": true,
+        "desktop_block_Px9xFF": {
+          "type": "desktop_block",
           "settings": {
-            "collection": "all",
-            "usp_title": "",
-            "image": "shopify://shop_images/Luxe_Lifestyle_White_1_a6aad91c-7640-49b9-8beb-ce40fbf206b9.jpg",
-            "alt_title": "All Collections",
-            "excerpt": "",
-            "collection_carousel_excerpt_font_size_mob": 18,
-            "collection_carousel_excerpt_font_size_desktop": 30,
-            "collection_carousel_excerpt_font_weight": "600",
-            "collection_carousel_excerpt_font_family": "serif"
+            "title": "Bath",
+            "image": "shopify://shop_images/326-x-326-Towels.webp",
+            "collection_title_1": "All Bath",
+            "collection_link_1": "bathroom",
+            "collection_title_2": "Towels",
+            "collection_link_2": "towels",
+            "collection_title_3": "Bath Mats & Rugs",
+            "collection_link_3": "bathroom-all-luxury-mats-rugs",
+            "collection_title_4": "Robes",
+            "collection_link_4": "bathroom-bathrobes-view-all-robes"
+          }
+        },
+        "desktop_block_fKFTKq": {
+          "type": "desktop_block",
+          "settings": {
+            "title": "Bed",
+            "image": "shopify://shop_images/326-x-326-Bed.webp",
+            "collection_title_1": "All Bed",
+            "collection_link_1": "bedroom",
+            "collection_title_2": "Duvet Sets",
+            "collection_link_2": "duvet-sets",
+            "collection_title_3": "Throws & Cushions",
+            "collection_link_3": "bedroom-cushions-throws",
+            "collection_title_4": "Duvets & Pillows",
+            "collection_link_4": "bedroom-duvets-pillows"
+          }
+        },
+        "desktop_block_8EwbTj": {
+          "type": "desktop_block",
+          "settings": {
+            "title": "Robes",
+            "image": "shopify://shop_images/326-x-326-Robes.webp",
+            "collection_title_1": "All Robes",
+            "collection_link_1": "bathroom-bathrobes-view-all-robes",
+            "collection_title_2": "Mens Robes",
+            "collection_link_2": "mens-robes",
+            "collection_title_3": "Womens Robes",
+            "collection_link_3": "womens-robes",
+            "collection_title_4": "Baby Robes",
+            "collection_link_4": "baby-robes"
+          }
+        },
+        "desktop_block_QzzPDm": {
+          "type": "desktop_block",
+          "settings": {
+            "title": "Bundles",
+            "image": "shopify://shop_images/326-x-326-Bundles.webp",
+            "collection_title_1": "All Bundles",
+            "collection_link_1": "all-bundles",
+            "collection_title_2": "Towel Bundles",
+            "collection_link_2": "towel-bundles",
+            "collection_title_3": "Bed Bundles",
+            "collection_link_3": "bedding-bundles",
+            "collection_title_4": "Robe Bundles",
+            "collection_link_4": "robe-bundles"
           }
         }
       },
       "block_order": [
-        "683c86e1-1e16-4aa5-b1fc-ed306a9535cc",
-        "2f3cb25a-b518-49ee-afab-a5c33fb259f7",
-        "ade5aede-0029-4b09-aee8-6e48f8cfe8be",
-        "collection_GTHHpe"
+        "mobile_block_ynPXXY",
+        "mobile_block_DBcaJ9",
+        "mobile_block_wyzK6g",
+        "desktop_block_Px9xFF",
+        "desktop_block_fKFTKq",
+        "desktop_block_8EwbTj",
+        "desktop_block_QzzPDm"
       ],
-      "custom_css": [],
       "settings": {
-        "title": "Shop By Category",
-        "collection_carousel_title_font_size_mob": 24,
-        "collection_carousel_title_font_size_desktop": 36,
-        "collection_carousel_title_font_weight": "300",
-        "collection_carousel_title_font_family": "Hatton, serif",
-        "screen_visibility": "both"
+        "baner": "shopify://shop_images/Signature_Slate-Blue_Detail.jpg",
+        "baner-title": "Signature",
+        "baner-text": "Bring the hotel home and feel cloud-like comfort with our new Signature towel.",
+        "baner-cta": "SHOP NOW",
+        "baner-link": "https://www.christy.co.uk/products/signature-towels?_pos=1&_psq=signature&_ss=e&_v=1.0"
       }
     },
-    "heading2": {
+    "heading_4WLAcK": {
       "type": "heading",
       "settings": {
-        "heading": "<p>Fit For Royalty</p>",
-        "heading_font_size_mob": 24,
-        "heading_font_size_desktop": 36,
+        "heading": "<p>History-makers since 1850</p>",
+        "heading_font_size_mob": 32,
+        "heading_font_size_desktop": 37,
         "heading_font_weight": "400",
         "heading_font_family": "Hatton, serif",
         "heading_width": "6",
-        "copy": "<p>Since 1851, when they caught the eye of none other than Queen Victoria, our towels have been cherished by many.</p>",
-        "heading_copy_font_size_mob": 15,
-        "heading_copy_font_size_desktop": 15,
+        "copy": "<p>We changed households forever with the invention of the terry loom in 1850, bringing fluffy, terry cotton towels to the world. Today, we honour the spirit of innovation with new techniques to craft the best fabrics imaginable. </p>",
+        "heading_copy_font_size_mob": 14,
+        "heading_copy_font_size_desktop": 16,
         "heading_copy_font_weight": "300",
         "heading_copy_font_family": "Tomato Grotesk",
         "copy_style": "default",
         "alignment": "left",
         "alignment_mob": "center",
         "horiz_padding": false,
-        "margin_top": false,
-        "background_color": "#f3f3f3",
-        "font_color": "#2c3b96"
+        "margin_top": false
       }
     },
-    "5f8fd688-f484-4f34-9ee0-6dd133c393ad": {
-      "type": "products-carousel",
+    "products_carousel_tabs_FUqqcR": {
+      "type": "products-carousel-tabs",
+      "blocks": {
+        "tab_CBQPVH": {
+          "type": "tab",
+          "settings": {
+            "title": "Best Sellers",
+            "products": [
+              "renaissance",
+              "400-thread-count-sateen-plain-dye",
+              "jaipur-throw",
+              "supreme-hygro",
+              "cosy-robe"
+            ],
+            "link_text": "Shop all",
+            "link_url": "shopify://collections/towel-bestsellers"
+          }
+        },
+        "tab_EFrfH4": {
+          "type": "tab",
+          "settings": {
+            "title": "New arrivals",
+            "products": [
+              "scallop-towels",
+              "scallop-robes",
+              "signature-towels",
+              "balmoral-duvet-set",
+              "boundary-robe"
+            ],
+            "link_text": "Shop all",
+            "link_url": "shopify://collections/new"
+          }
+        }
+      },
+      "block_order": [
+        "tab_CBQPVH",
+        "tab_EFrfH4"
+      ],
+      "settings": {}
+    },
+    "0e8d554c-badf-4239-a36e-276ffacfb5fc": {
+      "type": "reviews-carousel",
+      "blocks": {
+        "template--21202652987680__0e8d554c-badf-4239-a36e-276ffacfb5fc-block-1": {
+          "type": "block",
+          "settings": {
+            "product": "supreme-hygro",
+            "title": "How have I lived without these towels for all these years?",
+            "testimonial": "<p>\"Fabulous quality, generous size, no shedding lint (which is a huge bonus). I will never buy any other make of towels again.\"</p>",
+            "name": "Laura Howarth"
+          }
+        },
+        "template--21202652987680__0e8d554c-badf-4239-a36e-276ffacfb5fc-block-2": {
+          "type": "block",
+          "settings": {
+            "product": "400-thread-count-sateen-plain-dye",
+            "title": "It's the subtle sheen of the sateen weave that truly elevates it",
+            "testimonial": "<p>\"The 400 thread count cotton is incredibly soft and smooth. It adds a touch of elegance without being overstated, making it perfect for a minimalist bedroom.\"</p>",
+            "name": "Katie Calvo"
+          }
+        },
+        "template--21202652987680__0e8d554c-badf-4239-a36e-276ffacfb5fc-block-3": {
+          "type": "block",
+          "settings": {
+            "product": "jaipur-throw",
+            "title": "Looks beautiful on the sofa or bed",
+            "testimonial": "<p>“The throw is soft, thick and warm. Love the colour and it looks beautiful on the sofa or bed.”</p>",
+            "name": "Beverley Ballard"
+          }
+        },
+        "block_N8gTrj": {
+          "type": "block",
+          "settings": {
+            "product": "super-soft-cosy-robe",
+            "title": "Very well made",
+            "testimonial": "<p>\"A really soft beautiful dressing gown. I have bought several of these in the past. Very well made.\"</p>",
+            "name": "Elaine Davis"
+          }
+        }
+      },
+      "block_order": [
+        "template--21202652987680__0e8d554c-badf-4239-a36e-276ffacfb5fc-block-1",
+        "template--21202652987680__0e8d554c-badf-4239-a36e-276ffacfb5fc-block-2",
+        "template--21202652987680__0e8d554c-badf-4239-a36e-276ffacfb5fc-block-3",
+        "block_N8gTrj"
+      ],
+      "settings": {}
+    },
+    "history_slide_pAMHFW": {
+      "type": "history-slide",
+      "blocks": {
+        "slide_jDBgYB": {
+          "type": "slide",
+          "settings": {
+            "text_left": "1850s",
+            "text_center": "<p><strong>Henry Christy creates the first towel.</strong>Henry, son of the established spinners W.M. Christy & Sons, invents the industrial terry loom to spin fluffy towels for the first time in history. </p>",
+            "image": "shopify://shop_images/picture.png"
+          }
+        },
+        "slide_yCiCxK": {
+          "type": "slide",
+          "settings": {
+            "text_left": "1920s",
+            "text_center": "<p><strong>Ahead of our time.</strong><br/>Christy produces towelling beach wraps and exhibits them at the Toronto National Exhibition, offering something similar to today’s insulating beach robes. </p>",
+            "image": "shopify://shop_images/1920s.webp"
+          }
+        },
+        "slide_PBRfnA": {
+          "type": "slide",
+          "settings": {
+            "text_left": "1930s",
+            "text_center": "<p><strong>A riot in print and colour.</strong>In a world where towels were only in white, Christy leads the way with a fresh palette possible through new dye innovations to present colourful choices.  </p>",
+            "image": "shopify://shop_images/1930s_b2fd44e2-1a48-441f-b1b9-ce2954ac0ffd.webp"
+          }
+        },
+        "slide_6GJYy8": {
+          "type": "slide",
+          "settings": {
+            "text_left": "1940s",
+            "text_center": "<p><strong>Weaving towels in the War.</strong>Shortly after the Christy mills closed during the war, a national shortage of towels paved the way for workers to return, and production moved at pace.</p>",
+            "image": "shopify://shop_images/1940s_acc878e5-2f11-4fdb-919f-a312d9f92717.webp"
+          }
+        },
+        "slide_DKXGJR": {
+          "type": "slide",
+          "settings": {
+            "text_left": "1950s",
+            "text_center": "<p><strong>The great Centenary boom.</strong>The epitome of post-war glamour, international British model Barbara Goalen poses in an iconic series of photos, swathed in towels at Christy's Fairfield Mill.</p>",
+            "image": "shopify://shop_images/1950s_93ae8526-1300-49b4-a815-8bcf142650aa.webp"
+          }
+        },
+        "slide_exMYXR": {
+          "type": "slide",
+          "settings": {
+            "text_left": "1960s",
+            "text_center": "<p><strong>Embracing the spirit of the 60s.</strong>Luxury items like Christy towels settled further into a role based on 'desired, not required' with bold patterns and designs that reimagined home textiles.</p>",
+            "image": "shopify://shop_images/1960s_eed8de13-00f6-499b-95e5-f82244d2fa2d.webp"
+          }
+        },
+        "slide_NDkjCE": {
+          "type": "slide",
+          "settings": {
+            "text_left": "1970s",
+            "text_center": "<p><strong>Weaving threads of change.</strong>Christy chooses Pierre Cardin to launch a new Polyester/Vincel blend to the market, developed in-house as the next generation of sheeting material.</p>",
+            "image": "shopify://shop_images/1970s_dca2eedc-2ad8-41de-8491-dc9ba6303964.webp"
+          }
+        },
+        "slide_wnYCH8": {
+          "type": "slide",
+          "settings": {
+            "text_left": "1980s",
+            "text_center": "<p><strong>A match made in heaven.</strong>Christy has made the Wimbledon Championships towels since 1988, proudly designing a new towel every year and becoming part of the fabric of the competition along the way.</p>",
+            "image": "shopify://shop_images/1980s_f36d54bb-ce90-4ea6-9c96-aef456fe8f67.webp"
+          }
+        },
+        "slide_nfLcA7": {
+          "type": "slide",
+          "settings": {
+            "text_left": "2000s",
+            "text_center": "<p><strong>Shaping a new millennia. </strong>Christy launches a new bed linen collection to match our luxury towel ranges, with high thread counts, intricate embroidery, and beautifully woven designs. </p>",
+            "image": "shopify://shop_images/2000s_f53da4e2-69a0-480a-8f61-eb1ca84b9372.webp"
+          }
+        }
+      },
+      "block_order": [
+        "slide_jDBgYB",
+        "slide_yCiCxK",
+        "slide_PBRfnA",
+        "slide_6GJYy8",
+        "slide_DKXGJR",
+        "slide_exMYXR",
+        "slide_NDkjCE",
+        "slide_wnYCH8",
+        "slide_nfLcA7"
+      ],
       "settings": {
-        "title": "Discover Our Products",
-        "mobile_title": "Our Products",
-        "title_font_size_mob": 24,
-        "title_font_size_desktop": 36,
-        "title_font_weight": "400",
-        "title_font_family": "Hatton, serif",
-        "button_title": "",
-        "button_link": "",
-        "products": [
-          "supreme-hygro",
-          "renaissance",
-          "brixton-towels",
-          "brixton-shower-mat",
-          "deep-pile-rug",
-          "renaissance-bath-mat",
-          "reversible-bath-rug",
-          "supreme-bath-mat"
-        ],
-        "screen_visibility": "both"
+        "title": "Our History"
+      }
+    },
+    "shop_the_look_M6GEx8": {
+      "type": "shop-the-look",
+      "blocks": {
+        "product_8nhKPQ": {
+          "type": "product",
+          "settings": {
+            "product": "botanical-duvet-set",
+            "possition_y": 47,
+            "possition_x": 44,
+            "mob_possition_y": 78,
+            "mob_possition_x": 39,
+            "negative_y": true,
+            "negative_x": false,
+            "possition_product_y": 17,
+            "possition_product_x": 15
+          }
+        },
+        "product_xUU7EX": {
+          "type": "product",
+          "settings": {
+            "product": "jaipur-throw-copy-5",
+            "possition_y": 71,
+            "possition_x": 80,
+            "mob_possition_y": 64,
+            "mob_possition_x": 73,
+            "negative_y": true,
+            "negative_x": true,
+            "possition_product_y": 32,
+            "possition_product_x": 29
+          }
+        },
+        "product_dt6xNX": {
+          "type": "product",
+          "settings": {
+            "product": "jaipur-cushion-garnet",
+            "possition_y": 47,
+            "possition_x": 60,
+            "mob_possition_y": 52,
+            "mob_possition_x": 61,
+            "negative_y": true,
+            "negative_x": false,
+            "possition_product_y": 20,
+            "possition_product_x": 15
+          }
+        },
+        "product_FBtDUG": {
+          "type": "product",
+          "settings": {
+            "product": "scallop-edge-pillowcases",
+            "possition_y": 32,
+            "possition_x": 78,
+            "mob_possition_y": 44,
+            "mob_possition_x": 32,
+            "negative_y": false,
+            "negative_x": true,
+            "possition_product_y": 10,
+            "possition_product_x": 10
+          }
+        },
+        "product_TdLnzN": {
+          "type": "product",
+          "settings": {
+            "product": "oslo",
+            "possition_y": 65,
+            "possition_x": 64,
+            "mob_possition_y": 62,
+            "mob_possition_x": 48,
+            "negative_y": true,
+            "negative_x": true,
+            "possition_product_y": 54,
+            "possition_product_x": 0
+          }
+        }
+      },
+      "block_order": [
+        "product_8nhKPQ",
+        "product_xUU7EX",
+        "product_dt6xNX",
+        "product_FBtDUG",
+        "product_TdLnzN"
+      ],
+      "settings": {
+        "title": "Shop the look",
+        "image": "shopify://shop_images/Sage-2880x1600.jpg",
+        "mob_image": "shopify://shop_images/Sage-1024x1024.jpg",
+        "button_text": "SHOP THE LOOK -",
+        "product_bundle": "botanical-duvet-set",
+        "button_style": "blue",
+        "visible": false
+      }
+    },
+    "christy_life_rUWcGV": {
+      "type": "christy-life",
+      "blocks": {
+        "block_Np9CKe": {
+          "type": "block",
+          "settings": {
+            "title": "Only the best: picking your perfect towel",
+            "sub-title": "Feature",
+            "text": "There's an art to choosing the right towel. Absorb our expert tips to discover your ideal drying-down companion.",
+            "title_font_size_mob": 20,
+            "title_font_size_desktop": 45,
+            "sub-title_font_size_mob": 16,
+            "sub-title_font_size_desktop": 16,
+            "text_font_size_mob": 14,
+            "text_font_size_desktop": 16,
+            "alignment": "center",
+            "text-colour": "blue",
+            "positioning": "center-center",
+            "btn-link": "shopify://blogs/lifestyle/the-best-towel-materials-according-to-experts",
+            "btn-title": "READ MORE",
+            "btn-colour": "blue",
+            "video": "shopify://files/videos/Blog Feature-Bath-Desktop.mp4",
+            "full_width": true
+          }
+        },
+        "block_TLWhWn": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "title": "Second blog article",
+            "sub-title": "Feature",
+            "text": "There's an art to choosing the right towel. Absorb our expert tips to discover your ideal drying-down companion.",
+            "title_font_size_mob": 20,
+            "title_font_size_desktop": 45,
+            "sub-title_font_size_mob": 16,
+            "sub-title_font_size_desktop": 16,
+            "text_font_size_mob": 14,
+            "text_font_size_desktop": 16,
+            "alignment": "center",
+            "text-colour": "white",
+            "positioning": "center-center",
+            "btn-link": "shopify://blogs/lifestyle/what-is-cotton-percale",
+            "btn-title": "READ MORE",
+            "btn-colour": "white",
+            "image": "shopify://shop_images/bg.jpg",
+            "image_mobile": "shopify://shop_images/bg_81071a5f-9ebb-4389-97f2-05a9a5ada77d.jpg",
+            "full_width": true
+          }
+        }
+      },
+      "block_order": [
+        "block_Np9CKe",
+        "block_TLWhWn"
+      ],
+      "settings": {
+        "title": "Christy Stories",
+        "text": "Step into a place where we celebrate and share the beauty of well-crafted, time-honoured home textiles.",
+        "button": "OUR BLOG"
       }
     },
     "37b580cc-c4d2-4e4e-83ee-b35a93d386e3": {
@@ -196,37 +523,41 @@
         "template--21202652987680__37b580cc-c4d2-4e4e-83ee-b35a93d386e3-block-1": {
           "type": "block",
           "settings": {
-            "title": "Legacy of Innovation",
-            "copy": "<p>Bringing you quality and durability through 170 years of legacy and innovation.</p>",
-            "button_link": "shopify://pages/our-heritage",
-            "button_title": "Learn More"
+            "image": "shopify://shop_images/1.svg",
+            "title": "Imagined in the UK",
+            "copy": "<p>Each Christy creation is conceptualised in our Stockport studio, from hand-painted designs to fabric-led pieces.</p>",
+            "button_link": "shopify://pages/innovation",
+            "button_title": ""
           }
         },
         "template--21202652987680__37b580cc-c4d2-4e4e-83ee-b35a93d386e3-block-2": {
           "type": "block",
           "settings": {
-            "title": "Sustainability",
-            "copy": "<p>Sustainable material to ethical manufacturing and mindful packaging.</p>",
+            "image": "shopify://shop_images/4.svg",
+            "title": "Expert craftsmanship",
+            "copy": "<p>As world leaders in cotton textiles, we only partner with renowned craftsmen who share our ethics.</p>",
             "button_link": "shopify://pages/responsibility",
-            "button_title": "Learn More"
+            "button_title": ""
           }
         },
         "template--21202652987680__37b580cc-c4d2-4e4e-83ee-b35a93d386e3-block-3": {
           "type": "block",
           "settings": {
-            "title": "Loved by our Customers",
-            "copy": "<p>5000+ 5 star reviews with a score of 4.5 out of 5 </p>",
-            "button_link": "shopify://collections/shop-all",
-            "button_title": "Shop the Range"
+            "image": "shopify://shop_images/2.svg",
+            "title": "Loved by our customers",
+            "copy": "<p>We changed the world when we developed the industrial terry loom & we continue to blaze trails in home textiles.</p>",
+            "button_link": "shopify://collections/reviews",
+            "button_title": ""
           }
         },
         "template--21202652987680__37b580cc-c4d2-4e4e-83ee-b35a93d386e3-block-4": {
           "type": "block",
           "settings": {
-            "title": "Free Shipping & Returns",
-            "copy": "<p>Free Shipping above £50 plus our Worry-Free Return Guarantee.</p>",
-            "button_link": "shopify://pages/shipping-policy",
-            "button_title": "Learn More"
+            "image": "shopify://shop_images/3.svg",
+            "title": "A rich heritage",
+            "copy": "<p>Christy is a signifier of luxury, starting when Queen Victoria placed an order for her Household in 1850.</p>",
+            "button_link": "shopify://pages/our-heritage",
+            "button_title": ""
           }
         }
       },
@@ -236,806 +567,72 @@
         "template--21202652987680__37b580cc-c4d2-4e4e-83ee-b35a93d386e3-block-3",
         "template--21202652987680__37b580cc-c4d2-4e4e-83ee-b35a93d386e3-block-4"
       ],
-      "disabled": true,
       "settings": {
-        "title": "Why Christy?",
+        "title": "Christy by Design",
         "margin": "yes"
-      }
-    },
-    "0e427065-4c47-4b8e-8eab-12cb0c11fc4a": {
-      "type": "images-copy-cta",
-      "disabled": true,
-      "settings": {
-        "image": "shopify://shop_images/robe_bundle.jpg",
-        "image2": "shopify://shop_images/thick_indulgent_HP.jpg",
-        "subtitle": "",
-        "title": "<p>Create your bespoke bundle</p>",
-        "copy": "<p>Introducing our bundle collection, designed to redefine your home experience.</p><p>Crafted with care, these bundles not only bring a touch of sophistication to your home but also offer incredible value, making every moment at home an indulgent retreat.</p><p>Bundles also make for excellent gifts. Whether for a housewarming, wedding, or other occasion, a thoughtfully curated bundle provides a practical and stylish present.</p>",
-        "button_label": "Shop our Bundle Range",
-        "button_link": "shopify://collections/all-bundles",
-        "content_position": "right",
-        "header_position": false,
-        "images_half_width": false,
-        "anchor_id": ""
-      }
-    },
-    "0e8d554c-badf-4239-a36e-276ffacfb5fc": {
-      "type": "reviews-carousel",
-      "blocks": {
-        "block_yJF6td": {
-          "type": "block",
-          "settings": {
-            "product": "supreme-hygro",
-            "review_carousel_image": "shopify://shop_images/Supreme_Lifestyle_Graphite_2_f809736f-d5c4-4e87-94bf-9a826f60449f.jpg",
-            "title": "Supreme Hygro Supima Cotton Towels",
-            "testimonial": "<p>\"Lovely soft towels, just the right thickness. Just the right size to wrap round my head after washing my hair. This one doesn't fall off!  Pricey, it's true, but well worth it for that touch of luxury.\"</p>",
-            "name": "Anonymous"
-          }
-        },
-        "block_azJUct": {
-          "type": "block",
-          "disabled": true,
-          "settings": {
-            "product": "luxe-towels",
-            "title": "Luxe Turkish Cotton Towel",
-            "testimonial": "<p>\"Beautiful colour, amazing feel, perfect washability - just amazing and faultless.\"</p>",
-            "name": "Simon Austin"
-          }
-        },
-        "block_fDyMtK": {
-          "type": "block",
-          "settings": {
-            "product": "deep-pile-rug",
-            "title": "Deep Pile Rug",
-            "testimonial": "<p>\"Love these bath rugs so soft as you step out the bath and shower. Highly recommend\"</p>",
-            "name": "Johanna Covell-Ritchie"
-          }
-        },
-        "template--21202652987680__0e8d554c-badf-4239-a36e-276ffacfb5fc-block-1": {
-          "type": "block",
-          "settings": {
-            "product": "renaissance",
-            "title": "Renaissance Egyptian Cotton Towels",
-            "testimonial": "<p>\"Brilliant towels.  They do not shed exactly as described on website.  These are the best towels I have ever owned.  5🌟🌟🌟🌟🌟\"</p>",
-            "name": "Averii Richards"
-          }
-        }
-      },
-      "block_order": [
-        "block_yJF6td",
-        "block_azJUct",
-        "block_fDyMtK",
-        "template--21202652987680__0e8d554c-badf-4239-a36e-276ffacfb5fc-block-1"
-      ],
-      "settings": {
-        "title": "Why Our Customers Love Christy",
-        "mobile_title": "Rave Reviews",
-        "review_carousel_title_font_size_mob": 24,
-        "review_carousel_title_font_size_desktop": 36,
-        "review_carousel_title_font_weight": "400",
-        "review_carousel_title_font_family": "Hatton, serif",
-        "margin": "yes"
-      }
-    },
-    "2a0e8d45-d132-480e-b6ff-c37f7ad453d7": {
-      "type": "hero-image",
-      "disabled": true,
-      "settings": {
-        "image": "shopify://shop_images/Artboard_14_f38547aa-7d8d-4915-9497-dfef44ef4ab5.jpg",
-        "link": "shopify://pages/about-us",
-        "full_width": true
-      }
-    },
-    "heading3": {
-      "type": "heading",
-      "settings": {
-        "heading": "<p>Game. Set. Match.</p>",
-        "heading_font_size_mob": 24,
-        "heading_font_size_desktop": 36,
-        "heading_font_weight": "400",
-        "heading_font_family": "Hatton, serif",
-        "heading_width": "6",
-        "copy": "<p>For the past 30 years, Christy has proudly been the official towel supplier to The Wimbledon Championships, adding a touch of luxury to every serve and volley.</p>",
-        "heading_copy_font_size_mob": 15,
-        "heading_copy_font_size_desktop": 15,
-        "heading_copy_font_weight": "300",
-        "heading_copy_font_family": "Tomato Grotesk",
-        "copy_style": "default",
-        "alignment": "left",
-        "alignment_mob": "center",
-        "horiz_padding": true,
-        "margin_top": true,
-        "background_color": "#f3f3f3",
-        "font_color": "#2c3b96"
-      }
-    },
-    "heading_WxBCR8": {
-      "type": "heading",
-      "settings": {
-        "heading": "<p>Our Journey</p>",
-        "heading_font_size_mob": 24,
-        "heading_font_size_desktop": 36,
-        "heading_font_weight": "400",
-        "heading_font_family": "sans-serif",
-        "heading_width": "4",
-        "copy": "",
-        "heading_copy_font_size_mob": 15,
-        "heading_copy_font_size_desktop": 14,
-        "heading_copy_font_weight": "300",
-        "heading_copy_font_family": "sans-serif",
-        "copy_style": "default",
-        "alignment": "left",
-        "alignment_mob": "center",
-        "horiz_padding": false,
-        "margin_top": false,
-        "background_color": "#ffffff",
-        "font_color": "#2c3b96"
-      }
-    },
-    "images_gqVMqU": {
-      "type": "images",
-      "blocks": {
-        "image_jchhqW": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/HISTORY_SLATES_WHITE_PAPER_VERSION_copy.webp",
-            "width": "full",
-            "aspect": "16/9"
-          }
-        },
-        "image_xEEexx": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Artboard_2.webp",
-            "width": "full",
-            "aspect": "16/9"
-          }
-        },
-        "image_BVDh3Y": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Artboard_3.webp",
-            "width": "full",
-            "aspect": "16/9"
-          }
-        },
-        "image_FwhdLV": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Artboard_4.webp",
-            "width": "full",
-            "aspect": "16/9"
-          }
-        },
-        "image_JkbH9G": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Artboard_5.webp",
-            "width": "full",
-            "aspect": "16/9"
-          }
-        },
-        "image_xjH4V3": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Artboard_6.webp",
-            "width": "full",
-            "aspect": "16/9"
-          }
-        },
-        "image_7pLNAi": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Artboard_7.webp",
-            "width": "full",
-            "aspect": "16/9"
-          }
-        },
-        "image_CNDAJf": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Artboard_8.webp",
-            "width": "full",
-            "aspect": "16/9"
-          }
-        }
-      },
-      "block_order": [
-        "image_jchhqW",
-        "image_xEEexx",
-        "image_BVDh3Y",
-        "image_FwhdLV",
-        "image_JkbH9G",
-        "image_xjH4V3",
-        "image_7pLNAi",
-        "image_CNDAJf"
-      ],
-      "settings": {
-        "fullscreen": true
-      }
-    },
-    "hero_collection_edGUde": {
-      "type": "hero-collection",
-      "blocks": {
-        "slide_rnBLML": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/1.webp",
-            "mobile_media": "image",
-            "subtitle": "1850",
-            "hero_collection_subtitle_font_size_mob": 16,
-            "hero_collection_subtitle_font_size_desktop": 16,
-            "hero_collection_subtitle_font_weight": "600",
-            "hero_collection_subtitle_font_family": "sans-serif",
-            "mobile_subtitle": "show",
-            "title": "The Birth of Terry Towels",
-            "hero_collection_title_font_size_mob": 16,
-            "hero_collection_title_font_size_desktop": 36,
-            "hero_collection_title_font_weight": "400",
-            "hero_collection_title_font_family": "Hatton, serif",
-            "mob_title": "",
-            "copy": "<p>Invented by Henry Christy.  Demand sparks as Queen Victoria becomes a fan.</p>",
-            "hero_collection_copy_font_size_mob": 16,
-            "hero_collection_copy_font_size_desktop": 24,
-            "hero_collection_copy_font_weight": "300",
-            "hero_collection_copy_font_family": "Hatton, serif",
-            "copy_visibility": "mobile",
-            "collection": "",
-            "button_text": "1850"
-          }
-        },
-        "slide_x4tjjL": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/2.webp",
-            "mobile_media": "image",
-            "subtitle": "1920",
-            "hero_collection_subtitle_font_size_mob": 16,
-            "hero_collection_subtitle_font_size_desktop": 16,
-            "hero_collection_subtitle_font_weight": "600",
-            "hero_collection_subtitle_font_family": "sans-serif",
-            "mobile_subtitle": "show",
-            "title": "Vibrant Towels and Beach Wraps",
-            "hero_collection_title_font_size_mob": 16,
-            "hero_collection_title_font_size_desktop": 36,
-            "hero_collection_title_font_weight": "400",
-            "hero_collection_title_font_family": "Hatton, serif",
-            "mob_title": "",
-            "copy": "<p>Bright, colourful towels & fashionable beach</p><p>wraps are introduced.</p>",
-            "hero_collection_copy_font_size_mob": 16,
-            "hero_collection_copy_font_size_desktop": 24,
-            "hero_collection_copy_font_weight": "300",
-            "hero_collection_copy_font_family": "Hatton, serif",
-            "copy_visibility": "mobile",
-            "collection": "",
-            "button_text": "1920"
-          }
-        },
-        "slide_H6RFg3": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/3.webp",
-            "mobile_media": "image",
-            "subtitle": "1937",
-            "hero_collection_subtitle_font_size_mob": 16,
-            "hero_collection_subtitle_font_size_desktop": 16,
-            "hero_collection_subtitle_font_weight": "600",
-            "hero_collection_subtitle_font_family": "sans-serif",
-            "mobile_subtitle": "show",
-            "title": "Royal Appointment",
-            "hero_collection_title_font_size_mob": 16,
-            "hero_collection_title_font_size_desktop": 36,
-            "hero_collection_title_font_weight": "300",
-            "hero_collection_title_font_family": "Hatton, serif",
-            "mob_title": "",
-            "copy": "<p>Edward VIII's Coronation was set for May 1937, & Christy had</p><p> already sold souvenir towels when he abdicated in December 1936. </p><p>Ever the Royalists, Christy still <br/>went on to make a souvenir Coronation Towel for <br/>King George VI in 1937.</p>",
-            "hero_collection_copy_font_size_mob": 16,
-            "hero_collection_copy_font_size_desktop": 24,
-            "hero_collection_copy_font_weight": "300",
-            "hero_collection_copy_font_family": "Hatton, serif",
-            "copy_visibility": "mobile",
-            "collection": "",
-            "button_text": "Shop Bed"
-          }
-        },
-        "slide_7LJM9w": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/4.webp",
-            "mobile_media": "image",
-            "subtitle": "1975",
-            "hero_collection_subtitle_font_size_mob": 16,
-            "hero_collection_subtitle_font_size_desktop": 16,
-            "hero_collection_subtitle_font_weight": "600",
-            "hero_collection_subtitle_font_family": "sans-serif",
-            "mobile_subtitle": "show",
-            "title": "Collaboration with Pierre Cardin and Royal Tributes",
-            "hero_collection_title_font_size_mob": 16,
-            "hero_collection_title_font_size_desktop": 36,
-            "hero_collection_title_font_weight": "400",
-            "hero_collection_title_font_family": "Hatton, serif",
-            "mob_title": "",
-            "copy": "<p>Collaboration with Pierre Cardin. A special towel for Queen Elizabeth's </p><p>Silver Jubilee created.</p>",
-            "hero_collection_copy_font_size_mob": 16,
-            "hero_collection_copy_font_size_desktop": 24,
-            "hero_collection_copy_font_weight": "300",
-            "hero_collection_copy_font_family": "Hatton, serif",
-            "copy_visibility": "mobile",
-            "collection": "",
-            "button_text": "Shop Bed"
-          }
-        },
-        "slide_yTTBhU": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/5.webp",
-            "mobile_media": "image",
-            "subtitle": "1988",
-            "hero_collection_subtitle_font_size_mob": 16,
-            "hero_collection_subtitle_font_size_desktop": 16,
-            "hero_collection_subtitle_font_weight": "600",
-            "hero_collection_subtitle_font_family": "sans-serif",
-            "mobile_subtitle": "show",
-            "title": "Wimbledon Partnership Begins",
-            "hero_collection_title_font_size_mob": 16,
-            "hero_collection_title_font_size_desktop": 36,
-            "hero_collection_title_font_weight": "400",
-            "hero_collection_title_font_family": "Hatton, serif",
-            "mob_title": "",
-            "copy": "<p>Christy becomes the official towel supplier to<br/>The Wimbledon Championships.</p>",
-            "hero_collection_copy_font_size_mob": 16,
-            "hero_collection_copy_font_size_desktop": 24,
-            "hero_collection_copy_font_weight": "300",
-            "hero_collection_copy_font_family": "Hatton, serif",
-            "copy_visibility": "mobile",
-            "collection": "",
-            "button_text": "Shop Bed"
-          }
-        },
-        "slide_pw3Y9a": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/6.webp",
-            "mobile_media": "image",
-            "subtitle": "2003",
-            "hero_collection_subtitle_font_size_mob": 16,
-            "hero_collection_subtitle_font_size_desktop": 16,
-            "hero_collection_subtitle_font_weight": "600",
-            "hero_collection_subtitle_font_family": "sans-serif",
-            "mobile_subtitle": "show",
-            "title": "Introducing Bed Linen",
-            "hero_collection_title_font_size_mob": 16,
-            "hero_collection_title_font_size_desktop": 36,
-            "hero_collection_title_font_weight": "400",
-            "hero_collection_title_font_family": "Hatton, serif",
-            "mob_title": "",
-            "copy": "<p>Christy launched a new bed linen collection that <br/>boasts high thread counts, intricate embroidery, <br/>and beautifully woven designs.</p>",
-            "hero_collection_copy_font_size_mob": 16,
-            "hero_collection_copy_font_size_desktop": 24,
-            "hero_collection_copy_font_weight": "300",
-            "hero_collection_copy_font_family": "Hatton, serif",
-            "copy_visibility": "mobile",
-            "collection": "",
-            "button_text": "Shop Bed"
-          }
-        },
-        "slide_TtNqdg": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/7.webp",
-            "mobile_media": "image",
-            "subtitle": "2020",
-            "hero_collection_subtitle_font_size_mob": 16,
-            "hero_collection_subtitle_font_size_desktop": 16,
-            "hero_collection_subtitle_font_weight": "600",
-            "hero_collection_subtitle_font_family": "sans-serif",
-            "mobile_subtitle": "show",
-            "title": "170th Anniversary Celebration",
-            "hero_collection_title_font_size_mob": 16,
-            "hero_collection_title_font_size_desktop": 36,
-            "hero_collection_title_font_weight": "400",
-            "hero_collection_title_font_family": "Hatton, serif",
-            "mob_title": "",
-            "copy": "<p>Marks its 170th birthday with a special anniversary logo & commemorative products.</p>",
-            "hero_collection_copy_font_size_mob": 16,
-            "hero_collection_copy_font_size_desktop": 24,
-            "hero_collection_copy_font_weight": "300",
-            "hero_collection_copy_font_family": "Hatton, serif",
-            "copy_visibility": "mobile",
-            "collection": "",
-            "button_text": "Shop Bed"
-          }
-        },
-        "slide_z3iiXi": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/8.webp",
-            "mobile_media": "image",
-            "subtitle": "2023",
-            "hero_collection_subtitle_font_size_mob": 16,
-            "hero_collection_subtitle_font_size_desktop": 16,
-            "hero_collection_subtitle_font_weight": "600",
-            "hero_collection_subtitle_font_family": "sans-serif",
-            "mobile_subtitle": "show",
-            "title": "New Identity and Wellness Focus",
-            "hero_collection_title_font_size_mob": 16,
-            "hero_collection_title_font_size_desktop": 36,
-            "hero_collection_title_font_weight": "400",
-            "hero_collection_title_font_family": "Hatton, serif",
-            "mob_title": "",
-            "copy": "<p>Relaunch with a new identity, embracing wellness & </p><p>introducing the 'Loop' signifier.</p>",
-            "hero_collection_copy_font_size_mob": 16,
-            "hero_collection_copy_font_size_desktop": 24,
-            "hero_collection_copy_font_weight": "300",
-            "hero_collection_copy_font_family": "Hatton, serif",
-            "copy_visibility": "mobile",
-            "collection": "",
-            "button_text": "Shop Bed"
-          }
-        }
-      },
-      "block_order": [
-        "slide_rnBLML",
-        "slide_x4tjjL",
-        "slide_H6RFg3",
-        "slide_7LJM9w",
-        "slide_yTTBhU",
-        "slide_pw3Y9a",
-        "slide_TtNqdg",
-        "slide_z3iiXi"
-      ],
-      "disabled": true,
-      "settings": {}
-    },
-    "ab40295a-0b7a-4298-9100-6079c0215e8e": {
-      "type": "heading",
-      "disabled": true,
-      "settings": {
-        "heading": "",
-        "heading_font_size_mob": 12,
-        "heading_font_size_desktop": 12,
-        "heading_font_weight": "300",
-        "heading_font_family": "sans-serif",
-        "heading_width": "6",
-        "copy": "<p> </p>",
-        "heading_copy_font_size_mob": 12,
-        "heading_copy_font_size_desktop": 12,
-        "heading_copy_font_weight": "400",
-        "heading_copy_font_family": "sans-serif",
-        "copy_style": "default",
-        "alignment": "left",
-        "alignment_mob": "center",
-        "horiz_padding": false,
-        "margin_top": false,
-        "background_color": "#ffffff",
-        "font_color": "#000000"
-      }
-    },
-    "hero_image_cJLbna": {
-      "type": "hero-image",
-      "settings": {
-        "image": "shopify://shop_images/Artboard_12.jpg",
-        "image_mobile": "shopify://shop_images/DiscoverSupima.webp",
-        "link": "shopify://products/supreme-hygro",
-        "full_width": true
-      }
-    },
-    "c-info-columns": {
-      "type": "c-info-columns",
-      "blocks": {
-        "template--19440932552979__b25d4794-78f6-4222-8e57-f4d67b3e4a48-1686843997bc378748-0": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/thick-fluffy.jpg",
-            "image_aspect": "1:1",
-            "title": "Thick & Indulgent",
-            "text": "<p>Cocoon yourself in the pampering comfort of a sumptuously thick towel or bathrobe.</p>",
-            "button_label": "Explore the Feeling",
-            "button_link": "all-bath",
-            "collection_tag": "Thick & Indulgent"
-          }
-        },
-        "template--19440932552979__b25d4794-78f6-4222-8e57-f4d67b3e4a48-1686843997bc378748-1": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/light-easy.jpg",
-            "image_aspect": "1:1",
-            "title": "Fluffy & Light",
-            "text": "<p>Keep your home comforts close with take-them-anywhere lightweight options. </p>",
-            "button_label": "Explore the Feeling",
-            "button_link": "all-bath",
-            "collection_tag": "Fluffy & Light"
-          }
-        },
-        "template--19440932552979__b25d4794-78f6-4222-8e57-f4d67b3e4a48-1686843997bc378748-2": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/invigorating.jpg",
-            "image_aspect": "2:3",
-            "title": "Invigorating & Durable",
-            "text": "<p>Start (or end) your day the refreshing way, with our selection of revitalising products.</p>",
-            "button_label": "Explore the Feeling",
-            "button_link": "all-bath",
-            "collection_tag": "Invigorating & Durable"
-          }
-        }
-      },
-      "block_order": [
-        "template--19440932552979__b25d4794-78f6-4222-8e57-f4d67b3e4a48-1686843997bc378748-0",
-        "template--19440932552979__b25d4794-78f6-4222-8e57-f4d67b3e4a48-1686843997bc378748-1",
-        "template--19440932552979__b25d4794-78f6-4222-8e57-f4d67b3e4a48-1686843997bc378748-2"
-      ],
-      "disabled": true,
-      "settings": {
-        "title": "",
-        "title_font_size_mob": 16,
-        "title_font_size_desktop": 31,
-        "title_font_weight": "600",
-        "title_font_family": "sans-serif",
-        "copy_font_size_mob": 12,
-        "copy_font_size_desktop": 14,
-        "copy_font_weight": "300",
-        "copy_font_family": "sans-serif"
-      }
-    },
-    "billboard2": {
-      "type": "billboard",
-      "disabled": true,
-      "settings": {
-        "screen_visibility": "both",
-        "image": "shopify://shop_images/bed-home.jpg",
-        "subtitle": "Explore",
-        "billboard_subtitle_font_size_mob": 16,
-        "billboard_subtitle_font_size_desktop": 20,
-        "billboard_subtitle_font_weight": "300",
-        "billboard_subtitle_font_family": "sans-serif",
-        "title": "<p>Bed</p>",
-        "billboard_title_font_size_mob": 16,
-        "billboard_title_font_size_desktop": 30,
-        "billboard_title_font_weight": "400",
-        "billboard_title_font_family": "Hatton, serif",
-        "copy": "<p>Slip between a fresh pair of sheets, from crisp cotton options to sumptuously silky ones.</p>",
-        "billboard_copy_font_size_mob": 14,
-        "billboard_copy_font_size_desktop": 20,
-        "billboard_copy_font_weight": "500",
-        "billboard_copy_font_family": "sans-serif",
-        "button_label": "Shop All",
-        "button_link": "shopify://collections/all-bedding",
-        "button_type": "default",
-        "colour_theme": "white",
-        "alignment": "right",
-        "alignment_vertical": "top",
-        "mobile_content_position": "overlay"
-      }
-    },
-    "billboard3": {
-      "type": "billboard",
-      "disabled": true,
-      "settings": {
-        "screen_visibility": "both",
-        "image": "shopify://shop_images/innovators-home.jpg",
-        "subtitle": "Technology",
-        "billboard_subtitle_font_size_mob": 16,
-        "billboard_subtitle_font_size_desktop": 16,
-        "billboard_subtitle_font_weight": "600",
-        "billboard_subtitle_font_family": "sans-serif",
-        "title": "<p>Innovators <br/>since 1850</p>",
-        "billboard_title_font_size_mob": 16,
-        "billboard_title_font_size_desktop": 40,
-        "billboard_title_font_weight": "500",
-        "billboard_title_font_family": "Hatton, serif",
-        "copy": "<p>From our pioneering terry towels to today’s ultra-absorbent Hygro technology, we have over 170 years’ experience at the forefront of innovation.</p>",
-        "billboard_copy_font_size_mob": 14,
-        "billboard_copy_font_size_desktop": 14,
-        "billboard_copy_font_weight": "200",
-        "billboard_copy_font_family": "sans-serif",
-        "button_label": "Discover our Innovation",
-        "button_link": "shopify://pages/innovation",
-        "button_type": "default",
-        "colour_theme": "blue",
-        "alignment": "left",
-        "alignment_vertical": "center",
-        "mobile_content_position": "below"
-      }
-    },
-    "images-copy-cta": {
-      "type": "images-copy-cta",
-      "disabled": true,
-      "settings": {
-        "image": "shopify://shop_images/timeless-2.jpg",
-        "image2": "shopify://shop_images/timeless-1.jpg",
-        "subtitle": "Responsibility",
-        "title": "<p>Timeless products, consciously made</p>",
-        "copy": "<p>We’re devoted to building a sustainable future, always moving forwards to improve our processes for the good of our consumers, our communities and the wider environment.</p>",
-        "button_label": "Discover our Initiatives",
-        "button_link": "shopify://pages/responsibility",
-        "content_position": "right",
-        "header_position": false,
-        "images_half_width": false,
-        "anchor_id": ""
-      }
-    },
-    "billboard4": {
-      "type": "billboard",
-      "disabled": true,
-      "settings": {
-        "screen_visibility": "both",
-        "image": "shopify://shop_images/perfect-towel.jpg",
-        "subtitle": "Feature",
-        "billboard_subtitle_font_size_mob": 16,
-        "billboard_subtitle_font_size_desktop": 16,
-        "billboard_subtitle_font_weight": "600",
-        "billboard_subtitle_font_family": "sans-serif",
-        "title": "<p>Only the best: picking your perfect towel</p>",
-        "billboard_title_font_size_mob": 16,
-        "billboard_title_font_size_desktop": 40,
-        "billboard_title_font_weight": "500",
-        "billboard_title_font_family": "Hatton, serif",
-        "copy": "<p>There's an art to choosing the right towel. Absorb our expert tips to discover your ideal drying-down companion.</p>",
-        "billboard_copy_font_size_mob": 14,
-        "billboard_copy_font_size_desktop": 14,
-        "billboard_copy_font_weight": "200",
-        "billboard_copy_font_family": "sans-serif",
-        "button_label": "Read more",
-        "button_link": "https://www.christy.co.uk/blogs/lifestyle/christys-towel-size-guide",
-        "button_type": "tertiary",
-        "colour_theme": "white",
-        "alignment": "left",
-        "alignment_vertical": "center",
-        "mobile_content_position": "overlay"
-      }
-    },
-    "why_christy_DWytnQ": {
-      "type": "why-christy",
-      "blocks": {
-        "block_7Neqxr": {
-          "type": "block",
-          "settings": {
-            "title": "The Finest Materials",
-            "why_christy_block_title_font_size_mob": 16,
-            "why_christy_block_title_font_size_desktop": 24,
-            "why_christy_block_title_font_weight": "400",
-            "why_christy_block_title_font_family": "Hatton, serif",
-            "text": "<p>Textures matter and luxury quality reigns supreme across every Christy product, with a dedication to championing the world’s most delectable fabrics.</p>"
-          }
-        },
-        "block_gmjK7c": {
-          "type": "block",
-          "settings": {
-            "title": "Heritage of Excellence",
-            "why_christy_block_title_font_size_mob": 16,
-            "why_christy_block_title_font_size_desktop": 24,
-            "why_christy_block_title_font_weight": "400",
-            "why_christy_block_title_font_family": "Hatton, serif",
-            "text": "<p>We’ve been making home textiles to be loved well and treasured over time with our heritage flair, unwavering innovation and luxury craftsmanship since 1850. </p>"
-          }
-        },
-        "block_73tGHf": {
-          "type": "block",
-          "settings": {
-            "title": "Easy Delivery & Returns",
-            "why_christy_block_title_font_size_mob": 16,
-            "why_christy_block_title_font_size_desktop": 24,
-            "why_christy_block_title_font_weight": "400",
-            "why_christy_block_title_font_family": "Hatton, serif",
-            "text": "<p>From the moment you place your order, we’re here to get it to you fast, troubleshoot any issues and arrange hassle-free returns if you need it.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "block_7Neqxr",
-        "block_gmjK7c",
-        "block_73tGHf"
-      ],
-      "settings": {
-        "title": "Step Inside Our World",
-        "why_christy_title_font_size_mob": 24,
-        "why_christy_title_font_size_desktop": 36,
-        "why_christy_title_font_weight": "400",
-        "why_christy_title_font_family": "Hatton, serif",
-        "button_title": "",
-        "button_link": "",
-        "margin": "no"
       }
     },
     "featured-blogs": {
       "type": "featured-blogs",
-      "blocks": {
-        "30dec819-818b-4bc2-b9c3-ff19c89ebaf4": {
-          "type": "article",
-          "settings": {
-            "article": "news/luxurious-choices-the-soft-fabrics-behind-our-luxury-towels"
-          }
-        },
-        "458e4f16-65af-45ea-bf76-156d0bfc8da1": {
-          "type": "article",
-          "settings": {
-            "article": "news/best-bath-mat-guide-bath-rugs-and-mats-your-feet-will-love"
-          }
-        },
-        "dc2e0744-3035-4a8f-b0c9-4abd1e420569": {
-          "type": "article",
-          "settings": {
-            "article": "news/bliss-pick-spa-like-luxury-with-the-perfect-plushest-towels"
-          }
-        }
-      },
-      "block_order": [
-        "30dec819-818b-4bc2-b9c3-ff19c89ebaf4",
-        "458e4f16-65af-45ea-bf76-156d0bfc8da1",
-        "dc2e0744-3035-4a8f-b0c9-4abd1e420569"
-      ],
       "settings": {
-        "title": "Discover Our Blog",
-        "title_font_size_mob": 24,
-        "title_font_size_desktop": 36,
-        "title_font_weight": "500",
-        "title_font_family": "Hatton, serif"
+        "title": "Our Stories"
       }
     },
-    "1723026351f8b5e598": {
-      "type": "apps",
+    "homepage_faq_mDbHjw": {
+      "type": "homepage-faq",
       "blocks": {
-        "instagram_feed_instafeed_rptr_raptor_instagram_Neh9if": {
-          "type": "shopify://apps/instagram-feed-instafeed-rptr/blocks/raptor-instagram/557ff51a-dc31-4dee-a7df-4610643fa410",
-          "settings": {}
+        "text_block_fMHhqY": {
+          "type": "text_block",
+          "settings": {
+            "question": "Your question here dfg gdfgdfgdf",
+            "answer": "dfgdfgdfgdfgdfg"
+          }
+        },
+        "text_block_rPjfCW": {
+          "type": "text_block",
+          "settings": {
+            "question": "How long can you keep a duvet cover for? ",
+            "answer": "Experts suggest that a duvet cover should be replaced every two to five years, especially if you take really good care of them. Because duvet covers are a bit more of a challenge to remove and put back on, they are often more neglected than bed sheets and pillowcases. "
+          }
+        },
+        "text_block_jLyMi6": {
+          "type": "text_block",
+          "settings": {
+            "question": "How often should you wash your duvet cover?",
+            "answer": "How often you wash your duvet cover sets can depend on a number of factors, from personal preference to how often you sleep in your bed. With these things in mind, experts recommend washing your bed sheets every week, but you can extend this if you sleep alone, or if you don’t spend much time in bed beyond sleeping. "
+          }
+        },
+        "text_block_rYqYjb": {
+          "type": "text_block",
+          "settings": {
+            "question": "What is the best type of duvet cover material?",
+            "answer": "Most duvets are made of cotton because of its breathability, moisture-wicking properties and durability. The best luxury duvet covers are made from natural, top-quality fabrics such as cotton, linen, and silk. "
+          }
         }
       },
       "block_order": [
-        "instagram_feed_instafeed_rptr_raptor_instagram_Neh9if"
+        "text_block_fMHhqY",
+        "text_block_rPjfCW",
+        "text_block_jLyMi6",
+        "text_block_rYqYjb"
       ],
-      "settings": {}
-    },
-    "heading4": {
-      "type": "heading",
       "disabled": true,
       "settings": {
-        "heading": "<p>Christy Life</p>",
-        "heading_font_size_mob": 24,
-        "heading_font_size_desktop": 36,
-        "heading_font_weight": "600",
-        "heading_font_family": "sans-serif",
-        "heading_width": "4",
-        "copy": "<p>Welcome to our blog: from interiors inspiration to expert how-tos, walkthroughs and all our latest news, it's designed to guide and inspire your bath and bedding journey.</p>",
-        "heading_copy_font_size_mob": 12,
-        "heading_copy_font_size_desktop": 14,
-        "heading_copy_font_weight": "300",
-        "heading_copy_font_family": "sans-serif",
-        "copy_style": "default",
-        "alignment": "right",
-        "alignment_mob": "center",
-        "horiz_padding": true,
-        "margin_top": true,
-        "background_color": "#ffffff",
-        "font_color": "#000000"
+        "heading": "FAQ"
       }
     }
   },
   "order": [
-    "97fe06ff-d1d9-4c8d-9cb3-24b8e821d00d",
-    "d1799047-2d3f-4748-9804-8038692b0c63",
-    "heading",
-    "de1b0a2d-4cb0-4dbd-a641-18437895549a",
-    "heading2",
-    "5f8fd688-f484-4f34-9ee0-6dd133c393ad",
-    "37b580cc-c4d2-4e4e-83ee-b35a93d386e3",
-    "0e427065-4c47-4b8e-8eab-12cb0c11fc4a",
+    "hero_banner_YkXbVW",
+    "categories_navigation_hamAih",
+    "heading_4WLAcK",
+    "products_carousel_tabs_FUqqcR",
     "0e8d554c-badf-4239-a36e-276ffacfb5fc",
-    "2a0e8d45-d132-480e-b6ff-c37f7ad453d7",
-    "heading3",
-    "heading_WxBCR8",
-    "images_gqVMqU",
-    "hero_collection_edGUde",
-    "ab40295a-0b7a-4298-9100-6079c0215e8e",
-    "hero_image_cJLbna",
-    "c-info-columns",
-    "billboard2",
-    "billboard3",
-    "images-copy-cta",
-    "billboard4",
-    "why_christy_DWytnQ",
+    "history_slide_pAMHFW",
+    "shop_the_look_M6GEx8",
+    "christy_life_rUWcGV",
+    "37b580cc-c4d2-4e4e-83ee-b35a93d386e3",
     "featured-blogs",
-    "1723026351f8b5e598",
-    "heading4"
+    "homepage_faq_mDbHjw"
   ]
 }

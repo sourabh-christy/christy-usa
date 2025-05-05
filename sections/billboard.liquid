@@ -24,11 +24,11 @@
   {%- endif -%}
 
   <div class="relative container {% if section.settings.alignment == 'right' %}md:flex md:justify-end{% endif %} {% if section.settings.alignment_vertical == 'center' %}md:flex md:items-center{% endif %}">
-    <div class="space-y-10 lg:space-y-12 w-full md:max-w-[432px] {% if section.settings.alignment == 'right' %}md:mr-24{% endif %}"> 
+    <div class="space-y-10 lg:space-y-12 w-full md:max-w-[432px] {% if section.settings.alignment == 'right' %}md:mr-24{% endif %}">
       <div class="text-white space-y-4 lg:space-y-6 {% if section.settings.colour_theme == 'blue' %}!text-blue-1{% endif %} {% if section.settings.mobile_content_position == 'below' %}max-md:!text-blue-1{% endif %}">
         <header class="space-y-4">
-          {%- if section.settings.subtitle!= blank  -%}
-            <h3 class="block-title text-blue-1">{{ section.settings.subtitle }}</h3>
+          {%- if section.settings.subtitle -%}
+            <h3 class="m-h5 lg:d-h5">{{ section.settings.subtitle }}</h3>
           {%- endif -%}
 
           {%- if section.settings.title -%}
@@ -37,7 +37,7 @@
         </header>
 
         {%- if section.settings.copy -%}
-          <div class="wysiwyg [&_br]:max-md:hidden ">
+          <div class="wysiwyg [&_br]:max-md:hidden">
             {{ section.settings.copy }}
           </div>
         {%- endif -%}
@@ -67,114 +67,21 @@
 </div>
 
 {% style %}
-
-  {%- if section.settings.billboard_subtitle_font_size_mob != blank -%}
-  #shopify-section-{{ section.id }} .block-title {
-    font-size: {{ section.settings.billboard_subtitle_font_size_mob }}px;
-  }
-  {%- endif -%}
-
-  {%- if section.settings.billboard_subtitle_font_weight != blank -%}
-  #shopify-section-{{ section.id }} .block-title {
-    font-weight: {{ section.settings.billboard_subtitle_font_weight }};
-  }
-  {%- endif -%}
-
-  {%- if section.settings.billboard_subtitle_font_family != blank and section.settings.billboard_subtitle_font_family == 'serif' -%}
-  #shopify-section-{{ section.id }} .block-title {
-    font-family: "Hatton", serif;
-  }
-  {%- endif -%}
-
-  {%- if section.settings.billboard_title_font_size_mob != blank -%}
-  #shopify-section-{{ section.id }} .s-m-h1 {
-    font-size: {{ section.settings.billboard_title_font_size_mob }}px;
-  }
-  {%- endif -%}
-
-  {%- if section.settings.billboard_title_font_weight != blank -%}
-  #shopify-section-{{ section.id }} .s-m-h1 {
-    font-weight: {{ section.settings.billboard_title_font_weight }};
-  }
-  {%- endif -%}
-
-  {%- if section.settings.billboard_title_font_family != blank -%}
-  #shopify-section-{{ section.id }} .s-m-h1 {
-    font-family: 
-      {%- if section.settings.billboard_title_font_family == 'serif' -%}
-        serif
-      {%- elsif section.settings.billboard_title_font_family == 'sans-serif' -%}
-        sans-serif
-      {%- else -%}
-        "Hatton", serif
-      {%- endif -%};
-  }
-  {%- endif -%}
-  {%- if section.settings.billboard_copy_font_size_mob != blank -%}
-  #shopify-section-{{ section.id }} .wysiwyg {
-    font-size: {{ section.settings.billboard_copy_font_size_mob }}px;
-  }
-  {%- endif -%}
-
-  {%- if section.settings.billboard_copy_font_weight != blank -%}
-  #shopify-section-{{ section.id }} .wysiwyg {
-    font-weight: {{ section.settings.billboard_copy_font_weight }};
-  }
-  {%- endif -%}
-
-  {%- if section.settings.billboard_copy_font_family != blank -%}
-  #shopify-section-{{ section.id }} .wysiwyg {
-    font-family: 
-      {%- if section.settings.billboard_copy_font_family == 'serif' -%}
-        serif
-      {%- elsif section.settings.billboard_copy_font_family == 'sans-serif' -%}
-        sans-serif
-      {%- else -%}
-        'Tomato Grotesk', sans-serif
-      {%- endif -%};
-  }
-  {%- endif -%}
-  
   {% if section.settings.screen_visibility == 'mobile' %}
     @media all and (min-width: 768px ) {
         #shopify-section-{{ section.id }} {
             display: none !important;
         }
-    }  
+    }
   {% endif %}
 
   {% if section.settings.screen_visibility == 'desktop' %}
     @media all and (max-width: 767px ) {
         #shopify-section-{{ section.id }} {
             display: none !important;
-        }  
+        }
     }
   {% endif %}
-
-  {%- if section.settings.billboard_subtitle_font_size_desktop != blank -%}
-  @media all and ( min-width: 1024px ) {
-
-      #shopify-section-{{ section.id }} .block-title {
-        font-size: {{ section.settings.billboard_subtitle_font_size_desktop }}px;
-      }
-  }
-  {%- endif -%}
-  
-  {%- if section.settings.billboard_title_font_size_desktop != blank -%}
-  @media all and (min-width: 1024px) {
-    #shopify-section-{{ section.id }} .s-m-h1 {
-      font-size: {{ section.settings.billboard_title_font_size_desktop }}px;
-    }
-  }
-  {%- endif -%}
-
-  {%- if section.settings.billboard_copy_font_size_desktop != blank -%}
-  @media all and (min-width: 1024px) {
-    #shopify-section-{{ section.id }} .wysiwyg {
-      font-size: {{ section.settings.billboard_copy_font_size_desktop }}px;
-    }
-  }
-  {%- endif -%}
 {% endstyle %}
 
 {% schema %}
@@ -220,204 +127,16 @@
       "default": "Explore"
     },
     {
-      "type": "range",
-      "id": "billboard_subtitle_font_size_mob",
-      "min": 12,
-      "max": 54,
-      "step": 1,
-      "unit": "px",
-      "label": "Sub Title Font Size MOBILE",
-      "default": 16
-    },
-    {
-      "type": "range",
-      "id": "billboard_subtitle_font_size_desktop",
-      "min": 12,
-      "max": 54,
-      "step": 1,
-      "unit": "px",
-      "label": "Sub Title Font Size DESKTOP",
-      "default": 16
-    },
-    {
-      "type": "select",
-      "id": "billboard_subtitle_font_weight",
-      "label": "Sub Title Font Weight",
-      "options": [
-        {
-          "value": "300",
-          "label": "Light"
-        },
-        {
-          "value": "400",
-          "label": "Normal"
-        },
-        {
-          "value": "600",
-          "label": "Semi Bold"
-        },
-        {
-          "value": "700",
-          "label": "Bold"
-        }
-      ],
-      "default": "600"
-    },
-    {
-      "type": "select",
-      "id": "billboard_subtitle_font_family",
-      "label": "Sub Title Font Type",
-      "options": [
-        {
-          "value": "sans-serif",
-          "label": "Sans Serif"
-        },
-        {
-          "value": "serif",
-          "label": "Serif"
-        }
-      ],
-      "default": "sans-serif"
-    },
-    {
       "type": "richtext",
       "id": "title",
       "label": "Title",
       "default": "<p>Bath</p>"
     },
     {
-      "type": "range",
-      "id": "billboard_title_font_size_mob",
-      "min": 12,
-      "max": 54,
-      "step": 1,
-      "unit": "px",
-      "label": "Title Font Size MOBILE",
-      "default": 16
-    },
-    {
-      "type": "range",
-      "id": "billboard_title_font_size_desktop",
-      "min": 12,
-      "max": 54,
-      "step": 1,
-      "unit": "px",
-      "label": "Title Font Size DESKTOP",
-      "default": 40
-    },
-    {
-      "type": "select",
-      "id": "billboard_title_font_weight",
-      "label": "Title Font Weight",
-      "options": [
-        {
-          "value": "300",
-          "label": "Light"
-        },
-        {
-          "value": "400",
-          "label": "Normal"
-        },
-        {
-          "value": "500",
-          "label": "Semi Bold"
-        },
-        {
-          "value": "600",
-          "label": "Bold"
-        }
-      ],
-      "default": "500"
-    },
-    {
-      "type": "select",
-      "id": "billboard_title_font_family",
-      "label": "Title Font Type",
-      "options": [
-        {
-          "value": "sans-serif",
-          "label": "Sans Serif"
-        },
-        {
-          "value": "serif",
-          "label": "Serif"
-        },
-        {
-          "value": "Hatton, serif",
-          "label": "Hatton, serif"
-        }
-      ],
-      "default": "Hatton, serif"
-    },
-    {
       "type": "richtext",
       "id": "copy",
       "label": "Copy",
       "default": "<p>Step into a spa-like sanctuary with our luxurious selection of bathroom products.</p>"
-    },
-    {
-      "type": "range",
-      "id": "billboard_copy_font_size_mob",
-      "min": 12,
-      "max": 54,
-      "step": 1,
-      "unit": "px",
-      "label": "Copy Font Size MOBILE",
-      "default": 14
-    },
-    {
-      "type": "range",
-      "id": "billboard_copy_font_size_desktop",
-      "min": 12,
-      "max": 54,
-      "step": 1,
-      "unit": "px",
-      "label": "Copy Font Size DESKTOP",
-      "default": 14
-    },
-    {
-      "type": "select",
-      "id": "billboard_copy_font_weight",
-      "label": "Copy Font Weight",
-      "options": [
-        {
-          "value": "200",
-          "label": "Light"
-        },
-        {
-          "value": "300",
-          "label": "Normal"
-        },
-        {
-          "value": "400",
-          "label": "Semi Bold"
-        },
-        {
-          "value": "500",
-          "label": "Bold"
-        }
-      ],
-      "default": "200"
-    },
-    {
-      "type": "select",
-      "id": "billboard_copy_font_family",
-      "label": "Copy Font Type",
-      "options": [
-        {
-          "value": "sans-serif",
-          "label": "Sans Serif"
-        },
-        {
-          "value": "serif",
-          "label": "Serif"
-        },
-        {
-          "value": "Tomato Grotesk",
-          "label": "'Tomato Grotesk', sans-serif"
-        }
-      ],
-      "default": "Tomato Grotesk"
     },
     {
       "type": "text",

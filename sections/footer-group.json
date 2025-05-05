@@ -11,39 +11,200 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
-    "9e90f861-dcea-48bf-98a1-5a52bc9c0da7": {
-      "type": "revy-contents",
-      "disabled": true,
-      "settings": {}
-    },
-    "footer": {
-      "type": "footer",
+    "faq_section_cim6Vw": {
+      "type": "faq-redesign",
       "blocks": {
-        "1e7969e2-e46d-4f05-8747-02807e3876f4": {
-          "type": "link_list",
+        "text_cChEhF": {
+          "type": "text",
           "settings": {
-            "footer_links": "footer"
+            "title": "Product",
+            "text": "<p><strong>How do I choose the right Christy product for me?</strong></p><p>Read our <a href=\"https://www.christy.co.uk/pages/buying-guides\">buying guides</a> to discover the Christy products that will suit you best.<br/></p><p><strong>How can I determine the appropriate size to purchase?</strong></p><p>Check out our helpful <a href=\"https://www.christy.co.uk/pages/size-guides\">size guides</a> to ensure you find the perfect fit for your Christy products. Please note that the size guides are not product specific and must be taken as a guide, to get the exact measurements of a specific product please view the product page.<br/></p><p><strong>What should I do if the item I wanted is no longer available?</strong></p><p>We typically remove items from our website after they are completely sold out. If you are looking for something specific, email us with a design name, or a photo and detailed description, and we will do our best to assist you in finding a match.</p>"
+          }
+        },
+        "text_MYUznx": {
+          "type": "text",
+          "settings": {
+            "title": "Account",
+            "text": "<p><strong>Why create a Christy's account?</strong></p><p>Setting up an account provides you with exclusive benefits, and peace of mind. Enjoy features like wish lists, order tracking, earlier access to new products and sales, and the opportunity to earn Christy rewards points.</p><p><strong>How do I set up my Christy account?</strong></p><p>It is simple — <a href=\"https://www.christy.co.uk/account/login\">click here to sign up.</a></p>"
+          }
+        },
+        "text_A8BJzD": {
+          "type": "text",
+          "settings": {
+            "title": "Payment",
+            "text": "<p><strong>What payment methods does Christy accept?</strong></p><p>We accept secure debit and credit card payments (Visa, MasterCard, American Express, Diners Club), PayPal, Amazon Pay, Discover Network, JCB, Carte Bleue, and Klarna.</p><p><strong>How do I apply a discount code?</strong></p><p>Enter your code in the \"Discount code\" box during checkout and click \"Apply.\" Note that discount codes cannot be combined with other offers or loyalty points.</p><p><strong>Do you have gift cards?</strong></p><p>Currently we do not provide gift cards.</p><p><strong>What is Klarna?</strong></p><p>Klarna is a Swedish payment service that lets you split payments into three interest-free instalments. Learn more about using Klarna <a href=\"https://www.christy.co.uk/pages/klarna-faqs\">here.</a></p>"
+          }
+        },
+        "text_7eRAax": {
+          "type": "text",
+          "settings": {
+            "title": "Orders",
+            "text": "<p><strong>Can I add items to an existing order?</strong></p><p>Unfortunately, no, we cannot add items to orders once your payment is processed. Please place a separate order for additional items.</p><p><strong>How can I check my order's status?</strong></p><p>You will receive a confirmation email when your order ships. If it does not arrive within the expected period first check your junk box and if you still do not have it email us <a href=\"mailto:info@christy.co.uk\">info@christy.co.uk</a> or call <em>01613675800</em> for an order status update.</p><p><strong>How do I cancel an order?</strong></p><p>Contact us at <a href=\"mailto:info@christy.co.uk\">info@christy.co.uk</a> or call <em>01613675800</em> to cancel your order promptly. If it has not shipped yet, we will stop it; otherwise, follow our returns policy.</p><p><strong>Can I alter an order once it is processed?</strong></p><p>Unfortunately, no, once payment is processed, we cannot modify items in existing orders. If you would like to add a new item(s), please create a separate order. Alternatively, you can cancel your order and place a new one. Contact us at <a href=\"mailto:info@christy.co.uk\">info@christy.co.uk</a> or call <em>01613675800</em> for assistance with this process.</p><p><strong>I forgot to apply my coupon code. What should I do?</strong></p><p>In most cases, we can provide a refund for the coupon amount to prevent any inconvenience caused by order cancellation. Contact us at <a href=\"mailto:info@christy.co.uk\">info@christy.co.uk</a> or call <em>01613675800</em> and we will provide guidance on resolving the issue.</p><p><strong>Can I change my shipping address after placing the order?</strong></p><p>We strive to dispatch orders promptly upon processing. If your order has not been shipped, we may be able to help update the address. Please call us right away, and we will provide assistance to the best of our ability. Your prompt action is appreciated.</p>"
+          }
+        },
+        "text_tmtqCM": {
+          "type": "text",
+          "settings": {
+            "title": "Delivery",
+            "text": "<p><strong>Do you offer international delivery?</strong></p><p>Currently, we only ship within mainland UK and the Channel Islands. Email <a href=\"mailto:info@christy.co.uk\">info@christy.co.uk</a> or call <em>01613675800</em> for international stockists and trade account info.</p><p><strong>How will my order be delivered?</strong></p><p>We use various couriers based on your order's size and delivery address.</p><p><strong>Is free shipping available?</strong></p><p>Yes, orders over £50 qualify for free standard shipping.</p><p><strong>What if I do not receive tracking information?</strong></p><p>First, we will suggest, check your Christy account. Next, search your spam folder. If needed, email <a href=\"mailto:info@christy.co.uk\">info@christy.co.uk</a> or give us a call at <em>01613675800</em> for tracking updates.</p><p><strong>I received the wrong item. What should I do?</strong></p><p>No need to worry; we are here to assist you. Please send us an email at <a href=\"mailto:info@christy.co.uk\">info@christy.co.uk</a> or give us a call at <em>01613675800</em>. We will require the barcode and pictures to help us investigate the situation. Our priority is to support you and address any issues related to receiving the incorrect item. Your satisfaction is important to us.</p>"
+          }
+        },
+        "text_MbYJej": {
+          "type": "text",
+          "settings": {
+            "title": "Returns",
+            "text": "<p><strong>What is your returns policy?</strong></p><p>To make your festive shopping stress-free, all purchases from November 1st to December 24th can be returned until January 31st, 2025. Details available <a href=\"https://www.christy.co.uk/pages/returns-policy\">here.</a></p><p><strong>How do I return an item?</strong></p><p>To make your festive shopping stress-free, all purchases from November 1st to December 24th can be returned until January 31st, 2025. Follow the returns process detailed <a href=\"https://www.christy.co.uk/pages/returns-policy\">here.</a></p><p><strong>Can I return part of my order?</strong></p><p>Yes, partial returns are allowed. Read our returns policy and contact <a href=\"mailto:info@christy.co.uk\">info@christy.co.uk</a> or give us a call at <em>01613675800</em> for assistance. </p><p><strong>How can I exchange my order?</strong></p><p>We only exchange faulty products. Contact <a href=\"mailto:info@christy.co.uk\">info@christy.co.uk</a> or give us a call at <em>01613675800</em> for exchange arrangements. To make your festive shopping stress-free, all purchases from November 1st to December 24th can be returned until January 31st, 2025.</p><p><strong>When will I receive my refund?</strong></p><p>After processing your returned order, expect a refund within 7 days.</p><p><strong>Why did the pickup of my product fail?</strong></p><p>Do not worry; if there was an issue with the product pickup, we are here to help. Kindly send us an email with you order details to <a href=\"mailto:info@christy.co.uk\">info@christy.co.uk</a> or give us a call at <em>01613675800</em>. We are committed to assisting you and resolving any concerns you may have regarding the failed pickup.</p><p><strong>What is the return policy for Freebies?</strong></p><p>Freebies as individual products are not eligible for returns. If you are returning the entire order, please ensure that the freebies are also included for return.</p>"
+          }
+        },
+        "text_BpQkFk": {
+          "type": "text",
+          "settings": {
+            "title": "Packaging",
+            "text": "<p><strong>Is Christy's packaging recyclable?</strong></p><p>Our bed linens come in reusable cloth bags. Cardboard packaging is FSC certified and recyclable. Our transit bags are made of recycled material and are also recyclable.</p><p><strong>My package was damaged, and items were missing. What should I do?</strong></p><p>We apologize for the inconvenience you have experienced. Rest assured; we are here to help. Please send us an email at <a href=\"mailto:info@christy.co.uk\">info@christy.co.uk</a> or give us a call at <em>01613675800</em>. To help us resolve your issue, kindly provide your order number, product details and pictures if possible. Our focus is to assist you and resolve any concerns you have about the damaged package and missing items. Your satisfaction remains our priority.</p>"
+          }
+        },
+        "text_PTH9xh": {
+          "type": "text",
+          "settings": {
+            "title": "Trade & Wholesale",
+            "text": "<p><strong>How can I apply for a trade account?</strong></p><p>Discuss opening a trade account by emailing <a href=\"mailto:info@christy.co.uk\">info@christy.co.uk</a></p><p><strong>How do I get a VAT invoice?</strong></p><p>Email <a href=\"mailto:info@christy.co.uk\">info@christy.co.uk</a> with your order number and we will provide you with a VAT invoice.</p><p><strong>How can I place a large corporate order for bulk quantities of a product?</strong></p><p>For corporate orders involving substantial quantities, please reach out to us via email at <a href=\"mailto:info@christy.co.uk\">info@christy.co.uk</a> We are here to assist you in securing fantastic discounts for your bulk order. Contact us for personalized assistance and special pricing arrangements.</p>"
+          }
+        },
+        "text_UUbkxw": {
+          "type": "text",
+          "settings": {
+            "title": "The Mill Shop",
+            "text": "<p><strong>Is the Mill/Factory Shop open?</strong></p><p>No, our Mill/Factory Shop at Hyde is permanently closed. Join our Christy reward program for exclusive discounts and offers.</p>"
+          }
+        },
+        "text_GRzm66": {
+          "type": "text",
+          "settings": {
+            "title": "Caring for your Christy Products",
+            "text": "<p><strong>How do I clean my Christy products?</strong></p><p>Refer to our care guides for proper maintenance of your Christy products <a href=\"https://www.christy.co.uk/pages/care-guides\">here.</a></p>"
+          }
+        },
+        "text_bUALwi": {
+          "type": "text",
+          "settings": {
+            "title": "Faulty Item",
+            "text": "<p><strong>What should I do if I receive a faulty item?</strong></p><p>We apologize for any inconvenience caused. If you have received a faulty item, please email us at <a href=\"mailto:info@christy.co.uk\">info@christy.co.uk</a> or give us a call at <em>01613675800</em>, and include pictures of the item if possible. We will assist you in starting the replacement process. Your satisfaction is important to us.</p>"
+          }
+        },
+        "text_hgHf3V": {
+          "type": "text",
+          "settings": {
+            "title": "Feedback and Suggests",
+            "text": "<p><strong>I have feedback to share. How can I do that?</strong></p><p>We value all types of feedback, as it helps us improve and encourages us with compliments. Please send your feedback via email to <a href=\"mailto:info@christy.co.uk\">info@christy.co.uk</a> or give us a call at <em>01613675800</em>. Rest assured; you will receive a response from us. Your input is highly appreciated!</p>"
+          }
+        },
+        "text_y8Fhkk": {
+          "type": "text",
+          "settings": {
+            "title": "General Inquiries",
+            "text": "<p><strong>Do you have any other questions? We are here to assist you!</strong></p><p>Do not hesitate to reach out to us. For any queries or concerns, please feel free to contact us via email at <a href=\"mailto:info@christy.co.uk\">info@christy.co.uk</a> or give us a call at <em>01613675800. </em>We are eager to help and provide the information you need.</p>"
+          }
+        },
+        "text_ziketc": {
+          "type": "text",
+          "settings": {
+            "title": "Klarna",
+            "text": "<p><strong>Pay later in 3 interest-free instalments</strong></p><p><strong>Frequently Asked Questions<br/><br/>What is Klarna?</strong></p><p>Klarna is a Swedish payment service provider that takes end-to-end responsibility for your payment. They provide payment services for more than 200,000 online stores, and over 85 million consumers worldwide have trusted Klarna to securely handle their payments.</p><p><strong>How does Pay later in 3 interest-free instalments work?</strong></p><p>Pay later in 3 interest-free instalments allows you to spread the cost of your purchase over 3 equal payments. Each instalment is automatically collected from the debit or credit card that you entered at checkout. Your first instalment will be collected when your order is confirmed by Christy, and instalments 2 and 3 are scheduled 30 and 60 days later. You can monitor your payment schedule in the Klarna app.</p><p><strong>Am I eligible for Pay later in 3 interest-free instalments?</strong></p><p>Eligibility is based on a number of factors, like your order value, order history, and item availability. To use Pay later in 3 interest-free instalments you must be at least 18 years old and your approval or denial is subject to your financial circumstances. When choosing Pay later in 3 interest-free instalments, our assessment will not affect your credit rating.</p><p>For your order to be eligible, it must be over £35.</p><p><strong>How can I increase my chances of being accepted for Pay later in 3 interest-free instalments?</strong></p><p>You can improve your chances of being offered Pay later in 3 interest-free instalments by providing your full name, accurate address details and shipping to your registered billing address. All orders are assessed individually. Just because you have been accepted for a Klarna payment method before doesn't mean it will be offered for every order. Likewise, if it is denied, it doesn't mean that it will be denied for all future orders.</p><p><strong>What do I need to provide when I make a purchase?</strong></p><p>If you want to make a purchase with Klarna using Pay later in 3 interest-free instalments, you'll need to provide your mobile phone number, email address, current billing address and a debit or card card. The mobile number is required in case we need to reach you. All communications will be sent to your email address. It's very important that you give us the correct details, as otherwise you won't receive your payment schedule and updated order information.</p><p><strong>Will it affect my credit rating?</strong></p><p>Klarna may run unrecorded enquiries (or soft credit searches) that do not affect your credit score. These are are only visible to you and Klarna, but not to other lenders. Neither Klarna nor Christy run credit searches against you that could impact your credit rating.</p><p><strong>Why have I not been offered Pay later in 3 interest-free instalments?</strong></p><p>Although Pay later in 3 interest-free instalments is widely promoted it is not universally available. Instead, it is automatically generated by algorithms that are dependent on a number of factors including address details, cardholder details, order amount, the online store, previous order history and item availability.</p><p><strong>What are my payment options with Klarna?</strong></p><p>Payment for your Pay later in 3 interest-free instalments will be automatically collected from the debit or credit card you entered at checkout. The first payment is taken when the order is confirmed. The second and third instalments are collected 30 and 60 days after the first instalment. You can monitor your payment schedule in the Klarna app.</p><p><strong>What happens if I cancel or return my order?</strong></p><p>As soon as Christy have accepted your cancellation/return, Klarna will cancel any future scheduled payments as well as refund any amounts due. The return will be reflected in the Klarna app immediately.</p><p><strong>What happens if I don't pay for my order?</strong></p><p>Klarna will automatically attempt to collect your payment for your Pay later in 3 interest-free instalments purchase at Christy from the debit or credit card you entered at checkout. If we are unable to collect your payment on the scheduled date, Klarna will make one further attempt to automatically collect payment two days later. Should this second payment attempt fail, Klarna will issue you a statement for the full outstanding order amount which will become payable 15 days later. Klarna shall notify you when a payment is due two days in advance of attempting to collect your payment and you can monitor the due date in Klarna app at your convenience. Your credit score will not be impacted by using Klarna’s Pay later in 3 instalments product even if you fail to pay on time.</p><p><strong>I have been asked to go to the Klarna site. Is this correct?</strong></p><p>You can view all of your Klarna purchases and payment schedule in the Klarna app or by logging onto Klarna.com/uk.</p><p><strong>Is my payment information safe?</strong></p><p>Payment information is processed securely by Klarna. No card details are transferred to or held by Christy. All transactions take place through connections secured with the latest industry standard security protocols.</p><p><strong>Can I pay before the due date?</strong></p><p>Yes. Just go to the Klarna app or log onto Klarna.com/uk and pay off your purchase early.</p><p><strong>Have you received my payment?</strong></p><p>Klarna will notify you via email and push notification from the Klarna app when a payment is due and when this has successfully been collected, or in the unlikely event of your payment failing. If a payment has been collected but you have not received payment confirmation, you can always check the status of your order and payments in the Klarna app or by logging in at www.klarna.com/uk.</p><p><strong>What happens to my statement, when I've returned the goods?</strong></p><p>Once Christy has received the return (partial or full) and you have received their confirmation of this, an updated statement with an adjusted payment schedule will be sent to you by Klarna if you've made a partial return. With a full return, we shall refund any payments collected and cancel any future scheduled payments. You are always able to monitor the status of your order in the Klarna app.</p><p><strong>I've received a statement, but I've not received my goods yet. What should I do?</strong></p><p>In the event that you haven't received your goods please call Christy on 01613675800 or email us at info@christy.co.uk and we'll check your orders delivery status. Then, contact Klarna’s Customer Service to postpone your payment's due date or put the order on hold in the Klarna app while you wait for your it to arrive.</p><p><strong>I have cancelled my order. How long will it take until I receive my refund?</strong></p><p>As soon as the store has registered your cancellation or your return, the refund will be processed within 5-7 business days.</p><p><strong>I have asked for a refund. How will I be refunded?</strong></p><p>Your refund will be issued back to the debit or credit card that was originally entered at checkout.</p><p><strong>I haven't received an email with my statement/payment information. What should I do?</strong></p><p>You can log in the Klarna app or at www.klarna.com/uk, where you will find all of your orders and payment schedule information.</p><p><strong>I still have questions regarding payment, how can I get in touch?</strong></p><p>Visit Klarna app or Klarna’s Customer Service page for a full list of FAQs, live chat and telephone options.</p>"
           }
         }
       },
       "block_order": [
-        "1e7969e2-e46d-4f05-8747-02807e3876f4"
+        "text_cChEhF",
+        "text_MYUznx",
+        "text_A8BJzD",
+        "text_7eRAax",
+        "text_tmtqCM",
+        "text_MbYJej",
+        "text_BpQkFk",
+        "text_PTH9xh",
+        "text_UUbkxw",
+        "text_GRzm66",
+        "text_bUALwi",
+        "text_hgHf3V",
+        "text_y8Fhkk",
+        "text_ziketc"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "FAQs?"
+      }
+    },
+    "newsletter_6tkdxP": {
+      "type": "newsletter",
+      "blocks": {
+        "heading_JCWhqn": {
+          "type": "heading",
+          "settings": {
+            "heading": "Enter your email for our monthly newsletter +",
+            "heading_size": "h1"
+          }
+        },
+        "email_form_gMgwi3": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading_JCWhqn",
+        "email_form_gMgwi3"
       ],
       "settings": {
-        "email_signup_text": "<p>Enter your email for our monthly newsletter + 1<strong>0% off your first purchase.</strong></p><p>You can opt out at any time. View the Privacy Policy <a href=\"/pages/privacy-policy\" title=\"Privacy Policy\">here.</a></p>"
+        "color_scheme": "accent-2",
+        "full_width": true,
+        "typing_text": "10% off your first purchase.",
+        "policy_text": "<p>You can opt out at any time. View the Privacy Policy <a href=\"/pages/privacy-policy\" target=\"_blank\" title=\"Privacy Policy\">here.</a></p>",
+        "padding_top": 72,
+        "padding_bottom": 72
       }
+    },
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "link_list_kcf8GV": {
+          "type": "link_list",
+          "settings": {
+            "footer_title": "Customer Support",
+            "footer_links": "customer-support"
+          }
+        },
+        "1e7969e2-e46d-4f05-8747-02807e3876f4": {
+          "type": "link_list",
+          "settings": {
+            "footer_title": "Company Information",
+            "footer_links": "company-information"
+          }
+        },
+        "link_list_rD473Q": {
+          "type": "link_list",
+          "settings": {
+            "footer_title": "Guides",
+            "footer_links": "guides"
+          }
+        }
+      },
+      "block_order": [
+        "link_list_kcf8GV",
+        "1e7969e2-e46d-4f05-8747-02807e3876f4",
+        "link_list_rD473Q"
+      ],
+      "settings": {}
     },
     "footer-copyright": {
       "type": "footer-copyright",
       "settings": {
         "terms_links": "footer-terms-privacy",
-        "social_links": "footer-social-media",
         "copyright": "© CHRISTY 2025. ALL RIGHTS RESERVED"
       }
     }
   },
   "order": [
-    "9e90f861-dcea-48bf-98a1-5a52bc9c0da7",
+    "faq_section_cim6Vw",
+    "newsletter_6tkdxP",
     "footer",
     "footer-copyright"
   ]

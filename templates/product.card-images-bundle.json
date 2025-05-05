@@ -1,0 +1,21 @@
+{
+  "layout": false,
+  "sections": {
+    "main": {
+      "type": "product-card-template-images",
+      "settings": {
+        "images_slider": false,
+        "image_width": 150,
+        "image_height": 150,
+        "image_sizes": "(min-width: 1024px) 450px, (min-width: 640px) 300px, 150px",
+        "image_widths": "150, 300, 450",
+        "image_class": "w-full h-full object-cover opacity-0 transition-opacity duration-300",
+        "image_clickable": false,
+        "image_spinner": false
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

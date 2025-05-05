@@ -1,0 +1,101 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "0c8f5654-f9bf-44d9-aef0-e8516e73109b": {
+      "type": "hero-image",
+      "disabled": true,
+      "settings": {
+        "image": "shopify://shop_images/Untitled_design_1.jpg",
+        "link": "",
+        "full_width": true
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "sc_back_in_stock_app_block_wHUhiD": {
+          "type": "shopify://apps/sc-back-in-stock/blocks/app-block/839cbcb7-0406-4c2b-8e74-a54d987b90ab",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "sc_back_in_stock_app_block_wHUhiD"
+      ],
+      "settings": {
+        "bundle-discount-template": "Save *discount*% with our curated bundles—each piece customized by you"
+      }
+    },
+    "reviews_section_me9PUF": {
+      "type": "reviews-section",
+      "settings": {}
+    },
+    "pdp_shop_the_look_JkDn3B": {
+      "type": "pdp-shop-the-look",
+      "settings": {
+        "title": "Shop the look",
+        "padding_top": 0,
+        "padding_bottom": 48
+      }
+    },
+    "reviews_section_yMXLqG": {
+      "type": "reviews-section",
+      "disabled": true,
+      "settings": {}
+    },
+    "product-quiz": {
+      "type": "product-quiz",
+      "settings": {
+        "button_text": "NEXT",
+        "results_button_text": "SEE RESULTS",
+        "contact_us_text": "Need help choosing? Get in touch with us.",
+        "phone_number": "+441613675800"
+      }
+    },
+    "dfadb464-131f-4320-963f-71343e59af69": {
+      "type": "related-products",
+      "settings": {
+        "products": [
+          "balmoral-duvet-set",
+          "arabella-duvet-sets",
+          "beaumont-duvet-sets",
+          "hatton-duvet-sets"
+        ],
+        "products_limit": 4,
+        "heading": "You May Also Like"
+      }
+    },
+    "recent-products": {
+      "type": "recent-products",
+      "disabled": true,
+      "settings": {
+        "heading": "Recently Viewed"
+      }
+    },
+    "product_faq_VgdJDe": {
+      "type": "product-faq",
+      "disabled": true,
+      "settings": {
+        "heading": "FAQ"
+      }
+    }
+  },
+  "order": [
+    "0c8f5654-f9bf-44d9-aef0-e8516e73109b",
+    "main",
+    "reviews_section_me9PUF",
+    "pdp_shop_the_look_JkDn3B",
+    "reviews_section_yMXLqG",
+    "product-quiz",
+    "dfadb464-131f-4320-963f-71343e59af69",
+    "recent-products",
+    "product_faq_VgdJDe"
+  ]
+}

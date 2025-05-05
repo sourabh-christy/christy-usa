@@ -102,7 +102,7 @@
   {% endunless %}
 
   {% if option_included == true %}
-    <div class="block {% if is_colour and option_swatch_image == blank %}hidden{% endif %}{% if name_custom == 'mob' %} relative{% endif %}">
+    <div class="block option-swatch-image-block-js {% if is_colour and option_swatch_image == blank %}hidden {% endif %}{% if name_custom == 'mob' %} relative{% endif %}">
       {%- if button_type == true -%}
         <input
           type="radio"
@@ -143,7 +143,7 @@
           >
         {%- else -%}
           <label
-            class="variant-label-colour"
+            class="variant-label-colour checked:!border-primary-blue"
             style=""
             for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
           >
@@ -167,8 +167,8 @@
 
         {%- if option_swatch_image != blank %}
           <div
-            class="w-full h-full transition-[width,height] rounded-full"
-            style="background-image: url({{ option_swatch_image | img_url: '24x24' }});"
+            class="w-full h-full transition-[width,height] rounded-full option-swatch-image-js"
+            style="background-image: url({{ option_swatch_image | img_url: '32x32' }});"
           ></div>
         {%- endif %}
 
@@ -190,7 +190,7 @@
           >
         {%- else %}
           <label
-            class="variant-label"
+            class="variant-label max-lg:h-full text-center"
             for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
           >
         {%- endif -%}
@@ -202,8 +202,6 @@
         {% if optionName == 'Size' %}
           <a class="pointer-events-none" href="{{ product.url }}/c:{{ selected_colour }},s:{{ value | handleize }}">
         {% endif %}
-
-        <span class="w-[12px] h-[12px] bg-[#CCD0DE] md:hidden mr-3 mt-1 shrink-0"></span>
 
         {{- value -}}
         <span class="visually-hidden">{{ 'products.product.variant_sold_out_or_unavailable' | t }}</span>

@@ -1,0 +1,435 @@
+{% assign aplus_variants = current_variant.metafields.custom.a_plus_variants.value %}
+{% assign show_a_plus = true %}
+{% assign aplus_price = 0 %}
+{% for vars in aplus_variants %}
+  {% assign v_price = 0 %}
+  {% if vars.variant.value.inventory_quantity > 0
+  and vars.variant.value.inventory_quantity < vars.quantity
+  %}
+    {% assign show_a_plus = false %}
+    {% break %}
+  {% endif %}
+  {% assign v_price = vars.variant.value.price | times: vars.quantity %}
+  {% assign v_image = vars.variant.value.featured_media %}
+  {% assign aplus_price = aplus_price | plus: v_price %}
+{% endfor %}
+
+<div id="stickyBar" class="sticky-bar hidden max-xl:!visible fixed bottom-0 left-0 w-full bg-white z-50 shadow-[0_-12px_50px_0_rgba(44,59,150,0.1)]">
+  <div class="container mx-auto py-2 flex items-center justify-between max-xl:pt-4 h-full max-xl:max-h-[102px] max-h-[86px]">
+      <div class="stick-bar-links max-xl:hidden">
+        <ul class="flex items-center justify-between w-full space-x-[24px]">
+          <li class="group relative">
+            <a href="#DeliveryReturns" class="text-base font-normal cursor-pointer">Delivery & Returns</a>
+            <span
+                class="absolute w-0 transition-all duration-500 bg-primary-blue group-hover:w-full bottom-0 left-0 h-[2px] block"
+                style="background:{{ link.object.metafields.custom.menu_colour }}"
+            ></span>
+          </li>
+          <li class="group relative">
+            <a href="#Description" class="text-base font-normal cursor-pointer">Description</a>
+            <span
+                class="absolute w-0 transition-all duration-500 bg-primary-blue group-hover:w-full bottom-0 left-0 h-[2px] block"
+                style="background:{{ link.object.metafields.custom.menu_colour }}"
+            ></span>
+          </li>
+          <li class="group relative">
+            <a href="#ReviewsWidget" class="text-base font-normal cursor-pointer">Reviews</a>
+            <span
+                class="absolute w-0 transition-all duration-500 bg-primary-blue group-hover:w-full bottom-0 left-0 h-[2px] block"
+                style="background:{{ link.object.metafields.custom.menu_colour }}"
+            ></span>
+          </li>
+        </ul>
+      </div>
+  
+      <!-- Product Info -->
+      <div class="product-info flex items-center space-x-6 pr-2 w-full xl:justify-end xl:max-w-[820px] max-xl:flex-col max-xl:w-full max-xl:space-x-0 max-xl:px-0">
+        <div id="stickyBarImage" class="w-[58px] h-[58px] max-xl:hidden">
+            {% for media in product.media %}
+                {% liquid
+                  assign path_array = request.path | split: '/'
+                  assign path_array_length = path_array | size
+                  assign ind = path_array_length | minus: 1
+                  assign variant_option_array = path_array[ind] | split: ','
+                  assign variant_option_array_length = variant_option_array | size
+                  assign selected_colour = ''
+                  assign selected_size = ''
+                  if variant_option_array_length > 0
+                    if variant_option_array[0] contains 'c:'
+                      assign selected_colour = variant_option_array[0] | replace: 'c:', '' | handleize
+                    endif
+                    if variant_option_array[1] contains 's:'
+                      assign selected_size = variant_option_array[1] | replace: 's:', '' | handleize
+                    endif
+                    if variant_option_array[2] contains 's:'
+                      assign option3 = variant_option_array[2] | replace: 's:', '' | handleize
+                    endif
+                  endif
+                  assign current_variant = product.selected_or_first_available_variant
+                  if selected_colour != blank and selected_size != blank and option3 != blank
+                    for variant in product.variants
+                      assign colour_slug = variant.option1 | handleize
+                      assign size_slug = variant.option2 | handleize
+                      assign option3_slug = variant.option2 | handleize
+                      if colour_slug == selected_colour and size_slug == selected_size and option3_slug == option3
+                        assign current_variant = variant
+                      endif
+                    endfor
+                  elsif selected_size == ''
+                    for variant in product.variants
+                      assign colour_slug = variant.option1 | handleize
+                      if colour_slug == selected_colour and variant.available
+                        assign current_variant = variant
+                      endif
+                    endfor
+                  else
+                    for variant in product.variants
+                      assign colour_slug = variant.option1 | handleize
+                      assign size_slug = variant.option2 | handleize
+                      if colour_slug == selected_colour and size_slug == selected_size
+                        assign current_variant = variant
+                      endif
+                    endfor
+                  endif
+                  if current_variant == blank
+                    assign current_variant = product.selected_or_first_available_variant
+                  endif
+                  assign alt_array = media.alt | split: '-'
+                  assign alt_striped = alt_array[0] | strip
+                  assign alt = alt_striped | replace: ' ', '-'
+                %}
+                {% if is_product_bundle %}
+                  {% capture rendered_image %}
+                    <img
+                        id="stickyBarImageTag"
+                        src="{{ media | img_url: '200x200' }}"
+                        alt="{{ media.id }}"
+                        class="object-cover w-[58px] h-[58px]"
+                    >
+                    {%endcapture%}
+                    {% break %}
+                {% elsif alt_array[1] == 'product_image' and current_variant.option1 == alt_striped %}
+                  {% capture rendered_image %}
+                    <img
+                        id="stickyBarImageTag"
+                        src="{{ media | img_url: '200x200' }}"
+                        alt="{{ media.id }}"
+                        class="object-cover w-[58px] h-[58px]"
+                    >
+                    {%endcapture%}
+                    {% break %}
+                {% endif %}
+            {% endfor %}
+          {% if rendered_image != blank %}
+            {{ rendered_image }}
+          {% else %}
+            {%- assign featured_media = current_variant.featured_media | default: product.featured_media  -%}
+            <img
+                id="stickyBarImageTag"
+                src="{{ featured_media.preview_image | img_url: '200x200' }}"
+                alt="{{ featured_media.id }}"
+                class="object-cover w-[58px] h-[58px]"
+            >
+          {% endif %}
+        </div>
+        
+        <div class="product-details flex flex-col space-y-1 w-fit max-w-[238px] max-xl:hidden">
+          <h4 class="text-sm font-normal line-clamp-2">{{ product.title }}</h4>
+          <div data-dynprice class="sticky-product-price">
+            {% if is_product_bundle %}
+              {% render 'bundle-builder-page-price',
+                  totalCompare: totalCompare,
+                  totalPrice: totalPrice,
+                  onlyNumbers: true
+              %}
+            {% else %}
+              <div
+                class="no-js-hidden font-semibold text-base flex items-center gap-1"
+                id="price-{{ section.id }}"
+                data-price="price-{{ section.id }}"
+                role="status"
+                {{ block.shopify_attributes }}
+              >
+                {%- render 'price-small', product: product, use_variant: true, current_variant: current_variant -%}
+                <div data-price-value="aplus_cart_price" id="aplus_cart_price" class="hidden">
+                  {{ aplus_price | plus: current_variant.price | money }}
+                </div>
+
+                {% assign gift_box_product = product.metafields.custom.gift_box_product.value %}
+                {% if gift_box_product != blank %}
+                  {% assign gift_box_variant = gift_box_product.variants | first %}
+                  <div data-price-value="giftBoxCartPrice" id="giftBoxCartPrice" class="hidden">
+                    {{ gift_box_variant.price | plus: current_variant.price | money }}
+                  </div>
+                  <div data-price-value="aplusGiftBoxCartPrice" id="aplusGiftBoxCartPrice" class="hidden">
+                    {{ gift_box_variant.price | plus: aplus_price | plus: current_variant.price | money }}
+                  </div>
+                {% endif %}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+
+        {%- unless product.has_only_default_variant or is_product_bundle -%}
+          <div class="max-xl:hidden">
+            {%- for option in product.options_with_values -%}
+              {% assign selectedValue = option.selected_value | handleize %}
+              {% assign values_count = option.values.size %}
+        
+              {% assign option_included = true %}
+        
+              {% unless specific_variants == blank %}
+                {% assign selectedValue = blank %}
+                {% assign values_count = 0 %}
+                {% assign option_included = false %}
+                {% assign added_options = '' %}
+                {% for variant in product.variants %}
+                  {% for specific_variant in specific_variants %}
+                    {% assign spec = specific_variant | plus: 0 %}
+                    {% if spec == variant.id %}
+                      {% for value in option.values %}
+                        {% if variant.options contains value %}
+                          {% unless added_options contains value %}
+                            {% assign added_options = added_options | append: value %}
+        
+                            {% assign option_included = true %}
+                            {% if selectedValue == blank %}
+                              {% assign selectedValue = value | handleize %}
+                            {% endif %}
+                            {% assign values_count = values_count | plus: 1 %}
+                          {% endunless %}
+                        {% endif %}
+                      {% endfor %}
+                    {% endif %}
+                  {% endfor %}
+                {% endfor %}
+              {% endunless %}
+        
+              {% if option_included == true %}
+                <div class="flex items-center">
+                  <span class="text-sm font-normal current-variation-label">
+                    {%- liquid
+                      if option.name == 'color' or option.name == 'Color'
+                        echo 'Colour'
+                      else
+                        echo option.name
+                      endif
+                    -%}:
+                  </span>
+                  <span class="current-variation max-md:text-sm text-base font-semibold ml-0.5 line-clamp-1 {% if option.name == 'Colour' or option.name == 'Color' %}sticky-bar-color-variation-js flex items-center{% endif %}" data-varcurrent="{{ option.name }}">
+                    {% if option.name == 'Colour' or option.name == 'Color' %}
+                      {% if selected_colour != '' %}
+                        {% assign selectedValue = selected_colour %}
+                      {% endif %}
+                    {% endif %}
+
+                    {%- for value in option.values -%}
+                      {%- assign valueHandle = value | handleize -%}
+                      {% if valueHandle == selectedValue %}
+                        {{ value }}
+
+                        {% assign is_colour = false %}
+                        {% if option.name == 'Colour' or option.name == 'Color' %}
+                          {% assign is_colour = true %}
+                          {% for variant in product.variants %}
+                            {% comment %}
+                              if colour matches get metafield
+                            {% endcomment %}
+                            {% if variant.option1 == value or variant.option2 == value or variant.option3 == value %}
+                              {%- for image in product.images -%}
+                                {%- assign alt_array = image.alt | split: '-' -%}
+                                {%- assign alt_striped = alt_array[0] | strip -%}
+                                {%- assign colour_striped = value | strip -%}
+                                {%- if colour_striped == alt_striped and alt_array[1] == 'product_swatch' -%}
+                                  {%- assign option_swatch_image = image -%}
+                                {%- endif -%}
+                              {%- endfor -%}
+                            {% endif %}
+                          {% endfor %}
+
+                          <div class="variant-label-colour ml-2 !w-6 !h-6 {% if is_colour and option_swatch_image == blank %}hidden{% endif %}">
+                            {%- if option_swatch_image != blank %}
+                              <div
+                                  class="w-full h-full transition-[width,height] rounded-full sticky-bar-color-swatch-js"
+                                  style="background-image: url({{ option_swatch_image | img_url: '32x32' }});"
+                              ></div>
+                            {%- endif %}
+                          </div>
+                        {% endif %}
+                      {% endif %}
+                    {% endfor %}
+
+                    {% if option.name == 'Size' and selected_size != '' %}
+                      {% assign selectedValue = selected_size %}
+                    {% endif %}
+                  </span>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {%- endunless -%}
+   
+        <!-- Main CTA -->
+        <div class="main-cta max-xl:mb-2">
+          {%- liquid
+            assign gift_card_recipient_feature_active = false
+            if block.settings.show_gift_card_recipient and product.gift_card?
+              assign gift_card_recipient_feature_active = true
+            endif
+      
+            assign show_dynamic_checkout = false
+            if block.settings.show_dynamic_checkout and gift_card_recipient_feature_active == false
+              assign show_dynamic_checkout = true
+            endif
+          -%}
+
+          <product-form class="product-form" data-hide-errors="{{ gift_card_recipient_feature_active }}">
+            {%- form 'product',
+              product,
+              id: product_form_id,
+              class: 'form',
+              novalidate: 'novalidate',
+              data-type: 'add-to-cart-form'
+            -%}
+              <input
+                type="hidden"
+                name="id"
+                value="{{ current_variant.id }}"
+                disabled
+                class="product-variant-id"
+              >
+
+              <div class="flex overflow-hidden max-xl:space-x-2">
+                {%- liquid
+                  assign check_against_inventory = true
+                  assign allow_pre_order = false
+                  if current_variant.inventory_management != 'shopify' or current_variant.inventory_policy == 'continue'
+                    assign check_against_inventory = false
+                  endif
+                  if current_variant.quantity_rule.min > current_variant.inventory_quantity and check_against_inventory
+                    assign quantity_rule_soldout = true
+                  endif
+                  if current_variant.metafields.custom.pre_order_qunatity > 0
+                    assign quantity_rule_soldout = false
+                    assign allow_pre_order = true
+                  endif
+                -%}
+                {% comment %}
+                    Quantity selector
+                {% endcomment %}
+                <div class="shrink-0 xl:hidden">
+                    {% unless product.tags contains 'hide-quantity' %}
+                      <custom-input-number data-sync-input-selector="[data-quantity-input]">
+                        <div class="flex items-center justify-between border border-secondary-blue-50 text-sm font-normal leading-normal uppercase h-[48px]">
+                        {% assign buttons_classes = 'hover:cursor-pointer w-[37px] h-[47px] xl:w-[47px] flex items-center justify-center select-none disabled:text-secondary-blue-100' %}
+                        <button type="button" class="{{ buttons_classes }}" data-decrement>—</button>
+                        <input
+                            data-quantity-input
+                            class="w-[37px] xl:w-[47px] h-[46px] aspect-square text-center"
+                            type="number"
+                            name="quantity"
+                            value="1"
+                            max="5"
+                            min="1"
+                        >
+                        <button type="button" class="{{ buttons_classes }}" data-increment>+</button>
+                        </div>
+                    </custom-input-number>
+                    {% endunless %}
+                </div>
+
+                <button
+                    {% if is_product_bundle %}
+                      data-addcart
+                    {% endif %}
+                  data-sticky-add-to-cart
+                  id="ProductSubmitButton-{{ section.id }}"
+                  type="submit"
+                  name="add"
+                  class="product-form__submit button btn-primary btn-hover-animated-primary button--full-width btn-large w-full min-w-[193px] h-[48px] uppercase relative overflow-hidden"
+                  {% if current_variant.available == false or quantity_rule_soldout %}
+                    disabled
+                  {% endif %}
+                >
+                  <span class="truncate text-base font-normal">
+                    {%- if current_variant.available == false or quantity_rule_soldout -%}
+                      {{ 'products.product.sold_out' | t }}
+                    {%- elsif allow_pre_order == true -%}
+                      Pre Order
+                    {% else %}
+                      {{ 'products.product.add_to_cart' | t }}
+                    {%- endif -%}
+                  </span>
+
+                  <span>&nbsp;&nbsp;</span>
+                  {% if is_product_bundle %}
+                    {% render 'bundle-builder-page-price',
+                        totalCompare: totalCompare,
+                        totalPrice: totalPrice,
+                        onlyNumbers: true
+                    %}
+                  {% else  %}
+                    <div
+                        class="no-js-hidden font-semibold text-base flex items-center gap-1"
+                        id="price-{{ section.id }}"
+                        data-price="price-{{ section.id }}"
+                        role="status"
+                        {{ block.shopify_attributes }}
+                    >
+                      {%- render 'price-small', product: product, use_variant: true, current_variant: current_variant -%}
+                      <div data-price-value="aplus_cart_price" id="aplus_cart_price" class="hidden">
+                        {{ aplus_price | plus: current_variant.price | money }}
+                      </div>
+
+                      {% assign gift_box_product = product.metafields.custom.gift_box_product.value %}
+                      {% if gift_box_product != blank %}
+                        {% assign gift_box_variant = gift_box_product.variants | first %}
+                        <div data-price-value="giftBoxCartPrice" id="giftBoxCartPrice" class="hidden">
+                          {{ gift_box_variant.price | plus: current_variant.price | money }}
+                        </div>
+                        <div data-price-value="aplusGiftBoxCartPrice" id="aplusGiftBoxCartPrice" class="hidden">
+                          {{ gift_box_variant.price | plus: aplus_price | plus: current_variant.price | money }}
+                        </div>
+                      {% endif %}
+                    </div>
+                  {% endif  %}
+
+                  <div class="loading-overlay__spinner hidden g absolute top-1/2 right-1 -translate-y-1/2 !w-3 !h-3">
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      class="spinner"
+                      viewBox="0 0 66 66"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle class="path !stroke-current" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                    </svg>
+                  </div>
+                </button>
+              </div>
+              {%- if show_dynamic_checkout -%}
+                {{ form | payment_button }}
+              {%- endif -%}
+
+            {%- endform -%}
+          </product-form>
+        </div>
+        <div class="xl:hidden">
+            <p class="text-sm font-normal">30 Day Trial - Free Shipping & Returns</p>
+        </div>
+      </div>
+    </div>
+</div>
+
+<script>
+  document.querySelectorAll('.option-swatch-image-block-js').forEach(swatchBlock => {
+    swatchBlock.querySelector('.variant-option')?.addEventListener('change', () => {
+      const stickyBarVariation = document.querySelector('.sticky-bar-variation-js')
+      const swatchImage = swatchBlock.querySelector('.variant-label-colour .option-swatch-image-js')
+      if (swatchImage && stickyBarVariation) {
+        stickyBarVariation.appendChild(swatchImage.cloneNode(true))
+      }
+    })
+  })
+</script>
+

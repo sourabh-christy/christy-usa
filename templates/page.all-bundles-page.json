@@ -1,1 +1,16 @@
-{"sections":{"main":{"type":"main-page","settings":{}},"169276539839bf5a49":{"type":"apps","settings":{}}},"order":["main","169276539839bf5a49"]}
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {}
+    },
+    "169276539839bf5a49": {
+      "type": "apps",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "169276539839bf5a49"
+  ]
+}

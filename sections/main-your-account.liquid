@@ -1,0 +1,102 @@
+{%- if customer -%}
+  <h1 class="bg-primary-white-cotton py-6 px-4 text-base font-semibold tracking-[.15px]">
+    {{ page.title | escape }}
+  </h1>
+
+  <div class="max-w-sm mx-auto">
+    <div class="mx-4 mt-10 mb-5 px-4 pb-3.5 text-center border border-secondary-blue-100 relative">
+      <div class="py-4 px-8 bg-[--body-background-color] absolute top-0 absolute-centered-x transform -translate-y-1/2">
+        <img
+            class="w-[120px]"
+            src="{{ 'christy-logo.svg' | asset_url }}"
+            width="120"
+            alt="{{ shop.name }}"
+        >
+      </div>
+
+      <p class="mt-12">You will be redirected to your account page in a moment.</p>
+
+      <script>
+        window.location.href = '{{ routes.account_url }}';
+      </script>
+    </div>
+  </div>
+{%- else -%}
+  <h1 class="bg-primary-white-cotton py-6 px-4 text-base font-semibold tracking-[.15px]">
+    {{ page.title | escape }}
+  </h1>
+
+  <div class="max-w-sm mx-auto">
+    <div class="mx-4 mt-10 mb-5 px-4 pb-3.5 text-center border border-secondary-blue-100 relative text-sm">
+      <div class="py-4 px-8 bg-[--body-background-color] absolute top-0 absolute-centered-x transform -translate-y-1/2">
+        <img
+            class="w-[120px]"
+            src="{{ 'christy-logo.svg' | asset_url }}"
+            width="120"
+            alt="{{ shop.name }}"
+        >
+      </div>
+
+      <a href="{{ routes.account_login_url }}" class="btn-medium btn-primary relative btn-hover-animated-primary w-full max-w-72 mt-12 font-normal">Sign in</a>
+
+      {% if section.settings.first_line != blank %}
+        <p class="text-base font-semibold mt-4 tracking-[.15px] font-normal">{{ section.settings.first_line }}</p>
+      {% endif %}
+
+      {% if section.settings.second_line != blank %}
+        <p class="mt-4 tracking-[.25px] font-normal">{{ section.settings.second_line }}</p>
+      {% endif %}
+
+      {% if section.settings.link_text != blank and section.settings.link_url != blank %}
+        <a href="{{ section.settings.link_url }}" class="underline block mt-2 font-normal">{{ section.settings.link_text }}</a>
+      {% endif %}
+
+      <a href="{{ routes.account_register_url }}" class="btn-medium btn-primary relative btn-hover-animated-primary w-full max-w-72 mt-6 font-normal">Create an account</a>
+
+      {% if section.settings.bottom_text != blank %}
+        <div class="mt-4 text-left wysiwyg font-normal">
+          {{ section.settings.bottom_text }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Main Your Account",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "first_line",
+      "label": "First text line",
+      "default": "Not a member yet?"
+    },
+    {
+      "type": "textarea",
+      "id": "second_line",
+      "label": "Second text line",
+      "default": "Not a Join the Christy program to start earning points and exclusive benefits."
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "Link text",
+      "default": "Learn more"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "Link URL"
+    },
+    {
+      "type": "richtext",
+      "id": "bottom_text",
+      "label": "Bottom text",
+      "default": "<ul><li>For faster checkout</li><li>For easier order tracking</li><li>To use saved addresses and payment types</li><li>To access your Saved Items</li></ul>"
+    }
+  ]
+}
+{% endschema %}

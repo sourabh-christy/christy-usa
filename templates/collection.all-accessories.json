@@ -1,27 +1,10 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
-    "76d74bb2-bded-47dc-b84b-8c7c02dc464e": {
-      "type": "hero-image",
-      "disabled": true,
-      "settings": {
-        "image": "shopify://shop_images/THIN_BANNER_c731d52c-01d1-410b-8d98-f8552d3457a5.jpg",
-        "link": "",
-        "full_width": true
-      }
-    },
     "09629106-0dde-4a16-b5f6-c5a399d548ad": {
       "type": "hero-image",
       "disabled": true,
       "settings": {
+        "image": "shopify:\/\/shop_images\/MicrosoftTeams-image_25.png",
         "link": "",
         "full_width": true
       }
@@ -34,9 +17,9 @@
           "disabled": true,
           "settings": {
             "text": "Build your Bundle",
-            "copy": "<p>Discover your perfect match for a restful night’s slumber.</p>",
+            "copy": "<p>Discover your perfect match for a restful night’s slumber.<\/p>",
             "button_text": "Build your Dream Duvet Set",
-            "button_url": "https://quickstart-3a56366d.myshopify.com/collections/bed-duvet-sets",
+            "button_url": "https:\/\/quickstart-3a56366d.myshopify.com\/collections\/bed-duvet-sets",
             "styled": false,
             "position": 7
           }
@@ -46,7 +29,7 @@
           "disabled": true,
           "settings": {
             "text": "Easycare Percale",
-            "copy": "<p>This stylish collection is made from a high quality polycotton blend, which is both practical and easy to care for.<br/><br/>The range of gorgeous colours and simple tailoring make this collection a real winner.</p>",
+            "copy": "<p>This stylish collection is made from a high quality polycotton blend, which is both practical and easy to care for.<br\/><br\/>The range of gorgeous colours and simple tailoring make this collection a real winner.<\/p>",
             "button_text": "Discover Collection",
             "button_url": "",
             "styled": true,
@@ -75,19 +58,7 @@
         "8704fef6-e4b5-4c39-bba2-de943e89068e"
       ],
       "settings": {
-        "products_per": 10,
-        "excerpt": "Towels",
-        "title_font_size_mob": 26,
-        "title_font_size_desktop": 40,
-        "title_font_weight": "500",
-        "title_font_family": "Hatton, serif",
-        "seo_liner": "Indulge in the ultimate comfort with our luxury towels, crafted from the finest materials for a plush, spa-like experience every day.",
-        "seo_liner_font_size_mob": 14,
-        "seo_liner_font_size_desktop": 14,
-        "seo_liner_font_weight": "300",
-        "seo_liner_font_family": "Tomato Grotesk",
-        "enable_filtering": true,
-        "enable_sorting": true
+        "products_per": 10
       }
     },
     "recent-products": {
@@ -100,24 +71,12 @@
       "type": "billboard",
       "settings": {
         "screen_visibility": "both",
-        "image": "shopify://shop_images/satdetailnavy.jpg",
+        "image": "shopify:\/\/shop_images\/satdetailnavy.jpg",
         "subtitle": "Christy Life",
-        "billboard_subtitle_font_size_mob": 16,
-        "billboard_subtitle_font_size_desktop": 16,
-        "billboard_subtitle_font_weight": "600",
-        "billboard_subtitle_font_family": "sans-serif",
-        "title": "<p>How To Arrange Pillows on a Bed: Easy Tips and Tricks</p>",
-        "billboard_title_font_size_mob": 16,
-        "billboard_title_font_size_desktop": 40,
-        "billboard_title_font_weight": "500",
-        "billboard_title_font_family": "Hatton, serif",
-        "copy": "<p>Our guide to how to arrange pillows on a bed has everything you need to help you style your bed to perfection with sumptuously soft decorative and functional pillows.</p>",
-        "billboard_copy_font_size_mob": 14,
-        "billboard_copy_font_size_desktop": 14,
-        "billboard_copy_font_weight": "200",
-        "billboard_copy_font_family": "Tomato Grotesk",
+        "title": "<p>How To Arrange Pillows on a Bed: Easy Tips and Tricks<\/p>",
+        "copy": "<p>Our guide to how to arrange pillows on a bed has everything you need to help you style your bed to perfection with sumptuously soft decorative and functional pillows.<\/p>",
         "button_label": "Read more",
-        "button_link": "https://www.christy.co.uk/blogs/lifestyle/how-to-arrange-pillows-on-a-bed-easy-tips-and-tricks",
+        "button_link": "https:\/\/www.christy.co.uk\/blogs\/lifestyle\/how-to-arrange-pillows-on-a-bed-easy-tips-and-tricks",
         "button_type": "tertiary",
         "colour_theme": "white",
         "alignment": "left",
@@ -133,14 +92,14 @@
           "disabled": true,
           "settings": {
             "title": "Drift into a peaceful slumber with our lovingly-crafted bedding",
-            "copy": "<p>Are you looking for luxury bedding sets that are designed by experts and woven to the highest thread count? Are you tired of settling for bedding sets that don't hold up to the quality that you deserve? After 170 years of crafting household linens, <a href=\"https://quickstart-3a56366d.myshopify.com/collections/bed-duvet-sets\" title=\"https://quickstart-3a56366d.myshopify.com/collections/bed-duvet-sets\">Christy is here for you.</a><br/><br/>You deserve nothing less than a nightly warm hug, the bedding you can sink into, and a safe space to sleep your troubles away. And we're here to help you get it. We know that a good night's sleep means the difference between a good day and a perfect one. That's why we only use the finest fabrics and expert craftsmanship to create our luxury bedding sets.<br/><br/>We believe that you deserve a great night's sleep every night. Our goal is to create bedding that provides a relaxing feel while maintaining its quality over time so you can enjoy the benefits of a great night's sleep for years to come. Our team of experts takes pride in every stitch, every seam, and every detail - so don't settle for anything less than perfection when it comes to your bedding.</p>"
+            "copy": "<p>Are you looking for luxury bedding sets that are designed by experts and woven to the highest thread count? Are you tired of settling for bedding sets that don't hold up to the quality that you deserve? After 170 years of crafting household linens, <a href=\"https:\/\/quickstart-3a56366d.myshopify.com\/collections\/bed-duvet-sets\" title=\"https:\/\/quickstart-3a56366d.myshopify.com\/collections\/bed-duvet-sets\">Christy is here for you.<\/a><br\/><br\/>You deserve nothing less than a nightly warm hug, the bedding you can sink into, and a safe space to sleep your troubles away. And we're here to help you get it. We know that a good night's sleep means the difference between a good day and a perfect one. That's why we only use the finest fabrics and expert craftsmanship to create our luxury bedding sets.<br\/><br\/>We believe that you deserve a great night's sleep every night. Our goal is to create bedding that provides a relaxing feel while maintaining its quality over time so you can enjoy the benefits of a great night's sleep for years to come. Our team of experts takes pride in every stitch, every seam, and every detail - so don't settle for anything less than perfection when it comes to your bedding.<\/p>"
           }
         },
         "f0ffe5d8-79c4-48a3-987e-d638b7875931": {
           "type": "copy",
           "disabled": true,
           "settings": {
-            "copy": "<p>Our duvet covers provide the ultimate indulgence. Your bedding is the first thing you see when you wake up in the morning and the last thing you see before going to sleep at night so we want you to experience ultimate satisfaction when you see and feel their opulence. Your bed should be soft and inviting, but also durable enough to stand up to years of use and regular wash cycles.</p>",
+            "copy": "<p>Our duvet covers provide the ultimate indulgence. Your bedding is the first thing you see when you wake up in the morning and the last thing you see before going to sleep at night so we want you to experience ultimate satisfaction when you see and feel their opulence. Your bed should be soft and inviting, but also durable enough to stand up to years of use and regular wash cycles.<\/p>",
             "title": "Escape into a world of tranquillity with Christy duvet covers",
             "copy_alignment": "left",
             "background": false
@@ -150,11 +109,11 @@
           "type": "imagegroup",
           "disabled": true,
           "settings": {
-            "image1_copy": "<p>Our duvet covers and bed sheets are made from a range of quality fabrics including high thread count Egyptian percale so they feel soft against your skin and luxurious in every way.</p>",
+            "image1_copy": "<p>Our duvet covers and bed sheets are made from a range of quality fabrics including high thread count Egyptian percale so they feel soft against your skin and luxurious in every way.<\/p>",
             "image1_aspect": "2:3",
-            "image2_copy": "<p>Our duvet covers and bed sheets are made from a range of quality fabrics including high thread count Egyptian percale so they feel soft against your skin and luxurious in every way.</p>",
+            "image2_copy": "<p>Our duvet covers and bed sheets are made from a range of quality fabrics including high thread count Egyptian percale so they feel soft against your skin and luxurious in every way.<\/p>",
             "image2_aspect": "1:1",
-            "image3_copy": "<p>Our duvet covers and bed sheets are made from a range of quality fabrics including high thread count Egyptian percale so they feel soft against your skin and luxurious in every way.</p>",
+            "image3_copy": "<p>Our duvet covers and bed sheets are made from a range of quality fabrics including high thread count Egyptian percale so they feel soft against your skin and luxurious in every way.<\/p>",
             "image3_aspect": "1:1",
             "background": false
           }
@@ -163,7 +122,7 @@
           "type": "copy",
           "disabled": true,
           "settings": {
-            "copy": "<p>When you're searching for quality bedding and duvet covers that enhance your beauty sleep, our wide range of bedding is just what you need. Our products are crafted with top-quality fabrics and materials, so they will feel great against your skin while also providing long-lasting comfort. <br/><br/><strong>Cloud Nine is the place to be. Let our beautiful bedding take you there.<br/></strong></p>",
+            "copy": "<p>When you're searching for quality bedding and duvet covers that enhance your beauty sleep, our wide range of bedding is just what you need. Our products are crafted with top-quality fabrics and materials, so they will feel great against your skin while also providing long-lasting comfort. <br\/><br\/><strong>Cloud Nine is the place to be. Let our beautiful bedding take you there.<br\/><\/strong><\/p>",
             "title": "",
             "copy_alignment": "right",
             "background": false
@@ -173,7 +132,7 @@
           "type": "copy",
           "disabled": true,
           "settings": {
-            "copy": "<p>When you're shopping for duvets and pillows, you want to know that you're getting the best quality materials and craftsmanship possible. That's why we've created an entire line of sleep products designed to make your bed the most comfortable and luxurious place in the world - from duvets to pillows to mattress protectors.</p>",
+            "copy": "<p>When you're shopping for duvets and pillows, you want to know that you're getting the best quality materials and craftsmanship possible. That's why we've created an entire line of sleep products designed to make your bed the most comfortable and luxurious place in the world - from duvets to pillows to mattress protectors.<\/p>",
             "title": "Experience the cloud-like comfort of our duvets and pillows",
             "copy_alignment": "right",
             "background": true
@@ -183,11 +142,11 @@
           "type": "imagegroup",
           "disabled": true,
           "settings": {
-            "image1_copy": "<p>Our duvet covers and bed sheets are made from a range of quality fabrics including high thread count Egyptian percale so they feel soft against your skin and luxurious in every way.</p>",
+            "image1_copy": "<p>Our duvet covers and bed sheets are made from a range of quality fabrics including high thread count Egyptian percale so they feel soft against your skin and luxurious in every way.<\/p>",
             "image1_aspect": "1:1",
-            "image2_copy": "<p>Our duvet covers and bed sheets are made from a range of quality fabrics including high thread count Egyptian percale so they feel soft against your skin and luxurious in every way.</p>",
+            "image2_copy": "<p>Our duvet covers and bed sheets are made from a range of quality fabrics including high thread count Egyptian percale so they feel soft against your skin and luxurious in every way.<\/p>",
             "image2_aspect": "1:1",
-            "image3_copy": "<p>Our duvet covers and bed sheets are made from a range of quality fabrics including high thread count Egyptian percale so they feel soft against your skin and luxurious in every way.</p>",
+            "image3_copy": "<p>Our duvet covers and bed sheets are made from a range of quality fabrics including high thread count Egyptian percale so they feel soft against your skin and luxurious in every way.<\/p>",
             "image3_aspect": "2:3",
             "background": true
           }
@@ -196,7 +155,7 @@
           "type": "copy",
           "disabled": true,
           "settings": {
-            "copy": "<p>We believe in quality, luxury materials and thoughtful design that's backed by science. Everything we create is made with only the best materials and manufactured by people who really care about what they do. We know how important it is for you to have a good night’s sleep, so we ensure that everything we produce helps you get just that.<br/><br/><strong>Now that you've found Christy, you're ready to make all of your bedtime dreams come true. Your perfect bedding is just a few clicks away!</strong></p>",
+            "copy": "<p>We believe in quality, luxury materials and thoughtful design that's backed by science. Everything we create is made with only the best materials and manufactured by people who really care about what they do. We know how important it is for you to have a good night’s sleep, so we ensure that everything we produce helps you get just that.<br\/><br\/><strong>Now that you've found Christy, you're ready to make all of your bedtime dreams come true. Your perfect bedding is just a few clicks away!<\/strong><\/p>",
             "title": "",
             "copy_alignment": "left",
             "background": true
@@ -206,7 +165,7 @@
           "type": "copy",
           "disabled": true,
           "settings": {
-            "copy": "<p>Create a cosy place to dream with our premium edit of cushions and throws. From velvet plush throws to chunky knit blankets, we've got what you need to create a welcoming and relaxing space for you and your loved ones. Whether you're after the perfect scatter cushion for your favourite chair or something to keep you warm on frosty evenings, our range of throws, cushions and blankets has everything you could possibly want.</p>",
+            "copy": "<p>Create a cosy place to dream with our premium edit of cushions and throws. From velvet plush throws to chunky knit blankets, we've got what you need to create a welcoming and relaxing space for you and your loved ones. Whether you're after the perfect scatter cushion for your favourite chair or something to keep you warm on frosty evenings, our range of throws, cushions and blankets has everything you could possibly want.<\/p>",
             "title": "Transform your bedroom into a sleep sanctuary with cushions and throws",
             "copy_alignment": "left",
             "background": false
@@ -216,11 +175,11 @@
           "type": "imagegroup",
           "disabled": true,
           "settings": {
-            "image1_copy": "<p>Our duvet covers and bed sheets are made from a range of quality fabrics including high thread count Egyptian percale so they feel soft against your skin and luxurious in every way.</p>",
+            "image1_copy": "<p>Our duvet covers and bed sheets are made from a range of quality fabrics including high thread count Egyptian percale so they feel soft against your skin and luxurious in every way.<\/p>",
             "image1_aspect": "2:3",
-            "image2_copy": "<p>Our duvet covers and bed sheets are made from a range of quality fabrics including high thread count Egyptian percale so they feel soft against your skin and luxurious in every way.</p>",
+            "image2_copy": "<p>Our duvet covers and bed sheets are made from a range of quality fabrics including high thread count Egyptian percale so they feel soft against your skin and luxurious in every way.<\/p>",
             "image2_aspect": "1:1",
-            "image3_copy": "<p>Our duvet covers and bed sheets are made from a range of quality fabrics including high thread count Egyptian percale so they feel soft against your skin and luxurious in every way.</p>",
+            "image3_copy": "<p>Our duvet covers and bed sheets are made from a range of quality fabrics including high thread count Egyptian percale so they feel soft against your skin and luxurious in every way.<\/p>",
             "image3_aspect": "1:1",
             "background": false
           }
@@ -230,7 +189,7 @@
           "disabled": true,
           "settings": {
             "title": "Doze into dreamland with bedding created by experts - Shop with Christy",
-            "copy": "<p>Cocoon yourself in a world of pure luxury as you discover the perfect bedding produced by our craftsmen.<br/><br/>The best bedding is like a warm cuddle. It's like a soft kiss goodnight. It's like rainbows and sunshine, all wrapped up into one cosy package. And at Christy, we're committed to finding the best materials and techniques to create bedding that will ease you gently and comfortably into the land of nod. Simply put, we know how to make you feel like royalty - we've been doing it for decades.<br/><br/><strong>Check out our bedding collection today, and get a good night's sleep tomorrow.</strong></p>"
+            "copy": "<p>Cocoon yourself in a world of pure luxury as you discover the perfect bedding produced by our craftsmen.<br\/><br\/>The best bedding is like a warm cuddle. It's like a soft kiss goodnight. It's like rainbows and sunshine, all wrapped up into one cosy package. And at Christy, we're committed to finding the best materials and techniques to create bedding that will ease you gently and comfortably into the land of nod. Simply put, we know how to make you feel like royalty - we've been doing it for decades.<br\/><br\/><strong>Check out our bedding collection today, and get a good night's sleep tomorrow.<\/strong><\/p>"
           }
         }
       },
@@ -248,12 +207,11 @@
       ],
       "settings": {
         "title": "Discover Accessories",
-        "copy": "<p>You’re looking for the most luxurious cushions and throws available. And that’s precisely what we’re here to give you.</p><p>Christy’s ever-evolving range of cushions and throws is designed with you and your home in mind. Indulge yourself with velvety-soft cushion covers that feel like a warm hug and premium throws that offer the perfect blend of warmth, style, and comfort. We bring you durability and quality that will last for generations.</p>"
+        "copy": "<p>You’re looking for the most luxurious cushions and throws available. And that’s precisely what we’re here to give you.<\/p><p>Christy’s ever-evolving range of cushions and throws is designed with you and your home in mind. Indulge yourself with velvety-soft cushion covers that feel like a warm hug and premium throws that offer the perfect blend of warmth, style, and comfort. We bring you durability and quality that will last for generations.<\/p>"
       }
     }
   },
   "order": [
-    "76d74bb2-bded-47dc-b84b-8c7c02dc464e",
     "09629106-0dde-4a16-b5f6-c5a399d548ad",
     "product-grid",
     "recent-products",

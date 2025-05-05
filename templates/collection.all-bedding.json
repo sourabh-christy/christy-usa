@@ -9,178 +9,13 @@
  */
 {
   "sections": {
-    "39b56b76-44e1-4c0a-9d31-c4d952d9caef": {
-      "type": "hero-image",
-      "disabled": true,
-      "settings": {
-        "link": "",
-        "full_width": true
-      }
-    },
-    "039e5ce4-f144-479c-bfe7-c6b54629b19c": {
-      "type": "hero-image",
-      "disabled": true,
-      "settings": {
-        "link": "shopify://collections/autumn-winter-2023-collection",
-        "full_width": true
-      }
-    },
-    "e81c268d-881b-4c6d-a674-f0f49b2c9321": {
-      "type": "hero-collection",
-      "blocks": {
-        "template--21202653085984__e81c268d-881b-4c6d-a674-f0f49b2c9321-slide-1": {
-          "type": "slide",
-          "settings": {
-            "mobile_media": "image",
-            "subtitle": "",
-            "hero_collection_subtitle_font_size_mob": 16,
-            "hero_collection_subtitle_font_size_desktop": 16,
-            "hero_collection_subtitle_font_weight": "600",
-            "hero_collection_subtitle_font_family": "sans-serif",
-            "mobile_subtitle": "show",
-            "title": "Bedding",
-            "hero_collection_title_font_size_mob": 16,
-            "hero_collection_title_font_size_desktop": 36,
-            "hero_collection_title_font_weight": "400",
-            "hero_collection_title_font_family": "Hatton, serif",
-            "mob_title": "",
-            "copy": "<p>Sink into a restful night's sleep with our cosy bedding</p>",
-            "hero_collection_copy_font_size_mob": 16,
-            "hero_collection_copy_font_size_desktop": 36,
-            "hero_collection_copy_font_weight": "400",
-            "hero_collection_copy_font_family": "Hatton, serif",
-            "copy_visibility": "mobile",
-            "collection": "",
-            "button_text": ""
-          }
-        }
-      },
-      "block_order": [
-        "template--21202653085984__e81c268d-881b-4c6d-a674-f0f49b2c9321-slide-1"
-      ],
-      "disabled": true,
-      "settings": {}
-    },
-    "06cfb5b0-ef0d-40ac-b0f2-de55cebec04c": {
-      "type": "c-info-columns",
-      "blocks": {
-        "template--21202653085984__06cfb5b0-ef0d-40ac-b0f2-de55cebec04c-column-1": {
-          "type": "column",
-          "settings": {
-            "image_aspect": "1:1",
-            "title": "Duvet Sets",
-            "text": "<p>Your passport to a world of premium comfort and timeless style for the ultimate bedroom retreat.</p>",
-            "button_label": "Shop Now",
-            "button_link": "duvet-sets",
-            "collection_tag": ""
-          }
-        },
-        "template--21202653085984__06cfb5b0-ef0d-40ac-b0f2-de55cebec04c-column-2": {
-          "type": "column",
-          "settings": {
-            "image_aspect": "1:1",
-            "title": "Fitted Sheets",
-            "text": "<p>The epitome of both snug precision and luxurious comfort, ensuring a perfect fit that stays in place throughout the night.</p>",
-            "button_label": "Shop Now",
-            "button_link": "sheets",
-            "collection_tag": ""
-          }
-        },
-        "template--21202653085984__06cfb5b0-ef0d-40ac-b0f2-de55cebec04c-column-3": {
-          "type": "column",
-          "settings": {
-            "image_aspect": "1:1",
-            "title": "Flat Sheets",
-            "text": "<p>Elevate your bedroom with our flat sheets, where quality and elegance meet in a seamless blend of softness and design.</p>",
-            "button_label": "Shop Now",
-            "button_link": "",
-            "collection_tag": ""
-          }
-        },
-        "3072f136-c23c-4563-876f-15a69fb5729d": {
-          "type": "column",
-          "settings": {
-            "image_aspect": "1:1",
-            "title": "Pillowcases",
-            "text": "<p>Where impeccable craftsmanship and a variety of colors and patterns allow you to express your unique style.</p>",
-            "button_label": "Shop Now",
-            "button_link": "pillowcases",
-            "collection_tag": ""
-          }
-        },
-        "159406bd-019d-4005-a068-5ff04e88e3c7": {
-          "type": "column",
-          "settings": {
-            "image_aspect": "1:1",
-            "title": "Duvets & Pillows",
-            "text": "<p>Discover a world of personalized comfort, available in a range of togs and firmness levels to suit your unique sleep preferences.</p>",
-            "button_label": "Shop Now",
-            "button_link": "duvet-pillows",
-            "collection_tag": ""
-          }
-        },
-        "0e44cbf6-5127-44b8-ae2a-026a5627deda": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/Christy_MattressTopper_Lifestyle_4.jpg",
-            "image_aspect": "1:1",
-            "title": "Protectors & Toppers",
-            "text": "<p>Offer a sanctuary of softness and hygiene, providing a cocoon of comfort while safeguarding your mattress from wear and tear.</p>",
-            "button_label": "Shop Now",
-            "button_link": "protectors-and-toppers",
-            "collection_tag": ""
-          }
-        }
-      },
-      "block_order": [
-        "template--21202653085984__06cfb5b0-ef0d-40ac-b0f2-de55cebec04c-column-1",
-        "template--21202653085984__06cfb5b0-ef0d-40ac-b0f2-de55cebec04c-column-2",
-        "template--21202653085984__06cfb5b0-ef0d-40ac-b0f2-de55cebec04c-column-3",
-        "3072f136-c23c-4563-876f-15a69fb5729d",
-        "159406bd-019d-4005-a068-5ff04e88e3c7",
-        "0e44cbf6-5127-44b8-ae2a-026a5627deda"
-      ],
-      "settings": {
-        "title": "Shop our Collection",
-        "title_font_size_mob": 16,
-        "title_font_size_desktop": 20,
-        "title_font_weight": "600",
-        "title_font_family": "sans-serif",
-        "copy_font_size_mob": 12,
-        "copy_font_size_desktop": 14,
-        "copy_font_weight": "300",
-        "copy_font_family": "sans-serif"
-      }
-    },
-    "543b28bf-821e-4b5d-bfe7-b6b214117f7d": {
-      "type": "products-carousel",
-      "settings": {
-        "title": "Shop All Bedding",
-        "mobile_title": "Our Best Sellers",
-        "title_font_size_mob": 18,
-        "title_font_size_desktop": 30,
-        "title_font_weight": "600",
-        "title_font_family": "sans-serif",
-        "button_title": "",
-        "button_link": "",
-        "products": [
-          "coniston-bed-linen",
-          "superior-soft-touch-anti-allergy-13-5-tog-duvet-and-pillow",
-          "lerwick-stripe",
-          "essential-pillow-pair",
-          "organic-retreat",
-          "superior-soft-touch-anti-allergy-10-5-tog-duvet-and-pillow"
-        ],
-        "screen_visibility": "both"
-      }
-    },
-    "76c6e56b-583c-4e8e-82a1-c452644a34b6": {
+    "heading_K4EDek": {
       "type": "heading",
       "settings": {
-        "heading": "<p>Ranging from smooth options to earthy, tactile textures</p>",
+        "heading": "<p>Bedroom Collection</p>",
         "heading_font_size_mob": 24,
         "heading_font_size_desktop": 36,
-        "heading_font_weight": "600",
+        "heading_font_weight": "400",
         "heading_font_family": "Hatton, serif",
         "heading_width": "4",
         "copy": "",
@@ -189,12 +24,56 @@
         "heading_copy_font_weight": "300",
         "heading_copy_font_family": "Tomato Grotesk",
         "copy_style": "default",
-        "alignment": "center",
+        "alignment": "left",
         "alignment_mob": "center",
         "horiz_padding": true,
-        "margin_top": false,
-        "background_color": "#FFFFFF",
-        "font_color": "#000000"
+        "margin_top": false
+      }
+    },
+    "featured_collections_dGFrAQ": {
+      "type": "featured-collections",
+      "settings": {}
+    },
+    "39b56b76-44e1-4c0a-9d31-c4d952d9caef": {
+      "type": "hero-image",
+      "settings": {
+        "image": "shopify://shop_images/BED-2-split-blocks-combined.jpg",
+        "image_mobile": "shopify://shop_images/BED-SCALLOP.jpg",
+        "link": "shopify://products/scallop-edge-duvet-set",
+        "full_width": true
+      }
+    },
+    "products_carousel_tabs_R4rjYy": {
+      "type": "products-carousel-tabs",
+      "blocks": {
+        "tab_XCffKD": {
+          "type": "tab",
+          "settings": {
+            "title": "Best Sellers",
+            "products": [
+              "200tc-organic",
+              "jaipur-throw",
+              "400-thread-count-sateen-plain-dye",
+              "jaipur-cushion-garnet",
+              "500-hygro-duvet-set"
+            ],
+            "link_text": "Shop all",
+            "link_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "tab_XCffKD"
+      ],
+      "settings": {}
+    },
+    "hero_image_zWM6iw": {
+      "type": "hero-image",
+      "settings": {
+        "image": "shopify://shop_images/BED-THIN_BANNER.jpg",
+        "image_mobile": "shopify://shop_images/BED-PERCALE.jpg",
+        "link": "shopify://products/200tc-organic",
+        "full_width": true
       }
     },
     "9c1de53b-ac15-4e36-a743-64c26dabf7e2": {
@@ -205,12 +84,16 @@
           "settings": {
             "collection": "smooth-silky",
             "usp_title": "",
+            "image": "shopify://shop_images/smooth_sily_hp_124f20c6-eea3-4af3-b350-67b89719bbc5.jpg",
             "alt_title": "",
             "excerpt": "<p>Add a touch of luxury to your bedtime routine with silky-smooth materials.</p>",
             "collection_carousel_excerpt_font_size_mob": 18,
-            "collection_carousel_excerpt_font_size_desktop": 30,
-            "collection_carousel_excerpt_font_weight": "400",
-            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
+            "collection_carousel_excerpt_font_size_desktop": 14,
+            "collection_carousel_excerpt_font_weight": "300",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk",
+            "hide_carousel_title": false,
+            "hide_carousel_excerpt": false,
+            "hide_shopnow": false
           }
         },
         "1ae70297-a748-4b57-b0a1-b53cc14bb4f5": {
@@ -218,12 +101,16 @@
           "settings": {
             "collection": "soft-relaxed",
             "usp_title": "",
+            "image": "shopify://shop_images/hp_banner_bed_a2769d86-0563-4b77-b615-21691ce19ae9.jpg",
             "alt_title": "",
             "excerpt": "<p>Drift off to dreamland in our snuggliest selection of bedding, crafted from the cosiest fabrics.</p>",
             "collection_carousel_excerpt_font_size_mob": 18,
-            "collection_carousel_excerpt_font_size_desktop": 30,
-            "collection_carousel_excerpt_font_weight": "400",
-            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
+            "collection_carousel_excerpt_font_size_desktop": 14,
+            "collection_carousel_excerpt_font_weight": "300",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk",
+            "hide_carousel_title": false,
+            "hide_carousel_excerpt": false,
+            "hide_shopnow": false
           }
         },
         "484f5ca2-a708-49c4-9ac3-08032d35cb5b": {
@@ -231,12 +118,16 @@
           "settings": {
             "collection": "cool-crisp",
             "usp_title": "",
+            "image": "shopify://shop_images/cool-crisp_098cc89b-107f-4e54-9c37-773b420f4790.jpg",
             "alt_title": "",
             "excerpt": "<p>Keep comfortably cool in fresh cotton bedding.</p>",
             "collection_carousel_excerpt_font_size_mob": 18,
-            "collection_carousel_excerpt_font_size_desktop": 30,
-            "collection_carousel_excerpt_font_weight": "400",
-            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
+            "collection_carousel_excerpt_font_size_desktop": 14,
+            "collection_carousel_excerpt_font_weight": "300",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk",
+            "hide_carousel_title": false,
+            "hide_carousel_excerpt": false,
+            "hide_shopnow": false
           }
         }
       },
@@ -245,98 +136,47 @@
         "1ae70297-a748-4b57-b0a1-b53cc14bb4f5",
         "484f5ca2-a708-49c4-9ac3-08032d35cb5b"
       ],
+      "disabled": true,
       "settings": {
         "title": "What is your perfect bedding?",
         "collection_carousel_title_font_size_mob": 18,
         "collection_carousel_title_font_size_desktop": 30,
         "collection_carousel_title_font_weight": "500",
-        "collection_carousel_title_font_family": "Hatton, serif",
+        "collection_carousel_title_font_family": "Tomato Grotesk",
         "screen_visibility": "both"
       }
     },
-    "c35d7fce-a552-4f31-9ffb-048a8c4c5b25": {
-      "type": "heading",
-      "settings": {
-        "heading": "<p>Each thread embodies our commitment to your perfect comfort and style.</p>",
-        "heading_font_size_mob": 24,
-        "heading_font_size_desktop": 36,
-        "heading_font_weight": "600",
-        "heading_font_family": "Hatton, serif",
-        "heading_width": "4",
-        "copy": "",
-        "heading_copy_font_size_mob": 12,
-        "heading_copy_font_size_desktop": 14,
-        "heading_copy_font_weight": "300",
-        "heading_copy_font_family": "Tomato Grotesk",
-        "copy_style": "default",
-        "alignment": "center",
-        "alignment_mob": "center",
-        "horiz_padding": true,
-        "margin_top": false,
-        "background_color": "#FFFFFF",
-        "font_color": "#000000"
-      }
-    },
-    "6851d866-adb6-4f4b-8e77-da4ae8ec22ef": {
-      "type": "images-copy-cta",
-      "disabled": true,
-      "settings": {
-        "image": "shopify://shop_images/SuperiorSoftTouchDuvet_Lifestyle_3.jpg",
-        "image2": "shopify://shop_images/Duvet-1024x1024_c434d424-997b-4160-b314-2c0a36d3680a.jpg",
-        "subtitle": "New Arrival",
-        "title": "<p>Feather & Down Duvets & Pillows</p>",
-        "copy": "<p>Want a duvet that is incredibly soft and warm? Made with the softest duck feather and down and a clever box construction, the naturally breathable filling remains even sleep after sleep to keep you cosy when it's colder.</p>",
-        "button_label": "Discover the Collection",
-        "button_link": "shopify://collections/feather-down",
-        "content_position": "left",
-        "header_position": false,
-        "images_half_width": false,
-        "anchor_id": ""
-      }
-    },
-    "07a57dc8-34ac-41ee-96df-37021aef7941": {
-      "type": "reviews-carousel",
+    "products_carousel_tabs_UawfXT": {
+      "type": "products-carousel-tabs",
       "blocks": {
-        "template--21202653085984__07a57dc8-34ac-41ee-96df-37021aef7941-block-1": {
-          "type": "block",
+        "tab_AV6rh3": {
+          "type": "tab",
           "settings": {
-            "product": "smooth-and-silky-cotton-sateen-fitted-sheet",
-            "title": "Smooth & Silky Cotton Sateen Deep Fitted Sheet - 400 TC",
-            "testimonial": "<p>\"I have bought Christy bedding before and have always been impressed by the quality - This purchase as no different, excellent items and enhances my sleep quality\"</p>",
-            "name": "Charles Shelley"
-          }
-        },
-        "template--21202653085984__07a57dc8-34ac-41ee-96df-37021aef7941-block-2": {
-          "type": "block",
-          "settings": {
-            "product": "luxury-microfibre-13-5-tog-duvet",
-            "title": "Luxury Microfibre 13.5 Tog Duvet",
-            "testimonial": "<p>“One of the highest quality products I have experienced. Very very soft and drapes beautifully on my bed.”</p>",
-            "name": "John Smith"
+            "title": "Cushions & Throws",
+            "products": [
+              "jaipur-throw",
+              "oslo",
+              "porto-throw",
+              "lisbon-throw",
+              "jaipur-trim-cushion"
+            ],
+            "link_text": "Shop all",
+            "link_url": ""
           }
         }
       },
       "block_order": [
-        "template--21202653085984__07a57dc8-34ac-41ee-96df-37021aef7941-block-1",
-        "template--21202653085984__07a57dc8-34ac-41ee-96df-37021aef7941-block-2"
+        "tab_AV6rh3"
       ],
-      "settings": {
-        "title": "Unveiling the Christy Experience: Happy Customer Reviews",
-        "mobile_title": "Our Best Sellers",
-        "review_carousel_title_font_size_mob": 26,
-        "review_carousel_title_font_size_desktop": 40,
-        "review_carousel_title_font_weight": "500",
-        "review_carousel_title_font_family": "Hatton, serif",
-        "margin": "yes"
-      }
+      "settings": {}
     },
-    "393634d4-53d9-4c8e-be41-45c5d425188a": {
+    "76c6e56b-583c-4e8e-82a1-c452644a34b6": {
       "type": "heading",
       "settings": {
-        "heading": "<p>Pair with our exquisite Throws & Cushions</p>",
+        "heading": "<p>Ranging from smooth options to tactile textures</p>",
         "heading_font_size_mob": 24,
         "heading_font_size_desktop": 36,
-        "heading_font_weight": "600",
+        "heading_font_weight": "400",
         "heading_font_family": "Hatton, serif",
         "heading_width": "4",
         "copy": "",
@@ -348,59 +188,7 @@
         "alignment": "center",
         "alignment_mob": "center",
         "horiz_padding": true,
-        "margin_top": false,
-        "background_color": "#FFFFFF",
-        "font_color": "#000000"
-      }
-    },
-    "2c7e8cac-6078-4c3b-b5eb-fd09baf5939e": {
-      "type": "products-carousel",
-      "settings": {
-        "title": "",
-        "mobile_title": "Our Best Sellers",
-        "title_font_size_mob": 18,
-        "title_font_size_desktop": 30,
-        "title_font_weight": "600",
-        "title_font_family": "sans-serif",
-        "button_title": "Explore the Range",
-        "button_link": "shopify://collections/all-accessories",
-        "products": [
-          "jaipur-throw",
-          "cosy-throw",
-          "oslo",
-          "metropolitan-throw",
-          "jaipur-cushion",
-          "metropolitan-cushion"
-        ],
-        "screen_visibility": "both"
-      }
-    },
-    "32651ade-df62-44f5-8355-bb4039f60426": {
-      "type": "billboard",
-      "settings": {
-        "screen_visibility": "both",
-        "subtitle": "Christy Life",
-        "billboard_subtitle_font_size_mob": 16,
-        "billboard_subtitle_font_size_desktop": 16,
-        "billboard_subtitle_font_weight": "600",
-        "billboard_subtitle_font_family": "sans-serif",
-        "title": "<p>How to Dress a Bed - The Complete Guide</p>",
-        "billboard_title_font_size_mob": 16,
-        "billboard_title_font_size_desktop": 40,
-        "billboard_title_font_weight": "500",
-        "billboard_title_font_family": "Hatton, serif",
-        "copy": "<p>Our bedding experts have numerous years of experience. In this guide, we’ll be showing you what you need to make your bedroom your favourite room in the house.</p>",
-        "billboard_copy_font_size_mob": 14,
-        "billboard_copy_font_size_desktop": 14,
-        "billboard_copy_font_weight": "200",
-        "billboard_copy_font_family": "Tomato Grotesk",
-        "button_label": "Read more",
-        "button_link": "https://www.christy.co.uk/blogs/lifestyle/how-to-dress-a-bed-the-complete-guide",
-        "button_type": "tertiary",
-        "colour_theme": "white",
-        "alignment": "left",
-        "alignment_vertical": "center",
-        "mobile_content_position": "overlay"
+        "margin_top": false
       }
     },
     "product-grid": {
@@ -469,17 +257,6 @@
       "disabled": true,
       "settings": {
         "products_per": 12,
-        "excerpt": "Towels",
-        "title_font_size_mob": 26,
-        "title_font_size_desktop": 40,
-        "title_font_weight": "500",
-        "title_font_family": "Hatton, serif",
-        "seo_liner": "Indulge in the ultimate comfort with our luxury towels, crafted from the finest materials for a plush, spa-like experience every day.",
-        "seo_liner_font_size_mob": 14,
-        "seo_liner_font_size_desktop": 14,
-        "seo_liner_font_weight": "300",
-        "seo_liner_font_family": "Tomato Grotesk",
-        "enable_filtering": true,
         "enable_sorting": true
       }
     },
@@ -611,6 +388,7 @@
         "5cd53bb9-0042-45f8-bccc-44aadf259f78",
         "9c788114-0e17-4e4a-90ac-0edf460cd23f"
       ],
+      "disabled": true,
       "settings": {
         "title": "Discover Bedding",
         "copy": "<p>You deserve the best of rest. Our bedding gently envelops you in a soft embrace to settle you into the sweetest dreams. Discover hand-painted designs, sumptuous fabrics, and durable materials at Christy. Your bed will be a haven for rest, relaxation, and deep sleep. From crisp, clean sheets to soft, snuggly throws, we've got the perfect combination for you.</p><p>Forget about your stresses and responsibilities and slip into a deep, peaceful sleep safely swaddled in the splendour of Christy’s bedding.</p>"
@@ -624,12 +402,16 @@
           "settings": {
             "collection": "duvet-sets",
             "usp_title": "",
+            "image": "shopify://shop_images/Egyptian_Lifestyle_Cream_8e5eba5a-ed2c-49e0-bfa7-4f9106830747-648169.jpg",
             "alt_title": "",
             "excerpt": "<p>Your passport to a world of premium comfort and timeless style for the ultimate bedroom retreat.</p>",
             "collection_carousel_excerpt_font_size_mob": 18,
-            "collection_carousel_excerpt_font_size_desktop": 30,
-            "collection_carousel_excerpt_font_weight": "400",
-            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
+            "collection_carousel_excerpt_font_size_desktop": 14,
+            "collection_carousel_excerpt_font_weight": "300",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk",
+            "hide_carousel_title": false,
+            "hide_carousel_excerpt": false,
+            "hide_shopnow": false
           }
         },
         "76a7aa40-fad4-4756-b863-71f413788066": {
@@ -637,12 +419,16 @@
           "settings": {
             "collection": "sheets",
             "usp_title": "",
+            "image": "shopify://shop_images/200TC_White_Fitted_Sheet_Detail-888706.jpg",
             "alt_title": "",
             "excerpt": "<p>The epitome of both snug precision and luxurious comfort, ensuring a perfect fit that stays in place throughout the night.</p>",
             "collection_carousel_excerpt_font_size_mob": 18,
-            "collection_carousel_excerpt_font_size_desktop": 30,
-            "collection_carousel_excerpt_font_weight": "400",
-            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
+            "collection_carousel_excerpt_font_size_desktop": 14,
+            "collection_carousel_excerpt_font_weight": "300",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk",
+            "hide_carousel_title": false,
+            "hide_carousel_excerpt": false,
+            "hide_shopnow": false
           }
         },
         "2c4374cb-ef41-43b7-96f5-f6b61b083b01": {
@@ -650,12 +436,16 @@
           "settings": {
             "collection": "flat-sheets",
             "usp_title": "",
+            "image": "shopify://shop_images/Sateen_Gold_Flat_Sheet_Detail-855643.jpg",
             "alt_title": "",
             "excerpt": "<p>Elevate your bedroom with our flat sheets, where quality and elegance meet in a seamless blend of softness and design.</p>",
             "collection_carousel_excerpt_font_size_mob": 18,
-            "collection_carousel_excerpt_font_size_desktop": 30,
-            "collection_carousel_excerpt_font_weight": "400",
-            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
+            "collection_carousel_excerpt_font_size_desktop": 14,
+            "collection_carousel_excerpt_font_weight": "300",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk",
+            "hide_carousel_title": false,
+            "hide_carousel_excerpt": false,
+            "hide_shopnow": false
           }
         }
       },
@@ -670,28 +460,49 @@
         "collection_carousel_title_font_size_mob": 18,
         "collection_carousel_title_font_size_desktop": 30,
         "collection_carousel_title_font_weight": "500",
-        "collection_carousel_title_font_family": "Hatton, serif",
+        "collection_carousel_title_font_family": "Tomato Grotesk",
         "screen_visibility": "both"
       }
+    },
+    "products_carousel_tabs_eWPgND": {
+      "type": "products-carousel-tabs",
+      "blocks": {
+        "tab_Gin9MT": {
+          "type": "tab",
+          "settings": {
+            "title": "Duvets & Pillows",
+            "products": [
+              "superior-soft-touch-anti-allergy-10-5-tog-duvet-and-pillow",
+              "feather-and-down-10-5-tog-duvet",
+              "feather-and-down-pillow-pair",
+              "luxury-microfibre-10-5-tog-duvet",
+              "essential-pillow-pair",
+              "luxury-deep-sided-medium-firm-pillow"
+            ],
+            "link_text": "Shop all",
+            "link_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "tab_Gin9MT"
+      ],
+      "settings": {}
     }
   },
   "order": [
+    "heading_K4EDek",
+    "featured_collections_dGFrAQ",
     "39b56b76-44e1-4c0a-9d31-c4d952d9caef",
-    "039e5ce4-f144-479c-bfe7-c6b54629b19c",
-    "e81c268d-881b-4c6d-a674-f0f49b2c9321",
-    "06cfb5b0-ef0d-40ac-b0f2-de55cebec04c",
-    "543b28bf-821e-4b5d-bfe7-b6b214117f7d",
-    "76c6e56b-583c-4e8e-82a1-c452644a34b6",
+    "products_carousel_tabs_R4rjYy",
+    "hero_image_zWM6iw",
     "9c1de53b-ac15-4e36-a743-64c26dabf7e2",
-    "c35d7fce-a552-4f31-9ffb-048a8c4c5b25",
-    "6851d866-adb6-4f4b-8e77-da4ae8ec22ef",
-    "07a57dc8-34ac-41ee-96df-37021aef7941",
-    "393634d4-53d9-4c8e-be41-45c5d425188a",
-    "2c7e8cac-6078-4c3b-b5eb-fd09baf5939e",
-    "32651ade-df62-44f5-8355-bb4039f60426",
+    "products_carousel_tabs_UawfXT",
+    "76c6e56b-583c-4e8e-82a1-c452644a34b6",
     "product-grid",
     "recent-products",
     "toggled-body-content",
-    "d38727e6-070e-4d88-af8b-6b75b41f7719"
+    "d38727e6-070e-4d88-af8b-6b75b41f7719",
+    "products_carousel_tabs_eWPgND"
   ]
 }

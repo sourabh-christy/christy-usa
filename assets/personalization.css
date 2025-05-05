@@ -69,16 +69,16 @@
     color: #fff;
 }
 .personalize-style-selector{
-    width: 100px;
-    height: 100px;
+    width: 48px;
+    height: 48px;
 }
 .personalize-style-selector.ballantines{
     font-family: 'ballantines-regularregular';
-    font-size: 2rem;
+    font-size: 1.2rem;
 }
 .personalize-style-selector.classic{
     font-family: 'TimeNewRoman';
-    font-size: 2rem;
+    font-size: .5rem;
 }
 .personalize-style-selector.modern{
     font-family: 'Helvetica';
@@ -183,20 +183,31 @@
 .personalize-font-selector{
     color: #777;
     display: flex;
+    font-size: .5rem;
     align-items: center;
     justify-content: center;
+    border: 1px solid #D6D3E9;
 }
 .personalize-font-selector img, .personalize-font-selector strong{
     pointer-events: none;
 }
 
 .personalize-color-selector{
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     background: #fff;
 }
-.personalize-color-selector.selected, .personalize-font-selector.selected{
-    border-width: 3px !important;
+.personalize-color-selector.selected,
+.personalize-font-selector.selected {
+    border: 1px solid #1C355E !important;
 }
 
+.personalize-color-selector.selected {
+    outline: 2px solid #fff;
+    outline-offset: -3px;
+}
+
+.product-form__buttons1 {
+    box-shadow: 0px 4px 50px 0px rgba(44, 59, 150, 0.10);
+}
 

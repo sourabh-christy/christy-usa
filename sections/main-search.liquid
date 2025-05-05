@@ -1,30 +1,53 @@
-{% render 'rapid-search-results-template' %}
-{% render 'rapid-search-results-template-v2' %}
+<script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'main-search.js' | asset_url }}" defer="defer"></script>
 
 {%- liquid
-  assign sort_by = search.sort_by | default: search.default_sort_by
-  assign terms = search.terms | escape
-  assign search_url = '?q=' | append: terms | append: '&options%5Bprefix%5D=last&sort_by=' | append: sort_by
--%}
+  assign productsPerPage = section.settings.products_per
+  assign collectionProducts = search.results
+%}
 
-{% paginate search.results by 12 %}
-  <div class="template-search{% unless search.performed and search.results_count > 0 %} template-search--empty{% endunless %} section-{{ section.id }}-padding">
-    <div class="template-search__header container space-y-5 mb-12">
-      <h1 class="d-h3">
-        {%- if search.performed -%}
-          {{- 'templates.search.title' | t -}}
-        {%- else -%}
-          {{- 'general.search.search' | t -}}
-        {%- endif -%}
-      </h1>
-      <div class="template-search__search">
-        <predictive-search data-loading-text="{{ 'accessibility.loading' | t }}">
+<div
+    id="prodlist"
+    data-hidetoggle="true"
+    class="section-{{ section.id }}-padding mb-12 group/prodlist [&.list_ul#product-grid>li:nth-child(6n+3)]:col-span-2 [&.list_ul#product-grid>li:nth-child(6n+4)]:col-span-2 "
+>
+  {%- paginate search.results by productsPerPage -%}
+    <div class="template-search__header container container-sm space-y-5 mt-4 mb-2.5">
+      <div class="flex items-center gap-x-4">
+        <div class="go-back h-6">
+          <button
+              onclick="goBack()"
+              class="text-primary-blue text-sm font-normal w-6 rotate-180"
+          >
+            {%- render 'icon-long-arrow-right' -%}
+          </button>
+        </div>
+
+        <h1 class="d-h3">
+          {%- if search.performed -%}
+            {{- 'templates.search.title' | t -}}
+          {%- else -%}
+            {{- 'general.search.search' | t -}}
+          {%- endif -%}
+        </h1>
+      </div>
+
+      <div class="flex items-center p-4 border border-secondary-blue-100 template-search__search">
+        <predictive-search
+            class="grow block search-modal__form group/search"
+            data-loading-text="{{ 'accessibility.loading' | t }}"
+        >
+
           <main-search>
-            <form action="{{ routes.search_url }}" method="get" role="search" class="search">
-              <div class="field relative inline-block">
-                <input
-                  class="search__input field__input w-full py-2 lg:py-3 lg:w-[317px] border-b border-blue-1/10 outline-none pl-10 placeholder:text-blue-1 font-normal appearance-none bg-transparent"
+            <form action="{{ routes.search_url }}" method="get" role="search" class="search flex items-center">
+              <button
+                  class="search__button field__button mr-4"
+                  aria-label="{{ 'general.search.search' | t }}"
+              >
+                {%- render 'icon-search' -%}
+              </button>
+              <input
+                  class="search__input field__input w-full outline-none bg-white text-sm font-semibold tracking-[.1px] placeholder:font-normal placeholder:tracking-[.25px] placeholder-secondary-blue-400"
                   id="Search-In-Template"
                   type="search"
                   name="q"
@@ -40,214 +63,461 @@
                   autocomplete="off"
                   autocapitalize="off"
                   spellcheck="false"
-                >
-                <label class="field__label hidden" for="Search-In-Template">{{ 'general.search.search' | t }}</label>
-                <input name="options[prefix]" type="hidden" value="last">
-
-                <button
-                  type="reset"
-                  class="reset__button field__button absolute right-0 top-1/2 -translate-y-1/2{% if search.terms == blank %} hidden{% endif %}"
-                  aria-label="{{ 'general.search.reset' | t }}"
-                >
-                  {% render 'icon-close' %}
-                </button>
-                <button
-                  class="search__button field__button absolute left-0 top-1/2 -translate-y-1/2"
-                  aria-label="{{ 'general.search.search' | t }}"
-                >
-                  {% render 'icon-search' %}
-                </button>
-              </div>
+              >
+              <label class="field__label hidden" for="Search-In-Template">{{ 'general.search.search' | t }}</label>
+              <input name="options[prefix]" type="hidden" value="last">
             </form>
           </main-search>
         </predictive-search>
+
+        <button
+            type="reset"
+            class="reset__button field__button text-sm peer underline font-semibold pr-4 h-6 max-sm:pl-2 {% if search.terms == blank %} hidden {% endif %}"
+            aria-label="{{ 'general.search.reset' | t }}"
+            onclick="handleClearQuickSearch()"
+        >
+          Clear
+        </button>
+
       </div>
-      {%- if search.performed -%}
-        {%- unless section.settings.enable_filtering or section.settings.enable_sorting -%}
-          {%- if search.results_count > 0 -%}
-            <p class="my-5" role="status">
-              {{ 'templates.search.results_with_count_and_term' | t: terms: search.terms, count: search.results_count }}
-            </p>
-          {%- endif -%}
-        {%- endunless -%}
-        {%- if search.results_count == 0 and search.filters == empty -%}
-          <p role="status">{{ 'templates.search.no_results' | t: terms: search.terms }}</p>
-        {%- endif -%}
-      {%- endif -%}
-    </div>
-    {%- if search.performed -%}
-      {%- if section.settings.enable_sorting
-        and section.settings.filter_type == 'vertical'
-        and search.filters != empty
-      -%}
-        <facet-filters-form class="facets facets-vertical-sort page-width small-hide no-js-hidden">
-          <form class="facets-vertical-form" id="FacetSortForm">
-            <div class="facet-filters sorting caption">
-              <div class="facet-filters__field">
-                <h2 class="facet-filters__label caption-large text-body">
-                  <label for="SortBy">{{ 'products.facets.sort_by_label' | t }}</label>
-                </h2>
-                <div class="select">
-                  {%- assign sort_by = search.sort_by | default: search.default_sort_by -%}
-                  <select
-                    name="sort_by"
-                    class="facet-filters__sort select__select caption-large"
-                    id="SortBy"
-                    aria-describedby="a11y-refresh-page-message"
-                  >
-                    {%- for option in search.sort_options -%}
-                      <option
-                        value="{{ option.value | escape }}"
-                        {% if option.value == sort_by %}
-                          selected="selected"
-                        {% endif %}
-                      >
-                        {{ option.name | escape }}
-                      </option>
-                    {%- endfor -%}
-                  </select>
-                  {% render 'icon-caret' %}
-                </div>
-              </div>
-              <noscript>
-                <button type="submit" class="facets__button-no-js button button--secondary">
-                  {{ 'products.facets.sort_button' | t }}
-                </button>
-              </noscript>
-            </div>
 
-            <div class="product-count-vertical light" role="status">
-              <h2 class="product-count__text text-body">
-                <span id="ProductCountDesktop">
-                  {%- if search.results_count -%}
-                    {{ 'templates.search.results_with_count' | t: terms: search.terms, count: search.results_count }}
-                  {%- elsif search.products_count == search.all_products_count -%}
-                    {{ 'products.facets.product_count_simple' | t: count: search.products_count }}
-                  {%- else -%}
-                    {{
-                      'products.facets.product_count'
-                      | t: product_count: search.products_count, count: search.all_products_count
-                    }}
-                  {%- endif -%}
-                </span>
-              </h2>
-              <div class="loading-overlay__spinner">
-                <svg
-                  aria-hidden="true"
-                  focusable="false"
-                  class="spinner"
-                  viewBox="0 0 66 66"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
-                </svg>
-              </div>
-            </div>
-          </form>
-        </facet-filters-form>
-      {%- endif -%}
+      <div class="flex items-center justify-between gap-x-2 max-md:pb-10">
+        <div class="product-count-vertical light" role="status">
+          <div class="product-count__text text-sm font-normal font-sans text-secondary-blue-500 flex flex-col-reverse
+            md:flex-row md:items-center gap-x-6 relative">
+            <span id="ProductCount" class="max-sm:whitespace-normal max-sm:w-[calc(100vw_-_32px)] max-md:absolute max-md:top-full max-md:whitespace-nowrap max-md:pt-8
+              text-sm font-normal font-sans text-secondary-blue-500">
+              {{ search.results_count }} results found for "{{ search.terms }}"
+            </span>
 
-      <div>
-        <div class="product-grid-container" id="ProductGridContainer">
-          {%- if search.results.size == 0 and search.filters != empty -%}
-            <div
-              class="template-search__results collection collection--empty{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}"
-              id="product-grid"
-              data-id="{{ section.id }}"
-            >
-              <div class="loading-overlay gradient"></div>
-              <div class="title-wrapper center">
-                <h2 class="title title--primary">
-                  {{ 'sections.collection_template.empty' | t -}}
-                  <br>
-                  {{
-                    'sections.collection_template.use_fewer_filters_html'
-                    | t: link: search_url, class: 'underlined-link link'
-                  }}
-                </h2>
-              </div>
+            <div class="bg-secondary-blue-50 w-px h-10 max-md:hidden"></div>
+
+            <div class="flex items-center gap-x-6 select-none">
+              View:
+
+              <input data-view-switch class="absolute invisible peer/first" type="radio" name="view" id="viewFirst" value="first" checked>
+              <label class="cursor-pointer peer-checked/first:block text-primary-blue hidden" for="viewSecond">
+                {% render 'icon-view-2', class: 'w-5 h-5' %}
+              </label>
+              <input data-view-switch class="absolute invisible peer/second" type="radio" name="view" id="viewSecond" value="second">
+              <label class="cursor-pointer peer-checked/second:block text-primary-blue hidden" for="viewFirst">
+                {% render 'icon-view-1', class: 'w-5 h-5' %}
+              </label>
             </div>
-          {%- else -%}
-            <div
-              class="template-search__results container [&.loading]:opacity-50  transition-opacity"
-              id=""
-              data-id="{{ section.id }}"
-            >
-              <div class="loading-overlay gradient"></div>
-              <ul
-                id="product-grid"
-                data-id="{{ section.id }}"
-                class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 gap-y-10 grid-flow-dense"
+          </div>
+        </div>
+
+        <div class="flex gap-2 max-mob:justify-between">
+          {%- if section.settings.enable_sorting -%}
+            <facet-filters-form class="facets small-hide">
+              <form
+                  id="FacetFiltersForm"
+                  class="facets__form"
               >
-                {%- for item in search.results -%}
-                  {% assign lazy_load = false %}
-                  {%- if forloop.index > 4 -%}
-                    {%- assign lazy_load = true -%}
-                  {%- endif -%}
+                <div class="facet-filters sorting caption">
+                  <div class="facet-filters__field relative w-[175px] h-[48px] px-4 pt-1 border border-secondary-blue-50 cursor-pointer">
+                    <label
+                        for="SortBy"
+                        class="facet-filters__label max-tab:hidden text-[11px] leading-4 font-sans mb-1 text-secondary-blue-400 font-semibold"
+                    >
+                      {{ 'products.facets.sort_by_label' | t }}
+                    </label>
 
-                  <li
-                    class="{% unless request.design_mode %}animate-fadeinup{% endunless %} grid__item group-[.list]/prodlist:max-sm:col-span-full"
-                  >
-                    {% if item.object_type == 'product' %}
-                      {% render 'card-product', card_product: item, section_id: section.id, lazy_load: lazy_load %}
-                    {% else %}
-                      <a
-                        class="m-body-copy lg:d-h3 py-5 flex space-x-5 justify-between items-center"
-                        href="{{ item.url }}"
+                    <div class="select dropdown-component cursor-pointer">
+                      {%- assign sort_by = search.sort_by | default: search.default_sort_by -%}
+                      <select
+                          name="sort_by"
+                          class="facet-filters__sort select__select cursor-pointer absolute z-20 w-[175px] h-[48px] top-0 left-0 bg-transparent tab:pb-2 tab:pt-5 py-2 px-4 max-tab:text-[11px] text-xs font-semibold appearance-none focus:outline-none"
+                          id="SortBy"
+                          aria-describedby="a11y-refresh-page-message"
                       >
-                        <span>{{ item.title }}</span>
-                        <span>{% render 'icon-arrow' %}</span>
-                      </a>
-                    {% endif %}
-                  </li>
-                {%- endfor -%}
-              </ul>
-              {%- if paginate.pages > paginate.current_page -%}
-                <button
-                  class="flex space-x-2 items-center my-10 lg:my-20 mx-auto"
-                  onclick="loadMoreProducts(this)"
-                  id="show-more"
-                  data-page="{{ paginate.current_page | plus: 1 }}"
-                >
-                  <span class="btn-tertiary">Show More</span> {% render 'more-chev-down' %}
-                </button>
-              {%- endif -%}
-            </div>
+                        {%- for option in search.sort_options -%}
+                          {%- if option.value == 'relevance'
+                          or option.value == 'price-ascending'
+                          or option.value == 'price-descending'
+                          or option.value == 'created-descending'
+                          -%}
+                            {%- case option.value -%}
+                              {%- when 'relevance' -%}
+                                {%- assign title = 'Relevance' -%}
+                              {%- when 'price-ascending' -%}
+                                {%- assign title = 'Lowest price' -%}
+                              {%- when 'price-descending' -%}
+                                {%- assign title = 'Highest price' -%}
+                              {%- when 'created-descending' -%}
+                                {%- assign title = 'Newest' -%}
+                            {%- endcase -%}
+                            <option
+                                value="{{ option.value | escape }}"
+                                {%- if option.value == sort_by -%}
+                                  selected="selected"
+                                {%- endif -%}
+                            >
+                              {{ title }}
+                            </option>
+                          {%- endif -%}
+                        {%- endfor -%}
+                      </select>
+                      <span class="absolute z-10 bg-white inset-y-0 right-1.5 flex items-center px-2 rotate-90">
+                      {%- render 'icon-arrow' -%}
+                    </span>
+                    </div>
+                  </div>
+
+                  <noscript>
+                    <button type="submit" class="facets__button-no-js button button--secondary">
+                      {{ 'products.facets.sort_button' | t }}
+                    </button>
+                  </noscript>
+                </div>
+              </form>
+            </facet-filters-form>
           {%- endif -%}
         </div>
       </div>
-    {%- endif -%}
-  </div>
-{% endpaginate %}
+    </div>
+
+    <div class="">
+      <div
+          class="product-grid-container mt-5"
+          id="ProductGridContainer"
+      >
+        {%- if search.results.size == 0 -%}
+          <div
+              class="collection collection--empty container container-sm [&.loading]:opacity-50  transition-opacity"
+              id="product-grid"
+              data-id="{{ section.id }}"
+              data-view="first"
+          >
+            <div class="loading-overlay gradient"></div>
+            <div class="title-wrapper center">
+              <h2 class="m-h2 d-h2">
+                {{ 'sections.collection_template.empty' | t -}}
+                <br>
+                {{
+                'sections.collection_template.use_fewer_filters_html'
+                | t: link: results_url, class: 'underline'
+                }}
+              </h2>
+            </div>
+          </div>
+        {%- else -%}
+          <div id="collection-products" class="collection container container-sm [&.loading]:opacity-50  transition-opacity">
+            <div class="loading-overlay gradient"></div>
+
+            <ul
+                id="product-grid"
+                data-id="{{ section.id }}"
+                data-view="first"
+                class="grid gap-x-4 data-[view=first]:grid-cols-1 data-[view=second]:grid-cols-2
+              sm:data-[view=first]:grid-cols-2 sm:data-[view=second]:grid-cols-3
+              lg:data-[view=first]:grid-cols-3 lg:data-[view=second]:grid-cols-4 sm:gap-x-0.5 gap-y-6 grid-flow-dense mb-10 lg:mb-20"
+            >
+              {%- assign listscIndex = 0 -%}
+              {%- assign listscCount = 0 -%}
+              {%- assign pagOffset = paginate.current_page | times: productsPerPage -%}
+
+              {%- assign pagOffset = pagOffset | minus: productsPerPage -%}
+
+              {%- assign infoCardCount = 0 -%}
+
+              {%- for product in search.results -%}
+                {%- if product.handle contains 'docapp-free-gift-' -%}{%- continue -%}{%- endif -%}
+
+                {%- if product.type == 'giftbox_ghost_product' -%}{%- continue -%}{%- endif -%}
+                {%- assign mainLoopIndexOffset = forloop.index0 | plus: pagOffset -%}
+                {%- assign productInd = forloop.index0 -%}
+                {%- assign colSpanSet = false -%}
+
+                {%- assign lazy_load = false -%}
+                {%- if forloop.index > 4 -%}
+                  {%- assign lazy_load = true -%}
+                {%- endif -%}
+
+                {%- assign prodClass = '' -%}
+
+                <li
+                    class="grid__item {{ prodClass }} group-[.list]/prodlist:max-sm:col-span-full"
+                >
+                  {%- render 'card-product',
+                      dragable: true,
+                      card_product: product,
+                      section_id: section.id,
+                      slides_limit: 4
+                  -%}
+                </li>
+              {%- endfor -%}
+            </ul>
+
+            {%- if paginate.pages > paginate.current_page -%}
+              <button
+                  class="flex space-x-2 items-center my-10 lg:my-20 mx-auto [&.loading>div]:!block"
+                  onclick="loadMoreProducts(this)"
+                  id="show-more"
+                  data-page="{{ paginate.current_page | plus: 1 }}"
+              >
+                <span class="btn-tertiary">Show More</span> {%- render 'more-chev-down' -%}
+
+                <div class="loading-overlay__spinner hidden">
+                  <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      class="spinner"
+                      viewBox="0 0 66 66"
+                      xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle class="path !stroke-current" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                  </svg>
+                </div>
+              </button>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endpaginate -%}
+  {%- if section.settings.image_shape == 'arch' -%}
+    {%- render 'mask-arch' -%}
+  {%- endif -%}
+</div>
+<script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
 
 <script>
-  function loadMoreProducts(el) {
-    var productListing = document.getElementById('product-grid');
-
-    var requestUrl = window.location.pathname + window.location.search + '?limit=12&page=' + el.dataset.page;
-
-    fetch(requestUrl)
-      .then((response) => response.text())
-      .then(function (responseText) {
-        const html = new DOMParser().parseFromString(responseText, 'text/html');
-        const productHtml = html.querySelector('#product-grid');
-
-        if (productHtml && productHtml.querySelectorAll('.grid__item').length > 0) {
-          productListing.insertAdjacentHTML('beforeend', productHtml.innerHTML);
-
-          const lazyimg = new Event('lazyimg');
-          window.dispatchEvent(lazyimg);
-        }
-
-        if (html.querySelector('#show-more')) {
-          el.dataset.page = html.querySelector('#show-more').dataset.page;
-        } else {
-          el.remove();
-        }
-      })
-      .catch(function (error) {
-        console.error('Error loading products:', error);
+  function initReviews() {
+    /* // Yotpo-Reviews-Enabling so commenting below code
+    if (ratingSnippet !== undefined)
+      ratingSnippet('ruk_rating_snippet', {
+        store: 'www.christy.co.uk',
+        mode: 'default',
+        color: '#2c3b96',
+        linebreak: false,
+        text: 'Reviews',
+        singularText: 'Review',
+        lang: 'en',
+        usePolaris: true,
+        showEmptyStars: false,
       });
+    */
+  }
+
+  const initViewSelector = () => {
+    const LOCAL_STORAGE_KEY = 'collectionGridView';
+    let productGrid = document.querySelector('#product-grid');
+    if (!productGrid) return
+
+    productGrid.dataset.view = localStorage?.getItem(LOCAL_STORAGE_KEY) ?? 'first';
+    window.dispatchEvent(new CustomEvent('product-splider-refresh'))
+
+    document.querySelectorAll('[data-view-switch]').forEach((el) => {
+      if (el.classList.contains('is-initialized')) return;
+      el.checked = el.value === (localStorage?.getItem(LOCAL_STORAGE_KEY) ?? 'first');
+
+      el.addEventListener('change', debounce((e) => {
+        productGrid = document.querySelector('#product-grid');
+        if (!productGrid) return
+        if (e.target.checked) {
+          productGrid.dataset.view = e.target.value
+          console.log(e.target.value)
+
+          localStorage.setItem(LOCAL_STORAGE_KEY, e.target.value)
+
+          window.dispatchEvent(new CustomEvent('product-splider-refresh'))
+        }
+      }, 300));
+
+      el.classList.add('is-initialized')
+    });
+  }
+
+  function changeListImgSrcset() {
+    let els = document.querySelectorAll(
+      '#prodlist.list #product-grid>li:nth-child(6n+3),#prodlist.list #product-grid>li:nth-child(6n+4), #prodlist.list #product-grid>li:nth-child(6n+4)'
+    );
+
+    if (els.length) {
+      els.forEach(function (el) {
+        let imgs = el.querySelectorAll('.card__inner > a > img');
+        if (imgs.length) {
+          imgs.forEach(function (img, i) {
+            img.setAttribute('sizes', '(max-width: 1023px) 50vw, (min-width: 1024px) 668px, 100vw');
+
+            if (i == 0) {
+              img.style.objectFit = 'cover';
+            }
+          });
+        }
+      });
+    }
+  }
+
+  let showMoreBtn = document.querySelector('#show-more');
+  const observerLoadMore = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        loadMoreProducts(entry.target);
+      }
+    });
+  });
+
+  if (showMoreBtn) {
+    observerLoadMore.observe(showMoreBtn);
+  }
+
+  document.addEventListener('shopify-facets:container-rendered', function () {
+    if (showMoreBtn) {
+      observerLoadMore.unobserve(showMoreBtn);
+    }
+    showMoreBtn = document.querySelector('#show-more');
+    if (showMoreBtn) {
+      observerLoadMore.observe(showMoreBtn);
+    }
+
+    initViewSelector();
+  });
+
+  function loadMoreProducts(el) {
+    const productListing = document.getElementById('product-grid');
+
+    if (el.disabled) return;
+    el.classList.add('loading');
+    el.disabled = true;
+
+    const requestUrl = new URL(window.location.href);
+    requestUrl.searchParams.set('page', el.dataset.page);
+
+    //history.pushState(requestUrl, '', requestUrl);
+    fetch(requestUrl.toString())
+    .then((response) => response.text())
+    .then(function (responseText) {
+      const html = new DOMParser().parseFromString(responseText, 'text/html');
+      const productHtml = html.querySelector('#product-grid');
+      if (productHtml && productHtml.querySelectorAll('.grid__item').length > 0) {
+        productListing.insertAdjacentHTML('beforeend', productHtml.innerHTML);
+
+        // lazy load
+        const lazyimg = new Event('lazyimg');
+        window.dispatchEvent(lazyimg);
+
+        // reinit colour selectors
+        const initcolourselector = new Event('initcolourselector');
+        window.dispatchEvent(initcolourselector);
+
+        // Refresh wishlist buttons
+        const wishlistRefresh = new Event('shopify-wishlist:setup-buttons');
+        document.dispatchEvent(wishlistRefresh);
+
+        el.classList.remove('loading');
+      }
+
+      const newShowMoreBtn = html.querySelector('#show-more');
+      if (newShowMoreBtn) {
+        el.dataset.page = newShowMoreBtn.dataset.page;
+        el.disabled = false;
+      } else {
+        el.remove();
+      }
+
+      initReviews();
+    })
+    .catch(function (error) {
+      console.error('Error loading products:', error);
+    });
   }
 </script>
-{% render 'quickview-drawer' -%} 
+
+{%- comment -%}QT 29-10-2024{%- endcomment -%}
+
+
+<script>
+  function truncateRichText(element, maxLength) {
+    console.log('element', element);
+    if (!element) return;
+    let currentLength = 0;
+    let isTruncated = false;
+
+    for (let i = 0; i < element.childNodes.length; i++) {
+      var node = element.childNodes[i];
+      var length = currentLength + node.textContent.length;
+      if (isTruncated) {
+        node.textContent = '';
+        continue;
+      }
+      if (length > maxLength) {
+        const truncatedText = node.textContent.substring(0, maxLength - currentLength) + '...';
+        node.textContent = truncatedText;
+        isTruncated = true;
+        continue; // Stop iterating
+      } else {
+        currentLength += node.textContent.length;
+      }
+    }
+
+    if (!isTruncated && currentLength > maxLength) {
+      // If the entire text is too long, truncate the last text node
+      const lastTextNode = element.childNodes[element.childNodes.length - 1];
+      lastTextNode.textContent = lastTextNode.textContent.substring(0, maxLength - currentLength) + '...';
+    }
+  }
+  document.addEventListener('DOMContentLoaded', function () {
+    initViewSelector();
+
+    const toggleLink = document.getElementById('toggle-link');
+    const moreContent = document.getElementById('more-content');
+    const lessContent = document.getElementById('less-content');
+    if (!toggleLink || !moreContent || !lessContent) return;
+    truncateRichText(document.getElementById('less-content').childNodes[0], 630);
+    toggleLink.addEventListener('click', function () {
+      const isHidden = moreContent.style.display === 'none';
+      lessContent.style.display = isHidden ? 'none' : 'block';
+      moreContent.style.display = isHidden ? 'block' : 'none';
+      toggleLink.textContent = isHidden ? 'Read less' : 'Read more...';
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('open_filters')) {
+      const filterSidebar = document.querySelector('.mobile-facets__disclosure');
+
+      filterSidebar.classList.add('menu-opening');
+      filterSidebar.setAttribute('open', 'open');
+      console.log('open 111');
+    }
+    const filterLabel = urlParams.get('open_filters');
+    const specificFilter = document.querySelector(`details[data-filter-label="${filterLabel}"]`);
+    if (specificFilter) {
+      specificFilter.classList.add('menu-opening');
+      specificFilter.setAttribute('open', 'open');
+      console.log('open 222');
+    }
+  });
+</script>
+
+<script src="{{ 'back-button.js' | asset_url }}" defer></script>
+
+{%- schema -%}
+{
+  "name": "Search main",
+  "class": "section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "products_per",
+      "min": 4,
+      "max": 24,
+      "step": 1,
+      "label": "Products Per Page",
+      "default": 12
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sorting",
+      "default": true,
+      "label": "t:sections.main-collection-product-grid.settings.enable_sorting.label"
+    }
+  ]
+}
+{%- endschema -%}
+

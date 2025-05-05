@@ -1,62 +1,95 @@
-/*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
 {
   "sections": {
     "main": {
       "type": "main-article",
-      "settings": {
-      }
+      "settings": {}
     },
-    "article_additional_LQNBY9": {
+    "34e71724-edac-4056-80ea-1103d33cb9bf": {
       "type": "article-additional",
       "blocks": {
-        "text_zPJ4FG": {
+        "template--20180735197469__34e71724-edac-4056-80ea-1103d33cb9bf-text-1": {
           "type": "text",
           "settings": {
-            "title": "<p>Title<\/p>",
-            "text": "<p>Lorem Ipsum.<\/p>"
+            "title": "",
+            "text": "{{ article.metafields.blogpost.blog_paragraph_1 | metafield_tag }}"
           }
         },
-        "image_MpXxQb": {
+        "template--20180735197469__34e71724-edac-4056-80ea-1103d33cb9bf-image-1": {
           "type": "image",
           "settings": {
+            "image": "{{ article.metafields.custom.blog_image_1.value }}"
           }
         },
-        "products_TbnJqL": {
+        "template--20180735197469__34e71724-edac-4056-80ea-1103d33cb9bf-products-1": {
+          "type": "products",
+          "disabled": true,
+          "settings": {
+            "products": "{{ article.metafields.custom.blog_products.value }}"
+          }
+        },
+        "7d5e49e4-311e-4bdc-aa7f-8fba0bd6f74d": {
+          "type": "text",
+          "settings": {
+            "title": "",
+            "text": "{{ article.metafields.blogpost.blog_paragraph_2 | metafield_tag }}"
+          }
+        },
+        "fac101cf-221a-4ba0-8f64-7b68550e8042": {
           "type": "products",
           "settings": {
-            "products": [
-
-            ]
+            "products": "{{ article.metafields.custom.blog_products.value }}"
+          }
+        },
+        "b522e133-18f6-4113-b36c-053c9b0d6663": {
+          "type": "image",
+          "settings": {
+            "image": "{{ article.metafields.custom.blog_image_2.value }}"
+          }
+        },
+        "300df3b0-5150-4ef3-8455-85f8633269fe": {
+          "type": "text",
+          "settings": {
+            "title": "{{ article.metafields.custom.blog_paragraph_title_3.value }}",
+            "text": "{{ article.metafields.blogpost.blog_paragraph_3 | metafield_tag }}"
+          }
+        },
+        "572ed77b-6ee4-41e7-9ed3-eaed39d5d238": {
+          "type": "image",
+          "settings": {
+            "image": "{{ article.metafields.custom.blog_image_3.value }}"
+          }
+        },
+        "89f0f871-c7e2-44de-a846-e86dc16c6db9": {
+          "type": "text",
+          "settings": {
+            "title": "{{ article.metafields.custom.blog_paragraph_4_title.value }}",
+            "text": "{{ article.metafields.blogpost.blog_paragraph_4 | metafield_tag }}"
           }
         }
       },
       "block_order": [
-        "text_zPJ4FG",
-        "image_MpXxQb",
-        "products_TbnJqL"
+        "template--20180735197469__34e71724-edac-4056-80ea-1103d33cb9bf-text-1",
+        "template--20180735197469__34e71724-edac-4056-80ea-1103d33cb9bf-image-1",
+        "template--20180735197469__34e71724-edac-4056-80ea-1103d33cb9bf-products-1",
+        "7d5e49e4-311e-4bdc-aa7f-8fba0bd6f74d",
+        "fac101cf-221a-4ba0-8f64-7b68550e8042",
+        "b522e133-18f6-4113-b36c-053c9b0d6663",
+        "300df3b0-5150-4ef3-8455-85f8633269fe",
+        "572ed77b-6ee4-41e7-9ed3-eaed39d5d238",
+        "89f0f871-c7e2-44de-a846-e86dc16c6db9"
       ],
-      "disabled": true,
       "settings": {
-        "title": "Title"
+        "title": "{{ article.metafields.custom.sub_title.value }}"
       }
     },
-    "article_related_4b3BHV": {
+    "60267d6f-4e3c-4ded-b6f3-3ad4c86180e6": {
       "type": "article-related",
-      "settings": {
-      }
+      "settings": {}
     }
   },
   "order": [
     "main",
-    "article_additional_LQNBY9",
-    "article_related_4b3BHV"
+    "34e71724-edac-4056-80ea-1103d33cb9bf",
+    "60267d6f-4e3c-4ded-b6f3-3ad4c86180e6"
   ]
 }

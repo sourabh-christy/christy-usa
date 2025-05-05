@@ -5,9 +5,15 @@ if (!customElements.get('quick-add-modal')) {
       constructor() {
         super();
         this.modalContent = this.querySelector('[id^="QuickAddInfo-"]');
+        this.thankYouModal = document.querySelector('#QuickAddThankYou');
+        this.cart = document.querySelector('cart-notification') || document.querySelector('cart-drawer');
       }
 
       hide(preventFocus = false) {
+        const searchPanel = document.querySelector('#searchBar');
+        if (!searchPanel || !searchPanel.classList.contains('opacity-100')) {
+          document.documentElement.classList.remove('overflow-hidden');
+        }
         const cartNotification = document.querySelector('cart-notification') || document.querySelector('cart-drawer');
         if (cartNotification) cartNotification.setActiveElement(this.openedBy);
         this.modalContent.innerHTML = '';
@@ -17,9 +23,11 @@ if (!customElements.get('quick-add-modal')) {
       }
 
       show(opener) {
+        document.documentElement.classList.add('overflow-hidden');
         opener.setAttribute('aria-disabled', true);
         opener.classList.add('loading');
         opener.querySelector('.loading-overlay__spinner').classList.remove('hidden');
+        opener.querySelector('.qatc-icon').classList.add('hidden');
 
         fetch(opener.getAttribute('data-product-url'))
           .then((response) => response.text())
@@ -40,11 +48,38 @@ if (!customElements.get('quick-add-modal')) {
             this.updateImageSizes();
             this.preventVariantURLSwitching();
             super.show(opener);
-          })
+
+            // // Refresh slider
+            // const productGalleryRefresh = new Event('product-gallery-refresh');
+            // this.dispatchEvent(productGalleryRefresh);
+
+            // add event listener for upsell product
+            initPriceChangeListeners(this.modalContent);
+
+            // Refresh lazy images
+            const lazyimg = new Event('lazyimg');
+            window.dispatchEvent(lazyimg);
+
+            // Trigger reloading all product info
+            const variantOptionFirst = this.modalContent.querySelector('variant-radios .variant-option');
+            if (variantOptionFirst) variantOptionFirst.dispatchEvent(new Event('change', { bubbles: true }));
+
+            // Refresh wishlist buttons
+            const wishlistRefresh = new Event('shopify-wishlist:setup-buttons');
+            document.dispatchEvent(wishlistRefresh);
+   
+          document.body.dispatchEvent(new Event('quick-add-modal:opened'));
+
+        })
           .finally(() => {
             opener.removeAttribute('aria-disabled');
             opener.classList.remove('loading');
             opener.querySelector('.loading-overlay__spinner').classList.add('hidden');
+            opener.querySelector('.qatc-icon').classList.remove('hidden');
+
+            if (this.thankYouModal) {
+              this.thankYouModal.hide(true);
+            }
           });
       }
 
@@ -114,6 +149,80 @@ if (!customElements.get('quick-add-modal')) {
         }
 
         mediaImages.forEach((img) => img.setAttribute('sizes', mediaImageSizes));
+      }
+
+      handleQuickAddThankYouModal(response) {
+        const thankYouModal = document.querySelector('#QuickAddThankYou');
+        const grid = thankYouModal?.querySelector('.splide__list');
+        const relatedHandles = JSON.parse(this.querySelector('[data-related-handles]')?.textContent)?.related_handles?.split(',');
+
+        if (!relatedHandles.length) {
+          this.hide(true);
+          this.cart.renderContents(response);
+          return;
+        }
+
+        const fetchProductCardHTML = (handle) => {
+          let productTileTemplateUrl = `/products/${handle}?view=card-mob-large-img`;
+
+          return fetch(productTileTemplateUrl)
+          .then((res) => res.text())
+          .then((res) => {
+            const text = res;
+            const parser = new DOMParser();
+            const htmlDocument = parser.parseFromString(text, 'text/html');
+            const productCard = htmlDocument.documentElement.querySelector('.product-card');
+            if (!productCard) return '';
+            return '<div class="splide__slide w-4/5  sm:w-[calc(50%-6px)] md:w-[calc(33.3333%-6px)]">' + productCard.outerHTML + '</div>';
+          })
+          .catch((err) => console.error(`[Shopify Recently Viewed] Failed to load content for handle: ${handle}`, err));
+        };
+
+        document.body.addEventListener(
+          'modalClosed',
+          async () => {
+            if (!thankYouModal) return;
+            const spinner = thankYouModal.querySelector('[data-spinner]');
+            const splider = thankYouModal.querySelector('.splide');
+            spinner.hidden = false;
+            splider.hidden = true;
+
+            thankYouModal.show();
+
+            const requests = relatedHandles.map(fetchProductCardHTML);
+            const responses = await Promise.all(requests);
+
+            grid.innerHTML = responses.join('');
+            spinner.hidden = true;
+            splider.hidden = false;
+
+            const openCartButton = thankYouModal.querySelector('.open-cart-button-js');
+            if (openCartButton) {
+              openCartButton.addEventListener('click', () => {
+                thankYouModal.hide();
+                this.cart.renderContents(response);
+                App.overflowFloatedStyle();
+              })
+            }
+
+            // lazy load images
+            const lazyimg = new Event('lazyimg');
+            window.dispatchEvent(lazyimg);
+
+            const splideRefresh = new Event('spliderefresh');
+            window.dispatchEvent(splideRefresh);
+
+            // reinit colour selectors
+            const initcolourselector = new Event('initcolourselector');
+            window.dispatchEvent(initcolourselector);
+
+            // Refresh wishlist buttons
+            const wishlistRefresh = new Event('shopify-wishlist:setup-buttons');
+            document.dispatchEvent(wishlistRefresh);
+          },
+          { once: true }
+        );
+        this.hide(true);
       }
     }
   );

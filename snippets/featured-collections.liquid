@@ -1,0 +1,52 @@
+{% comment %}
+  props:
+    - collections: array of collections
+{% endcomment %}
+
+{% if collections != blank %}
+  <div class="overflow-hidden pb-2 xl:pb-6">
+    <div class="container container-sm">
+      <div class="splide"
+           data-splide='
+        {
+          "arrows": true,
+          "pagination": false,
+          "type": "slide",
+          "gap": "3px",
+          "autoWidth": true,
+          "focus": 0,
+          "omitEnd": true,
+          "breakpoints": {
+            "639": {
+              "gap": "8px",
+              "perPage": 2,
+              "perMove": 2
+            }
+          }
+        }
+      '
+      >
+        <!-- track -->
+        <div class="splide__track !overflow-visible">
+          <ul class="splide__list">
+            {% for col in collections %}
+              <li class="splide__slide w-[calc(50%-4px)] sm:w-[245px]">
+                {% render 'collection-card', card_collection: col %}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <div class="splide__arrows splide__arrows--ltr splide__custom-arrows"
+        >
+          <button class="splide__arrow splide__arrow--prev disabled:!opacity-0">
+            {% render 'icon-arrow-drop-down' %}
+          </button>
+          <button class="splide__arrow splide__arrow--next disabled:!opacity-0">
+            {% render 'icon-arrow-drop-down' %}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}

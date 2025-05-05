@@ -1,0 +1,268 @@
+{% schema %}
+{
+  "name": "Product Quiz",
+  "tag": "section",
+  "class": "product-quiz-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Next Button Text",
+      "default": "NEXT"
+    },
+    {
+      "type": "text",
+      "id": "results_button_text",
+      "label": "Results Button Text",
+      "default": "SEE RESULTS"
+    },
+    {
+      "type": "text",
+      "id": "contact_us_text",
+      "label": "Contact us text",
+      "default": "Still not sure whats right? Contact us"
+    },
+    {
+      "type": "text",
+      "id": "phone_number",
+      "label": "Phone number",
+      "default": "+441613675800"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Quiz"
+    }
+  ]
+}
+{% endschema %}
+
+{% assign questions = product.metafields.custom.product_quiz.value %}
+
+{% if questions %}
+  <div class="quiz-container mx-auto bg-primary-white-cotton">
+    <div class="hidden">
+      {%- for quiz_result in product.metafields.custom.quiz_result.value -%}
+        <div data-quiz-combination="{{ quiz_result.combination }}">
+          <div
+            data-quiz-products="{%- for result_product in quiz_result.products.value -%}{{- result_product.handle -}}{%- unless forloop.last -%}/{%- endunless -%}{%- endfor -%}"
+          ></div>
+        </div>
+      {%- endfor -%}
+      {%- if product.metafields.custom.quiz_result_second.value != blank -%}
+        {%- for quiz_result in product.metafields.custom.quiz_result_second.value -%}
+          <div data-quiz-combination="{{ quiz_result.combination }}">
+            <div
+              data-quiz-products="{%- for result_product in quiz_result.products.value -%}{{- result_product.handle -}}{%- unless forloop.last -%}/{%- endunless -%}{%- endfor -%}"
+            ></div>
+          </div>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+    <div class="questions-container px-4">
+      {% for question in questions %}
+        <div
+          class="question {% unless forloop.first %}hidden{% endunless %}"
+          data-question-index="{{ forloop.index0 }}"
+        >
+          <div class="text-center quiz-mb-8">
+            <h2 class="title flex items-start justify-center gap-4 text-[30px] lg:text-[40px] lg:leading-[52px] font-sec text-primary-blue">
+              {{ question.question_title.value }}
+            </h2>
+            <p class="quiz-mb-4">{{ question.question_subtitle.value }}</p>
+            <div class="quiz-mb-4 flex justify-center gap-2">
+              <span>Choose your option</span>
+              <div>
+                {{ forloop.index }} /
+                <span class="text-secondary-blue-100">{{ questions.count }}</span>
+              </div>
+            </div>
+          </div>
+
+          {% assign answers = question.answers.value %}
+          <div class="flex gap-4 quiz-answers mx-auto max-md:grid quiz-grid ">
+            {% for answer in answers %}
+              <button
+                class="answer-option answer-btn flex flex-col flex-1"
+                data-answer="{{ forloop.index }}"
+              >
+                {% if answer.answer_image.value != blank %}
+                  <div class="aspect-square w-full quiz-mb-4 overflow-hidden">
+                    <img
+                      src="{{ answer.answer_image.value | image_url: width: 300 }}"
+                      alt="{{ answer.answer_text.value }}"
+                      class="w-full h-full object-cover"
+                      loading="lazy"
+                    >
+                  </div>
+                {% endif %}
+                <p class="px-1 quiz-mb-4 mx-auto text-center">
+                  {{ answer.answer_text.value }}
+                </p>
+              </button>
+            {% endfor %}
+          </div>
+
+          <div class="flex {% if forloop.first %}justify-center{% else %}justify-between{% endif %} items-center gap-4 quiz-mt-8 max-w-5xl w-full mx-auto">
+            {% unless forloop.first %}
+              <button class="prev-btn font-semibold animated-underline uppercase ml-7">Previous</button>
+            {% endunless %}
+
+            {% if forloop.last %}
+              <button class="w-[210px] h-10 show-results-btn btn-large relative overflow-hidden">
+                {{ section.settings.results_button_text }}
+              </button>
+            {% else %}
+              <button class="w-[210px] h-10 next-btn btn-large relative overflow-hidden">
+                {{ section.settings.button_text }}
+              </button>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div
+      id="quizResults"
+      class="quiz-result-products overflow-hidden hidden"
+    >
+      <h2 class="title flex items-start justify-center gap-4 text-2xl lg:text-[45px] lg:leading-[52px] font-sec p-4 m-4 text-primary-blue">
+        Your Recommendations
+      </h2>
+
+      <div class="container container-sm relative space-y-5 lg:space-y-8">
+        <div
+          class="splide splide-delayed-init group/splide flex flex-col-reverse gap-y-3 lg:gap-y-4"
+          role="list"
+          data-splide='
+            {
+              "arrows": true,
+              "pagination": false,
+              "type": "slide",
+              "autoWidth": true,
+              "focus": 0,
+              "gap": "2px",
+              "omitEnd": true,
+              "mediaQuery": "min",
+              "perPage": 1,
+              "perMove": 1,
+              "breakpoints": {
+                "1023": {
+                  "arrows": false,
+                  "destroy": "true",
+                  "gap": "4px",
+                  "perPage": 4,
+                  "perMove": 4
+                },
+                "767": {
+                  "gap": "6px",
+                  "perPage": 2,
+                  "perMove": 2
+                },
+                "640": {
+                  "gap": "8px",
+                  "perPage": 1,
+                  "perMove": 1
+                }
+              }
+            }
+          '
+        >
+          <!-- arrows -->
+          <div
+            data-splide-nav
+            class="splide__arrows splide__arrows--ltr hidden group-[.is-initialized]/splide:!flex justify-center items-center"
+          >
+            <!-- counter -->
+            <div class="text-xs sm:opacity-0 md:opacity-100">
+              <span data-splide-current-page class="data-[splide-is-last-page=true]:text-secondary-blue-200">1</span>
+              /
+              <span data-splide-total-pages class="text-secondary-blue-200"></span>
+            </div>
+
+            <!-- buttons -->
+            <div class="ml-auto flex items-center space-x-4 absolute right-0">
+              <button
+                class="
+                  splide__arrow splide__arrow--prev disabled:!text-secondary-blue-200 transition-colors !bg-transparent
+                  !static !transform-none outline-none
+                "
+                type="button"
+                aria-label="Previous slide"
+                aria-controls="splide01-track"
+              >
+                {%- render 'icon-long-arrow-right', class: '!w-6 !h-6' -%}
+              </button>
+
+              <button
+                class="
+                  splide__arrow splide__arrow--next disabled:!text-secondary-blue-200 transition-colors
+                  !bg-transparent !static !transform-none outline-none
+                "
+                type="button"
+                aria-label="Next slide"
+                aria-controls="splide01-track"
+              >
+                {%- render 'icon-long-arrow-right', class: '!w-6 !h-6' -%}
+              </button>
+            </div>
+          </div>
+
+          <!-- progress bar -->
+          <div data-splide-progress-bar class="space-y-3 lg:space-y-4 mt-3 lg:mt-2 sm:opacity-0 md:opacity-100 ">
+            <div class="bg-secondary-blue-100 slider-progress h-px flex items-center">
+              <div class="bg-secondary-blue-600 h-px transition-all w-0 lg:h-0.5 slider-progress-bar"></div>
+            </div>
+          </div>
+
+          <div class="splide__track !overflow-visible">
+            <div class="quiz-results-list splide__list !flex lg:gap-1"></div>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col pt-10 gap-3 mx-auto">
+        <p class="text-sm font-semibold text-center uppercase quiz-contact-btn cursor-pointer">{{ section.settings.contact_us_text }}</p>
+        <a class="text-sm font-semibold text-center uppercase md:pointer-events-none" href="tel:{{ section.settings.phone_number }}">{{ section.settings.phone_number }}</a>
+      </div>
+    </div> 
+  </div>
+
+  <style>
+    .questions-container .answer-option {
+      transition: all 0.3s ease;
+      border: 3px solid rgb(244 240 232 / var(--tw-bg-opacity));
+    }
+    .questions-container .answer-option.active {
+      border-color: rgb(28 53 94 / var(--tw-border-opacity));
+    }
+  </style>
+
+  <script defer>
+    function loadProductQuizScript() {
+      if (window.quizScriptLoaded) {
+        return Promise.resolve();
+      }
+      return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = '{{ "quiz-logic.js" | asset_url }}';
+        script.defer = true;
+        script.onload = () => {
+          window.quizScriptLoaded = true;
+          resolve();
+        };
+        script.onerror = () => reject(new Error('Failed to load quiz-logic.js'));
+        document.head.appendChild(script);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      const productQuizContainer = document.querySelector('.quiz-container');
+      if (productQuizContainer) {
+        await loadProductQuizScript();
+        if (typeof initializeAllQuizzes === 'function') {
+          initializeAllQuizzes();
+        }
+      }
+    });
+  </script>
+{% endif %}

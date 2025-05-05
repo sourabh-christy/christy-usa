@@ -68,10 +68,6 @@
                   {%- assign image_height = block.settings.image.width -%}
                   <figure>
                     {% render 'spinner' %}
-                      {% assign url = block.settings.button_link %}
-                      {% if url != blank %}
-                      <a href="/collections/{{ url }}">
-                          {% endif %}
                     {%- render 'lazyimg',
                       img: block.settings.image,
                       width: 553,
@@ -80,9 +76,6 @@
                       sizes: sizes
                     -%}
                   </figure>
-                  {% if url != blank %}
-                  </a>
-                  {% endif %}
                 {%- endif -%}
 
                 <div class="space-y-4 lg:space-y-6">

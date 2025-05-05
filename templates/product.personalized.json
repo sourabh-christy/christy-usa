@@ -1,1 +1,98 @@
-{"sections":{"da058471-4a3f-48f1-87ac-0d72f1810b7c":{"type":"hero-image","settings":{"image":"shopify:\/\/shop_images\/Untitled_design.jpg","link":"","full_width":true}},"main":{"type":"main-product","settings":{}},"1697171910d24fd797":{"type":"apps","settings":{}},"169090501824a740ea":{"type":"apps","settings":{}},"1693485436843bc3ff":{"type":"apps","settings":{}},"recent-products":{"type":"recent-products","settings":{"heading":"Previously explored"}},"86a4f019-bc37-4060-9067-8a759a38958f":{"type":"billboard","disabled":true,"settings":{"screen_visibility":"both","subtitle":"Christy Life","title":"<p>Caring Cotton<\/p>","copy":"<p>Sustainably made cotton is kinder to the environment and the people who produce it – which is why we’re using it more than ever. <\/p><p>Our Made In Green-certified products are guaranteed to have been made sustainably, under socially responsible working environments and using transparent supply chains.<\/p>","button_label":"Read More","button_link":"https:\/\/christystaging.myshopify.com\/pages\/responsibility","button_type":"tertiary","colour_theme":"white","alignment":"left","alignment_vertical":"center","mobile_content_position":"overlay"}}},"order":["da058471-4a3f-48f1-87ac-0d72f1810b7c","main","1697171910d24fd797","169090501824a740ea","1693485436843bc3ff","recent-products","86a4f019-bc37-4060-9067-8a759a38958f"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "da058471-4a3f-48f1-87ac-0d72f1810b7c": {
+      "type": "hero-image",
+      "disabled": true,
+      "settings": {
+        "image": "shopify://shop_images/Untitled_design.jpg",
+        "link": "",
+        "full_width": true
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "sc_back_in_stock_app_block_73Nqqj": {
+          "type": "shopify://apps/sc-back-in-stock/blocks/app-block/839cbcb7-0406-4c2b-8e74-a54d987b90ab",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "sc_back_in_stock_app_block_73Nqqj"
+      ],
+      "settings": {
+        "bundle-discount-template": "Save *discount*% with our curated bundles—each piece customized by you"
+      }
+    },
+    "reviews_section_9ikxDq": {
+      "type": "reviews-section",
+      "settings": {}
+    },
+    "pdp_shop_the_look_9TMnFi": {
+      "type": "pdp-shop-the-look",
+      "settings": {
+        "title": "Shop the look"
+      }
+    },
+    "product_quiz_xfLcJ7": {
+      "type": "product-quiz",
+      "settings": {
+        "button_text": "NEXT",
+        "results_button_text": "SEE RESULTS",
+        "contact_us_text": "Need help choosing? Get in touch with us.",
+        "phone_number": "+441613675800"
+      }
+    },
+    "dfadb464-131f-4320-963f-71343e59af69": {
+      "type": "related-products",
+      "settings": {
+        "products": [],
+        "products_limit": 4,
+        "heading": "You May Also Like"
+      }
+    },
+    "recent-products": {
+      "type": "recent-products",
+      "disabled": true,
+      "settings": {
+        "heading": "Recently Viewed"
+      }
+    },
+    "1697171910d24fd797": {
+      "type": "apps",
+      "disabled": true,
+      "settings": {}
+    },
+    "169090501824a740ea": {
+      "type": "apps",
+      "disabled": true,
+      "settings": {}
+    },
+    "1693485436843bc3ff": {
+      "type": "apps",
+      "disabled": true,
+      "settings": {}
+    }
+  },
+  "order": [
+    "da058471-4a3f-48f1-87ac-0d72f1810b7c",
+    "main",
+    "reviews_section_9ikxDq",
+    "pdp_shop_the_look_9TMnFi",
+    "product_quiz_xfLcJ7",
+    "dfadb464-131f-4320-963f-71343e59af69",
+    "recent-products",
+    "1697171910d24fd797",
+    "169090501824a740ea",
+    "1693485436843bc3ff"
+  ]
+}

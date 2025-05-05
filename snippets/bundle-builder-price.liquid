@@ -4,30 +4,32 @@
 >
   <div class="bundleprice">
     {% if totalCompare > totalPrice %}
-      <span class="flex gap-x-2 font-semibold ">
-        <span class="line-through opacity-60">
+      <div class="flex gap-x-2 font-normal items-center">
+        <span>{{ totalPrice | money }}</span>
+        <span class="line-through text-xs tracking-[.4px]">
           {{- totalCompare | money -}}
         </span>
-        <span>{{ totalPrice | money }}</span>
-      </span>
+      </div>
 
     {% else %}
-      <span class="font-semibold">{{ totalPrice | money }}</span>
+      <span class="font-normal">{{ totalPrice | money }}</span>
     {% endif %}
   </div>
 
-  <span
-    style="display:none"
-    class="bundlesavings inline-flex {% if hideSavingsMob != true %}flex-row-reverse{% endif %} items-center gap-1 whitespace-nowrap ui-pill ui-pill--bg-blue ui-shimmer before:animate-[shimmer_1s_linear_both]"
-  >
+  <span class="bundlesavings {% if showOnlyDiscount == true %} hidden {% else %} inline-flex {% endif %} {% if hideSavingsMob != true %}flex-row-reverse{% endif %} items-center gap-1 whitespace-nowrap ui-pill ui-pill--bg-blue ui-shimmer before:animate-[shimmer_1s_linear_both]">
+    {% assign totalCompareMoney = totalCompare | money_without_currency %}
+    {% assign totalPriceMonry = totalPrice | money_without_currency %}
+
+    {% assign priceDiff = totalCompareMoney | minus: totalPriceMonry %}
+    {% assign myDis = priceDiff | divided_by: totalCompareMoney | times: 100 | round: 0 %}
+
     {% if hideSavingsMob == true %}
-      <span>Bundle <span class="max-sm:hidden">Savings</span></span>
+      <span> <span class="max-sm:hidden"></span></span>
     {% else -%}
-      Bundle Savings
     {%- endif %}
     {% if showPerc != false -%}
-      {%- if bundleDiscount > 0 %}
-        {{ bundleDiscount }}% Off
+      {%- if totalCompare > totalPrice %}
+        {{ myDis }}% OFF
       {% endif %}
     {% endif %}
   </span>

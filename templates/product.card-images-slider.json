@@ -1,0 +1,14 @@
+{
+  "layout": false,
+  "sections": {
+    "main": {
+      "type": "product-card-template-images",
+      "settings": {
+        "images_slider": true
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

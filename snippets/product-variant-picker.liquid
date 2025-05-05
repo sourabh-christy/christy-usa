@@ -8,11 +8,11 @@
   Usage:
   {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
 {% endcomment %}
-
+ 
 {%- unless product.has_only_default_variant -%}
   <variant-radios
     id="variant-radios-{{ section.id }}"
-    class="no-js-hidden max-md:space-y-7"
+    class="no-js-hidden max-md:space-y-6"
     data-section="{{ section.id }}"
     data-url="{{ product.url }}"
     {% if update_url == false %}
@@ -57,25 +57,24 @@
           id="option-{{ option.name | handle }}"
           aria-labelledby="fake-legend-{{ option.name | handle }}"
           data-optionname="{{ option.name }}"
-          class="js product-form__input md:py-7 first:pt-0 md:border-b border-blue-1/10 {% if values_count > 1 %}group/acc{% endif %} open"
+          class="js product-form__input md:pb-4"
         >
           <div
             data-acc
-            class="float-left form__label d-h5 space-x-6 flex w-full items-center md:cursor-pointer max-md:text-[14px]"
+            class="float-left form__label d-h5 space-x-6 flex w-full items-center max-md:text-[14px]"
             id="fake-legend-{{ option.name | handle }}"
           >
             <div class="mr-auto">
-              <span>
+              <span class="text-sm font-normal current-variation-label">
                 {%- liquid
                   if option.name == 'color' or option.name == 'Color'
                     echo 'Colour'
                   else
                     echo option.name
                   endif
-                -%}
-                :</span
-              >
-              <span class="current-variation font-light" data-varcurrent="{{ option.name }}">
+                -%}:
+              </span>
+              <span class="current-variation max-md:text-sm text-base font-semibold" data-varcurrent="{{ option.name }}">
                 {% if option.name == 'Colour' or option.name == 'Color' %}
                   {% if selected_colour != '' %}
                     {% assign selectedValue = selected_colour %}
@@ -95,28 +94,25 @@
               </span>
             </div>
 
-            {% if values_count > 1 %}
-              <span
-                class="acc-toggle max-md:hidden"
-              ></span>
-            {% endif %}
-
             {% if option.name == 'Size' or option.name == 'Duvet Size' %}
-              {% if product.metafields.custom.product_specification != blank %}
-                <div id="sideguidemodal" class="text-right !ml-auto pl-5 md:hidden self-start whitespace-nowrap">
-                  <button aria-label="Go to sizeguide" class="btn-tertiary" data-modaltrigger="sizeguide">
+             
+                <div id="sideguidemodal" class="text-right !ml-auto pl-5 self-start whitespace-nowrap">
+                  <button aria-label="Go to sizeguide" class="text-sm font-semibold no-underline flex items-center" data-modaltrigger="sizeguide">
                     Size Guide
+                    <span class="ml-2">
+                      {% render 'icon-size' %}
+                    </span>
                   </button>
                 </div>
-              {% endif %}
+         
             {% endif %}
           </div>
 
           {% liquid
             if option.name == 'Colour' or option.name == 'Color'
-              assign options_wrap_class = 'gap-2 md:gap-5 flex-wrap pt-3 md:pt-7 clear-left flex md:hidden group-[.open]/acc:!flex group-[.open]/acc:opacity-100 md:opacity-0 transition-opacity delay-[0.5s]'
+              assign options_wrap_class = 'product-option-wrap gap-2 flex-wrap pt-4 md:pt-4 clear-left flex opacity-100'
             else
-              assign options_wrap_class = 'max-md:grid max-md:grid-cols-2 max-md:gap-x-4 gap-3 flex-wrap pt-3 md:pt-7 clear-left md:hidden group-[.open]/acc:!grid group-[.open]/acc:md:!flex group-[.open]/acc:opacity-100 md:opacity-0 transition-opacity delay-[0.5s]'
+              assign options_wrap_class = 'product-option-wrap grid max-lg:grid-cols-2 max-lg:gap-0 lg:grid-cols-3 gap-1 pt-4 md:pt-4 clear-left opacity-100'
             endif
           %}
           <div class="{{ options_wrap_class }}">
@@ -134,10 +130,11 @@
         </fieldset>
       {% endif %}
     {%- endfor -%}
-
-    <script type="application/json">
+    
+    <script id="product-variants" type="application/json">
       {{ product.variants | json }}
     </script>
+    <script src="{{ "check-color-swatches.js" | asset_url }}" defer></script>
   </variant-radios>
 {%- endunless -%}
 

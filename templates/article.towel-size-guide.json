@@ -1,1 +1,75 @@
-{"sections":{"main":{"type":"main-article","settings":{}},"96fa90d9-bcd0-4c29-8106-e50193e44095":{"type":"article-additional","blocks":{"template--19995256095008__96fa90d9-bcd0-4c29-8106-e50193e44095-text-1":{"type":"text","settings":{"title":"","text":"<p>Brand Ambassador Kayla from @reynoldsresidence shares her morning routines and how she sets her day up for success.<\/p>"}},"b917e480-b449-446b-b1aa-8bcabbb320df":{"type":"text","settings":{"title":"","text":"<p>I must admit, I, like many others struggle in January. The dark mornings and long nights seem relentless, and I find myself longing for the first signs of Spring. One of the things I said I would prioritise this year is to make more time for me by slowing down, and starting the day with a good routine. Energise your environment I’m a massive believer that your environment has a huge impact on your mindset, so I started the year with some new bedding. <\/p>"}},"template--19995256095008__96fa90d9-bcd0-4c29-8106-e50193e44095-image-1":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/D2-1071-2.jpg"}},"template--19995256095008__96fa90d9-bcd0-4c29-8106-e50193e44095-products-1":{"type":"products","settings":{"products":["brixton-robe","brixton-shower-mat"]}},"edbdb952-4231-4017-8dd1-3ef1ea70c7b2":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/Rectangle-208.jpg"}},"050a9490-cb75-4484-a8a5-e8883a6005ac":{"type":"text","settings":{"title":"Dress your bed","text":"<p>I’m guilty of waking up and starting work straight away – which can sometimes mean I don’t make the bed every day – or at least not first thing in the morning (come on, we all do it!). But I am making the time to dress the bed everyday before I do anything else, so the room feels refreshed, less cluttered and ready for the day. <br\/><br\/>And if nothing else happens that day, at least I have accomplished making the bed! Crisp sheets, a throw and a few cushions give an effortless yet staged look.<\/p>"}}},"block_order":["template--19995256095008__96fa90d9-bcd0-4c29-8106-e50193e44095-text-1","b917e480-b449-446b-b1aa-8bcabbb320df","template--19995256095008__96fa90d9-bcd0-4c29-8106-e50193e44095-image-1","template--19995256095008__96fa90d9-bcd0-4c29-8106-e50193e44095-products-1","edbdb952-4231-4017-8dd1-3ef1ea70c7b2","050a9490-cb75-4484-a8a5-e8883a6005ac"],"settings":{"title":"New Year, new routine?"}},"60267d6f-4e3c-4ded-b6f3-3ad4c86180e6":{"type":"article-related","settings":{}}},"order":["main","96fa90d9-bcd0-4c29-8106-e50193e44095","60267d6f-4e3c-4ded-b6f3-3ad4c86180e6"]}
+{
+  "sections": {
+    "main": {
+      "type": "main-article",
+      "settings": {}
+    },
+    "96fa90d9-bcd0-4c29-8106-e50193e44095": {
+      "type": "article-additional",
+      "blocks": {
+        "template--19995256095008__96fa90d9-bcd0-4c29-8106-e50193e44095-text-1": {
+          "type": "text",
+          "settings": {
+            "title": "",
+            "text": "<p>Brand Ambassador Kayla from @reynoldsresidence shares her morning routines and how she sets her day up for success.<\/p>"
+          }
+        },
+        "b917e480-b449-446b-b1aa-8bcabbb320df": {
+          "type": "text",
+          "settings": {
+            "title": "",
+            "text": "<p>I must admit, I, like many others struggle in January. The dark mornings and long nights seem relentless, and I find myself longing for the first signs of Spring. One of the things I said I would prioritise this year is to make more time for me by slowing down, and starting the day with a good routine. Energise your environment I’m a massive believer that your environment has a huge impact on your mindset, so I started the year with some new bedding. <\/p>"
+          }
+        },
+        "template--19995256095008__96fa90d9-bcd0-4c29-8106-e50193e44095-image-1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/D2-1071-2.jpg"
+          }
+        },
+        "template--19995256095008__96fa90d9-bcd0-4c29-8106-e50193e44095-products-1": {
+          "type": "products",
+          "settings": {
+            "products": [
+              "brixton-robe",
+              "brixton-shower-mat"
+            ]
+          }
+        },
+        "edbdb952-4231-4017-8dd1-3ef1ea70c7b2": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle-208.jpg"
+          }
+        },
+        "050a9490-cb75-4484-a8a5-e8883a6005ac": {
+          "type": "text",
+          "settings": {
+            "title": "Dress your bed",
+            "text": "<p>I’m guilty of waking up and starting work straight away – which can sometimes mean I don’t make the bed every day – or at least not first thing in the morning (come on, we all do it!). But I am making the time to dress the bed everyday before I do anything else, so the room feels refreshed, less cluttered and ready for the day. <br\/><br\/>And if nothing else happens that day, at least I have accomplished making the bed! Crisp sheets, a throw and a few cushions give an effortless yet staged look.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--19995256095008__96fa90d9-bcd0-4c29-8106-e50193e44095-text-1",
+        "b917e480-b449-446b-b1aa-8bcabbb320df",
+        "template--19995256095008__96fa90d9-bcd0-4c29-8106-e50193e44095-image-1",
+        "template--19995256095008__96fa90d9-bcd0-4c29-8106-e50193e44095-products-1",
+        "edbdb952-4231-4017-8dd1-3ef1ea70c7b2",
+        "050a9490-cb75-4484-a8a5-e8883a6005ac"
+      ],
+      "settings": {
+        "title": "New Year, new routine?"
+      }
+    },
+    "60267d6f-4e3c-4ded-b6f3-3ad4c86180e6": {
+      "type": "article-related",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "96fa90d9-bcd0-4c29-8106-e50193e44095",
+    "60267d6f-4e3c-4ded-b6f3-3ad4c86180e6"
+  ]
+}

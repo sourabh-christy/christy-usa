@@ -175,6 +175,7 @@ cart-drawer {
 
 .cart-drawer .drawer__cart-items-wrapper {
   flex-grow: 1;
+  margin-top: 16px;
 }
 
 .cart-drawer .cart-items,

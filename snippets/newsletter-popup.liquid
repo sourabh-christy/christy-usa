@@ -1,0 +1,40 @@
+{% unless customer and customer.accepts_marketing %}
+    <div id="newsletter-popup" class="fixed inset-0 z-50 flex justify-center items-end md:items-center md:bg-black/70 " style="display: none;">
+      <div class="popup-inner bg-primary-blue px-5 pt-12 md:pt-6 pb-6 rounded-tl-[10px] rounded-tr-[10px] md:rounded-t-none w-full md:max-w-[500px] relative">
+        <button type="button" class="absolute top-[22px] right-[22px] text-white close-newsletter-btn">{%  render 'icon-close' %}</button>
+        <p class="text-[22px] text-center font-semibold text-primary-white-cotton mb-4 md:mb-6 max-w-[480px] mx-auto">{{ heading }} {{ typing_text }}</p>
+
+        {% form 'customer', class: 'newsletter-form', data-popup: true %}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <div class="newsletter-form__field-wrapper">
+            <div class="field relative field-large max-w-[362px] mx-auto">
+              <input
+                id="NewsletterFormPopup"
+                type="email"
+                name="contact[email]"
+                class="field__input"
+                aria-required="true"
+                autocorrect="off"
+                autocapitalize="off"
+                autocomplete="email"
+                placeholder="{{ 'newsletter.placeholder' | t }}"
+                required
+              >
+              <div class="email-error-message w-full absolute top-[65px] md:top-[116px] bg-white p-2 text-sm text-primary-blue">
+                Please include an '@' in the email address.
+              </div>
+              <button
+                type="submit"
+                class="newsletter-form__button field__button"
+                name="commit"
+                aria-label="{{ 'newsletter.button_label' | t }}"
+              >
+                {% render 'icon-arrow-long' %}
+              </button>
+            </div>
+          </div>
+        {% endform %}
+        <div class="newsletter-privacy max-w-[180px] sm:max-w-max mx-auto text-center lg:text-left lg:row-start-3 lg:col-start-1 text-xs mt-4 text-white child-underline">{{ text }}</div>
+      </div>
+    </div>
+{% endunless %}

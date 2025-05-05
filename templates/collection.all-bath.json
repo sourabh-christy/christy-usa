@@ -9,21 +9,262 @@
  */
 {
   "sections": {
+    "heading_RgXyFQ": {
+      "type": "heading",
+      "settings": {
+        "heading": "<p>Bathroom Collection</p>",
+        "heading_font_size_mob": 24,
+        "heading_font_size_desktop": 36,
+        "heading_font_weight": "400",
+        "heading_font_family": "Hatton, serif",
+        "heading_width": "4",
+        "copy": "",
+        "heading_copy_font_size_mob": 12,
+        "heading_copy_font_size_desktop": 14,
+        "heading_copy_font_weight": "300",
+        "heading_copy_font_family": "Tomato Grotesk",
+        "copy_style": "default",
+        "alignment": "left",
+        "alignment_mob": "center",
+        "horiz_padding": true,
+        "margin_top": false
+      }
+    },
     "898f7013-561e-48e7-986b-a539be6c7156": {
       "type": "hero-image",
+      "disabled": true,
       "settings": {
-        "image": "shopify://shop_images/Bath-Bestseller-THIN_BANNER.jpg",
+        "image": "shopify://shop_images/Thin_banner_-All_Bath_CSFV3_1.jpg",
+        "image_mobile": "shopify://shop_images/Artboard_1_61c632cd-1e41-40f5-bf83-92d42cc51432.jpg",
         "link": "",
         "full_width": true
       }
     },
-    "34bcb026-f7c3-41ed-b614-17526b336a4c": {
+    "featured_collections_WL7xfV": {
+      "type": "featured-collections",
+      "settings": {}
+    },
+    "hero_image_TddKKB": {
       "type": "hero-image",
-      "disabled": true,
       "settings": {
+        "image": "shopify://shop_images/2_split_blocks_combined-V2.jpg",
+        "image_mobile": "shopify://shop_images/Scallop_Banner-Mobile-V2.jpg",
+        "link": "shopify://collections/bathroom-new-in",
+        "full_width": true
+      }
+    },
+    "products_carousel_tabs_8BxR9i": {
+      "type": "products-carousel-tabs",
+      "blocks": {
+        "tab_PBycx8": {
+          "type": "tab",
+          "settings": {
+            "title": "New In",
+            "products": [
+              "signature-towels",
+              "scallop-towels",
+              "supreme-hygro",
+              "scallop-robes",
+              "luxe-towels",
+              "renaissance",
+              "boundary-robe"
+            ],
+            "link_text": "Shop all",
+            "link_url": ""
+          }
+        },
+        "tab_CmHymf": {
+          "type": "tab",
+          "settings": {
+            "title": "Best Sellers",
+            "products": [
+              "luxe-towels",
+              "brixton-towels",
+              "serene-550-gsm-combed-cotton",
+              "deep-pile-rug",
+              "cosy-robe-white"
+            ],
+            "link_text": "Shop all",
+            "link_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "tab_PBycx8",
+        "tab_CmHymf"
+      ],
+      "settings": {}
+    },
+    "hero_image_X63tJT": {
+      "type": "hero-image",
+      "settings": {
+        "image": "shopify://shop_images/Signature-THIN_BANNER_18dee876-34c6-4cd3-9fd4-ee7b96d4da14.jpg",
+        "image_mobile": "shopify://shop_images/Signature-Square_6041e33c-bb9f-441c-a8b3-40f878555d0f.jpg",
+        "link": "shopify://products/signature-towels",
+        "full_width": true
+      }
+    },
+    "products_carousel_tabs_ahHJjU": {
+      "type": "products-carousel-tabs",
+      "blocks": {
+        "tab_FTH7jh": {
+          "type": "tab",
+          "settings": {
+            "title": "Towels",
+            "products": [
+              "supreme-hygro",
+              "luxe-towels",
+              "renaissance",
+              "brixton-towels",
+              "newlyn-popcorn",
+              "signature-towels"
+            ],
+            "link_text": "Shop all",
+            "link_url": ""
+          }
+        },
+        "tab_UwijpJ": {
+          "type": "tab",
+          "settings": {
+            "title": "Bath Mats",
+            "products": [
+              "brixton-shower-mat",
+              "deep-pile-rug",
+              "reversible-bath-rug",
+              "trellis-bath-mat"
+            ],
+            "link_text": "Shop all",
+            "link_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "tab_FTH7jh",
+        "tab_UwijpJ"
+      ],
+      "settings": {}
+    },
+    "heading_fPwHFm": {
+      "type": "heading",
+      "settings": {
+        "heading": "<p>Discover the magic in <br/>everyday moments.</p>",
+        "heading_font_size_mob": 24,
+        "heading_font_size_desktop": 36,
+        "heading_font_weight": "400",
+        "heading_font_family": "Hatton, serif",
+        "heading_width": "4",
+        "copy": "",
+        "heading_copy_font_size_mob": 12,
+        "heading_copy_font_size_desktop": 14,
+        "heading_copy_font_weight": "300",
+        "heading_copy_font_family": "Tomato Grotesk",
+        "copy_style": "default",
+        "alignment": "left",
+        "alignment_mob": "center",
+        "horiz_padding": true,
+        "margin_top": false
+      }
+    },
+    "products_carousel_tabs_bf3jYG": {
+      "type": "products-carousel-tabs",
+      "blocks": {
+        "tab_mEAgmq": {
+          "type": "tab",
+          "settings": {
+            "title": "Mini towels",
+            "products": [
+              "christy-mini-bath-robe",
+              "christy-mini-bath-robe-1",
+              "christy-mini-bath-robe-2",
+              "christy-mini-hooded-bath-towel-1",
+              "hooded-bath-towel",
+              "christy-mini-hooded-bath-towel",
+              "christy-mini-towel-bale",
+              "christy-mini-towel-bale-2"
+            ],
+            "link_text": "Shop all",
+            "link_url": ""
+          }
+        },
+        "tab_J39mxN": {
+          "type": "tab",
+          "settings": {
+            "title": "Mini Robes",
+            "products": [
+              "christy-mini-bath-robe",
+              "christy-mini-bath-robe-1",
+              "christy-mini-bath-robe-2"
+            ],
+            "link_text": "Shop all",
+            "link_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "tab_mEAgmq",
+        "tab_J39mxN"
+      ],
+      "settings": {}
+    },
+    "hero_image_i6HkNF": {
+      "type": "hero-image",
+      "settings": {
+        "image": "shopify://shop_images/spacing_test.jpg",
         "link": "",
         "full_width": true
       }
+    },
+    "hero_static_3ajmGp": {
+      "type": "hero-static",
+      "disabled": true,
+      "settings": {
+        "image": "shopify://shop_images/SCALLOP_ROBES_GROUP_ca209a38-8405-4f18-b74b-96e96127b06c.jpg",
+        "subtitle": "",
+        "title": "",
+        "copy": "",
+        "button_label": "",
+        "button_link": "shopify://collections/bathroom-new-in",
+        "image2": "shopify://shop_images/Artboard_1_61c632cd-1e41-40f5-bf83-92d42cc51432.jpg",
+        "subtitle2": "",
+        "title2": "",
+        "copy2": "",
+        "button_label2": "",
+        "button_link2": "shopify://products/scallop-robes"
+      }
+    },
+    "hero_image_AJ8iiH": {
+      "type": "hero-image",
+      "settings": {
+        "image": "shopify://shop_images/spacing_test.jpg",
+        "link": "",
+        "full_width": true
+      }
+    },
+    "products_carousel_tabs_9mwVzn": {
+      "type": "products-carousel-tabs",
+      "blocks": {
+        "tab_JaUhWT": {
+          "type": "tab",
+          "settings": {
+            "title": "Robes",
+            "products": [
+              "brixton-robe",
+              "cosy-robe-white",
+              "luxury-egyptian-cotton-robe-dove-grey",
+              "waffle-robe-copy-1",
+              "cosy-robe",
+              "brixton-hooded-robe-copy-1"
+            ],
+            "link_text": "Shop all",
+            "link_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "tab_JaUhWT"
+      ],
+      "disabled": true,
+      "settings": {}
     },
     "product-grid": {
       "type": "main-collection-product-grid",
@@ -72,54 +313,23 @@
         "77b7bcba-adf8-4b59-84fa-2aed599efb4a",
         "8704fef6-e4b5-4c39-bba2-de943e89068e"
       ],
+      "disabled": true,
       "settings": {
         "products_per": 24,
-        "excerpt": "Towels",
-        "title_font_size_mob": 26,
-        "title_font_size_desktop": 40,
-        "title_font_weight": "500",
-        "title_font_family": "Hatton, serif",
-        "seo_liner": "Indulge in the ultimate comfort with our luxury towels, crafted from the finest materials for a plush, spa-like experience every day.",
-        "seo_liner_font_size_mob": 14,
-        "seo_liner_font_size_desktop": 14,
-        "seo_liner_font_weight": "300",
-        "seo_liner_font_family": "Tomato Grotesk",
-        "enable_filtering": true,
         "enable_sorting": true
+      }
+    },
+    "collection_faq_Ww6RX7": {
+      "type": "collection-faq",
+      "settings": {
+        "heading": "FAQ"
       }
     },
     "recent-products": {
       "type": "recent-products",
+      "disabled": true,
       "settings": {
         "heading": "Previously explored"
-      }
-    },
-    "32651ade-df62-44f5-8355-bb4039f60426": {
-      "type": "billboard",
-      "settings": {
-        "screen_visibility": "both",
-        "subtitle": "Christy Life",
-        "billboard_subtitle_font_size_mob": 16,
-        "billboard_subtitle_font_size_desktop": 16,
-        "billboard_subtitle_font_weight": "600",
-        "billboard_subtitle_font_family": "sans-serif",
-        "title": "<p>How to Wash Towels: 15 Expert Tips for Prolonged Softness</p>",
-        "billboard_title_font_size_mob": 16,
-        "billboard_title_font_size_desktop": 40,
-        "billboard_title_font_weight": "500",
-        "billboard_title_font_family": "Hatton, serif",
-        "copy": "<p>Learn how to care for your towels like a pro to ensure your favourite Christy towels stay softer and last longer for a spa-like experience wash after wash.</p>",
-        "billboard_copy_font_size_mob": 14,
-        "billboard_copy_font_size_desktop": 14,
-        "billboard_copy_font_weight": "200",
-        "billboard_copy_font_family": "Tomato Grotesk",
-        "button_label": "Read more",
-        "button_link": "https://www.christy.co.uk/blogs/lifestyle/how-to-take-care-of-your-towels",
-        "button_type": "tertiary",
-        "colour_theme": "white",
-        "alignment": "left",
-        "alignment_vertical": "center",
-        "mobile_content_position": "overlay"
       }
     },
     "toggled-body-content": {
@@ -243,6 +453,7 @@
         "5cd53bb9-0042-45f8-bccc-44aadf259f78",
         "9c788114-0e17-4e4a-90ac-0edf460cd23f"
       ],
+      "disabled": true,
       "settings": {
         "title": "Discover Bath",
         "copy": "<p>Synonymous with British style and heritage, our luxury bath collection helps you to reimagine your bathroom into the home spa you’ve always dreamed of. </p><p>Our bathroom products are carefully created to provide the ultimate combination of comfort, aesthetics and utility; drawing upon nearly two centuries of experience our range of bath mats, bathrobes and towels create a fresh new look for any bathroom.</p>"
@@ -250,11 +461,22 @@
     }
   },
   "order": [
+    "heading_RgXyFQ",
     "898f7013-561e-48e7-986b-a539be6c7156",
-    "34bcb026-f7c3-41ed-b614-17526b336a4c",
+    "featured_collections_WL7xfV",
+    "hero_image_TddKKB",
+    "products_carousel_tabs_8BxR9i",
+    "hero_image_X63tJT",
+    "products_carousel_tabs_ahHJjU",
+    "heading_fPwHFm",
+    "products_carousel_tabs_bf3jYG",
+    "hero_image_i6HkNF",
+    "hero_static_3ajmGp",
+    "hero_image_AJ8iiH",
+    "products_carousel_tabs_9mwVzn",
     "product-grid",
+    "collection_faq_Ww6RX7",
     "recent-products",
-    "32651ade-df62-44f5-8355-bb4039f60426",
     "toggled-body-content"
   ]
 }

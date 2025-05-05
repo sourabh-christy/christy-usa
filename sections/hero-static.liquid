@@ -1,6 +1,4 @@
-<div
-  id="Hero-{{ section.id }}"
->
+<div id="Hero-{{ section.id }}">
   {%- liquid
     assign full_width = '100vw'
     assign widths = '375, 550, 750, 1100'
@@ -8,51 +6,74 @@
     assign image_class = 'object-cover object-center w-full h-full absolute inset-0'
   -%}
 
-  <div
-    class="min-h-[calc(100vh_-_var(--header-height))] md:min-h-[725px] flex-1 grid gap-2 md:grid-cols-2 max-md:grid-rows-2"
-  >
+  <div class="min-h-[calc(100vh_-_var(--header-height))] md:min-h-[725px] flex-1 grid gap-2 md:grid-cols-2 max-md:grid-rows-2">
+    <!-- Column 1 -->
     <div class="relative flex items-center max-md:order-2">
       {%- if section.settings.image != blank -%}
-        {{
-          section.settings.image
-          | image_url: width: 1100
-          | image_tag: loading: 'eager', width: 1100, height: 1100, class: image_class, sizes: sizes, widths: widths
-        }}
-
+        <a href="{{ section.settings.button_link }}">
+          {{
+            section.settings.image
+            | image_url: width: 1100
+            | image_tag: loading: 'eager', width: 1100, height: 1100, class: image_class, sizes: sizes, widths: widths
+          }}
+        </a>
       {%- else -%}
-        {{ 'hero-apparel-1' | placeholder_svg_tag: image_class }}
+        <a href="{{ section.settings.button_link}}">
+          {{ 'hero-apparel-1' | placeholder_svg_tag: image_class }}
+        </a>
       {%- endif -%}
 
-      <div class="relative py-10 lg:py-28  container max-w-none text-white">
-        <div class=" md:max-w-[460px] space-y-6 lg:space-y-8 animation an-fadeup">
-          <header class="space-y-3 lg:space-y-4">
-            {%- if section.settings.subtitle != blank %}
-              <h1 class="m-h5 lg:d-h5">{{ section.settings.subtitle }}</h1>
-            {%- endif -%}
-            {%- if section.settings.title != blank %}
-              <h2 class="s-m-h2 lg:s-d-h2">{{ section.settings.title }}</h2>
-            {%- endif -%}
-          </header>
+      {%- if section.settings.subtitle != blank
+        or section.settings.title != blank
+        or section.settings.copy != blank
+        or section.settings.button_label != blank
+      -%}
+        <div class="relative py-10 lg:py-28 container max-w-none text-white">
+          <div class="md:max-w-[460px] space-y-6 lg:space-y-8 animation an-fadeup">
+            <header class="space-y-3 lg:space-y-4">
+              {%- if section.settings.subtitle != blank %}
+                <h1 class="m-h5 lg:d-h5">{{ section.settings.subtitle }}</h1>
+              {%- endif -%}
+              {%- if section.settings.title != blank %}
+                <h2 class="s-m-h2 lg:s-d-h2">{{ section.settings.title }}</h2>
+              {%- endif -%}
+            </header>
 
-          {% if section.settings.copy != blank %}
-            <div class="wysiwyg">
-              {{ section.settings.copy }}
-            </div>
-          {% endif %}
+            {% if section.settings.copy != blank %}
+              <div class="wysiwyg">
+                {{ section.settings.copy }}
+              </div>
+            {% endif %}
+
+            <!-- Button 1 -->
+            {%- if section.settings.button_link != blank and section.settings.button_label != blank -%}
+              <div>
+                <a href="{{ section.settings.button_link }}" class="btn-large btn-secondary">
+                  {{ section.settings.button_label }}
+                </a>
+              </div>
+            {%- endif -%}
+          </div>
         </div>
-      </div>
+      {% endif %}
     </div>
 
-    <div class="relative">
+    <!-- Column 2 -->
+    <div class="relative flex items-center max-md:order-2">
       {% if section.settings.image2 == blank %}
-        {{ 'hero-apparel-1' | placeholder_svg_tag: image_class }}
+        <a href="{{ section.settings.button_link2 }}">
+          {{ 'hero-apparel-1' | placeholder_svg_tag: image_class }}
+        </a>
       {% else %}
-        {{
-          section.settings.image2
-          | image_url: width: 2000
-          | image_tag: loading: 'eager', width: 2000, height: 2000, class: image_class, sizes: sizes, widths: widths
-        }}
+        <a href="{{ section.settings.button_link2 }}">
+          {{
+            section.settings.image2
+            | image_url: width: 2000
+            | image_tag: loading: 'eager', width: 2000, height: 2000, class: image_class, sizes: sizes, widths: widths
+          }}
+        </a>
       {% endif %}
+
       {% if section.settings.video %}
         {{
           section.settings.video
@@ -63,6 +84,39 @@
             playsinline: true,
             class: 'w-full h-full object-cover absolute inset-0'
         }}
+      {% endif %}
+
+      {%- if section.settings.subtitle2 != blank
+        or section.settings.title2 != blank
+        or section.settings.copy2 != blank
+        or section.settings.button_label2 != blank
+      -%}
+        <div class="relative py-10 lg:py-28 container max-w-none text-white">
+          <div class="md:max-w-[460px] space-y-6 lg:space-y-8 animation an-fadeup">
+            <header class="space-y-3 lg:space-y-4">
+              {%- if section.settings.subtitle2 != blank %}
+                <h1 class="m-h5 lg:d-h5">{{ section.settings.subtitle2 }}</h1>
+              {%- endif -%}
+              {%- if section.settings.title2 != blank %}
+                <h2 class="s-m-h2 lg:s-d-h2">{{ section.settings.title2 }}</h2>
+              {%- endif -%}
+            </header>
+
+            {% if section.settings.copy2 != blank %}
+              <div class="wysiwyg">
+                {{ section.settings.copy2 }}
+              </div>
+            {% endif %}
+            <!-- Button 2 -->
+            {%- if section.settings.button_link2 != blank and section.settings.button_label2 != blank -%}
+              <div>
+                <a href="{{ section.settings.button_link2 }}" class="btn-large btn-secondary">
+                  {{ section.settings.button_label2 }}
+                </a>
+              </div>
+            {%- endif -%}
+          </div>
+        </div>
       {% endif %}
     </div>
   </div>
@@ -106,6 +160,17 @@
       "default": "<p>We're working to build a better future, and are improving our processes for the good of our consumers, our communities and the wider environment.</p>"
     },
     {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Shop now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
       "type": "header",
       "content": "Column 2"
     },
@@ -122,6 +187,35 @@
       "type": "video",
       "id": "video",
       "label": "Choose a video"
+    },
+    {
+      "type": "text",
+      "id": "subtitle2",
+      "label": "Sub Title",
+      "default": "Sub Title"
+    },
+    {
+      "type": "text",
+      "id": "title2",
+      "label": "Title",
+      "default": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "copy2",
+      "label": "Copy",
+      "default": "<p>We're working to build a better future, and are improving our processes for the good of our consumers, our communities and the wider environment.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label2",
+      "label": "Button Label",
+      "default": "Shop now"
+    },
+    {
+      "type": "url",
+      "id": "button_link2",
+      "label": "Button Link"
     }
   ],
   "presets": [

@@ -16,13 +16,13 @@
 
           assign group_1_mo_handle = block.settings.group_1_mo_handle
           if group_1_mo_handle
-            assign group_1_name = shop.metaobjects.links_list_group[group_1_mo_handle].group_name
-            assign group_1_links_array = shop.metaobjects.links_list_group[group_1_mo_handle].link.value
+            assign group_1_name = shop.metaobjects.links_list_group_parent[group_1_mo_handle].group_name
+            assign group_1_links_array = shop.metaobjects.links_list_group_parent[group_1_mo_handle].links.value
           endif
           assign group_2_mo_handle = block.settings.group_2_mo_handle
           if group_1_mo_handle
-            assign group_2_name = shop.metaobjects.links_list_group[group_2_mo_handle].group_name
-            assign group_2_links_array = shop.metaobjects.links_list_group[group_2_mo_handle].link.value
+            assign group_2_name = shop.metaobjects.links_list_group_parent[group_2_mo_handle].group_name
+            assign group_2_links_array = shop.metaobjects.links_list_group_parent[group_2_mo_handle].links.value
           endif
 
           assign mm_content = block.settings.mm_content
@@ -42,6 +42,7 @@
           assign image_link_2_title = block.settings.image_link_2_title
           assign image_link_2_url = block.settings.image_link_2_url
         %}
+
         <li>
           <header-menu class="block">
             <details id="Details-HeaderMenu-shop" class="mega-menu group">

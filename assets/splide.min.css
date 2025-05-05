@@ -162,7 +162,7 @@
     cursor: pointer;
     display: -ms-flexbox;
     display: flex;
-    height: 3em;
+    height: 2em;
     -ms-flex-pack: center;
     justify-content: center;
     opacity: .7;
@@ -170,25 +170,14 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 3em;
+    width: 2em;
     z-index: 1
 }
 
 .splide__arrow svg {
     fill: #000;
-    height: 2em;
-    width: 2em;
-}
-
-@media (max-width: 420px) {
-    .splide__arrow {
-      height: 2em;
-      width: 2em;
-    }
-    .splide__arrow svg {
-      height: 1.2em;
-      width: 1.2em;
-    }
+    height: 1.2em;
+    width: 1.2em
 }
 
 .splide__arrow:hover:not(:disabled) {
@@ -328,7 +317,7 @@
 }
 
 .splide__track--nav>.splide__list>.splide__slide.is-active {
-    border: 3px solid #000
+    border: 3px solid #1B365D;
 }
 
 .splide__arrows--rtl .splide__arrow--prev {

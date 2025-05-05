@@ -1,1 +1,17 @@
-{"sections":{"hero-static":{"type":"hero-static","settings":{"image":"shopify:\/\/shop_images\/hero1.jpg","subtitle":"Our Heritage","title":"Where it all began","copy":"<p>Throughout our 170 year history, every Christy product has been designed with the same meticulous attention to detail and careful craftsmanship. Our heritage is interwoven in everything that we do - we're proud of where we come from - so here is our story.<\/p>","image2":"shopify:\/\/shop_images\/hero2.jpg"}}},"order":["hero-static"]}
+{
+  "sections": {
+    "hero-static": {
+      "type": "hero-static",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/hero1.jpg",
+        "subtitle": "Our Heritage",
+        "title": "Where it all began",
+        "copy": "<p>Throughout our 170 year history, every Christy product has been designed with the same meticulous attention to detail and careful craftsmanship. Our heritage is interwoven in everything that we do - we're proud of where we come from - so here is our story.<\/p>",
+        "image2": "shopify:\/\/shop_images\/hero2.jpg"
+      }
+    }
+  },
+  "order": [
+    "hero-static"
+  ]
+}

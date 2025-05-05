@@ -4,12 +4,12 @@
   lang="{{ request.locale.iso_code }}"
 >
   <head>
-	{% render 'pandectes-rules' %}
+	<script src="{{ 'pandectes-rules.js' | file_url }}"></script>
 	
-	
+    
+
     {%- if content_for_header contains 'tapita-seo-script-tags' -%}{%- include 'tapita-seo-schema' -%}{%- endif -%}
 
-    
     {%- render 'ecom_header' -%}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,6 +21,17 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{{ 'favicon-32x322.png' | asset_url }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ 'favicon-16x162.png' | asset_url }}">
     <link rel="manifest" href="{{ 'site.webmanifest' | asset_url }}">
+
+    <link rel="preload" href="{{ 'Hatton-Medium.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="{{ 'Hatton-Medium.woff' | asset_url }}" as="font" type="font/woff" crossorigin="anonymous">
+    <link rel="preload" href="{{ 'Hatton-Regular.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="{{ 'Hatton-Regular.woff' | asset_url }}" as="font" type="font/woff" crossorigin="anonymous">
+    <link rel="preload" href="{{ 'TomatoGrotesk-Regular.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="{{ 'TomatoGrotesk-Regular.woff' | asset_url }}" as="font" type="font/woff" crossorigin="anonymous">
+    <link rel="preload" href="{{ 'TomatoGrotesk-Light.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="{{ 'TomatoGrotesk-Light.woff' | asset_url }}" as="font" type="font/woff" crossorigin="anonymous">
+    <link rel="preload" href="{{ 'TomatoGrotesk-SemiBold.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="{{ 'TomatoGrotesk-SemiBold.woff' | asset_url }}" as="font" type="font/woff" crossorigin="anonymous">
 
     <title>
       {{ page_title }}
@@ -35,22 +46,19 @@
 
     {% render 'meta-tags', page_description: page_description, page_title: page_title %}
 
+    {{ 'splide.min.css' | asset_url | stylesheet_tag }}
     <link rel="stylesheet" href="{{ 'christy-fonts.css' | asset_url }}" media="all">
     <link rel="stylesheet" href="{{ 'app.css' | asset_url }}" media="all">
-    <style>
-      .visually-hidden,
-      .hidden {
-        display: none;
-      }
-    </style> 
+
 
     <script src="{{ 'constants.js' | asset_url }}" async defer="defer"></script>
     <script src="{{ 'pubsub.js' | asset_url }}" async defer="defer"></script>
-    <script src="{{ 'global.js' | asset_url }}" async defer="defer"></script>
+    <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'app.js' | asset_url }}" defer></script>
 
     {%- if request.page_type != 'index' and request.page_type != 'product' and request.page_type != 'collection' -%}
       {% comment %}<link rel="stylesheet" href="{{ 'base.css' | asset_url }}" media="all">{% endcomment %}
-    {%- endif -%} 
+    {%- endif -%}
 
     {%- if tinyscript -%}{{ content_for_header }}{%- else -%}{% render 'tiny-script-control' %}{%- endif -%}
 
@@ -101,16 +109,43 @@
     <!-- Google tag (gtag.js) -->
     <script async defer="defer" src="https://www.googletagmanager.com/gtag/js?id=AW-961149424"></script>
     <script>
-      window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-961149424');
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'AW-961149424');
     </script>
 
     {% if template == 'cart' %}{% include 'revy-bundle-script' %}{% endif %}
 
     {% include 'sm-red' %}
-    {% render 'rapid-search-settings' %}
-</head>
 
-  <body id="{{ page_title | handle }}" class="h-full text-[12px] md:text-[14px] leading-[1.7] font-light text-blue-1">
+    <script type="text/javascript">
+      var _conv_page_type = '{{ request.page_type }}';
+      var _conv_category_id = '{{ collection.id }}';
+      var _conv_category_name = '{{ collection.title }}';
+      var _conv_product_sku = '{{ product.selected_or_first_available_variant.sku }}';
+      var _conv_product_name = '{{ product.title }}';
+      var _conv_product_price = '{{ product.price_min | money_without_currency }}';
+      var _conv_customer_id = '{{ customer.id }}';
+      var _conv_custom_v1 = '{{ product.tags.first }}';
+      var _conv_custom_v2 = '{{ collection.current_type }}';
+      var _conv_custom_v3 = '{{ cart.item_count }}';
+      var _conv_custom_v4 = '{{ cart.total_price | money_without_currency }}';
+    </script>
+    {% render 'convert' %}
+    {% include 'sm-config' %}
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "r97inznrwn");
+</script>
+  </head>
+
+  <body id="{{ page_title | handle }}" class="h-full w-screen text-[12px] md:text-[14px] leading-[1.7] font-light text-blue-1">
     <!-- Google Tag Manager (noscript) -->
     <noscript
       ><iframe
@@ -150,7 +185,7 @@
             {{ content_for_layout }}
           </main>
 
-          <footer class="footer bg-grey-2">
+          <footer class="footer">
             {% sections 'footer-group' %}
           </footer>
         {% elsif request.page_type == 'article' %}
@@ -161,7 +196,7 @@
             {% render 'main-article-schema' %}
           </main>
 
-          <footer class="footer bg-grey-2">
+          <footer class="footer">
             {% sections 'footer-group' %}
           </footer>
         {% else %}
@@ -171,12 +206,30 @@
             {% sections 'main-collection-body' %}
           </main>
 
-          <footer class="footer bg-grey-2">
+          <footer class="footer">
             {% sections 'footer-group' %}
           </footer>
         {% endif %}
       </div>
     </div>
+
+    <div
+        id="zoomer"
+        class="flex items-center justify-center fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[999999] transition-all bg-white w-screen h-screen scale-50 [&.active]:scale-100 opacity-0 [&.active]:opacity-100 invisible [&.active]:visible"
+    >
+      <div class="zoomer__img w-full h-full"></div>
+
+      <button
+          class="close absolute cursor-pointer top-10 lg:top-14 right-10 lg:right-14 z-[60] w-[32px] h-[32px] lg:w-[36px] lg:h-[36px] [&_svg]:w-full [&_svg]:h-auto p-[10px] bg-white/50"
+          aria-label="close"
+      >
+        {% render 'icon-close' %}
+      </button>
+    </div>
+
+    {% render 'quick-add-thank-you' %}
+
+    <div data-overlay hidden class="fixed h-full w-full bg-black/25 top-0 left-0 z-20"></div>
 
     <ul hidden>
       <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
@@ -184,6 +237,8 @@
     </ul>
 
     {% render 'modal-email-signup' %}
+
+    {% render 'wishlist-added-popup' %}
 
     <script>
       window.shopUrl = '{{ request.origin }}';
@@ -215,122 +270,175 @@
       };
     </script>
 
-    {%- if settings.predictive_search_enabled -%}
-      <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
-    {%- endif -%}
-
-    <script src="{{ 'app.js' | asset_url }}" async></script>
     <script src="{{ 'lazy-load.js' | asset_url }}" defer></script>
 
     <script src="{{ 'splide.min.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'splide-config.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'Wishlist.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'CustomSplider.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'CustomInputNumber.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'NavUnderlineAnimated.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'CartGiftProgressBar.js' | asset_url }}" defer="defer"></script>
+
+    {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+
 
     <script src="https://widget.reviews.io/rating-snippet/dist.js"></script>
     <link rel="stylesheet" href="https://widget.reviews.io/rating-snippet/dist.css">
     <script>
-      ratingSnippet("ruk_rating_snippet", {
-        store: "www.christy.co.uk",
-        mode: "default",
-        color: "#2c3b96",
+      /*
+      ratingSnippet('ruk_rating_snippet', {
+        store: 'www.christy.co.uk',
+        mode: 'default',
+        color: '#FBB116',
         linebreak: false,
-        text: "Reviews",
-        singularText: "Review",
-        lang: "en",
+        text: '',
+        singularText: '',
+        lang: 'en',
         usePolaris: true,
         showEmptyStars: false,
       });
+      */
     </script>
-    <script>
+
+    {% if request.page_type != 'product' %}
+      <script>
         window.prechatTemplate = {
-          SubmitLabel: "Start Chat",
+          SubmitLabel: 'Start Chat',
           fields: {
             1: {
-              error: "Please Enter a valid name",
-              fieldId: "name",
-              label: "Name",
-              required: "yes",
-              type: "text",
+              error: 'Please Enter a valid name',
+              fieldId: 'name',
+              label: 'Name',
+              required: 'yes',
+              type: 'text',
             },
             2: {
-              error: "Please Enter a valid Email",
-              fieldId: "email",
-              label: "Email",
-              required: "yes",
-              type: "email",
+              error: 'Please Enter a valid Email',
+              fieldId: 'email',
+              label: 'Email',
+              required: 'yes',
+              type: 'email',
             },
             3: {
-              error: "Please Enter a valid Phone Number",
-              fieldId: "phone",
-              label: "Phone",
-              required: "no",
-              type: "phone",
+              error: 'Please Enter a valid Phone Number',
+              fieldId: 'phone',
+              label: 'Phone',
+              required: 'no',
+              type: 'phone',
             },
             4: {
-              error: "Please Enter issue",
-              fieldId: "cf_issue",
-              label: "Complaint/Query/Request",
-              required: "no",
-              type: "text",
+              error: 'Please Enter issue',
+              fieldId: 'cf_issue',
+              label: 'Complaint/Query/Request',
+              required: 'no',
+              type: 'text',
             },
           },
-          heading: "Christy",
-          mainbgColor: "#2c3b96",
-          maintxColor: "#fff",
+          heading: 'Christy',
+          mainbgColor: '#2c3b96',
+          maintxColor: '#fff',
           textBanner:
             "We can't wait to talk to you. But first, please take a couple of moments to tell us a bit about yourself.",
         };
-   
+
         window.fcSettings = {
           onInit: function () {
             window.fcPreChatform.fcWidgetInit(window.prechatTemplate);
-          },
+          }
         };
         window.fcWidgetMessengerConfig = {
           config: {
             content: {
               actions: {
-                tab_chat: "Chat",
+                tab_chat: 'Chat',
               },
               headers: {
-                chat: "Chat With Us",
-              },
+                chat: 'Chat With Us',
+              }
+            },
+            headerProperty: {
+              direction: 'ltr'
             },
             cssNames: {
-              expanded: "custom_fc_expanded",
-              widget: "custom_fc_frame",
+              expanded: 'custom_fc_expanded',
+              widget: 'custom_fc_frame',
             },
           },
         };
       </script>
-      <script src="https://snippets.freshchat.com/js/fc-pre-chat-form-v2.js"></script>
+      <script async defer src="https://snippets.freshchat.com/js/fc-pre-chat-form-v2.js"></script>
+      <script async defer src="//eu.fw-cdn.com/12707561/706000.js" chat="true"></script>
       <script
-src='//eu.fw-cdn.com/12707561/706000.js'
-chat='true' widgetId='0362b116-9317-47ff-89ae-78108a9d536e'>
-</script>
-      <script>
+        async
+        defer
+      >
         // Add custom CSS styles directly via JavaScript
-        var customStyles = document.createElement("style");
+        var customStyles = document.createElement('style');
         customStyles.innerHTML = `
-          .fc-form p,
-          .pre-fc-field label {
-            font-size: medium;
-          }
-          .pre-fc-field label {
-            text-transform: capitalize;
-          }
-        `;
+        .fc-form p,
+        .pre-fc-field label {
+          font-size: medium;
+        }
+        .pre-fc-field label {
+          text-transform: capitalize;
+        }
+      `;
         document.head.appendChild(customStyles);
-
-        // Hotjar Tracking Code for USA Website 
-        (function(h,o,t,j,a,r){
-          h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-          h._hjSettings={hjid:5191224,hjsv:6};
-          a=o.getElementsByTagName('head')[0];
-          r=o.createElement('script');r.async=1;
-          r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-          a.appendChild(r);
-      })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
       </script>
+    {% endif %}
+    <script type="text/javascript">
+      window._mfq = window._mfq || [];
+
+      (function () {
+        var mf = document.createElement('script');
+
+        mf.type = 'text/javascript';
+        mf.defer = true;
+
+        mf.src = '//cdn.mouseflow.com/projects/958e2e45-1510-4eec-93ef-72f8b4eacfee.js';
+
+        document.getElementsByTagName('head')[0].appendChild(mf);
+      })();
+    </script>
+
+    <script type="text/javascript">
+      window.addEventListener('load', function () {
+        document.activeElement.blur();
+        setTimeout(() => {
+          document.activeElement.blur();
+          console.log('Window Loaded. Element Blurred');
+        }, '3000');
+      });
+    </script>
+
+    <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded', function () {
+        const newsletter = document.querySelector('.newsletter');
+        const faqSection = document.querySelector('.faq-section');
+        const faqProductSection = document.querySelector('.product-faq');
+        const ourStoriesSection = document.querySelector('.our-stories-section');
+        const windowWidth = window.innerWidth;
+      
+        if (faqSection || faqProductSection) {
+          newsletter.style.marginTop = '0px';
+          if ( ourStoriesSection ) {
+            ourStoriesSection.style.marginBottom = '0px';
+          }
+        } else {
+          {% if request.page_type == 'index' or request.page_type == 'page' %}
+            newsletter.style.marginTop = '0';
+          {% else %}
+            if (windowWidth > 810) {
+              newsletter.style.marginTop = '40px';
+            } else {
+              newsletter.style.marginTop = '24px';
+            }
+          {% endif %}
+        }
+      });
+    </script>
   </body>
 </html>

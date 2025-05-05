@@ -1,13 +1,10 @@
-{%- if section.settings.copy != blank -%}
 <div
   id="Heading-{{ section.id }}"
   class="
-    container md:flex max-md:space-y-6 {% if section.settings.alignment == 'center' %}md:justify-center md:text-center{% endif %} {% if section.settings.alignment == 'right' and section.settings.copy == blank %}md:justify-end{% endif %} {% if section.settings.copy != blank %}md:items-center md:gap-5 lg:gap-6{% endif %}
-    {% if section.settings.alignment_mob == 'center' %}max-md:justify-center max-md:text-center{% endif %} {% if section.settings.alignment_mob == 'right' %}max-md:justify-end max-md:text-right{% endif %} {% if section.settings.margin_top == true %}{% endif %}
+    px-4 py-12 md:py-9 md:px-12 bg-primary-white-cotton md:flex max-md:space-y-6 md:justify-center md:text-left {% if section.settings.alignment == 'center' %}!md:text-center{% endif %} {% if section.settings.alignment == 'right' and section.settings.copy == blank %}!md:text-right{% endif %} {% if section.settings.copy != blank %}md:items-center md:gap-20 2xl:gap-32{% endif %}
+    {% if section.settings.alignment_mob == 'center' %}max-md:justify-center max-md:text-center{% endif %} {% if section.settings.alignment_mob == 'right' %}max-md:justify-center max-md:text-right{% endif %} {% if section.settings.margin_top == true %}lg:pt-10{% endif %}
   "
-  style="background-color: {{ section.settings.background_color }}; padding-top: 10px; padding-bottom: 10px;"
 >
-  
   {%- liquid
     if section.settings.copy == blank
       assign headerclass = 's-m-h3 lg:s-d-h2 md:max-w-[643px]'
@@ -19,32 +16,23 @@
       assign headerclass = headerclass | append: ' md:!w-6/12' | remove: 'md:max-w-[643px]'
     endif
   %}
-  <style>
-    @media (max-width: 768px) { /* Adjust this breakpoint as needed */
-      #Heading-{{ section.id }} {
-        
-        width: 100%;
-      }
-    }
-  </style>
-  <h2 class="animation an-fadeup {{ headerclass }}  [&_br]:max-md:hidden headingclass text-blue-1 {% if section.settings.horiz_padding and section.settings.copy == blank %}md:px-24{% endif %} heading_responsive_margin">
+  <h2 class="{{ headerclass }} md:max-w-[312px] [&_br]:max-md:hidden text-primary-blue font-normal headingclass {% if section.settings.horiz_padding and section.settings.copy == blank %}md:px-24{% endif %}">
     {{ section.settings.heading }}
   </h2>
 
   {%- if section.settings.copy != blank -%}
     {% liquid
       if section.settings.copy_style == 'heading3'
-        assign copyclass = 'md:s-m-h3 lg:s-d-h3 md:w-8/12 md:max-w-[500px]'
+        assign copyclass = 'md:w-8/12 md:max-w-[671px]'
       else
-        assign copyclass = 'md:w-4/12'
+        assign copyclass = 'md:max-w-[671px]'
       endif
     %}
-    <div class="animation an-fadeup md:delay-200 wysiwyg text-blue-1 {{ copyclass }} heading_responsive_margin" style="color: {{ section.settings.font_color }};margin: 2.5rem;" >
+    <div class="w-full md:delay-200 wysiwyg text-primary-blue !font-normal text-sm md:text-base {{ copyclass }}">
       {{ section.settings.copy }}
     </div>
   {%- endif -%}
 </div>
-{% endif %}
 
 {% style %}
   {%- if section.settings.heading_font_size_mob != blank -%}
@@ -61,7 +49,7 @@
 
   {%- if section.settings.heading_font_family != blank -%}
     #shopify-section-{{ section.id }} .headingclass {
-      font-family: 
+      font-family:
         {%- if section.settings.heading_font_family == 'serif' -%}
           serif
         {%- elsif section.settings.heading_font_family == 'sans-serif' -%}
@@ -86,11 +74,11 @@
 
   {%- if section.settings.heading_copy_font_family != blank -%}
   #shopify-section-{{ section.id }} .wysiwyg {
-    font-family: 
+    font-family:
       {%- if section.settings.heading_copy_font_family == 'serif' -%}
         serif
       {%- elsif section.settings.heading_copy_font_family == 'sans-serif' -%}
-        Tomato Grotesk,sans-serif
+        sans-serif
       {%- else -%}
         'Tomato Grotesk', sans-serif
       {%- endif -%};
@@ -102,14 +90,14 @@
         #shopify-section-{{ section.id }} {
             display: none !important;
         }
-    }  
+    }
   {% endif %}
 
   {% if section.settings.screen_visibility == 'desktop' %}
     @media all and (max-width: 767px ) {
         #shopify-section-{{ section.id }} {
             display: none !important;
-        }  
+        }
     }
   {% endif %}
 
@@ -124,17 +112,13 @@
 
   {%- if section.settings.heading_copy_font_size_desktop != blank -%}
   @media all and (min-width: 1024px) {
-    /* #shopify-section-{{ section.id }} .wysiwyg {
+    #shopify-section-{{ section.id }} .wysiwyg {
       font-size: {{ section.settings.heading_copy_font_size_desktop }}px;
     }
- */
-  #shopify-section-{{ section.id }} .wysiwyg {
-      font-size: {{ section.settings.heading_copy_font_size_desktop }}px;
-    }
-    
   }
   {%- endif -%}
 {% endstyle %}
+
 {% schema %}
 {
   "name": "Heading",
@@ -193,7 +177,7 @@
           "label": "Bold"
         }
       ],
-      "default": "600"
+      "default": "400"
     },
     {
       "type": "select",
@@ -337,7 +321,7 @@
           "label": "Right"
         }
       ],
-      "default": "right"
+      "default": "left"
     },
     {
       "type": "select",
@@ -358,7 +342,7 @@
           "label": "Right"
         }
       ],
-      "default": "right"
+      "default": "center"
     },
     {
       "type": "checkbox",
@@ -373,22 +357,7 @@
       "default": false,
       "label": "Additonal Margin Top (Desktop Only)",
       "info": "Add extra space to margin top"
-    },
-    {
-      "type": "color",
-      "id": "background_color",
-      "label": "Background Color",
-      "default": "#FFFFFF",
-      "info": "Choose a background color for the section."
-    },
-    {
-      "type": "color",
-      "id": "font_color",
-      "label": "Font Color",
-      "default": "#000000",
-      "info": "Choose a font color for the text."
     }
-
   ],
   "presets": [
     {

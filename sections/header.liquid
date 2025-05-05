@@ -6,70 +6,489 @@
   endfor
 -%}
 
-<link rel="stylesheet" href="{{ 'menu.css' | asset_url }}" media="print" onload="this.media='all'">
+<script src="{{ 'quick-search.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'counter-timer.js' | asset_url }}"></script>
+<script>
+  var saleEndDate = '{{ section.settings.sale_end_date }}';
+  salesCounter(saleEndDate);
+</script>
 
-<script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
-{% comment %}
-  {% for collection in collections %}
-    {% echo collection.title %}
-    {% if collection.title == 'Cushions & Throws' %}{% echo collection.id | json %}{% endif %}
-  {% endfor %}
-{% endcomment %}
-<style>
-  .menu .dropdown-child {
-    max-height: 600px;
-    overflow-y: auto; /* Enables vertical scrolling */
-    overflow-x: hidden; /* Prevents horizontal scrolling */
-    padding: 10px;
-    padding-left: 20px;
-  }
-  @media (max-width: 1022px){
-  #search-icon{
-    display:none;
-      }
-      .search__input {
-        display: block;
-      }
-    }  
-   
-    
+<script defer>
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuItems = document.querySelectorAll('.main-menu > li.menu-details');
+    menuItems.forEach((item) => {
+      item.addEventListener('click', function (event) {
+        if (event.target != event.currentTarget) {
+          if (!event.target.classList.contains('close')) {
+            menuItems.forEach((otherItem) => {
+              if (otherItem !== item) {
+                if (!item.classList.contains('menu-details-parent-only')) {
+                  otherItem.classList.add('hidden');
+                }
+              }
+            });
+          }
+        }
+      });
+    });
+  });
+
+ function initMenuHandlers() {
+    const menuItems = document.querySelectorAll('.main-menu > li.menu-details');
+    const mainMenu = document.querySelector('.main-menu');
   
-  @media (max-width: 768px) {
-    #search-icon{
-      display:none;
-        }
-      }  
-      @media (min-width: 769px) {
-        #Search-bar .search__button {
-          display: none;
+    if (!mainMenu) return;
+  
+    mainMenu.addEventListener('click', (event) => {
+      const target = event.target;
+
+      if (target.classList.contains('general-quiz-button')) {
+        menuItems.forEach((otherItem) => {
+          otherItem.classList.remove('hidden');
+        });
+      }
+  
+      if (target.classList.contains('close')) {
+        const details = target.closest('details');
+  
+        if (details) {
+          details.removeAttribute('open');
+
+          menuItems.forEach((otherItem) => {
+            otherItem.classList.remove('hidden');
+          });
         }
       }
-      
-    @media (max-width: 767px) {
-        .search__button {
-          display: block;
+    });
+  }
+  
+  document.addEventListener('DOMContentLoaded', initMenuHandlers); 
+
+  const observer = new MutationObserver((mutationsList) => {
+    mutationsList.forEach((mutation) => {
+      mutation.addedNodes.forEach((node) => {
+        if (node.classList?.contains('menu-details')) {
+          attachHandlers(node);
+        } else if (node.querySelector?.('.menu-details')) {
+          node.querySelectorAll('.menu-details').forEach(attachHandlers);
         }
+      });
+    });
+  });
+
+  observer.observe(document.body, { childList: true, subtree: true });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuLinks = document.querySelectorAll('.main-menu-link');
+    let closeTimeout;
+
+    menuLinks.forEach((link) => {
+      const dropdown = link.querySelector('.dropdown-child');
+
+      if (dropdown) {
+        link.addEventListener('mouseenter', () => {
+          clearTimeout(closeTimeout);
+          closeAllMenus();
+          link.classList.add('active');
+        });
+
+        link.addEventListener('mouseleave', (event) => {
+          clearTimeout(closeTimeout);
+          closeTimeout = setTimeout(() => {
+            if (!dropdown.contains(event.relatedTarget)) {
+              link.classList.remove('active');
+            }
+          }, 200);
+        });
+
+        dropdown.addEventListener('mouseleave', (event) => {
+          clearTimeout(closeTimeout);
+          closeTimeout = setTimeout(() => {
+            if (!link.contains(event.relatedTarget)) {
+              link.classList.remove('active');
+            }
+          }, 200);
+        });
       }
-      .search__button .icon {
-        height: 1.8rem;
-      }
+    });
+
+    function closeAllMenus() {
+      menuLinks.forEach((link) => link.classList.remove('active'));
+    }
+  });
+</script>
+<style>
+  #countdown-timer {
+    margin-left: 5px;
+    margin-top: 2px;
+  }
+
+  .main-menu::before {
+    width: calc(100% - 32px);
+    height: 1px;
+    background: #d6d3e9;
+    position: absolute;
+    top: 0;
+    left: 16px;
+    content: '';
+  }
+
+  .menu.about-us {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+  }
+  .menu.sale {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 8px;
+  }
+  .menu.accessories,
+  .menu.robes,
+  .menu.bath {
+    grid-template-columns: 1fr 1fr;
+  }
+  .menu.accessories > li,
+  .menu.robes > li,
+  .menu.bath > li {
+    display: block;
+  }
+
+  .menu.bed {
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: auto 1fr;
+    gap: 32px;
+  }
+  .menu.bed li {
+    display: block;
+  }
+
+  .menu.bed li:nth-child(1) {
+    grid-area: 1 / 1 / 3 / 3;
+  }
+  .menu.bed li:nth-child(2) {
+    grid-area: 1 / 2 / 3 / 3;
+  }
+  .menu.bed li:nth-child(3) {
+    grid-area: 1 / 3 / 2 / 4;
+  }
+  .menu.bed li:nth-child(3) img {
+    display: none;
+  }
+  .menu.bed li:nth-child(4) {
+    grid-area: 2 / 3 / 3 / 4;
+  }
+  .menu.bed li:nth-child(4) img {
+    display: none;
+  }
+
+  .menu.bed li:nth-child(5) {
+    grid-area: 1 / 4 / 3 / 5;
+  }
+
+  .menu.bed li:nth-child(6) {
+    grid-area: 1 / 5 / 3 / 9;
+
+    @media screen and (min-width: 1280px) {
+      width: 300px;
+    }
+  }
+
+  .menu.gifting {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: auto auto 1fr;
+    gap: 32px;
+  }
+
+  .menu.gifting li {
+    display: block;
+  }
+  .menu.gifting li:nth-child(1) {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+  .menu.gifting li:nth-child(2) {
+    grid-area: 2 / 1 / 3 / 2;
+  }
+  .menu.gifting li:nth-child(3) {
+    grid-area: 3 / 1 / 4 / 2;
+  }
+  .menu.gifting li:nth-child(4) {
+    grid-area: 1 / 2 / 4 / 3;
+  }
+  .menu.gifting li:nth-child(5) {
+    grid-area: 1 / 3 / 4 / 4;
+  }
+  .menu.gifting li:nth-child(6) {
+    grid-area: 1 / 4 / 4 / 5;
+  }
+  .menu.gifting li:nth-child(7) {
+    grid-area: 1 / 5 / 4 / 6;
+  }
+
+  nav > div > div > ul > li > details[open] > div {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: calc(100dvh - 96px);
+    background-color: white;
+  }
+
+  .menu-details details[open] > summary > svg {
+    transform: rotate(90deg);
+  }
+
+  .menu-button .menu-open-icon {
+    display: block;
+  }
+  .menu-button .menu-close-icon {
+    display: none;
+    width: 32px;
+    height: 32px;
+    padding: 5px;
+    margin: 0;
+  }
+  .menu-button.open .menu-open-icon {
+    display: none;
+  }
+  .menu-button.open .menu-close-icon {
+    display: block;
+  }
+  .mobile-navigation-button a {
+    width: 159px;
+    padding: 8px 16px;
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+    color: #fff;
+  }
+
+  .main-menu-link .dropdown-child {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .main-menu-link.active .dropdown-child {
+    opacity: 1;
+    pointer-events: auto;
+  }
 </style>
-<header id="header" class="sticky top-0 left-0 z-40">
-  <div class="header-bar bg-white/90 h-[70px] lg:h-[107px] !h-[var(--header-height)] lg:!h-[var(--header-height-lg)] flex flex-col justify-center items-center text-blue-1 will-change-transform pointer-events-auto">
-    {% if section.settings.announcement != blank %}
-      <aside id="c" class="relative text-white text-center bg-blue-1 top-0 left-0 font-bold w-full">
-        <div class="py-3 container truncate flex justify-center [&>*]:truncate h-[44px] lg:h-[48px] [&_a]:underline">
-          {{ section.settings.announcement }}
+<header
+  id="header"
+  class="w-full bg-white header-bar"
+>
+  {%- if section.settings.announcement != blank or section.settings.sale_end_date != blank -%}
+    <aside
+      id="announcement-bar"
+      class="relative pointer-events-auto text-white text-center bg-primary-blue top-0 left-0 w-full col-span-2 xl:col-span-12"
+    >
+      <div class="py-2 text-sm container container-sm truncate flex justify-center [&>*]:truncate h-[40px] [&_a]:underline">
+        <span id="announcement-message">{{ section.settings.announcement }}</span>
+        {%- if section.settings.sale_end_date != blank -%}
+          {%- assign current_date = 'now' | date: '%Y-%m-%d' -%}
+          {%- if section.settings.sale_end_date > current_date -%}
+            <span id="countdown-timer"></span>
+          {%- else -%}
+
+          {%- endif -%}
+        {%- endif -%}
+      </div>
+    </aside>
+  {%- endif -%}
+
+  <div class="w-full flex justify-between mob:grid grid-cols-3 xl:grid-cols-12 px-4 lg:px-12 z-10 h-[56px] lg:h-[72px] pointer-events-auto lg:justify-start items-center">
+    {%- unless template == 'search' -%}
+      <div
+        id="searchBar"
+        class="fixed top-0 h-full pt-2 overflow-y-auto !z-[999999] w-screen bg-white left-0 flex flex-col gap-4 items-center
+          overflow-hidden transition-opacity duration-1000 shadow-lg px-4 lg:px-12 pb-4 lg:h-auto lg:max-h-full
+          xl:top-[--announcement-height-xl] xl:pt-4 xl:gap-6 xl:pb-12 search-bar-hidden">
+        <div class="flex flex-shrink-0 flex-grow-0 gap-6 items-center overflow-hidden w-full xl:gap-8">
+          <button data-close-search class="w-6 aspect-square xl:hidden">
+            {%- render 'icon-long-arrow-right', class: 'rotate-180' -%}
+          </button>
+
+          <a href="{{ routes.root_url }}" class="w-36 hidden xl:block">
+            <img
+              src="{{ 'christy-logo.svg' | asset_url }}"
+              width="144"
+              alt="{{ shop.name }}">
+          </a>
+
+          <div class="grow flex items-center p-4 border border-secondary-blue-100 ">
+            <predictive-search
+              class="grow block search-modal__form group/search text-sm"
+              data-loading-text="{{ 'accessibility.loading' | t }}"
+            >
+              <search-form
+                action="{{ routes.search_url }}"
+                method="get"
+                role="search"
+                class="search search-modal__form"
+              >
+                <input
+                  type="text"
+                  class="w-full outline-none text-sm font-semibold tracking-[.1px] placeholder:font-normal placeholder:tracking-[.25px] placeholder-secondary-blue-400"
+                  autocomplete="one-time-code"
+                  placeholder="Search..."
+                  type="search"
+                  id="search-bar-input"
+                  name="q"
+                  value="{{ search.terms | escape }}"
+                >
+              </search-form>
+            </predictive-search>
+
+            <button id="search-clear-icon"
+              class="text-sm peer underline font-semibold pr-4 sm:h-6 max-sm:pl-2 {% if search.terms == blank %} hidden {% endif %}">
+              Clear
+            </button>
+            {%- render 'icon-search-short', class: 'hidden peer-[.hidden]:block w-6 h-6' -%}
+          </div>
+
+          <div class="hidden xl:flex items-center gap-3 mr-2">
+            <button data-close-search class="w-4 aspect-square hidden xl:block">
+              {%- render 'icon-close-thin' -%}
+            </button>
+            <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
+              class="w-6 aspect-square hidden xl:block">
+              {%- render 'icon-account-thin' -%}
+            </a>
+            <a id="cart-icon-bubble-search"
+            href="{{ routes.cart_url }}"
+            class="w-6 relative flex items-center outline-none">
+           {%- render 'icon-cart-thin' -%}
+           <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
+           {%- if cart != empty -%}
+             <div class="cart-count-bubble absolute -translate-y-1/2 translate-x-2 lg:text-[9px] text-[8px] self-center mob:ml-1 ml-2">
+               {%- if cart.item_count < 100 -%}
+                 <span aria-hidden="true">
+                   {%- assign excluded_handles = '' -%}
+                   {%- if settings.product_samples != blank -%}
+                     {%- for sample_product in settings.product_samples -%}
+                       {%- assign handle = sample_product.handle -%}
+                       {%- if excluded_handles == '' -%}
+                         {%- assign excluded_handles = handle -%}
+                       {%- else -%}
+                         {%- assign excluded_handles = excluded_handles | append: ',' | append: handle -%}
+                       {%- endif -%}
+                     {%- endfor -%}
+                   {%- endif -%}
+                   {%- assign excluded_handles = excluded_handles | append: ',product-personalization' | split: ',' -%}
+                   {%- assign adjusted_count = 0 -%}
+                   {%- for item in cart.items -%}
+                     {%- unless excluded_handles contains item.product.handle -%}
+                       {%- assign adjusted_count = adjusted_count | plus: item.quantity -%}
+                     {%- endunless -%}
+                   {%- endfor -%}
+                   {{ adjusted_count }}
+                 </span>
+               {%- endif -%}
+             </div>
+           {%- endif -%}
+         </a>
+          </div>
         </div>
-      </aside>
-    {% endif %}
-    <div class="container flex-1 flex items-center justify-between lg:grid lg:max-xl:grid-cols-[minmax(auto,200px)_1fr_1fr_1fr] xl:grid-cols-4">
+
+        <div
+          id="predsearchErrorMsg"
+          hidden
+          class="bg-primary-white-cotton rounded text-sm tracking-[.1px] py-3 px-6 w-full text-center"
+        >
+          Please enter more than 2 characters
+        </div>
+
+        <div id="predsearch" hidden class="w-full"></div>
+
+        <div id="predsearchPlaceholder" class="w-full">
+          <div class="w-full flex-shrink-0 flex-grow-0 flex flex-col gap-y-8 lg:grid lg:grid-cols-[30%_minmax(0,1fr)] lg:gap-1">
+            <div class="space-y-4">
+              <p class="text-sm tracking-[.1px] font-semibold">Popular search</p>
+              <ul class="flex flex-wrap gap-1.5">
+                {%- assign popular_searches = section.settings.popular_searches | escape | split: ',' -%}
+                {%- for st in popular_searches -%}
+                  <li>
+                    <a href="{{routes.search_url }}?q={{ st }}"
+                      class="block py-2 px-4 bg-secondary-white text-sm tracking-[.25px] text-secondary-blue-600">
+                      {{ st }}
+                    </a>
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </div>
+
+            <div class="space-y-4">
+              <p class="text-sm tracking-[.1px] font-semibold">You may also like</p>
+              <div class="
+                  flex gap-x-2 overflow-x-auto no-scrollbar -mx-4 px-4 sm:grid sm:grid-cols-3 sm:gap-x-0.5
+                  sm:gap-y-8 sm:overflow-hidden sm:mx-0 sm:px-0 max-tab:pb-4">
+                {%- for product in section.settings.featured_products -%}
+                  {%- render 'card-product',
+                    card_product: product,
+                    section_id: section.id,
+                    horizontal_quick_add: true,
+                    show_rating: false,
+                    class: 'max-sm:w-4/5 flex-shrink-0 sm:w-auto'
+                  -%}
+                {%- endfor -%}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {%- endunless -%}
+
+    <div class="flex lg:gap-4 lg:w-auto w-[88px] gap-2 items-center justify-start xl:hidden">
+      <button class=" w-[32px] h-[32px] relative menu-button" data-navmobopen aria-label="Open Nav">
+        <span class=" w-[32px]">
+          <svg
+            class="menu-open-icon"
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M2.5 8H29.5" stroke="#1B365D" stroke-width="1.2" stroke-linecap="round"/>
+            <path d="M2.5 16H29.5" stroke="#1B365D" stroke-width="1.2" stroke-linecap="round"/>
+            <path d="M2.5 24H29.5" stroke="#1B365D" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+
+          <svg
+            class="menu-close-icon"
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M2 2L14 14" stroke="#1C355E" stroke-width="1.2" stroke-linecap="round"/>
+            <path d="M2 14L14 2" stroke="#1C355E" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </span>
+      </button>
+      <button
+        class="group/wlbtn relative  flex items-center outline-none  gap-2"
+        button-wishlist-drawer-toggle
+        button-wishlist-header
+        aria-label="Open Wishlist"
+        title="Open Wishlist"
+      >
+        <span class="w-[24px] lg:w-[24px] h-full flex items-center">{% render 'icon-heart' %}</span>
+        <span
+          style="absolute"
+          class="mt-0 sm:mt-1 xl:mt-0"
+          wishlist-count
+        ></span>
+      </button>
+    </div>
+    <div id="logo" class="xl:col-span-2 mx-auto xl:mx-0">
       {%- if request.page_type == 'index' -%}
         <h1 class="header__heading">
       {%- endif -%}
       <a
         href="{{ routes.root_url }}"
-        class="max-md:w-[88px] md:max-lg:w-[120px] block {% if request.page_type == 'collection' %} max-lg:order-[-1] {% endif %} "
+        class="w-[117px] px-3 mob:px-0 block xl:transform xl:translate-y-2 {% if request.page_type == 'collection' %} max-lg:order-[-1] {% endif %} "
       >
         <img
           class=""
@@ -83,470 +502,439 @@
       {%- if request.page_type == 'index' -%}
         </h1>
       {%- endif -%}
-
-      <div style="margin-top: 10px;" class="lg:col-span-3 lg:flex lg:justify-between lg:items-center lg:pl-8 lg:gap-3">
-        <div id="menu" class="col-span-8 h-full hidden lg:block">
-          <ul class="menu flex w-full justify-center h-full items-center">
-            {% for link in section.settings.menu.links %}
-              <li style="padding-bottom:10px" class="menu-link group relative h-full items-center flex px-6 after:absolute after:w-0 after:transition-all after:duration-500 after:bg-[#2c3b96] hover:after:w-full after:bottom-0 after:left-0 after:h-[2px]">
-                <a href="{{ link.url }}">{{ link.title }}</a>
-      
-                {% if link.links.size > 0 %}
-                  <ul class="menu dropdown-child hidden group-hover:grid grid-flow-col fixed bg-white p-4 top-[80px] left-0 right-0 mx-auto w-full shadow-lg transition-all duration-500">
-                    {% for child_link in link.links %}
-                      <li
-                        class="menu-link grid grid-flow-row justify-center items-start auto-rows-max py-2"
-                        style="margin:10px;"
-                      >
-                        {% assign grand_child_count = child_link.links | size %}
-                        {% comment %} {% echo child_link.title %} {% endcomment %}
-                        <a href="{{ child_link.url }}" class="flex flex-col gap-4 pb-4 hover:underline">
-                          {% if grand_child_count == 0 and link.title != 'About Christy' %}
-                            <img
-                              src="{{ child_link.object.metafields.custom.menu_image | file_url }}"
-                              width="300"
-                              class="w-[300px] h-[300px] object-cover"
-                              height="300"
-                              alt="{{ child_link.title }}"
-                            >
-                          {% endif %}
-                          <span>{{ child_link.title }}</span>
-                        </a>
-      
-                        {% if child_link.links.size > 0 %}
-                          <ul class="menu dropdown-grandchild flex flex-col items-start justify-start gap-4">
-                            {% for grandchild_link in child_link.links %}
-                              <li class="menu-link font-normal text-left">
-                                {% assign grandchild_collection = collections[grandchild_link.object.handle] %}
-                                <a class="hover:underline" href="{{ grandchild_link.url }}">
-                                  {% if grandchild_collection %}
-                                    {% assign collection_image = grandchild_collection.metafields.custom.menu_image %}
-                                    {% if collection_image %}
-                                      <img
-                                        src="{{ collection_image | file_url }}"
-                                        alt="{{ grandchild_link.title }}"
-                                        width="150"
-                                        class="w-[150px] h-[150px] object-cover"
-                                        height="150"
-                                      >
-                                    {% endif %}
-                                  {% endif %}
-                                  {{ grandchild_link.title }}
-                                </a>
-                              </li>
-                            {% endfor %}
-                          </ul>
-                        {% endif %}
-                      </li>
-                    {% endfor %}
-                  </ul>
-                {% endif %}
-              </li>
-            {% endfor %}
-          </ul>
-        </div>
-       
-        <div class="header__icons flex items-center space-x-7">
-          <div id="Search-bar" style="display:none">
-            <div class=" lg:max-w-[317px] flex-1">
-              {% render 'header-search', input_id: 'search_desktop' %}
-            </div> 
-          </div>
-          <button id="search-icon" aria-label="Open Search" onclick="$('#Search-bar, #search-close-icon').show();$('#search-icon').hide();">
-            {% render 'icon-search' %}
-          </button>
-          <button id="search-close-icon" style="display:none" aria-label="Close Search" onclick="$('#Search-bar, #search-close-icon').hide();$('#search-icon').show();">
-            {% render 'icon-search' %}
-          </button>
-          {%- if shop.customer_accounts_enabled -%}
-            <a
-              href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
-              class="max-lg:hidden"
-            >
-              {% if customer %}
-                {% render 'icon-account-customer' %}
-              {% else %}
-                {% render 'icon-account' %}
-              {% endif %}
-              <span class="visually-hidden">
-                {%- liquid
-                  if customer
-                    echo 'customer.account_fallback' | t
-                  else
-                    echo 'customer.log_in' | t
-                  endif
-                -%}
-              </span>
-            </a>
-          {%- endif -%}
-
-          <button
-            class="group/wlbtn relative flex items-center outline-none"
-            button-wishlist-drawer-toggle
-            button-wishlist-header
-            aria-label="Open Wishlist"
+    </div>
+    <div id="menu" class="col-span-8 h-full hidden xl:block">
+      <ul class="menu flex w-full justify-center h-full items-center">
+        {%- for link in section.settings.menu.links -%}
+          <li
+            class="menu-link main-menu-link group relative h-full items-center flex px-3 group {% if forloop.index == 5 %} mr-[22%] {% endif %}"
           >
-            <span class="block w-[16px] lg:w-[18px]">{% render 'icon-heart' %}</span>
+            <a
+              href="{{ link.url }}"
+              class="icon-{{ link.object.metafields.custom.menu_icon }} text-base font-normal text-primary-blue text-nowrap transition-all duration-1000"
+              style="color:{{ link.object.metafields.custom.menu_colour }}"
+            >
+              {{- link.title -}}
+            </a>
             <span
-              style="absolute"
-              class="ml-2 hidden absolute left-full top-1/2 -translate-y-1/2"
-              wishlist-count
+              class="absolute w-0 transition-all duration-500 bg-primary-blue group-hover:w-[calc(100%-24px)] mx-3 bottom-0 left-0 h-[2px] block"
+              style="background:{{ link.object.metafields.custom.menu_colour }}"
             ></span>
-          </button>
+            {%- if link.links.size > 0 -%}
+              <ul class="menu dropdown-child grid grid-flow-col gap-2 fixed bg-primary-white-cotton p-12 !top-[var(--header-height)] lg:!top-[var(--header-height-lg)] left-0 right-0 mx-auto w-full shadow-lg transition-all duration-1000 {{ link.handle }}">
+                {%- for child_link in link.links -%}
+                  <li class="menu-link  font-bold grid grid-flow-row justify-center items-start auto-rows-max  {% if child_link.title == "Need Some Help?" %}menu-help-links{% endif %}">
+                    {%- assign grand_child_count = child_link.links | size -%}
 
-          <a href="{{ routes.cart_url }}" class="relative flex items-center outline-none" id="cart-icon-bubble">
-            {%- liquid
-              if cart != empty
-                render 'icon-cart-notempty'
-              else
-                render 'icon-cart'
-              endif
-            -%}
-            <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
-            {%- if cart != empty -%}
-              <div class="cart-count-bubble ml-2">
-                {%- if cart.item_count < 100 -%}
-                  <span aria-hidden="true">{{ cart.item_count }}</span>
-                {%- endif -%}
-                <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
-              </div>
-            {%- endif -%}
-          </a>
-
-          <button class="lg:hidden w-[20px] h-[13px] relative !ml-5" data-navmobopen aria-label="Open Nav">
-            <span class="absolute -left-2 -top-2 space-y-[5px] flex flex-col items-end p-2 w-[36px]">
-              <span class="w-full h-[1px] bg-blue-1"></span>
-              <span class="w-full h-[1px] w-[14px] bg-blue-1"></span>
-              <span class="w-full h-[1px] bg-blue-1"></span>
-            </span>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    id="NavMob"
-    class="pointer-events-auto group/nav lg:hidden fixed z-[-1] inset-0 pt-[80px] flex overflow-hidden invisible opacity-0 transition-[opacity,visibility] [&.open]:opacity-100 [&.open]:visible"
-  >
-   
-    <div
-      id="NavMob-Overlay"
-      class="flex-1 h-full bg-black/50 opacity-0 transition-opacity group-[.open]/nav:opacity-100 group-[.open]/nav:delay-500"
-    ></div>
-    <nav
-      class="h-full w-full bg-white/95 md:max-w-[820px] duration-500 transition-transform translate-x-full group-[.open]/nav:translate-x-0"
-      data-scrollerpar style="background-color: #ffffff;">
-      
-      <div class="overflow-hidden overflow-y-auto flex flex-col h-full">
-        
-        <div class="container pt-10">
-          <div class=" lg:max-w-[317px] flex-1">
-            {% render 'header-search', input_id: 'search_desktop' %}
-          </div> 
-          <ul class="menu">
-            {% for link in section.settings.menu.links %}
-              <li class="space-y-4 break-inside-avoid border-blue-1/10 border-b last:border-b-0" style="padding-bottom: 10px; padding-top:10px;">
-                {% comment %} <details class="block  !my-0 py-5 lg:py-7 group/acc"> {% endcomment %}
-                  <summary class="font-semibold m-body-copy lg:d-h5 space-x-6 flex w-full items-center cursor-pointer">
-                    <a href="{{ link.url }}">{{ link.title }}</a>
-                  </summary>
-                
-                
-                {% if link.links.size > 0 %}
-                  <div class="lg:pt-7" style="margin-top:0px;">
-                  <ul class="menu dropdown-child space-y-3 font-light">
-                    {% for child_link in link.links %}
-                      <li class="menu-link font-semibold m-body-copy lg:d-h5 space-x-6 flex w-full items-center cursor-pointer">
-                        <a href="{{ child_link.url }}">{{ child_link.title }}</a>
-          
-                        {% if child_link.links.size > 0 %}
-                          <ul class="menu dropdown-grandchild ">
-                            {% for grandchild_link in child_link.links %}
-                              <li class="menu-link ">
-                                <a href="{{ grandchild_link.url }}">{{ grandchild_link.title }}</a>
-                              </li>
-                            {% endfor %}
-                          </ul>
-                        {% endif %}
-                      </li>
-                    {% endfor %}
-                  </ul>
-                </div>
-                {% endif %}
-              
-              {% comment %} </details> {% endcomment %}
-              </li>
-            {% endfor %}
-          </ul>
-          
-        </div>
-      </div>
-    </nav>
-  </div>
-</header>
-{% comment %} {% if section.settings.announcement != blank %}
-  <aside id="announcement-bar" class="relative text-white text-center bg-blue-1 top-0 left-0 font-bold w-full">
-    <div class="py-3 container truncate flex justify-center [&>*]:truncate h-[44px] lg:h-[48px] [&_a]:underline">
-      {{ section.settings.announcement }}
-    </div>
-  </aside>
-{% endif %} {% endcomment %}
-{% comment %} <header
-  id="header"
-  class="w-full grid grid-cols-2 lg:grid-cols-12 px-8 bg-white z-10 pointer-events-auto h-[80px] items-center shadow-lg border-b border-b-slate-300" 
->
-
-  {% comment %} <div
-    id="search-bar"
-    class="fixed top-[80px] w-full bg-white left-0 px-8 flex gap-2 items-center overflow-hidden max-h-0 transition-all duration-500 shadow-lg"
-  >
-    <div class="">
-      {% render 'icon-search' %}
-    </div>
-    <div class="grow">
-      <input type="text" class="h-20 w-full border-none outline-none" placeholder="Search For">
-    </div>
-    <button id="search-close-icon" class="">
-      {% render 'icon-close' %}
-    </button>
-  </div>   {% endcomment %}
-  <div id="logo" class="lg:col-span-2" >
-    {%- if request.page_type == 'index' -%}
-      <h1 class="header__heading">
-    {%- endif -%}
-    <a
-      href="{{ routes.root_url }}"
-      class="max-md:w-[88px] md:max-lg:w-[120px] block {% if request.page_type == 'collection' %} max-lg:order-[-1] {% endif %} "
-    >
-      <img
-        class=""
-        loading="eager"
-        src="{{ 'christy-logo.svg' | asset_url }}"
-        width="181"
-        height="27"
-        alt="{{ shop.name }}"
-      >
-    </a>
-    {%- if request.page_type == 'index' -%}
-      </h1>
-    {%- endif -%}
-  </div> {% endcomment %}
-  {% comment %} <div id="menu" class="col-span-8 h-full hidden lg:block">
-    <ul class="menu flex w-full justify-center h-full items-center">
-      {% for link in section.settings.menu.links %}
-        <li class="menu-link group relative h-full items-center flex px-6 after:absolute after:w-0 after:transition-all after:duration-500 after:bg-[#2c3b96] hover:after:w-full after:bottom-0 after:left-0 after:h-[2px]">
-          <a href="{{ link.url }}">{{ link.title }}</a>
-
-          {% if link.links.size > 0 %}
-            <ul class="menu dropdown-child hidden group-hover:grid grid-flow-col fixed bg-white p-4 top-[80px] left-0 right-0 mx-auto w-full shadow-lg transition-all duration-500">
-              {% for child_link in link.links %}
-                <li
-                  class="menu-link font-bold grid grid-flow-row justify-center items-start auto-rows-max py-2"
-                  style="margin:10px;"
-                >
-                  {% assign grand_child_count = child_link.links | size %}
-                  {% comment %} {% echo child_link.title %} {% endcomment %}
-                  <a href="{{ child_link.url }}" class="flex flex-col gap-4 text-base pb-4 hover:underline">
-                    {% if grand_child_count == 0 and link.title != 'About Christy' %}
-                      <img
-                        src="{{ child_link.object.metafields.custom.menu_image | file_url }}"
-                        width="300"
-                        class="w-[300px] h-[300px] object-cover"
-                        height="300"
-                        alt="{{ child_link.title }}"
+                    {%- if grand_child_count == 0 -%}
+                      <a
+                        href="{{ child_link.url }}"
+                        class="flex flex-col text-base"
                       >
-                    {% endif %}
-                    <span>{{ child_link.title }}</span>
-                  </a>
+                        {%- if child_link.object.metafields.custom.menu_image != blank -%}
+                          <img
+                            src="{{ child_link.object.metafields.custom.menu_image | file_url }}"
+                            width="300"
+                            class="w-[300px] h-[300px] object-cover max-2xl:mx-auto"
+                            height="300"
+                            alt="{{ child_link.title }}"
+                          >
+                        {%- endif -%}
+                        <span class="text-base 
+                          {% comment %} {% if child_link.object.metafields.custom.menu_image != blank %}flex items-center justify-center h-[60px] max-w-[300px] py-0 transition-all duration-300 ease-in-out [&:hover]:bg-primary-blue [&:hover]:text-white !no-underline text-center text-primary-blue{% else %}animated-underline w-fit{% endif %} {% endcomment %}
+                          {% if child_link.title == 'Protectors & Toppers' or child_link.title == 'Throws & Bedspreads' %}
+                            animated-underline w-fit
+                          {% elsif child_link.object.metafields.custom.menu_image != blank %}
+                            flex items-center justify-center h-[60px] max-w-[300px] py-0 transition-all duration-300 ease-in-out [&:hover]:bg-primary-blue [&:hover]:text-white !no-underline text-center text-primary-blue
+                          {% else %}
+                            animated-underline w-fit
+                          {% endif %}
+                          ">
+                          {{- child_link.title -}}
+                        </span>
+                      </a>
+                    {%- else -%}
+                      <span class="text-base font-semibold pb-5 block {% if child_link.title == "Need Some Help?" %}!font-normal{% endif %} ">{{ child_link.title }}</span>
+                    {%- endif -%}
 
-                  {% if child_link.links.size > 0 %}
-                    <ul class="menu dropdown-grandchild flex flex-col items-start justify-start gap-4">
-                      {% for grandchild_link in child_link.links %}
-                        <li class="menu-link font-normal text-left">
-                          {% assign grandchild_collection = collections[grandchild_link.object.handle] %}
-                          <a class="hover:underline" href="{{ grandchild_link.url }}">
-                            {% if grandchild_collection %}
-                              {% assign collection_image = grandchild_collection.metafields.custom.menu_image %}
-                              {% if collection_image %}
-                                <img
-                                  src="{{ collection_image | file_url }}"
-                                  alt="{{ grandchild_link.title }}"
-                                  width="150"
-                                  class="w-[150px] h-[150px] object-cover"
-                                  height="150"
+                    {%- if child_link.links.size > 0 -%}
+                      <ul class="menu dropdown-grandchild flex flex-col items-start justify-start gap-[2px]">
+                        {%- for grandchild_link in child_link.links -%}
+                          <li class="menu-link font-normal text-left">
+                            <a
+                              class="{% if grandchild_link.title == "Take Our Quiz" %}general-quiz-button{% endif %} {% if child_link.title == "Need Some Help?" %}animated-underline-white{% else %}animated-underline{% endif %}"
+                              href="{{ grandchild_link.url }}"
+                            >
+                              {{- grandchild_link.title -}}
+                            </a>
+                          </li>
+                        {%- endfor -%}
+                      </ul>
+                    {%- endif -%}
+                  </li>
+                {%- endfor -%}
+              </ul>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+    <div id="icons" class="xl:col-span-2">
+      <div class="header__icons flex items-center justify-end space-x-2 lg:space-x-4">
+        <button
+          class="search-icon-js block quick-search-icon-btn"
+          onclick="handleQuickSearchIconBtnClick()"
+        >
+          {%- render 'icon-search' -%}
+        </button>
+        {%- if shop.customer_accounts_enabled -%}
+          <button
+            {% comment %}href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"{% endcomment %}
+            class="relative group py-4 account-button"
+            data-account-link="{%- if customer -%}{{ routes.account_url }}{%- else -%}/pages/your-account/{%- endif -%}"
+          >
+            {%- if customer -%}
+              {%- render 'icon-account-customer' -%}
+            {%- else -%}
+              {%- render 'icon-account' -%}
+            {%- endif -%}
+            <span class="visually-hidden">
+              {%- liquid
+                if customer
+                  echo 'customer.account_fallback' | t
+                else
+                  echo 'customer.log_in' | t
+                endif
+              -%}
+            </span>
+            <div class="w-[300px] flex-col gap-2 justify-start items-start border border-slate-300 absolute top-full right-0 translate-x-[100px] bg-white p-4 hidden xl:group-hover:flex shadow-lg">
+              {%- if customer -%}
+                <h3 class="text-base font-bold text-left">Welcome, {{ customer.name }}</h3>
+                <ul class="flex flex-col gap-4 pt-4">
+                  <li>
+                    <a href="{{ routes.account_url }}" class="flex items-center gap-2 justify-start">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        class="w-5 h-5"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                      </svg>
+
+                      <span> My Account </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{{ routes.account_url }}" class="flex items-center gap-2 justify-start">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="w-5 h-5"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 6.878V6a2.25 2.25 0 0 1 2.25-2.25h7.5A2.25 2.25 0 0 1 18 6v.878m-12 0c.235-.083.487-.128.75-.128h10.5c.263 0 .515.045.75.128m-12 0A2.25 2.25 0 0 0 4.5 9v.878m13.5-3A2.25 2.25 0 0 1 19.5 9v.878m0 0a2.246 2.246 0 0 0-.75-.128H5.25c-.263 0-.515.045-.75.128m15 0A2.25 2.25 0 0 1 21 12v6a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 18v-6c0-.98.626-1.813 1.5-2.122" />
+                      </svg>
+                      <span>My Orders</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{{ routes.account_url }}" class="flex items-center gap-2 justify-start">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="w-5 h-5"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
+                      </svg>
+                      <span> Create A Return </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{{ routes.account_addresses_url }}" class="flex items-center gap-2 justify-start">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="w-6 h-6"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+                      </svg>
+
+                      <span> Address Book </span>
+                    </a>
+                  </li>
+                </ul>
+                <a class="py-4 block text-xs hover:underline" href="{{ routes.account_logout_url }}">Log out</a>
+              {%- else -%}
+                <h3 class="text-base font-bold text-left">Sign In or create an account</h3>
+                <ul class="flex flex-col gap-1 justify-start items-start text-xs list-disc list-inside">
+                  <li>For faster checkout</li>
+                  <li>For easier order tracking</li>
+                  <li>To use saved addresses and payment types</li>
+                  <li>To access your saved items</li>
+                </ul>
+
+                <ul class="flex flex-col gap-4 pt-4">
+                  <li>
+                    <a href="{{ routes.account_login_url }}" class="flex items-center gap-2 justify-start">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        class="w-5 h-5"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                      </svg>
+
+                      <span> Sign In </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{{ routes.account_register_url }}" class="flex items-center gap-2 justify-start">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="w-5 h-5"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z" />
+                      </svg>
+                      <span>Create An Account</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://track.christy.co.uk" target="_blank" class="flex items-center gap-2 justify-start">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="w-5 h-5"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 6.878V6a2.25 2.25 0 0 1 2.25-2.25h7.5A2.25 2.25 0 0 1 18 6v.878m-12 0c.235-.083.487-.128.75-.128h10.5c.263 0 .515.045.75.128m-12 0A2.25 2.25 0 0 0 4.5 9v.878m13.5-3A2.25 2.25 0 0 1 19.5 9v.878m0 0a2.246 2.246 0 0 0-.75-.128H5.25c-.263 0-.515.045-.75.128m15 0A2.25 2.25 0 0 1 21 12v6a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 18v-6c0-.98.626-1.813 1.5-2.122" />
+                      </svg>
+                      <span> Track My Order </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://returns.christy.co.uk/"
+                      target="_blank"
+                      class="flex items-center gap-2 justify-start"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="w-5 h-5"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
+                      </svg>
+                      <span> Create A Return </span>
+                    </a>
+                  </li>
+                </ul>
+              {%- endif -%}
+            </div>
+          </button>
+        {%- endif -%}
+
+        <button
+          class="group/wlbtn relative xl:flex hidden items-center outline-none  gap-2"
+          button-wishlist-drawer-toggle
+          button-wishlist-header
+          aria-label="Open Wishlist"
+          title="Open Wishlist"
+        >
+          <span class="w-[24px] lg:w-[24px] h-full flex items-center">{% render 'icon-heart' %}</span>
+          <span
+            style="absolute"
+            class="mt-0 sm:mt-1 xl:mt-0"
+            wishlist-count
+          ></span>
+        </button>
+
+        {% render 'cart-bubble-btn' %}
+      </div>
+    </div>
+
+    <div
+      id="NavMob"
+      class="pointer-events-auto group/nav xl:hidden fixed z-[-1] inset-0 pt-[96px] lg:pt-[112px] flex overflow-hidden invisible opacity-0 transition-[opacity,visibility] [&.open]:opacity-100 [&.open]:visible"
+    >
+      <nav
+        class="h-full w-full bg-white md:max-w-[820px] duration-500 transition-transform -translate-x-full group-[.open]/nav:translate-x-0"
+        data-scrollerpar
+      >
+        <div class="overflow-hidden overflow-y-auto flex flex-col h-full">
+          <div>
+            <ul class="menu main-menu relative {% if section.settings.mobile_navigation_text %}h-[calc(100dvh-var(--header-height))] flex flex-col justify-between overflow-auto{% endif %}">
+              {% for parent in section.settings.menu.links %}
+                <li class="space-y-4 break-inside-avoid menu-details text-base text-primary-blue px-4 pt-6 py-6 {% unless parent.links.first.title != blank %}menu-details-parent-only{% endunless %}">
+                  {% if parent.links.size > 0 %}
+                    <details class="block group/acc">
+                      <summary
+                        class="font-semibold m-body-copy text-base lg:d-h5 space-x-6 flex w-full items-center cursor-pointer"
+                      >
+                        <span class="m-body-copy-med text-base lg:d-body-copy-med mr-auto text-primary-blue">
+                          {{- parent.title | escape -}}
+                        </span>
+
+                        <span
+                          class="group-open/acc:rotate-90"
+                        >
+                          {% render 'icon-arrow' %}
+                        </span>
+                      </summary>
+                      <div class="z-[3]">
+                        <div class="close cursor-pointer bg-primary-white-cotton px-4 h-[72px]  items-center text-center text-base font-sec font-semibold text-primary-blue grid grid-cols-[1fr_auto_1fr] [&>svg]:rotate-180 [&>svg]:pointer-events-none">
+                          {% render 'icon-arrow-long' -%}
+                          {{- parent.title }}
+                        </div>
+                        <ul class="space-y-3 font-light {% if parent.links.last.title == "Need Some Help?" %}menu-help-links{% endif %}">
+                          {% for child in parent.links %}
+                            <li class="flex items-center justify-between mt-4">
+                              {% if child.links.size > 0 %}
+                                <details class="block !my-0 py-6 px-4 group/accc w-full">
+                                  <summary class="font-semibold m-body-copy lg:d-h5 space-x-6 flex w-full items-center justify-between cursor-pointer pr-1 [&>svg]:transition [&>svg]:duration-300">
+                                    <span class="text-base text-primary-blue m-body-copy-med mr-auto">
+                                      {{- child.title -}}
+                                    </span>
+                                    {% render 'icon-arrow' %}
+                                  </summary>
+                                  <div class="pt-12 pl-8">
+                                    <ul class="space-y-8 font-semibold text-primary-blue">
+                                      {% for grandchild in child.links %}
+                                        <li>
+                                          <a
+                                            class="{% if grandchild.title == "Take Our Quiz" %}general-quiz-button{% endif %}  text-base text-primary-blue"
+                                            href="{{grandchild.url}}"
+                                          >
+                                            {{- grandchild.title -}}
+                                          </a>
+                                        </li>
+                                      {% endfor %}
+                                    </ul>
+                                  </div>
+                                </details>
+                              {% else %}
+                                <a
+                                  class="{% if child.current %} active{% endif %} flex flex-col py-6 px-4  text-base gap-2 justify-center text-primary-blue font-bold w-full"
+                                  href="{{child.url}}"
                                 >
+                                  {% if child.links.size == 0
+                                    and child_link.object.metafields.custom.menu_image != blank
+                                  %}
+                                    <img
+                                      src="{{ child.object.metafields.custom.menu_image | file_url }}"
+                                      width="300"
+                                      class="w-[300px] h-[300px] object-cover mx-auto"
+                                      height="300"
+                                      alt="{{ child.title }}"
+                                    >
+                                  {% endif %}
+                                  {{- child.title -}}
+                                </a>
                               {% endif %}
-                            {% endif %}
-                            {{ grandchild_link.title }}
-                          </a>
-                        </li>
-                      {% endfor %}
-                    </ul>
+                            </li>
+                          {% endfor %}
+                        </ul>
+                      </div>
+                    </details>
+                  {% else %}
+                    <a
+                      class="block text-base font-semibold m-body-copy lg:d-h5 text-primary-blue"
+                      href="{{ parent.url }}"
+                    >
+                      {{- parent.title | escape -}}
+                    </a>
                   {% endif %}
                 </li>
               {% endfor %}
-            </ul>
-          {% endif %}
-        </li>
-      {% endfor %}
-    </ul>
-  </div> {% endcomment %}
-  {% comment %} <div id="icons" class="lg:col-span-2" style="display:contents;">
-    <div class="max-lg:hidden lg:max-w-[317px] flex-1">
-        {% render 'header-search', input_id: 'search_desktop' %}
-      </div>
-    <div class="header__icons flex items-center justify-end space-x-5 lg:space-x-7">
-      {% comment %} <button id="search-icon" class="">
-        {% render 'icon-search' %}
-      </button> {% endcomment %}
-      
-      {%- if shop.customer_accounts_enabled -%}
-        <a
-          href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
-          class="max-lg:hidden"
-        >
-          {% if customer %}
-            {% render 'icon-account-customer' %}
-          {% else %}
-            {% render 'icon-account' %}
-          {% endif %}
-          <span class="visually-hidden">
-            {%- liquid
-              if customer
-                echo 'customer.account_fallback' | t
-              else
-                echo 'customer.log_in' | t
-              endif
-            -%}
-          </span>
-        </a>
-      {%- endif -%}
-
-      <button
-        class="group/wlbtn relative flex items-center outline-none"
-        button-wishlist-drawer-toggle
-        button-wishlist-header
-        aria-label="Open Wishlist"
-      >
-        <span class="block w-[18px] lg:w-[18px]">{% render 'icon-heart' %}</span>
-        <span
-          style="absolute"
-          class="ml-2 hidden absolute left-full top-1/2 -translate-y-1/2"
-          wishlist-count
-        ></span>
-      </button>
-
-      <a href="{{ routes.cart_url }}" class="relative flex items-center outline-none" id="cart-icon-bubble">
-        {%- liquid
-          if cart != empty
-            render 'icon-cart-notempty'
-          else
-            render 'icon-cart'
-          endif
-        -%}
-        <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
-        {%- if cart != empty -%}
-          <div class="cart-count-bubble ml-2">
-            {%- if cart.item_count < 100 -%}
-              <span aria-hidden="true">{{ cart.item_count }}</span>
-            {%- endif -%}
-            <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
-          </div>
-        {%- endif -%}
-      </a>
-
-      <button class="lg:hidden w-[20px] h-[13px] relative !ml-5" data-navmobopen aria-label="Open Nav">
-        <span class="absolute -left-2 -top-2 space-y-[5px] flex flex-col items-end p-2 w-[36px]">
-          <span class="w-full h-[1px] bg-blue-1"></span>
-          <span class="w-full h-[1px] bg-blue-1"></span>
-          <span class="w-full h-[1px] bg-blue-1"></span>
-        </span>
-      </button>
-    </div>
-  </div> {% endcomment %}
-
-  {% comment %} <div
-    id="NavMob"
-    class="pointer-events-auto group/nav lg:hidden fixed z-[-1] inset-0 pt-[80px] flex overflow-hidden invisible opacity-0 transition-[opacity,visibility] [&.open]:opacity-100 [&.open]:visible"
-  >
-    <div
-      id="NavMob-Overlay"
-      class="flex-1 h-full bg-black/50 opacity-0 transition-opacity group-[.open]/nav:opacity-100 group-[.open]/nav:delay-500"
-    ></div>
-    <nav
-      class="h-full w-full bg-white/95 md:max-w-[820px] duration-500 transition-transform translate-x-full group-[.open]/nav:translate-x-0"
-      data-scrollerpar
-    >
-      <div class="overflow-hidden overflow-y-auto flex flex-col h-full">
-        <div class="container pt-10">
-          <ul class="menu">
-            {% for parent in section.settings.menu.links %}
-              <li class="space-y-4 break-inside-avoid border-blue-1/10 border-b last:border-b-0">
-                <details class="block  !my-0 py-5 lg:py-7 group/acc">
-                  <summary class="font-semibold m-body-copy lg:d-h5 space-x-6 flex w-full items-center cursor-pointer">
-                    <span class="m-body-copy-med lg:d-body-copy-med mr-auto">
-                      {{- parent.title | escape -}}
-                    </span>
-                    <span
-                      class="acc-toggle group-open/acc:before:rotate-90"
-                    ></span>
-                  </summary>
-                  <div class="pt-5 lg:pt-7">
-                    <ul class="space-y-3 font-light">
-                      {% for child in parent.links %}
-                        <li>
-                          <a class="{% if child.current %} active{% endif %}" href="{{child.url}}">
-                            {{- child.title -}}
-                            {% unless child.title contains 'Shop by' %}
-                              {%- if child.type == 'collection_link'
-                                and child.object.metafields.christy23.collection_usp != blank
-                              -%}
-                                <strong
-                                  >&nbsp;|&nbsp;
-                                  {{ child.object.metafields.christy23.collection_usp }}
-                                </strong>
-                              {%- endif -%}
-                            {% endunless %}
-                          </a>
-                        </li>
-                      {% endfor %}
-                    </ul>
+              {% if section.settings.mobile_navigation_bg != blank %}
+                <li class="relative z-[2] p-[24px_16px_18px] overflow-hidden items-center grid grid-cols-[1fr_auto] gap-2 mt-auto flex-shrink-0">
+                  <img
+                    class="absolute top-0 left-0 w-full h-full object-cover z-0"
+                    src="{{ section.settings.mobile_navigation_bg | img_url: "master" }}"
+                    loading="lazy"
+                  >
+                  <div class="z-[2] text-[20px] leading-[32px] text-white font-sec">
+                    {{ section.settings.mobile_navigation_text }}
                   </div>
-                </details>
-              </li>
-            {% endfor %}
-          </ul>
+                  <div class="general-quiz-button z-[2] mobile-navigation-button bg-primary-blue  w-[159px] text-[14px]">
+                    {{ section.settings.mobile_navigation_button }}
+                  </div>
+                </li>
+              {% endif %}
+            </ul>
+          </div>
         </div>
-      </div>
-    </nav>
-  </div> {% endcomment %}
-{% comment %} </header> {% endcomment %}
+      </nav>
+    </div>
+  </div>
+</header>
 
 {% if section.settings.announcement != blank %}
   <style>
     :root {
-      --header-height: calc(70px + 44px);
-      --header-height-lg: calc(107px + 48px);
+      --header-height: calc(56px + 40px);
+      --header-height-lg: calc(72px + 40px);
     }
   </style>
 {% endif %}
+<style>
+    @media screen and (min-width: 1280px) {
+        .account-button::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: -5px;
+            width: 0;
+            height: 0;
+            width:1.5rem;
+            height:1.5rem;
+            background:#fff url("{{ 'top-arrow.svg' | asset_url }}") no-repeat center;
+            background-size:cover;
+            display: none;
+        }
+        .account-button:hover::after {
+            display: inline-block !important;
+        }
+    }
+  .icon-arrow{
+    width:1rem;
+    height:1rem;
+  }
+</style>
 
- <script>
-  document.addEventListener('DOMContentLoaded', () => {
-  const searchIcon = document.getElementById('search-icon');
-  const searchBar = document.getElementById('search-bar');
-  const closeSearchIcon = document.getElementById('search-close-icon');
-
-  searchIcon.addEventListener('click', () => {
-    searchBar.classList.toggle('hidden');
-  });
-
-  closeSearchIcon.addEventListener('click', () => {
-    searchBar.classList.add('hidden');
-  });
-});
-
-</script> 
+<script async defer>
+  if (window.matchMedia('(max-width: 1279px)').matches) {
+    const mobAccLink = document.querySelector('[data-account-link]');
+    if (mobAccLink) {
+      mobAccLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.location.href = mobAccLink.dataset.accountLink;
+      });
+    }
+  }
+</script>
 
 <script type="application/ld+json">
   {
@@ -587,7 +975,167 @@
     }
   </script>
 {%- endif -%}
+{%- if section.settings.quiz_title != blank -%}
+  <div
+    id="generalQuizPopup"
+    class="hidden items-center fixed inset-0 bg-black bg-opacity-50 z-[9999] pointer-events-auto flex"
+  >
+    <div class="popup-content bg-primary-white-cotton relative w-[100%] md:w-[90%] max-w-6xl shadow-lg mx-auto mt-0 hidden">
+      <button
+        id="closePopup"
+        class="absolute top-0 right-0 sm:top-3 sm:right-3 w-10 h-10 max-sm:h-8 flex items-center justify-center"
+      >
+        {% render 'icon-close' %}
+      </button>
+      <div id="quizSelector">
+        <h2 class="title flex items-start justify-center text-center px-6 sm:px-0 gap-4 text-2xl lg:text-[45px] lg:leading-[52px] font-sec text-primary-blue">
+          {{ section.settings.quiz_title }}
+        </h2>
+        <p class="quiz-mb-8 px-4 text-center">{{ section.settings.quiz_subtitle }}</p>
+        <div class="grid gap-4 quiz-grid mx-auto px-4">
+          {% for block in section.blocks %}
+            {% assign quiz_product = all_products[block.settings.quiz_product] %}
+            {% if quiz_product %}
+              <div class="quiz-card cursor-pointer" data-handle="{{ quiz_product.handle }}">
+                <img
+                  src="{{ block.settings.quiz_image | image_url }}"
+                  alt="{{ block.settings.quiz_title }}"
+                  class="w-full  object-cover"
+                >
+                <p class="text-center px-1 mt-4 mx-auto">{{ block.settings.quiz_title }}</p>
+              </div>
+            {% else %}
+              <p class="text-red-500">Product not found: {{ block.settings.quiz_product }}</p>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      <div id="quizContent" class="hidden"></div>
+    </div>
+  </div>
 
+  <script defer>
+    function loadQuizScript() {
+      if (window.quizScriptLoaded) {
+        return Promise.resolve();
+      }
+      return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = '{{ "quiz-logic.js" | asset_url }}';
+        script.defer = true;
+        script.onload = () => {
+          window.quizScriptLoaded = true;
+          resolve();
+        };
+        script.onerror = () => reject(new Error('Failed to load quiz-logic.js'));
+        document.head.appendChild(script);
+      });
+    }
+
+    class GeneralQuizPopup {
+      constructor() {
+        this.popup = document.getElementById('generalQuizPopup');
+        this.popupContent = this.popup.querySelector('.popup-content');
+        this.closeButton = document.getElementById('closePopup');
+        this.quizSelector = document.getElementById('quizSelector');
+        this.quizContent = document.getElementById('quizContent');
+        this.cachedQuizzes = {};
+        this.init();
+      }
+
+      init() {
+        this.bindEvents();
+      }
+
+      bindEvents() {
+        document.querySelectorAll('.general-quiz-button').forEach((button) => {
+          button.addEventListener('click', () => this.openPopup());
+        });
+
+        this.closeButton.addEventListener('click', () => this.closePopup());
+
+        this.popup.addEventListener('click', (e) => {
+          if (e.target === this.popup) this.closePopup();
+        });
+
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') this.closePopup();
+        });
+
+        document.querySelectorAll('.quiz-card').forEach((card) => {
+          card.addEventListener('click', async () => {
+            const handle = card.dataset.handle;
+            await this.loadQuiz(handle);
+          });
+        });
+      }
+
+      openPopup() {
+        this.popup.classList.remove('hidden');
+        this.popupContent.classList.remove('hidden');
+        this.quizSelector.classList.remove('hidden');
+        this.quizContent.classList.add('hidden');
+        this.quizContent.innerHTML = '';
+      }
+
+      closePopup() {
+        this.popup.classList.add('hidden');
+        this.popupContent.classList.add('hidden');
+      }
+
+      async loadQuiz(handle) {
+        if (this.cachedQuizzes[handle]) {
+          this.quizContent.innerHTML = this.cachedQuizzes[handle];
+          await loadQuizScript();
+          if (typeof initializeAllQuizzes === 'function') {
+            initializeAllQuizzes();
+          }
+          this.showQuiz();
+          return;
+        }
+
+        try {
+          const response = await fetch(`/products/${handle}?section_id=product-quiz`);
+          if (!response.ok) {
+            throw new Error(`Failed to load quiz section. HTTP Status: ${response.status}`);
+          }
+          const sectionHTML = await response.text();
+          this.cachedQuizzes[handle] = sectionHTML;
+          this.quizContent.innerHTML = sectionHTML;
+          await loadQuizScript();
+          if (typeof initializeAllQuizzes === 'function') {
+            initializeAllQuizzes();
+          }
+          this.showQuiz();
+        } catch (error) {
+          console.error(`[Quiz Popup] Error loading quiz for handle "${handle}":`, error);
+          alert('Sorry, there is no quiz available for this product.');
+        }
+      }
+
+      showQuiz() {
+        this.quizSelector.classList.add('hidden');
+        this.quizContent.classList.remove('hidden');
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      new GeneralQuizPopup();
+    });
+
+    function updateNavPadding() {
+      let header = document.querySelector("header");
+      let navMob = document.getElementById("NavMob");
+  
+      if (header && navMob) {
+          let headerHeight = header.offsetHeight;
+          navMob.style.paddingTop = `${headerHeight}px`;
+      }
+    }
+    document.addEventListener("DOMContentLoaded", updateNavPadding);
+    window.addEventListener("resize", updateNavPadding);
+  </script>
+{%- endif -%}
 {% schema %}
 {
   "name": "Header",
@@ -604,10 +1152,79 @@
       "info": "If copy is entered, announcement will show"
     },
     {
+      "type": "text",
+      "id": "sale_end_date",
+      "label": "Sale End Date",
+      "info": "Enter the sale end date in YYYY-MM-DD format."
+    },
+
+    {
       "type": "link_list",
       "id": "menu",
       "label": "Select Menu",
       "info": "This is the main menu of the site."
+    },
+    {
+      "type": "textarea",
+      "id": "popular_searches",
+      "label": "Popular Searches",
+      "info": "Add one serach terma per line"
+    },
+    {
+      "type": "product_list",
+      "id": "featured_products",
+      "label": "Products",
+      "limit": 3
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_navigation_bg",
+      "label": "Mobile navigation background"
+    },
+    {
+      "type": "richtext",
+      "id": "mobile_navigation_text",
+      "label": "Mobile navigation text"
+    },
+    {
+      "type": "richtext",
+      "id": "mobile_navigation_button",
+      "label": "Mobile navigation button"
+    },
+    {
+      "type": "text",
+      "id": "quiz_title",
+      "label": "Quiz Title",
+      "default": "Discover Your Signature Comfort"
+    },
+    {
+      "type": "text",
+      "id": "quiz_subtitle",
+      "label": "Quiz Subitle",
+      "default": "Indulge in luxury made just for you. Let us guide you to your perfect match"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "quiz",
+      "name": "Quiz Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "quiz_image",
+          "label": "Quiz Image"
+        },
+        {
+          "type": "text",
+          "id": "quiz_title",
+          "label": "Quiz Title"
+        },
+        {
+          "type": "product",
+          "id": "quiz_product",
+          "label": "Linked Product"
+        }
+      ]
     }
   ],
   "presets": [

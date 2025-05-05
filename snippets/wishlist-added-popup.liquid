@@ -1,0 +1,9 @@
+<script src="{{ 'WishlistAddedPopup.js' | asset_url }}" defer="defer"></script>
+
+<wishlist-added-popup hidden class="fixed bottom-0 left-0 p-6 bg-primary-blue text-primary-white-cotton text-sm
+font-normal flex items-center gap-2 w-full z-[9999999999] lg:max-w-sm lg:top-[--header-height-lg] lg:left-auto
+lg:right-0 lg:bottom-auto">
+  {% render 'icon-heart', class: '[&_path]:fill-primary-white-cotton w-6 h-6' %}
+  <span class="tracking-[.1px]">Product Added to Wishlist</span>
+  <span button-wishlist-drawer-toggle data-close class="hover:cursor-pointer ml-auto">Review</span>
+</wishlist-added-popup>

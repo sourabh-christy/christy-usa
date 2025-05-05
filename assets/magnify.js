@@ -81,10 +81,10 @@ enableZoomOnHover(2);
 
 
 function initZoomer() {
-  let zoomer = document.querySelector('.product__gallery #zoomer');
-  let zoomerImg = document.querySelector('.product__gallery #zoomer .zoomer__img');
-  let zoomerClose = document.querySelector('.product__gallery #zoomer button.close');
-  let imgs = document.querySelectorAll('.product__gallery #media-gallery .click-zoom,.product__gallery #media-gallery-mob .click-zoom');
+  let zoomer = document.querySelector('#zoomer');
+  let zoomerImg = document.querySelector('#zoomer .zoomer__img');
+  let zoomerClose = document.querySelector('#zoomer button.close');
+  let imgs = document.querySelectorAll('.product__gallery .splide-gallery-mob .click-zoom:not(.quick-add-modal__content .splide-gallery-mob .click-zoom)');
 
   zoomerClose.addEventListener('click', function () {
     zoomer.classList.remove('active');
@@ -118,6 +118,10 @@ function initZoomer() {
       });
     });
   }
+
+  document.querySelectorAll('.quick-add-modal__content .product__gallery .splide-gallery-mob img').forEach((img) => {
+    img.classList.remove('click-zoom', 'cursor-zoom-in');
+  });
 }
 initZoomer();
 

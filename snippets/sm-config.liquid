@@ -1,0 +1,70 @@
+<script type="text/javascript">
+    function refreshThirdPartyAppsOverride(arguments) {
+        try {
+            jQuery = arguments[0];
+            isGiftRemoving = arguments[1];
+            if (typeof window.SLIDECART_UPDATE !== 'undefined') {
+                window.SLIDECART_UPDATE();
+            }
+            if (typeof window.HSSLIDECART !== 'undefined') {
+                HsCartDrawer.updateSlideCart();
+            }
+            document.documentElement.dispatchEvent(new CustomEvent('cart:refresh'));
+            if (jQuery(document).find('#CartDrawer quantity-input').length > 0) {
+                if (!giftIsAdding) {
+                    giftIsAdding = true;
+                    qtyInput = jQuery(document).find('#CartDrawer quantity-input:eq(0)');
+                    if (qtyInput.find('.quantity__input').hasClass('smDisabled')) {
+                        qtyInputFind = false;
+                        jQuery(document).find('#CartDrawer quantity-input').each(function() {
+                            if (!jQuery(this).find('.quantity__input').hasClass('smDisabled') && !qtyInputFind) {
+                                qtyInput = jQuery(this);
+                                qtyInputFind = true;
+                            }
+                        });
+                    }
+                    qtyInputDefaultVal = qtyInput.find('.quantity__input').val();
+                    if (isGiftRemoving) {
+                        qtyInput.find('.quantity__input').attr('type', 'number')
+                    }
+                    qtyInput.find('.quantity__button[name="plus"]').click();
+                    qtyInput.find('.quantity__button[name="minus"]').click(); 
+                    setTimeout(function() {
+                        giftIsAdding = false;
+                    }, 3000)
+                }
+            }
+    
+            //Boundless - refresh karty
+            // if (isCartEmpty) {
+            //     if (jQuery(document).find('header.site-header .icon-cart').length > 0) {
+            //         jQuery(document).find('header.site-header .icon-cart').click();
+            //     }
+            // } else {
+            //     if (jQuery(document).find('#CartContainer input').length > 0) {
+            //         jQuery(document).find('#CartContainer input').change();
+            //     }
+            // }
+    
+            //Supply - refresh karty
+            // if (jQuery(document).find('#shopify-section-header .site-header .cart-toggle').length > 0) {
+            //     jQuery(document).on('click', '#shopify-section-header .site-header .cart-toggle', function(e) {
+            //         if (jQuery(document).find('#ajaxifyCart input').length > 0) {
+            //             jQuery(document).find('#ajaxifyCart input').change();
+            //         }
+            //     });
+            // }
+    
+    
+            //Narrative - refresh karty
+            // if (jQuery(document).find('.cart-drawer input').length > 0) {
+            //     jQuery(document).find('.cart-drawer input').trigger('input');
+            //     // window.theme.sections.instances[0].refresh(); - toto netreba, iba ak ako nahradu za: jQuery(document).find('.cart-drawer input').trigger('input');
+            // }
+        } catch (e) {
+            // console.log("Something went wrong");
+        }
+    }	
+</script>
+<style>
+</style>

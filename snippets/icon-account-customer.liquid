@@ -2,7 +2,6 @@
   width="16"
   height="18"
   version="1.1"
-  id="Layer_1"
   xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink"
   x="0px"
@@ -10,6 +9,9 @@
   viewBox="0 0 16 18"
   style="enable-background:new 0 0 16 18;"
   xml:space="preserve"
+  {% if id != blank %}
+    id="{{ id }}"
+  {% endif %}
 >
   <path style="fill-rule:evenodd;clip-rule:evenodd;fill:#2C3B96;" d="M10.4,6.9c-0.6,0.6-1.5,1-2.4,1l0,0c-0.9,0-1.7-0.4-2.4-1c-0.6-0.6-1-1.5-1-2.4c0-0.9,0.4-1.8,1-2.4
   	C6.3,1.4,7.1,1,8,1s1.7,0.4,2.4,1c0.6,0.6,1,1.5,1,2.4C11.3,5.4,11,6.3,10.4,6.9z M9.9,2.5C9.4,2,8.7,1.7,8,1.7l0,0

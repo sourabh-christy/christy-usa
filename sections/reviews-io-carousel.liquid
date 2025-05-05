@@ -1,0 +1,38 @@
+<!-- Reviews.io Widget START -->
+<script src="https://widget.reviews.io/rich-snippet-reviews-widgets/dist.js" type="text/javascript"></script>
+<div id="compound-widget"></div>
+
+<script>
+  richSnippetReviewsWidgets("compound-widget", {
+      store: "www.christy.co.uk",
+      primaryClr: "#2c3b96",
+      neutralClr: "#333333",
+      reviewTextClr: "#333333",
+      widgetName: "compound",
+      layout: "fullWidth",
+      numReviews: 5,
+      contentMode: "company;third-party",
+      compound: ""
+  });
+</script>
+<!-- Reviews.io Widget END -->
+{% schema %}
+{    "name": "Reviews IO Widget",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Reviews"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Reviews IO Widget",
+      "category": "Text"
+    }
+  ]
+}
+{% endschema %}
+{% stylesheet %}{% endstylesheet %}
+{% javascript %}{% endjavascript %}

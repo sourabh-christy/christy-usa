@@ -1,0 +1,344 @@
+{% comment %}
+  Renders product personalize.
+  Accepts:
+  - product: {Object} product object.
+  - block: {Object} passing the block information.
+  - product_form_id: {String} product form id.
+  - section_id: {String} id of section to which this snippet belongs.
+  - show_pickup_availability: {Boolean} for the pickup availability. If true the pickup availability is rendered, false - not rendered (optional).
+
+  Usage:
+  {% render 'personalize', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true %}
+{% endcomment %}
+
+{% assign perProd = all_products['product-personalization'] %}
+{% assign perProdPrice = perProd.price | money_without_currency %}
+{% assign pp = current_variant.price | money_without_currency %}
+
+{% assign final = perProdPrice | plus: pp %}
+<section
+    id="personalize-drawer-{{ section.id }}"
+    class="personalize-drawer group/drawer drawer z-40 [&.active]:visible fixed w-full h-full right-0 animate top-0"
+>
+  <div class="hidden" id="personalizeProductPrice">{{ perProdPrice }}</div>
+
+  <div
+      id="CartDrawer-Overlay"
+      class="cart-drawer__overlay fixed w-full h-full bg-black/50 top-0"
+      onclick="showHideDrawer(this)"
+  ></div>
+  <div
+      class="cart-drawer h-full w-full max-w-lg translate-x-full group-[.active]/drawer:translate-x-0 flex flex-col
+      overflow-auto justify-start transition-all duration-500 bg-white absolute right-0 font-normal"
+      {{ block.shopify_attributes }}
+  >
+    {% assign font = product.metafields.custom.personalisation_font.value %}
+    {% assign pers_colors_names = current_variant.metafields.custom.personalization_colours.value %}
+    {% assign selected_font = 'classic' %}
+    {% assign selected_font_name = 'Classic' %}
+    {% assign selected_colour = '' %}
+    {% assign selected_colour_name = '' %}
+
+    {% for cols in pers_colors_names %}
+      {% if forloop.first %}
+        {% assign selected_colour = cols.font_colour | replace: '["', '' | replace: '"]', '' %}
+        {% assign selected_colour_name = cols.colour_name %}
+      {% endif %}
+    {% endfor %}
+    {% comment %} header {% endcomment %}
+    <div class="bg-primary-white-cotton p-4 flex items-center justify-between">
+      <h2 class="text-sm">Personalise - {{ product.title }}</h2>
+      <button
+          class="w-6 h-6 p-1 flex-shrink-0"
+          type="button"
+          aria-label="Close"
+          onclick="showHideDrawer(this)"
+      >
+        {% render 'icon-close-thin' %}
+      </button>
+    </div>
+
+    {% comment %} image & form {% endcomment %}
+    <div class="personalisation-images flex flex-col p-4 text-xs">
+      {% assign media = current_variant.metafields.custom.personalization_image.value %}
+      {% assign focal_point = media.presentation.focal_point %}
+      {% assign focal_point_array = focal_point | split: ' ' %}
+
+      <div class="relative personalization_image" style="font-family:bodoniflfbold;">
+        <img
+            src="{{ media | image_url }}"
+            width="400"
+            loading="lazy"
+            height="400"
+            id="personal_image"
+            class="mx-auto w-full aspect-square"
+        >
+        <div
+            class="w-full h-full mx-auto absolute top-0 left-0 right-0 bottom-0 overflow-hidden"
+            id="personal_canvas"
+        >
+          <div
+              class="absolute -translate-x-1/2 -translate-y-1/2 personalization_text {{ selected_font }}"
+              style="top:{{ focal_point_array.last }}; left:{{ focal_point_array.first }}; color:{{ selected_colour }}"
+          >
+            <span class="mono-text"></span>
+          </div>
+        </div>
+      </div>
+      <p class="mt-2">Preview is for demonstration purposes only.</p>
+
+      <div class="mt-6 flex flex-col gap-y-6 xl:mt-8">
+        <div class="space-y-2 xl:space-y-4">
+          <label for="monogram" class="block">Monogram: </label>
+          <div class="field-large">
+            <input
+                required
+                class=""
+                id="monogram"
+                max="8"
+                maxlength="8"
+                onKeyUp="updateCanvas('{{ focal_point }}')"
+                type="text"
+                placeholder="Enter your text"
+                name="properties[Monogram]"
+            >
+          </div>
+          <p class="monogram-error ml-4 !mt-1 text-[11px] text-secondary-blue-500 font-semibold tracking-[.5px]"></p>
+        </div>
+      </div>
+
+      <div class="mt-6 flex flex-col gap-y-6 xl:mt-8">
+        <div class="space-y-2 xl:space-y-4">
+          <p>Style: <strong class="personalization-selected-style font-semibold">{{ selected_font_name }}</strong></p>
+          <div class="field-large">
+            <div class="flex flex-wrap gap-[3px]">
+              <span
+                  data-value="classic"
+                  data-label="Classic"
+                  data-length="8"
+                  class="variant-label personalize-font-selector px-4 personalize-style-selector selected"
+              >
+                <strong>Classic</strong>
+              </span>
+              <span
+                  data-value="ballantines"
+                  data-label="Script"
+                  data-length="8"
+                  class="variant-label personalize-font-selector px-4 personalize-style-selector ballantines"
+              >
+                <strong>Script</strong>
+              </span>
+              <span
+                  data-value="mg-pair"
+                  data-label="Monogram Pair"
+                  data-length="2"
+                  class="variant-label personalize-font-selector px-4 personalize-style-selector"
+              >
+                <img
+                    src="{{ 'mg-pair.jpg' | asset_url }}"
+                    width="70"
+                    height="40"
+                    alt="Personalization_colour"
+                    loading="lazy"
+                >
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-6 flex flex-col gap-y-6 xl:mt-8">
+        <div class="space-y-2 xl:space-y-4">
+          <p id="personalizationSelectedColorName">Colour: <strong class="personalization-selected-colour font-semibold">{{ selected_colour_name }}</strong></p>
+          <div id="personalizationColorList" class="flex flex-wrap gap-1">
+            {% for cols in pers_colors_names %}
+              <span
+                  style="background:{{ cols.font_colour | replace: '["' , '' | replace: '"]', '' }}"
+                  data-label="{{ cols.colour_name }}"
+                  data-value="{{ cols.font_colour | replace: '["' , '' | replace: '"]', '' }}"
+                  title="{{ cols.colour_name }}"
+                  class="personalize-color-selector py-1 personalize-variant-label px-4 rounded-full {% if forloop.first %}selected{% endif %}"
+              ></span>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% if product != blank %}
+    {% liquid
+      assign gift_card_recipient_feature_active = false
+      if block.settings.show_gift_card_recipient and product.gift_card?
+        assign gift_card_recipient_feature_active = true
+      endif
+
+      assign show_dynamic_checkout = false
+      if block.settings.show_dynamic_checkout and gift_card_recipient_feature_active == false
+        assign show_dynamic_checkout = true
+      endif
+    %}
+    <product-form class="product-form mt-auto" data-hide-errors="{{ gift_card_recipient_feature_active }}">
+      <div class="product-form__error-message-wrapper flex px-4 items-center gap-x-2" role="alert" hidden>
+        <svg
+            aria-hidden="true"
+            focusable="false"
+            class="icon icon-error w-[20px]"
+            viewBox="0 0 13 13"
+        >
+          <circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2"/>
+          <circle cx="6.5" cy="6.5" r="5.5" fill="#EB001B" stroke="#EB001B" stroke-width="0.7"/>
+          <path d="M5.87413 3.52832L5.97439 7.57216H7.02713L7.12739 3.52832H5.87413ZM6.50076 9.66091C6.88091 9.66091 7.18169 9.37267 7.18169 9.00504C7.18169 8.63742 6.88091 8.34917 6.50076 8.34917C6.12061 8.34917 5.81982 8.63742 5.81982 9.00504C5.81982 9.37267 6.12061 9.66091 6.50076 9.66091Z" fill="white"/>
+          <path d="M5.87413 3.17832H5.51535L5.52424 3.537L5.6245 7.58083L5.63296 7.92216H5.97439H7.02713H7.36856L7.37702 7.58083L7.47728 3.537L7.48617 3.17832H7.12739H5.87413ZM6.50076 10.0109C7.06121 10.0109 7.5317 9.57872 7.5317 9.00504C7.5317 8.43137 7.06121 7.99918 6.50076 7.99918C5.94031 7.99918 5.46982 8.43137 5.46982 9.00504C5.46982 9.57872 5.94031 10.0109 6.50076 10.0109Z" fill="white" stroke="#EB001B" stroke-width="0.7"/>
+        </svg>
+        <span class="product-form__error-message"></span>
+      </div>
+
+      {% form 'product',
+          product,
+          id: product_form_id,
+          class: 'form',
+          novalidate: 'novalidate',
+          data-type: 'add-to-cart-form'
+      %}
+      <input
+          type="hidden"
+          name="id"
+          value="{{ current_variant.id }}"
+          disabled
+          class="product-variant-id"
+      >
+      <input type="hidden" name="properties[Monogram]" id="personalization_text_input">
+      <input
+          type="hidden"
+          name="properties[Style]"
+          value="{{ selected_font_name }}"
+          id="personalization_style_input"
+      >
+      <input
+          type="hidden"
+          name="properties[Colour]"
+          value="{{ selected_colour_name }}"
+          id="personalization_colour_input"
+      >
+      {% if gift_card_recipient_feature_active %}
+        {% render 'gift-card-recipient-form', product: product, form: form, section: section %}
+      {% endif %}
+
+      <div id="add-dynamic-props"></div>
+
+      <div class="product-form__buttons1 flex flex-col gap-2">
+        {% liquid
+          assign check_against_inventory = true
+          if current_variant.inventory_management != 'shopify' or current_variant.inventory_policy == 'continue'
+            assign check_against_inventory = false
+          endif
+          if current_variant.quantity_rule.min > current_variant.inventory_quantity and check_against_inventory
+            assign quantity_rule_soldout = true
+          endif
+        %}
+
+        <div class="flex gap-2 items-end m-4">
+          <div class="flex-[2] overflow-hidden">
+            <button
+                id="ProductPersonalizeSubmitButton-{{ section_id }}"
+                type="submit"
+                name="add_personalise"
+                data-personalized="true"
+                data-personalize-product-id="{{ perProd.id }}"
+                data-personalize-variant-id="{{ perProd.first_available_variant.id }}"
+                class="product-form__submit button button--full-width btn-large btn-primary relative overflow-hidden
+                text-base text-secondary-white w-full max-w-none btn-hover-animated-primary"
+                {% if current_variant.available == false or quantity_rule_soldout %}
+                  disabled
+                {% endif %}
+            >
+              <p class="truncate uppercase font-normal">
+                {% if current_variant.available == false or quantity_rule_soldout %}
+                  {{ 'products.product.sold_out' | t }}
+                {% else %}
+                  ADD PERSONALISATION
+                {% endif %}
+              </p>
+              <div
+                  class="no-js-hidden font-semibold ml-2"
+                  id="personalize-price-{{ section.id }}"
+                  data-personalize-price="price-{{ section.id }}"
+                  role="status"
+                  {{ block.shopify_attributes }}
+              >
+                {{ final | times: 100 | money }}
+              </div>
+
+              <div class="loading-overlay__spinner hidden g absolute top-1/2 right-3 -translate-y-1/2">
+                <svg
+                    aria-hidden="true"
+                    focusable="false"
+                    class="spinner"
+                    viewBox="0 0 66 66"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle class="path !stroke-current" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                </svg>
+              </div>
+            </button>
+
+            <p class="font-normal text-sm text-center tracking-[.25px] mt-1 xl:mt-4">
+              * Personalisation Orders will be delivered in 8-10 Working Days
+            </p>
+          </div>
+        </div>
+
+        {% if show_dynamic_checkout %}
+          {{ form | payment_button }}
+        {%- endif -%}
+      </div>
+      {%- endform -%}
+    </product-form>
+
+    {%- else -%}
+      <div class="product-form">
+        <div class="product-form__buttons form">
+          <button
+              type="submit"
+              class="product-form__submit button button--full-width button--primary"
+              disabled
+          >
+            {{ 'products.product.sold_out' | t }}
+          </button>
+        </div>
+      </div>
+    {%- endif -%}
+
+    {%- if show_pickup_availability -%}
+      {{ 'component-pickup-availability.css' | asset_url | stylesheet_tag }}
+
+      {%- assign pick_up_availabilities = current_variant.store_availabilities | where: 'pick_up_enabled', true -%}
+
+      <pickup-availability
+          class="product__pickup-availabilities no-js-hidden quick-add-hidden"
+          {% if current_variant.available and pick_up_availabilities.size > 0 %}
+            available
+          {% endif %}
+          data-root-url="{{ routes.root_url }}"
+          data-variant-id="{{ current_variant.id }}"
+          data-has-only-default-variant="{{ product.has_only_default_variant }}"
+      >
+        <template>
+          <pickup-availability-preview class="pickup-availability-preview">
+            {% render 'icon-unavailable' %}
+            <div class="pickup-availability-info">
+              <p class="caption-large">{{ 'products.product.pickup_availability.unavailable' | t }}</p>
+              <button class="pickup-availability-button link link--text underlined-link">
+                {{ 'products.product.pickup_availability.refresh' | t }}
+              </button>
+            </div>
+          </pickup-availability-preview>
+        </template>
+      </pickup-availability>
+
+      <script src="{{ 'pickup-availability.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
+  </div>
+</section>
+
+<script src="{{ 'personalize.js' | asset_url }}" defer="defer"></script>

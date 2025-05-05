@@ -1,0 +1,38 @@
+<a href="{{ routes.cart_url }}" class="relative flex items-center outline-none" id="cart-icon-bubble">
+  {%- liquid
+    if cart != empty
+      render 'icon-cart-notempty'
+    else
+      render 'icon-cart'
+    endif
+  -%}
+  <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
+  {%- if cart != empty -%}
+    <div class="cart-count-bubble absolute -translate-y-1/2 translate-x-2 lg:text-[9px] text-[8px] ico ml-2 mt-0 sm:mt-1 xl:mt-0 xl:pb-0.5">
+      {%- if cart.item_count < 100 -%}
+        <span aria-hidden="true">
+          {%- assign excluded_handles = '' -%}
+          {%- if settings.product_samples != blank -%}
+            {%- for sample_product in settings.product_samples -%}
+              {%- assign handle = sample_product.handle -%}
+              {%- if excluded_handles == '' -%}
+                {%- assign excluded_handles = handle -%}
+              {%- else -%}
+                {%- assign excluded_handles = excluded_handles | append: ',' | append: handle -%}
+              {%- endif -%}
+            {%- endfor -%}
+          {%- endif -%}
+          {%- assign excluded_handles = excluded_handles | append: ',product-personalization' | split: ',' -%}
+          {%- assign adjusted_count = 0 -%}
+          {%- for item in cart.items -%}
+            {%- unless excluded_handles contains item.product.handle -%}
+              {%- assign adjusted_count = adjusted_count | plus: item.quantity -%}
+            {%- endunless -%}
+          {%- endfor -%}
+          {{ adjusted_count }}
+        </span>
+      {%- endif -%}
+      <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+    </div>
+  {%- endif -%}
+</a>

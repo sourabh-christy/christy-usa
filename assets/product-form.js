@@ -7,7 +7,10 @@ if (!customElements.get('product-form')) {
 
         this.form = this.querySelector('form');
         this.form.querySelector('[name=id]').disabled = false;
+        this.quickAddModal = this.closest('quick-add-modal');
+        this.isQuickAdd = this.quickAddModal !== null;
         this.submitButton = this.querySelector('[type="submit"]');
+        this.viewFullDetailsButton = this.querySelector('.btn-product-full-details');
         // if(this.submitButton.getAttribute('data-personalized') === 'true'){
         //   this.form.addEventListener('submit', this.onPersonalizedSubmitHandler.bind(this));
         // }else{
@@ -18,6 +21,8 @@ if (!customElements.get('product-form')) {
         if (document.querySelector('cart-drawer')) this.submitButton.setAttribute('aria-haspopup', 'dialog');
 
         this.hideErrors = this.dataset.hideErrors === 'true';
+
+        this.wrapper = this.closest('.product');
       }
 
       // onPersonalizedSubmitHandler(evt) {
@@ -43,6 +48,7 @@ if (!customElements.get('product-form')) {
       // }
 
       onSubmitHandler(evt) {
+        const isStickyAddToCart = this.submitButton.dataset.stickyAddToCart !== undefined;
 
         evt.preventDefault();
 
@@ -67,20 +73,22 @@ if (!customElements.get('product-form')) {
         }
 
         if (this.submitButton.getAttribute('data-personalized') === 'true') {
-          if (document.querySelector("#monogram").value === "") {
+          const mainProductSection = this.closest('.section-main-product-js') ?? this.closest('.quick-add-modal');
+          if (!mainProductSection) return
+
+          if (mainProductSection.querySelector("#monogram").value === "") {
             console.log("iN error");
             this.hideErrors = false;
             this.handleErrorMessage("Please Enter Monogram Text");
             return;
           }
-
         }
 
         if (this.submitButton.getAttribute('aria-disabled') === 'true') return;
 
         this.handleErrorMessage();
 
-        this.submitButton.setAttribute('aria-disabled', true);
+        this.submitButton.setAttribute('aria-disabled', 'true');
         this.submitButton.classList.add('loading');
         this.querySelector('.loading-overlay__spinner').classList.remove('hidden');
 
@@ -88,7 +96,9 @@ if (!customElements.get('product-form')) {
         config.headers['X-Requested-With'] = 'XMLHttpRequest';
         delete config.headers['Content-Type'];
 
-        const formData = new FormData(this.form);
+        const formData = new FormData(isStickyAddToCart
+          ? this.closest('.product').querySelector('[data-main-product-form] form')
+          : this.form);
 
         if (this.cart) {
 
@@ -96,28 +106,49 @@ if (!customElements.get('product-form')) {
             'sections',
             this.cart.getSectionsToRender().map((section) => section.id)
           );
+
           formData.append('sections_url', window.location.pathname);
           this.cart.setActiveElement(document.activeElement);
         }
-        console.log("aplus",formData.get("aplusproducts"))
-        if(formData.get("aplusproducts")){
+
+        console.log("aplus", formData.get("aplusproducts"))
+
+        let itemsInCart = 0
+        if (formData.get("aplusproducts")) {
           let newFormData = new FormData();
-          newFormData.append("items[0][id]",formData.get("id"))
-          newFormData.append("sections",formData.get("sections"))
-          newFormData.append("sections_url",formData.get("sections_url"))
+          newFormData.append("items[0][id]", formData.get("id"))
+          itemsInCart++
+          newFormData.append("sections", formData.get("sections"))
+          newFormData.append("sections_url", formData.get("sections_url"))
           let aPlusProducts = formData.get("aplusproducts")
           let aplus_array = aPlusProducts.split(",")
-          aplus_array.map((ap,i)=>{
+          aplus_array.map((ap, i) => {
             let t = ap.split("-")
-            if(t.length > 1){
-              newFormData.append(`items[${i+1}][id]`,t[0])
-              newFormData.append(`items[${i+1}]][quantity]`,t[2])
+            if (t.length > 1) {
+              itemsInCart++
+              newFormData.append(`items[${i + 1}][id]`, t[0])
+              newFormData.append(`items[${i + 1}]][quantity]`, t[2])
             }
           })
-          config.body = newFormData;  
-        }else{
+          config.body = newFormData;
+        } else {
           config.body = formData;
         }
+
+        const giftInput = this.wrapper?.querySelector('[data-gift-product-input]');
+        const giftForm = this.wrapper?.querySelector('[data-gift-box-form]');
+        if (giftInput && giftForm && giftInput.checked) {
+          config.body.append(`items[${itemsInCart}][id]`, giftInput.dataset.giftVariant);
+          config.body.append(`items[${itemsInCart}][quantity]`, 1);
+          config.body.append(`items[${itemsInCart}][properties][_gift_box_for_product]`, giftInput.dataset.giftForProduct);
+          // config.body.append(`items[${itemsInCart}][properties][_gift_box_for_product_variant_id]`, formData.get('id'));
+          config.body.append(`items[${itemsInCart}][properties][_gift_box_message]`, giftForm.querySelector('[name=message]').value);
+          config.body.append(`items[${itemsInCart}][properties][_gift_box_recipient]`, giftForm.querySelector('[name=recipient]').value);
+          config.body.append(`items[${itemsInCart}][properties][_gift_box_sender]`, giftForm.querySelector('[name=sender]').value);
+        }
+
+        itemsInCart = 0
+
         fetch(`${routes.cart_add_url}`, config)
           .then((response) => response.json())
           .then((response) => {
@@ -132,7 +163,7 @@ if (!customElements.get('product-form')) {
 
               const soldOutMessage = this.submitButton.querySelectorAll('.sold-out-message');
               if (!soldOutMessage) return;
-              this.submitButton.setAttribute('aria-disabled', true);
+              this.submitButton.setAttribute('aria-disabled', 'false');
               this.submitButton.querySelector('span').classList.add('hidden');
 
               soldOutMessage.forEach((obj) => {
@@ -149,7 +180,7 @@ if (!customElements.get('product-form')) {
               publish(PUB_SUB_EVENTS.cartUpdate, { source: 'product-form', productVariantId: formData.get('id') });
             this.error = false;
             if (this.submitButton.getAttribute('data-personalized') === 'true') {
-              document.querySelector(".personalize-drawer").classList.remove('active')
+              showHideDrawer(this);
               const config = fetchConfig('javascript');
               config.headers['X-Requested-With'] = 'XMLHttpRequest';
               delete config.headers['Content-Type'];
@@ -157,7 +188,6 @@ if (!customElements.get('product-form')) {
               formData1.set('id', this.submitButton.getAttribute('data-personalize-variant-id'))
               formData1.set('product-id', this.submitButton.getAttribute('data-personalize-product-id'))
               if (this.cart) {
-
                 formData1.append(
                   'sections',
                   this.cart.getSectionsToRender().map((section) => section.id)
@@ -170,21 +200,12 @@ if (!customElements.get('product-form')) {
                 .then((response1) => response1.json())
                 .then((response1) => {
 
-                  const quickAddModal = this.closest('quick-add-modal');
-                  if (quickAddModal) {
-                    document.body.addEventListener(
-                      'modalClosed',
-                      () => {
-                        setTimeout(() => {
-                          this.cart.renderContents(response1);
-                        });
-                      },
-                      { once: true }
-                    );
-                    quickAddModal.hide(true);
-                  } else {
-                    this.cart.renderContents(response1);
-                  }
+                if (this.isQuickAdd) {
+                  this.quickAddModal.handleQuickAddThankYouModal(response1);
+                  this.cart.renderContents(response1, true);
+                } else {
+                  this.cart.renderContents(response1);
+                }
                   this.clearSelection();
                 })
                 .catch((e) => {
@@ -195,18 +216,9 @@ if (!customElements.get('product-form')) {
                 });
             } else {
 
-              const quickAddModal = this.closest('quick-add-modal');
-              if (quickAddModal) {
-                document.body.addEventListener(
-                  'modalClosed',
-                  () => {
-                    setTimeout(() => {
-                      this.cart.renderContents(response);
-                    });
-                  },
-                  { once: true }
-                );
-                quickAddModal.hide(true);
+              if (this.isQuickAdd) {
+                this.quickAddModal.handleQuickAddThankYouModal(response);
+                this.cart.renderContents(response, true);
               } else {
                 this.cart.renderContents(response);
               }
@@ -241,9 +253,23 @@ if (!customElements.get('product-form')) {
         this.errorMessage = this.errorMessage || this.errorMessageWrapper.querySelector('.product-form__error-message');
 
         this.errorMessageWrapper.toggleAttribute('hidden', !errorMessage);
-
         if (errorMessage) {
-          this.errorMessage.textContent = errorMessage;
+          if (typeof errorMessage === 'object' && !Array.isArray(errorMessage) && errorMessage !== null) {
+            var errorMsgs = []
+            Object.keys(errorMessage).forEach((key) => {
+              if (Array.isArray(errorMessage[key])) {
+                errorMsgs = [...errorMsgs, ...errorMessage[key]]
+              } else {
+                errorMsgs.push(errorMessage[key])
+              }
+            })
+
+            this.errorMessage.innerHTML = '<pre style="font-family:inherit;">' + errorMsgs.join("\n") + '<pre>';
+
+          } else {
+            this.errorMessage.textContent = errorMessage;
+          }
+
         }
       }
     }

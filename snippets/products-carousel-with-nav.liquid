@@ -1,0 +1,104 @@
+{% comment %}
+  props:
+    - products: array of products | required
+    - class: string | optional
+    - section_id: string | optional | default: parent section id
+    - products_limit: number | optional
+    - nav: boolean | optional | default: true
+    - progress_bar: boolean | optional | default: true
+{% endcomment %}
+
+{% liquid
+    assign section_id = section_id | default: section.id
+    assign nav = nav | default: true | allow_false: true
+    assign progress_bar = nav | default: true | allow_false: true
+%}
+
+<div
+    class="splide group/splide flex flex-col-reverse gap-y-3 lg:gap-y-4 {{ class }}"
+    data-splide='
+                {
+                  "arrows": true,
+                  "pagination": false,
+                  "type": "slide",
+                  "autoWidth": true,
+                  "focus": 0,
+                  "gap": "2px",
+                  "omitEnd": true,
+                  "perPage": 4,
+                  "perMove": 4,
+                  "breakpoints": {
+                    "1023": {
+                      "gap": "4px",
+                      "perPage": 3,
+                      "perMove": 3
+                    },
+                    "767": {
+                      "gap": "6px",
+                      "perPage": 2,
+                      "perMove": 2
+                    },
+                    "640": {
+                      "gap": "8px",
+                      "perPage": 1,
+                      "perMove": 1
+                    }
+                  }
+                }
+              '
+>
+  {% if nav %}
+  <!-- arrows -->
+  <div data-splide-nav class="splide__arrows splide__arrows--ltr hidden group-[.is-initialized]/splide:!flex justify-center items-center">
+    <!-- counter -->
+    <div class="text-xs">
+      <span data-splide-current-page class="data-[splide-is-last-page=true]:text-secondary-blue-200">1</span>
+      /
+      <span data-splide-total-pages class="text-secondary-blue-200"></span>
+    </div>
+
+    <!-- buttons -->
+    <div class="flex items-center absolute right-0"> 
+      <button
+          class="splide__arrow splide__arrow--prev disabled:!text-secondary-blue-200 transition-colors !bg-transparent
+          !static !transform-none outline-none"
+          type="button"
+          aria-label="Previous slide"
+          aria-controls="splide01-track"
+      >
+        {%- render 'icon-long-arrow-right', class: '!w-6 !h-6' -%}
+      </button>
+
+      <button
+          class="splide__arrow splide__arrow--next disabled:!text-secondary-blue-200 transition-colors
+          !bg-transparent !static !transform-none outline-none"
+          type="button"
+          aria-label="Next slide"
+          aria-controls="splide01-track"
+      >
+        {%- render 'icon-long-arrow-right', class: '!w-6 !h-6' -%}
+      </button>
+    </div>
+  </div>
+  {% endif %}
+
+  {% if progress_bar %}
+  <!-- progress bar -->
+  <div data-splide-progress-bar class="space-y-3 lg:space-y-4 mt-3 lg:mt-2">
+    <div class="bg-secondary-blue-100 slider-progress h-px flex items-center">
+      <div class="bg-secondary-blue-600 h-px transition-all w-0 lg:h-0.5 slider-progress-bar"></div>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- track -->
+  <div class="splide__track max-md:!overflow-visible">
+    <div class="splide__list text-blue-1">
+      {% for product in products limit: products_limit -%}
+        <div class="splide__slide w-4/5  sm:w-[calc(50%-6px)] md:w-[calc(33.3333%-4px)] lg:w-[calc(25%-2px)]">
+          {% render 'card-product', card_product: product, section_id: section_id %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

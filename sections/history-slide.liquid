@@ -1,0 +1,435 @@
+<div class="history-slider-container  mx-auto">
+  <h3 class="font-sec font-normal text-center text-primary-blue text-[32px] leading-10 lg:text-[45px] lg:leading-[52px] py-6 lg:pb-[30px] lg:pt-[48px]">
+    {{ section.settings.title }}
+  </h3>
+  <div class="history-slider-track relative h-[432px] lg:h-[400px] w-full overflow-hidden bg-[#f7f8f5] ">
+    <div class="flex lg:hidden h-full justify-between flex-col absolute top-0 left-14">
+      <div class="grid grid-cols-1 grid-rows-[1fr_15px] justify-items-center h-32">
+        <span class="w-[1px] bg-primary-blue h-full"></span>
+        <span class="w-[15px] h-[15px] rounded-full bg-primary-blue"></span>
+      </div>
+      <div class="grid grid-cols-1 grid-rows-[15px_1fr] justify-items-center h-36">
+        <span class="w-[15px] h-[15px] rounded-full bg-primary-blue"></span>
+        <span class="w-[1px] bg-primary-blue h-full"></span>
+      </div>
+    </div>
+    {% for block in section.blocks %}
+      <div class="history-slider-slide">
+        <div class="history-slide-content w-full h-full items-center flex lg:grid gap-5  lg:grid-cols-[230px_1fr_1fr] xl:grid-cols-3">
+          <div class="text-left-container absolute top-auto lg:relative max-w-[200px] xl:max-w-[420px]">
+            <div class="text-left-wrapper text-[77px] lg:text-[50px] xl:text-[100px] 2xl:text-[116px] font-sec font-normal leading-[77px] lg:leading-[60px] xl:leading-[116px] tracking-[-0.5px] ml-9 lg:ml-12">
+              {{ block.settings.text_left }}
+            </div>
+            {%- if forloop.index == 1 -%}
+              <div class="text-left-progress-bar index-0">
+                <p class="w-full h-[1px] bg-primary-blue"></p>
+                <span class="w-[26px] h-[26px] block rounded-full bg-primary-blue"></span>
+              </div>
+            {%- else -%}
+              <div class="lg:h-[26px]"></div>
+            {%- endif -%}
+          </div>
+          <div class="text-center-container z-[1] pl-24 pr-8 lg:pl-0 lg:pr-0 [&>p]:flex [&>p]:flex-col font-semibold text-xs xl:text-base tracking-[0.15px] [&>p>strong]:font-sec md:[&>p]:max-w-80 xl:[&>p]:max-w-full [&>p>strong]:mb-52 lg:[&>p>strong]:mb-12 [&>p>strong]:font-normal [&>p>strong]:text-[24px] xl:[&>p>strong]:text-[57px] [&>p>strong]:leading-[36px] xl:[&>p>strong]:leading-[64px] [&>p>strong]:tracking-[-0.25px]">
+            {{ block.settings.text_center }}
+          </div>
+          <img
+            class="image-right object-contain"
+            src="{{ block.settings.image | img_url:"master" }}"
+            loading="lazy"
+          >
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="p-4 lg:px-12 lg:pt-4 pb-0">
+    <div class="main-progress-bar-container h-[1px] w-full bg-secondary-blue-50">
+      <div class="main-progress-bar h-full bg-primary-blue"></div>
+    </div>
+    <div class="history-slider-navigation w-full flex justify-center items-center relative mt-4">
+      <div class="slide-counter flex font-normal text-xs text-secondary-blue-200 [&>p]:text-primary-blue"></div>
+      <div class="flex items-center absolute right-0">
+        <button class="history-slider-navigation--prev">{% render 'icon-arrow-long' %}</button>
+        <button class="history-slider-navigation--next">{% render 'icon-arrow-long' %}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .history-slider-navigation .disabled svg path {
+    fill: #b5b1d8;
+  }
+
+  .history-slider-slide {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .history-slider-navigation--prev {
+    transform: rotate(180deg);
+  }
+
+  .text-left-progress-bar {
+    display: none;
+  }
+
+  .image-right {
+    max-width: fit-content;
+    opacity: 0;
+    transform: translate(70%, 0px);
+    height: 100%;
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    z-index: 0;
+    transition: all 0.4s ease;
+  }
+
+  .history-slider-slide:nth-of-type(2) .image-right {
+    transform: translate(50%, 0px);
+  }
+
+  .history-slider-slide:nth-of-type(3) .image-right {
+    transform: translate(86%, 56px);
+  }
+  @media (min-width: 767px) {
+    .history-slider-slide:nth-of-type(2) .image-right {
+      transform: translate(10%, 0px);
+    }
+
+    .history-slider-slide:nth-of-type(3) .image-right {
+      transform: translate(30%, 0px);
+    }
+  }
+
+  @media (min-width: 767px) and (max-width: 1023px) {
+    .image-right {
+      transform: translate(6%, 0px);
+    }
+  }
+
+  .text-left-wrapper {
+    opacity: 0;
+    transition: all 0.4s ease;
+  }
+
+  .history-slider-slide.next-active .text-left-wrapper {
+    opacity: 1;
+  }
+  .history-slider-slide.next-enter .text-left-wrapper,
+  .history-slider-slide.next-exit .text-left-wrapper {
+    opacity: 0;
+  }
+
+  .history-slider-slide.prev-active .text-left-wrapper {
+    opacity: 1;
+  }
+  .history-slider-slide.prev-enter .text-left-wrapper,
+  .history-slider-slide.prev-exit .text-left-wrapper {
+    opacity: 0;
+  }
+
+  .history-slider-slide.next-active .image-right {
+    opacity: 1;
+  }
+  .history-slider-slide.next-enter .image-right,
+  .history-slider-slide.next-exit .image-right {
+    opacity: 0;
+  }
+
+  .history-slider-slide.prev-active .image-right {
+    opacity: 1;
+  }
+  .history-slider-slide.prev-enter .image-right,
+  .history-slider-slide.prev-exit .image-right {
+    opacity: 0;
+  }
+
+  .text-center-container {
+    opacity: 0;
+    transition: all 0.4s ease;
+  }
+
+  .history-slider-slide.next-active .text-center-container {
+    opacity: 1;
+  }
+  .history-slider-slide.next-enter .text-center-container,
+  .history-slider-slide.next-exit .text-center-container {
+    opacity: 0;
+  }
+
+  .history-slider-slide.prev-active .text-center-container {
+    opacity: 1;
+  }
+  .history-slider-slide.prev-enter .text-center-container,
+  .history-slider-slide.prev-exit .text-center-container {
+    opacity: 0;
+  }
+
+  @media (min-width: 1023px) {
+    .text-left-progress-bar {
+      display: grid;
+      grid-template-columns: 1fr 26px;
+      align-items: center;
+      margin-left: 10px;
+      transition: all 0.4s ease;
+      opacity: 1;
+    }
+    .main-progress-bar {
+      width: 0%;
+      transition: width 0.4s ease;
+    }
+    .image-right {
+      position: relative;
+      opacity: 1;
+      transform: scale(0.5) translate(100%, -150%);
+      transition: transform 0.4s ease;
+    }
+
+    .history-slider-slide:nth-of-type(3) .image-right {
+      transform: scale(0.5) translate(100%, -150%);
+    }
+
+    .text-left-wrapper {
+      transform: translate(calc(-100% - 48px), -20%);
+    }
+    .history-slider-slide.next-active .text-left-wrapper {
+      transform: translate(0%, 0%);
+      opacity: 1;
+    }
+    .history-slider-slide.next-enter .text-left-wrapper,
+    .history-slider-slide.next-exit .text-left-wrapper {
+      transform: translate(calc(-100% - 48px), -20%);
+      opacity: 0;
+    }
+
+    .history-slider-slide.next-enter .image-right {
+      transform: scale(0.5) translate(50%, 150%);
+    }
+    .history-slider-slide.next-active .image-right {
+      transform: scale(1) translate(0%, 0%);
+    }
+    .history-slider-slide.next-exit .image-right {
+      transform: scale(0.5) translate(100%, -150%);
+    }
+
+    .history-slider-slide.prev-active .text-left-wrapper {
+      transform: translate(0%, 0%);
+      opacity: 1;
+    }
+    .history-slider-slide.prev-enter .text-left-wrapper,
+    .history-slider-slide.prev-exit .text-left-wrapper {
+      transform: translate(calc(-100% - 48px), -20%);
+      opacity: 0;
+    }
+
+    .history-slider-slide.prev-enter .image-right {
+      transform: scale(0.5) translate(100%, -150%);
+    }
+    .history-slider-slide.prev-active .image-right {
+      transform: scale(1) translate(0%, 0%);
+    }
+    .history-slider-slide.prev-exit .image-right {
+      transform: scale(0.5) translate(100%, -150%);
+    }
+
+    .history-slider-slide:nth-of-type(2) .image-right {
+      opacity: 0;
+      transform: translate(0%, 0%);
+      transition: all 0.5s ease;
+      transform: none !important;
+    }
+
+    .history-slider-slide:nth-of-type(2).next-active .image-right,
+    .history-slider-slide:nth-of-type(2).prev-active .image-right {
+      opacity: 1;
+      transform: none !important;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .history-slider-slide.prev-active .image-right,
+    .history-slider-slide.next-active .image-right {
+      opacity: 0.5;
+    }
+    .history-slide-content .text-left-container {
+      z-index: 2;
+    }
+
+    .history-slider-slide:nth-of-type(2) .image-right {
+      transform: translate(22%, 0px);
+    }
+    .history-slider-slide:nth-of-type(3) .image-right {
+      transform: translate(39%, -10px);
+    }
+    .history-slider-slide:nth-of-type(4) .image-right {
+      transform: translate(12%, -10px);
+    }
+    .history-slider-slide:nth-of-type(5) .image-right {
+      transform: translate(12%, -10px);
+    }
+    .history-slider-slide:nth-of-type(6) .image-right {
+      transform: translate(12%, -10px);
+    }
+    .history-slider-slide:nth-of-type(7) .image-right {
+      transform: translate(12%, -35px);
+    }
+    .history-slider-slide:nth-of-type(8) .image-right {
+      transform: translate(12%, -10px);
+    }
+    .history-slider-slide:nth-of-type(9) .image-right {
+      transform: translate(12%, -35px);
+    }
+    .history-slider-slide:nth-of-type(10) .image-right {
+      transform: translate(12%, -10px);
+    }
+  }
+</style>
+
+<script defer>
+  const historySlideContainer = document.querySelector('.history-slider-container');
+  const historySlides = historySlideContainer?.querySelectorAll('.history-slider-slide');
+  const historySlideTrack = historySlideContainer?.querySelector('.history-slider-track');
+  const prevButton = document.querySelector('.history-slider-navigation--prev');
+  const nextButton = document.querySelector('.history-slider-navigation--next');
+  const progressBarSmall = document.querySelector('.text-left-progress-bar');
+  const progressBar = document.querySelector('.main-progress-bar');
+  const slideCounter = document.querySelector('.slide-counter');
+  let currentIndex = 0;
+  let touchStartX = 0;
+  let touchEndX = 0;
+  let touchStartY = 0;
+  let isSwiping = false;
+
+  function updateProgressBar(progressBar, index) {
+    const totalSlides = historySlides.length;
+    const progressPercentage = ((index + 1) / totalSlides) * 100;
+    progressBar.style.width = `${progressPercentage}%`;
+  }
+
+  function updateSlideCounter(index) {
+    const totalSlides = historySlides.length;
+    slideCounter.innerHTML = `<p>${index + 1}/</p>${totalSlides}`;
+  }
+
+  function updateSlides(direction) {
+    historySlides.forEach((slide, index) => {
+      slide.classList.remove('next-enter', 'next-active', 'next-exit', 'prev-enter', 'prev-active', 'prev-exit');
+
+      if (index === currentIndex) {
+        slide.classList.add(`${direction}-active`);
+      } else if (index < currentIndex && direction === 'prev') {
+        slide.classList.add('prev-exit');
+      } else if (index > currentIndex && direction === 'next') {
+        slide.classList.add('next-enter');
+      }
+    });
+
+    prevButton.classList.toggle('disabled', currentIndex === 0);
+    nextButton.classList.toggle('disabled', currentIndex === historySlides.length - 1);
+
+    updateProgressBar(progressBar, currentIndex);
+    updateProgressBar(progressBarSmall, currentIndex);
+    updateSlideCounter(currentIndex);
+  }
+
+  function handleSwipe() {
+    const swipeThreshold = 50; 
+    const swipeDistance = touchEndX - touchStartX;
+
+    if (Math.abs(swipeDistance) > swipeThreshold) {
+      if (swipeDistance < 0 && currentIndex < historySlides.length - 1) {
+        currentIndex++;
+        updateSlides('next');
+      } else if (swipeDistance > 0 && currentIndex > 0) {
+        currentIndex--;
+        updateSlides('prev');
+      }
+    }
+  }
+
+  historySlideTrack?.addEventListener('touchstart', (event) => {
+    touchStartX = event.touches[0].clientX; 
+    touchStartY = event.touches[0].clientY; 
+    isSwiping = false;
+  });
+
+  historySlideTrack?.addEventListener('touchmove', (event) => {
+    const touchMoveX = event.touches[0].clientX;
+    const touchMoveY = event.touches[0].clientY;
+
+    if (Math.abs(touchMoveX - touchStartX) > Math.abs(touchMoveY - touchStartY)) {
+      event.preventDefault(); 
+      touchEndX = touchMoveX; 
+      isSwiping = true;
+    }
+  });
+
+  historySlideTrack?.addEventListener('touchend', () => {
+    if (isSwiping) {
+      handleSwipe();
+    }
+  });
+
+  nextButton?.addEventListener('click', () => {
+    if (currentIndex < historySlides.length - 1) {
+      currentIndex++;
+      updateSlides('next');
+    }
+  });
+
+  prevButton?.addEventListener('click', () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateSlides('prev');
+    }
+  });
+
+  updateSlides('next');
+</script>
+
+{% schema %}
+{
+  "name": "History Slider",
+  "tag": "section",
+  "class": "section-history-slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Our History"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text_left",
+          "label": "Text left"
+        },
+        {
+          "type": "richtext",
+          "id": "text_center",
+          "label": "Text center"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "History Slider"
+    }
+  ]
+}
+{% endschema %}

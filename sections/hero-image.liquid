@@ -1,8 +1,8 @@
 <div
   id="Hero-{{ section.id }}"
 >
-  {% comment %} assign full_width = '100vw' {% endcomment %}
   {%- liquid
+    assign full_width = '100vw'
     assign widths = '375, 550, 750, 1100, 1920'
     assign sizes = '100vw'
 
@@ -20,6 +20,9 @@
     assign image_class_tab = 'w-full h-auto block tab hidden md:block lg:hidden'
   -%}
   <style>
+    .h-\[50vh\] {
+      height: auto;
+    }
     @media (min-width: 768px) {
       .md\:block {
         display: block;
@@ -32,10 +35,13 @@
       .lg\:hidden {
         display: none;
       }
+      .lg\:h-screen {
+        height: auto;
+      }
     }
   </style>
   <div
-    class=""
+    class="h-[50vh] lg:h-screen"
   >
     <div class="relative_ {% if section.settings.full_width != true %}container{% endif %}">
       {% if section.settings.link != blank %}
@@ -46,19 +52,24 @@
         {{
           section.settings.video
           | video_tag:
-            image_size: '1100x',
+            muted: true,
             autoplay: true,
-            loop: false,
-            controls: true,
-            muted: false,
-            class: ' aspect-video w-full'
+            loop: true,
+            playsinline: true,
+            class: 'w-full h-full object-cover absolute inset-0'
         }}
-
       {%- elsif section.settings.image != blank -%}
         {{
           section.settings.image
           | image_url: width: 1920
-          | image_tag: loading: 'eager', preload: true, width: 1920, height: 1920, class: image_class, sizes: sizes, widths: widths
+          | image_tag:
+            loading: 'eager',
+            preload: true,
+            width: 1920,
+            height: 1920,
+            class: image_class,
+            sizes: sizes,
+            widths: widths
         }}
         {%- if section.settings.image_mobile != blank -%}
           {{
@@ -125,7 +136,6 @@
       "id": "image_tab",
       "label": "Choose a static image for Tab"
     },
-    
     {
       "type": "video",
       "id": "video",
@@ -151,5 +161,4 @@
     }
   ]
 }
-
 {% endschema %}
