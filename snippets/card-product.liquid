@@ -260,6 +260,9 @@
               {{ card_product.title | escape }}
             {% endif %}
           </h3>
+          <!-- Yotpo Star Rating(Category) | location: snippets/card-product.liquid -->
+           <div class="yotpo-widget-instance" data-yotpo-instance-id="1054681" data-yotpo-product-id="{{card_product.id}}" data-yotpo-cart-product-id="{{item.product.id}}" data-yotpo-section-id="{{template.name}}"></div>
+           <!-- End of Yotpo Star Rating(Category) -->
           <div class="flex justify-between max-md:text-[10px] flex-wrap">
             {% if bundleData != blank %}
               {% assign bundleDataValue = bundleData.value %}
