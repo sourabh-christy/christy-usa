@@ -11,6 +11,7 @@
   "sections": {
     "main": {
       "type": "main-404",
+      "disabled": true,
       "settings": {}
     },
     "hero_banner_RmYAWD": {
@@ -37,10 +38,33 @@
         "video": "shopify://files/videos/_HP Banner video Revised 5mb.mp4",
         "full_width": true
       }
+    },
+    "heading_6fHnVn": {
+      "type": "heading",
+      "name": "Heading",
+      "settings": {
+        "heading": "<p>Creating Luxuries Since 1850.</p>",
+        "heading_font_size_mob": 24,
+        "heading_font_size_desktop": 36,
+        "heading_font_weight": "400",
+        "heading_font_family": "Hatton, serif",
+        "heading_width": "4",
+        "copy": "<p>Often called the inventors of the modern towel, our heritage is a testament to unparalleled precision and the artistry of British craftsmanship.</p>",
+        "heading_copy_font_size_mob": 12,
+        "heading_copy_font_size_desktop": 16,
+        "heading_copy_font_weight": "300",
+        "heading_copy_font_family": "Tomato Grotesk",
+        "copy_style": "default",
+        "alignment": "left",
+        "alignment_mob": "center",
+        "horiz_padding": true,
+        "margin_top": false
+      }
     }
   },
   "order": [
     "main",
-    "hero_banner_RmYAWD"
+    "hero_banner_RmYAWD",
+    "heading_6fHnVn"
   ]
 }
