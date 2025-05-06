@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "0c8f5654-f9bf-44d9-aef0-e8516e73109b": {
@@ -19,13 +19,11 @@
     },
     "main": {
       "type": "main-product",
-      "settings": {
-      }
+      "settings": {}
     },
     "169090501824a740ea": {
       "type": "apps",
-      "settings": {
-      }
+      "settings": {}
     },
     "images_aqKG47": {
       "type": "images",
@@ -33,25 +31,25 @@
         "image_PREBFa": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Frame_1.png",
+            "image": "shopify://shop_images/Frame_1.png",
             "width": "full",
-            "aspect": "16\/9"
+            "aspect": "16/9"
           }
         },
         "image_q7Ahmi": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/2_204a154d-95e9-4930-be34-089184cb538b.jpg",
+            "image": "shopify://shop_images/2_204a154d-95e9-4930-be34-089184cb538b.jpg",
             "width": "full",
-            "aspect": "16\/9"
+            "aspect": "16/9"
           }
         },
         "image_FQByRc": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/1_1b337cc8-fac2-479c-912e-dfa70a606789.jpg",
+            "image": "shopify://shop_images/1_1b337cc8-fac2-479c-912e-dfa70a606789.jpg",
             "width": "full",
-            "aspect": "16\/9"
+            "aspect": "16/9"
           }
         }
       },
@@ -67,18 +65,17 @@
     },
     "1693485436843bc3ff": {
       "type": "apps",
-      "settings": {
-      }
+      "settings": {}
     },
     "hero_static_qnTpRT": {
       "type": "hero-static",
       "disabled": true,
       "settings": {
-        "image": "shopify:\/\/shop_images\/6.png",
+        "image": "shopify://shop_images/6.png",
         "subtitle": "Sub Title",
         "title": "Title",
-        "copy": "<p>We're working to build a better future, and are improving our processes for the good of our consumers, our communities and the wider environment.<\/p>",
-        "image2": "shopify:\/\/shop_images\/3.png"
+        "copy": "<p>We're working to build a better future, and are improving our processes for the good of our consumers, our communities and the wider environment.</p>",
+        "image2": "shopify://shop_images/3.png"
       }
     },
     "c_info_columns_6w3hE4": {
@@ -87,10 +84,10 @@
         "column_hQqxby": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Supreme_Lifestyle_Kingfisher_4_078b5406-28c7-466b-b30e-cc227a3577fa.jpg",
+            "image": "shopify://shop_images/Supreme_Lifestyle_Kingfisher_4_078b5406-28c7-466b-b30e-cc227a3577fa.jpg",
             "image_aspect": "1:1",
             "title": "Thick & Fluffy",
-            "text": "<p>Cocoon yourself in the pampering comfort of a sumptuously thick towel or bathrobe.<\/p>",
+            "text": "<p>Cocoon yourself in the pampering comfort of a sumptuously thick towel or bathrobe.</p>",
             "button_label": "",
             "button_link": "",
             "collection_tag": ""
@@ -99,10 +96,10 @@
         "column_VUpEBM": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Supreme_Lifestyle_Kingfisher_3_bd4f44ac-0533-4f49-9855-a17d76d7394f.jpg",
+            "image": "shopify://shop_images/Supreme_Lifestyle_Kingfisher_3_bd4f44ac-0533-4f49-9855-a17d76d7394f.jpg",
             "image_aspect": "1:1",
             "title": "Thick & Fluffy",
-            "text": "<p>Cocoon yourself in the pampering comfort of a sumptuously thick towel or bathrobe.<\/p>",
+            "text": "<p>Cocoon yourself in the pampering comfort of a sumptuously thick towel or bathrobe.</p>",
             "button_label": "",
             "button_link": "",
             "collection_tag": ""
@@ -111,10 +108,10 @@
         "column_nJAMBU": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Supreme_Kingfisher_Mat02_9742d5ae-d7f8-43ed-b105-43023abb042a.jpg",
+            "image": "shopify://shop_images/Supreme_Kingfisher_Mat02_9742d5ae-d7f8-43ed-b105-43023abb042a.jpg",
             "image_aspect": "1:1",
             "title": "Thick & Fluffy",
-            "text": "<p>Cocoon yourself in the pampering comfort of a sumptuously thick towel or bathrobe.<\/p>",
+            "text": "<p>Cocoon yourself in the pampering comfort of a sumptuously thick towel or bathrobe.</p>",
             "button_label": "",
             "button_link": "",
             "collection_tag": ""
@@ -142,9 +139,7 @@
     "dfadb464-131f-4320-963f-71343e59af69": {
       "type": "related-products",
       "settings": {
-        "products": [
-
-        ]
+        "products": []
       }
     },
     "recent-products": {
@@ -164,18 +159,18 @@
         "billboard_subtitle_font_size_desktop": 16,
         "billboard_subtitle_font_weight": "600",
         "billboard_subtitle_font_family": "sans-serif",
-        "title": "<p>Caring Cotton<\/p>",
+        "title": "<p>Caring Cotton</p>",
         "billboard_title_font_size_mob": 16,
         "billboard_title_font_size_desktop": 40,
         "billboard_title_font_weight": "500",
         "billboard_title_font_family": "Hatton, serif",
-        "copy": "<p>Sustainably made cotton is kinder to the environment and the people who produce it – which is why we’re using it more than ever. <\/p><p>Our Made In Green-certified products are guaranteed to have been made sustainably, under socially responsible working environments and using transparent supply chains.<\/p>",
+        "copy": "<p>Sustainably made cotton is kinder to the environment and the people who produce it – which is why we’re using it more than ever. </p><p>Our Made In Green-certified products are guaranteed to have been made sustainably, under socially responsible working environments and using transparent supply chains.</p>",
         "billboard_copy_font_size_mob": 14,
         "billboard_copy_font_size_desktop": 14,
         "billboard_copy_font_weight": "200",
         "billboard_copy_font_family": "sans-serif",
         "button_label": "Read More",
-        "button_link": "https:\/\/christystaging.myshopify.com\/pages\/responsibility",
+        "button_link": "https://christystaging.myshopify.com/pages/responsibility",
         "button_type": "tertiary",
         "colour_theme": "white",
         "alignment": "left",
@@ -191,9 +186,13 @@
           "settings": {
             "collection": "all-bath",
             "usp_title": "",
-            "image": "shopify:\/\/shop_images\/6.png",
+            "image": "shopify://shop_images/6.png",
             "alt_title": "",
-            "excerpt": ""
+            "excerpt": "",
+            "collection_carousel_excerpt_font_size_mob": 18,
+            "collection_carousel_excerpt_font_size_desktop": 30,
+            "collection_carousel_excerpt_font_weight": "400",
+            "collection_carousel_excerpt_font_family": "Tomato Grotesk"
           }
         }
       },
@@ -210,6 +209,21 @@
         "screen_visibility": "mobile"
       }
     },
+    "17465202510b25223b": {
+      "type": "apps",
+      "blocks": {
+        "yotpo_product_reviews_reviews_xCUXf3": {
+          "type": "shopify://apps/yotpo-product-reviews/blocks/reviews/eb7dfd7d-db44-4334-bc49-c893b51b36cf",
+          "settings": {
+            "product": "{{product}}"
+          }
+        }
+      },
+      "block_order": [
+        "yotpo_product_reviews_reviews_xCUXf3"
+      ],
+      "settings": {}
+    },
     "why_christy_4Ja7hw": {
       "type": "why-christy",
       "blocks": {
@@ -221,7 +235,7 @@
             "why_christy_block_title_font_size_desktop": 16,
             "why_christy_block_title_font_weight": "600",
             "why_christy_block_title_font_family": "Hatton, serif",
-            "text": "<p>Textures matter and luxury quality reigns supreme across every Christy product, with a dedication to championing the world’s most delectable fabrics.<\/p>"
+            "text": "<p>Textures matter and luxury quality reigns supreme across every Christy product, with a dedication to championing the world’s most delectable fabrics.</p>"
           }
         },
         "block_dAqLDG": {
@@ -232,7 +246,7 @@
             "why_christy_block_title_font_size_desktop": 16,
             "why_christy_block_title_font_weight": "600",
             "why_christy_block_title_font_family": "Hatton, serif",
-            "text": "<p>We’ve been making home textiles to be loved well and treasured over time with our heritage flair, unwavering innovation and luxury craftsmanship since 1850. <\/p>"
+            "text": "<p>We’ve been making home textiles to be loved well and treasured over time with our heritage flair, unwavering innovation and luxury craftsmanship since 1850. </p>"
           }
         },
         "block_Wmb4Mh": {
@@ -243,7 +257,7 @@
             "why_christy_block_title_font_size_desktop": 16,
             "why_christy_block_title_font_weight": "600",
             "why_christy_block_title_font_family": "Hatton, serif",
-            "text": "<p>From the moment you place your order, we’re here to get it to you fast, troubleshoot any issues and arrange hassle-free returns if you need it.<\/p>"
+            "text": "<p>From the moment you place your order, we’re here to get it to you fast, troubleshoot any issues and arrange hassle-free returns if you need it.</p>"
           }
         }
       },
@@ -267,16 +281,14 @@
       "type": "apps",
       "blocks": {
         "instagram_feed_instafeed_rptr_raptor_instagram_TyECCW": {
-          "type": "shopify:\/\/apps\/instagram-feed-instafeed-rptr\/blocks\/raptor-instagram\/557ff51a-dc31-4dee-a7df-4610643fa410",
-          "settings": {
-          }
+          "type": "shopify://apps/instagram-feed-instafeed-rptr/blocks/raptor-instagram/557ff51a-dc31-4dee-a7df-4610643fa410",
+          "settings": {}
         }
       },
       "block_order": [
         "instagram_feed_instafeed_rptr_raptor_instagram_TyECCW"
       ],
-      "settings": {
-      }
+      "settings": {}
     }
   },
   "order": [
@@ -291,6 +303,7 @@
     "recent-products",
     "86a4f019-bc37-4060-9067-8a759a38958f",
     "collections_carousel_GGLkUY",
+    "17465202510b25223b",
     "why_christy_4Ja7hw",
     "17248366286f91456a"
   ]
